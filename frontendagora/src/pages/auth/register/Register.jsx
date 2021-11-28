@@ -98,17 +98,34 @@ function Register () {
       })
 
     try {
-      const res = await axios.post('/api/register', {
-        name,
-        middleName,
-        lastName,
-        secondSurname,
-        contactNumber,
-        email,
-        password
-      })
-      showSuccessMsg(success)
+
+      if(auth.isAdmin) {
+        const res = await axios.post('/api/register_admin', {
+          name,
+          middleName,
+          lastName,
+          secondSurname,
+          contactNumber,
+          email,
+          password
+        })
+        showSuccessMsg(success)
       setUser({ ...user, err: '', success: res.data.msg })
+      }else {
+        const res = await axios.post('/api/register', {
+          name,
+          middleName,
+          lastName,
+          secondSurname,
+          contactNumber,
+          email,
+          password
+        })
+        showSuccessMsg(success)
+      setUser({ ...user, err: '', success: res.data.msg })
+      }
+      
+      
     } catch (err) {
       showErrMsg(err.response.data.msg)
       err.response.data.msg &&

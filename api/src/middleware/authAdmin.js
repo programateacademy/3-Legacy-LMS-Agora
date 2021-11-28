@@ -2,6 +2,8 @@ const User = require('../db/models/user')
 
 const authAdmin = async (req, res, next) => {
     try {
+        console.log('ingreso2')
+
         const user = await User.findOne({_id: req.user.id})
 
         if(user.role !== 1) 

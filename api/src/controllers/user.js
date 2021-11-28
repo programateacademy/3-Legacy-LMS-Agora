@@ -8,7 +8,7 @@ const { CLIENT_URL } = process.env
 const controllerUser = {
   register: async (req, res) => {
     try {
-      console.log(req.body)
+      
       const { name, email, password, middleName , lastName, secondSurname , contactNumber } = req.body
 
       if (!name || !email || !password ||  !lastName  || !contactNumber
@@ -55,11 +55,12 @@ const controllerUser = {
     }
   },registerAdmin: async (req, res) =>{
         try{
-            const {name, email, password, role} = req.body
+          const { name, email, password, middleName , lastName, secondSurname , contactNumber, role } = req.body
 
-            if(!name || !email || !password || !role)
-                return res.status(400).json({msg: "Todos los campos son obligatorios."})
-
+          // if (!name || !email || !password ||  !lastName  || !contactNumber || !role
+          //   )
+          //   return res.status(400).json({ msg: 'Todos los campos son requeridos.' })
+    
             if(!validateEmail(email))
                 return res.status(400).json({msg: "correo electronico incorrecto."})
 
@@ -73,7 +74,7 @@ const controllerUser = {
             const passwordHash = await bcrypt.hash(password, 12)
 
             const newUser = new User({
-                name, email, passwordHash, role
+                name, email, passwordHash, middleName , lastName, secondSurname , contactNumber, role
             })
 
             
@@ -84,37 +85,6 @@ const controllerUser = {
             return res.status(500).json({msg: err.message})
         }
     },
-    registerAdmin: async (req, res) =>{
-      try{
-          const {name, email, password, role} = req.body
-
-          if(!name || !email || !password || !role)
-              return res.status(400).json({msg: "Todos los campos son obligatorios."})
-
-          if(!validateEmail(email))
-              return res.status(400).json({msg: "correo electronico incorrecto."})
-
-          const user = await User.findOne({email})
-
-          if(user) return res.status(400).json({msg: "El correo electronico ya existe."})
-
-          if(password.length < 6)
-              return res.status(400).json({msg: "La contraseña debe tener al menos 6 caracteres."})
-
-          const passwordHash = await bcrypt.hash(password, 12)
-
-          const newUser = new User({
-              name, email, passwordHash, role
-          })
-
-          
-          await newUser.save()
-          res.json({msg: "Usuario creado!"})
-
-      } catch (err) {
-          return res.status(500).json({msg: err.message})
-      }
-  },
   activateEmail: async (req, res) => {
     try {
       const { activation_token } = req.params

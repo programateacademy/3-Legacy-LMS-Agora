@@ -3,12 +3,13 @@ import "./showProjects.css";
 import { Link } from "react-router-dom";
 import TitleSection from "../../../../componentes/titles/TitleSection";
 import TitleSectionWithButton from "../../../../componentes/titles/TitleSectionWitButton";
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux'
 
 export const ShowProjects = () => {
   
-
+ 
   const projects = useSelector((state) => state.projects)
+ 
   const auth = useSelector((state) => state.auth);
   const { isTeacher, isAdmin } = auth;
 
