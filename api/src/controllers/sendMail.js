@@ -42,8 +42,8 @@ const sendEmail = (to, url, txt) => {
         subject: "Bienvenido a Agora",
         html: `
             <div style="max-width: 700px; margin:auto; border: 10px solid #ddd; padding: 50px 20px; font-size: 110%;">
-            <h2 style="text-align: center; text-transform: uppercase;color: teal;">Welcome to the DevAT channel.</h2>
-            <p>Felicitaciones. Est'as apunto de poder ingresar a nuestra plataforma
+            <h2 style="text-align: center; text-transform: uppercase;color: teal;">Bienvenido a AGORA</h2>
+            <p>Felicitaciones. Estás apunto de poder ingresar a nuestra plataforma
                 educativa Agora. Ingresa al link que te llego para validar la dirección
                 de corre electrónico.
             </p>

@@ -43,9 +43,10 @@ const controllerUser = {
 
       const activation_token = createActivationToken(newUser)
 
-      const url = `${CLIENT_URL}/user/activate/${activation_token}`
+      const url = `${CLIENT_URL}/api/activation/${activation_token}`
       sendMail(email, url, 'Verifica tu correo electronico')
 
+      
       res.json({
         msg: 'Registro exitoso! para activar tu cuenta, revisa tu correo electronico.'
       })
@@ -116,7 +117,7 @@ const controllerUser = {
   },
   activateEmail: async (req, res) => {
     try {
-      const { activation_token } = req.body
+      const { activation_token } = req.params
       const user = jwt.verify(
         activation_token,
         process.env.ACTIVATION_TOKEN_SECRET
@@ -141,8 +142,8 @@ const controllerUser = {
       })
 
       await newUser.save()
-
-      res.json({ msg: 'la cuenta fue activada!' })
+      res.send("<h1>La cuenta fue activada!</h1>")
+      // res.json({ msg: 'la cuenta fue activada!' })
     } catch (err) {
       return res.status(500).json({ msg: err.message })
     }

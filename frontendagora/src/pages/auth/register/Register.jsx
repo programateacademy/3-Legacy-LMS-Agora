@@ -50,24 +50,24 @@ function Register () {
         err: 'Todos los campos son obligatorios',
         success: ''
       })
-    if (isEmpty(middleName) || isEmpty(password))
-      return setUser({
-        ...user,
-        err: 'Todos los campos son obligatorios',
-        success: ''
-      })
+    // if (isEmpty(middleName) || isEmpty(password))
+    //   return setUser({
+    //     ...user,
+    //     err: 'Todos los campos son obligatorios',
+    //     success: ''
+    //   })
     if (isEmpty(lastName) || isEmpty(password))
       return setUser({
         ...user,
         err: 'Todos los campos son obligatorios',
         success: ''
       })
-    if (isEmpty(secondSurname) || isEmpty(password))
-      return setUser({
-        ...user,
-        err: 'Todos los campos son obligatorios',
-        success: ''
-      })
+    // if (isEmpty(secondSurname) || isEmpty(password))
+    //   return setUser({
+    //     ...user,
+    //     err: 'Todos los campos son obligatorios',
+    //     success: ''
+    //   })
 
     if (!isEmail(email))
       return setUser({
