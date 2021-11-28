@@ -1,0 +1,73 @@
+.cardsGrid {
+  width: 90%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  font-size: 14px;
+  gap: 20px;
+  margin: 100px auto;
+  max-width: 1300px;
+}
+
+.cardProject {
+  background-color: white;
+  max-width: 340px;
+  margin: 0 auto;
+  border-radius: 0 0 12px 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardContent {
+  height: auto;
+  padding: 1.5rem;
+}
+
+.titleProject {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 0.5rem 0 1.5rem 0;
+}
+
+.descriptionContainer {
+  height: 110px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.imgProject {
+  height: 220px;
+  background-image: url("https://placeimg.com/640/480/any");
+  background-size: cover;
+  background-position: center;
+}
+
+.btnProject {
+  margin: 2rem 0 0 0;
+}
+
+.cardTitleSection {
+  width: 90%;
+  max-width: 1300px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.titleSection {
+  font-size: 17px;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+@media (max-width: 500px) {
+  .cardsGrid {
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  }
+
+  .cardProject {
+    max-width: 90%;
+  }
+}

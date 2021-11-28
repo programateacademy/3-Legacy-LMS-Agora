@@ -1,0 +1,22 @@
+.icon-signIn {
+  font-size: 20px;
+  color: #ffd808;
+}
+
+.container-main-avatarContainer{
+  display: flex;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+}
+.img-avatar {
+  width: 30px;
+  margin-right: 0.5rem;
+}
+
+.avatarContainer {
+  display: flex;
+  align-items: center;
+}

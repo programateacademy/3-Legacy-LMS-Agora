@@ -1,0 +1,25 @@
+.competenciesContainer {
+  padding: 2em;
+}
+
+.competence {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Level {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+
+.Level > a {
+  cursor: pointer;
+}
+
+.btnValidate,
+.btnInvalidate {
+  padding: 0.3rem 0.7rem;
+  border: 1px solid !important;
+}

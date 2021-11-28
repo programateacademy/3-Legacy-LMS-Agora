@@ -1,0 +1,126 @@
+.contenedor {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.addProjectTitle {
+  font-size: 18px;
+  font-weight: bold;
+  font-family: Roboto;
+}
+
+.AddProjectForm {
+  width: 90%;
+  margin-top: 50px;
+  background: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  max-width: 1300px;
+  margin: 40px auto;
+}
+
+.AddProjectForm > div {
+  margin-bottom: 20px;
+}
+
+.AddProjectForm label {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #1f1f1f;
+}
+
+.AddProjectForm input,
+.AddProjectForm textarea {
+  font-family: "Open Sans", sans-serif;
+  width: 100%;
+  border-radius: 5px;
+  border: 2px solid #e2e2e2;
+  font-size: 14px;
+  padding: 10px;
+  margin-bottom: 5px;
+  color: #1f1f1f;
+}
+
+.AddProjectForm input:focus,
+.AddProjectForm textarea:focus {
+  outline: none;
+  border: 2px solid #ddb500;
+}
+
+.AddProjectForm .error {
+  color: #e92b2d;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.AddProjectForm button[type="submit"] {
+  display: block;
+  background: #0085ff;
+  font-weight: 600;
+  font-family: "Open Sans", sans-serif;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  transition: 0.3s ease all;
+}
+
+.AddProjectForm button[type="submit"]:hover {
+  background: #0051ff;
+}
+
+.AddProjectForm .exito {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  padding-top: 20px;
+  color: #009b00;
+}
+
+.AddProjectForm input[type="radio"] {
+  width: auto;
+}
+
+.AddProjectForm button[type="submit"] {
+  background: #ffd808;
+  font-family: "Roboto", sans-serif;
+  width: 60%;
+  margin: auto;
+  color: black;
+  font-size: 15px;
+}
+
+.AddProjectForm button[type="submit"]:hover {
+  background: black;
+  color: #ffd808;
+}
+
+.container {
+  padding: 0;
+  max-width: 1500px;
+}
+
+.resourcesContainer {
+  border-radius: 5px;
+  border: 2px solid #e2e2e2;
+}
+
+.resourceCard {
+  align-items: center;
+  display: flex;
+  font-size: 14px;
+  justify-content: space-between;
+}
+
+.resourceCard > a {
+  overflow: auto;
+  padding-right: 20px;
+}

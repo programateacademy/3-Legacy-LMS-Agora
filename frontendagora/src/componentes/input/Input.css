@@ -1,0 +1,19 @@
+.input-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.input-label{
+    font-size: 14px;
+}
+.input{
+    width: 100% !important;
+    height: 35px;
+    margin:10px 0;
+    border: 1px solid #6f6f6f;
+    outline: none;
+    padding: 0 10px;
+}
+.input:hover{
+    border: 2px solid #ffd808;
+}

@@ -1,0 +1,230 @@
+/*----------------------PROFILE----------------*/
+.container-all-information {
+  width: 100%;
+  background-color: #fff9da;
+}
+.container-main-profile {
+  padding: 33px 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container-profile {
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 14px;
+  padding: 40px;
+  background-color: #fff;
+}
+.title-profile {
+  text-shadow: 2px 2px 2px rgba(34, 34, 34, 0.2);
+  font-size: 20px;
+  text-align: center;
+}
+.container-info-profile {
+  width: 100%;
+}
+.container-image {
+  font-size: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.profile-image {
+  border-radius: 50%;
+  margin-bottom: 3px;
+  width: 22%;
+}
+.profile-button-update {
+  font-weight: bold;
+  background-color: #ffd808;
+  margin: auto;
+  padding: 5px;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  display: block;
+}
+
+/*----------------------INFO STUDENTS----------------*/
+.container-main-admin {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container-info-admin {
+  border-radius: 14px;
+  padding: 48px;
+  background-color: #fff;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 90%;
+}
+.profile-button-createUser {
+  font-weight: bold;
+  background-color: #ffd808;
+  padding: 5px;
+  width: 25%;
+  border: none;
+  cursor: pointer;
+  display: block;
+}
+.title-profile-user {
+  text-shadow: 2px 2px 2px rgba(34, 34, 34, 0.2);
+  font-size: 25px;
+  text-align: center;
+}
+/*----------------------TABLE----------------*/
+.table-info-students {
+  border-collapse: collapse;
+  width: 100%;
+}
+.table-info-students td,
+.table-info-students th {
+  padding: 8px;
+  min-width: 100px;
+}
+.table-info-students th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background: rgba(255, 218, 10, 0.835);
+  color: black;
+}
+.table-info-students i {
+  cursor: pointer;
+}
+.table-info-students .icon-check {
+  color: green;
+}
+.table-info-students .icon-times {
+  color: red;
+}
+.table-info-students .icon-edit {
+  background: rgba(255, 218, 10, 0.835);
+  padding: 7px;
+  color: black;
+  font-size: 15px;
+}
+.table-info-students .icon-trash {
+  background: rgba(255, 218, 10, 0.835);
+  padding: 7px;
+  color: black !important;
+  font-size: 15px;
+  margin-left: 10px;
+}
+/* ------------- MEDIA QUERIES --------------- */
+@media (max-width: 1200px) {
+  .container-profile {
+    width: 70%;
+  }
+  .container-main-admin {
+    width: 100%;
+  }
+  .container-info-admin {
+    margin-top: 30px;
+    width: 80%;
+  }
+  .container-main-profile {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 561px) {
+  .container-profile {
+    width: 65%;
+  }
+  .title-profile {
+    font-size: 18px;
+  }
+  .container-main-admin {
+    width: 100%;
+  }
+  .container-info-admin {
+    padding: 20px;
+    border-radius: 16px;
+    margin-top: 30px;
+    width: 90%;
+  }
+  .table-info-students td,
+  .table-info-students th {
+    font-size: 14px;
+  }
+  .container-main-profile {
+    flex-wrap: wrap;
+  }
+  
+  .title-profile-user {
+    font-size: 19px;
+  }
+  .profile-button-createUser {
+    margin-top: 10px;
+    font-size: 13px;
+    width: 25%;
+  }
+}
+@media (max-width: 418px) {
+  .container-profile {
+    width:100%;
+  }
+  .title-profile {
+    font-size: 16px;
+  }
+  .container-main-admin {
+    width: 100%;
+  }
+  .title-profile-user {
+    font-size: 17px;
+  }
+  .container-info-admin {
+    padding: 20px;
+    border-radius: 14px;
+    margin-top: 30px;
+    width: 95%;
+  }
+  .table-info-students td,
+  .table-info-students th {
+    font-size: 12px;
+  }
+  .container-main-profile {
+    flex-wrap: wrap;
+  }
+  .profile-button-createUser {
+    margin-top: 10px;
+    font-size: 12px;
+    width: 35%;
+  }
+}
+@media (max-width: 365px) {
+  .container-profile {
+    width:93%;
+  }
+  .title-profile {
+    font-size: 16px;
+  }
+  .container-main-admin {
+    width: 100%;
+  }
+  .title-profile-user {
+    font-size: 17px;
+  }
+  .container-info-admin {
+    padding: 20px;
+    border-radius: 14px;
+    margin-top: 30px;
+    width: 95%;
+  }
+  .table-info-students td,
+  .table-info-students th {
+    font-size: 12px;
+  }
+  .container-main-profile {
+    flex-wrap: wrap;
+  }
+  .profile-button-createUser {
+    margin-top: 10px;
+    font-size: 12px;
+    width: 35%;
+  }
+}

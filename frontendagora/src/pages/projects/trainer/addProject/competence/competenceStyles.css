@@ -1,0 +1,46 @@
+.LevelsContainer {
+  display: flex;
+}
+
+.Levels {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.selectCompetencies {
+  width: 100%;
+  font-size: 14px;
+}
+
+.LevelsContainer > label {
+  margin-right: 2rem;
+}
+
+.LevelsContainer,
+input[type="radio"] {
+  margin-right: 0.4rem;
+}
+
+.competenceCardContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.competenceCardContainer > p {
+  padding-right: 1.5rem;
+}
+
+.removeCompetenceBtn {
+  max-width: 2rem;
+  max-height: 2rem;
+}
+
+.tagLevel {
+  margin-left: 1rem;
+  background-color: rgb(230, 230, 230);
+  padding: 0.1rem 0.5rem;
+}

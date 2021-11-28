@@ -1,0 +1,142 @@
+/* ------------- REGISTER --------------- */
+a {
+  text-decoration: none !important;
+}
+ul {
+  list-style: none !important;
+}
+button {
+  border: none !important;
+  outline: none !important;
+  cursor: pointer !important;
+}
+.container-register {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff9da;
+}
+.container-register-page {
+  height: 95%;
+  max-width: 776px;
+  border-radius: 14px;
+  width: 100%;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  padding: 10px;
+  background-color: #fff;
+}
+.register-form {
+  margin-top: 30px;
+}
+.register-form-content {
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+}
+.container-register-input {
+  width: 100%;
+  height: 10%;
+  gap: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo-register {
+  width: 34%;
+  display: block;
+  margin: 15px auto;
+}
+.title-register {
+  margin-top: 15px;
+  font-size: 20px;
+  text-align: center;
+}
+.button-submit-photo {
+  font-weight: bold;
+  background-color: #ffd808;
+  border-radius: 10px;
+  margin: auto;
+  padding: 2px;
+  width: 20%;
+  border: none;
+  cursor: pointer;
+  display: block;
+}
+.button-submit-register {
+  font-weight: bold;
+  background-color: #ffd808;
+  margin: 30px auto;
+  padding: 10px;
+  width: 50%;
+  display: block;
+  border: none !important;
+  cursor: pointer !important;
+}
+.link-register {
+  font-size: 17px;
+  text-align: center;
+  color: #000;
+  font-weight: 600;
+}
+.container-register-page a:hover{
+  color: #ffd808;
+}
+
+/* -------------MEDIA QUERIES--------------- */
+@media (max-width: 1059px) {
+  .container-register-page {
+    height: 99%;
+  }
+  .title-register,
+  .link-register {
+    font-size: 15px;
+  }
+}
+@media (max-width: 700px) {
+  .logo-register {
+    width: 50%;
+  }
+
+  .container-register-page {
+    width: 80%;
+    margin: 20px 0;
+  }
+  .register-form-content {
+    margin: 12px;
+  }
+
+  .container-register {
+    height: 100%;
+  }
+  .container-register-input {
+    gap: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .button-submit-photo {
+    margin-top: 8px;
+    padding: 6px;
+    width: 30%;
+  }
+}
+/* -------------MEDIA QUERIES--------------- */
+@media (max-width: 600px) {
+  .title-register,
+  .link-register {
+    font-size: 14px;
+  }
+}
+/* -------------MEDIA QUERIES--------------- */
+@media (max-width: 370px) {
+  .button-submit-photo {
+    font-size: 15px;
+    margin-top: 8px;
+    width: 30%;
+  }
+  .button-submit-register {
+    font-size: 13px;
+  }
+}

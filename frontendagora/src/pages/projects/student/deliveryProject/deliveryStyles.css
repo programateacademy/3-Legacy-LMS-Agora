@@ -1,0 +1,115 @@
+.deliveryContainer {
+  max-width: 1300px;
+  width: 90%;
+  margin: auto;
+}
+
+.selectsContainer > select {
+  margin-right: 1rem;
+  padding: 0.3rem;
+}
+
+.chatMain {
+  margin-top: 1.5rem;
+  display: flex;
+}
+
+.chatContainer {
+  width: 70%;
+  margin-right: 20px;
+  margin-bottom: 3rem;
+  height: 600px;
+  box-shadow: rgb(0 0 0 / 16%) 0px 3px 5px;
+  border-radius: 4px;
+  background-color: white;
+  padding: 1.5rem;
+}
+
+.competenciesContainer {
+  width: 30%;
+  height: 370px;
+  box-shadow: rgb(0 0 0 / 16%) 0px 3px 5px;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.titleProject {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0.2rem 0 2rem 0;
+}
+
+.cardChatContainer {
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+  margin-bottom: 10px;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+.cardChatContainerStudent {
+  height: 67%;
+}
+
+.cardChatContainer::-webkit-scrollbar {
+  background-color: rgb(255, 255, 255);
+  width: 6px;
+}
+
+.cardChatContainer::-webkit-scrollbar-thumb {
+  background-color: rgb(204, 204, 204);
+}
+
+.inputContainer {
+  height: 5%;
+}
+
+.cardStudent,
+.cardTrainer {
+  width: 70%;
+  border: 1.3px solid rgb(243, 243, 243);
+  box-shadow: rgb(0 0 0 / 10%) 0px 3px 5px;
+  border-radius: 4px;
+  background-color: white;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardTrainer {
+  align-self: flex-end;
+}
+
+.messageSend {
+  margin: 1.5rem 0 0.7rem 0;
+}
+
+.linksContainer > ul > li {
+  background-color: rgb(241, 241, 241);
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 1050px) {
+  .chatContainer {
+    padding: 1rem;
+  }
+  .cardStudent,
+  .cardTrainer {
+    width: 90%;
+  }
+  .chatMain {
+    flex-direction: column;
+    margin-bottom: 2rem;
+  }
+  .chatContainer {
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  .competenciesContainer {
+    width: 100%;
+  }
+}

@@ -1,0 +1,186 @@
+.formAnnouncementContainer {
+  width: 90%;
+  height: 65vh;
+  margin: auto;
+  max-width: 500px;
+}
+
+.announcementForm {
+  background: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  max-width: 1300px;
+  margin: 60px auto 200px auto;
+}
+
+.announcementForm > div {
+  margin-bottom: 20px;
+}
+
+.announcementForm label {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #1f1f1f;
+}
+
+.announcementForm input,
+.announcementForm textarea {
+  font-family: "Open Sans", sans-serif;
+  width: 100%;
+  border-radius: 5px;
+  border: 2px solid #e2e2e2;
+  font-size: 14px;
+  padding: 10px;
+  margin-bottom: 5px;
+  color: #1f1f1f;
+}
+
+.announcementForm input:focus,
+.announcementForm textarea:focus {
+  outline: none;
+  border: 2px solid #ddb500;
+}
+
+.announcementForm .error {
+  color: #e92b2d;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.announcementForm button[type="submit"] {
+  display: block;
+  background: #0085ff;
+  font-weight: 600;
+  font-family: "Open Sans", sans-serif;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  transition: 0.3s ease all;
+}
+
+.announcementForm button[type="submit"]:hover {
+  background: #0051ff;
+}
+
+.announcementForm .exito {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  padding-top: 20px;
+  color: #009b00;
+}
+
+.announcementForm input[type="radio"] {
+  width: auto;
+}
+
+.announcementForm button[type="submit"] {
+  background: #ffd808;
+  font-family: "Roboto", sans-serif;
+  width: 60%;
+  margin: auto;
+  color: black;
+  font-size: 15px;
+}
+
+.announcementForm button[type="submit"]:hover {
+  background: black;
+  color: #ffd808;
+}
+
+/* Estilos del componente CreateAnnouncement*/
+
+.announceContainer {
+  width: 90%;
+  margin: auto;
+  max-width: 1300px;
+  background-color: white;
+  padding: 2.5rem;
+  border-bottom: 1px solid rgb(185, 185, 185);
+}
+
+.announceContainer > h5 {
+  font-weight: bold;
+}
+
+.textAnnouncementContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.textAnnouncementContainer > p {
+  max-width: 900px;
+  margin: 2rem 0;
+  margin-right: 4rem;
+}
+
+/* dasboard styles */
+.TitleAnnounce {
+  margin-left: 2rem;
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.containerAnnounce {
+  width: 90%;
+  height: 317px;
+  overflow-y: scroll;
+  box-shadow: rgb(0 0 0 / 16%) 0px 3px 5px;
+  border: 1px solid rgb(236, 236, 236);
+}
+
+.containerAnnounce::-webkit-scrollbar {
+  background-color: rgb(255, 255, 255);
+  width: 9px;
+}
+
+.containerAnnounce::-webkit-scrollbar-thumb {
+  background-color: rgb(204, 204, 204);
+}
+
+.announceContainerDash {
+  width: 100%;
+  margin: auto;
+  max-width: 1300px;
+  background-color: white;
+  padding: 2.5rem;
+  border-bottom: 1px solid rgb(185, 185, 185);
+}
+
+.announceContainer > h5 {
+  font-weight: bold;
+}
+
+.textAnnouncementContainerDash {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+}
+
+.textAnnouncementContainer > p {
+  max-width: 900px;
+  margin: 2rem 0;
+  margin-right: 4rem;
+}
+
+@media (max-width: 700px) {
+  .textAnnouncementContainer {
+    flex-direction: column;
+    margin-right: 0;
+  }
+
+  .textAnnouncementContainer > p {
+    margin-right: 0;
+    margin-bottom: 3rem;
+  }
+}

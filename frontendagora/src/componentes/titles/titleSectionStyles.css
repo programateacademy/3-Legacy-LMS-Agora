@@ -1,0 +1,15 @@
+.TitleSectionContainer {
+  width: 90%;
+  max-width: 1300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 3rem auto;
+}
+
+.title {
+  font-size: 17px;
+  font-weight: bold;
+  margin-bottom: 0;
+  text-transform: uppercase;
+}

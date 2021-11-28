@@ -1,0 +1,120 @@
+.contenedor {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.addProjectTitle {
+  font-size: 18px;
+  font-weight: bold;
+  font-family: Roboto;
+}
+
+.AddLinkForm {
+  background: #fff;
+  border: 1.3px solid rgb(211, 211, 211);
+  border-radius: 5px;
+  padding: 20px;
+  width: 96%;
+  margin: auto;
+}
+
+.AddLinkForm label {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #1f1f1f;
+}
+
+.AddLinkForm input,
+.AddLinkForm textarea {
+  font-family: "Open Sans", sans-serif;
+  width: 100%;
+  border-radius: 5px;
+  border: 2px solid #e2e2e2;
+  font-size: 14px;
+  padding: 10px;
+  margin-bottom: 5px;
+  color: #1f1f1f;
+}
+
+.AddLinkForm input:focus,
+.AddLinkForm textarea:focus {
+  outline: none;
+  border: 2px solid #ddb500;
+}
+
+.AddLinkForm .error {
+  color: #e92b2d;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.AddLinkForm button[type="submit"] {
+  display: block;
+  background: #0085ff;
+  font-weight: 600;
+  font-family: "Open Sans", sans-serif;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  transition: 0.3s ease all;
+}
+
+.AddLinkForm button[type="submit"]:hover {
+  background: #0051ff;
+}
+
+.AddLinkForm .exito {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  padding-top: 20px;
+  color: #009b00;
+}
+
+.AddLinkForm input[type="radio"] {
+  width: auto;
+}
+
+.AddLinkForm button[type="submit"] {
+  background: #ffd808;
+  font-family: "Roboto", sans-serif;
+  width: 84px;
+  margin: auto;
+  color: black;
+  font-size: 15px;
+}
+
+.AddLinkForm button[type="submit"]:hover {
+  background: black;
+  color: #ffd808;
+}
+
+.container {
+  padding: 0;
+  max-width: 1500px;
+}
+
+.resourcesContainer {
+  border-radius: 5px;
+  border: 2px solid #e2e2e2;
+}
+
+.resourceCard {
+  align-items: center;
+  display: flex;
+  font-size: 14px;
+  justify-content: space-between;
+}
+
+.resourceCard > a {
+  overflow: auto;
+  padding-right: 20px;
+}

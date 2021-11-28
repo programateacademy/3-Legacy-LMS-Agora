@@ -1,0 +1,87 @@
+.viewProjectContainer {
+  width: 90%;
+  max-width: 1300px;
+  margin: 2rem auto;
+  display: flex;
+  flex-basis: 50%;
+}
+
+.allProjectContainer {
+  width: 65%;
+  margin-top: 0;
+}
+
+.square {
+  width: 35%;
+  height: 300px;
+  margin-left: 15px;
+}
+
+.imgContainer {
+  height: 300px;
+  background-image: url("https://placeimg.com/800/800/any");
+  background-position: top;
+  background-size: cover;
+}
+
+.title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  margin-bottom: 1rem;
+}
+
+.textContent {
+  font-size: 14px;
+  margin: 1.4rem 0;
+}
+
+.competenceFramework {
+  font-size: 14px;
+  margin: 1.4rem 0;
+  border: 3px solid #ffd808;
+  padding: 1rem;
+  font-weight: bold;
+}
+
+.sectionContainer {
+  background-color: white;
+  margin-bottom: 1rem;
+  padding: 2rem;
+}
+
+.tagsContainer > ul {
+  display: flex;
+}
+
+.tagsContainer > ul > li {
+  font-size: 12px;
+  list-style: none;
+  margin-right: 10px;
+  background-color: #ffd808;
+  padding: 0.3rem 0.6rem;
+  border-radius: 2px;
+}
+
+.competenceItem {
+  margin-left: 10px;
+  background-color: #dadada;
+  padding: 0.2rem 0.6rem;
+  border-radius: 2px;
+}
+
+@media (max-width: 980px) {
+  .viewProjectContainer {
+    flex-direction: column;
+  }
+
+  .allProjectContainer {
+    width: 100%;
+  }
+
+  .square {
+    width: 100%;
+    height: 300px;
+    margin-left: 0px;
+  }
+}

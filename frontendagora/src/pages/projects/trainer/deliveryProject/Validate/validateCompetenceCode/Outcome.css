@@ -1,0 +1,93 @@
+/* .container {
+    background: rgb(225, 230, 221);
+    padding: 10px 10px;
+    width: 100%;
+}
+
+.title {
+    text-align: center;
+}
+
+.paragraph {
+    text-align: center;
+
+    margin: 0 186px;
+}
+.containerform {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #fff;
+}
+
+.input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 6px;
+}
+
+input[type="radio"] {
+    margin: 0 6px;
+}
+
+.validate {
+    padding: 0.3rem 0.75rem;
+    background: rgb(225, 230, 221);
+    margin: 0.5rem 1.3rem;
+}
+.validate:hover {
+    background: rgb(65, 131, 10);
+}
+
+.invalidate {
+    padding: 0.3rem 0.75rem;
+    background: rgb(225, 230, 221);
+    margin: 0.5rem 1.3rem;
+}
+.invalidate:hover {
+    background: rgb(240, 27, 12);
+}
+
+button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.1rem 33rem;
+}
+
+@media (max-width: 770px) {
+    .container {
+        width: 100%;
+        padding: 15px;
+    }
+    .text {
+        text-align: center;
+    }
+    .input {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    button {
+        margin: 10px 320px;
+    }
+}
+
+@media (max-width: 380px) {
+    .container {
+        width: 100%;
+        margin: 0px 10px;
+    }
+
+    .paragraph {
+        text-align: center;
+    }
+}
+
+form {
+    margin: 0;
+}
+ */
