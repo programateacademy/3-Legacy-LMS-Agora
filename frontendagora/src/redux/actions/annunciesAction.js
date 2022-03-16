@@ -2,7 +2,7 @@ import ACTIONS from './index'
 import axios from 'axios'
 
 export const fetchAllAnunncies = async (token) => {
-    const res = await axios.get('/api/agora/get-announcies', {
+    const res = await axios.get('http://localhost:3005/api/agora/get-announcies', {
         headers: {Authorization: token}
     })
     return res

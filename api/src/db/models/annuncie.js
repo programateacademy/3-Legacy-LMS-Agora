@@ -2,30 +2,36 @@ const { Schema, model } = require('mongoose')
 
 const annuncieSchema = new Schema({
 
-  id_user:{
-      type:String,  
+  cohortID: {
+    type: Schema.Types.ObjectId,
+    ref:'Cohort',
+    require: true,
   },
-  textAnnouncement:{
-    type:String,
-    require:true,
-  },
- 
+  userID: {
+    type: Schema.Types.ObjectId,
+    ref:'User',
+    require: true,
+  }, 
   titleAnnouncement :{
     type : String,
     require : true
+  },  
+  textAnnouncement:{
+    type:String,
+    require:true,
   }, 
-    state : {  //////////mostar o no el anuncio
+    state : { 
         type : Boolean,
-        default : true
+        default : true,
     }
 
   },{    
     timestamps:true
   });
-
+//despues lo revidsamos 
 annuncieSchema.set('toJSON', {
   transform: (document, returnedObject) => {
-    returnedObject.id = returnedObject._id
+    returnedObject.id = returnedObject._id;
     delete returnedObject._id
     delete returnedObject.__v
   }

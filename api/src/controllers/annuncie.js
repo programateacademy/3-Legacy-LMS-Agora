@@ -1,20 +1,21 @@
 const Annuncie = require('../db/models/annuncie')
 
-
 const controllerAnnuncie = {
     create: async (req, res) => {
         try{
-            const {id_user, textAnnouncement,titleAnnouncement,estado} = req.body
+            const {userID,cohortID,textAnnouncement,titleAnnouncement,state} = req.body
 
             if(!textAnnouncement || !titleAnnouncement )
                 return res.status(400).json({msg: "Please fill in all fields."})
             
                 const annuncie = new Annuncie({
                     
-                    id_user,
+                    
+                    cohortID,
+                    userID,
                     textAnnouncement,
                     titleAnnouncement,
-                    estado
+                    state
                                        
                   })
                 
@@ -26,7 +27,6 @@ const controllerAnnuncie = {
             return res.status(500).json({msg: err.message})
         }
     },
-// no tenemos que traer esto por cohorte????
     getAnnuncies: async (req, res) => {
         try {
             const annuncies = await Annuncie.find({})
@@ -36,20 +36,32 @@ const controllerAnnuncie = {
             return res.status(500).json({msg: err.message})
         }
     },
-    updateAnnuncie: async (req, res) => {
-        try {
-            const {id_annuncie, state} = req.body
-            await Annuncie.findOneAndUpdate({_id : id_annuncie}, {
-                state
-            })
+    updateAnnuncie: async (req, res) => {    
+        try {           
+            const {userID,textAnnouncement,titleAnnouncement,state}=req.body
+            await Annuncie.findOneAndUpdate(
+                {_id : req.params._id}, 
+                {
+                    userID,
+                    textAnnouncement,
+                    titleAnnouncement,
+                    state
 
-            res.json({msg: "Update Success!"})
+                });              
+                res.json({msg: "Updating announcement successfully!"});   
         } catch (err) {
             return res.status(500).json({msg: err.message})
         }
     },
- 
+    deleteAnnuncie: async (req, res) => {
+      try {
+        await Annuncie.findByIdAndDelete(req.params._id)
+  
+        res.json({ msg: 'Deleted successfully announcement'})
+      } catch (err) {
+        return res.status(500).json({ msg: err.message })
+      }
+    }
 }
     
-
 module.exports = controllerAnnuncie

@@ -1,23 +1,27 @@
 const { Schema, model } = require("mongoose");
 
-const notificationSchema = new Schema({
+const feedbackSchema = new Schema({
+  deliveryID: {
+    type: Schema.Types.ObjectId,
+    ref: "Delivery",
+  },
+  //formador que realiza la o feedback
   userID: {
     type: Schema.Types.ObjectId,
     ref: "User",
     require: true,
   },
   text: {
-    type: String,
+    type: Array,
     require: true,
   },
-  estado: {
-    ////////mostrar o no mostrar notificacion
-    type: Boolean,
-    default: true,
+  link: {
+    type: Array,
+    require: true,
   },
 });
 
-notificationSchema.set("toJSON", {
+feedbackSchema.set("toJSON", {
   transform: (document, returnedObject) => {
     returnedObject.id = returnedObject._id;
     delete returnedObject._id;
@@ -25,6 +29,6 @@ notificationSchema.set("toJSON", {
   },
 });
 
-const Notification = model("Notification", notificationSchema);
+const Feedback = model("Feedback", feedbackSchema);
 
-module.exports = Notification;
+module.exports = Feedback;

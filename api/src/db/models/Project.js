@@ -2,69 +2,78 @@ const { Schema, model } = require('mongoose')
 
 const projectSchema = new Schema({
 
-  name:{
-      type:String,
-      require:true,
+  cohortID: {
+    type: Schema.Types.ObjectId,
+    ref:'Cohort',
+    require: true,
   },
-  picture:{
+  // ID de formador 
+  userID: {
+    type: Schema.Types.ObjectId,
+    ref:'User',
+    require: true,
+  },
+  titleProject:{
     type:String,
     require:true,
   },
-  competenceFramework:{
-    type : String
+  pictureProject:{
+    type:String,
+    require:true,
   },
-  id_teacher: {
-    type: String,
-    /* require: true, */    
-},
-  description: {
+  descriptionProject: {
     type: String,
     require: true,
   },
+  tagsProject: {
+    type: Array,
+    require: true,
+  },
+  competenceFramework:{
+    type : String,
+    require: true
+  },  
   competencies: {
-    type: Array
+    type: Array, 
+    require: true,
   },
   resources: {
-    type: Array
+    type: Array,
+    require:true,
   },
-  
-  context:{
+  contextGeneralReq:{
+    type: String,
+    require: true,
+  },
+  contextTechniciansReq:{
+    type: String,
+    require: true,
+  },
+  contextExtrasReq:{
     type: String,
     require: true,
   },
   pedagogyModality : {
-    type: String,
+    type: Array,
     require: true,
   },
-  performance : {
-    type: String,
+  performanceCriterias: {
+    type: Array,
     require: true,
   },
   evaluationModality : {
-    type: String,
+    type: Array,
     require: true,
   },
-  deliverables:{
-    type: String,
+  deliverablesProject:{
+    type: Array,
     require: true,
   },
   date:{
     type: Date,
+    require: true,
   },
 
-  tags: {
-    type: Array
-  },
-  cohorte:{
-    num:{
-      type : Number,
-    },
-    name:{
-      type : String,
-    }
-
-  },
-  
 },{    
   timestamps:true
 });
@@ -75,7 +84,7 @@ projectSchema.set('toJSON', {
     delete returnedObject._id
     delete returnedObject.__v
   }
-})
+});
 
 const Project = model('Project', projectSchema)
 
