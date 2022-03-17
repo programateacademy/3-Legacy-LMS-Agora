@@ -7,8 +7,9 @@ const path = require('path')
 const user = require('./routes/user')
 const project = require('./routes/projects')
 const annuncie = require('./routes/annuncie')
-const deliverie = require('./routes/deliverie')
-const outcome = require('./routes/outcome')
+const bootcamp = require('./routes/bootcamp')
+const delivery = require('./routes/delivery')
+/* const outcome = require('./routes/feedback') */
 
 
 
@@ -30,8 +31,9 @@ app.use(express.static('../frontendagora/build'))
 app.use('/api', user)
 app.use('/api/agora', project)
 app.use('/api/agora', annuncie)
-app.use('/api/agora', outcome)
-app.use('/api/agora', deliverie)
+app.use('/api/agora', bootcamp)
+/* app.use('/api/agora', outcome) */
+app.use('/api/agora', delivery)
 
 
 // Setting

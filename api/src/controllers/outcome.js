@@ -1,18 +1,17 @@
-const Deliverie = require('../db/models/deliverie')
 const Outcome = require('../db/models/outcome')
 
 const controllerOutcome = {
     create: async (req, res) => {
         try{
-            const {id_deliverie, outcomes,cohorte} = req.body
+            const {id_delivery, outcomes,cohorte} = req.body
 
-            if(!outcomes || !id_deliverie )
+            if(!outcomes || !id_delivery )
                 return res.status(400).json({msg: "Please fill in all fields."})
             
                 const outcome = new Outcome({
                     
                     outcomes,
-                    id_deliverie,
+                    id_delivery,
 
                   })
                 
@@ -26,9 +25,9 @@ const controllerOutcome = {
     },
 
     getOutcome: async (req, res) => {
-        const {id_deliverie} = req.params
+        const {id_delivery} = req.params
         try {
-            const outcome = await Outcome.find({id_deliverie})
+            const outcome = await Outcome.find({id_delivery})
             
             res.json(outcome)
         } catch (err) {
@@ -36,10 +35,10 @@ const controllerOutcome = {
         }
     },
     updateOutcome: async (req, res) => {
-        const {id_deliverie} = req.params
+        const {id_delivery} = req.params
         try {
             const {result} = req.body
-            await Outcome.findOneAndUpdate({id_deliverie : id_deliverie}, {
+            await Outcome.findOneAndUpdate({id_delivery : id_delivery}, {
                 result
             })
 
