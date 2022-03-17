@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import axios from 'axios'
+import apiAgora from '../../../api'
 import {isEmail} from '../../../utils/validation'
 import { showErrMsg, showSuccessMsg } from '../../../utils/notification'
 import { Input } from '../../../componentes/input/Input'
@@ -27,7 +27,7 @@ function ForgotPassword() {
             return setData({...data, err: 'El email es incorrecto', success: ''})
             
         try {
-            const res = await axios.post('/api/forgot', {email})
+            const res = await apiAgora.post('/api/forgot', {email})
 
             showSuccessMsg( res.data.msg)
             setData({...data, err: "", success: res.data.msg})

@@ -1,4 +1,4 @@
-import axios from "axios";
+import apiAgora from "../api"
 
 ////link para post
 export const API_URLP = "/api/agora/new-project";
@@ -7,13 +7,13 @@ const API_URL2 = `/api/agora/get-one-project`;
 
 
 export const listProjects = async (token) => {
-  const res = await axios.get("/api/agora/get-projects",{
+  const res = await apiAgora.get("/api/agora/get-projects",{
           headers: {Authorization: token}})
   return res;
 };
 
 export const oneproject = async (id, token) => {
-  const res = await axios.get(`${API_URL2}/${id}`,{
+  const res = await apiAgora.get(`${API_URL2}/${id}`,{
           headers: {Authorization: token}})
   return res;
   

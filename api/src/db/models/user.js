@@ -28,12 +28,12 @@ const userSchema = new Schema(
     },
     documentType: {
       type: String,
-      required: true,
+      /* required: true, */
     },
     documentNumber: {
       type: Number,
       minlength: 6,
-      required: true,
+     /*  required: true, */
     },
     email: {
       type: String,
@@ -47,19 +47,14 @@ const userSchema = new Schema(
     },
     contactNumber: {
       type: Number,
-      required: true,
+      /* required: true, */
     },
     role: {
       type: Number,
       default: 0, // 0 = Estudiante, 1= Formador, 2= Administrador, 3= super Administrador, pendiente= egresado,
     },
     programBootcamp: {
-      type: String,
-      required: true,
-    },
-    cohortID: {
-      type: String,
-      required: true,
+      type: String
     },
     state: {
       ///habilitarlo

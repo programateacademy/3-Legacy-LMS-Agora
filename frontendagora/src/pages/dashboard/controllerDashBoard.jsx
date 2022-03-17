@@ -1,9 +1,6 @@
-////link para post
-const API_URLP = "/api/agora";
-
-
+import apiAgora from "../../api"
 
 export const listDash = async (id) => {
-  return await fetch(`${API_URLP}/get-outcome-dash/${id}`);
+  return await apiAgora.get(`/api/agora/get-outcome-dash/${id}`);
 }; 
 

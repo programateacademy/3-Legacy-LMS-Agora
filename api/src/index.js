@@ -9,6 +9,7 @@ const project = require('./routes/projects')
 const annuncie = require('./routes/annuncie')
 const bootcamp = require('./routes/bootcamp')
 const workbook = require('./routes/workbook')
+const query = require('./routes/query')
 const delivery = require('./routes/delivery')
 /* const outcome = require('./routes/feedback') */
 
@@ -34,6 +35,7 @@ app.use('/api/agora', project)
 app.use('/api/agora', annuncie)
 app.use('/api/agora', bootcamp)
 app.use('/api/agora', workbook)
+app.use('/api/agora', query)
 /* app.use('/api/agora', outcome) */
 app.use('/api/agora', delivery)
 

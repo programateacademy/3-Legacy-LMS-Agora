@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import axios from 'axios'
+import apiAgora from '../../../api'
 import { showErrMsg, showSuccessMsg } from '../../../utils/notification'
 import { isEmpty, isEmail, isLength, isMatch,isLengthcontactNumber } from '../../../utils/validation'
 import './Register.css'
@@ -100,7 +100,7 @@ function Register () {
     try {
 
       if(auth.isAdmin) {
-        const res = await axios.post('/api/register_admin', {
+        const res = await apiAgora.post('/api/register_admin', {
           name,
           middleName,
           lastName,
@@ -112,7 +112,7 @@ function Register () {
         showSuccessMsg(success)
       setUser({ ...user, err: '', success: res.data.msg })
       }else {
-        const res = await axios.post('/api/register', {
+        const res = await apiAgora.post('/api/register', {
           name,
           middleName,
           lastName,

@@ -9,9 +9,9 @@ const controllerUser = {
   register: async (req, res) => {
     try {
       
-      const { name, email, password, middleName , lastName, secondSurname , contactNumber } = req.body
+      const { firstName, email, password, middleName , lastName, secondSurname , contactNumber } = req.body
 
-      if (!name || !email || !password ||  !lastName  || !contactNumber
+      if (!firstName || !email || !password ||  !lastName  || !contactNumber
         )
         return res.status(400).json({ msg: 'Todos los campos son requeridos.' })
 
@@ -31,7 +31,7 @@ const controllerUser = {
       const passwordHash = await bcrypt.hash(password, 12)
 
       const newUser = {
-        name,
+        firstName,
         middleName,
         email,
         passwordHash,
@@ -48,7 +48,7 @@ const controllerUser = {
 
       
       res.json({
-        msg: 'Registro exitoso! para activar tu cuenta, revisa tu correo electronico.'
+        msg:'Registro exitoso! para activar tu cuenta, revisa tu correo electronico.'
       })
     } catch (err) {
       return res.status(500).json({ msg: err.message })
@@ -93,7 +93,7 @@ const controllerUser = {
         process.env.ACTIVATION_TOKEN_SECRET
       )
 
-      const { name, email, passwordHash,middleName,lastName,secondSurname,contactNumber
+      const { firstName, email, passwordHash,middleName,lastName,secondSurname,contactNumber
       } = user
 
       const check = await User.findOne({ email })
@@ -101,7 +101,7 @@ const controllerUser = {
         return res.status(400).json({ msg: 'Este correo electronico ya existe.' })
 
       const newUser = new User({
-        name,
+        firstName,
         email,
         passwordHash,
         middleName,

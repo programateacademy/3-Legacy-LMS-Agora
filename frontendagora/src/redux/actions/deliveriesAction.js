@@ -1,8 +1,8 @@
 import ACTIONS from './index'
-import axios from 'axios'
+import apiAgora from '../../api'
 
 export const fetchAllDeliveries = async (token) => {
-    const res = await axios.get('/api/agora/get-deliveries', {
+    const res = await apiAgora.get('/api/agora/get-deliveries', {
         headers: {Authorization: token}
     })
     return res
@@ -17,7 +17,7 @@ export const dispatchGetAllDeliveries = (res) => {
 }
 
 export const fetchDeliveriesByStudent = async (token, id_user) => {
-    const res = await axios.get(`/api/agora/get-deliverie-student/${id_user}`,{
+    const res = await apiAgora.get(`/api/agora/get-deliverie-student/${id_user}`,{
         headers: {Authorization: token}
     })
     return res

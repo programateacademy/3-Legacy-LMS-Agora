@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import axios from 'axios'
+import apiAgora from '../../../api'
 import {useParams} from 'react-router-dom'
 import { showErrMsg, showSuccessMsg } from '../../../utils/notification'
 import {isLength, isMatch} from '../../../utils/validation'
@@ -33,7 +33,7 @@ function ResetPassword() {
             return setData({...data, err: "Las contraseñas no coinciden.", success: ''})
         
         try {
-            const res = await axios.post('/api/reset', {password}, {
+            const res = await apiAgora.post('/api/reset', {password}, {
                 headers: {Authorization: token}
             })
             showSuccessMsg( res.data.msg)
