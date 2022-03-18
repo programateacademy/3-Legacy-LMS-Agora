@@ -12,6 +12,10 @@ const workbook = require('./routes/workbook')
 const query = require('./routes/query')
 const delivery = require('./routes/delivery')
 /* const outcome = require('./routes/feedback') */
+const cohort = require('./routes/cohort')
+const competence = require('./routes/competence')
+const profile = require ('./routes/profile')
+
 
 
 
@@ -38,6 +42,10 @@ app.use('/api/agora', workbook)
 app.use('/api/agora', query)
 /* app.use('/api/agora', outcome) */
 app.use('/api/agora', delivery)
+app.use('/api/agora',cohort)
+app.use('/api/agora',competence)
+app.use('/api/agora',profile)
+
 
 
 // Setting
