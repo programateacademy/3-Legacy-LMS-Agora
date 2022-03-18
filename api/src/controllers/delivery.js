@@ -1,75 +1,70 @@
 var ObjectId = require('mongodb').ObjectID;
 const Delivery = require('../db/models/delivery')
 const Project = require('../db/models/Project')
-const User = require('../db/models/user')
+const Profile = require('../db/models/profile')
 
 
 
 const controllerDelevery = {
   create: async (req, res) => {
     try {
-      // const { id_project } = req.params
-      const { id_project, title, id_user, id_publisher, link, text } = req.body
 
-    //   if (!text || !id_project || !id_publisher || !id_user)
-    //     return res.status(400).json({ msg: 'Please fill in all fields.' })
+      const { projectID,cohortID,workbookID,queryID,userID,text,link } = req.body
 
+       if (!text || !userID || !link || !cohortID )
+         return res.status(400).json({ msg: 'Please fill in all fields.' })
         
-      const user = await User.findOne({ id_user })
+     
       
       const delivery = new Delivery({
-        title,
-        id_project,
-        id_user: user._id,
-        id_publisher,
-        link,
-        text
+        projectID,
+        workbookID,
+        cohortID,
+        queryID,
+        userID,
+        text,
+        link
       })
 
       const savedDelivery = await delivery.save()
+      const profile = await Profile.findOne({ userID:userID })
 
-      user.delivery = user.delivery.concat(savedDelivery._id)
-      await user.save()
+      profile.delivery = profile.delivery.concat(savedDelivery._id)
+      await profile.save()
 
-      res.json({ msg: 'Register success! outcome created ' })
+      res.json({ msg: 'Register success! delivery created ' })
     } catch (err) {
       return res.status(500).json({ msg: err.message })
     }
   },
   addChat: async (req, res) => {
     try {
-      const { id_delivery } = req.params
+     
       const { text } = req.body
 
-      const deliveryUpdate = await Delivery.findById(id_delivery)
+      const delivery = await Delivery.findById(req.params)
 
-      deliveryUpdate.text.push(text)
+      delivery.text = delivery.text.concat(text)
+      await delivery.save()
+      
 
-      await Delivery.replaceOne(
-        { _id: id_delivery },
-        { text: deliveryUpdate.text }
-      )
-
-      res.send('Chat Update')
+      res.send({delivery})
     } catch (err) {
       return res.status(500).json({ msg: err.message })
     }
   },
   addLink: async (req, res) => {
     try {
-      const { id_delivery } = req.params
+     
       const { link } = req.body
 
-      const deliveryUpdate = await Delivery.findById(id_delivery)
+      const delivery = await Delivery.findById(req.params)
 
-      deliveryUpdate.link.push(link)
+      delivery.link = delivery.link.concat(link)
+      await delivery.save()
+      
 
-      await Delivery.replaceOne(
-        { _id: id_delivery },
-        { link: deliveryUpdate.link }
-      )
-
-      res.send('Link Add')
+      res.send({delivery})
     } catch (err) {
       return res.status(500).json({ msg: err.message })
     }
@@ -77,14 +72,14 @@ const controllerDelevery = {
 
   getDeliveries: async (req, res) => {
     try {
-      const delivery = await Delivery.find({}).populate('competencies')
+      const delivery = await Delivery.find({cohortID:req.params})
 
       res.json(delivery)
     } catch (err) {
       return res.status(500).json({ msg: err.message })
     }
   },
-
+ //hasta aca trabajamos el 
   getDelivery: async (req, res) => {
     try {
       const {id_delivery} = req.params 

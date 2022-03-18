@@ -6,8 +6,6 @@ const authTeacher = require('../middleware/authTeacher')
 
 router.post('/register', controllerUser.register)
 
-router.post('/register_admin',  controllerUser.registerAdmin)
-
 router.post('/activation', controllerUser.activateEmail)
 
 router.get('/activation/:activation_token', controllerUser.activateEmail)
@@ -26,15 +24,10 @@ router.get('/all_info', auth, authAdmin, controllerUser.getUsersAllInfor)
 
 router.get('/all_students', auth, authTeacher, controllerUser.getUsersAllStudents) //auth, authTeacher
 
-router.patch('/update', auth, controllerUser.updateUser)
-
 router.patch('/update_role/:id', auth, authAdmin, controllerUser.updateUsersRole)
 
 router.delete('/delete/:id', auth, authAdmin, controllerUser.deleteUser)
 
-router.get('/badge', controllerUser.getBadges)
-
-router.patch('/update_badge/:id',controllerUser.updateBadge)
  
 
 module.exports = router

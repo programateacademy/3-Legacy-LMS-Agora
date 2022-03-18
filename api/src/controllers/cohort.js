@@ -61,7 +61,7 @@ const controllerCohort = {
                     endBootcamp
 
                 });              
-                res.json({msg: "Updating announcement successfully!"});   
+                res.json({msg: "Updating Cohort successfully!"});   
         } catch (err) {
             return res.status(500).json({msg: err.message})
         }
@@ -70,7 +70,7 @@ const controllerCohort = {
       try {
         await Cohort.findByIdAndDelete(req.params._id)
   
-        res.json({ msg: 'Deleted successfully announcement'})
+        res.json({ msg: 'Deleted successfully Cohort'})
       } catch (err) {
         return res.status(500).json({ msg: err.message })
       }

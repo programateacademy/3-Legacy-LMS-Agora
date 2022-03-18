@@ -28,12 +28,12 @@ const userSchema = new Schema(
     },
     documentType: {
       type: String,
-      /* required: true, */
+      required: true,
     },
     documentNumber: {
       type: Number,
       minlength: 6,
-     /*  required: true, */
+      required: true,
     },
     email: {
       type: String,
@@ -47,7 +47,7 @@ const userSchema = new Schema(
     },
     contactNumber: {
       type: Number,
-      /* required: true, */
+       required: true,
     },
     role: {
       type: Number,

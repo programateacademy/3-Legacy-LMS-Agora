@@ -24,6 +24,10 @@ const profileSchema = new Schema({
   dateOfBirth: {
     type: Date,
   },
+  delivery:{
+    type:Array,
+    default:[]
+  }
 });
 
 profileSchema.set("toJSON", {

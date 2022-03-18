@@ -20,6 +20,11 @@ const deliverySchema = new Schema(
       ref: "User",
       require: true,
     },
+    cohortID: {
+      type: Schema.Types.ObjectId,
+      ref: "Cohort",
+      require: true,
+    },
     text: {
       type: Array,
       require: true,
@@ -28,6 +33,7 @@ const deliverySchema = new Schema(
       type: Array,
       require: true,
     },
+
   },
   {
     timestamps: true,

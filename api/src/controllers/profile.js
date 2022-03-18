@@ -22,7 +22,7 @@ const controllerProfile = {
                 
                   const savedProfile = await profile.save()
                 
-                 res.json({msg: "Register success! annuncie created "})
+                 res.json({msg: "Register success! Profile created "})
         
         } catch (err) {
             return res.status(500).json({msg: err.message})
@@ -61,7 +61,7 @@ const controllerProfile = {
                     dateOfBirth
 
                 });              
-                res.json({msg: "Updating announcement successfully!"});   
+                res.json({msg: "Updating Profile successfully!"});   
         } catch (err) {
             return res.status(500).json({msg: err.message})
         }
@@ -70,7 +70,7 @@ const controllerProfile = {
       try {
         await Profile.findByIdAndDelete(req.params._id)
   
-        res.json({ msg: 'Deleted successfully announcement'})
+        res.json({ msg: 'Deleted successfully Profile'})
       } catch (err) {
         return res.status(500).json({ msg: err.message })
       }

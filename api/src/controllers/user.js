@@ -9,9 +9,9 @@ const controllerUser = {
   register: async (req, res) => {
     try {
       
-      const { firstName, email, password, middleName , lastName, secondSurname , contactNumber } = req.body
+      const { cohortID,assignedCohortsID,firstName,middleName,lastName,secondSurname,documentType,documentNumber,email,password,contactNumber,role,programBootcamp,state } = req.body
 
-      if (!firstName || !email || !password ||  !lastName  || !contactNumber
+      if (  !firstName ||  !lastName  || !secondSurname || !documentType || !documentNumber || !email ||  !password  || !contactNumber 
         )
         return res.status(400).json({ msg: 'Todos los campos son requeridos.' })
 
@@ -31,13 +31,21 @@ const controllerUser = {
       const passwordHash = await bcrypt.hash(password, 12)
 
       const newUser = {
+
+        cohortID,
+        assignedCohortsID,
         firstName,
         middleName,
-        email,
-        passwordHash,
         lastName,
         secondSurname,
-        contactNumber
+        documentType,
+        documentNumber,
+        email,
+        passwordHash,
+        contactNumber,
+        role,
+        programBootcamp,
+        state   
         
       }
 
@@ -53,38 +61,7 @@ const controllerUser = {
     } catch (err) {
       return res.status(500).json({ msg: err.message })
     }
-  },registerAdmin: async (req, res) =>{
-        try{
-          const { name, email, password, middleName , lastName, secondSurname , contactNumber, role } = req.body
-
-          // if (!name || !email || !password ||  !lastName  || !contactNumber || !role
-          //   )
-          //   return res.status(400).json({ msg: 'Todos los campos son requeridos.' })
-    
-            if(!validateEmail(email))
-                return res.status(400).json({msg: "correo electronico incorrecto."})
-
-            const user = await User.findOne({email})
-
-            if(user) return res.status(400).json({msg: "Este correo electronico ya existe."})
-
-            if(password.length < 6)
-                return res.status(400).json({msg: "La contraseña debe tener al menos 6 caracteres."})
-
-            const passwordHash = await bcrypt.hash(password, 12)
-
-            const newUser = new User({
-                name, email, passwordHash, middleName , lastName, secondSurname , contactNumber, role
-            })
-
-            
-            await newUser.save()
-            res.json({msg: "El usuario fue creado!"})
-
-        } catch (err) {
-            return res.status(500).json({msg: err.message})
-        }
-    },
+  },
   activateEmail: async (req, res) => {
     try {
       const { activation_token } = req.body
@@ -93,7 +70,7 @@ const controllerUser = {
         process.env.ACTIVATION_TOKEN_SECRET
       )
 
-      const { firstName, email, passwordHash,middleName,lastName,secondSurname,contactNumber
+      const { cohortID,assignedCohortsID,firstName,middleName,lastName,secondSurname,documentType,documentNumber,email,passwordHash,contactNumber,role,programBootcamp,state
       } = user
 
       const check = await User.findOne({ email })
@@ -101,19 +78,25 @@ const controllerUser = {
         return res.status(400).json({ msg: 'Este correo electronico ya existe.' })
 
       const newUser = new User({
+        cohortID,
+        assignedCohortsID,
         firstName,
-        email,
-        passwordHash,
         middleName,
         lastName,
         secondSurname,
-        contactNumber
+        documentType,
+        documentNumber,
+        email,
+        passwordHash,
+        contactNumber,
+        role,
+        programBootcamp,
+        state
 
       })
 
       await newUser.save()
-      res.send("<h1>La cuenta fue activada!</h1>")
-      // res.json({ msg: 'la cuenta fue activada!' })
+      res.json({msg:"La cuenta fue activada exitosamente"})
     } catch (err) {
       return res.status(500).json({ msg: err.message })
     }
@@ -128,7 +111,7 @@ const controllerUser = {
             user === null ? false : await bcrypt.compare(password, user.passwordHash)
             if (!isMatch) {
                 res.status(401).json({
-                    error: 'usuario o contraseña invalido'
+                    error: 'Usuario o Contraseña incorrectos'
                 })
             }
         
@@ -137,7 +120,7 @@ const controllerUser = {
         res.send({
             email: user.email,
             refresh_token,
-            msg: "ingreso exitoso!"
+            msg: "Ingreso exitoso!"
             
         })
         
@@ -148,10 +131,10 @@ const controllerUser = {
   getAccessToken: (req, res) => {
     try {
       const rf_token = req.body.refreshtoken
-      if (!rf_token) return res.status(400).json({ msg: 'ingresa ahora!!' })
+      if (!rf_token) return res.status(400).json({ msg: 'Ahora puede ingresar!!' })
 
       jwt.verify(rf_token, process.env.REFRESH_TOKEN_SECRET, (err, user) => {
-        if (err) return res.status(400).json({ msg: 'ingresa hora!!' })
+        if (err) return res.status(400).json({ msg: 'Ahora puede ingresar!!' })
 
         const access_token = createAccessToken({ id: user.id })
         res.json({ access_token })
@@ -218,23 +201,6 @@ const controllerUser = {
     } catch (err) {
         return res.status(500).json({msg: err.message})
     }
-    
-  },
-  updateUser: async (req, res) => {
-    try {
-      const { name, avatar } = req.body
-      await User.findOneAndUpdate(
-        { _id: req.user.id },
-        {
-          name,
-          avatar
-        }
-      )
-
-      res.json({ msg: 'Edicion exitosa!' })
-    } catch (err) {
-      return res.status(500).json({ msg: err.message })
-    }
   },
   updateUsersRole: async (req, res) => {
     try {
@@ -260,34 +226,7 @@ const controllerUser = {
     } catch (err) {
       return res.status(500).json({ msg: err.message })
     }
-  },
-  getBadges: async (req, res) => {
-    try {
-      const users = await User.find().select(['name','badges'])
-      
-  
-  
-      res.json(users)
-    } catch (err) {
-      return res.status(500).json({ msg: err.message })
-    }
-  },
-  updateBadge: async (req, res) => {
-    try {
-      const { badges } = req.body
-
-      await User.findOneAndUpdate(
-        { _id: req.params.id },
-        {
-          badges
-        }
-      )
-
-      res.json({ msg: 'Update Success!' })
-    } catch (err) {
-      return res.status(500).json({ msg: err.message })
-    }
-  },
+  }
 }
 
 const validateEmail = email => {
