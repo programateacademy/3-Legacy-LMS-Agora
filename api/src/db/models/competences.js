@@ -16,43 +16,43 @@ const conpetenciesSchema = new Schema(
       required: true,
     },
     levelOne: {
-      actions: {
+      actions1: {
         type: String,
         required: true,
       },
-      evaluationCriteria: {
+      evaluationCriteria1: {
         type: String,
         required: true,
       },
-      approved:{
+      approved1:{
         type:Boolean,
         default:false
       }
     },
     levelTwo: {
-      actions: {
+      actions2: {
         type: String,
         required: true,
       },
-      evaluationCriteria: {
+      evaluationCriteria2: {
         type: String,
         required: true,
       },
-      approved:{
+      approved2:{
         type:Boolean,
         default:false
       }
     },
-    levelthree: {
-      actions: {
+    levelThree: {
+      actions3: {
         type: String,
         required: true,
       },
-      evaluationCriteria: {
+      evaluationCriteria3: {
         type: String,
         required: true,
       },
-      approved:{
+      approved3:{
         type:Boolean,
         default:false
       }
