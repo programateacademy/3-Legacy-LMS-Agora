@@ -8,7 +8,7 @@ router.post('/register', controllerUser.register)
 
 router.post('/register_admin',  controllerUser.registerAdmin)
 
-// router.post('/activation', controllerUser.activateEmail)
+router.post('/activation', controllerUser.activateEmail)
 
 router.get('/activation/:activation_token', controllerUser.activateEmail)
 

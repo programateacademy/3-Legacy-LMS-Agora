@@ -87,7 +87,7 @@ const controllerUser = {
     },
   activateEmail: async (req, res) => {
     try {
-      const { activation_token } = req.params
+      const { activation_token } = req.body
       const user = jwt.verify(
         activation_token,
         process.env.ACTIVATION_TOKEN_SECRET

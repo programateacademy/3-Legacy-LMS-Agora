@@ -9,11 +9,11 @@ import { Input } from '../../../componentes/input/Input'
 import logo from '../../../assets/logos/programateLogo.png'
 
 const initialState = {
-  name: '',
+  firstName: '',
   middleName: '',
   lastName: '',
   secondSurname: '',
-  telefono: '',
+  contactNumber: '',
   email: '',
   password: '',
   cf_password: '',
@@ -25,7 +25,7 @@ function Register () {
   const [user, setUser] = useState(initialState)
   const auth = useSelector(state => state.auth)
   const {
-    name,
+    firstName,
     middleName,
     lastName,
     secondSurname,
@@ -44,7 +44,7 @@ function Register () {
 
   const handleSubmit = async e => {
     e.preventDefault()
-    if (isEmpty(name) || isEmpty(password))
+    if (isEmpty(firstName) || isEmpty(password))
       return setUser({
         ...user,
         err: 'Todos los campos son obligatorios',
@@ -101,7 +101,7 @@ function Register () {
 
       if(auth.isAdmin) {
         const res = await apiAgora.post('/api/register_admin', {
-          name,
+          firstName,
           middleName,
           lastName,
           secondSurname,
@@ -113,7 +113,7 @@ function Register () {
       setUser({ ...user, err: '', success: res.data.msg })
       }else {
         const res = await apiAgora.post('/api/register', {
-          name,
+          firstName,
           middleName,
           lastName,
           secondSurname,
@@ -146,8 +146,8 @@ function Register () {
               <Input className="input-register"
                 label='Primer nombre'
                 placeholder='Juan'
-                name='name'
-                value={name}
+                name='firstName'
+                value={firstName}
                 onChange={handleChangeInput}
               />
               <Input className="input-register"
