@@ -35,7 +35,7 @@ function Unification() {
         <Routes>
           <Route path="/register" element={<Register />} exact />
           <Route
-            path="/user/activate/:activation_token"
+            path="/api/activation/:activation_token"
             element={<ActivationEmail />}
             exact
           />
