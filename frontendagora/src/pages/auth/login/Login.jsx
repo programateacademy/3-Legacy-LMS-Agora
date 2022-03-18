@@ -1,4 +1,4 @@
-import axios from 'axios'
+import apiAgora from '../../../api'
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { showErrMsg, showSuccessMsg } from '../../../utils/notification'
@@ -30,7 +30,7 @@ function Login () {
   const handleSubmit = async e => {
     e.preventDefault()
     try {
-      const res = await axios.post('/api/login', {
+      const res = await apiAgora.post('/api/login', {
         email,
         password
       })

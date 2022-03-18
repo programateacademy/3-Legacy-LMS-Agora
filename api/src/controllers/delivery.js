@@ -1,11 +1,11 @@
 var ObjectId = require('mongodb').ObjectID;
-const Deliverie = require('../db/models/deliverie')
+const Delivery = require('../db/models/delivery')
 const Project = require('../db/models/Project')
 const User = require('../db/models/user')
 
 
 
-const controllerDeleverie = {
+const controllerDelevery = {
   create: async (req, res) => {
     try {
       // const { id_project } = req.params
@@ -17,7 +17,7 @@ const controllerDeleverie = {
         
       const user = await User.findOne({ id_user })
       
-      const deliverie = new Deliverie({
+      const delivery = new Delivery({
         title,
         id_project,
         id_user: user._id,
@@ -26,9 +26,9 @@ const controllerDeleverie = {
         text
       })
 
-      const savedDeliverie = await deliverie.save()
+      const savedDelivery = await delivery.save()
 
-      user.deliverie = user.deliverie.concat(savedDeliverie._id)
+      user.delivery = user.delivery.concat(savedDelivery._id)
       await user.save()
 
       res.json({ msg: 'Register success! outcome created ' })
@@ -38,16 +38,16 @@ const controllerDeleverie = {
   },
   addChat: async (req, res) => {
     try {
-      const { id_deliverie } = req.params
+      const { id_delivery } = req.params
       const { text } = req.body
 
-      const deliverieUpdate = await Deliverie.findById(id_deliverie)
+      const deliveryUpdate = await Delivery.findById(id_delivery)
 
-      deliverieUpdate.text.push(text)
+      deliveryUpdate.text.push(text)
 
-      await Deliverie.replaceOne(
-        { _id: id_deliverie },
-        { text: deliverieUpdate.text }
+      await Delivery.replaceOne(
+        { _id: id_delivery },
+        { text: deliveryUpdate.text }
       )
 
       res.send('Chat Update')
@@ -57,16 +57,16 @@ const controllerDeleverie = {
   },
   addLink: async (req, res) => {
     try {
-      const { id_deliverie } = req.params
+      const { id_delivery } = req.params
       const { link } = req.body
 
-      const deliverieUpdate = await Deliverie.findById(id_deliverie)
+      const deliveryUpdate = await Delivery.findById(id_delivery)
 
-      deliverieUpdate.link.push(link)
+      deliveryUpdate.link.push(link)
 
-      await Deliverie.replaceOne(
-        { _id: id_deliverie },
-        { link: deliverieUpdate.link }
+      await Delivery.replaceOne(
+        { _id: id_delivery },
+        { link: deliveryUpdate.link }
       )
 
       res.send('Link Add')
@@ -77,21 +77,21 @@ const controllerDeleverie = {
 
   getDeliveries: async (req, res) => {
     try {
-      const deliverie = await Deliverie.find({}).populate('competencies')
+      const delivery = await Delivery.find({}).populate('competencies')
 
-      res.json(deliverie)
+      res.json(delivery)
     } catch (err) {
       return res.status(500).json({ msg: err.message })
     }
   },
 
-  getDeliverie: async (req, res) => {
+  getDelivery: async (req, res) => {
     try {
-      const {id_deliverie} = req.params 
+      const {id_delivery} = req.params 
 
-      const deliverie = await Deliverie.findById(id_deliverie).populate('competencies')
+      const delivery = await Delivery.findById(id_delivery).populate('competencies')
 
-      res.json(deliverie)
+      res.json(delivery)
     } catch (err) {
       return res.status(500).json({ msg: err.message })
     }
@@ -99,25 +99,25 @@ const controllerDeleverie = {
 
 
   //getAll X student
-  getDeliverieStudent: async (req, res) => {
+  getDeliveryStudent: async (req, res) => {
     try {
       
       const { id_user } = req.params
       console.log(id_user)
-      const deliverie = await Deliverie.find({ id_user }).populate('competencies')
+      const delivery = await Delivery.find({ id_user }).populate('competencies')
 
-      res.json(deliverie)
+      res.json(delivery)
     } catch (err) {
       return res.status(500).json({ msg: err.message })
     }
   },
   // getAll X Brief
-  getDeliverieProyect: async (req, res) => {
+  getDeliveryProject: async (req, res) => {
     try {
-      const { id_Proyecto } = req.body
-      const deliverie = await Deliverie.find({ id_Proyecto })
+      const { id_Project } = req.body
+      const delivery = await Delivery.find({ id_Project })
 
-      res.json(deliverie)
+      res.json(delivery)
     } catch (err) {
       return res.status(500).json({ msg: err.message })
     }
@@ -126,4 +126,4 @@ const controllerDeleverie = {
   
 }
 
-module.exports = controllerDeleverie
+module.exports = controllerDelevery

@@ -1,8 +1,8 @@
 import ACTIONS from './index'
-import axios from 'axios'
+import apiAgora from '../../api'
 
 export const fetchAllProjects = async (token) => {
-    const res = await axios.get('/api/agora/get-projects', {
+    const res = await apiAgora.get('/api/agora/get-projects', {
         headers: {Authorization: token}
     })
     return res

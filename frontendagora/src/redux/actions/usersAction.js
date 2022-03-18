@@ -1,15 +1,15 @@
 import ACTIONS from './index'
-import axios from 'axios'
+import apiAgora from '../../api'
 
 export const fetchAllUsers = async (token) => {
-    const res = await axios.get('/api/all_info', {
+    const res = await apiAgora.get('/api/all_info', {
         headers: {Authorization: token}
     })
     return res
 }
 
 export const fetchAllStudents = async (token) => {
-    const res = await axios.get('/api/all_students', {
+    const res = await apiAgora.get('/api/all_students', {
         headers: {Authorization: token}
     })
     return res

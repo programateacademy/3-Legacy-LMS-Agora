@@ -1,5 +1,5 @@
 import ACTIONS from './index'
-import axios from 'axios'
+import apiAgora from '../../api'
 
 export const dispatchLogin = () => {
     return {
@@ -8,7 +8,7 @@ export const dispatchLogin = () => {
 }
 
 export const fetchUser = async (token) => {
-    const res = await axios.get('/api/info', {
+    const res = await apiAgora.get('/api/info', {
         headers: {Authorization: token}
     })
     return res

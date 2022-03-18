@@ -1,4 +1,4 @@
-import axios from "axios"
+import apiAgora from "../../api"
 import { useEffect, useState } from "react"
 import { useParams } from 'react-router-dom'
 
@@ -17,7 +17,7 @@ const Deliverie = () => {
 
   useEffect(() => {
     const fetchDeliver = async () => {
-    const res = await axios.get(`/api/agora/get-deliverie/${id_deliverie}`)
+    const res = await apiAgora.get(`/api/agora/get-deliverie/${id_deliverie}`)
     setDeliverie(res.data)
     }
     fetchDeliver()

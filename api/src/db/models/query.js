@@ -40,7 +40,7 @@ const querySchema = new Schema(
       type: String,
       require: true,
     },
-    challenge: {
+    challengeTask: {
       type: Array,
       require: true,
     },

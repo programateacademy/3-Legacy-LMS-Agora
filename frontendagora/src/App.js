@@ -1,4 +1,3 @@
-import axios from 'axios'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {
@@ -11,7 +10,7 @@ import { dispatchGetAllStudents, fetchAllStudents } from './redux/actions/usersA
 import { dispatchGetAllProjects, fetchAllProjects } from './redux/actions/projectsAction'
 import { dispatchGetAllDeliveries, dispatchGetDeliveriesByStudent, fetchAllDeliveries, fetchDeliveriesByStudent } from './redux/actions/deliveriesAction'
 import { dispatchGetAllAnnucies, fetchAllAnunncies } from './redux/actions/annunciesAction'
-
+import apiAgora from "./api"
 
 function App () {
   const dispatch = useDispatch()
@@ -28,7 +27,7 @@ function App () {
       const refreshtoken = user.refresh_token
 
       const getToken = async () => {
-        const res = await axios.post(
+        const res = await apiAgora.post(
           '/api/refresh_token',
           { refreshtoken }
         )

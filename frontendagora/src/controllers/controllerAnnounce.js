@@ -1,4 +1,4 @@
-////link para post
+
 const API_URLP = "api/agora/new-announcie";
 ////link para get
 const API_URL = "api/agora/get-announcies";

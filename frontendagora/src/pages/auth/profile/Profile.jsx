@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import apiAgora from "../../../api";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { isLength, isMatch } from "../../../utils/validation";
@@ -69,7 +69,7 @@ function Profile() {
   //     formData.append('file', file)
 
   //     setLoading(true)
-  //     const res = await axios.post('/api/upload_avatar', formData, {
+  //     const res = await apiAgora.post('/api/upload_avatar', formData, {
   //       headers: { 'content-type': 'multipart/form-data', Authorization: token }
   //     })
 
@@ -82,7 +82,7 @@ function Profile() {
 
   const updateInformation = () => {
     try {
-      axios.patch(
+      apiAgora.patch(
         "/api/update",
         {
           name: name ? name : user.name,
@@ -115,7 +115,7 @@ function Profile() {
       });
 
     try {
-      axios.post(
+      apiAgora.post(
         "/api/reset",
         { password },
         {
@@ -139,7 +139,7 @@ function Profile() {
       if (user._id !== id) {
         if (window.confirm("Estas seguro que quieres eliminar esta cuenta?")) {
           setLoading(true);
-          await axios.delete(`/api/delete/${id}`, {
+          await apiAgora.delete(`/api/delete/${id}`, {
             headers: { Authorization: token },
           });
           setLoading(false);

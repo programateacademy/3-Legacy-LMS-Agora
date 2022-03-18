@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import axios from 'axios'
+import apiAgora from '../../../api'
 import { showSuccessMsg, showErrMsg } from '../../../utils/notification'
 import { Input } from '../../../componentes/input/Input'
 import './EditUser.css'
@@ -31,7 +31,7 @@ function EditUser () {
 
   const handleUpdate = async () => {
     try {
-      const res = await axios.patch(
+      const res = await apiAgora.patch(
         `/api/update_role/${editUser.id}`,
         {
           role: checkAdmin ? 1 : 0
