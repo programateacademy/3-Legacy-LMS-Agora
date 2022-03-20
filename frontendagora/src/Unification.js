@@ -1,9 +1,8 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
-import NotFound from "./componentes/notFound/NotFound";
 import Login from "./pages/auth/login/Login";
-import Header from "./componentes/header&footer/Header";
-import Error404 from "./componentes/404/Error404";
+import {Header} from "./components/header&footer/Header";
+import {Error404} from "./components/404/Error404";
 import { Announcements } from "./pages/announcements/Announcements";
 import CreateAnnouncement from "./pages/announcements/CreateAnnouncement";
 import Dashboard from "./pages/dashboard/Dashboard";
@@ -20,7 +19,7 @@ import EditUser from "./pages/auth/profile/EditUser";
 import Register from "./pages/auth/register/Register";
 import ActivationEmail from "./pages/auth/activationEmail/ActivationEmail";
 import Badges from "./pages/bagdes/Bagdes.jsx";
-import Footer from "./componentes/header&footer/Footer";
+import {Footer}from "./components/header&footer/Footer";
 
 function Unification() {
   const auth = useSelector((state) => state.auth);
@@ -42,18 +41,18 @@ function Unification() {
           <Route path="/forgot_password" element={<ForgotPassword />} exact />
           <Route
             path="/profile"
-            element={isLogged ? <Profile /> : <NotFound />}
+            element={isLogged ? <Profile /> : <Error404 />}
             exact
           />
           <Route
             path="/edit_user/:id"
-            element={isAdmin ? <EditUser /> : <NotFound />}
+            element={isAdmin ? <EditUser /> : <Error404 />}
             exact
           />
           <Route path="/create_user" element={<Register />} exact />
           <Route
             path="/user/reset/:token"
-            element={isLogged ? <NotFound /> : <ResetPassword />}
+            element={isLogged ? <Error404 /> : <ResetPassword />}
             exact
           />
           <Route
@@ -63,12 +62,12 @@ function Unification() {
           />
           <Route
             path="/login"
-            element={isLogged ? <NotFound /> : <Login />}
+            element={isLogged ? <Error404 /> : <Login />}
             exact
           />
           <Route
             path="/badges"
-            element={isLogged ? <Badges /> : <NotFound />}
+            element={isLogged ? <Badges /> : <Error404 />}
             exact
           />
 
@@ -93,7 +92,7 @@ function Unification() {
           <Route path="*" element={<Error404 />} />
           <Route
           path="/user/deliverie/:id_deliverie"
-          element={isLogged ? <Deliverie /> : <NotFound />}
+          element={isLogged ? <Deliverie /> : <Error404 />}
           exact
         />
         </Routes>

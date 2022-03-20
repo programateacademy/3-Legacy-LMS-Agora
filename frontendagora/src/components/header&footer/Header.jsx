@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 import UserLink from "./UserLink";
 import "./UserLink.css";
 
-export default function Header() {
+export function Header() {
   const auth = useSelector((state) => state.auth);
 
   const { user, isLogged } = auth;

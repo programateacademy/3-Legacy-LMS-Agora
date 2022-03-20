@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { showErrMsg, showSuccessMsg } from '../../../utils/notification'
 import { dispatchLogin } from '../../../redux/actions/authAction'
 import { useDispatch } from 'react-redux'
-import { Input } from '../../../componentes/input/Input'
+import { Input } from '../../../components/input/Input'
 import './Login.css'
 import logo from '../../../assets/logos/programateLogo.png'
 

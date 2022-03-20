@@ -5,20 +5,16 @@ const feedbackSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Delivery",
   },
-  //formador que realiza la o feedback
+  //UserId from Teacher
   userID: {
     type: Schema.Types.ObjectId,
     ref: "User",
     require: true,
   },
-  text: {
+  feedback: {
     type: Array,
     require: true,
-  },
-  link: {
-    type: Array,
-    require: true,
-  },
+  }
 });
 
 feedbackSchema.set("toJSON", {

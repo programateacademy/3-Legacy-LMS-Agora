@@ -1,10 +1,10 @@
 const { Schema, model } = require("mongoose");
 
-const conpetenciesSchema = new Schema(
+const competenciesSchema = new Schema(
   {
     cohortID: {
       type: Schema.Types.ObjectId,
-      ref:'Cohort',
+      ref: "Cohort",
       required: true,
     },
     identifierCompetences: {
@@ -16,46 +16,46 @@ const conpetenciesSchema = new Schema(
       required: true,
     },
     levelOne: {
-      actions1: {
+      actions: {
         type: String,
         required: true,
       },
-      evaluationCriteria1: {
+      evaluationCriteria: {
         type: String,
         required: true,
       },
-      approved1:{
-        type:Boolean,
-        default:false
-      }
+      approved: {
+        type: Boolean,
+        default: false,
+      },
     },
     levelTwo: {
-      actions2: {
+      actions: {
         type: String,
         required: true,
       },
-      evaluationCriteria2: {
+      evaluationCriteria: {
         type: String,
         required: true,
       },
-      approved2:{
-        type:Boolean,
-        default:false
-      }
+      approved: {
+        type: Boolean,
+        default: false,
+      },
     },
     levelThree: {
-      actions3: {
+      actions: {
         type: String,
         required: true,
       },
-      evaluationCriteria3: {
+      evaluationCriteria: {
         type: String,
         required: true,
       },
-      approved3:{
-        type:Boolean,
-        default:false
-      }
+      approved: {
+        type: Boolean,
+        default: false,
+      },
     },
   },
   {
@@ -63,12 +63,12 @@ const conpetenciesSchema = new Schema(
   }
 );
 
-conpetenciesSchema.set("toJSON", {
+competenciesSchema.set("toJSON", {
   transform: (document, returnedObject) => {
     returnedObject.id = returnedObject._id;
     delete returnedObject._id;
     delete returnedObject.__v;
   },
 });
-const Competencies = model("Competencies", conpetenciesSchema);
+const Competencies = model("Competencies", competenciesSchema);
 module.exports = Competencies;

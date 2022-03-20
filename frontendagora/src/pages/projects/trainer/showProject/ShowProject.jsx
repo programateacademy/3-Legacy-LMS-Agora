@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import * as controllerProject from "../../../../controllers/controllerProject";
 import { useParams } from "react-router-dom";
 import "./showproject.css";
-import TitleSectionWithButton from "../../../../componentes/titles/TitleSectionWitButton";
+import {TitleSectionWithButton} from "../../../../components/titles/TitleSectionWitButton";
 import { useSelector } from "react-redux";
 
 const ShowProject = () => {

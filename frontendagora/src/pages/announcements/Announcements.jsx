@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import TitleSectionWithButton from "../../componentes/titles/TitleSectionWitButton";
+import {TitleSectionWithButton} from "../../components/titles/TitleSectionWitButton";
 import * as controllerAnnounce from "../../controllers/controllerAnnounce";
-import TitleSection from "../../componentes/titles/TitleSection";
+import {TitleSection} from "../../components/titles/TitleSection";
 import { useSelector } from "react-redux";
 
 export const Announcements = () => {

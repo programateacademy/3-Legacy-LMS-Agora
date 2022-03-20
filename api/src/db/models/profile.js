@@ -6,6 +6,11 @@ const profileSchema = new Schema({
     ref: "User",
     require: true,
   },
+  cohortID: {
+    type: Schema.Types.ObjectId,
+    ref: "Cohort",
+    require: true,
+  },
   image: {
     type: String,
   },

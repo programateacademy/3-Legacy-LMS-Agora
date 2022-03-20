@@ -16,7 +16,7 @@ const controllerQuery = {
         challengeTask,
         resources,
         challengeExtra,
-        date
+        date,
       } = req.body;
 
       if (
@@ -49,7 +49,7 @@ const controllerQuery = {
         challengeTask,
         resources,
         challengeExtra,
-        date
+        date,
       });
 
       const savedQuery = await query.save();
@@ -61,7 +61,7 @@ const controllerQuery = {
   },
   getQueries: async (req, res) => {
     try {
-      const queries = await Query.find({});
+      const queries = await Query.find({ cohortID: req.params._id });
 
       res.json(queries);
     } catch (err) {
@@ -91,23 +91,23 @@ const controllerQuery = {
         challenge,
         resources,
         challengeExtra,
-        date
+        date,
       } = req.body;
       await Query.findOneAndUpdate(
         { _id: req.params._id },
         {
-            userID,
-            titleQuery,
-            pictureQuery,
-            tagsQuery,
-            basicNotions,
-            pathReq,
-            documentationReq,
-            importantAspect,
-            challenge,
-            resources,
-            challengeExtra,
-            date
+          userID,
+          titleQuery,
+          pictureQuery,
+          tagsQuery,
+          basicNotions,
+          pathReq,
+          documentationReq,
+          importantAspect,
+          challenge,
+          resources,
+          challengeExtra,
+          date,
         }
       );
       res.json({ msg: "Updating Query successfully!" });

@@ -2,6 +2,10 @@ const { Schema, model } = require("mongoose");
 
 const deliverySchema = new Schema(
   {
+    deliveryKind: {
+      type: String,
+      require: true,
+    },
     projectID: {
       type: Schema.Types.ObjectId,
       ref: "Project",
@@ -14,7 +18,7 @@ const deliverySchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "Query",
     },
-    //estudiante que realiza la entrega
+    //From Student
     userID: {
       type: Schema.Types.ObjectId,
       ref: "User",
@@ -25,14 +29,10 @@ const deliverySchema = new Schema(
       ref: "Cohort",
       require: true,
     },
-    text: {
+    delivery: {
       type: Array,
       require: true,
-    },
-    link: {
-      type: Array,
-      require: true,
-    },
+    }
 
   },
   {

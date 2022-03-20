@@ -41,16 +41,20 @@ const projectSchema = new Schema({
     type: Array,
     require:true,
   },
-  contextGeneralReq:{
+  contextGeneral:{
     type: String,
+    require: true,
+  },
+  contextGeneralReq:{
+    type: Array,
     require: true,
   },
   contextTechniciansReq:{
-    type: String,
+    type: Array,
     require: true,
   },
   contextExtrasReq:{
-    type: String,
+    type: Array,
     require: true,
   },
   pedagogyModality : {

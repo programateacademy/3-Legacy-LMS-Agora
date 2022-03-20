@@ -1,4 +1,4 @@
-import TitleSection from '../../componentes/titles/TitleSection'
+import {TitleSection} from '../../components/titles/TitleSection'
 import Chart from './charts/Chart'
 import React, { useEffect, useState } from 'react'
 import * as controllerDashBoard from './controllerDashBoard.jsx'

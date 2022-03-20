@@ -12,9 +12,9 @@ function Outcome() {
     "C3. Desarrollar una interfaz de usuario web dinámica",
     "C4. Crear una interfaz de usuario con una solución de gestión de contenidos o de e-comercio",
     "C5. Crear una base de datos",
-    "C6. Desarrollar los componentes de acceso a los datos",
+    "C6. Desarrollar los components de acceso a los datos",
     "C7. Desarrollar la parte back-end de una aplicación web o móvil",
-    "C8. Desarrollar e implementar componentes en una aplicación de gestión de contenidos o de comercio electrónico",
+    "C8. Desarrollar e implementar components en una aplicación de gestión de contenidos o de comercio electrónico",
   ];
   const array = [0, 0, 0, 0, 0, 0];
   const [outcome, setOutcome] = useState([]);

@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import apiAgora from '../../../api'
 import { showSuccessMsg, showErrMsg } from '../../../utils/notification'
-import { Input } from '../../../componentes/input/Input'
+import { Input } from '../../../components/input/Input'
 import './EditUser.css'
 
 function EditUser () {

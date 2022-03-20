@@ -1,6 +1,7 @@
 import React from "react";
 
-const Error404 = () => {
+export function Error404() {
+  
   return (
     <div style={{ height: "75vh", padding: "90px" }}>
       <h2>Error 404 - Aquí no hay nada que mostrar</h2>
@@ -8,5 +9,3 @@ const Error404 = () => {
     </div>
   );
 };
-
-export default Error404;

@@ -7,7 +7,7 @@ import "./addProject.css";
 import ResourceForm from "./resources/ResourceForm";
 import ResourceRow from "./resources/ResourceRow";
 import CompetenceForm from "./competence/CompetenceForm";
-import TitleSection from "../../../../componentes/titles/TitleSection";
+import {TitleSection} from "../../../../components/titles/TitleSection";
 import * as controllerProject from "../../../../controllers/controllerProject";
 
 const AddProject = () => {

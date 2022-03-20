@@ -49,7 +49,7 @@ const controllerWorkbook = {
         steps,
         challenge,
         resources,
-        date
+        date,
       });
 
       const savedWorkbook = await workbook.save();
@@ -61,7 +61,7 @@ const controllerWorkbook = {
   },
   getWorkbooks: async (req, res) => {
     try {
-      const workbooks = await Workbook.find({});
+      const workbooks = await Workbook.find({ cohortID: req.params._id });
 
       res.json(workbooks);
     } catch (err) {
@@ -91,7 +91,7 @@ const controllerWorkbook = {
         steps,
         challenge,
         resources,
-        date
+        date,
       } = req.body;
       await Workbook.findOneAndUpdate(
         { _id: req.params._id },

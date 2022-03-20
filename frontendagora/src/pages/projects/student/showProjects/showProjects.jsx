@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 import * as controllerProject from "../../../../controllers/controllerProject";
 import "./showProjects.css";
 import { Link } from "react-router-dom";
-import TitleSection from "../../../../componentes/titles/TitleSection";
+import {TitleSection} from "../../../../components/titles/TitleSection";
 
 export const ShowProjects = () => {
   const [projects, setProjects] = useState([]);

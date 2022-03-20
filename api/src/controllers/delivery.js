@@ -1,124 +1,92 @@
-var ObjectId = require('mongodb').ObjectID;
-const Delivery = require('../db/models/delivery')
-const Project = require('../db/models/Project')
-const Profile = require('../db/models/profile')
+const Delivery = require("../db/models/delivery");
+const Profile = require("../db/models/profile");
 
-
-
-const controllerDelevery = {
+const controllerDelivery = {
   create: async (req, res) => {
     try {
+      const { projectID, cohortID, workbookID, queryID, userID, delivery } =
+        req.body;
 
-      const { projectID,cohortID,workbookID,queryID,userID,text,link } = req.body
+      if (!delivery || !userID || !cohortID)
+        return res.status(400).json({ msg: "Please fill in all fields." });
 
-       if (!text || !userID || !link || !cohortID )
-         return res.status(400).json({ msg: 'Please fill in all fields.' })
-        
-     
-      
-      const delivery = new Delivery({
+      const deliveryDoc = new Delivery({
         projectID,
         workbookID,
         cohortID,
         queryID,
         userID,
-        text,
-        link
-      })
+        delivery,
+      });
 
-      const savedDelivery = await delivery.save()
-      const profile = await Profile.findOne({ userID:userID })
+      const savedDelivery = await deliveryDoc.save();
+      const profile = await Profile.findOne({ userID: userID });
 
-      profile.delivery = profile.delivery.concat(savedDelivery._id)
-      await profile.save()
+      profile.delivery = profile.delivery.concat(savedDelivery._id);
+      await profile.save();
 
-      res.json({ msg: 'Register success! delivery created ' })
+      res.json({ msg: "Register success! delivery created " });
     } catch (err) {
-      return res.status(500).json({ msg: err.message })
+      return res.status(500).json({ msg: err.message });
     }
   },
   addChat: async (req, res) => {
     try {
-     
-      const { text } = req.body
+      const deliveryNew = await Delivery.findById(req.params._id);
 
-      const delivery = await Delivery.findById(req.params)
+      deliveryNew.delivery = deliveryNew.delivery.concat(deliveryArray);
 
-      delivery.text = delivery.text.concat(text)
-      await delivery.save()
-      
+      await deliveryNew.save();
 
-      res.send({delivery})
+      res.send({ deliveryNew });
     } catch (err) {
-      return res.status(500).json({ msg: err.message })
+      return res.status(500).json({ msg: err.message });
     }
   },
-  addLink: async (req, res) => {
-    try {
-     
-      const { link } = req.body
-
-      const delivery = await Delivery.findById(req.params)
-
-      delivery.link = delivery.link.concat(link)
-      await delivery.save()
-      
-
-      res.send({delivery})
-    } catch (err) {
-      return res.status(500).json({ msg: err.message })
-    }
-  },
-
+  //Get all deliveries by Cohort ID
   getDeliveries: async (req, res) => {
     try {
-      const delivery = await Delivery.find({cohortID:req.params})
+      const deliveryKind = req.body;
+      const delivery = await Delivery.find(
+        { cohortID: req.params._id },
+        { deliveryKind: deliveryKind }
+      );
 
-      res.json(delivery)
+      res.json(delivery);
     } catch (err) {
-      return res.status(500).json({ msg: err.message })
+      return res.status(500).json({ msg: err.message });
     }
   },
- //hasta aca trabajamos el 
+  //Get one delivery by deliveryID
   getDelivery: async (req, res) => {
     try {
-      const {id_delivery} = req.params 
+      const delivery = await Delivery.findById(req.params._id);
 
-      const delivery = await Delivery.findById(id_delivery).populate('competencies')
-
-      res.json(delivery)
+      res.json(delivery);
     } catch (err) {
-      return res.status(500).json({ msg: err.message })
+      return res.status(500).json({ msg: err.message });
     }
   },
-
-
-  //getAll X student
+  //Get one deliveries by studentID
   getDeliveryStudent: async (req, res) => {
     try {
-      
-      const { id_user } = req.params
-      console.log(id_user)
-      const delivery = await Delivery.find({ id_user }).populate('competencies')
+      const delivery = await Delivery.find({ userID: req.params._id });
 
-      res.json(delivery)
+      res.json(delivery);
     } catch (err) {
-      return res.status(500).json({ msg: err.message })
+      return res.status(500).json({ msg: err.message });
     }
   },
-  // getAll X Brief
+  // getAll X activity (Project, Query or Workbook)
   getDeliveryProject: async (req, res) => {
     try {
-      const { id_Project } = req.body
-      const delivery = await Delivery.find({ id_Project })
+      const delivery = await Delivery.find({ activityID: req.params._id });
 
-      res.json(delivery)
+      res.json(delivery);
     } catch (err) {
-      return res.status(500).json({ msg: err.message })
+      return res.status(500).json({ msg: err.message });
     }
-  }
+  },
+};
 
-  
-}
-
-module.exports = controllerDelevery
+module.exports = controllerDelivery;

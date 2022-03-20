@@ -1,7 +1,7 @@
 import './Input.css';
 
-export const Input = ({ value = '', type = 'text', onChange = () => { }, placeholder = '',
-    name = '', label = '' }) => {
+export function Input ({ value = '', type = 'text', onChange = () => { }, placeholder = '',
+    name = '', label = '' }) {
     return (
         <div className='input-container'>
             <label  className='input-label'>{label}</label>

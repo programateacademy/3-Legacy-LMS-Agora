@@ -51,7 +51,7 @@ const userSchema = new Schema(
     },
     role: {
       type: Number,
-      default: 0, // 0 = Estudiante, 1= Formador, 2= Administrador, 3= super Administrador, pendiente= egresado,
+      default: 0,
     },
     programBootcamp: {
       type: String

@@ -8,7 +8,7 @@ import {
   fetchAllUsers,
   dispatchGetAllUsers,
 } from "../../../redux/actions/usersAction";
-import { Input } from "../../../componentes/input/Input";
+import { Input } from "../../../components/input/Input";
 import "./profile.css";
 const initialState = {
   name: "",

@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./titleSectionStyles.css";
 
-const TitleSectionWithButton = ({ name, btnName, url }) => {
+export function TitleSectionWithButton ({ name, btnName, url }) {
   return (
     <div>
       <div className="TitleSectionContainer">
@@ -20,5 +20,3 @@ const TitleSectionWithButton = ({ name, btnName, url }) => {
     </div>
   );
 };
-
-export default TitleSectionWithButton;

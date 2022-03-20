@@ -1,22 +1,13 @@
 const router = require('express').Router()
 const auth = require('../middleware/auth')
-
+const authTeacher = require('../middleware/authTeacher')
 const controllerDelivery = require('../controllers/delivery')
 
-
-
-router.post('/new-delivery', controllerDelivery.create)
-router.post('/new-delivery/:_id/text', controllerDelivery.addChat)
-router.post('/new-delivery/:_id/link',  controllerDelivery.addLink)
-router.get('/get-deliveries/:_id', controllerDelivery.getDeliveries)
-router.get('/get-delivery/:_id', controllerDelivery.getDelivery)
-router.get('/get-delivery-student/:_id', controllerDelivery.getDeliveryStudent)
-router.get('/get-delivery-project/:_id', controllerDelivery.getDeliveryProject)
-
-
-
-//router.patch('/update-delivery', controllerDeliverie.updateDeliverie)
-
-
+router.post('/new-delivery', auth, controllerDelivery.create)
+router.post('/new-delivery/:_id/text', auth, controllerDelivery.addChat)
+router.get('/get-deliveries-cohort/:_id', authTeacher, controllerDelivery.getDeliveries)
+router.get('/get-delivery/:_id', auth, controllerDelivery.getDelivery)
+router.get('/get-delivery-student/:_id', auth, controllerDelivery.getDeliveryStudent)
+router.get('/get-delivery-activity/:_id', authTeacher, controllerDelivery.getDeliveryProject)
 
 module.exports = router

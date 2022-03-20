@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose')
 
-const annuncieSchema = new Schema({
+const announcementSchema = new Schema({
 
   cohortID: {
     type: Schema.Types.ObjectId,
@@ -28,8 +28,8 @@ const annuncieSchema = new Schema({
   },{    
     timestamps:true
   });
-//despues lo revidsamos 
-annuncieSchema.set('toJSON', {
+
+announcementSchema.set('toJSON', {
   transform: (document, returnedObject) => {
     returnedObject.id = returnedObject._id;
     delete returnedObject._id
@@ -37,6 +37,6 @@ annuncieSchema.set('toJSON', {
   }
 })
 
-const Annuncie = model('Annuncie', annuncieSchema)
+const Announcement = model('Announcement', announcementSchema)
 
-module.exports = Annuncie
+module.exports = Announcement

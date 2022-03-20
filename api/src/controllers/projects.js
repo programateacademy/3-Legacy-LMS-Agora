@@ -1,62 +1,154 @@
-const Project = require('../db/models/Project')
-
-
+const Project = require("../db/models/Project");
 
 const controllerProject = {
-    create: async (req, res) => {
-        try{
-            const {name,picture,id_teacher,date,description,competenceFramework,competencies,resources,context,pedagogyModality,performance,evaluationModality,deliverables,tags,cohorte} = req.body
+  create: async (req, res) => {
+    try {
+      const {
+        cohortID,
+        userID,
+        titleProject,
+        pictureProject,
+        descriptionProject,
+        tagsProject,
+        competenceFramework,
+        competencies,
+        resources,
+        contextGeneral,
+        contextGeneralReq,
+        contextTechniciansReq,
+        contextExtrasReq,
+        pedagogyModality,
+        performanceCriterias,
+        evaluationModality,
+        deliverablesProject,
+        date,
+      } = req.body;
 
-            if(!name || !description || !context )
-                return res.status(400).json({msg: "Please fill in all fields."})
-            
-                const project = new Project({
-                    name,
-                    picture,
-                    id_teacher,
-                    date,
-                    description,
-                    competenceFramework,
-                    cohorte,
-                    competencies,
-                    resources,
-                    context,
-                    pedagogyModality,
-                    performance,
-                    evaluationModality,
-                    deliverables,
-                    tags
-                    
-                  })
-                
-                  const savedProject = await project.save()
-                
-                 res.json({msg: "Register success! project created "})
-        
-        } catch (err) {
-            return res.status(500).json({msg: err.message})
-        }
-    },
+      if (
+        !cohortID ||
+        !userID ||
+        !titleProject ||
+        !pictureProject ||
+        !descriptionProject ||
+        !tagsProject ||
+        !competenceFramework ||
+        !competencies ||
+        !resources ||
+        !contextGeneral ||
+        !contextGeneralReq ||
+        !contextTechniciansReq ||
+        !contextExtrasReq ||
+        !pedagogyModality ||
+        !performanceCriterias ||
+        !evaluationModality ||
+        !deliverablesProject ||
+        !date
+      )
+        return res.status(400).json({ msg: "Please fill in all fields." });
 
-    getProjects: async (req, res) => {
-        try {
-            const projects = await Project.find({})
-            res.json(projects)
-        } catch (err) {
-            return res.status(500).json({msg: err.message})
-        }
-    },
-    getOneProject: async (req, res) => {
-        try {
-            const {id}=req.params
-            const project = await Project.findById(id)
-            
-            res.json(project)
-        } catch (err) {
-            return res.status(500).json({msg: err.message})
-        }
-    },
-}
-    
+      const project = new Project({
+        cohortID,
+        userID,
+        titleProject,
+        pictureProject,
+        descriptionProject,
+        tagsProject,
+        competenceFramework,
+        competencies,
+        resources,
+        contextGeneral,
+        contextGeneralReq,
+        contextTechniciansReq,
+        contextExtrasReq,
+        pedagogyModality,
+        performanceCriterias,
+        evaluationModality,
+        deliverablesProject,
+        date,
+      });
 
-module.exports = controllerProject
+      const savedProject = await project.save();
+
+      res.json({ msg: "Register success! project created " });
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+
+  getProjects: async (req, res) => {
+    try {
+      const projects = await Project.find({ cohortID: req.params._id });
+      res.json(projects);
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+  getProject: async (req, res) => {
+    try {
+      const project = await Project.findById(req.params._id);
+
+      res.json(project);
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+  updateProject: async (req, res) => {
+    try {
+      const {
+        userID,
+        titleProject,
+        pictureProject,
+        descriptionProject,
+        tagsProject,
+        competenceFramework,
+        competencies,
+        resources,
+        contextGeneral,
+        contextGeneralReq,
+        contextTechniciansReq,
+        contextExtrasReq,
+        pedagogyModality,
+        performanceCriterias,
+        evaluationModality,
+        deliverablesProject,
+        date,
+      } = req.body;
+      await Project.findOneAndUpdate(
+        { _id: req.params._id },
+        {
+          userID,
+          titleProject,
+          pictureProject,
+          descriptionProject,
+          tagsProject,
+          competenceFramework,
+          competencies,
+          resources,
+          contextGeneral,
+          contextGeneralReq,
+          contextTechniciansReq,
+          contextExtrasReq,
+          pedagogyModality,
+          performanceCriterias,
+          evaluationModality,
+          deliverablesProject,
+          date,
+        }
+      );
+      res.json({ msg: "Updating Project successfully!" });
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+  deleteProject: async (req, res) => {
+    try {
+      await Project.findByIdAndDelete(req.params._id);
+
+      res.json({ msg: "Deleted successfully Project" });
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+};
+
+module.exports = controllerProject;

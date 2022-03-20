@@ -3,7 +3,7 @@ import logosWhite from '../../assets/logos/logosWhite.png'
 
 import './headerFooterStyles.css'
 
-export default function Footer () {
+export function Footer () {
   return (
     <>
       <footer>
