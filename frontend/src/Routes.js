@@ -6,9 +6,9 @@ import {Header} from "./components/header/Header";
 import {Error404} from "./components/404/Error404";
 import ForgotPassword from "./views/auth/forgotPassword/ForgotPassword";
 
-import { superAdminDashboard } from "./views/dashboard/superAdmin/superAdminDashboard";
-import { adminDashboard } from "./views/dashboard/admin/adminDashboard";
-import { teacherDashboard } from "./views/dashboard/teacher/teacherDashboard";
+import { SuperAdminDashboard } from "./views/dashboard/superAdmin/superAdminDashboard";
+import { AdminDashboard } from "./views/dashboard/admin/adminDashboard";
+import { TeacherDashboard } from "./views/dashboard/teacher/teacherDashboard";
 import Dashboard from "./views/dashboard/student/Dashboard";
 
 import Register from "./views/auth/register/Register";
@@ -50,9 +50,9 @@ export function RoutesApp() {
           <Route
             path="/"
             element={isLogged ? 
-              isSuperAdmin? <superAdminDashboard/>: 
-                isAdmin? <adminDashboard/>:
-                  isTeacher? <teacherDashboard/>:
+              isSuperAdmin? <SuperAdminDashboard/>: 
+                isAdmin? <AdminDashboard/>:
+                  isTeacher? <TeacherDashboard/> :
                     isStudent?  <Dashboard/> : <Error404 /> : <Login /> }
             exact
           />
