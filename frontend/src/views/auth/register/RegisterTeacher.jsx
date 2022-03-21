@@ -14,8 +14,7 @@ import { Input } from "../../../components/input/Input";
 import logo from "../../../assets/logos/programateLogo.png";
 
 const initialState = {
-  cohortID: "",
-  assignedCohortsID: "",
+  
   firstName: "",
   middleName: "",
   lastName: "",
@@ -23,7 +22,7 @@ const initialState = {
   documentType: "",
   documentNumber: "",
   contactNumber: "",
-  role: "",
+  role: 1,
   email: "",
   password: "",
   cf_password: "",
@@ -31,7 +30,7 @@ const initialState = {
   success: "",
 };
 
-function Register() {
+export function RegisterTeacher() {
   const [user, setUser] = useState(initialState);
   const auth = useSelector((state) => state.auth);
   const {
@@ -47,6 +46,7 @@ function Register() {
     cf_password,
     err,
     success,
+    role
   } = user;
 
   const handleChangeInput = (e) => {
@@ -99,7 +99,8 @@ function Register() {
 
     try {
       if (auth.isSuperAdmin) {
-        const res = await apiAgora.post("/api/register", {
+        const res = await apiAgora.post("/api/register_teacher", {
+          
           firstName,
           middleName,
           lastName,
@@ -108,25 +109,12 @@ function Register() {
           documentNumber,
           contactNumber,
           email,
-          password
+          password,
+          role
         });
         showSuccessMsg(success);
         setUser({ ...user, err: "", success: res.data.msg });
-      } else {
-        const res = await apiAgora.post("/api/register", {
-          firstName,
-          middleName,
-          lastName,
-          secondSurname,
-          documentType,
-          documentNumber,
-          contactNumber,
-          email,
-          password
-        });
-        showSuccessMsg(success);
-        setUser({ ...user, err: "", success: res.data.msg });
-      }
+      } 
     } catch (err) {
       showErrMsg(err.response.data.msg);
       err.response.data.msg &&
@@ -138,7 +126,7 @@ function Register() {
     <div className="container-register">
       <div className="container-register-page">
         <img className="logo-register" src={logo} alt="logo" />
-        <h2 className="title-register">Registro</h2>
+        <h2 className="title-register">Registro Formador</h2>
         {err && showErrMsg(err)}
         {success && showSuccessMsg(success)}
         <div className="register-form-content">
@@ -243,7 +231,7 @@ function Register() {
             </div>
 
             <button className="button-submit-register" type="submit">
-              CREAR CUENTA DE USUARIO
+              CREAR CUENTA DE FORMADOR
             </button>
             
           </form>
@@ -253,4 +241,4 @@ function Register() {
   );
 }
 
-export default Register;
+
