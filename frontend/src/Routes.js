@@ -91,7 +91,7 @@ export function RoutesApp() {
             element={isAdmin ? <EditUser /> : <Error404 />}
             exact
           />
-          <Route path="/create_user" element={<Register />} exact />
+          <Route path="/create_admin" element={isSuperAdmin? <Register/>:null} exact />
 
           <Route path="/crearProyecto" element={<AddProject />} />
           <Route path="/proyectos" element={<ShowProjects />} />
