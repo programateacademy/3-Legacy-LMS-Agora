@@ -1,6 +1,6 @@
 import React from "react";
 
-export function adminDashboard() {
+export function AdminDashboard() {
   return (
     <div>
       <h2>Tablero de AdminDashboard</h2>
