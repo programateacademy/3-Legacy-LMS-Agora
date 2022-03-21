@@ -1,0 +1,27 @@
+.userTable {
+  width: 1000px;
+  border-collapse:inherit;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.60);
+  margin: 0 auto;
+}
+.userTable th, .userTable td {
+  padding: 15px;
+  background-color: var(--colorGreenLight_31);
+  color: var(--colorBlack);
+}
+
+.userTable th {
+  text-align: left;
+}
+.userTable thead th {
+  background-color: var(--colorYellow_65);
+}
+
+
+.userTable tbody tr:hover {
+  background-color: var(--colorGreenLight);
+}
+.userTable tbody td {
+  position: relative;
+}
