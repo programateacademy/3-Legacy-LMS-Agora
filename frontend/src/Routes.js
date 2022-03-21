@@ -56,6 +56,13 @@ export function RoutesApp() {
                     isStudent?  <Dashboard/> : <Error404 /> : <Login /> }
             exact
           />
+
+          <Route
+            path="/login"
+            element={isLogged ? <Error404 /> : <Login /> }
+            exact
+          />
+          
           <Route path="*" element={<Error404 />} />
 
           //Logeado universal
