@@ -4,7 +4,7 @@ import {useParams} from 'react-router-dom'
 import { showErrMsg, showSuccessMsg } from '../../../utils/notification'
 import {isLength, isMatch} from '../../../utils/validation'
 import './ResetPassword.css'
-import { Input } from '../../components/input/Input'
+import { Input } from '../../../components/input/Input'
 import logo from '../../../assets/logos/programateLogo.png'
 const initialState = {
     password: '',

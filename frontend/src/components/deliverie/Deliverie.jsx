@@ -1,4 +1,4 @@
-import apiAgora from "../../../api"
+import apiAgora from "../../api"
 import { useEffect, useState } from "react"
 import { useParams } from 'react-router-dom'
 

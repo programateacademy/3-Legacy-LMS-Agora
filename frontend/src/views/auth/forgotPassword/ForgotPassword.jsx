@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import apiAgora from '../../../api'
 import {isEmail} from '../../../utils/validation'
 import { showErrMsg, showSuccessMsg } from '../../../utils/notification'
-import { Input } from '../../components/input/Input'
+import { Input } from '../../../components/input/Input'
 import logo from '../../../assets/logos/programateLogo.png'
 import './ForgotPassword.css'
 

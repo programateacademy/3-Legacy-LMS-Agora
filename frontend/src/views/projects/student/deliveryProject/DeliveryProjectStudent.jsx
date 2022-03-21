@@ -1,5 +1,5 @@
 import React from "react";
-import {TitleSection} from "../../../components/titles/TitleSection";
+import {TitleSection} from "../../../../components/titles/TitleSection";
 import AddLink from "./addLink/addLinks";
 import "./deliveryStyles.css";
 import { useSelector } from "react-redux";

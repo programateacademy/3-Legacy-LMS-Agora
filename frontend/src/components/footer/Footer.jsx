@@ -1,5 +1,5 @@
 import React from 'react'
-import logosWhite from '../../../assets/logos/logosWhite.png'
+import logosWhite from '../../assets/logos/logosWhite.png'
 
 import './headerFooterStyles.css'
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import {TitleSection} from "../../../components/titles/TitleSection";
+import {TitleSection} from "../../../../components/titles/TitleSection";
 import InputSend from "./addLink/InputSend";
 import ValidateCompetence from "./Validate/validateCompetencie/ValidateCompetence";
 import "./deliveryStyles.css";

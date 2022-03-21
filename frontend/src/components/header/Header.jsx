@@ -1,8 +1,8 @@
 import React from "react";
-import logo from "../../../assets/logos/programateLogo.png";
-import projectIcon from "../../../assets/icons/projects-icon.svg";
-import dashboardIcon from "../../../assets/icons/dashboard-icon.svg";
-import forumIcon from "../../../assets/icons/forum-icon.svg";
+import logo from "../../assets/logos/programateLogo.png";
+import projectIcon from "../../assets/icons/projects-icon.svg";
+import dashboardIcon from "../../assets/icons/dashboard-icon.svg";
+import forumIcon from "../../assets/icons/forum-icon.svg";
 import { Link } from "react-router-dom";
 import "./headerFooterStyles.css";
 import { Dropdown } from "react-bootstrap";

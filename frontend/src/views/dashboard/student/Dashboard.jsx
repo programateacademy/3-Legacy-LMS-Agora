@@ -1,5 +1,5 @@
-import {TitleSection} from '../../components/titles/TitleSection'
-import Chart from '../../components/charts/Chart'
+import {TitleSection} from '../../../components/titles/TitleSection'
+import Chart from '../../../components/charts/Chart'
 import React, { useEffect, useState } from 'react'
 import * as controllerDashBoard from './controllerDashBoard.jsx'
 import { useSelector } from 'react-redux'

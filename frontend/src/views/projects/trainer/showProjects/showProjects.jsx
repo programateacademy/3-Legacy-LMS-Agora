@@ -1,8 +1,8 @@
 import React from "react";
 import "./showProjects.css";
 import { Link } from "react-router-dom";
-import {TitleSection} from "../../../components/titles/TitleSection";
-import {TitleSectionWithButton} from "../../../components/titles/TitleSectionWitButton";
+import {TitleSection} from "../../../../components/titles/TitleSection";
+import {TitleSectionWithButton} from "../../../../components/titles/TitleSectionWitButton";
 import { useSelector } from 'react-redux'
 
 export const ShowProjects = () => {

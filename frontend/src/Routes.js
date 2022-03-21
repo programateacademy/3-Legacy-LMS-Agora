@@ -2,8 +2,8 @@ import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import Login from "./views/auth/login/Login";
-import {Header} from "./views/components/header/Header";
-import {Error404} from "./views/components/404/Error404";
+import {Header} from "./components/header/Header";
+import {Error404} from "./components/404/Error404";
 import ForgotPassword from "./views/auth/forgotPassword/ForgotPassword";
 
 import { superAdminDashboard } from "./views/dashboard/superAdmin/superAdminDashboard";
@@ -18,7 +18,7 @@ import CreateAnnouncement from "./views/announcements/CreateAnnouncement";
 import AddProject from "./views/projects/trainer/addProject/AddProject";
 import DeliveryProjectStudent from "./views/projects/student/deliveryProject/DeliveryProjectStudent";
 import DeliveryProjectTrainer from "./views/projects/trainer/deliveryProject/DeliveryProjectTrainer";
-import Deliverie from "./views/components/deliverie/Deliverie";
+import Deliverie from "./components/deliverie/Deliverie";
 import ShowProject from "./views/projects/trainer/showProject/ShowProject";
 import { ShowProjects } from "./views/projects/trainer/showProjects/showProjects";
 
@@ -27,7 +27,7 @@ import {Profile} from "./views/profile/Profile";
 import {EditUser} from "./views/profile/EditUser";
 
 import ActivationEmail from "./views/auth/activationEmail/ActivationEmail";
-import {Footer}from "./views/components/footer/Footer";
+import {Footer}from "./components/footer/Footer";
 
 export function RoutesApp() {
   const auth = useSelector((state) => state.auth);
@@ -72,6 +72,7 @@ export function RoutesApp() {
           
           //isSuperAdmin
           <Route path="/create_user" element={<Register />} exact />
+         
           //isAdmin
 
           //isTeacher

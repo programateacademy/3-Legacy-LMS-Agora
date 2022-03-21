@@ -5,7 +5,7 @@ import apiAgora from '../../../api'
 import { showErrMsg, showSuccessMsg } from '../../../utils/notification'
 import { isEmpty, isEmail, isLength, isMatch,isLengthcontactNumber } from '../../../utils/validation'
 import './Register.css'
-import { Input } from '../../components/input/Input'
+import { Input } from '../../../components/input/Input'
 import logo from '../../../assets/logos/programateLogo.png'
 
 const initialState = {
