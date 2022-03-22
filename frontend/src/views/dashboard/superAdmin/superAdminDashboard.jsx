@@ -7,11 +7,14 @@ import apiAgora from '../../../api'
 import { FormButton } from "../../../components/buttons/FormButton/formButton";
 
 export function SuperAdminDashboard() {
+  const auth = useSelector((state) => state.auth);
+  const id_user = auth.user.id;
   const [admins, setAdmins] = useState([])
 
   const fetchAdmins = async () => {
-    const res = await apiAgora.get('/api/all_admin')
-    console.log(res)
+    const res = await apiAgora.get('/api/all_admin', {
+      headers: {Authorization: id_user}
+  })
     setAdmins (res.data)
   }
   useEffect( () => {
