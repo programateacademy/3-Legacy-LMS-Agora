@@ -13,7 +13,8 @@ export function Table(props) {
 				<th>Apellidos</th>
 				<th>Correo</th>
 				<th>Teléfono</th>
-				<th></th>
+				<th>Editar</th>
+				<th>Eliminar</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -24,7 +25,8 @@ export function Table(props) {
 				<td>{admin.lastName + " " + admin.secondSurname}</td>
 				<td>{admin.email}</td>
 				<td>{admin.contactNumber}</td>
-				<td><FiEdit/><MdDeleteForever/></td>
+				<td><button className={styles.edit}><FiEdit/></button></td>
+				<td><button className={styles.delete}><MdDeleteForever/></button></td>
 			</tr>
 				)
 			})}
