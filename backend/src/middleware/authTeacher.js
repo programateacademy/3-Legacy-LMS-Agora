@@ -2,7 +2,8 @@ const User = require('../db/models/user')
 
 const authTeacher = async (req, res, next) => {
     try {
-        const user = await User.findOne({_id: req.user.id})
+        const token = req.header("Authorization");
+        const user = await User.findOne({ _id: token });
 
         if(user.role !== 1) 
             return res.status(500).json({msg: "Admin resources access denied."})
