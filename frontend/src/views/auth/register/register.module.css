@@ -10,32 +10,35 @@ button {
   outline: none !important;
   cursor: pointer !important;
 }
-.container-register {
+.container_register {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #fff9da;
+  background-color: #fff;
+  
 }
-.container-register-page {
-  height: 95%;
+.container_register_page {
+  height: 80%;  /*este noesta funcionando*/
   max-width: 776px;
-  border-radius: 14px;
+  border-radius: 10px;
   width: 100%;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.25);
   padding: 10px;
   background-color: #fff;
+  
 }
-.register-form {
+
+.register_form {
   margin-top: 30px;
 }
-.register-form-content {
+.register_form_content {
   margin: 30px;
   display: flex;
   flex-direction: column;
 }
-.container-register-input {
+.container_register_input {
   width: 100%;
   height: 10%;
   gap: 50px;
@@ -43,17 +46,17 @@ button {
   justify-content: center;
   align-items: center;
 }
-.logo-register {
+.logo_register {
   width: 34%;
   display: block;
   margin: 15px auto;
 }
-.title-register {
+.title_register {
   margin-top: 15px;
   font-size: 20px;
   text-align: center;
 }
-.button-submit-photo {
+.button_submit_photo {
   font-weight: bold;
   background-color: #ffd808;
   border-radius: 10px;
@@ -64,79 +67,112 @@ button {
   cursor: pointer;
   display: block;
 }
-.button-submit-register {
+.button_submit_register {
   font-weight: bold;
   background-color: #ffd808;
   margin: 30px auto;
   padding: 10px;
   width: 50%;
   display: block;
+  border-radius: 10px;
   border: none !important;
   cursor: pointer !important;
 }
-.link-register {
+.link_register {
   font-size: 17px;
   text-align: center;
   color: #000;
   font-weight: 600;
 }
-.container-register-page a:hover{
+.container_register_page a:hover{
   color: #ffd808;
+}
+
+.form_select{
+  height:35px;
+  padding-right:55px;
+ border-radius: 10px;
+}
+.input_label{
+  font-size: 14px;
+  margin-right: 40px;
+}
+.button_submit_register:hover{
+  background-color: var(--colorGreenLight);
+}
+.form_select:hover{
+  border: 2px solid #ffd808;
 }
 
 /* -------------MEDIA QUERIES--------------- */
 @media (max-width: 1059px) {
-  .container-register-page {
+  .container_register_page {
     height: 99%;
   }
-  .title-register,
-  .link-register {
+  .title_register,
+  .link_register {
     font-size: 15px;
   }
 }
 @media (max-width: 700px) {
-  .logo-register {
+  .logo_register {
     width: 50%;
   }
 
-  .container-register-page {
+  .container_register_page {
     width: 80%;
     margin: 20px 0;
   }
-  .register-form-content {
+  .register_form_content {
     margin: 12px;
   }
 
-  .container-register {
+  .container_register {
     height: 100%;
   }
-  .container-register-input {
+  .container_register_input {
     gap: 0;
     height: 100%;
     display: flex;
     flex-direction: column;
   }
-  .button-submit-photo {
+  .button_submit_photo {
     margin-top: 8px;
     padding: 6px;
     width: 30%;
   }
+  .form_select{
+    margin-bottom: 15px;
+  }
 }
 /* -------------MEDIA QUERIES--------------- */
 @media (max-width: 600px) {
-  .title-register,
-  .link-register {
+  .title_register,
+  .link_register {
     font-size: 14px;
   }
 }
 /* -------------MEDIA QUERIES--------------- */
+@media (max-width: 460px) {
+  .form_select{
+    
+    padding-right: 10px;
+   
+  }
+}
+/* -------------MEDIA QUERIES--------------- */
 @media (max-width: 370px) {
-  .button-submit-photo {
+  .button_submit_photo {
     font-size: 15px;
     margin-top: 8px;
     width: 30%;
   }
-  .button-submit-register {
+  .button_submit_register {
     font-size: 13px;
+  }
+  .form_select{
+    
+    width: 250px;
+   
   }
 }

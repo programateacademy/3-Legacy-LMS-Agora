@@ -9,7 +9,7 @@ import {
   isMatch,
   isLengthcontactNumber,
 } from "../../../utils/validation";
-import "./Register.css";
+import styles from"./register.module.css";
 import { Input } from "../../../components/input/Input";
 import logo from "../../../assets/logos/programateLogo.png";
 
@@ -123,17 +123,17 @@ export function RegisterTeacher() {
   };
 
   return (
-    <div className="container-register">
-      <div className="container-register-page">
-        <img className="logo-register" src={logo} alt="logo" />
-        <h2 className="title-register">Registro Formador</h2>
+    <div className={styles.container_register}>
+      <div className={styles.container_register_page}>
+        <img className={styles.logo_register} src={logo} alt="logo" />
+        <h2 className={styles.title_register}>Registro Formador</h2>
         {err && showErrMsg(err)}
         {success && showSuccessMsg(success)}
-        <div className="register-form-content">
-          <form className="register-form" onSubmit={handleSubmit}>
-            <div className="container-register-input">
+        <div className={styles.register_form_content}>
+          <form className={styles.register_form} onSubmit={handleSubmit}>
+            <div className={styles.container_register_input}>
               <Input
-                className="input-register"
+                className={styles.input_register}
                 label="Primer nombre"
                 placeholder="Primer Nombre"
                 name="firstName"
@@ -141,7 +141,7 @@ export function RegisterTeacher() {
                 onChange={handleChangeInput}
               />
               <Input
-                className="input-register"
+                className={styles.input_register}
                 label="Segundo nombre"
                 placeholder="Segundo nombre"
                 name="middleName"
@@ -149,9 +149,9 @@ export function RegisterTeacher() {
                 onChange={handleChangeInput}
               />
             </div>
-            <div className="container-register-input">
+            <div className={styles.container_register_input}>
               <Input
-                className="input-register"
+                className={styles.input_register}
                 label="Primer apellido"
                 placeholder="Primer apellido"
                 name="lastName"
@@ -159,7 +159,7 @@ export function RegisterTeacher() {
                 onChange={handleChangeInput}
               />
               <Input
-                className="input-register"
+                className={styles.input_register}
                 label="Segundo apellido"
                 placeholder="Segundo apellido"
                 name="secondSurname"
@@ -167,11 +167,11 @@ export function RegisterTeacher() {
                 onChange={handleChangeInput}
               />
             </div>
-            <div className="container-register-input">
-              <div className="input-container">
-                <label className="input-label">Tipo de Documento</label>
+            <div className={styles.container_register_input}>
+              <div className={styles.input_container}>
+                <label className={styles.input_label}>Tipo de Documento</label>
                 <select
-                  className="form-select"
+                  className={styles.form_select}
                   aria-label="Default select example"
                   name="documentType" value={documentType} onChange={handleChangeInput}>
                   <option selected>Seleccione...</option>
@@ -183,7 +183,7 @@ export function RegisterTeacher() {
                 </select>
               </div>
               <Input
-                className="input-register"
+                className={styles.input_register}
                 label="Número de Documento"
                 placeholder="Número de Documento"
                 name="documentNumber"
@@ -191,9 +191,9 @@ export function RegisterTeacher() {
                 onChange={handleChangeInput}
               />
             </div>
-            <div className="container-register-input">
+            <div className={styles.container_register_input}>
               <Input
-                className="input-register"
+                className={styles.input_register}
                 label="Correo"
                 placeholder="email@educamas.co"
                 name="email"
@@ -201,7 +201,7 @@ export function RegisterTeacher() {
                 onChange={handleChangeInput}
               />
               <Input
-                className="input-register"
+                className={styles.input_register}
                 label="Telefono"
                 placeholder="300 000 00 00"
                 name="contactNumber"
@@ -209,9 +209,9 @@ export function RegisterTeacher() {
                 onChange={handleChangeInput}
               />
             </div>
-            <div className="container-register-input">
+            <div className={styles.container_register_input}>
               <Input
-                className="input-register"
+                className={styles.input_register}
                 type="password"
                 label="Contraseña"
                 placeholder="******"
@@ -220,7 +220,7 @@ export function RegisterTeacher() {
                 onChange={handleChangeInput}
               />
               <Input
-                className="input-register"
+                className={styles.input_register}
                 type="password"
                 label="Confirmar contraseña"
                 placeholder="******"
@@ -230,7 +230,7 @@ export function RegisterTeacher() {
               />
             </div>
 
-            <button className="button-submit-register" type="submit">
+            <button className={styles.button_submit_register} type="submit">
               CREAR CUENTA DE FORMADOR
             </button>
             
