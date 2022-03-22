@@ -1,0 +1,54 @@
+.userTable {
+  width: 1000px;
+  border-collapse:inherit;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.60);
+  margin: 0 auto;
+  text-align: center;
+}
+.userTable th, .userTable td {
+  padding: 15px;
+  background-color: var(--colorGray);
+  color: var(--colorBlack);
+}
+
+.userTable th {
+  text-align: left;
+}
+.userTable thead th {
+  background-color: var(--colorYellow);
+  text-align: center;
+}
+
+.userTable tbody tr:hover {
+  background-color: var(--colorGreenLight);
+}
+
+.userTable tbody td {
+  position: relative;
+}
+
+
+.edit {
+  background-color: transparent;
+  text-align: center;
+  font-size: 20px;
+}
+
+.edit:hover {
+  color: var(--colorGreenLight);
+  transition: 0.3s;
+}
+
+
+
+.delete {
+  background-color: transparent;
+  text-align: center;
+  font-size: 25px;
+}
+
+.delete:hover {
+  color: red;
+  transition: 0.3s;
+}
