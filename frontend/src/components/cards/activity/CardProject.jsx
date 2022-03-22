@@ -1,6 +1,5 @@
 import React from "react";
 import styles from './styles.module.css';
-import {BiDotsHorizontalRounded} from 'react-icons/bi';
 
 export function CardProject() {
   return (
@@ -18,9 +17,20 @@ export function CardProject() {
           </div>
         </div>
         <p className={styles.card__description}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
-		<a href="#" className={styles.dots}>
-  		<div className={styles.dot}></div>
-		</a>
+		{/* <a href="#" className={styles.dots}>
+  		<div className={styles.dot}>
+        </div>
+		</a> */}
+    <details>
+  <summary></summary>
+  <nav class={styles.menu}>
+    <a href="#link">Home</a>
+    <a href="#link">Work</a>
+    <a href="#link">Links</a>
+    <a href="#link">Contact</a>
+    <a href="#link">About</a>
+  </nav>
+</details>
 	  </div>
     </a>
   </li> 

@@ -3,7 +3,8 @@ import styles from './styles.module.css';
 import {FiEdit} from "react-icons/fi";
 import {MdDeleteForever} from "react-icons/md";
 
-export function Table() {
+export function Table(props) {
+	const {tableList} = props
   return (
 	<table className={styles.userTable}>
 		<thead>
@@ -16,34 +17,18 @@ export function Table() {
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td>Cell 1</td>
-				<td>Cell 2</td>
-				<td>Cell 3</td>
-				<td>Cell 4</td>
+			{tableList.map((admin) => {
+				return(
+					<tr>
+				<td>{admin.firstName + " " + admin.middleName}</td>
+				<td>{admin.lastName + " " + admin.secondSurname}</td>
+				<td>{admin.email}</td>
+				<td>{admin.contactNumber}</td>
 				<td><FiEdit/><MdDeleteForever/></td>
 			</tr>
-			<tr>
-				<td>Cell 1</td>
-				<td>Cell 2</td>
-				<td>Cell 3</td>
-				<td>Cell 4</td>
-				<td><FiEdit/><MdDeleteForever/></td>
-			</tr>
-			<tr>
-				<td>Cell 1</td>
-				<td>Cell 2</td>
-				<td>Cell 3</td>
-				<td>Cell 4</td>
-				<td><FiEdit/><MdDeleteForever/></td>
-			</tr>
-			<tr>
-				<td>Cell 1</td>
-				<td>Cell 2</td>
-				<td>Cell 3</td>
-				<td>Cell 4</td>
-				<td><FiEdit/><MdDeleteForever/></td>
-			</tr>
+				)
+			})}
+			
 		</tbody>
 	</table>
   );

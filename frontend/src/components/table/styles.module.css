@@ -7,7 +7,7 @@
 }
 .userTable th, .userTable td {
   padding: 15px;
-  background-color: var(--colorGreenLight_31);
+  background-color: var(--colorGray);
   color: var(--colorBlack);
 }
 

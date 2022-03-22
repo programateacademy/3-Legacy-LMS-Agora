@@ -20,7 +20,7 @@ h1{
 h2,h3{
   font-family: 'Gilroy-Light';}
 body {
-  background: var(--colorBackground);
+  background: var(--colorWhite);
 }
 
 i {
