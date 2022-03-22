@@ -4,6 +4,7 @@ import {Table} from '../../../components/table'
 import { useState } from "react";
 import { useEffect } from "react";
 import apiAgora from '../../../api'
+import { FormButton } from "../../../components/buttons/FormButton/formButton";
 
 export function SuperAdminDashboard() {
   const [admins, setAdmins] = useState([])
@@ -22,6 +23,7 @@ export function SuperAdminDashboard() {
         <h1>Administradores</h1>
         <Table tableList={admins}/>
 </div>
+    <FormButton title="Crear administrador" link="/"/>
     </div>
   );
 }
