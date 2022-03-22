@@ -98,10 +98,10 @@ const sendEmail = (userName, to, url, action) => {
             <p><span style="font-weight:bold">Estimado/a ${userName}</span><br><br> 
             Para completar su registro en Ágora verifique su correo electrónico haciendo clic en el siguiente botón
             </p>
-            <div style="display:flex; justify-content:center; margin:auto" > <a href=${url} style="background: #FFCC02; text-decoration: none; border-radius:10px; color: black; justify-content:center; padding: 10px 20px; margin: auto;">Validar correo</a></div>
-            <p>Si el botón no funciona, puede dar click en el siguiente link :</p>
+            <div style="display:flex; justify-content:center; margin:auto" > <a href=${url} style="background: #FFCC02; text-decoration: none; border-radius:10px; color: black; justify-content:center; padding: 10px 20px; margin: auto;font-weight:bold">Verificar correo electrónico</a></div>
+            <p>Si el botón no funciona, puede dar clic en el siguiente link :</p>
             <div>${url}</div>
-            <p>Este enlace caducará en 24 horas.</p>
+            <p>Tenga en cuenta que este enlace caducará en 24 horas.</p>
             <img src="https://drive.google.com/uc?export=view&id=11c9kZxdoQd8Qa6jZNEwTMTLSfUd1fu5n" style="max-width:700px; margin:auto" alt="Prográmate Academy"/>
             </div>
 
@@ -120,12 +120,12 @@ const sendEmail = (userName, to, url, action) => {
           <p>Hemos recibido una solicitud para restablecer su contraseña en el sistema de gestión de aprendizaje Ágora de Prográmate Academy. <br>Presione el botón para continuar con el proceso.
           </p>
           
-          <div style="display:flex; justify-content:center; margin:auto" > <a href=${url} style="background: #FFCC02; text-decoration: none; border-radius:10px; color: black; justify-content:center; padding: 10px 20px; margin: auto;">Restablecer contraseña</a></div>
+          <div style="display:flex; justify-content:center; margin:auto" > <a href=${url} style="background: #FFCC02; text-decoration: none; border-radius:10px; color: black; justify-content:center; padding: 10px 20px; margin: auto; font-weight:bold">Restablecer contraseña</a></div>
       
           <p>Si el botón no funciona, puede dar click en el siguiente link :</p>
       
           <div>${url}</div>
-          <p>Este enlace caducará en 24 horas.</p>
+          <p> Tenga en cuenta que este enlace caducará en 24 horas.</p>
           <img style="max-width:700px; margin:auto" src="https://drive.google.com/uc?export=view&id=11c9kZxdoQd8Qa6jZNEwTMTLSfUd1fu5n" alt="Prográmate Academy"/>
           </div>
         `,
