@@ -1,10 +1,10 @@
 import React from "react";
 import styles from "./styles.module.css"
-import {Table} from '../../../components/table'
+import { Table } from '../../../components/table'
 import { useState } from "react";
 import { useEffect } from "react";
 import apiAgora from '../../../api'
-import { FormButton } from "../../../components/buttons/FormButton/formButton";
+import { Button } from "../../../components/buttons/Button/Button";
 import { useSelector } from "react-redux";
 
 export function SuperAdminDashboard() {
@@ -14,20 +14,20 @@ export function SuperAdminDashboard() {
 
   const fetchAdmins = async () => {
     const res = await apiAgora.get('/api/all_admin', {
-      headers: {Authorization: id_user}
-  })
-    setAdmins (res.data)
+      headers: { Authorization: id_user }
+    })
+    setAdmins(res.data)
   }
-  useEffect( () => {
+  useEffect(() => {
     fetchAdmins()
   }, [])
   return (
-    <div className={styles.example}>
-      <div class="container">
+    <div className={styles.container}>
         <h1>Administradores</h1>
-        <Table tableList={admins}/>
-</div>
-    <FormButton title="Crear administrador" link="/"/>
+        <Table tableList={admins} />
+        <div className={styles.buttonContainer}>
+        <Button title="Crear administrador" link="/" />
+          </div>
     </div>
   );
 }

@@ -1,16 +1,22 @@
-.example h1 {
+
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.container h1 {
     text-align: center;
     padding-top: 20px;
     padding-bottom: 25px;
 }
-.container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+
+.buttonContainer {
+  display: flex;
+  align-self: flex-end;
+  margin-right: 85px;
+  margin-top: 7px;
 }
 
-.example {
-  display: flex;
-  flex-direction: column;
-}
+
+
