@@ -1,16 +1,19 @@
 import { Link } from "react-router-dom";
 import { Dropdown } from "react-bootstrap";
+import { TiUser } from "react-icons/ti";
 import { useSelector } from "react-redux";
 
 const UserLink = ({ user, handleLogout }) => {
   const auth = useSelector((state) => state.auth);
-  const { isTeacher, isAdmin } = auth;
+  const { isStudent } = auth;
 
   return (
     <>
       <div className="container-main-avatarContainer">
         <div className="avatarContainer">
-          <img className="img-avatar" src={user.avatar} alt="Avatar" />
+          <div>
+            <TiUser size={30} />
+          </div>
           <p>{user.name}</p>
         </div>
         <div>
@@ -20,26 +23,17 @@ const UserLink = ({ user, handleLogout }) => {
               id="dropdown-basic"
             ></Dropdown.Toggle>
             <Dropdown.Menu>
-            <Dropdown.Item>
-            {isAdmin || isTeacher ? (
-                <Link style={{color:'black'}} to="/badges">Insignias</Link>
-                ) : (
-                  ''
-                )}
-              </Dropdown.Item>
-              <Dropdown.Item>
-              
-                <Link style={{color:'black'}} to="/profile">Perfil</Link>
-                
-              </Dropdown.Item>
-             
-              <Dropdown.Item>
-              
-                <Link style={{color:'black'}} to="/" onClick={handleLogout}>
-                  Salir
+              {isStudent ? (
+                <Link style={{ color: "black" }} to="/badges">
+                  <Dropdown.Item>Perfil</Dropdown.Item>
                 </Link>
-              
-              </Dropdown.Item>
+              ) : null}
+              <Link style={{ color: "black" }} to="/configuration">
+                <Dropdown.Item>Configuración</Dropdown.Item>
+              </Link>
+              <Link style={{ color: "black" }} to="/" onClick={handleLogout}>
+                <Dropdown.Item>Salir</Dropdown.Item>
+              </Link>
             </Dropdown.Menu>
           </Dropdown>
         </div>

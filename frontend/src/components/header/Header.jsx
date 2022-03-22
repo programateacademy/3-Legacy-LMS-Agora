@@ -1,14 +1,14 @@
 import React from "react";
-import logo from "../../assets/logos/programateLogo.png";
-import projectIcon from "../../assets/icons/projects-icon.svg";
-import dashboardIcon from "../../assets/icons/dashboard-icon.svg";
-import forumIcon from "../../assets/icons/forum-icon.svg";
+import logo from "../../assets/logos/programate-academy-color-.png";
+
 import { Link } from "react-router-dom";
-import "./headerFooterStyles.css";
+
 import { Dropdown } from "react-bootstrap";
 import { useSelector } from "react-redux";
+
 import UserLink from "./UserLink";
 import "./UserLink.css";
+import style from "./Header.module.css";
 
 export function Header() {
   const auth = useSelector((state) => state.auth);
@@ -29,14 +29,14 @@ export function Header() {
   return (
     <>
       <header>
-        <div className="headerContainer">
+        <div className={style.headerContainer}>
           {isLogged ? (
-            <div className="hamburguerMenu">
+            <div className={style.hamburguerMenu}>
               <Dropdown>
                 <Dropdown.Toggle
                   variant="bg-transparent"
-                  id="dropdown-basic"
-                  className="caret-off"
+                  id={style.dropdown_basic}
+                  className={style.caret_off}
                 >
                   <i style={{ margin: "0" }} className="fas fa-bars"></i>
                 </Dropdown.Toggle>
@@ -44,25 +44,22 @@ export function Header() {
                 <Dropdown.Menu>
                   <Dropdown.Item>
                     <span>
-                      <img src={dashboardIcon} alt="dashboardIcon" />
                     </span>
-                    <Link className="linksHeader" to="/">
+                    <Link className={style.linksHeader} to="/">
                       Dashboard
                     </Link>
                   </Dropdown.Item>
                   <Dropdown.Item>
                     <span>
-                      <img src={projectIcon} alt="projectIcon" />
                     </span>
-                    <Link className="linksHeader" to="/proyectos">
+                    <Link className={style.linksHeader} to="/proyectos">
                       Proyectos
                     </Link>
                   </Dropdown.Item>
                   <Dropdown.Item>
                     <span>
-                      <img src={forumIcon} alt="forumIcon" />
                     </span>
-                    <Link className="linksHeader" to="/anuncios">
+                    <Link className={style.linksHeader} to="/anuncios">
                       Anuncios
                     </Link>
                   </Dropdown.Item>
@@ -72,39 +69,13 @@ export function Header() {
           ) : (
             ""
           )}
-
-          <img className="Logo" src={logo} alt="Prográmate-logotipo" />
-          {isLogged ? (
-            <div className="iconsContainer">
-              <div>
-                <img src={dashboardIcon} alt="dashboardIcon" />
-                <Link className="linksHeader" to="/">
-                  Dashboard
-                </Link>
-              </div>
-
-              <div>
-                <img src={projectIcon} alt="projectIcon" />
-                <Link className="linksHeader" to="/proyectos">
-                  Proyectos
-                </Link>
-              </div>
-
-              <div>
-                <img src={forumIcon} alt="forumIcon" />
-                <Link className="linksHeader" to="/anuncios">
-                  Anuncios
-                </Link>
-              </div>
-            </div>
-          ) : (
-            ""
-          )}
-
+          <span className={style.Logo}>
+          <img src={logo} alt="Prográmate-logotipo" />
+          </span>
           {isLogged ? (
             <UserLink user={user} handleLogout={handleLogout} />
           ) : (
-            <Link  className="link-singIn" to="/login">
+            <Link className={style.link_singIn} to="/login">
               <i
                 className="fas fa-user icon-signIn"
                 style={{ marginRight: "1rem" }}
@@ -114,9 +85,6 @@ export function Header() {
           )}
         </div>
       </header>
-
-
-
     </>
   );
 }
