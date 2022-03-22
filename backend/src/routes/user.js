@@ -16,7 +16,7 @@ router.get("/info", auth, controllerUser.getUserInfo);
 router.post("/register_admin", controllerUser.register);
 router.post("/register_techer", controllerUser.register);
 router.post("/register_student", controllerUser.register);
-router.get("/all_admin", controllerUser.getAdminAllInfo);
+router.get("/all_admin", authSuperAdmin, controllerUser.getAdminAllInfo);
 
 router.get("/all_students/:_id", controllerUser.getUsersAllStudents);
 router.delete("/delete/:id", controllerUser.deleteUser);
