@@ -8,7 +8,7 @@ import ForgotPassword from "./views/auth/forgotPassword/ForgotPassword";
 import { MenuDashboard } from "./components/menu/MenuDashboard";
 
 import { SuperAdminDashboard } from "./views/dashboard/superAdmin/SuperAdminDashboard";
-import { AdminDashboard } from "./views/dashboard/admin/adminDashboard";
+import { AdminDashboard } from "./views/dashboard/admin/AdminDashboard";
 import { Cohort } from "./views/cohort/Cohort";
 import { Dashboard } from "./views/dashboard/Dashboard";
 
@@ -36,8 +36,6 @@ import { Footer } from "./components/footer/Footer";
 export function RoutesApp() {
   const auth = useSelector((state) => state.auth);
   const { isLogged, isAdmin, isSuperAdmin, isTeacher, isStudent } = auth;
-
-
 
   return (
     <>

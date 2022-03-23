@@ -155,7 +155,7 @@ const controllerUser = {
         });
       }
 
-      const refresh_token = createRefreshToken({ id: user._id });
+      const refresh_token = createRefreshToken({ id: user.id });
 
       res.send({
         email: user.email,
@@ -175,7 +175,7 @@ const controllerUser = {
       jwt.verify(rf_token, process.env.REFRESH_TOKEN_SECRET, (err, user) => {
         if (err) return res.status(400).json({ msg: "Ahora puede ingresar!!" });
 
-        const access_token = createAccessToken({ id: user._id });
+        const access_token = createAccessToken({ id: user.id });
         res.json({ access_token });
       });
     } catch (err) {
@@ -191,7 +191,7 @@ const controllerUser = {
           .status(400)
           .json({ msg: "Este correo electronico no esta registrado." });
 
-      const access_token = createAccessToken({ id: user._id });
+      const access_token = createAccessToken({ id: user.id });
       const url = `${CLIENT_URL}/user/reset/${access_token}`;
 
       sendMail(user.firstName, email, url, "resetPassword");
@@ -206,7 +206,7 @@ const controllerUser = {
       const passwordHash = await bcrypt.hash(password, 12);
 
       await User.findOneAndUpdate(
-        { _id: req.user._id },
+        { _id: req.user.id },
         {
           passwordHash: passwordHash,
         }
@@ -219,8 +219,8 @@ const controllerUser = {
   },
   getUserInfo: async (req, res) => {
     try {
-      const user = await User.findById(req.user._id).select("-password");
-
+      const user = await User.findById(req.user.id).select("-password");
+      console.log(user)
       res.json(user);
     } catch (err) {
       return res.status(500).json({ msg: err.message });
@@ -248,14 +248,14 @@ const controllerUser = {
   },
   deleteUser: async (req, res) => {
     try {
-      await User.findByIdAndDelete(req.params._id);
+      await User.findByIdAndDelete(req.params.id);
 
       res.json({ msg: "eliminacion exitosa!" });
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }
   },
-  updateUser: async (req, res) => {
+  /* updateUser: async (req, res) => {
     try {
       const{
         firstName,
@@ -285,7 +285,7 @@ const controllerUser = {
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }
-  }
+  } */
 };
 
 const validateEmail = (email) => {
