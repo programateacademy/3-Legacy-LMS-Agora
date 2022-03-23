@@ -6,8 +6,8 @@ import {Header} from "./components/header/Header";
 import {Error404} from "./components/404/Error404";
 import ForgotPassword from "./views/auth/forgotPassword/ForgotPassword";
 
-import { SuperAdminDashboard } from "./views/dashboard/superAdmin/superAdminDashboard";
-import { AdminDashboard } from "./views/dashboard/admin/AdminDashboard";
+import { SuperAdminDashboard } from "./views/dashboard/superAdmin/SuperAdminDashboard";
+import { AdminDashboard } from "./views/dashboard/admin/adminDashboard";
 import { TeacherDashboard } from "./views/dashboard/teacher/teacherDashboard";
 import Dashboard from "./views/dashboard/student/Dashboard";
 

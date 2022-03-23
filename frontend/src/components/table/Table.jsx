@@ -1,5 +1,5 @@
 import React from "react";
-import styles from './styles.module.css';
+import styles from './Table.module.css';
 import {FiEdit} from "react-icons/fi";
 import {MdDeleteForever} from "react-icons/md";
 
