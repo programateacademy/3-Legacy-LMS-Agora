@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./styles.module.css"
+import styles from "./CardCohorte.module.css"
 {/*
 // SOCIAL PANEL JS
 const floatingBtn = document.querySelector('.floatingBtn');
