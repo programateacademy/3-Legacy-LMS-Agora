@@ -3,7 +3,14 @@ import { useSelector } from "react-redux";
 
 import { Link } from "react-router-dom";
 import style from "./MenuDashboard.module.css";
-import { BsFillFileBarGraphFill } from "react-icons/bs";
+import {
+  BsFillFileCodeFill,
+  BsFileRichtextFill,
+} from "react-icons/bs";
+import { AiOutlineFundProjectionScreen, AiFillProject } from "react-icons/ai";
+import { MdAnnouncement } from "react-icons/md";
+import { FiFileText } from "react-icons/fi";
+import { RiFileUserFill } from "react-icons/ri";
 import { IconContext } from "react-icons";
 
 export function MenuDashboard() {
@@ -16,45 +23,45 @@ export function MenuDashboard() {
   const navLinks = [
     {
       text: "Estadísticas",
-      route: "/anuncios",
-      icon: <BsFillFileBarGraphFill className={style.icon} />,
+      route: "/estadisitica",
+      icon: <AiOutlineFundProjectionScreen className={style.icon} />,
     },
     {
       text: "Proyectos",
       route: "#about",
-      icon: <BsFillFileBarGraphFill className={style.icon} />,
+      icon: <AiFillProject className={style.icon} />,
     },
     {
       text: "Workbooks",
       route: "#projects",
-      icon: <BsFillFileBarGraphFill className={style.icon} />,
+      icon: <BsFillFileCodeFill className={style.icon} />,
     },
     {
       text: "Consultas",
       route: "#studies",
-      icon: <BsFillFileBarGraphFill className={style.icon} />,
+      icon: <FiFileText className={style.icon} />,
     },
     {
       text: "Material de apoyo",
       route: "#skills",
-      icon: <BsFillFileBarGraphFill className={style.icon} />,
+      icon: <BsFileRichtextFill className={style.icon} />,
     },
     {
       text: "Anuncios",
       route: "#contact",
-      icon: <BsFillFileBarGraphFill className={style.icon} />,
+      icon: <MdAnnouncement className={style.icon} />,
     },
     {
       text: "Estudiante",
       route: "#contact",
-      icon: <BsFillFileBarGraphFill className={style.icon} />,
+      icon: <RiFileUserFill className={style.icon} />,
     },
   ];
   let list = [];
   if (isTeacher) {
     list = navLinks;
   } else {
-    list = navLinks.slice(0, navLinks.length-1);
+    list = navLinks.slice(0, navLinks.length - 1);
   }
   return (
     <div>

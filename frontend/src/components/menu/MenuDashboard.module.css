@@ -1,10 +1,13 @@
 .nav{
   display: flex;
   width: 250px;
-  height: 100vh;
+  height: calc(100vh - 70px);
   background-color: black;
 }
 .ul{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 100%;
 }
 .link{
@@ -25,9 +28,7 @@
   width: 100%;
 }
 .link:hover{
-  padding: 10px;
   background-color: white;
-  padding-left: 25px;
 }
 .nav_text{
   color: var(--colorYellow);

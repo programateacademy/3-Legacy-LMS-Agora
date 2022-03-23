@@ -10,18 +10,19 @@ import { MenuDashboard } from "./components/menu/MenuDashboard";
 import { SuperAdminDashboard } from "./views/dashboard/superAdmin/superAdminDashboard";
 import { AdminDashboard } from "./views/dashboard/admin/adminDashboard";
 import { Cohort } from "./views/cohort/Cohort";
-import Dashboard from "./views/dashboard/student/Dashboard";
+import Dashboard2 from "./views/dashboard/student/Dashboard2";
+import { Dashboard } from "./views/dashboard/Dashboard";
 
 import Register from "./views/auth/register/Register";
 import { Announcements } from "./views/announcements/Announcements";
 import CreateAnnouncement from "./views/announcements/CreateAnnouncement";
 
-import AddProject from "./views/Activities/trainer/addProject/AddProject";
-import DeliveryProjectStudent from "./views/Activities/student/deliveryProject/DeliveryProjectStudent";
-import DeliveryProjectTrainer from "./views/Activities/trainer/deliveryProject/DeliveryProjectTrainer";
+import AddProject from "./views/activities/trainer/addProject/AddProject";
+import DeliveryProjectStudent from "./views/activities/student/deliveryProject/DeliveryProjectStudent";
+import DeliveryProjectTrainer from "./views/activities/trainer/deliveryProject/DeliveryProjectTrainer";
 import Deliverie from "./components/deliverie/Deliverie";
-import ShowProject from "./views/Activities/ShowActivities/showProject/ShowProject";
-import { ShowProjects } from "./views/Activities/ShowActivities/showProjects/showProjects";
+import ShowProject from "./views/activities/ShowActivities/showProject/ShowProject";
+import { ShowProjects } from "./views/activities/ShowActivities/showProjects/showProjects";
 
 import ResetPassword from "./views/auth/resetPassword/ResetPassword";
 import { Configuration } from "./views/configuration/Configuration";
@@ -88,7 +89,7 @@ export function RoutesApp() {
             exact
           />
           <Route path="/create_user" element={<Register />} exact />
-          <Route path='/' element={isStudent || isTeacher ? <MenuDashboard /> : null}>
+          
           //isTeacher
 
             //isStudent
@@ -118,7 +119,6 @@ export function RoutesApp() {
               element={isLogged ? <Deliverie /> : <Error404 />}
               exact
             />
-          </Route>
         </Routes>
         <Footer />
       </Router>
