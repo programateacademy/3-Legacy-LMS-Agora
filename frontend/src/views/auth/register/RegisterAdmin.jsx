@@ -31,8 +31,11 @@ const initialState = {
 };
 
 export function RegisterAdmin() {
+
+  
   const [user, setUser] = useState(initialState);
   const auth = useSelector((state) => state.auth);
+  const id_user = auth.user.id;
   const {
     firstName,
     middleName,
@@ -99,7 +102,8 @@ export function RegisterAdmin() {
 
     try {
       if (auth.isSuperAdmin) {
-        const res = await apiAgora.post("/api/register_admin", {
+        const res = await apiAgora.post("/api/register_admin"
+    , {
           firstName,
           middleName,
           lastName,
@@ -110,7 +114,9 @@ export function RegisterAdmin() {
           email,
           password,
           role
-        });
+        },{
+          headers: {Authorization: id_user}
+      });
         showSuccessMsg(success);
         setUser({ ...user, err: "", success: res.data.msg });
       } 

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {useParams} from 'react-router-dom'
 import { useSelector } from "react-redux";
 import apiAgora from "../../../api";
 import { showErrMsg, showSuccessMsg } from "../../../utils/notification";
@@ -9,7 +10,7 @@ import {
   isMatch,
   isLengthcontactNumber,
 } from "../../../utils/validation";
-import styles from"./register.module.css";
+import styles from './register.module.css'
 import { Input } from "../../../components/input/Input";
 import logo from "../../../assets/logos/programateLogo.png";
 
@@ -22,7 +23,7 @@ const initialState = {
   documentType: "",
   documentNumber: "",
   contactNumber: "",
-  role: 1,
+  role: 0,
   email: "",
   password: "",
   cf_password: "",
@@ -30,7 +31,9 @@ const initialState = {
   success: "",
 };
 
-export function RegisterTeacher() {
+export function UpdateRegister() {
+  const params = useParams();
+  const cohortID = params.id;
   const [user, setUser] = useState(initialState);
   const auth = useSelector((state) => state.auth);
   const id_user = auth.user.id;
@@ -99,9 +102,9 @@ export function RegisterTeacher() {
       });
 
     try {
-      if (auth.isSuperAdmin) {
-        const res = await apiAgora.post("/api/register_teacher", {
-          
+      if (auth.isAdmin) {
+        const res = await apiAgora.post("/api/register_student", {
+          cohortID,
           firstName,
           middleName,
           lastName,
@@ -129,7 +132,7 @@ export function RegisterTeacher() {
     <div className={styles.container_register}>
       <div className={styles.container_register_page}>
         <img className={styles.logo_register} src={logo} alt="logo" />
-        <h2 className={styles.title_register}>Registro Formador</h2>
+        <h2 className={styles.title_register}>Registro Estudiante</h2>
         {err && showErrMsg(err)}
         {success && showSuccessMsg(success)}
         <div className={styles.register_form_content}>
@@ -234,7 +237,7 @@ export function RegisterTeacher() {
             </div>
 
             <button className={styles.button_submit_register} type="submit">
-              CREAR CUENTA DE FORMADOR
+              CREAR CUENTA DE ESTUDIANTE
             </button>
             
           </form>

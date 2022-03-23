@@ -36,6 +36,7 @@ export function RegisterStudent() {
   const cohortID = params.id;
   const [user, setUser] = useState(initialState);
   const auth = useSelector((state) => state.auth);
+  const id_user = auth.user.id;
   const {
     firstName,
     middleName,
@@ -114,7 +115,9 @@ export function RegisterStudent() {
           email,
           password,
           role
-        });
+        },{
+          headers: {Authorization: id_user}
+      });
         showSuccessMsg(success);
         setUser({ ...user, err: "", success: res.data.msg });
       } 
