@@ -1,10 +1,8 @@
 .userTable {
-  width: 1000px;
+  width: 100%;
   border-collapse:inherit;
-  overflow: hidden;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.60);
   text-align: center;
-  position: relative;
 }
 .userTable th, .userTable td {
   padding: 15px;

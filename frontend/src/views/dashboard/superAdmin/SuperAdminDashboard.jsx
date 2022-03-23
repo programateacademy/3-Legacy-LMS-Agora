@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "./styles.module.css"
-import { Table } from '../../../components/table'
+import styles from "./SuperAdminDashboard.module.css"
+import { Table } from '../../../components/table/Table'
 import { useState } from "react";
 import { useEffect } from "react";
 import apiAgora from '../../../api'
@@ -24,7 +24,9 @@ export function SuperAdminDashboard() {
   return (
     <div className={styles.container}>
         <h1>Administradores</h1>
-        <Table tableList={admins} />
+       <div className={styles.tableContainer}>
+       <Table tableList={admins} />
+       </div>
         <div className={styles.buttonContainer}>
         <Button title="Crear administrador" link="/" />
           </div>
