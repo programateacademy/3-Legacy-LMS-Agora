@@ -12,7 +12,7 @@ import { AdminDashboard } from "./views/dashboard/admin/AdminDashboard";
 import { Cohort } from "./views/cohort/Cohort";
 import { Dashboard } from "./views/dashboard/Dashboard";
 
-
+import {UpdateRegister} from "./views/auth/register/UpdateRegister";
 import {RegisterStudent} from "./views/auth/register/RegisterStudent";
 import {RegisterAdmin} from "./views/auth/register/RegisterAdmin";
 import {UpdateRegisterAdmin} from "./views/auth/register/UpdateRegisterAdmin";
@@ -33,6 +33,7 @@ import { EditUser } from "./views/configuration/EditUser";
 
 import ActivationEmail from "./views/auth/activationEmail/ActivationEmail";
 import { Footer } from "./components/footer/Footer";
+
 
 export function RoutesApp() {
   const auth = useSelector((state) => state.auth);
@@ -86,7 +87,7 @@ export function RoutesApp() {
           //isAdmin
           <Route path="/register_teacher" element={isAdmin?<RegisterTeacher />:<Error404/>} exact />
           <Route path="/cohort/register_student/:id" element={isAdmin?<RegisterStudent />:<Error404/>} exact />
-
+          <Route path="/update_user/:id" element={isAdmin?<UpdateRegister/>:<Error404/>} exact />
           //isTeacher
           
           //isStudent
