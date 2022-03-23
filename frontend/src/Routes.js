@@ -7,11 +7,14 @@ import {Error404} from "./components/404/Error404";
 import ForgotPassword from "./views/auth/forgotPassword/ForgotPassword";
 
 import { SuperAdminDashboard } from "./views/dashboard/superAdmin/superAdminDashboard";
-import { AdminDashboard } from "./views/dashboard/admin/adminDashboard";
+import { AdminDashboard } from "./views/dashboard/admin/AdminDashboard";
 import { TeacherDashboard } from "./views/dashboard/teacher/teacherDashboard";
 import Dashboard from "./views/dashboard/student/Dashboard";
 
-import Register from "./views/auth/register/Register";
+
+import {RegisterStudent} from "./views/auth/register/RegisterStudent";
+import {RegisterAdmin} from "./views/auth/register/RegisterAdmin";
+import {RegisterTeacher} from "./views/auth/register/RegisterTeacher";
 import { Announcements } from "./views/announcements/Announcements";
 import CreateAnnouncement from "./views/announcements/CreateAnnouncement";
 
@@ -78,12 +81,14 @@ export function RoutesApp() {
           />
           
           //isSuperAdmin
-          <Route path="/create_user" element={<Register />} exact />
+          <Route path="/register_admin" element={isSuperAdmin?<RegisterAdmin />:<Error404/>} exact />
          
           //isAdmin
+          <Route path="/register_teacher" element={isAdmin?<RegisterTeacher />:<Error404/>} exact />
+          <Route path="/cohort/register_student/:id" element={isAdmin?<RegisterStudent />:<Error404/>} exact />
 
           //isTeacher
-
+          
           //isStudent
           
            <Route
@@ -91,7 +96,7 @@ export function RoutesApp() {
             element={isAdmin ? <EditUser /> : <Error404 />}
             exact
           />
-          <Route path="/create_user" element={<Register />} exact />
+          
 
           <Route path="/crearProyecto" element={<AddProject />} />
           <Route path="/proyectos" element={<ShowProjects />} />

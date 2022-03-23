@@ -76,7 +76,7 @@ const controllerUser = {
       const activation_token = createActivationToken(newUser);
 
       const url = `${CLIENT_URL}/api/activation/${activation_token}`;
-      sendMail(email, url, "Verifica tu correo electronico");
+      sendMail(firstName, email, url, "register");
 
       res.json({
         msg: "Registro exitoso! para activar tu cuenta, revisa tu correo electronico.",
@@ -194,7 +194,7 @@ const controllerUser = {
       const access_token = createAccessToken({ id: user._id });
       const url = `${CLIENT_URL}/user/reset/${access_token}`;
 
-      sendMail(email, url, "Restablece tu contraseña");
+      sendMail(user.firstName, email, url, "resetPassword");
       res.json({ msg: "verifica tu email para cambiar contraseña." });
     } catch (err) {
       return res.status(500).json({ msg: err.message });
@@ -237,7 +237,10 @@ const controllerUser = {
   },
   getUsersAllStudents: async (req, res) => {
     try {
-      const users = await User.find({ role: 0 }, {cohortID:req.params._id}).select("-password");
+      const users = await User.find(
+        { role: 0 },
+        { cohortID: req.params._id }
+      ).select("-password");
       res.json(users);
     } catch (err) {
       return res.status(500).json({ msg: err.message });
