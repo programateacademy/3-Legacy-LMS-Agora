@@ -7,7 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/swiper-bundle.min.css'
 import 'swiper/swiper.min.css'
 import { Link } from 'react-router-dom'
-import '../../projects/trainer/showProjects/showProjects.css'
+import '../../activities/ShowActivities/showProjects/showProjects.css'
 
 const Dashboard = () => {
   const projects = useSelector(state => state.projects)

@@ -9,16 +9,14 @@
 }
 
 * {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Gilroy-ExtraBold', 'Gilroy-Light';
   padding: 0px;
   margin: 0;
   box-sizing: border-box;
 }
-h1{
-  font-family: 'Gilroy-ExtraBold' ;
+h1, h2, h3{
+  font-family:  'Roboto', sans-serif;
 }
-h2,h3{
-  font-family: 'Gilroy-Light';}
 body {
   background: var(--colorWhite);
 }

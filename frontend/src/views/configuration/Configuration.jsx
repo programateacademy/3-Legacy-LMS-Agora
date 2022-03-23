@@ -18,7 +18,7 @@ const initialState = {
   success: "",
 };
 
-export function Profile() {
+export function Configuration() {
   const auth = useSelector((state) => state.auth);
   const token = useSelector((state) => state.token);
 

@@ -11,12 +11,18 @@
   text-decoration: none;
   color: black;
 }
-.img-avatar {
-  width: 30px;
-  margin-right: 0.5rem;
-}
 
 .avatarContainer {
   display: flex;
   align-items: center;
+}
+
+.avatarContainer div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #ffd808;
+  border-radius: 50%;
 }
