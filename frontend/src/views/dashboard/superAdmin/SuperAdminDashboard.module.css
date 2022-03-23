@@ -6,9 +6,7 @@
   width: 80vw;
   margin: auto;
   justify-content: center;
-  height: calc(100vh - 140px);
-  overflow:hidden;
-  overflow-y:auto;
+  min-height: calc(100vh - 140px);
 }
 
 .container h1 {
