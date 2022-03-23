@@ -12,6 +12,7 @@ import {
 import styles from "./register.module.css";
 import { Input } from "../../../components/input/Input";
 import logo from "../../../assets/logos/programateLogo.png";
+import {Link} from "react-router-dom"
 
 const initialState = {
   
@@ -130,6 +131,9 @@ export function RegisterAdmin() {
   return (
     <div className={styles.container_register}>
       <div className={styles.container_register_page}>
+      <Link className={styles.button_return} to="/">
+              Volver
+            </Link>
         <img className={styles.logo_register} src={logo} alt="logo" />
         <h2 className={styles.title_register}>Registro Adminstrador</h2>
         {err && showErrMsg(err)}

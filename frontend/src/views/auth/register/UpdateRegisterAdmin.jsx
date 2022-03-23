@@ -11,6 +11,7 @@ import {
 import styles from './register.module.css'
 import { Input } from "../../../components/input/Input";
 import logo from "../../../assets/logos/programateLogo.png";
+import {Link} from "react-router-dom";
 
 const initialState = {
   
@@ -107,6 +108,9 @@ export function UpdateRegisterAdmin() {
     <div className={styles.container_register}>
       <div className={styles.container_register_page}>
         <img className={styles.logo_register} src={logo} alt="logo" />
+        <Link className={styles.button_return} to="/">
+              Volver
+            </Link>
         <h2 className={styles.title_register}>Administrador</h2>
         {err && showErrMsg(err)}
         {success && showSuccessMsg(success)}

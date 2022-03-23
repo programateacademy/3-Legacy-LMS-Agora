@@ -25,10 +25,10 @@ export function SuperAdminDashboard() {
     <div className={styles.container}>
         <h1>Listado de Administradores</h1>
        <div className={styles.tableContainer}>
-       <Table tableList={admins} />
+       <Table tableList={admins} superAdminID={id_user}/>
        </div>
         <div className={styles.buttonContainer}>
-        <Button title="Crear administrador" link="/" />
+        <Button title="Crear administrador" link="/register_admin" />
           </div>
     </div>
   );

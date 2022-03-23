@@ -75,7 +75,7 @@ const controllerUser = {
 
       const activation_token = createActivationToken(newUser);
 
-      const url = `${CLIENT_URL}/api/activation/${activation_token}`;
+      const url = `${CLIENT_URL}/#/api/activation/${activation_token}`;
       sendMail(firstName, email, url, "register");
 
       res.json({
@@ -192,7 +192,7 @@ const controllerUser = {
           .json({ msg: "Este correo electronico no esta registrado." });
 
       const access_token = createAccessToken({ id: user.id });
-      const url = `${CLIENT_URL}/user/reset/${access_token}`;
+      const url = `${CLIENT_URL}/#/user/reset/${access_token}`;
 
       sendMail(user.firstName, email, url, "resetPassword");
       res.json({ msg: "verifica tu email para cambiar contraseña." });
@@ -255,7 +255,7 @@ const controllerUser = {
   },
   deleteUser: async (req, res) => {
     try {
-      await User.findByIdAndDelete(req.params.id);
+      await User.findByIdAndDelete(req.params._id);
 
       res.json({ msg: "eliminacion exitosa!" });
     } catch (err) {
