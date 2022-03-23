@@ -12,8 +12,8 @@ export function Table(props) {
 	const alertErase = (userID)=>{
 		Swal.fire({
 			background: '#E5E5E5',
-			title: '¿Desea eliminar el Administrador?',
-			text: "Este Proceso no es reversible",
+			title: '¿Desea eliminar este usuario?',
+			text: "Este proceso no es reversible",
 			icon: 'warning',
 			showCancelButton: true,
 			confirmButtonColor: '#FFCC02',
@@ -25,7 +25,7 @@ export function Table(props) {
 				deleteUser(userID)
 			  Swal.fire(
 				'Completado',
-				'El administrador ha sido eliminado',
+				'El usuario ha sido eliminado',
 				'success'
 			  )
 			}
@@ -63,7 +63,11 @@ export function Table(props) {
 				<td>{user.lastName + " " + user.secondSurname}</td>
 				<td>{user.email}</td>
 				<td>{user.contactNumber}</td>
-				<td><Link to={"/update_admin/"+user.id}className={styles.edit}><FiEdit/></Link></td>
+				<td><Link
+				 to={
+					 superAdminID ? "/update_admin/"+user.id:
+					adminID ? "/update_user/"+user.id: "/"  } 
+				 className={styles.edit}><FiEdit/></Link></td>
 				<td><button className={styles.delete} onClick={()=>alertErase(user.id)}><MdDeleteForever/></button></td>
 			</tr>
 				)
@@ -73,3 +77,5 @@ export function Table(props) {
 	</table>
   );
 }
+
+

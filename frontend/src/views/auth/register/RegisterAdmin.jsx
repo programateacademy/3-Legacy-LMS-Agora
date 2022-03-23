@@ -135,7 +135,7 @@ export function RegisterAdmin() {
               Volver
             </Link>
         <img className={styles.logo_register} src={logo} alt="logo" />
-        <h2 className={styles.title_register}>Registro Adminstrador</h2>
+        <h2 className={styles.title_register}>Registro Administrador</h2>
         {err && showErrMsg(err)}
         {success && showSuccessMsg(success)}
         <div className={styles.register_form_content}>
