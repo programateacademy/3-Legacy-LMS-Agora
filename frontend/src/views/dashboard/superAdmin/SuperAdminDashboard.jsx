@@ -23,7 +23,7 @@ export function SuperAdminDashboard() {
   }, [])
   return (
     <div className={styles.container}>
-        <h1>Administradores</h1>
+        <h1>Listado de Administradores</h1>
        <div className={styles.tableContainer}>
        <Table tableList={admins} />
        </div>
