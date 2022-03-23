@@ -99,7 +99,7 @@ export function RegisterTeacher() {
       });
 
     try {
-      if (auth.isSuperAdmin) {
+      if (auth.isAdmin) {
         const res = await apiAgora.post("/api/register_teacher", {
           
           firstName,

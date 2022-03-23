@@ -34,11 +34,11 @@ export function Table(props) {
 
 	const deleteUser = async (userID) => {
 		if(superAdminID!=null){
-		const res = await apiAgora.delete('api/delete_admin/'+userID, {
+		await apiAgora.delete('api/delete_admin/'+userID, {
 		  headers: { Authorization: superAdminID }
 		})}
 		if(adminID!=null){
-			const res = await apiAgora.delete('api/delete_user/'+userID, {
+			 await apiAgora.delete('api/delete_user/'+userID, {
 			  headers: { Authorization: adminID }
 			})}
 	}
@@ -56,9 +56,9 @@ export function Table(props) {
 			</tr>
 		</thead>
 		<tbody>
-			{tableList.map((user) => {
+			{tableList.map((user, index) => {
 				return(
-					<tr>
+					<tr key={index}>
 				<td>{user.firstName + " " + user.middleName}</td>
 				<td>{user.lastName + " " + user.secondSurname}</td>
 				<td>{user.email}</td>
