@@ -33,6 +33,7 @@ import { EditUser } from "./views/configuration/EditUser";
 
 import ActivationEmail from "./views/auth/activationEmail/ActivationEmail";
 import { Footer } from "./components/footer/Footer";
+import { TableTeacher } from "./views/tableTeachers/TableTeacher";
 
 
 export function RoutesApp() {
@@ -86,6 +87,7 @@ export function RoutesApp() {
           <Route path="/update_admin/:id" element={isSuperAdmin?<UpdateRegisterAdmin/>:<Error404/>} exact />
           //isAdmin
           <Route path="/register_teacher" element={isAdmin?<RegisterTeacher />:<Error404/>} exact />
+          <Route path="/list_teachers" element={isAdmin?<TableTeacher />:<Error404/>} exact />
           <Route path="/cohort/register_student/:id" element={isAdmin?<RegisterStudent />:<Error404/>} exact />
           <Route path="/update_user/:id" element={isAdmin?<UpdateRegister/>:<Error404/>} exact />
           //isTeacher

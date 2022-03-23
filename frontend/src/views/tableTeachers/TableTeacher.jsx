@@ -7,28 +7,28 @@ import apiAgora from '../../api'
 import { Button } from "../../components/buttons/Button/Button";
 import { useSelector } from "react-redux";
 
-export function SuperAdminDashboard() {
+export function TableTeacher() {
   const auth = useSelector((state) => state.auth);
   const id_user = auth.user.id;
-  const [admins, setAdmins] = useState([])
+  const [teachers, setTeachers] = useState([])
 
-  const fetchAdmins = async () => {
-    const res = await apiAgora.get('/api/all_admin', {
+  const fetchTeachers = async () => {
+    const res = await apiAgora.get("api/all_teacher", {
       headers: { Authorization: id_user }
     })
-    setAdmins(res.data)
+    setTeachers(res.data)
   }
   useEffect(() => {
-    fetchAdmins()
+    fetchTeachers()
   }, [])
   return (
     <div className={styles.container}>
-        <h1>Listado de Administradores</h1>
+        <h1>Listado de formadores</h1>
        <div className={styles.tableContainer}>
-       <Table tableList={admins} superAdminID={id_user}/>
+       <Table tableList={teachers} adminID={id_user}/>
        </div>
         <div className={styles.buttonContainer}>
-        <Button title="Crear administrador" link="/register_admin" />
+        <Button title="Crear formador" link="/register_teacher" />
           </div>
     </div>
   );
