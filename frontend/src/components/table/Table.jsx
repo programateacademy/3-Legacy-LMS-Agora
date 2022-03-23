@@ -2,6 +2,7 @@ import React from "react";
 import styles from './Table.module.css';
 import {FiEdit} from "react-icons/fi";
 import {MdDeleteForever} from "react-icons/md";
+import {Link} from "react-router-dom"
 
 export function Table(props) {
 	const {tableList} = props
@@ -25,8 +26,8 @@ export function Table(props) {
 				<td>{admin.lastName + " " + admin.secondSurname}</td>
 				<td>{admin.email}</td>
 				<td>{admin.contactNumber}</td>
-				<td><button className={styles.edit}><FiEdit/></button></td>
-				<td><button className={styles.delete}><MdDeleteForever/></button></td>
+				<td><Link to={"/update_admin/"+admin.id}className={styles.edit}><FiEdit/></Link></td>
+				<td><Link to={"/"}className={styles.delete}><MdDeleteForever/></Link></td>
 			</tr>
 				)
 			})}

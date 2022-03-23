@@ -15,6 +15,7 @@ import { Dashboard } from "./views/dashboard/Dashboard";
 
 import {RegisterStudent} from "./views/auth/register/RegisterStudent";
 import {RegisterAdmin} from "./views/auth/register/RegisterAdmin";
+import {UpdateRegisterAdmin} from "./views/auth/register/UpdateRegisterAdmin";
 import {RegisterTeacher} from "./views/auth/register/RegisterTeacher";
 import { Announcements } from "./views/announcements/Announcements";
 import CreateAnnouncement from "./views/announcements/CreateAnnouncement";
@@ -81,7 +82,7 @@ export function RoutesApp() {
 
           //isSuperAdmin
           <Route path="/register_admin" element={isSuperAdmin?<RegisterAdmin />:<Error404/>} exact />
-         
+          <Route path="/update_admin/:id" element={isSuperAdmin?<UpdateRegisterAdmin/>:<Error404/>} exact />
           //isAdmin
           <Route path="/register_teacher" element={isAdmin?<RegisterTeacher />:<Error404/>} exact />
           <Route path="/cohort/register_student/:id" element={isAdmin?<RegisterStudent />:<Error404/>} exact />

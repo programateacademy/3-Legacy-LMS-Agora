@@ -18,6 +18,9 @@ router.post("/register_teacher",authAdmin, controllerUser.register);
 router.post("/register_student", authAdmin, controllerUser.register);
 router.get("/all_admin", authSuperAdmin, controllerUser.getAdminAllInfo);
 
+router.get("/get_admin/:_id", authSuperAdmin, controllerUser.getAdminInfo);
+router.put("/update_admin/:_id", authSuperAdmin, controllerUser.updateUser);
+
 router.get("/all_students/:_id", controllerUser.getUsersAllStudents);
 router.delete("/delete/:id", controllerUser.deleteUser);
 

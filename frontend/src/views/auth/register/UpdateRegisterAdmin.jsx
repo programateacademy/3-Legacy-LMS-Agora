@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {useParams} from 'react-router-dom'
 import { useSelector } from "react-redux";
 import apiAgora from "../../../api";
@@ -6,8 +6,6 @@ import { showErrMsg, showSuccessMsg } from "../../../utils/notification";
 import {
   isEmpty,
   isEmail,
-  isLength,
-  isMatch,
   isLengthcontactNumber,
 } from "../../../utils/validation";
 import styles from './register.module.css'
@@ -31,9 +29,9 @@ const initialState = {
   success: "",
 };
 
-export function UpdateRegister() {
+export function UpdateRegisterAdmin() {
   const params = useParams();
-  const cohortID = params.id;
+  const userID = params.id;
   const [user, setUser] = useState(initialState);
   const auth = useSelector((state) => state.auth);
   const id_user = auth.user.id;
@@ -46,12 +44,19 @@ export function UpdateRegister() {
     documentNumber,
     contactNumber,
     email,
-    password,
-    cf_password,
     err,
-    success,
-    role
+    success
   } = user;
+
+  const fetchAdmins = async () => {
+    const res = await apiAgora.get('api/get_admin/'+userID, {
+      headers: { Authorization: id_user }
+    })
+    setUser(res.data)
+  }
+  useEffect(()=>{
+    fetchAdmins()
+  }, [])
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
@@ -60,23 +65,10 @@ export function UpdateRegister() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (isEmpty(firstName) || isEmpty(password))
+    if (isEmpty(firstName) || isEmpty(lastName))
       return setUser({
         ...user,
         err: "Todos los campos son obligatorios",
-        success: "",
-      });
-    if (isEmpty(lastName) || isEmpty(password))
-      return setUser({
-        ...user,
-        err: "Todos los campos son obligatorios",
-        success: "",
-      });
-
-    if (!isEmail(email))
-      return setUser({
-        ...user,
-        err: "Este correo electronico ya existe :(",
         success: "",
       });
 
@@ -87,24 +79,9 @@ export function UpdateRegister() {
         success: "",
       });
 
-    if (isLength(password))
-      return setUser({
-        ...user,
-        err: "La contraseña debe tener al menos 6 caracteres",
-        success: "",
-      });
-
-    if (!isMatch(password, cf_password))
-      return setUser({
-        ...user,
-        err: "Las contraseñas no coinciden",
-        success: "",
-      });
-
     try {
-      if (auth.isAdmin) {
-        const res = await apiAgora.post("/api/register_student", {
-          cohortID,
+      if (auth.isSuperAdmin) {
+        const res = await apiAgora.put("/api/update_admin/"+userID, {
           firstName,
           middleName,
           lastName,
@@ -112,9 +89,7 @@ export function UpdateRegister() {
           documentType,
           documentNumber,
           contactNumber,
-          email,
-          password,
-          role
+          email
         },{
           headers: {Authorization: id_user}
       });
@@ -132,7 +107,7 @@ export function UpdateRegister() {
     <div className={styles.container_register}>
       <div className={styles.container_register_page}>
         <img className={styles.logo_register} src={logo} alt="logo" />
-        <h2 className={styles.title_register}>Registro Estudiante</h2>
+        <h2 className={styles.title_register}>Administrador</h2>
         {err && showErrMsg(err)}
         {success && showSuccessMsg(success)}
         <div className={styles.register_form_content}>
@@ -215,29 +190,9 @@ export function UpdateRegister() {
                 onChange={handleChangeInput}
               />
             </div>
-            <div className={styles.container_register_input}>
-              <Input
-                className={styles.input_register}
-                type="password"
-                label="Contraseña"
-                placeholder="******"
-                name="password"
-                value={password}
-                onChange={handleChangeInput}
-              />
-              <Input
-                className={styles.input_register}
-                type="password"
-                label="Confirmar contraseña"
-                placeholder="******"
-                name="cf_password"
-                value={cf_password}
-                onChange={handleChangeInput}
-              />
-            </div>
 
             <button className={styles.button_submit_register} type="submit">
-              CREAR CUENTA DE ESTUDIANTE
+              ACTUALIZAR ADMINISTRADOR
             </button>
             
           </form>

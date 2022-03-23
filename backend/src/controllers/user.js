@@ -219,8 +219,16 @@ const controllerUser = {
   },
   getUserInfo: async (req, res) => {
     try {
-      const user = await User.findById(req.user.id).select("-password");
-      console.log(user)
+      const user = await User.findById(req.user.id);
+
+      res.json(user);
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+  getAdminInfo: async (req, res) => {
+    try {
+      const user = await User.findById(req.params._id);
       res.json(user);
     } catch (err) {
       return res.status(500).json({ msg: err.message });
@@ -229,7 +237,6 @@ const controllerUser = {
   getAdminAllInfo: async (req, res) => {
     try {
       const users = await User.find({ role: 2 }).select("-password");
-
       res.json(users);
     } catch (err) {
       return res.status(500).json({ msg: err.message });
@@ -255,7 +262,7 @@ const controllerUser = {
       return res.status(500).json({ msg: err.message });
     }
   },
-  /* updateUser: async (req, res) => {
+  updateUser: async (req, res) => {
     try {
       const{
         firstName,
@@ -265,8 +272,7 @@ const controllerUser = {
         documentType,
         documentNumber,
         email,
-        contactNumber,
-        state
+        contactNumber
       }=req.body ;
       
       await User.findOneAndUpdate({_id:req.params._id},{
@@ -277,15 +283,14 @@ const controllerUser = {
         documentType,
         documentNumber,
         email,
-        contactNumber,
-        state
+        contactNumber
       });
 
       res.json({ msg: "actualizacion exitosa!" });
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }
-  } */
+  }
 };
 
 const validateEmail = (email) => {

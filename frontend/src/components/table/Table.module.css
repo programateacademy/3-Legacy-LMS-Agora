@@ -31,6 +31,7 @@
   background-color: transparent;
   text-align: center;
   font-size: 20px;
+  color: var(--colorBlack);
 }
 
 .edit:hover {
@@ -44,6 +45,7 @@
   background-color: transparent;
   text-align: center;
   font-size: 25px;
+  color: var(--colorBlack);
 }
 
 .delete:hover {
