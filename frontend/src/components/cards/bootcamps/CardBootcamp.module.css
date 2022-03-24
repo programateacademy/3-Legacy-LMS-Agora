@@ -1,62 +1,119 @@
 .container {
-  position: relative;
-  width: 1100px;
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  padding: 30px;
 }
 
-.container .card {
-  position: relative;
-  max-width: 300px;
-  height: 215px;
+.card {
+  width: 20vw;
+  height: 20vh;
   background-color: #fff;
-  margin: 30px 10px;
-  padding: 20px 15px;
-
   display: flex;
   flex-direction: column;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
   transition: 0.3s ease-in-out;
-  border-radius: 15px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  -webkit-transition: ;
+  -moz-transition: ;
+  -ms-transition: ;
+  -o-transition: ;
 }
+
 .container .card:hover {
-  height: 320px;
+  height: 40vh;
 }
 
-.container .card .image {
+.image {
   position: relative;
-  width: 260px;
-  height: 260px;
+  width: 16vw;
+  height: 35vh;
   background-color: var(--colorYellow);
-  top: -40%;
-  left: 8px;
+  top: -20%;
+  left: 2vw;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
   z-index: 1;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }
 
-.container .card .image img {
+.image img {
   max-width: 100%;
-  border-radius: 15px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }
 
-.container .card .content {
+.content {
   position: relative;
-  top: -140px;
+  display: flex;
+  flex-direction: column;
+  top: -80px;
   padding: 10px 15px;
-  color: #111;
-  text-align: center;
-
+  text-align: justify;
   visibility: hidden;
   opacity: 0;
   transition: 0.3s ease-in-out;
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition: 0.3s ease-in-out;
+  -ms-transition: 0.3s ease-in-out;
+  -o-transition: 0.3s ease-in-out;
 }
 
-.container .card:hover .content {
+
+.content h3 {
+  text-align: center;
+}
+
+.card:hover .content {
   margin-top: 30px;
   visibility: visible;
   opacity: 1;
   transition-delay: 0.2s;
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 40vw;
+    height: 20vh;
+  }
+
+  .container .card:hover {
+    height: 45vh;
+  }
+
+  .image {
+    width: 30vw;
+    height: 35vh;
+    top: -15%;
+    left: 5vw;
+  }
+}
+
+@media (max-width: 400px) {
+  .card {
+    width: 60vw;
+    height: 20vh;
+  }
+
+  .container .card:hover {
+    height: 45vh;
+  }
+
+  .image {
+    width: 50vw;
+    height: 35vh;
+    top: -15%;
+    left: 5vw;
+  }
 }
