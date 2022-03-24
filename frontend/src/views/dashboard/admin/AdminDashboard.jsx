@@ -1,15 +1,14 @@
 import React from "react";
-import { CardBootcamp } from "../../../components/cards/bootcamps/CardBootcamp";
-import { CardCohorte } from "../../../components/cards/cohort/CardCohorte";
+import { CreateBootcamp } from "../../bootcamps/createBootcamp/CreateBootcamp";
+import { CreateCohorte } from "../../cohort/createCohort/CreateCohorte";
 
 
 export function AdminDashboard() {
   return (
     <div>
       <h2>Bootcamp</h2>
-      <CardBootcamp/>
-      <CardCohorte/>
-
+      <CreateBootcamp/>
+      <CreateCohorte/>
     </div>
   );
 }
