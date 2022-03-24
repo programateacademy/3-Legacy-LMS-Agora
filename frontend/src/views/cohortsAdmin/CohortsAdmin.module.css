@@ -1,0 +1,17 @@
+.cohorts {
+    display: flex;
+    min-height: calc(100vh - 140px);
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    flex-direction: column;
+    width: 80vw;
+}
+
+.cohorts h2 {
+    text-align: center;
+}
+
+.buttonContainer {
+    align-self: flex-end;
+}

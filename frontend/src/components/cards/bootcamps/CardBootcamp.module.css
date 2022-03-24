@@ -1,0 +1,119 @@
+.container {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 20vw;
+  height: 20vh;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  transition: 0.3s ease-in-out;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  -webkit-transition: ;
+  -moz-transition: ;
+  -ms-transition: ;
+  -o-transition: ;
+}
+
+.container .card:hover {
+  height: 40vh;
+}
+
+.image {
+  position: relative;
+  width: 16vw;
+  height: 35vh;
+  background-color: var(--colorYellow);
+  top: -20%;
+  left: 2vw;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  z-index: 1;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.image img {
+  max-width: 100%;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  top: -80px;
+  padding: 10px 15px;
+  text-align: justify;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition: 0.3s ease-in-out;
+  -ms-transition: 0.3s ease-in-out;
+  -o-transition: 0.3s ease-in-out;
+}
+
+
+.content h3 {
+  text-align: center;
+}
+
+.card:hover .content {
+  margin-top: 30px;
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0.2s;
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 40vw;
+    height: 20vh;
+  }
+
+  .container .card:hover {
+    height: 45vh;
+  }
+
+  .image {
+    width: 30vw;
+    height: 35vh;
+    top: -15%;
+    left: 5vw;
+  }
+}
+
+@media (max-width: 400px) {
+  .card {
+    width: 60vw;
+    height: 20vh;
+  }
+
+  .container .card:hover {
+    height: 45vh;
+  }
+
+  .image {
+    width: 50vw;
+    height: 35vh;
+    top: -15%;
+    left: 5vw;
+  }
+}
