@@ -75,8 +75,8 @@ const controllerUser = {
 
       const activation_token = createActivationToken(newUser);
 
-      const url = `${CLIENT_URL}/api/activation/${activation_token}`;
-      sendMail(email, url, "Verifica tu correo electronico");
+      const url = `${CLIENT_URL}/#/api/activation/${activation_token}`;
+      sendMail(firstName, email, url, "register");
 
       res.json({
         msg: "Registro exitoso! para activar tu cuenta, revisa tu correo electronico.",
@@ -155,7 +155,7 @@ const controllerUser = {
         });
       }
 
-      const refresh_token = createRefreshToken({ id: user._id });
+      const refresh_token = createRefreshToken({ id: user.id });
 
       res.send({
         email: user.email,
@@ -191,10 +191,10 @@ const controllerUser = {
           .status(400)
           .json({ msg: "Este correo electronico no esta registrado." });
 
-      const access_token = createAccessToken({ id: user._id });
-      const url = `${CLIENT_URL}/user/reset/${access_token}`;
+      const access_token = createAccessToken({ id: user.id });
+      const url = `${CLIENT_URL}/#/user/reset/${access_token}`;
 
-      sendMail(email, url, "Restablece tu contraseña");
+      sendMail(user.firstName, email, url, "resetPassword");
       res.json({ msg: "verifica tu email para cambiar contraseña." });
     } catch (err) {
       return res.status(500).json({ msg: err.message });
@@ -219,8 +219,16 @@ const controllerUser = {
   },
   getUserInfo: async (req, res) => {
     try {
-      const user = await User.findById(req.user.id).select("-password");
+      const user = await User.findById(req.user.id);
 
+      res.json(user);
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+  getAdminInfo: async (req, res) => {
+    try {
+      const user = await User.findById(req.params._id);
       res.json(user);
     } catch (err) {
       return res.status(500).json({ msg: err.message });
@@ -229,15 +237,27 @@ const controllerUser = {
   getAdminAllInfo: async (req, res) => {
     try {
       const users = await User.find({ role: 2 }).select("-password");
-
       res.json(users);
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }
   },
+
+  getTeacherAllInfo: async (req, res) => {
+    try {
+      const users = await User.find({ role: 1 }).select("-password");
+      res.json(users);
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+
   getUsersAllStudents: async (req, res) => {
     try {
-      const users = await User.find({ role: 0 }, {cohortID:req.params._id}).select("-password");
+      const users = await User.find(
+        { role: 0 },
+        { cohortID: req.params._id }
+      ).select("-password");
       res.json(users);
     } catch (err) {
       return res.status(500).json({ msg: err.message });
@@ -245,13 +265,42 @@ const controllerUser = {
   },
   deleteUser: async (req, res) => {
     try {
-      await User.findByIdAndDelete(req.params.id);
+      await User.findByIdAndDelete(req.params._id);
 
       res.json({ msg: "eliminacion exitosa!" });
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }
   },
+  updateUser: async (req, res) => {
+    try {
+      const{
+        firstName,
+        middleName,
+        lastName,
+        secondSurname,
+        documentType,
+        documentNumber,
+        email,
+        contactNumber
+      }=req.body ;
+      
+      await User.findOneAndUpdate({_id:req.params._id},{
+        firstName,
+        middleName,
+        lastName,
+        secondSurname,
+        documentType,
+        documentNumber,
+        email,
+        contactNumber
+      });
+
+      res.json({ msg: "actualizacion exitosa!" });
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  }
 };
 
 const validateEmail = (email) => {

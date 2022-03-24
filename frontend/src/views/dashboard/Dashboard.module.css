@@ -1,0 +1,4 @@
+.Dashboar{
+    display: flex;
+    flex-direction: row;
+}

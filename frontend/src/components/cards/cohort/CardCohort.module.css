@@ -1,0 +1,84 @@
+.cohort {
+	background-color: var(--colorGray);
+	border-radius: 10px;
+	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+	display: flex;
+	margin: 3vh;
+	overflow: hidden;
+	width: 80vw;
+	min-height: 26vh;
+}
+
+.cohortInfo h3 {
+	text-align: center;
+}
+
+.cohort p {
+	letter-spacing: 0.5px;
+}
+
+
+.cohortImage {
+	width: 20vh;
+	height: 20vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+	background-color: white;
+}
+
+.cohortImage img {
+	width: 100%;
+}
+
+.cohortInfo {
+	text-align: justify;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+	width: 40vw;
+}
+
+
+.cohort h5 {
+	font-weight: bolder;
+	margin-top: 2vh;
+	text-align: center
+}
+
+.buttonsContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: space-evenly;
+	margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+	.cohort {
+		flex-direction: column;
+
+	}
+
+	.cohortImage {
+		width: 30vh;
+		height: 30vh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: 2vh auto;
+		background-color: white;
+	}
+
+	.cohortInfo {
+		width: 70vw;
+	}
+
+	.buttonsContainer {
+		justify-content: space-evenly;
+		align-items: space-evenly;
+		margin: 2vh auto;
+		gap: 2vh;
+	}
+}

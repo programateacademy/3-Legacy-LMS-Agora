@@ -13,6 +13,7 @@
     border: 1px solid #6f6f6f;
     outline: none;
     padding: 0 10px;
+    border-radius: 10px;
 }
 .input:hover{
     border: 2px solid #ffd808;

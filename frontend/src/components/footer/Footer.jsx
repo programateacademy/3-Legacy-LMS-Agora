@@ -1,18 +1,17 @@
 import React from 'react'
 import logosWhite from '../../assets/logos/logosWhite.png'
-
-import './headerFooterStyles.css'
+import style from "./Footer.module.css";
 
 export function Footer () {
   return (
     <>
       <footer>
-        <div className='footerContainer'>
-          <p className='sign'>
+        <div className={style.footerContainer}>
+          <p className={style.sign}>
             Desarrollado por Quackcoders - Prográmate - Educamas ©2021
           </p>
 
-          <div className='socialNetworksContainer'>
+          <div className={style.socialNetworksContainer}>
             <a
               href='https://www.facebook.com/Somos-EducaM%C3%A1s-109393514766174/'
               target='_blank'
@@ -37,7 +36,7 @@ export function Footer () {
             </a>
           </div>
 
-          <div className='LogosFooterContainer'>
+          <div className={style.LogosFooterContainer}>
             <img src={logosWhite} alt='Programate-LogoBlanco' />
           </div>
         </div>

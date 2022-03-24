@@ -1,0 +1,37 @@
+.adminDashboard {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 140px);
+    width: 80vw;
+    margin: auto;
+    justify-content: center;
+}
+
+.adminDashboard h2 {
+    text-align: center;
+}
+
+.buttonsContainer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 2vh;
+}
+
+.bootcampsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    flex-wrap: wrap;
+    width: 80vw;
+}
+
+@media (max-width: 768px) {
+    .buttonsContainer {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 1vh;
+    }
+}

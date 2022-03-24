@@ -1,0 +1,14 @@
+.yellowButton {
+    background-color: var(--colorYellow);
+    color: var(--colorBlack);
+    border-radius: 10px;
+    padding: 10px;
+    width:auto;
+    text-align: center;
+}
+
+.yellowButton:hover {
+    background-color: var(--colorGreenLight);
+    color: var(--colorWhite);
+    transition: 0.3s;
+}
