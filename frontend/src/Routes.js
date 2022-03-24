@@ -9,10 +9,10 @@ import { MenuDashboard } from "./components/menu/MenuDashboard";
 
 import { SuperAdminDashboard } from "./views/dashboard/superAdmin/SuperAdminDashboard";
 import { AdminDashboard } from "./views/dashboard/admin/AdminDashboard";
-import { Cohort } from "./views/cohort/Cohort";
+import { CohortsTeacher } from "./views/cohortsTeacher/CohortsTeacher";
 import { Dashboard } from "./views/dashboard/Dashboard";
 
-
+import {UpdateRegister} from "./views/auth/register/UpdateRegister";
 import {RegisterStudent} from "./views/auth/register/RegisterStudent";
 import {RegisterAdmin} from "./views/auth/register/RegisterAdmin";
 import {UpdateRegisterAdmin} from "./views/auth/register/UpdateRegisterAdmin";
@@ -33,6 +33,10 @@ import { EditUser } from "./views/configuration/EditUser";
 
 import ActivationEmail from "./views/auth/activationEmail/ActivationEmail";
 import { Footer } from "./components/footer/Footer";
+import { TableTeacher } from "./views/tableTeachers/TableTeacher";
+
+
+import { CohortsAdmin } from "./views/cohortsAdmin/CohortsAdmin";
 
 export function RoutesApp() {
   const auth = useSelector((state) => state.auth);
@@ -52,22 +56,31 @@ export function RoutesApp() {
           <Route path="/forgot_password" element={<ForgotPassword />} exact />
           <Route
             path="/"
-            element={isLogged ?
-              isSuperAdmin ? <SuperAdminDashboard /> :
-                isAdmin ? <AdminDashboard /> :
-                  isTeacher ? <Cohort /> :
-                    isStudent ? <Dashboard /> : <Error404 /> : <Login />}
+            element={
+              isLogged ? (
+                isSuperAdmin ? (
+                  <SuperAdminDashboard />
+                ) : isAdmin ? (
+                  <AdminDashboard />
+                ) : isTeacher ? (
+                  <CohortsTeacher />
+                ) : isStudent ? (
+                  <Dashboard />
+                ) : (
+                  <Error404 />
+                )
+              ) : (
+                <Login />
+              )
+            }
             exact
           />
-
           <Route
             path="/login"
             element={isLogged ? <Error404 /> : <Login />}
             exact
           />
-
           <Route path="*" element={<Error404 />} />
-
           //Logeado universal
           <Route
             path="/configuration"
@@ -79,53 +92,46 @@ export function RoutesApp() {
             element={isLogged ? <Error404 /> : <ResetPassword />}
             exact
           />
-
           //isSuperAdmin
           <Route path="/register_admin" element={isSuperAdmin?<RegisterAdmin />:<Error404/>} exact />
           <Route path="/update_admin/:id" element={isSuperAdmin?<UpdateRegisterAdmin/>:<Error404/>} exact />
+         
           //isAdmin
           <Route path="/register_teacher" element={isAdmin?<RegisterTeacher />:<Error404/>} exact />
+          <Route path="/list_teachers" element={isAdmin?<TableTeacher />:<Error404/>} exact />
           <Route path="/cohort/register_student/:id" element={isAdmin?<RegisterStudent />:<Error404/>} exact />
-
-          //isTeacher
-          
-          //isStudent
-
-          //isAdmin
+          <Route path="/update_user/:id" element={isAdmin?<UpdateRegister/>:<Error404/>} exact />
           <Route
-            path="/edit_user/:id"
-            element={isAdmin ? <EditUser /> : <Error404 />}
+            path="/bootcamp/cohorts/:id"
+            element={isAdmin ? <CohortsAdmin /> : <Error404 />}
             exact
           />
+          //isTeacher
           
 
+    
+          //isTeacher //isStudent //isAdmin
+          
           <Route path="/crearProyecto" element={<AddProject />} />
           <Route path="/proyectos" element={<ShowProjects />} />
           <Route path="/proyectos/:id" element={<ShowProject />} />
           <Route path="/crearAnuncio" element={<CreateAnnouncement />} />
           <Route path="/anuncios" element={<Announcements />} />
+          //isTeacher //isStudent
+          <Route
+            path="/entregasFormador"
+            element={<DeliveryProjectTrainer />}
+          />
+          <Route
+            path="/entregasEstudiante"
+            element={<DeliveryProjectStudent />}
+          />
+          <Route
+            path="/user/deliverie/:id_deliverie"
+            element={isLogged ? <Deliverie /> : <Error404 />}
+            exact
+          />
           
-          //isTeacher
-
-            //isStudent
-
-            <Route
-              path="/entregasFormador"
-              element={<DeliveryProjectTrainer />}
-            />
-
-            <Route
-              path="/entregasEstudiante"
-              element={<DeliveryProjectStudent />}
-            />
-
-
-
-            <Route
-              path="/user/deliverie/:id_deliverie"
-              element={isLogged ? <Deliverie /> : <Error404 />}
-              exact
-            />
         </Routes>
         <Footer />
       </Router>

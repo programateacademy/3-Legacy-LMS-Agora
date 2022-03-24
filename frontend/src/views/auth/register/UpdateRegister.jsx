@@ -1,17 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import {useParams} from 'react-router-dom'
 import { useSelector } from "react-redux";
 import apiAgora from "../../../api";
 import { showErrMsg, showSuccessMsg } from "../../../utils/notification";
 import {
   isEmpty,
   isEmail,
-  isLength,
-  isMatch,
   isLengthcontactNumber,
 } from "../../../utils/validation";
-import styles from"./register.module.css";
+import styles from './register.module.css'
 import { Input } from "../../../components/input/Input";
 import logo from "../../../assets/logos/programateLogo.png";
+import {Link} from "react-router-dom";
 
 const initialState = {
   
@@ -22,7 +22,7 @@ const initialState = {
   documentType: "",
   documentNumber: "",
   contactNumber: "",
-  role: 1,
+  role: 0,
   email: "",
   password: "",
   cf_password: "",
@@ -30,7 +30,9 @@ const initialState = {
   success: "",
 };
 
-export function RegisterTeacher() {
+export function UpdateRegister() {
+  const params = useParams();
+  const userID = params.id;
   const [user, setUser] = useState(initialState);
   const auth = useSelector((state) => state.auth);
   const id_user = auth.user.id;
@@ -43,12 +45,19 @@ export function RegisterTeacher() {
     documentNumber,
     contactNumber,
     email,
-    password,
-    cf_password,
     err,
-    success,
-    role
+    success
   } = user;
+
+  const fetchAdmins = async () => {
+    const res = await apiAgora.get('api/get_user/'+userID, {
+      headers: { Authorization: id_user }
+    })
+    setUser(res.data)
+  }
+  useEffect(()=>{
+    fetchAdmins()
+  }, [])
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
@@ -57,23 +66,10 @@ export function RegisterTeacher() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (isEmpty(firstName) || isEmpty(password))
+    if (isEmpty(firstName) || isEmpty(lastName))
       return setUser({
         ...user,
         err: "Todos los campos son obligatorios",
-        success: "",
-      });
-    if (isEmpty(lastName) || isEmpty(password))
-      return setUser({
-        ...user,
-        err: "Todos los campos son obligatorios",
-        success: "",
-      });
-
-    if (!isEmail(email))
-      return setUser({
-        ...user,
-        err: "Este correo electronico ya existe :(",
         success: "",
       });
 
@@ -84,24 +80,9 @@ export function RegisterTeacher() {
         success: "",
       });
 
-    if (isLength(password))
-      return setUser({
-        ...user,
-        err: "La contraseña debe tener al menos 6 caracteres",
-        success: "",
-      });
-
-    if (!isMatch(password, cf_password))
-      return setUser({
-        ...user,
-        err: "Las contraseñas no coinciden",
-        success: "",
-      });
-
     try {
       if (auth.isAdmin) {
-        const res = await apiAgora.post("/api/register_teacher", {
-          
+        const res = await apiAgora.put("/api/update_user/"+userID, {
           firstName,
           middleName,
           lastName,
@@ -109,9 +90,7 @@ export function RegisterTeacher() {
           documentType,
           documentNumber,
           contactNumber,
-          email,
-          password,
-          role
+          email
         },{
           headers: {Authorization: id_user}
       });
@@ -129,7 +108,10 @@ export function RegisterTeacher() {
     <div className={styles.container_register}>
       <div className={styles.container_register_page}>
         <img className={styles.logo_register} src={logo} alt="logo" />
-        <h2 className={styles.title_register}>Registro Formador</h2>
+        <Link className={styles.button_return} to="/">
+              Volver
+            </Link>
+        <h2 className={styles.title_register}>USUARIO</h2>
         {err && showErrMsg(err)}
         {success && showSuccessMsg(success)}
         <div className={styles.register_form_content}>
@@ -212,29 +194,9 @@ export function RegisterTeacher() {
                 onChange={handleChangeInput}
               />
             </div>
-            <div className={styles.container_register_input}>
-              <Input
-                className={styles.input_register}
-                type="password"
-                label="Contraseña"
-                placeholder="******"
-                name="password"
-                value={password}
-                onChange={handleChangeInput}
-              />
-              <Input
-                className={styles.input_register}
-                type="password"
-                label="Confirmar contraseña"
-                placeholder="******"
-                name="cf_password"
-                value={cf_password}
-                onChange={handleChangeInput}
-              />
-            </div>
 
             <button className={styles.button_submit_register} type="submit">
-              CREAR CUENTA DE FORMADOR
+              ACTUALIZAR USUARIO
             </button>
             
           </form>

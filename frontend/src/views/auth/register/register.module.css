@@ -95,6 +95,7 @@ button {
 .button_return:hover{
   background-color: var(--colorBlack);
   color:#ffd808;
+  transition: 0.3s;
 }
 .link_register {
   font-size: 17px;
@@ -117,6 +118,8 @@ button {
 }
 .button_submit_register:hover{
   background-color: var(--colorGreenLight);
+  color: var(--colorWhite);
+  transition: 0.3s;
 }
 .form_select:hover{
   border: 2px solid #ffd808;

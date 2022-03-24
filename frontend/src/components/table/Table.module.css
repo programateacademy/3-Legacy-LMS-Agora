@@ -49,6 +49,6 @@
 }
 
 .delete:hover {
-  color: red;
+  color: rgb(255, 61, 61);
   transition: 0.3s;
 }

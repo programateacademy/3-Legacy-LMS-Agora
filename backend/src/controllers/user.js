@@ -242,6 +242,16 @@ const controllerUser = {
       return res.status(500).json({ msg: err.message });
     }
   },
+
+  getTeacherAllInfo: async (req, res) => {
+    try {
+      const users = await User.find({ role: 1 }).select("-password");
+      res.json(users);
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
+
   getUsersAllStudents: async (req, res) => {
     try {
       const users = await User.find(

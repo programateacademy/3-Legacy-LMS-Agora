@@ -1,0 +1,7 @@
+.bootcamps {
+    display: flex;
+}
+
+.bootcamps h2 {
+    text-align: center;
+}
