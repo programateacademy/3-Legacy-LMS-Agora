@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { showErrMsg, showSuccessMsg } from "../../../utils/notification";
 import apiAgora from "../../../api";
 import { useParams } from "react-router-dom";
+import { BsArrowLeftCircle } from "react-icons/bs";
 
 const initialStateCohort = {
   nameCohort: "",
@@ -121,7 +122,7 @@ export function CreateCohort() {
     ]
   );
   return (
-    <>
+    <div className={style.formContainer}>
       <h1>Crear Cohorte</h1>
       <form className={style.form} onSubmit={handleSubmit}>
         <div className={style.inputs}>
@@ -153,7 +154,7 @@ export function CreateCohort() {
               onChange={handleChangeInput}
             ></textarea>
             <div className={style.containerTwo}>
-              <div>
+              <div className={style.initialDate}>
                 <label>Fecha de inico</label>
                 <input
                   type="date"
@@ -163,7 +164,7 @@ export function CreateCohort() {
                   onChange={handleChangeInput}
                 />
               </div>
-              <div>
+              <div className={style.finalDate}>
                 <label>Fecha final</label>
                 <input
                   type="date"
@@ -175,7 +176,6 @@ export function CreateCohort() {
               </div>
             </div>
             <div className={style.select}>
-              <label> Formadores </label>
               <select
                 aria-label="Default select example"
                 name="user"
@@ -191,7 +191,7 @@ export function CreateCohort() {
                   </option>
                 ))}
               </select>
-              <button type="button" onClick={onClickTeacher}>
+              <button className={style.buttonAdd} type="button" onClick={onClickTeacher}>
                 Agregar
               </button>
               {addedTeacher.length !== 0
@@ -221,8 +221,10 @@ export function CreateCohort() {
             />
           </div>
         </div>
-        <button type="submit">Crear Cohorte</button>
       </form>
-    </>
+      <div className={style.createCohort}>
+        <button className={style.buttonCreateCohort} type="submit">Crear Cohorte</button>
+      </div>
+    </div>
   );
 }
