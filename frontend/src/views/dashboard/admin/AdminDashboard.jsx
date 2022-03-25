@@ -8,7 +8,7 @@ export function AdminDashboard() {
       <h2>Bootcamps</h2>
       <div className={styles.buttonsContainer}>
         <Button title="Crear bootcamp" link="/" />
-        <Button title="Ver formadores" link="/" />
+        <Button title="Ver formadores" link="/list_teachers" />
       </div>
       <div className={styles.bootcampsContainer}>
         <Bootcamps />

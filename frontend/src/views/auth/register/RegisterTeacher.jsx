@@ -12,6 +12,9 @@ import {
 import styles from"./register.module.css";
 import { Input } from "../../../components/input/Input";
 import logo from "../../../assets/logos/programateLogo.png";
+import {useNavigate} from "react-router-dom";
+import { BsArrowLeftCircle } from "react-icons/bs";
+
 
 const initialState = {
   
@@ -49,6 +52,8 @@ export function RegisterTeacher() {
     success,
     role
   } = user;
+
+  let navigate = useNavigate()
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
@@ -128,6 +133,9 @@ export function RegisterTeacher() {
   return (
     <div className={styles.container_register}>
       <div className={styles.container_register_page}>
+      <button className={styles.button_return} onClick={()=>navigate(-1)}>
+        <BsArrowLeftCircle size={30}/>
+      </button>
         <img className={styles.logo_register} src={logo} alt="logo" />
         <h2 className={styles.title_register}>Registro Formador</h2>
         {err && showErrMsg(err)}

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {useParams} from 'react-router-dom'
 import { useSelector } from "react-redux";
+import { useEffect } from "react";
 import apiAgora from "../../../api";
 import { showErrMsg, showSuccessMsg } from "../../../utils/notification";
 import {
@@ -12,7 +13,10 @@ import {
 } from "../../../utils/validation";
 import styles from './register.module.css'
 import { Input } from "../../../components/input/Input";
+import {useNavigate} from "react-router-dom";
 import logo from "../../../assets/logos/programateLogo.png";
+import { BsArrowLeftCircle } from "react-icons/bs";
+
 
 const initialState = {
   
@@ -35,6 +39,7 @@ export function RegisterStudent() {
   const params = useParams();
   const cohortID = params.id;
   const [user, setUser] = useState(initialState);
+  const [nameCohort,  setNameCohort] = useState("");
   const auth = useSelector((state) => state.auth);
   const id_user = auth.user.id;
   const {
@@ -52,6 +57,22 @@ export function RegisterStudent() {
     success,
     role
   } = user;
+
+  let navigate = useNavigate()
+
+  const fetchCohortName = async () => {
+    const resName = await apiAgora.get(
+      `/api/agora/get-cohort/${cohortID}`,
+      {
+        headers: { Authorization: id_user },
+      }
+    );
+    setNameCohort(resName.data.nameCohort);
+  };
+
+  useEffect(() => {
+    fetchCohortName();
+  }, [])
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
@@ -131,8 +152,11 @@ export function RegisterStudent() {
   return (
     <div className={styles.container_register}>
       <div className={styles.container_register_page}>
+      <button className={styles.button_return} onClick={()=>navigate(-1)}>
+        <BsArrowLeftCircle size={30}/>
+      </button>
         <img className={styles.logo_register} src={logo} alt="logo" />
-        <h2 className={styles.title_register}>Registro Estudiante</h2>
+        <h2 className={styles.title_register}>{`Registro Estudiante - Cohorte ${nameCohort}`}</h2>
         {err && showErrMsg(err)}
         {success && showSuccessMsg(success)}
         <div className={styles.register_form_content}>

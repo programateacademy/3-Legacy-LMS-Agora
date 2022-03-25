@@ -29,11 +29,12 @@ import { ShowProjects } from "./views/activities/ShowActivities/showProjects/sho
 
 import ResetPassword from "./views/auth/resetPassword/ResetPassword";
 import { Configuration } from "./views/configuration/Configuration";
-import { EditUser } from "./views/configuration/EditUser";
+
 
 import ActivationEmail from "./views/auth/activationEmail/ActivationEmail";
 import { Footer } from "./components/footer/Footer";
 import { TableTeacher } from "./views/tableTeachers/TableTeacher";
+import { TableStudentCohort } from "./views/tableStudentCohort/TableStudentCohort";
 
 
 import { CohortsAdmin } from "./views/cohortsAdmin/CohortsAdmin";
@@ -104,6 +105,11 @@ export function RoutesApp() {
           <Route
             path="/bootcamp/cohorts/:id"
             element={isAdmin ? <CohortsAdmin /> : <Error404 />}
+            exact
+          />
+          <Route
+            path="/bootcamp/cohort/students/:id"
+            element={isAdmin ? <TableStudentCohort /> : <Error404 />}
             exact
           />
           //isTeacher

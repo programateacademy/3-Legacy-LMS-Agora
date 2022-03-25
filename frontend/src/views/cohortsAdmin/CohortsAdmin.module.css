@@ -15,3 +15,21 @@
 .buttonContainer {
     align-self: flex-end;
 }
+.button_return {
+    font-weight: bold;
+    background-color: #ffd808;
+    algin-items:center;
+    color:var(--colorBlack);
+    margin: 30px;
+    padding: 10px;
+    width: auto;
+    display: flex;
+    text-algin:center;
+    align-self: flex-start;
+    border-radius: 10px;
+  }
+  .button_return:hover{
+    background-color: var(--colorBlack);
+    color:#ffd808;
+    transition: 0.3s;
+  }

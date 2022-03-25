@@ -255,7 +255,6 @@ const controllerUser = {
   getUsersAllStudents: async (req, res) => {
     try {
       const users = await User.find(
-        { role: 0 },
         { cohortID: req.params._id }
       ).select("-password");
       res.json(users);

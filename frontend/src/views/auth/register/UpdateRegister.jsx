@@ -11,7 +11,9 @@ import {
 import styles from './register.module.css'
 import { Input } from "../../../components/input/Input";
 import logo from "../../../assets/logos/programateLogo.png";
-import {Link} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
+import { BsArrowLeftCircle } from "react-icons/bs";
+
 
 const initialState = {
   
@@ -48,6 +50,7 @@ export function UpdateRegister() {
     err,
     success
   } = user;
+  let navigate = useNavigate()
 
   const fetchAdmins = async () => {
     const res = await apiAgora.get('api/get_user/'+userID, {
@@ -107,10 +110,10 @@ export function UpdateRegister() {
   return (
     <div className={styles.container_register}>
       <div className={styles.container_register_page}>
+      <button className={styles.button_return} onClick={()=>navigate(-1)}>
+        <BsArrowLeftCircle size={30}/>
+      </button>
         <img className={styles.logo_register} src={logo} alt="logo" />
-        <Link className={styles.button_return} to="/">
-              Volver
-            </Link>
         <h2 className={styles.title_register}>USUARIO</h2>
         {err && showErrMsg(err)}
         {success && showSuccessMsg(success)}

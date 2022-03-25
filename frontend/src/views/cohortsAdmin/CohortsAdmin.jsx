@@ -5,6 +5,8 @@ import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import apiAgora from "../../api";
 import { Button } from "../../components/buttons/Button/Button";
+import {useNavigate} from "react-router-dom";
+import { BsArrowLeftCircle } from "react-icons/bs";
 
 import styles from "./CohortsAdmin.module.css";
 export function CohortsAdmin() {
@@ -15,9 +17,11 @@ export function CohortsAdmin() {
   const [cohortsBootcamp, setCohortsBootcamp] = useState([]);
   const [nameBootcamp, setNameBootcamp] = useState("");
 
+  let navigate = useNavigate()
+
   const fetchBootcampName = async () => {
     const resName = await apiAgora.get(
-      `/api/agora//get-bootcamps/${bootcampID}`,
+      `/api/agora/get-bootcamps/${bootcampID}`,
       {
         headers: { Authorization: id_user },
       }
@@ -38,6 +42,9 @@ export function CohortsAdmin() {
 
   return (
     <div className={styles.cohorts}>
+      <button className={styles.button_return} onClick={()=>navigate(-1)}>
+        <BsArrowLeftCircle size={30}/>
+      </button>
       <h2>{`Cohortes bootcamp ${nameBootcamp}`}</h2>
       <div className={styles.buttonContainer}>
         <Button title="Crear cohorte" link="/" />

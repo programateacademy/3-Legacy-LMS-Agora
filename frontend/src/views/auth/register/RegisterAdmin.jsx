@@ -12,7 +12,9 @@ import {
 import styles from "./register.module.css";
 import { Input } from "../../../components/input/Input";
 import logo from "../../../assets/logos/programateLogo.png";
-import {Link} from "react-router-dom"
+import {useNavigate} from "react-router-dom";
+import { BsArrowLeftCircle } from "react-icons/bs";
+
 
 const initialState = {
   
@@ -52,6 +54,8 @@ export function RegisterAdmin() {
     success,
     role
   } = user;
+
+  let navigate = useNavigate()
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
@@ -130,10 +134,11 @@ export function RegisterAdmin() {
 
   return (
     <div className={styles.container_register}>
+      
       <div className={styles.container_register_page}>
-      <Link className={styles.button_return} to="/">
-              Volver
-            </Link>
+      <button className={styles.button_return} onClick={()=>navigate(-1)}>
+        <BsArrowLeftCircle size={30}/>
+      </button>
         <img className={styles.logo_register} src={logo} alt="logo" />
         <h2 className={styles.title_register}>Registro Administrador</h2>
         {err && showErrMsg(err)}

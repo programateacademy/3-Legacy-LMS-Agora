@@ -87,9 +87,9 @@ button {
   margin: 30px;
   padding: 10px;
   width: auto;
-  max-width:100px;
   display: flex;
   text-algin:center;
+  align-self: flex-start;
   border-radius: 10px;
 }
 .button_return:hover{
