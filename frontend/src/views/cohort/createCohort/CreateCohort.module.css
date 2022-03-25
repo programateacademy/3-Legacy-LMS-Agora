@@ -2,6 +2,7 @@
 	flex-direction: row;
 	justify-items: center;
 }
+
 h1 {
 	text-align: center;
 	padding: 4vh 0vh 6vh;
@@ -18,31 +19,38 @@ input {
     flex-direction: row;
     min-height: calc(100vh - 325px);
 }
+
 .inputs{
 	display: flex;
 	flex-direction: column;
 	width: 40%;
 }
+
 .inputs input {
 	margin: 0vh 2vh 2.5vh 0vh;
 }
+
 .containerOne{
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	margin: 0;
 }
+
 .containerOne .inputName{
 	width: 100%;
 }
+
 .numberC{
 	width: 60px;
 	height: 30px;
 }
+
 .textarea{
 	width: 100%;
 	border-radius: 5px;
 }
+
 .containerTwo{
 	display: flex;
 	padding: 1vh 0vh;
@@ -52,7 +60,7 @@ input {
 
 .buttonAdd {
 	border-radius: 10px;
-	padding: 1vh;
+	padding: 3vh;
 	width: 13vh;
 	margin-top: 2vh;
 	background-color: var(--colorYellow);
@@ -66,25 +74,30 @@ input {
 	color: var(--colorYellow);
 	transition: 0.4s;
 }
+
 .select{
 	display: flex;
 	flex-direction: column;
 	margin-top: 10px;
 }
+
 .file {
 	display: flex;
 	width: 25vh;
 	justify-content: center;
 }
+
 .texto{
 	padding: 1vh;
-	text-align: center;
+	text-align:start;
 	color:black;
 }
+
 .file:hover >.texto {
 	color:var(--colorYellow);
 	transition: 0.4s;
 }
+
 .finalDate {
 	display: flex;
 	flex-direction: column;
@@ -134,9 +147,11 @@ input {
     background-color: var(--colorGray);
     width: 35vw;
     height: 35vh;
-	text-align: center;
 	margin-bottom: 1.5vh;
+	display: flex;
+	align-self: center;
 }
+
 .img_preview img{
     width: 100%;
 }
@@ -164,14 +179,15 @@ input {
 	
 }
 
+
+
 @media only screen and (max-width: 700px) {
 	.form{
 		display: flex;
 		flex-direction: column;
-		min-height: calc(150vh - 400px);
+		min-height: calc(100vh - 400px);
 		align-items: center;
 		justify-content: center;
-		justify-items: center;
 		margin-bottom: 3vh;
 	}
 	.initialDate{
@@ -180,25 +196,35 @@ input {
 
 	.finalDate {
 		margin-bottom: 4vh;
-
 	}
+
 	.file {
 		width: 25vh;
 	}
-	input {
-		width: auto;
-	}
+
 	.inputName {
 		width: 100%
 	}
+
 	h1 {
 		padding-bottom: 2.5vh;
 	}
+
 	.buttonAdd{
 		margin-bottom: 6vh;
 	}
+
 	.createCohort {
 		margin-top: 6vh;
+	}
+
+	.formContainer {
+		width: 100%;	
+	}
+	.inputs{
+		display: flex;
+		flex-direction: column;
+		width: 87%;
 	}
 
   }
