@@ -29,6 +29,11 @@
 	display: flex;
 	flex-direction: row;
 }
+.select{
+	display: flex;
+	flex-direction: column;
+	margin-top: 10px;
+}
 .texto{
 	text-align: center;
 	color:black;

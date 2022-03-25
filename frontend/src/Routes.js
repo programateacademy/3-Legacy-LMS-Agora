@@ -39,6 +39,7 @@ import { TableStudentCohort } from "./views/tableStudentCohort/TableStudentCohor
 
 
 import { CohortsAdmin } from "./views/cohortsAdmin/CohortsAdmin";
+import { CreateCohort } from "./views/cohort/createCohort/CreateCohort";
 
 export function RoutesApp() {
   const auth = useSelector((state) => state.auth);
@@ -106,6 +107,10 @@ export function RoutesApp() {
           <Route
             path="/bootcamp/cohorts/:id"
             element={isAdmin ? <CohortsAdmin /> : <Error404 />}
+            exact/>
+          <Route
+            path="/bootcamp/cohorts/create-cohort/:id"
+            element={isAdmin ? <CreateCohort /> : <Error404 />}
             exact
           />
           <Route
