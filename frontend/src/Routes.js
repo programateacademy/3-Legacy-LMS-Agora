@@ -20,6 +20,7 @@ import {RegisterTeacher} from "./views/auth/register/RegisterTeacher";
 import { Announcements } from "./views/announcements/Announcements";
 import CreateAnnouncement from "./views/announcements/CreateAnnouncement";
 
+import {CardProject} from "../src/components/cards/activity/CardProject"
 import AddProject from "./views/activities/trainer/addProject/AddProject";
 import DeliveryProjectStudent from "./views/activities/student/deliveryProject/DeliveryProjectStudent";
 import DeliveryProjectTrainer from "./views/activities/trainer/deliveryProject/DeliveryProjectTrainer";
@@ -119,7 +120,7 @@ export function RoutesApp() {
           //isTeacher //isStudent //isAdmin
           
           <Route path="/crearProyecto" element={<AddProject />} />
-          <Route path="/proyectos" element={<ShowProjects />} />
+          <Route path="/proyectos" element={<CardProject/>} />
           <Route path="/proyectos/:id" element={<ShowProject />} />
           <Route path="/crearAnuncio" element={<CreateAnnouncement />} />
           <Route path="/anuncios" element={<Announcements />} />
