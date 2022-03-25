@@ -1,8 +1,8 @@
 import React from "react";
-import "./ChortDashboard.css";
+import "./CompetencesTable.css";
 
 
-export function CohortDashboard () {
+export function CompetencesTable () {
   return (
     <>
 
