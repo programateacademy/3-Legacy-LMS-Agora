@@ -160,42 +160,49 @@ export function RegisterStudent() {
         {err && showErrMsg(err)}
         {success && showSuccessMsg(success)}
         <div className={styles.register_form_content}>
-          <form className={styles.register_form} onSubmit={handleSubmit}>
+        <form className={styles.register_form} onSubmit={handleSubmit}>
             <div className={styles.container_register_input}>
-              <Input
-                className={styles.input_register}
-                label="Primer nombre"
-                placeholder="Primer Nombre"
-                name="firstName"
-                value={firstName}
-                onChange={handleChangeInput}
-              />
-              <Input
-                className={styles.input_register}
-                label="Segundo nombre"
-                placeholder="Segundo nombre"
-                name="middleName"
-                value={middleName}
-                onChange={handleChangeInput}
-              />
+              <div className={styles.input_register}>
+                <label>Primer Nomre</label>
+                <input
+                  placeholder="Primer Nombre"
+                  name="firstName"
+                  value={firstName}
+                  onChange={handleChangeInput}
+                />
+              </div>
+              <div className={styles.input_register}>
+                <label>Primer Nomre</label>
+                <input
+                  label="Segundo nombre"
+                  placeholder="Segundo nombre"
+                  name="middleName"
+                  value={middleName}
+                  onChange={handleChangeInput}
+                />
+              </div>
             </div>
             <div className={styles.container_register_input}>
-              <Input
-                className={styles.input_register}
-                label="Primer apellido"
-                placeholder="Primer apellido"
-                name="lastName"
-                value={lastName}
-                onChange={handleChangeInput}
-              />
-              <Input
-                className={styles.input_register}
-                label="Segundo apellido"
-                placeholder="Segundo apellido"
-                name="secondSurname"
-                value={secondSurname}
-                onChange={handleChangeInput}
-              />
+              <div className={styles.input_register}>
+                <label>Primer Nomre</label>
+                <input
+                  label="Primer apellido"
+                  placeholder="Primer apellido"
+                  name="lastName"
+                  value={lastName}
+                  onChange={handleChangeInput}
+                />
+              </div>
+              <div className={styles.input_register}>
+                <label>Primer Nomre</label>
+                <input
+                  label="Segundo apellido"
+                  placeholder="Segundo apellido"
+                  name="secondSurname"
+                  value={secondSurname}
+                  onChange={handleChangeInput}
+                />
+              </div>
             </div>
             <div className={styles.container_register_input}>
               <div className={styles.input_container}>
@@ -203,7 +210,10 @@ export function RegisterStudent() {
                 <select
                   className={styles.form_select}
                   aria-label="Default select example"
-                  name="documentType" value={documentType} onChange={handleChangeInput}>
+                  name="documentType"
+                  value={documentType}
+                  onChange={handleChangeInput}
+                >
                   <option selected>Seleccione...</option>
                   <option value="CC">Cédula de Ciudadania</option>
                   <option value="TI">Tarjeta de Identitdad</option>
@@ -212,58 +222,67 @@ export function RegisterStudent() {
                   <option value="PPT">Permiso de Protección Temporal</option>
                 </select>
               </div>
-              <Input
-                className={styles.input_register}
-                label="Número de Documento"
-                placeholder="Número de Documento"
-                name="documentNumber"
-                value={documentNumber}
-                onChange={handleChangeInput}
-              />
+              <div className={styles.input_register}>
+                <label>Numero de documento</label>
+                <input
+                  label="Número de Documento"
+                  placeholder="Número de Documento"
+                  name="documentNumber"
+                  value={documentNumber}
+                  onChange={handleChangeInput}
+                />
+              </div>
             </div>
             <div className={styles.container_register_input}>
-              <Input
-                className={styles.input_register}
-                label="Correo"
-                placeholder="email@educamas.co"
-                name="email"
-                value={email}
-                onChange={handleChangeInput}
-              />
-              <Input
-                className={styles.input_register}
-                label="Telefono"
-                placeholder="300 000 00 00"
-                name="contactNumber"
-                value={contactNumber}
-                onChange={handleChangeInput}
-              />
+              <div className={styles.input_register}>
+                <label>Correo</label>
+                <input
+                  label="Correo"
+                  placeholder="email@educamas.co"
+                  name="email"
+                  value={email}
+                  onChange={handleChangeInput}
+                />
+              </div>
+              <div className={styles.input_register}>
+                <label>Telefono</label>
+                <input
+                  label="Telefono"
+                  placeholder="300 000 00 00"
+                  name="contactNumber"
+                  value={contactNumber}
+                  onChange={handleChangeInput}
+                />
+              </div>
             </div>
             <div className={styles.container_register_input}>
-              <Input
-                className={styles.input_register}
-                type="password"
-                label="Contraseña"
-                placeholder="******"
-                name="password"
-                value={password}
-                onChange={handleChangeInput}
-              />
-              <Input
-                className={styles.input_register}
-                type="password"
-                label="Confirmar contraseña"
-                placeholder="******"
-                name="cf_password"
-                value={cf_password}
-                onChange={handleChangeInput}
-              />
+              <div className={styles.input_register}>
+                <label>Contraseña</label>
+                <input
+                  type="password"
+                  label="Contraseña"
+                  placeholder="******"
+                  name="password"
+                  value={password}
+                  onChange={handleChangeInput}
+                />
+              </div>
+              <div className={styles.input_register}>
+                <label>Confirmar contraseña</label>
+                <input
+                  type="password"
+                  label="Confirmar contraseña"
+                  placeholder="******"
+                  name="cf_password"
+                  value={cf_password}
+                  onChange={handleChangeInput}
+                />
+              </div>
             </div>
 
             <button className={styles.button_submit_register} type="submit">
               CREAR CUENTA DE ESTUDIANTE
             </button>
-            
           </form>
         </div>
       </div>

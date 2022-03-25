@@ -36,6 +36,7 @@ import ActivationEmail from "./views/auth/activationEmail/ActivationEmail";
 import { Footer } from "./components/footer/Footer";
 import { TableTeacher } from "./views/tableTeachers/TableTeacher";
 import { TableStudentCohort } from "./views/tableStudentCohort/TableStudentCohort";
+import { Competences } from "./views/competences/Competences";
 
 
 import { CohortsAdmin } from "./views/cohortsAdmin/CohortsAdmin";
@@ -143,6 +144,7 @@ export function RoutesApp() {
             element={isLogged ? <Deliverie /> : <Error404 />}
             exact
           />
+          <Route path="/competences/:id" element={isAdmin?<Competences />:<Error404/>} />
           
         </Routes>
         <Footer />
