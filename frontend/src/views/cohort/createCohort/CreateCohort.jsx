@@ -74,9 +74,14 @@ export function CreateCohort() {
       selectedTeacher.id &&
       !assignedTeachersID.includes(selectedTeacher.id)
     ) {
-      setAddedTeacher((prev) => [...prev, selectedTeacher.fullName]);
+      setAddedTeacher((prev) => [...prev, {name:selectedTeacher.fullName, id:selectedTeacher.id}]);
       setAssignedTeachersID((prev) => [...prev, selectedTeacher.id]);
     }
+  };
+
+  const onClearTeacher = (userID) => {
+      setAddedTeacher(addedTeacher.filter(e => e.id !== userID));
+      setAssignedTeachersID(assignedTeachersID.filter(e => e !== userID));
   };
 
   // Create new cohort
@@ -197,8 +202,8 @@ export function CreateCohort() {
               {addedTeacher.length !== 0
                 ? addedTeacher.map((item, index) => (
                     <div key={index}>
-                      <li>{item}</li>
-                      <MdDeleteForever />
+                      <li>{item.name}</li>
+                      <button onClick={()=>onClearTeacher(item.id)}><MdDeleteForever /></button>
                     </div>
                   ))
                 : null}
