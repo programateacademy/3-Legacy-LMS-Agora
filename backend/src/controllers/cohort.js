@@ -6,6 +6,7 @@ const controllerCohort = {
       const {
         bootcampID,
         nameCohort,
+        assignedTeachersID,
         numberCohort,
         imageCohort,
         descriptionCohort,
@@ -24,6 +25,7 @@ const controllerCohort = {
 
       const cohort = new Cohort({
         bootcampID,
+        assignedTeachersID,
         nameCohort,
         numberCohort,
         imageCohort,
@@ -41,7 +43,7 @@ const controllerCohort = {
   },
   getCohorts: async (req, res) => {
     try {
-      const cohort = await Cohort.find({bootcampID:req.params._id});
+      const cohort = await Cohort.find({ bootcampID: req.params._id });
 
       res.json(cohort);
     } catch (err) {
@@ -61,6 +63,7 @@ const controllerCohort = {
     try {
       const {
         bootcampID,
+        assignedTeachersID,
         nameCohort,
         numberCohort,
         imageCohort,
@@ -72,6 +75,7 @@ const controllerCohort = {
         { _id: req.params._id },
         {
           bootcampID,
+          assignedTeachersID,
           nameCohort,
           numberCohort,
           imageCohort,
@@ -93,7 +97,7 @@ const controllerCohort = {
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }
-  }
+  },
 };
 
 module.exports = controllerCohort;
