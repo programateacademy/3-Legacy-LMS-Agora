@@ -6,6 +6,7 @@ import { showErrMsg, showSuccessMsg } from "../../../utils/notification";
 import apiAgora from "../../../api";
 import { useParams } from "react-router-dom";
 import { BsArrowLeftCircle } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 
 const initialStateCohort = {
   nameCohort: "",
@@ -21,6 +22,7 @@ const initialStateCohort = {
 export function CreateCohort() {
   const params = useParams();
   const bootcampID = params.id;
+  let navigate = useNavigate();
 
   const [cohort, setCohort] = useState(initialStateCohort);
   const [teachers, setTeachers] = useState([]);
@@ -128,6 +130,9 @@ export function CreateCohort() {
   }, [selectedImage]);
   return (
     <div className={style.formContainer}>
+      <button className={style.button_return} onClick={() => navigate(-1)}>
+          <BsArrowLeftCircle size={30} />
+        </button>
       <h1>Crear Cohorte</h1>
       <form className={style.form} onSubmit={handleSubmit}>
         <div className={style.inputs}>
@@ -201,7 +206,7 @@ export function CreateCohort() {
               </button>
               {addedTeacher.length !== 0
                 ? addedTeacher.map((item, index) => (
-                    <div key={index}>
+                    <div key={index} className={style.teacherSelect}>
                       <li>{item.name}</li>
                       <button onClick={()=>onClearTeacher(item.id)}><MdDeleteForever /></button>
                     </div>
