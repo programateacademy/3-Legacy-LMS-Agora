@@ -28,6 +28,7 @@ input {
 
 .inputs input {
 	margin: 0vh 2vh 2.5vh 0vh;
+	padding: 1vh;
 }
 
 .containerOne{
