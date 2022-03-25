@@ -33,6 +33,7 @@ import { EditUser } from "./views/configuration/EditUser";
 
 import ActivationEmail from "./views/auth/activationEmail/ActivationEmail";
 import { Footer } from "./components/footer/Footer";
+import { Competences } from "./views/competences/Competences";
 
 
 export function RoutesApp() {
@@ -105,6 +106,7 @@ export function RoutesApp() {
           <Route path="/proyectos/:id" element={<ShowProject />} />
           <Route path="/crearAnuncio" element={<CreateAnnouncement />} />
           <Route path="/anuncios" element={<Announcements />} />
+          <Route path="/competences/:id" element={isAdmin?<Competences />:<Error404/>} />
           
           //isTeacher
 

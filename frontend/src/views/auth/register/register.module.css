@@ -17,17 +17,15 @@ button {
   justify-content: center;
   align-items: center;
   background-color: #fff;
-  
 }
 .container_register_page {
-  height: 80%;  /*este noesta funcionando*/
+  height: 80%; /*este noesta funcionando*/
   max-width: 776px;
   border-radius: 10px;
   width: 100%;
   box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.25);
   padding: 10px;
   background-color: #fff;
-  
 }
 
 .register_form {
@@ -82,19 +80,19 @@ button {
 .button_return {
   font-weight: bold;
   background-color: #ffd808;
-  algin-items:center;
-  color:var(--colorBlack);
+  algin-items: center;
+  color: var(--colorBlack);
   margin: 30px;
   padding: 10px;
   width: auto;
-  max-width:100px;
+  max-width: 100px;
   display: flex;
-  text-algin:center;
+  text-algin: center;
   border-radius: 10px;
 }
-.button_return:hover{
+.button_return:hover {
   background-color: var(--colorBlack);
-  color:#ffd808;
+  color: #ffd808;
 }
 .link_register {
   font-size: 17px;
@@ -102,25 +100,53 @@ button {
   color: #000;
   font-weight: 600;
 }
-.container_register_page a:hover{
+.container_register_page a:hover {
   color: #ffd808;
 }
 
-.form_select{
-  height:35px;
-  padding-right:55px;
- border-radius: 10px;
+.form_select {
+  height: 35px;
+  padding-right: 55px;
+  border-radius: 10px;
 }
-.input_label{
+.input_label {
   font-size: 14px;
   margin-right: 40px;
 }
-.button_submit_register:hover{
+.button_submit_register:hover {
   background-color: var(--colorGreenLight);
 }
-.form_select:hover{
+.form_select:hover {
   border: 2px solid #ffd808;
 }
+
+/*------------STYLES INPUT-----------*/
+
+.input_register {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.input_register label{
+  font-size: 14px;
+}
+
+.input_register input{
+  width: 100% !important;
+  height: 35px;
+  margin:10px 0;
+  border: 1px solid #6f6f6f;
+  outline: none;
+  padding: 0 10px;
+  border-radius: 10px;
+  
+}
+
+.input_register input:hover{
+  border: 2px solid #ffd808;
+}
+
 
 /* -------------MEDIA QUERIES--------------- */
 @media (max-width: 1059px) {
@@ -159,7 +185,7 @@ button {
     padding: 6px;
     width: 30%;
   }
-  .form_select{
+  .form_select {
     margin-bottom: 15px;
   }
 }
@@ -172,10 +198,8 @@ button {
 }
 /* -------------MEDIA QUERIES--------------- */
 @media (max-width: 460px) {
-  .form_select{
-    
+  .form_select {
     padding-right: 10px;
-   
   }
 }
 /* -------------MEDIA QUERIES--------------- */
@@ -188,9 +212,7 @@ button {
   .button_submit_register {
     font-size: 13px;
   }
-  .form_select{
-    
+  .form_select {
     width: 250px;
-   
   }
 }

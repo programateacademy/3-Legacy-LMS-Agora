@@ -1,0 +1,156 @@
+.button_return{
+    text-decoration: none;
+    color: black;
+}
+.globalContainer{
+    /* border: 5px solid red; */
+    width: 100%;
+}
+
+.globalContainer h2{
+    font-family: 'Roboto';
+    text-align: center;
+    font-size: 25px;
+    
+}
+
+.globalContainer a{
+font-size: 20px;
+font-weight:bold;
+}
+
+.globalContainer a:hover{
+    text-decoration: underline;
+    color:var(--colorYellow);
+    
+}
+
+
+.numeral{
+    height: 35px;
+    background-color: var(--colorGray_20);
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 1px solid #6f6f6f;
+    box-shadow: inset 0px 6px 15px rgba(0, 0, 0, 0.2);
+    margin-top: 10px;
+    margin-right: 5px ;
+
+}
+
+.numeral select{
+    border: none;
+    background-color: var(--colorGray_20);
+}
+
+.containerImputTitle{
+    display: flex;
+    border:1px solid yellow;
+    width: 100%;
+}
+
+.containerSectionFirst{
+    display: flex;
+    flex-direction: column;
+}
+
+.containerGeneral{
+    display: flex;
+    justify-content:space-around;
+}
+.inputDescription{
+    width:65%
+}
+
+.inputName{
+    width:30%;
+    margin:0px 10px;
+}
+
+.containerInputAddCompetence{
+    width: 96%;
+}
+
+.button_submit_register{
+    font-weight: bold;
+  background-color: var(--colorYellow);
+  padding: 10px;
+  width: 150px;
+  display: block;
+  border-radius: 10px;
+  margin-right: 23px;
+  border: none !important;
+  cursor: pointer !important;
+
+}
+
+.button_submit_register:hover{
+    background-color:var(--colorGreenLight) ;
+}
+
+.container__button{
+    width: 100%;
+    display: flex;
+    justify-content:flex-end ;
+}
+
+.container__frameOfReference{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cardReferences{
+    width: 80%;
+    background-color: var(--colorYellow);
+    margin: 16px;
+    height: 50px;
+    font-size: 20px;
+    line-height: 50px;
+    border-radius: 10px;
+    padding: 0px 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.button__edit,.button__delete{
+    color: black;
+    font-size: 50px;
+    margin-left: 10px;
+
+}
+
+.button__edit:hover{
+    color: aqua;
+}
+
+/*------------STYLES INPUT-----------*/
+
+.input_register {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .input_register label{
+    font-size: 14px;
+  }
+  
+  .input_register input{
+    width: 100% !important;
+    height: 35px;
+    margin:10px 0;
+    border: 1px solid #6f6f6f;
+    outline: none;
+    padding: 0 10px;
+    border-radius: 10px;
+    box-shadow: inset 0px 6px 15px rgba(0, 0, 0, 0.2);
+    
+  }
+  
+  
+  

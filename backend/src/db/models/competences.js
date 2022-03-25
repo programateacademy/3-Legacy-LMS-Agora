@@ -16,11 +16,11 @@ const competenciesSchema = new Schema(
       required: true,
     },
     levelOne: {
-      actions: {
+      actions1: {
         type: String,
         required: true,
       },
-      evaluationCriteria: {
+      evaluationCriteria1: {
         type: String,
         required: true,
       },
@@ -30,11 +30,11 @@ const competenciesSchema = new Schema(
       },
     },
     levelTwo: {
-      actions: {
+      actions2: {
         type: String,
         required: true,
       },
-      evaluationCriteria: {
+      evaluationCriteria2: {
         type: String,
         required: true,
       },
@@ -44,11 +44,11 @@ const competenciesSchema = new Schema(
       },
     },
     levelThree: {
-      actions: {
+      actions3: {
         type: String,
         required: true,
       },
-      evaluationCriteria: {
+      evaluationCriteria3: {
         type: String,
         required: true,
       },
