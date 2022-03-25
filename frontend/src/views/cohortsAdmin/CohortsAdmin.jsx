@@ -40,7 +40,10 @@ export function CohortsAdmin() {
     <div className={styles.cohorts}>
       <h2>{`Cohortes bootcamp ${nameBootcamp}`}</h2>
       <div className={styles.buttonContainer}>
-        <Button title="Crear cohorte" link="/" />
+        <Button
+          title="Crear cohorte"
+          link={`/bootcamp/cohorts/create-cohort/${bootcampID}`}
+        />
       </div>
       <div>
         {cohortsBootcamp.map((cohort, index) => (
