@@ -41,6 +41,7 @@ import { Competences } from "./views/competences/Competences";
 
 import { CohortsAdmin } from "./views/cohortsAdmin/CohortsAdmin";
 import { CreateCohort } from "./views/cohort/createCohort/CreateCohort";
+import { CompetencesUpdate} from "./views/competences/CompetencesUpdate"
 
 export function RoutesApp() {
   const auth = useSelector((state) => state.auth);
@@ -145,6 +146,7 @@ export function RoutesApp() {
             exact
           />
           <Route path="/competences/:id" element={isAdmin?<Competences />:<Error404/>} />
+          <Route path="/competences-update/:id" element={isAdmin?<CompetencesUpdate />:<Error404/>} />
           
         </Routes>
         <Footer />

@@ -53,7 +53,6 @@ const controllerCompetence = {
   updateCompetence: async (req, res) => {
     try {
       const {
-        identifierCompetences,
         nameCompetences,
         levelOne,
         levelTwo,
@@ -62,7 +61,6 @@ const controllerCompetence = {
       await Competence.findOneAndUpdate(
         { _id: req.params._id },
         {
-          identifierCompetences,
           nameCompetences,
           levelOne,
           levelTwo,
