@@ -42,6 +42,8 @@ import { CreateCohort } from "./views/cohort/createCohort/CreateCohort";
 import { CompetencesUpdate} from "./views/competences/CompetencesUpdate"
 import { UpdateCohort } from "./views/cohort/updateCohort/UpdateCohort";
 
+import { CreateBootcamp } from './views/bootcamps/createBootcamp/CreateBootcamp';
+
 export function RoutesApp() {
   const auth = useSelector((state) => state.auth);
   const { isLogged, isAdmin, isSuperAdmin, isTeacher, isStudent } = auth;
@@ -149,6 +151,13 @@ export function RoutesApp() {
             element={isAdmin ? <UpdateCohort /> : <Error404 />}
             exact
           />
+          <Route
+            path="/bootcamp/create-bootcamp"
+            element={isAdmin ? <CreateBootcamp /> : <Error404 />}
+            exact
+          />
+          //isTeacher
+          
 
           {/* //isTeacher //isStudent //isAdmin */}
           <Route path="/crearProyecto" element={<AddProject />} />
