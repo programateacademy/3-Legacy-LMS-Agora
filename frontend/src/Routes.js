@@ -39,7 +39,7 @@ import { Competences } from "./views/competences/Competences";
 
 import { CohortsAdmin } from "./views/cohortsAdmin/CohortsAdmin";
 import { CreateCohort } from "./views/cohort/createCohort/CreateCohort";
-
+import { UpdateCohort } from "./views/cohort/updateCohort/UpdateCohort";
 export function RoutesApp() {
   const auth = useSelector((state) => state.auth);
   const { isLogged, isAdmin, isSuperAdmin, isTeacher, isStudent } = auth;
@@ -142,6 +142,12 @@ export function RoutesApp() {
             element={isAdmin ? <TableStudentCohort /> : <Error404 />}
             exact
           />
+          <Route
+            path="/cohort/update/:id"
+            element={isAdmin ? <UpdateCohort /> : <Error404 />}
+            exact
+          />
+
           {/* //isTeacher //isStudent //isAdmin */}
           <Route path="/crearProyecto" element={<AddProject />} />
           <Route path="/proyectos" element={<CardProject />} />
