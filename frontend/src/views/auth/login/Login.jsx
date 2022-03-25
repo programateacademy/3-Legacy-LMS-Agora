@@ -76,9 +76,6 @@ function Login () {
             INGRESAR
           </button>
           <Link to='/forgot_password'>Olvidaste la contraseña?</Link>
-          <p>
-            Nueva cuenta? <Link to='/register'>Register</Link>
-          </p>
         </form>
       </div>
     </div>
