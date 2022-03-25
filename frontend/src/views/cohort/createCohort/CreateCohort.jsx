@@ -3,7 +3,6 @@ import style from "./CreateCohort.module.css";
 import { MdDeleteForever } from "react-icons/md";
 import { useSelector } from "react-redux";
 import { showErrMsg, showSuccessMsg } from "../../../utils/notification";
-
 import apiAgora from "../../../api";
 import { useParams } from "react-router-dom";
 
@@ -21,6 +20,7 @@ const initialStateCohort = {
 export function CreateCohort() {
   const params = useParams();
   const bootcampID = params.id;
+
   const [cohort, setCohort] = useState(initialStateCohort);
   const [teachers, setTeachers] = useState([]);
   const [selectedTeacher, setSelectedTeacher] = useState({
@@ -40,7 +40,6 @@ export function CreateCohort() {
     descriptionCohort,
     startDateBootcamp,
     endBootcamp,
-    err,
     success,
   } = cohort;
 
@@ -67,8 +66,6 @@ export function CreateCohort() {
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
     setCohort({ ...cohort, [name]: value, err: "", success: "" });
-    // Solo una imagen
-    console.log(e.target.value);
   };
 
   const fetchTeachers = async () => {
@@ -107,29 +104,22 @@ export function CreateCohort() {
     }
   };
 
-  console.log(teachers);
-  console.log(
-    bootcampID,
-    assignedTeachersID,
-    nameCohort,
-    numberCohort,
-    descriptionCohort,
-    startDateBootcamp,
-    endBootcamp
-  );
-
-  useEffect(() => {
-    fetchTeachers();
-    if (!selectedImage) {
+  useEffect(
+    () => {
+      fetchTeachers();
+      /*     if (!selectedImage) {
       setImage("");
       return;
     }
     const objectUrl = URL.createObjectURL(selectedImage);
     setImage(objectUrl);
     // Desmontar la imagen para liberar la memoria
-    return () => URL.revokeObjectURL(objectUrl);
-  }, [selectedImage]);
-
+    return () => URL.revokeObjectURL(objectUrl); */
+    },
+    [
+      /* selectedImage */
+    ]
+  );
   return (
     <>
       <h1>Crear Cohorte</h1>
@@ -204,10 +194,10 @@ export function CreateCohort() {
               <button type="button" onClick={onClickTeacher}>
                 Agregar
               </button>
-              {addedTeacher.length != 0
+              {addedTeacher.length !== 0
                 ? addedTeacher.map((item, index) => (
-                    <div>
-                      <li key={index}>{item}</li>
+                    <div key={index}>
+                      <li>{item}</li>
                       <MdDeleteForever />
                     </div>
                   ))
