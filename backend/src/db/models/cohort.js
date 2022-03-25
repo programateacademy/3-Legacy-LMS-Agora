@@ -4,7 +4,7 @@ const cohortSchema = new Schema(
   {
     bootcampID: {
       type: Schema.Types.ObjectId,
-      ref:'Bootcamp',
+      ref: "Bootcamp",
       require: true,
     },
     assignedTeachersID: {
@@ -16,12 +16,13 @@ const cohortSchema = new Schema(
       trim: true,
     },
     numberCohort: {
-        type: Number,
-        required: true,
+      type: Number,
+      required: true,
     },
     imageCohort: {
       type: String,
-      /* required: true, */
+      default:
+        "https://drive.google.com/uc?export=view&id=13T4DiUeZdghGyHJgeoq6xbHbKiLH8NM8",
     },
     descriptionCohort: {
       type: String,

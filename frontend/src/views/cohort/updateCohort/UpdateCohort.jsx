@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import style from "./CreateCohort.module.css";
+import style from "./UpdateCohort.module.css";
 import { MdDeleteForever } from "react-icons/md";
 import { useSelector } from "react-redux";
 import { showErrMsg, showSuccessMsg } from "../../../utils/notification";
@@ -17,10 +17,9 @@ const initialStateCohort = {
   success: "",
 };
 
-export function CreateCohort() {
+export function UpdateCohort() {
   const params = useParams();
-  const bootcampID = params.id;
-
+  const cohortID = params.id;
   const [cohort, setCohort] = useState(initialStateCohort);
   const [teachers, setTeachers] = useState([]);
   const [selectedTeacher, setSelectedTeacher] = useState({
@@ -29,6 +28,8 @@ export function CreateCohort() {
   });
   const [addedTeacher, setAddedTeacher] = useState([]);
   const [assignedTeachersID, setAssignedTeachersID] = useState([]);
+  const [initialTeacher, setInitialTeacher] = useState([]);
+
   const auth = useSelector((state) => state.auth);
   const id_user = auth.user.id;
   const [image, setImage] = useState(null);
@@ -42,6 +43,13 @@ export function CreateCohort() {
     endBootcamp,
     success,
   } = cohort;
+
+  const fetchCohort = async () => {
+    const res = await apiAgora.get(`/api/agora/get-cohort/${cohortID}`, {
+      headers: { Authorization: id_user },
+    });
+    setCohort(res.data);
+  };
 
   const handleChangeImage = (e) => {
     setSelectedImage(e.target.files[0]);
@@ -58,6 +66,15 @@ export function CreateCohort() {
       headers: { Authorization: id_user },
     });
     setTeachers(res.data);
+  };
+
+  const fetchInitialTeachers = (id, array) => {
+    array.map(async (item) => {
+      const res = await apiAgora.get(`api/get_user/${item}`, {
+        headers: { Authorization: id_user },
+      });
+      setInitialTeacher(res.data);
+    });
   };
 
   // Get info selected teacher
@@ -79,15 +96,14 @@ export function CreateCohort() {
     }
   };
 
-  // Create new cohort
+  // Update cohort
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       if (auth.isAdmin) {
         const res = await apiAgora.post(
-          "/api/agora/new-cohort",
+          `/api/agora/update-cohort/${cohortID}`,
           {
-            bootcampID,
             assignedTeachersID,
             nameCohort,
             numberCohort,
@@ -111,6 +127,7 @@ export function CreateCohort() {
 
   useEffect(() => {
     fetchTeachers();
+    fetchCohort();
     if (!selectedImage) {
       setImage("");
       return;
@@ -122,7 +139,7 @@ export function CreateCohort() {
   }, [selectedImage]);
   return (
     <>
-      <h1>Crear Cohorte</h1>
+      <h1>Actualizar información de la cohorte {cohort.nameCohort}</h1>
       <form className={style.form} onSubmit={handleSubmit}>
         <div className={style.inputs}>
           <div className={style.containerOne}>
@@ -194,8 +211,8 @@ export function CreateCohort() {
               <button type="button" onClick={onClickTeacher}>
                 Agregar
               </button>
-              {addedTeacher.length !== 0
-                ? addedTeacher.map((item, index) => (
+              {initialTeacher.length !== 0
+                ? initialTeacher.map((item, index) => (
                     <div key={index}>
                       <li>{item}</li>
                       <MdDeleteForever />
@@ -211,17 +228,24 @@ export function CreateCohort() {
           </div>
           <div className={style.file}>
             <p className={style.texto}>Agregar imagen</p>
+            {/* <input
+              className={style.btn_add}
+              type="text"
+              accept="image/png, image/jpeg"
+              name="imageCohort"
+              value={imageCohort}
+              onChange={handleChangeImage}
+            /> */}
             <input
               className={style.btn_add}
-              type="file"
-              accept="image/png, image/jpeg"
+              type="text"
               name="imageCohort"
               value={imageCohort}
               onChange={handleChangeImage}
             />
           </div>
         </div>
-        <button type="submit">Crear Cohorte</button>
+        <button type="submit">Actualizar información</button>
       </form>
     </>
   );

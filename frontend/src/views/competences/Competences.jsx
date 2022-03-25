@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./competences.module.css";
-import { Input } from "../../components/input/Input";
+
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Textarea } from "../../components/input/Textarea";
 import { BsArrowLeftCircle } from "react-icons/bs";
