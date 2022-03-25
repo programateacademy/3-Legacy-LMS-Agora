@@ -152,9 +152,6 @@ input {
 	align-self: center;
 }
 
-.img_preview img{
-    width: 100%;
-}
 
 .buttonCreateCohort {
 	display: flex;
@@ -225,6 +222,10 @@ input {
 		display: flex;
 		flex-direction: column;
 		width: 87%;
+	}
+
+	.img_preview{
+		width: 100%;
 	}
 
   }
