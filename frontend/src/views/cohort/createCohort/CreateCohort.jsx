@@ -165,7 +165,7 @@ export function CreateCohort() {
             ></textarea>
             <div className={style.containerTwo}>
               <div className={style.initialDate}>
-                <label>Fecha de inico</label>
+                <label>Fecha de inicio</label>
                 <input
                   type="date"
                   placeholder="Fecha de inico"
