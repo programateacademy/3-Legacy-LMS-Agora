@@ -16,7 +16,6 @@ const controllerCohort = {
       if (
         !nameCohort ||
         !numberCohort ||
-        !imageCohort ||
         !descriptionCohort ||
         !startDateBootcamp ||
         !endBootcamp

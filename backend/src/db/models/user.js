@@ -6,9 +6,6 @@ const userSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "Cohort",
     },
-    assignedCohortsID: {
-      type: Array,
-    },
     firstName: {
       type: String,
       required: [true, "Please enter your name!"],

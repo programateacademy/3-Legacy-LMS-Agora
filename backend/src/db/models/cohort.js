@@ -7,6 +7,9 @@ const cohortSchema = new Schema(
       ref:'Bootcamp',
       require: true,
     },
+    assignedTeachersID: {
+      type: Array,
+    },
     nameCohort: {
       type: String,
       required: true,
@@ -18,7 +21,7 @@ const cohortSchema = new Schema(
     },
     imageCohort: {
       type: String,
-      required: true,
+      /* required: true, */
     },
     descriptionCohort: {
       type: String,
