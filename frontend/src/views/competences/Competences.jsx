@@ -10,27 +10,6 @@ import apiAgora from "../../api";
 import { useSelector } from "react-redux";
 import { showErrMsg, showSuccessMsg } from "../../utils/notification";
 
-/* const initialState = {
-  err: "",
-  success: "",
-  nameCompetences: "",
-  identifierCompetences:"",
-  levelOne: {
-    actions: "",
-    evaluationCriteria: "",
-    approved: false,
-  },
-  levelTwo: {
-    actions: "",
-    evaluationCriteria: "",
-    approved: false,
-  },
-  levelThree: {
-    actions: "",
-    evaluationCriteria: "",
-    approved: false,
-  },
-}; */
 
 export function Competences() {
   const auth = useSelector((state) => state.auth);
@@ -46,6 +25,7 @@ export function Competences() {
   const [levelTwo, setLevelTwo] = useState({});
   const [levelThree, setLevelThree] = useState({});
   const [competences, setCompetences] = useState({});
+  const [cohortCompetences, setCohortCompetences] = useState([]);
 
   let navigate = useNavigate();
 
@@ -63,6 +43,12 @@ export function Competences() {
     setNameBootcamp(res2Name.data.nameBootcamp);
     setDescriptionBootcamp(res2Name.data.descriptionBootcamp);
   };
+
+  const fetchCohortCompetences = async () => {
+    const resCompetencesCohort = await apiAgora.get(`/api/agora/get-competences/${cohortID}`, {
+      headers: { Authorization: id_user },
+    });
+    setCohortCompetences(resCompetencesCohort.data);}
 
   const { caracteristica, number } = competence;
 
@@ -98,6 +84,7 @@ export function Competences() {
 
   useEffect(() => {
     fetchCohortName();
+    fetchCohortCompetences();
   }, []);
 
   useEffect(()=>{
