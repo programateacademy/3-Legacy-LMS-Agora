@@ -1,15 +1,11 @@
-.projectCard {  
-    width: 4vh;
-    display: flex;
-    justify-content: center;
-    justify-items: center;
-      background-image: url('https://i.imgur.com/oYiTqum.jpg');
-      background-repeat: no-repeat;
+.cards {
+  width: 40%;
+  display: flex;
 }
 
 :root {
     --surface-color: rgb(0, 0, 0);
-    --curve: 40;
+    --curve: 50;
   }
   
   * {
@@ -20,7 +16,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    margin: 4rem 5vw;
+    margin: 4rem 7vw;
     padding: 0;
     list-style-type: none;
   }
@@ -28,10 +24,9 @@
   .card {
     position: relative;
     display: block; 
-    width: 100%;
-    border-radius: calc(var(--curve) * 1px);
     overflow: hidden;
     text-decoration: none;
+    border-radius: 1.5vw; 
   }
   
   
@@ -41,26 +36,29 @@
     left: 0;
     right: 0;
     z-index: 1;      
-    border-radius: calc(var(--curve) * 1px);    
+    border-radius: calc(var(--curve) * 2px) 0 0;   
     background-color: var(--colorBlack);      
     transform: translateY(100%);
     transition: .2s ease-in-out;
+    justify-content: center;
+    text-align: center;
   }
   
   .card:hover .card__overlay {
-    transform: translateY(0);
-  }
+  transform: translateY(0);
+}
   
   .card__header {
     position: relative;
     display: flex;
-    align-items: center;
-    gap: 2em;
+    gap: 0em;
     padding: 2em;
-    border-radius: calc(var(--curve) * 1px) 0 0 0;    
+    border-radius: calc(var(--curve) * 30px) 0 0;    
     background-color: var(--colorBlack);
     transform: translateY(-100%);
     transition: .2s ease-in-out;
+    justify-content: center;
+
   }
   
   .card__arc {
@@ -71,11 +69,7 @@
     right: 0;      
     z-index: 1;
   }
-  
-  .card__arc path {
-    fill: var(--surface-color);
-    d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
-  }       
+      
   
   .card:hover .card__header {
     transform: translateY(0);
@@ -84,14 +78,17 @@
   .card__thumb {
     flex-shrink: 0;
     width: 50px;
-    height: 50px;      
-    border-radius: 50%;      
+    height: 50px;        
   }
   
+  .card__header__text {
+    height: 30px;
+  }
+
   .card__title {
-    font-size: 1em;
+    font-size: 2em;
     margin: 0 0 .3em;
-    color: #6a5151;
+    color: var(--colorYellow);
   }
   
   .card__tagline {
@@ -104,7 +101,7 @@
   
   .card__status {
     font-size: .8em;
-    color: #D7BDCA;
+    color: #ffffff;
   }
   
   .card__description {
@@ -119,3 +116,118 @@
   }    
 
   
+  /* ESTILOS DEL MENU DENTRO DE LA CARD */
+
+.dots {
+  display: flex;
+  position: absolute;
+  margin-top: 40px;
+  width: 100%;
+  justify-content: center;
+  padding: 0;
+}
+
+.dots {
+  display: flex;
+  align-self: flex-end;
+  cursor: pointer;
+}
+.dot {
+  background: var(--colorGreenDark);
+  border-radius: 50%;
+  height: 10px;
+  margin-right: 6px;
+  width: 10px;
+}
+.dot:last-child {
+  margin-right: 0;
+}
+.drop {
+  background: #fff;
+  height: 5px;
+  transform: translateY(0);
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  width: 4px;
+}
+.shadow {
+  height: 440px;
+  justify-content: center;
+  left: 50%;
+  opacity: 0;
+  position: absolute;
+  transform: translateX(-50%) translateY(4px);
+  transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  width: 365px;
+}
+.list {
+  margin-top: 40px;
+  margin-left: -65px;
+  left: 50%;
+  position: absolute;
+  transform: translateX(0);
+  width: 100%;
+  opacity: 0;
+  z-index: 99;
+  transition: opacity 100ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dots:hover .list {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.list li {
+  cursor: pointer;
+  background-color: var(--colorYellow);
+  align-items: center;
+  display: flex;
+  font-size: 20px;
+  height: 65px;
+  width: 125px;
+  list-style: none;
+  transition: opacity 100ms cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  -moz-user-select: none;
+  justify-content:center;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+.list li:hover {
+  background: var(--colorGreenLight);
+  color: var(--colorWhite)
+}
+.dots.active .container {
+  transform: translateX(-50%) translateY(20px);
+}
+.dots.active .drop {
+  transform: translateY(212px) scale(108);
+}
+.dots.active .list li {
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 200ms 100ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.dots.active .list li:nth-child(2) {
+  transition-delay: 130ms;
+}
+.dots.active .list li:nth-child(3) {
+  transition-delay: 160ms;
+}
+.dots.active .list li:nth-child(4) {
+  transition-delay: 190ms;
+}
+.dots.active .list li:nth-child(5) {
+  transition-delay: 220ms;
+}
+.dots.active .shadow {
+  opacity: 1;
+  transition: opacity 150ms 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.cursor {
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  height: 40px;
+  position: absolute;
+  top: 0px;
+  width: 80px;
+}
