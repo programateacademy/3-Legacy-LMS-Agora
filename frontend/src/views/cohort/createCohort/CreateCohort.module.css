@@ -29,6 +29,7 @@ input {
 .inputs input {
 	margin: 0vh 2vh 2.5vh 0vh;
 	padding: 1vh;
+	box-shadow: inset 0px 4px 15px rgba(0, 0, 0, 0.5);
 }
 
 .containerOne{
@@ -50,6 +51,8 @@ input {
 .textarea{
 	width: 100%;
 	border-radius: 5px;
+	box-shadow: inset 0px 4px 15px rgba(0, 0, 0, 0.5);
+	padding: 1vh;
 }
 
 .containerTwo{
