@@ -10,11 +10,11 @@ import apiAgora from "../../api";
 import { useSelector } from "react-redux";
 import { showErrMsg, showSuccessMsg } from "../../utils/notification";
 
-const initialState = {
+/* const initialState = {
   err: "",
   success: "",
-  identifierCompetences: "",
   nameCompetences: "",
+  identifierCompetences:"",
   levelOne: {
     actions: "",
     evaluationCriteria: "",
@@ -30,7 +30,7 @@ const initialState = {
     evaluationCriteria: "",
     approved: false,
   },
-};
+}; */
 
 export function Competences() {
   const auth = useSelector((state) => state.auth);
@@ -38,14 +38,14 @@ export function Competences() {
   const params = useParams();
   const cohortID = params.id;
   const [nameCohort, setNameCohort] = useState("");
-  const [competences, setCompetences] = useState(initialState);
-  const [bootcampID, setBootcampID] = useState("");
+  const [competence, setCompetence] = useState([]);
   const [nameBootcamp, setNameBootcamp] = useState("");
+  const [identifierCompetences, setIdentifierCompetences] = useState({});
+  const [descriptionBootcamp, setDescriptionBootcamp] = useState("");
   const [levelOne, setLevelOne] = useState({});
   const [levelTwo, setLevelTwo] = useState({});
   const [levelThree, setLevelThree] = useState({});
-  const identifierCompetences = competences.caracteristica + competences.number;
-  const [competence, setCompetence] = useState([]);
+  const [competences, setCompetences] = useState({});
 
   let navigate = useNavigate();
 
@@ -54,22 +54,19 @@ export function Competences() {
       headers: { Authorization: id_user },
     });
     setNameCohort(resName.data.nameCohort);
-    setBootcampID(resName.data.bootcampID);
-  };
-
-  const fetchBootcampName = async () => {
-    const resName = await apiAgora.get(
-      `/api/agora/get-bootcamps/${bootcampID}`,
+    const res2Name = await apiAgora.get(
+      `/api/agora/get-bootcamps/${resName.data.bootcampID}`,
       {
         headers: { Authorization: id_user },
       }
     );
-    setNameBootcamp(resName.data.nameBootcamp);
+    setNameBootcamp(res2Name.data.nameBootcamp);
+    setDescriptionBootcamp(res2Name.data.descriptionBootcamp);
   };
 
-  const { caracteristica, number } = competences;
+  const { caracteristica, number } = competence;
 
-  const { nameCompetences, err, success } = competence;
+  const { nameCompetences, success } = competences;
 
   const { actions1, evaluationCriteria1 } = levelOne;
 
@@ -79,7 +76,7 @@ export function Competences() {
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
-    setCompetences({ ...competences, [name]: value, err: "", success: "" });
+    setCompetence({ ...competence, [name]: value, err: "", success: "" });    
   };
   const handleChangeInputLevelOne = (e) => {
     const { name, value } = e.target;
@@ -96,13 +93,16 @@ export function Competences() {
   };
   const handleChangeName = (e) => {
     const { name, value } = e.target;
-    setCompetence({ ...competence, [name]: value, err: "", success: "" });
+    setCompetences({ ...competences, [name]: value, err: "", success: "" });
   };
 
   useEffect(() => {
     fetchCohortName();
-    fetchBootcampName();
   }, []);
+
+  useEffect(()=>{
+    setIdentifierCompetences(competence.caracteristica+competence.number)},
+    [competence])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -123,6 +123,7 @@ export function Competences() {
             headers: { Authorization: id_user },
           }
         );
+        console.log(identifierCompetences)
         showSuccessMsg(success);
         setCompetence({ ...competence, err: "", success: res.data.msg });
       }
@@ -139,14 +140,17 @@ export function Competences() {
 
   return (
     <div className={styles.globalContainer}>
-      <Link className={styles.button_return} to={() => navigate(-1)}>
-        <BsArrowLeftCircle /> Volver
-      </Link>
-
-      <h2>Crear/Agregar competencias para la Cohorte {nameCohort}</h2>
-      <form onSubmit={handleSubmit}>
+      <div className={styles.container_register}>
+      <div className={styles.Container}>
+      <button className={styles.button_return} to={() => navigate(-1)}>
+        <BsArrowLeftCircle size={30}/>
+      </button>
+      <h1>{nameBootcamp}</h1>
+      </div>
+      <h2>Crear competencias para la Cohorte {nameCohort}</h2>
+      <form onSubmit={handleSubmit} >
         <div className={styles.containerSectionFirst}>
-          <h2>{nameBootcamp}</h2>
+          <h3>{descriptionBootcamp}</h3>
           <div className={styles.containerGeneral}>
             <div className={styles.numeral}>
               <select
@@ -156,6 +160,7 @@ export function Competences() {
                 value={caracteristica}
                 onChange={handleChangeInput}
               >
+                <option selected>..</option>
                 <option value="T">T</option>
                 <option value="C">C</option>
               </select>
@@ -168,7 +173,6 @@ export function Competences() {
                   name="number"
                   value={number}
                   onChange={handleChangeInput}
-                  min='1'
                 />
               </div>
             </div>
@@ -252,6 +256,7 @@ export function Competences() {
             </Link>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );
