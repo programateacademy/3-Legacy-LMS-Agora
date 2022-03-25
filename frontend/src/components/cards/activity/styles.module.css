@@ -1,5 +1,5 @@
 .cards {
-  width: 40%;
+  max-width: 300px;
   display: flex;
 }
 
@@ -105,7 +105,7 @@
   }
   
   .card__description {
-    padding: 0 2em 2em;
+    padding: 0 3em 1em;
     margin: 0;
     color: #D7BDCA;
     font-family: "MockFlowFont";   
@@ -124,14 +124,11 @@
   margin-top: 40px;
   width: 100%;
   justify-content: center;
-  padding: 0;
+  padding: 10px;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.35);
 }
 
-.dots {
-  display: flex;
-  align-self: flex-end;
-  cursor: pointer;
-}
 .dot {
   background: var(--colorGreenDark);
   border-radius: 50%;
@@ -181,8 +178,8 @@
   background-color: var(--colorYellow);
   align-items: center;
   display: flex;
-  font-size: 20px;
-  height: 65px;
+  font-size: 18px;
+  height: 50px;
   width: 125px;
   list-style: none;
   transition: opacity 100ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -230,4 +227,14 @@
   position: absolute;
   top: 0px;
   width: 80px;
+}
+
+.buttonVerMasContainer {
+  display: flex;
+  padding: 25px;
+  justify-content: center;
+  justify-items: center;
+  margin-top: -5px;
+  width: 100%;
+
 }

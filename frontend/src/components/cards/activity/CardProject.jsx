@@ -1,11 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import styles from './styles.module.css';
+import { Button } from "../../buttons/Button/Button";
 
 export function CardProject() {
   return (
-    <ul className={styles.cards}>
-      <li>
+      <div className={styles.cards}>
         <div className={styles.card}>
           <div className={styles.dots}>
             <div className={styles.dot}></div>
@@ -29,9 +28,11 @@ export function CardProject() {
               </div>
             </div>
             <p className={styles.card__description}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+            <div className={styles.buttonVerMasContainer}>
+             <Button title="Ver proyecto" link="/" />
+              </div>
           </div>
         </div>
-      </li>
-    </ul>
+        </div>
   );
 }
