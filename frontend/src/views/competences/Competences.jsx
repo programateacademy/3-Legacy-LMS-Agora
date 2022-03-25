@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./competences.module.css";
-import { Input } from "../../components/input/Input";
+
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Textarea } from "../../components/input/Textarea";
 import { BsArrowLeftCircle } from "react-icons/bs";
@@ -76,7 +76,7 @@ export function Competences() {
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
-    setCompetence({ ...competence, [name]: value, err: "", success: "" });    
+    setCompetence({ ...competence, [name]: value, err: "", success: "" });
   };
   const handleChangeInputLevelOne = (e) => {
     const { name, value } = e.target;
@@ -100,9 +100,9 @@ export function Competences() {
     fetchCohortName();
   }, []);
 
-  useEffect(()=>{
-    setIdentifierCompetences(competence.caracteristica+competence.number)},
-    [competence])
+  useEffect(() => {
+    setIdentifierCompetences(competence.caracteristica + competence.number);
+  }, [competence]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -123,7 +123,7 @@ export function Competences() {
             headers: { Authorization: id_user },
           }
         );
-        console.log(identifierCompetences)
+        console.log(identifierCompetences);
         showSuccessMsg(success);
         setCompetence({ ...competence, err: "", success: res.data.msg });
       }
@@ -141,122 +141,122 @@ export function Competences() {
   return (
     <div className={styles.globalContainer}>
       <div className={styles.container_register}>
-      <div className={styles.Container}>
-      <button className={styles.button_return} to={() => navigate(-1)}>
-        <BsArrowLeftCircle size={30}/>
-      </button>
-      <h1>{nameBootcamp}</h1>
-      </div>
-      <h2>Crear competencias para la Cohorte {nameCohort}</h2>
-      <form onSubmit={handleSubmit} >
-        <div className={styles.containerSectionFirst}>
-          <h3>{descriptionBootcamp}</h3>
-          <div className={styles.containerGeneral}>
-            <div className={styles.numeral}>
-              <select
-                className={styles.form_select}
-                aria-label="Default select example"
-                name="caracteristica"
-                value={caracteristica}
-                onChange={handleChangeInput}
-              >
-                <option selected>..</option>
-                <option value="T">T</option>
-                <option value="C">C</option>
-              </select>
-            </div>
-            <div className={styles.inputName}>
-              <div className={styles.input_register}>
-                <input
-                  type="Number"
-                  placeholder="Numero"
-                  name="number"
-                  value={number}
-                  onChange={handleChangeInput}
-                />
-              </div>
-            </div>
-            <div className={styles.inputDescription}>
-              <div className={styles.input_register}>
-                <input
-                  type="text"
-                  placeholder="Nombre"
-                  name="nameCompetences"
-                  value={nameCompetences}
-                  onChange={handleChangeName}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className={styles.containerInputAddCompetence}>
-          <h3>Nivel 1</h3>
-          <p>Grupo de acciones</p>
-          <Textarea
-            placeholder="Descripción:"
-            name="actions1"
-            value={actions1}
-            onChange={handleChangeInputLevelOne}
-          />
-          <p>Criterios de evaluacion</p>
-          <Textarea
-            placeholder="Descripción:"
-            name="evaluationCriteria1"
-            value={evaluationCriteria1}
-            onChange={handleChangeInputLevelOne}
-          />
-          <h3>Nivel 2</h3>
-          <p>Grupo de acciones</p>
-          <Textarea
-            placeholder="Descripción:"
-            name="actions2"
-            value={actions2}
-            onChange={handleChangeInputLevelTwo}
-          />
-          <p>Criterios de evaluacion</p>
-          <Textarea
-            placeholder="Descripción:"
-            name="evaluationCriteria2"
-            value={evaluationCriteria2}
-            onChange={handleChangeInputLevelTwo}
-          />
-          <h3>Nivel 3</h3>
-          <p>Grupo de acciones</p>
-          <Textarea
-            placeholder="Descripción:"
-            name="actions3"
-            value={actions3}
-            onChange={handleChangeInputLevelThree}
-          />
-          <p>Criterios de evaluacion</p>
-          <Textarea
-            placeholder="Descripción:"
-            name="evaluationCriteria3"
-            value={evaluationCriteria3}
-            onChange={handleChangeInputLevelThree}
-          />
-        </div>
-        <div className={styles.container__button}>
-          <button className={styles.button_submit_register} type="submit" >
-            ENVIAR
+        <div className={styles.Container}>
+          <button className={styles.button_return} to={() => navigate(-1)}>
+            <BsArrowLeftCircle size={30} />
           </button>
+          <h1>{nameBootcamp}</h1>
         </div>
-      </form>
-      <hr />
-      <div className={styles.container__frameOfReference}>
-        <h2>Marco de referencias</h2>
-        <div className={styles.cardReferences}>
-          <p>C1 maquetar una aplicacion</p>
-          <div className={styles.container__buttons}>
-            <Link className={styles.button__edit} to="#">
-              <FiEdit />
-            </Link>
-            <Link className={styles.button__delete} to="#">
-              <MdDeleteForever />
-            </Link>
+        <h2>Crear competencias para la Cohorte {nameCohort}</h2>
+        <form onSubmit={handleSubmit}>
+          <div className={styles.containerSectionFirst}>
+            <h3>{descriptionBootcamp}</h3>
+            <div className={styles.containerGeneral}>
+              <div className={styles.numeral}>
+                <select
+                  className={styles.form_select}
+                  aria-label="Default select example"
+                  name="caracteristica"
+                  value={caracteristica}
+                  onChange={handleChangeInput}
+                >
+                  <option selected>..</option>
+                  <option value="T">T</option>
+                  <option value="C">C</option>
+                </select>
+              </div>
+              <div className={styles.inputName}>
+                <div className={styles.input_register}>
+                  <input
+                    type="Number"
+                    placeholder="Numero"
+                    name="number"
+                    value={number}
+                    onChange={handleChangeInput}
+                  />
+                </div>
+              </div>
+              <div className={styles.inputDescription}>
+                <div className={styles.input_register}>
+                  <input
+                    type="text"
+                    placeholder="Nombre"
+                    name="nameCompetences"
+                    value={nameCompetences}
+                    onChange={handleChangeName}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className={styles.containerInputAddCompetence}>
+            <h3>Nivel 1</h3>
+            <p>Grupo de acciones</p>
+            <Textarea
+              placeholder="Descripción:"
+              name="actions1"
+              value={actions1}
+              onChange={handleChangeInputLevelOne}
+            />
+            <p>Criterios de evaluacion</p>
+            <Textarea
+              placeholder="Descripción:"
+              name="evaluationCriteria1"
+              value={evaluationCriteria1}
+              onChange={handleChangeInputLevelOne}
+            />
+            <h3>Nivel 2</h3>
+            <p>Grupo de acciones</p>
+            <Textarea
+              placeholder="Descripción:"
+              name="actions2"
+              value={actions2}
+              onChange={handleChangeInputLevelTwo}
+            />
+            <p>Criterios de evaluacion</p>
+            <Textarea
+              placeholder="Descripción:"
+              name="evaluationCriteria2"
+              value={evaluationCriteria2}
+              onChange={handleChangeInputLevelTwo}
+            />
+            <h3>Nivel 3</h3>
+            <p>Grupo de acciones</p>
+            <Textarea
+              placeholder="Descripción:"
+              name="actions3"
+              value={actions3}
+              onChange={handleChangeInputLevelThree}
+            />
+            <p>Criterios de evaluacion</p>
+            <Textarea
+              placeholder="Descripción:"
+              name="evaluationCriteria3"
+              value={evaluationCriteria3}
+              onChange={handleChangeInputLevelThree}
+            />
+          </div>
+          <div className={styles.container__button}>
+            <button className={styles.button_submit_register} type="submit">
+              ENVIAR
+            </button>
+          </div>
+        </form>
+        <hr />
+        <div className={styles.container__frameOfReference}>
+          <h2>Marco de referencias</h2>
+          <div className={styles.cardReferences}>
+            <p>C1 maquetar una aplicacion</p>
+            <div className={styles.container__buttons}>
+              <Link className={styles.button__edit} to="#">
+                <FiEdit />
+              </Link>
+              <Link className={styles.button__delete} to="#">
+                <MdDeleteForever />
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
       </div>
     </div>
   );

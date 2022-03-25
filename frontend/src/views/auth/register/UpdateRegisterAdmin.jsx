@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {useParams} from 'react-router-dom'
+import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import apiAgora from "../../../api";
 import { showErrMsg, showSuccessMsg } from "../../../utils/notification";
@@ -8,15 +8,13 @@ import {
   isEmail,
   isLengthcontactNumber,
 } from "../../../utils/validation";
-import styles from './register.module.css'
-import { Input } from "../../../components/input/Input";
+import styles from "./register.module.css";
+
 import logo from "../../../assets/logos/programateLogo.png";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { BsArrowLeftCircle } from "react-icons/bs";
 
-
 const initialState = {
-  
   firstName: "",
   middleName: "",
   lastName: "",
@@ -48,20 +46,20 @@ export function UpdateRegisterAdmin() {
     contactNumber,
     email,
     err,
-    success
+    success,
   } = user;
 
-  let navigate = useNavigate()
+  let navigate = useNavigate();
 
   const fetchAdmins = async () => {
-    const res = await apiAgora.get('api/get_admin/'+userID, {
-      headers: { Authorization: id_user }
-    })
-    setUser(res.data)
-  }
-  useEffect(()=>{
-    fetchAdmins()
-  }, [])
+    const res = await apiAgora.get("api/get_admin/" + userID, {
+      headers: { Authorization: id_user },
+    });
+    setUser(res.data);
+  };
+  useEffect(() => {
+    fetchAdmins();
+  }, []);
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
@@ -86,21 +84,25 @@ export function UpdateRegisterAdmin() {
 
     try {
       if (auth.isSuperAdmin) {
-        const res = await apiAgora.put("/api/update_admin/"+userID, {
-          firstName,
-          middleName,
-          lastName,
-          secondSurname,
-          documentType,
-          documentNumber,
-          contactNumber,
-          email
-        },{
-          headers: {Authorization: id_user}
-      });
+        const res = await apiAgora.put(
+          "/api/update_admin/" + userID,
+          {
+            firstName,
+            middleName,
+            lastName,
+            secondSurname,
+            documentType,
+            documentNumber,
+            contactNumber,
+            email,
+          },
+          {
+            headers: { Authorization: id_user },
+          }
+        );
         showSuccessMsg(success);
         setUser({ ...user, err: "", success: res.data.msg });
-      } 
+      }
     } catch (err) {
       showErrMsg(err.response.data.msg);
       err.response.data.msg &&
@@ -111,16 +113,16 @@ export function UpdateRegisterAdmin() {
   return (
     <div className={styles.container_register}>
       <div className={styles.container_register_page}>
-      <button className={styles.button_return} onClick={()=>navigate(-1)}>
-        <BsArrowLeftCircle size={30}/>
-      </button>
+        <button className={styles.button_return} onClick={() => navigate(-1)}>
+          <BsArrowLeftCircle size={30} />
+        </button>
         <img className={styles.logo_register} src={logo} alt="logo" />
         <h2 className={styles.title_register}>Administrador</h2>
         {err && showErrMsg(err)}
         {success && showSuccessMsg(success)}
         <div className={styles.register_form_content}>
           <form className={styles.register_form} onSubmit={handleSubmit}>
-          <div className={styles.container_register_input}>
+            <div className={styles.container_register_input}>
               <div className={styles.input_register}>
                 <label>Primer Nomre</label>
                 <input
@@ -218,12 +220,9 @@ export function UpdateRegisterAdmin() {
             <button className={styles.button_submit_register} type="submit">
               ACTUALIZAR ADMINISTRADOR
             </button>
-            
           </form>
         </div>
       </div>
     </div>
   );
 }
-
-

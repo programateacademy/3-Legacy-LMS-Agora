@@ -46,13 +46,29 @@ export function CreateCohort() {
   const handleChangeImage = (e) => {
     setSelectedImage(e.target.files[0]);
   };
-  //Teacher Selected
+
+  //Info Cohort
+  const handleChangeInput = (e) => {
+    const { name, value } = e.target;
+    setCohort({ ...cohort, [name]: value, err: "", success: "" });
+  };
+  // Get teachers info from database
+  const fetchTeachers = async () => {
+    const res = await apiAgora.get("api/all_teacher", {
+      headers: { Authorization: id_user },
+    });
+    setTeachers(res.data);
+  };
+
+  // Get info selected teacher
   const handleChangeSelect = (e) => {
     setSelectedTeacher({
       id: e.target.value,
       fullName: e.target.options[e.target.selectedIndex].text,
     });
   };
+
+  // Add teachers info to database
   const onClickTeacher = () => {
     if (
       selectedTeacher.id &&
@@ -62,19 +78,8 @@ export function CreateCohort() {
       setAssignedTeachersID((prev) => [...prev, selectedTeacher.id]);
     }
   };
-  //Info Cohort
-  const handleChangeInput = (e) => {
-    const { name, value } = e.target;
-    setCohort({ ...cohort, [name]: value, err: "", success: "" });
-  };
 
-  const fetchTeachers = async () => {
-    const res = await apiAgora.get("api/all_teacher", {
-      headers: { Authorization: id_user },
-    });
-    setTeachers(res.data);
-  };
-
+  // Create new cohort
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -104,22 +109,17 @@ export function CreateCohort() {
     }
   };
 
-  useEffect(
-    () => {
-      fetchTeachers();
-      /*     if (!selectedImage) {
+  useEffect(() => {
+    fetchTeachers();
+    if (!selectedImage) {
       setImage("");
       return;
     }
     const objectUrl = URL.createObjectURL(selectedImage);
     setImage(objectUrl);
-    // Desmontar la imagen para liberar la memoria
-    return () => URL.revokeObjectURL(objectUrl); */
-    },
-    [
-      /* selectedImage */
-    ]
-  );
+    //  Unmount the image to free the memory
+    return () => URL.revokeObjectURL(objectUrl);
+  }, [selectedImage]);
   return (
     <>
       <h1>Crear Cohorte</h1>
