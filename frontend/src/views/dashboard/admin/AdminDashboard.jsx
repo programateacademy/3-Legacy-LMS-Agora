@@ -5,7 +5,9 @@ import { Button } from "../../../components/buttons/Button/Button.jsx";
 export function AdminDashboard() {
   return (
     <div className={styles.adminDashboard}>
-      <h2>Bootcamps</h2>
+      <div class={styles.wrapper}>
+        <h2 class={styles.typing_demo}>Bootcamps</h2>
+      </div>
       <div className={styles.buttonsContainer}>
         <Button title="Crear bootcamp" link="/bootcamp/create-bootcamp" />
         <Button title="Ver formadores" link="/list_teachers" />

@@ -1,240 +1,236 @@
 .formContainer {
-	flex-direction: row;
-	justify-items: center;
+  flex-direction: row;
+  justify-items: center;
+  min-height: calc(100vh - 150px);
+  margin: 1rem;
+}
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
 }
 
-h1 {
-	text-align: center;
-	padding: 4vh 0vh 6vh;
-	font-size: 30px;
+.typing_demo {
+  width: 12ch;
+  animation: typing 1s steps(22), blink 0.5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
 }
 
-input {
-	border-radius: 5px;
+@keyframes typing {
+  from {
+    width: 0;
+  }
 }
 
-.form{
-    display: flex;
-	justify-content: space-around;
-    flex-direction: row;
-    min-height: calc(100vh - 325px);
+@keyframes blink {
+  20% {
+    border-color: transparent;
+  }
 }
 
-.inputs{
-	display: flex;
-	flex-direction: column;
-	width: 40%;
+.form {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  min-height: calc(100vh - 325px);
 }
 
-.inputs input {
-	margin: 0vh 2vh 2.5vh 0vh;
-	padding: 1vh;
-	box-shadow: inset 0px 4px 15px rgba(0, 0, 0, 0.5);
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+.textarea {
+  margin: 1rem;
+}
+.containerOne {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0;
 }
 
-.containerOne{
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	margin: 0;
+.inputName {
+  margin: 1rem;
+  width: 80%;
 }
 
-.containerOne .inputName{
-	width: 100%;
+.numberC {
+  margin: 1rem;
+  width: 60px;
 }
 
-.numberC{
-	width: 60px;
-	height: 30px;
-}
-
-.textarea{
-	width: 100%;
-	border-radius: 5px;
-	box-shadow: inset 0px 4px 15px rgba(0, 0, 0, 0.5);
-	padding: 1vh;
-}
-
-.containerTwo{
-	display: flex;
-	padding: 1vh 0vh;
-	justify-content: space-around;
-	flex-wrap: wrap;
+.containerTwo {
+  display: flex;
+  padding: 1vh 0vh;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .buttonAdd {
-	border-radius: 10px;
-	padding: 3vh;
-	width: 13vh;
-	margin-top: 2vh;
-	background-color: var(--colorYellow);
-	padding: 1.5vh 1.5vh;
-	text-align: center;
-	-webkit-box-shadow:0px 3px 0px #97790291;
+  display: flex;
+  align-items: center;
 }
 
 .buttonAdd:hover {
-	background-color: var(--colorBlack);
-	color: var(--colorYellow);
-	transition: 0.4s;
+  color: var(--colorYellow);
+  transition: 0.4s;
 }
 
-.select{
-	display: flex;
-	flex-direction: column;
-	margin-top: 10px;
+.containerFormadores {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+.select {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.select select {
+  height: 30px;
+  width: 100%;
+}
+.teacherSelect {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  height: 40px;
+  margin: 0.5rem;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: var(--colorGray_20);
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
-.file {
-	display: flex;
-	width: 25vh;
-	justify-content: center;
-}
-
-.texto{
-	padding: 1vh;
-	text-align:start;
-	color:black;
-}
-
-.file:hover >.texto {
-	color:var(--colorYellow);
-	transition: 0.4s;
+.texto {
+  padding: 1vh;
+  text-align: start;
+  color: black;
 }
 
 .finalDate {
-	display: flex;
-	flex-direction: column;
-	margin-bottom: 2vh;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2vh;
 }
 
-.finalDate label, .finalDate input {
-	margin: 0;
-	
+.finalDate label,
+.finalDate input {
+  margin: 0;
 }
 
 .initialDate {
-	display: flex;
-	flex-direction: column;
-	margin-bottom: 2vh;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2vh;
 }
 
-.initialDate label, .initialDate input {
-	margin: 0;
-
+.initialDate label,
+.initialDate input {
+  margin: 0;
 }
 
 .file {
-	position:relative;
-	background-color: var(--colorYellow);
-	-webkit-border-radius:10px;
-	-webkit-box-shadow:0px 3px 0px #97790291;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
 }
 
-.file:hover{
-    background-color:#010101;
+.img_preview {
+  background-color: var(--colorGray);
+  width: 35vw;
+  height: 35vh;
+  margin-bottom: 1.5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0px 4px 15px rgba(0, 0, 0, 0.5);
 }
-
-.btn_add{
-    cursor: pointer;
-	position:absolute;
-	top:0px;
-	left:0px;
-	right:0px;
-	bottom:0px;
-	width:100%;
-	height:100%;
-	opacity: 0;
+.image {
+  width: 100%;
 }
-
-.img_preview{
-    background-color: var(--colorGray);
-    width: 35vw;
-    height: 35vh;
-	margin-bottom: 1.5vh;
-	display: flex;
-	align-self: center;
+.container_submit {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
 }
-
 
 .buttonCreateCohort {
-	display: flex;
-	background-color: var(--colorYellow);
-	padding: 1.5vh;
-	border-radius: 10px;
-	margin-right: 4vh;
-	-webkit-box-shadow:0px 3px 0px #97790291;
+  display: flex;
+  background-color: var(--colorYellow);
+  padding: 1.5vh;
+  border-radius: 10px;
+  margin-right: 4vh;
+  -webkit-box-shadow: 0px 3px 0px #97790291;
 }
 
 .buttonCreateCohort:hover {
-	background-color: var(--colorGreenLight);
-	color: var(--colorWhite);
-	transition: 0.3s;
-	-webkit-box-shadow:0px 3px 0px #0e6b1191;
+  background-color: var(--colorGreenLight);
+  color: var(--colorWhite);
+  transition: 0.3s;
+  -webkit-box-shadow: 0px 3px 0px #0e6b1191;
 }
 
 .createCohort {
-	display: flex;
-	justify-content:flex-end;
-	margin: 0vh 5vh 4vh
-	
-}
-
-.teacherSelect{
-	display: flex;
-	width: 90%;
-	justify-content: space-around;
-	align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  margin: 0vh 5vh 4vh;
 }
 
 @media only screen and (max-width: 700px) {
-	.form{
-		display: flex;
-		flex-direction: column;
-		min-height: calc(100vh - 400px);
-		align-items: center;
-		justify-content: center;
-		margin-bottom: 3vh;
-	}
-	.initialDate{
-		margin-bottom: 4vh;
-	}
-
-	.finalDate {
-		margin-bottom: 4vh;
-	}
-
-	.file {
-		width: 25vh;
-	}
-
-	.inputName {
-		width: 100%
-	}
-
-	h1 {
-		padding-bottom: 2.5vh;
-	}
-
-	.buttonAdd{
-		margin-bottom: 6vh;
-	}
-
-	.createCohort {
-		margin-top: 6vh;
-	}
-
-	.formContainer {
-		width: 100%;	
-	}
-	.inputs{
-		display: flex;
-		flex-direction: column;
-		width: 87%;
-	}
-
-	.img_preview{
-		width: 100%;
-	}
-
+  .form {
+    display: flex;
+    flex-direction: column-reverse;
+    min-height: calc(100vh - 400px);
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3vh;
   }
+  .initialDate {
+    margin-bottom: 4vh;
+  }
+
+  .finalDate {
+    margin-bottom: 4vh;
+  }
+
+  .file {
+    width: 25vh;
+  }
+
+  .inputName {
+    width: 100%;
+  }
+
+  h1 {
+    padding-bottom: 2.5vh;
+  }
+
+  .buttonAdd {
+    margin-bottom: 6vh;
+  }
+
+  .createCohort {
+    margin-top: 6vh;
+  }
+
+  .formContainer {
+    width: 100%;
+  }
+  .inputs {
+    display: flex;
+    width: 87%;
+  }
+
+  .img_preview {
+    width: 100%;
+  }
+}

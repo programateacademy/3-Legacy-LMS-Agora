@@ -1,37 +1,58 @@
 .adminDashboard {
-    display: flex;
-    flex-direction: column;
-    min-height: calc(100vh - 140px);
-    width: 80vw;
-    margin: auto;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 140px);
+  width: 80vw;
+  margin: auto;
+  justify-content: center;
 }
 
-.adminDashboard h2 {
-    text-align: center;
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.typing_demo {
+  width: 9ch; 
+  animation: typing 1s steps(22), blink 0.5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes blink {
+  20% {
+    border-color: transparent;
+  }
 }
 
 .buttonsContainer {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 2vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2vh;
 }
 
 .bootcampsContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    flex-wrap: wrap;
-    width: 80vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  flex-wrap: wrap;
+  width: 80vw;
 }
 
 @media (max-width: 768px) {
-    .buttonsContainer {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        gap: 1vh;
-    }
+  .buttonsContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
