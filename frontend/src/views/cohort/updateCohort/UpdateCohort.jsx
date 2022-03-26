@@ -23,10 +23,11 @@ export function UpdateCohort() {
   const [assignedTeachersID, setAssignedTeachersID] = useState([]);
   const auth = useSelector((state) => state.auth);
   const id_user = auth.user.id;
-
+  const [image, setImage] = useState("");
   const {
     nameCohort,
     numberCohort,
+    imageCohort,
     descriptionCohort,
     startDateBootcamp,
     endBootcamp,
@@ -53,6 +54,17 @@ export function UpdateCohort() {
       id: e.target.value,
       fullName: e.target.options[e.target.selectedIndex].text,
     });
+  };
+
+  const handleImage = (e) => {
+    const { name, value } = e.target;
+    setCohort({
+      ...cohort,
+      [name]: value,
+      err: "",
+      success: "",
+    });
+    setImage(value);
   };
 
   // Add teachers info to database
@@ -111,12 +123,13 @@ export function UpdateCohort() {
     e.preventDefault();
     try {
       if (auth.isAdmin) {
-        const res = await apiAgora.post(
+        const res = await apiAgora.put(
           `/api/agora/update-cohort/${cohortID}`,
           {
             assignedTeachersID,
             nameCohort,
             numberCohort,
+            imageCohort,
             descriptionCohort,
             startDateBootcamp,
             endBootcamp,
@@ -144,7 +157,7 @@ export function UpdateCohort() {
       <button className={style.button_return} onClick={() => navigate(-1)}>
         <BsArrowLeftCircle size={30} />
       </button>
-      <h1>Crear Cohorte</h1>
+      <h1>Actualizar información de la Cohorte</h1>
       <form className={style.form} onSubmit={handleSubmit}>
         <div className={style.inputs}>
           <div className={style.containerOne}>
@@ -181,7 +194,7 @@ export function UpdateCohort() {
                   type="date"
                   placeholder="Fecha de inico"
                   name="startDateBootcamp"
-                  value={startDateBootcamp.toString()}
+                  value={startDateBootcamp}
                   onChange={handleChangeInput}
                 />
               </div>
@@ -232,12 +245,29 @@ export function UpdateCohort() {
             </div>
           </div>
         </div>
-      </form>
-      <div className={style.createCohort}>
+        <div>
+          <div className={style.img_preview}>
+            <img className={style.image} src={image} alt="Logo Cohorte" />
+          </div>
+          <div className={style.file}>
+            <p className={style.texto}>Agregar imagen</p>
+            <input
+              className={style.input__logoURL}
+              placeholder="Inserta URL de la imagen Bootcamp"
+              type="text"
+              name="imageCohort"
+              value={imageCohort}
+              onChange={handleImage}
+            />
+          </div>
+        </div>
+        <div className={style.createCohort}>
         <button className={style.buttonCreateCohort} type="submit">
           Actualizar Cohorte
         </button>
       </div>
+      </form>
+      
     </div>
   );
 }
