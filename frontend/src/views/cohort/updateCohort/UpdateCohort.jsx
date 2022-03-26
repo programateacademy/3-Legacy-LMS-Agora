@@ -5,22 +5,15 @@ import { useSelector } from "react-redux";
 import { showErrMsg, showSuccessMsg } from "../../../utils/notification";
 import apiAgora from "../../../api";
 import { useParams } from "react-router-dom";
-
-const initialStateCohort = {
-  nameCohort: "",
-  numberCohort: "",
-  imageCohort: "",
-  descriptionCohort: "",
-  startDateBootcamp: "",
-  endBootcamp: "",
-  err: "",
-  success: "",
-};
+import { BsArrowLeftCircle } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 
 export function UpdateCohort() {
   const params = useParams();
   const cohortID = params.id;
-  const [cohort, setCohort] = useState(initialStateCohort);
+  let navigate = useNavigate();
+
+  const [cohort, setCohort] = useState({});
   const [teachers, setTeachers] = useState([]);
   const [selectedTeacher, setSelectedTeacher] = useState({
     id: "",
@@ -28,32 +21,17 @@ export function UpdateCohort() {
   });
   const [addedTeacher, setAddedTeacher] = useState([]);
   const [assignedTeachersID, setAssignedTeachersID] = useState([]);
-  const [initialTeacher, setInitialTeacher] = useState([]);
-
   const auth = useSelector((state) => state.auth);
   const id_user = auth.user.id;
-  const [image, setImage] = useState(null);
-  const [selectedImage, setSelectedImage] = useState(null);
+
   const {
     nameCohort,
     numberCohort,
-    imageCohort,
     descriptionCohort,
     startDateBootcamp,
     endBootcamp,
     success,
   } = cohort;
-
-  const fetchCohort = async () => {
-    const res = await apiAgora.get(`/api/agora/get-cohort/${cohortID}`, {
-      headers: { Authorization: id_user },
-    });
-    setCohort(res.data);
-  };
-
-  const handleChangeImage = (e) => {
-    setSelectedImage(e.target.files[0]);
-  };
 
   //Info Cohort
   const handleChangeInput = (e) => {
@@ -66,15 +44,7 @@ export function UpdateCohort() {
       headers: { Authorization: id_user },
     });
     setTeachers(res.data);
-  };
-
-  const fetchInitialTeachers = (id, array) => {
-    array.map(async (item) => {
-      const res = await apiAgora.get(`api/get_user/${item}`, {
-        headers: { Authorization: id_user },
-      });
-      setInitialTeacher(res.data);
-    });
+    fetchCohort(res.data);
   };
 
   // Get info selected teacher
@@ -91,12 +61,52 @@ export function UpdateCohort() {
       selectedTeacher.id &&
       !assignedTeachersID.includes(selectedTeacher.id)
     ) {
-      setAddedTeacher((prev) => [...prev, selectedTeacher.fullName]);
+      setAddedTeacher((prev) => [
+        ...prev,
+        { name: selectedTeacher.fullName, id: selectedTeacher.id },
+      ]);
       setAssignedTeachersID((prev) => [...prev, selectedTeacher.id]);
     }
   };
 
-  // Update cohort
+  const onClearTeacher = (userID) => {
+    setAddedTeacher(addedTeacher.filter((e) => e.id !== userID));
+    setAssignedTeachersID(assignedTeachersID.filter((e) => e !== userID));
+  };
+
+  const fetchCohort = async (data) => {
+    const res = await apiAgora.get(`/api/agora/get-cohort/${cohortID}`, {
+      headers: { Authorization: id_user },
+    });
+    setCohort(res.data);
+    const listTeacherAssigned = res.data.assignedTeachersID;
+    listTeacherAssigned.map((item) =>
+      setAddedTeacher((prev) => [
+        ...prev,
+        {
+          name: data
+            .map((e) =>
+              e.id === item
+                ? e.firstName +
+                  " " +
+                  e.middleName +
+                  " " +
+                  e.lastName +
+                  " " +
+                  e.secondSurname
+                : ""
+            )
+            .toLocaleString()
+            .split(","),
+          id: item,
+        },
+      ])
+    );
+    listTeacherAssigned.map((item) =>
+      setAssignedTeachersID((prev) => [...prev, item])
+    );
+  };
+  // Create new cohort
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -127,19 +137,14 @@ export function UpdateCohort() {
 
   useEffect(() => {
     fetchTeachers();
-    fetchCohort();
-    if (!selectedImage) {
-      setImage("");
-      return;
-    }
-    const objectUrl = URL.createObjectURL(selectedImage);
-    setImage(objectUrl);
-    //  Unmount the image to free the memory
-    return () => URL.revokeObjectURL(objectUrl);
-  }, [selectedImage]);
+  }, []);
+
   return (
-    <>
-      <h1>Actualizar información de la cohorte {cohort.nameCohort}</h1>
+    <div className={style.formContainer}>
+      <button className={style.button_return} onClick={() => navigate(-1)}>
+        <BsArrowLeftCircle size={30} />
+      </button>
+      <h1>Crear Cohorte</h1>
       <form className={style.form} onSubmit={handleSubmit}>
         <div className={style.inputs}>
           <div className={style.containerOne}>
@@ -170,8 +175,8 @@ export function UpdateCohort() {
               onChange={handleChangeInput}
             ></textarea>
             <div className={style.containerTwo}>
-              <div>
-                <label>Fecha de inico</label>
+              <div className={style.initialDate}>
+                <label>Fecha de inicio</label>
                 <input
                   type="date"
                   placeholder="Fecha de inico"
@@ -180,7 +185,7 @@ export function UpdateCohort() {
                   onChange={handleChangeInput}
                 />
               </div>
-              <div>
+              <div className={style.finalDate}>
                 <label>Fecha final</label>
                 <input
                   type="date"
@@ -192,7 +197,6 @@ export function UpdateCohort() {
               </div>
             </div>
             <div className={style.select}>
-              <label> Formadores </label>
               <select
                 aria-label="Default select example"
                 name="user"
@@ -208,45 +212,32 @@ export function UpdateCohort() {
                   </option>
                 ))}
               </select>
-              <button type="button" onClick={onClickTeacher}>
+              <button
+                className={style.buttonAdd}
+                type="button"
+                onClick={onClickTeacher}
+              >
                 Agregar
               </button>
-              {initialTeacher.length !== 0
-                ? initialTeacher.map((item, index) => (
-                    <div key={index}>
-                      <li>{item}</li>
-                      <MdDeleteForever />
+              {addedTeacher.length !== 0
+                ? addedTeacher.map((item, index) => (
+                    <div key={index} className={style.teacherSelect}>
+                      <li>{item.name}</li>
+                      <button onClick={() => onClearTeacher(item.id)}>
+                        <MdDeleteForever />
+                      </button>
                     </div>
                   ))
                 : null}
             </div>
           </div>
         </div>
-        <div>
-          <div className={style.img_preview}>
-            <img className={style.image} src={image} alt="Logo Cohorte" />
-          </div>
-          <div className={style.file}>
-            <p className={style.texto}>Agregar imagen</p>
-            {/* <input
-              className={style.btn_add}
-              type="text"
-              accept="image/png, image/jpeg"
-              name="imageCohort"
-              value={imageCohort}
-              onChange={handleChangeImage}
-            /> */}
-            <input
-              className={style.btn_add}
-              type="text"
-              name="imageCohort"
-              value={imageCohort}
-              onChange={handleChangeImage}
-            />
-          </div>
-        </div>
-        <button type="submit">Actualizar información</button>
       </form>
-    </>
+      <div className={style.createCohort}>
+        <button className={style.buttonCreateCohort} type="submit">
+          Actualizar Cohorte
+        </button>
+      </div>
+    </div>
   );
 }

@@ -8,7 +8,6 @@ import apiAgora from "../../api";
 import { useSelector } from "react-redux";
 import { showErrMsg, showSuccessMsg } from "../../utils/notification";
 import { CompetencesLabel } from "./CompetencesLabel";
-import { CompetencesTable } from "../../components/competencesTable/CompetenceTable";
 
 export function Competences() {
   const auth = useSelector((state) => state.auth);
@@ -244,7 +243,6 @@ export function Competences() {
               name={item.nameCompetences}
             />
           ))}
-          <CompetencesTable competencesState={cohortCompetences}/>
         </div>
       </div>
     </div>
