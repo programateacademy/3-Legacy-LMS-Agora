@@ -1,15 +1,19 @@
+.TitleSectionContainer {
+  justify-content: center;
+} 
+
 .formAnnouncementContainer {
   width: 90%;
   height: 65vh;
   margin: auto;
-  max-width: 500px;
+  max-width: 800px;
 }
 
 .announcementForm {
-  background: #fff;
+  background: var(--colorWhite);
   border-radius: 5px;
   padding: 20px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  box-shadow: rgba(0, 0, 0, 0.611) 1px 6px 24px;
   max-width: 1300px;
   margin: 60px auto 200px auto;
 }
@@ -36,6 +40,7 @@
   padding: 10px;
   margin-bottom: 5px;
   color: #1f1f1f;
+  box-shadow: inset 0px 4px 15px rgba(0, 0, 0, 0.5);
 }
 
 .announcementForm input:focus,
@@ -84,10 +89,12 @@
 .announcementForm button[type="submit"] {
   background: #ffd808;
   font-family: "Roboto", sans-serif;
-  width: 60%;
+  width: 100px;
   margin: auto;
   color: black;
   font-size: 15px;
+  -webkit-box-shadow:4px 5px 4px #977902cd;
+  
 }
 
 .announcementForm button[type="submit"]:hover {
