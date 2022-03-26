@@ -66,35 +66,38 @@ export function CreateBootcamp() {
   };
 
   return (
-    <div>
+    <div className={styles.formContainer}>
       <div>
         <button className={styles.button_return} onClick={() => navigate(-1)}>
           <BsArrowLeftCircle size={30} />
         </button>
       </div>
-      <form className={styles.form__content} onSubmit={handleSubmit}>
-        <div className={styles.container__columns}>
+      <div class={styles.wrapper}>
+        <h2 class={styles.typing_demo}>Crear Bootcamps</h2>
+      </div>
+      <form className={styles.form} onSubmit={handleSubmit}>
+        <div className={styles.container}>
           <div className={styles.column__one}>
-            <h3>
-              <u>Crear un nuevo Bootcamp</u>
-            </h3>
             <input
-              className={styles.input__createBoot}
-              placeholder="nombre"
+              placeholder="Nombre del bootcamp"
               value={nameBootcamp}
               onChange={handleChangeInput}
               name="nameBootcamp"
             />
             <textarea
               className={styles.textarea__createBoot}
-              placeholder="description"
+              placeholder="Descripción"
               value={descriptionBootcamp}
               onChange={handleChangeInput}
               name="descriptionBootcamp"
             />
           </div>
-          <div className={styles.column__two}>
+        </div>
+        <div className={styles.column__two}>
+          <div className={styles.image_preview}>
             <img className={styles.image} src={image} alt="Logo Cohorte" />
+          </div>
+          <div className={styles.file}>
             <input
               className={styles.input__logoURL}
               placeholder="Inserta URL de la imagen Bootcamp"
@@ -103,11 +106,11 @@ export function CreateBootcamp() {
               value={imageBootcamp}
               onChange={handleImage}
             />
-            <input
-              type="submit"
-              value="Enviar datos"
-              className={styles.submit}
-            ></input>
+          </div>
+          <div className={styles.container_submit}>
+            <button className={styles.buttonCreateBootcamp} type="submit">
+              Crear Bootcamp
+            </button>
           </div>
         </div>
       </form>

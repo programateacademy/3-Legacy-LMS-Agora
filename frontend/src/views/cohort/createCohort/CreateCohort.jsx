@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import style from "./CreateCohort.module.css";
 import { MdDeleteForever } from "react-icons/md";
+import { MdOutlineAddCircle } from "react-icons/md";
 import { useSelector } from "react-redux";
 import { showErrMsg, showSuccessMsg } from "../../../utils/notification";
 import apiAgora from "../../../api";
@@ -135,36 +136,41 @@ export function CreateCohort() {
       <button className={style.button_return} onClick={() => navigate(-1)}>
         <BsArrowLeftCircle size={30} />
       </button>
-      <h1>Crear Cohorte</h1>
+      <div class={style.wrapper}>
+        <h2 class={style.typing_demo}>Crear Cohorte</h2>
+      </div>
       <form className={style.form} onSubmit={handleSubmit}>
-        <div className={style.inputs}>
+        <div className={style.container}>
           <div className={style.containerOne}>
-            <input
-              className={style.numberC}
-              type="number"
-              placeholder="#"
-              name="numberCohort"
-              value={numberCohort}
-              onChange={handleChangeInput}
-              min="1"
-            />
-            <input
-              className={style.inputName}
-              type="text"
-              placeholder="Nombre de la cohorte"
-              name="nameCohort"
-              value={nameCohort}
-              onChange={handleChangeInput}
-            />
+            <div className={style.numberC}>
+              <input
+                type="number"
+                placeholder="#"
+                name="numberCohort"
+                value={numberCohort}
+                onChange={handleChangeInput}
+                min="1"
+              />
+            </div>
+            <div className={style.inputName}>
+              <input
+                type="text"
+                placeholder="Nombre de la cohorte"
+                name="nameCohort"
+                value={nameCohort}
+                onChange={handleChangeInput}
+              />
+            </div>
           </div>
           <div>
-            <textarea
-              className={style.textarea}
-              placeholder="Description"
-              name="descriptionCohort"
-              value={descriptionCohort}
-              onChange={handleChangeInput}
-            ></textarea>
+            <div className={style.textarea}>
+              <textarea
+                placeholder="Descripción"
+                name="descriptionCohort"
+                value={descriptionCohort}
+                onChange={handleChangeInput}
+              ></textarea>
+            </div>
             <div className={style.containerTwo}>
               <div className={style.initialDate}>
                 <label>Fecha de inicio</label>
@@ -187,7 +193,8 @@ export function CreateCohort() {
                 />
               </div>
             </div>
-            <div className={style.select}>
+            <div className={style.containerFormadores}>
+              <div className={style.select}>
               <select
                 aria-label="Default select example"
                 name="user"
@@ -208,14 +215,15 @@ export function CreateCohort() {
                 type="button"
                 onClick={onClickTeacher}
               >
-                Agregar
+               <MdOutlineAddCircle size={30}/>
               </button>
+              </div>
               {addedTeacher.length !== 0
                 ? addedTeacher.map((item, index) => (
                     <div key={index} className={style.teacherSelect}>
                       <li>{item.name}</li>
                       <button onClick={() => onClearTeacher(item.id)} type="button">
-                        <MdDeleteForever />
+                        <MdDeleteForever size={25} />
                       </button>
                     </div>
                   ))
@@ -227,17 +235,21 @@ export function CreateCohort() {
           <div className={style.img_preview}>
             <img className={style.image} src={image} alt="Logo Cohorte" />
           </div>
-          <input
-            className={style.input__logoURL}
-            placeholder="Inserta URL de la imagen Bootcamp"
-            type="text"
-            name="imageCohort"
-            value={imageCohort}
-            onChange={handleImage}
-          />
-          <button className={style.buttonCreateCohort} type="submit">
-            Crear Cohorte
-          </button>
+          <div className={style.file}>
+            <input
+              className={style.input__logoURL}
+              placeholder="Inserta URL de la imagen Bootcamp"
+              type="text"
+              name="imageCohort"
+              value={imageCohort}
+              onChange={handleImage}
+            />
+          </div>
+          <div className={style.container_submit}>
+            <button className={style.buttonCreateCohort} type="submit">
+              Crear Cohorte
+            </button>
+          </div>
         </div>
       </form>
     </div>

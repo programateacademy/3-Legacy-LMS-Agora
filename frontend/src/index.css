@@ -16,9 +16,11 @@
 }
 h1{
   font-family:  'Gilroy-ExtraBold', sans-serif;
+  text-align: center;
 }
 h2, h3{
   font-family:  'Gilroy-Light', sans-serif;
+  text-align: center;
 }
 body {
   background: var(--colorWhite);
@@ -40,6 +42,25 @@ li {
 
 p {
   margin-bottom: 0;
+}
+
+input {
+	border: transparent;
+	min-height: 40px;
+  width: 100%;
+	padding: 10px;
+	border-radius: 5px;
+	background-color: var(--colorGray_20);
+  box-shadow: inset 0px 4px 15px rgba(0, 0, 0, 0.5);
+}
+textarea{
+	width: 100%;
+  padding: 10px;
+	border-radius: 5px;
+	background-color: var(--colorGray_20);
+  box-shadow: inset 0px 4px 15px rgba(0, 0, 0, 0.5);
+	border: transparent;
+	resize: none;
 }
 
 :root{
