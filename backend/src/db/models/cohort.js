@@ -21,8 +21,6 @@ const cohortSchema = new Schema(
     },
     imageCohort: {
       type: String,
-      default:
-        "https://drive.google.com/uc?export=view&id=13T4DiUeZdghGyHJgeoq6xbHbKiLH8NM8",
     },
     descriptionCohort: {
       type: String,

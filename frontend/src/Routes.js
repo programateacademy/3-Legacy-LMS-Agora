@@ -39,10 +39,10 @@ import { Competences } from "./views/competences/Competences";
 
 import { CohortsAdmin } from "./views/cohortsAdmin/CohortsAdmin";
 import { CreateCohort } from "./views/cohort/createCohort/CreateCohort";
-import { CompetencesUpdate} from "./views/competences/CompetencesUpdate"
+import { CompetencesUpdate } from "./views/competences/CompetencesUpdate";
 import { UpdateCohort } from "./views/cohort/updateCohort/UpdateCohort";
 
-import { CreateBootcamp } from './views/bootcamps/createBootcamp/CreateBootcamp';
+import { CreateBootcamp } from "./views/bootcamps/createBootcamp/CreateBootcamp";
 
 export function RoutesApp() {
   const auth = useSelector((state) => state.auth);
@@ -156,8 +156,7 @@ export function RoutesApp() {
             element={isAdmin ? <CreateBootcamp /> : <Error404 />}
             exact
           />
-          //isTeacher
-          
+          {/*   //isTeacher */}
 
           {/* //isTeacher //isStudent //isAdmin */}
           <Route path="/crearProyecto" element={<AddProject />} />
@@ -179,9 +178,14 @@ export function RoutesApp() {
             element={isLogged ? <Deliverie /> : <Error404 />}
             exact
           />
-          <Route path="/competences/:id" element={isAdmin?<Competences />:<Error404/>} />
-          <Route path="/competences-update/:id" element={isAdmin?<CompetencesUpdate />:<Error404/>} />
-          
+          <Route
+            path="/competences/:id"
+            element={isAdmin ? <Competences /> : <Error404 />}
+          />
+          <Route
+            path="/competences-update/:id"
+            element={isAdmin ? <CompetencesUpdate /> : <Error404 />}
+          />
         </Routes>
         <Footer />
       </Router>
