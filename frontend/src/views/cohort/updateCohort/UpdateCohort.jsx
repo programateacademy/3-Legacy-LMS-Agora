@@ -118,6 +118,14 @@ export function UpdateCohort() {
     listTeacherAssigned.map((item) =>
       setAssignedTeachersID((prev) => [...prev, item])
     );
+    const startDateBootcamp2= res.data.startDateBootcamp
+    setCohort({ ...cohort, startDateBootcamp: new Date(
+      startDateBootcamp2
+    ).toLocaleDateString("en-CA"), err: "", success: "" });
+    const endBootcamp2= res.data.endBootcamp
+    setCohort({ ...cohort, endBootcamp: new Date(
+      endBootcamp2
+    ).toLocaleDateString("en-CA"), err: "", success: "" });
   };
   // Create new cohort
   const handleSubmit = async (e) => {
