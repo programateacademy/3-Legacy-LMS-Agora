@@ -9,15 +9,13 @@ import {
   isMatch,
   isLengthcontactNumber,
 } from "../../../utils/validation";
-import styles from"./register.module.css";
-import { Input } from "../../../components/input/Input";
+import styles from "./register.module.css";
+
 import logo from "../../../assets/logos/programateLogo.png";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { BsArrowLeftCircle } from "react-icons/bs";
 
-
 const initialState = {
-  
   firstName: "",
   middleName: "",
   lastName: "",
@@ -50,10 +48,10 @@ export function RegisterTeacher() {
     cf_password,
     err,
     success,
-    role
+    role,
   } = user;
 
-  let navigate = useNavigate()
+  let navigate = useNavigate();
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
@@ -105,24 +103,27 @@ export function RegisterTeacher() {
 
     try {
       if (auth.isAdmin) {
-        const res = await apiAgora.post("/api/register_teacher", {
-          
-          firstName,
-          middleName,
-          lastName,
-          secondSurname,
-          documentType,
-          documentNumber,
-          contactNumber,
-          email,
-          password,
-          role
-        },{
-          headers: {Authorization: id_user}
-      });
+        const res = await apiAgora.post(
+          "/api/register_teacher",
+          {
+            firstName,
+            middleName,
+            lastName,
+            secondSurname,
+            documentType,
+            documentNumber,
+            contactNumber,
+            email,
+            password,
+            role,
+          },
+          {
+            headers: { Authorization: id_user },
+          }
+        );
         showSuccessMsg(success);
         setUser({ ...user, err: "", success: res.data.msg });
-      } 
+      }
     } catch (err) {
       showErrMsg(err.response.data.msg);
       err.response.data.msg &&
@@ -133,15 +134,15 @@ export function RegisterTeacher() {
   return (
     <div className={styles.container_register}>
       <div className={styles.container_register_page}>
-      <button className={styles.button_return} onClick={()=>navigate(-1)}>
-        <BsArrowLeftCircle size={30}/>
-      </button>
+        <button className={styles.button_return} onClick={() => navigate(-1)}>
+          <BsArrowLeftCircle size={30} />
+        </button>
         <img className={styles.logo_register} src={logo} alt="logo" />
         <h2 className={styles.title_register}>Registro Formador</h2>
         {err && showErrMsg(err)}
         {success && showSuccessMsg(success)}
         <div className={styles.register_form_content}>
-        <form className={styles.register_form} onSubmit={handleSubmit}>
+          <form className={styles.register_form} onSubmit={handleSubmit}>
             <div className={styles.container_register_input}>
               <div className={styles.input_register}>
                 <label>Primer Nomre</label>
@@ -270,5 +271,3 @@ export function RegisterTeacher() {
     </div>
   );
 }
-
-

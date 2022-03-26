@@ -37,10 +37,7 @@
   font-size: 20px;
   font-weight: bold;
 }
-.globalContainer a:hover {
-  color: var(--colorYellow);
-  text-decoration: underline;
-}
+
 .numeral {
   align-items: center;
   background-color: var(--colorGray_20);
@@ -102,25 +99,33 @@
   width: 100%;
 }
 .cardReferences {
+  align-items: center;
   background-color: var(--colorYellow);
   border-radius: 10px;
   display: flex;
   font-size: 20px;
-  height: 50px;
-  justify-content: space-between;
-  line-height: 50px;
+  height: auto;
+  justify-content: space-evenly;
   margin: 16px;
   padding: 0px 10px;
   width: 80%;
 }
+.cardReferences p{
+  width: 70%;
+}
 .button__edit,
 .button__delete {
-  color: black;
-  font-size: 50px;
+  color: rgb(0, 0, 0);
+  font-size: 30px;
+  background-color: transparent;
   margin-left: 10px;
+  text-decoration: none;
 }
 .button__edit:hover {
-  color: aqua;
+  color: var(--colorGreenLight);
+}
+.button__delete:hover {
+  color: rgb(255, 0, 0);
 }
 .button_return {
   align-self: flex-start;
@@ -157,4 +162,10 @@
   outline: none;
   padding: 0 10px;
   width: 100% !important;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  width: 95%;
 }

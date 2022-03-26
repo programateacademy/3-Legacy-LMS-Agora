@@ -29,12 +29,12 @@ export function CardCohort({ info }) {
         </div>
         <div className={styles.buttonsContainer}>
           {/*   <Button title="Dashboard" link={`/bootcamp/cohort/dashboard/${id}`} />*/}
-          
           <Button title="Dashboard" link="/" />
           <Button
             title="Estudiantes"
             link={`/bootcamp/cohort/students/${id}`}
           />
+          <Button title="Editar" link={`/cohort/update/${id}`} />
         </div>
       </div>
     </div>

@@ -1,12 +1,12 @@
 const router = require("express").Router();
-const auth = require("../middleware/auth");
+const authUser = require("../middleware/authUser");
 const authAdmin = require("../middleware/authAdmin");
 const controllerCohort = require("../controllers/cohort");
 
 router.post("/new-cohort", authAdmin, controllerCohort.create);
 router.get("/get-cohorts/:_id", authAdmin, controllerCohort.getCohorts);
-router.get("/get-cohort/:_id", controllerCohort.getCohort);
-router.put("/update-cohort/:_id", controllerCohort.updateCohort);
+router.get("/get-cohort/:_id",authUser, controllerCohort.getCohort);
+router.put("/update-cohort/:_id", authAdmin, controllerCohort.updateCohort);
 router.delete("/delete-cohort/:_id", controllerCohort.deleteCohort);
 
 module.exports = router;

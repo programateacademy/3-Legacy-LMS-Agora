@@ -13,7 +13,7 @@ import style from "./Header.module.css";
 export function Header() {
   const auth = useSelector((state) => state.auth);
 
-  const { user, isLogged } = auth;
+  const { user, isLogged, isTeacher, isStudent } = auth;
 
   const handleLogout = async () => {
     try {
@@ -30,7 +30,7 @@ export function Header() {
     <>
       <header>
         <div className={style.headerContainer}>
-          {isLogged ? (
+          {isLogged && (isStudent || isTeacher)? (
             <div className={style.hamburguerMenu}>
               <Dropdown>
                 <Dropdown.Toggle

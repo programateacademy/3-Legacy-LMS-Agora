@@ -38,10 +38,14 @@ const ValidateCompetence = () => {
           <b>Nivel 1</b>
         </div>
         <div className="Level">
-          <a onClick={handleChangeValidate} className="btnValidate">
+          <a href="!#" onClick={handleChangeValidate} className="btnValidate">
             Validar ✔
           </a>
-          <a onClick={handleChangeInvalidate} className="btnInvalidate">
+          <a
+            href="!#"
+            onClick={handleChangeInvalidate}
+            className="btnInvalidate"
+          >
             Invalidar X
           </a>
         </div>
@@ -53,10 +57,14 @@ const ValidateCompetence = () => {
           <b>Nivel 2</b>
         </div>
         <div className="Level">
-          <a onClick={handleChangeValidate} className="btnValidate">
+          <a href="!#" onClick={handleChangeValidate} className="btnValidate">
             Validar ✔
           </a>
-          <a onClick={handleChangeInvalidate} className="btnInvalidate">
+          <a
+            href="!#"
+            onClick={handleChangeInvalidate}
+            className="btnInvalidate"
+          >
             Invalidar X
           </a>
         </div>
@@ -68,10 +76,14 @@ const ValidateCompetence = () => {
           <b>Nivel 3</b>
         </div>
         <div className="Level">
-          <a onClick={handleChangeValidate} className="btnValidate">
+          <a href="!#" onClick={handleChangeValidate} className="btnValidate">
             Validar ✔
           </a>
-          <a onClick={handleChangeInvalidate} className="btnInvalidate">
+          <a
+            href="!#"
+            onClick={handleChangeInvalidate}
+            className="btnInvalidate"
+          >
             Invalidar X
           </a>
         </div>

@@ -62,7 +62,6 @@ const controllerCohort = {
   updateCohort: async (req, res) => {
     try {
       const {
-        bootcampID,
         assignedTeachersID,
         nameCohort,
         numberCohort,
@@ -74,7 +73,6 @@ const controllerCohort = {
       await Cohort.findOneAndUpdate(
         { _id: req.params._id },
         {
-          bootcampID,
           assignedTeachersID,
           nameCohort,
           numberCohort,

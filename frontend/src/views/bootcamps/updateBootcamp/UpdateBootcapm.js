@@ -1,51 +1,58 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import styles from "./CreateBootcamp.module.css";
+import { useNavigate, useParams } from "react-router-dom";
+import styles from "./UpdateBootcamp.module.css";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { useSelector } from "react-redux";
 import apiAgora from "../../../api";
 import { showErrMsg, showSuccessMsg } from "../../../utils/notification";
 
-const initialStateBootcamp = {
-  nameBootcamp: "",
-  descriptionBootcamp: "",
-  err: "",
-  success: "",
-};
 
-export function CreateBootcamp() {
+
+export function UpdateBootcamp() {
+  const params = useParams();
+  const userID = params.id;
   let navigate = useNavigate();
+
+  const fetchAdmins = async () => {
+    const res = await apiAgora.get("api/agora/get-bootcamps/" + userID, {
+      headers: { Authorization: id_user },
+    });
+    setBootcamp(res.data);
+    setImage(res.data.imageBootcamp);
+  };
+  useEffect(() => {
+    fetchAdmins();
+  }, []);
+
   const [image, setImage] = useState("");
   const auth = useSelector((state) => state.auth);
   const id_user = auth.user.id;
 
-  const [bootcamp, setBootcamp] = useState(initialStateBootcamp);
+  const [bootcamp, setBootcamp] = useState({});
   const { nameBootcamp, imageBootcamp, descriptionBootcamp, success } =
     bootcamp;
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
     setBootcamp({ ...bootcamp, [name]: value, err: "", success: "" });
-    console.log(imageBootcamp);
   };
 
   const handleImage = (e) => {
-    const { name, value } = e.target;
     setBootcamp({
       ...bootcamp,
-      [name]: value,
+      imageBootcapm: e.target.value,
       err: "",
       success: "",
     });
-    setImage(value);
+    setImage(e.target.value);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       if (auth.isAdmin) {
-        const res = await apiAgora.post(
-          "/api/agora/new-bootcamp",
+        const res = await apiAgora.put(
+          "/api/agora/update-bootcamp/"+userID,
           {
             nameBootcamp,
             imageBootcamp,
@@ -65,39 +72,40 @@ export function CreateBootcamp() {
     }
   };
 
+  // useEffect(() => {
+  //   setImage(imageBootcapm)
+  // }, [imageBootcapm]);
+
   return (
-    <div className={styles.formContainer}>
+    <div>
       <div>
         <button className={styles.button_return} onClick={() => navigate(-1)}>
           <BsArrowLeftCircle size={30} />
         </button>
       </div>
-      <div class={styles.wrapper}>
-        <h2 class={styles.typing_demo}>Crear Bootcamps</h2>
-      </div>
-      <form className={styles.form} onSubmit={handleSubmit}>
-        <div className={styles.container}>
+      <form className={styles.form__content} onSubmit={handleSubmit}>
+        <div className={styles.container__columns}>
           <div className={styles.column__one}>
+            <h2>
+              <u>Actualizar Bootcamp</u>
+            </h2>
             <input
-              placeholder="Nombre del bootcamp"
+              className={styles.input__createBoot}
+              placeholder="nombre"
               value={nameBootcamp}
               onChange={handleChangeInput}
               name="nameBootcamp"
             />
             <textarea
               className={styles.textarea__createBoot}
-              placeholder="Descripción"
+              placeholder="description"
               value={descriptionBootcamp}
               onChange={handleChangeInput}
               name="descriptionBootcamp"
             />
           </div>
-        </div>
-        <div className={styles.column__two}>
-          <div className={styles.image_preview}>
+          <div className={styles.column__two}>
             <img className={styles.image} src={image} alt="Logo Cohorte" />
-          </div>
-          <div className={styles.file}>
             <input
               className={styles.input__logoURL}
               placeholder="Inserta URL de la imagen Bootcamp"
@@ -106,11 +114,11 @@ export function CreateBootcamp() {
               value={imageBootcamp}
               onChange={handleImage}
             />
-          </div>
-          <div className={styles.container_submit}>
-            <button className={styles.buttonCreateBootcamp} type="submit">
-              Crear Bootcamp
-            </button>
+            <input
+              type="submit"
+              value="Enviar datos"
+              className={styles.submit}
+            ></input>
           </div>
         </div>
       </form>

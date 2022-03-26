@@ -1,58 +1,23 @@
 import React, { useEffect, useState } from "react";
 import styles from "./competences.module.css";
-
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Textarea } from "../../components/input/Textarea";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import apiAgora from "../../api";
 import { useSelector } from "react-redux";
 import { showErrMsg, showSuccessMsg } from "../../utils/notification";
-import { CompetencesLabel } from "./CompetencesLabel";
 
-export function Competences() {
+
+export function CompetencesUpdate() {
   const auth = useSelector((state) => state.auth);
   const id_user = auth.user.id;
   const params = useParams();
-  const cohortID = params.id;
-  const [nameCohort, setNameCohort] = useState("");
-  const [competence, setCompetence] = useState([]);
-  const [nameBootcamp, setNameBootcamp] = useState("");
-  const [identifierCompetences, setIdentifierCompetences] = useState({});
-  const [descriptionBootcamp, setDescriptionBootcamp] = useState("");
+  const competenceCohortID = params.id;
+
   const [levelOne, setLevelOne] = useState({});
   const [levelTwo, setLevelTwo] = useState({});
   const [levelThree, setLevelThree] = useState({});
   const [competences, setCompetences] = useState({});
-  const [cohortCompetences, setCohortCompetences] = useState([]);
-  
-  let navigate = useNavigate();
-
-  const fetchCohortName = async () => {
-    const resName = await apiAgora.get(`/api/agora/get-cohort/${cohortID}`, {
-      headers: { Authorization: id_user },
-    });
-    setNameCohort(resName.data.nameCohort);
-    const res2Name = await apiAgora.get(
-      `/api/agora/get-bootcamps/${resName.data.bootcampID}`,
-      {
-        headers: { Authorization: id_user },
-      }
-    );
-    setNameBootcamp(res2Name.data.nameBootcamp);
-    setDescriptionBootcamp(res2Name.data.descriptionBootcamp);
-  };
-
-  const fetchCohortCompetences = async () => {
-    const resCompetencesCohort = await apiAgora.get(
-      `/api/agora/get-competences/${cohortID}`,
-      {
-        headers: { Authorization: id_user },
-      }
-    );
-    setCohortCompetences(resCompetencesCohort.data);
-  };
-
-  const { caracteristica, number } = competence;
 
   const { nameCompetences, success } = competences;
 
@@ -62,10 +27,21 @@ export function Competences() {
 
   const { actions3, evaluationCriteria3 } = levelThree;
 
-  const handleChangeInput = (e) => {
-    const { name, value } = e.target;
-    setCompetence({ ...competence, [name]: value, err: "", success: "" });
+  let navigate = useNavigate();
+
+  const fetchCohortCompetence = async () => {
+    const resCompetencesCohort = await apiAgora.get(
+      `/api/agora/get-competence/${competenceCohortID}`,
+      {
+        headers: { Authorization: id_user },
+      }
+    );
+    setLevelOne(resCompetencesCohort.data.levelOne);
+    setLevelTwo(resCompetencesCohort.data.levelTwo);
+    setLevelThree(resCompetencesCohort.data.levelThree);
+    setCompetences({ ...competences, nameCompetences: resCompetencesCohort.data.nameCompetences});
   };
+
   const handleChangeInputLevelOne = (e) => {
     const { name, value } = e.target;
     setLevelOne({ ...levelOne, [name]: value, err: "", success: "" });
@@ -85,24 +61,17 @@ export function Competences() {
   };
 
   useEffect(() => {
-    fetchCohortName();
-    fetchCohortCompetences();
+    fetchCohortCompetence()
   }, []);
-
-  useEffect(() => {
-    setIdentifierCompetences(competence.caracteristica + competence.number);
-  }, [competence]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       if (auth.isAdmin) {
-        const res = await apiAgora.post(
-          "/api/agora/new-competence",
+        const res = await apiAgora.put(
+          "/api/agora/update-competence/" + competenceCohortID,
           {
-            cohortID,
-            identifierCompetences,
             nameCompetences,
             levelOne,
             levelTwo,
@@ -112,15 +81,14 @@ export function Competences() {
             headers: { Authorization: id_user },
           }
         );
-        console.log(identifierCompetences);
         showSuccessMsg(success);
-        setCompetence({ ...competence, err: "", success: res.data.msg });
+        setCompetences({ ...competences, err: "", success: res.data.msg });
       }
     } catch (err) {
       showErrMsg(err.response.data.msg);
       err.response.data.msg &&
-        setCompetence({
-          ...competence,
+        setCompetences({
+          ...competences,
           err: err.response.data.msg,
           success: "",
         });
@@ -134,37 +102,11 @@ export function Competences() {
           <button className={styles.button_return} to={() => navigate(-1)}>
             <BsArrowLeftCircle size={30} />
           </button>
-          <h1>{nameBootcamp}</h1>
         </div>
-        <h2>Crear competencias para la Cohorte {nameCohort}</h2>
+        <h2>Crear competencias para la Cohorte</h2>
         <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.containerSectionFirst}>
-            <h3>{descriptionBootcamp}</h3>
             <div className={styles.containerGeneral}>
-              <div className={styles.numeral}>
-                <select
-                  className={styles.form_select}
-                  aria-label="Default select example"
-                  name="caracteristica"
-                  value={caracteristica}
-                  onChange={handleChangeInput}
-                >
-                  <option selected>..</option>
-                  <option value="T">T</option>
-                  <option value="C">C</option>
-                </select>
-              </div>
-              <div className={styles.inputName}>
-                <div className={styles.input_register}>
-                  <input
-                    type="Number"
-                    placeholder="Numero"
-                    name="number"
-                    value={number}
-                    onChange={handleChangeInput}
-                  />
-                </div>
-              </div>
               <div className={styles.inputDescription}>
                 <div className={styles.input_register}>
                   <input
@@ -231,19 +173,6 @@ export function Competences() {
             </button>
           </div>
         </form>
-        <hr />
-        <div className={styles.container__frameOfReference}>
-          <h2>Marco de referencias</h2>
-          {cohortCompetences.map((item, index) => (
-            <CompetencesLabel
-              key={index}
-              identifierCompetence={item.identifierCompetences}
-              competenceID={item.id}
-              adminID={id_user}
-              name={item.nameCompetences}
-            />
-          ))}
-        </div>
       </div>
     </div>
   );
