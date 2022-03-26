@@ -6,7 +6,7 @@ const controllerCohort = require("../controllers/cohort");
 router.post("/new-cohort", authAdmin, controllerCohort.create);
 router.get("/get-cohorts/:_id", authAdmin, controllerCohort.getCohorts);
 router.get("/get-cohort/:_id", controllerCohort.getCohort);
-router.put("/update-cohort/:_id", controllerCohort.updateCohort);
+router.put("/update-cohort/:_id", authAdmin, controllerCohort.updateCohort);
 router.delete("/delete-cohort/:_id", controllerCohort.deleteCohort);
 
 module.exports = router;

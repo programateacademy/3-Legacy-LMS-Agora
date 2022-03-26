@@ -214,7 +214,7 @@ export function CreateCohort() {
                 ? addedTeacher.map((item, index) => (
                     <div key={index} className={style.teacherSelect}>
                       <li>{item.name}</li>
-                      <button onClick={() => onClearTeacher(item.id)}>
+                      <button onClick={() => onClearTeacher(item.id)} type="button">
                         <MdDeleteForever />
                       </button>
                     </div>

@@ -124,8 +124,7 @@ export function UpdateCohort() {
     e.preventDefault();
     try {
       if (auth.isAdmin) {
-        const res = await apiAgora.put(
-          `/api/agora/update-cohort/${cohortID}`,
+        const res = await apiAgora.put(`/api/agora/update-cohort/${cohortID}`,
           {
             assignedTeachersID,
             nameCohort,
@@ -237,7 +236,7 @@ export function UpdateCohort() {
                 ? addedTeacher.map((item, index) => (
                     <div key={index} className={style.teacherSelect}>
                       <li>{item.name}</li>
-                      <button onClick={() => onClearTeacher(item.id)}>
+                      <button onClick={() => onClearTeacher(item.id)} type="button">
                         <MdDeleteForever />
                       </button>
                     </div>
@@ -261,14 +260,11 @@ export function UpdateCohort() {
               onChange={handleImage}
             />
           </div>
-        </div>
-        
-      </form>
-      <div className={style.createCohort}>
-        <button className={style.buttonCreateCohort} type="submit">
+          <button className={style.buttonCreateCohort} type="submit">
           Actualizar Cohorte
         </button>
-      </div>
+        </div>
+      </form>
     </div>
   );
 }
