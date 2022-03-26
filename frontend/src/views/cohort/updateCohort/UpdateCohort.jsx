@@ -91,6 +91,7 @@ export function UpdateCohort() {
       headers: { Authorization: id_user },
     });
     setCohort(res.data);
+    setImage(res.data.imageCohort);
     const listTeacherAssigned = res.data.assignedTeachersID;
     listTeacherAssigned.map((item) =>
       setAddedTeacher((prev) => [
@@ -261,13 +262,13 @@ export function UpdateCohort() {
             />
           </div>
         </div>
-        <div className={style.createCohort}>
+        
+      </form>
+      <div className={style.createCohort}>
         <button className={style.buttonCreateCohort} type="submit">
           Actualizar Cohorte
         </button>
       </div>
-      </form>
-      
     </div>
   );
 }

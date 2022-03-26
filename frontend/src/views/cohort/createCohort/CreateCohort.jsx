@@ -239,10 +239,11 @@ export function CreateCohort() {
             />
           </div>
         </div>
-        <button className={style.buttonCreateCohort} type="submit">
-          Crear Cohorte
-        </button>
+        
       </form>
+      <button className={style.buttonCreateCohort} type="submit">
+          Crear Cohorte
+      </button>
     </div>
   );
 }
