@@ -139,9 +139,13 @@ export function UpdateCohort() {
   }, [selectedImage]);
   return (
     <>
-      <h1>Actualizar información de la cohorte {cohort.nameCohort}</h1>
+      <div class={style.wrapper}>
+        <h2 class={style.typing_demo}>
+          Actualizar información de la cohorte - {cohort.nameCohort}
+        </h2>
+      </div>
       <form className={style.form} onSubmit={handleSubmit}>
-        <div className={style.inputs}>
+        <div className={style.container}>
           <div className={style.containerOne}>
             <input
               className={style.numberC}
