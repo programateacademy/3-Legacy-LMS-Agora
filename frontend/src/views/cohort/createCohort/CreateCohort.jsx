@@ -34,8 +34,7 @@ export function CreateCohort() {
   const [assignedTeachersID, setAssignedTeachersID] = useState([]);
   const auth = useSelector((state) => state.auth);
   const id_user = auth.user.id;
-  const [image, setImage] = useState(null);
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [image, setImage] = useState("");
   const {
     nameCohort,
     numberCohort,
@@ -45,10 +44,6 @@ export function CreateCohort() {
     endBootcamp,
     success,
   } = cohort;
-
-  const handleChangeImage = (e) => {
-    setSelectedImage(e.target.files[0]);
-  };
 
   //Info Cohort
   const handleChangeInput = (e) => {
@@ -77,14 +72,28 @@ export function CreateCohort() {
       selectedTeacher.id &&
       !assignedTeachersID.includes(selectedTeacher.id)
     ) {
-      setAddedTeacher((prev) => [...prev, {name:selectedTeacher.fullName, id:selectedTeacher.id}]);
+      setAddedTeacher((prev) => [
+        ...prev,
+        { name: selectedTeacher.fullName, id: selectedTeacher.id },
+      ]);
       setAssignedTeachersID((prev) => [...prev, selectedTeacher.id]);
     }
   };
 
+  const handleImage = (e) => {
+    const { name, value } = e.target;
+    setCohort({
+      ...cohort,
+      [name]: value,
+      err: "",
+      success: "",
+    });
+    setImage(value);
+  };
+
   const onClearTeacher = (userID) => {
-      setAddedTeacher(addedTeacher.filter(e => e.id !== userID));
-      setAssignedTeachersID(assignedTeachersID.filter(e => e !== userID));
+    setAddedTeacher(addedTeacher.filter((e) => e.id !== userID));
+    setAssignedTeachersID(assignedTeachersID.filter((e) => e !== userID));
   };
 
   // Create new cohort
@@ -97,6 +106,7 @@ export function CreateCohort() {
           {
             bootcampID,
             assignedTeachersID,
+            imageCohort,
             nameCohort,
             numberCohort,
             descriptionCohort,
@@ -119,20 +129,12 @@ export function CreateCohort() {
 
   useEffect(() => {
     fetchTeachers();
-    if (!selectedImage) {
-      setImage("");
-      return;
-    }
-    const objectUrl = URL.createObjectURL(selectedImage);
-    setImage(objectUrl);
-    //  Unmount the image to free the memory
-    return () => URL.revokeObjectURL(objectUrl);
-  }, [selectedImage]);
+  }, []);
   return (
     <div className={style.formContainer}>
       <button className={style.button_return} onClick={() => navigate(-1)}>
-          <BsArrowLeftCircle size={30} />
-        </button>
+        <BsArrowLeftCircle size={30} />
+      </button>
       <h1>Crear Cohorte</h1>
       <form className={style.form} onSubmit={handleSubmit}>
         <div className={style.inputs}>
@@ -201,14 +203,20 @@ export function CreateCohort() {
                   </option>
                 ))}
               </select>
-              <button className={style.buttonAdd} type="button" onClick={onClickTeacher}>
+              <button
+                className={style.buttonAdd}
+                type="button"
+                onClick={onClickTeacher}
+              >
                 Agregar
               </button>
               {addedTeacher.length !== 0
                 ? addedTeacher.map((item, index) => (
                     <div key={index} className={style.teacherSelect}>
                       <li>{item.name}</li>
-                      <button onClick={()=>onClearTeacher(item.id)}><MdDeleteForever /></button>
+                      <button onClick={() => onClearTeacher(item.id)}>
+                        <MdDeleteForever />
+                      </button>
                     </div>
                   ))
                 : null}
@@ -222,19 +230,19 @@ export function CreateCohort() {
           <div className={style.file}>
             <p className={style.texto}>Agregar imagen</p>
             <input
-              className={style.btn_add}
-              type="file"
-              accept="image/png, image/jpeg"
+              className={style.input__logoURL}
+              placeholder="Inserta URL de la imagen Bootcamp"
+              type="text"
               name="imageCohort"
               value={imageCohort}
-              onChange={handleChangeImage}
+              onChange={handleImage}
             />
           </div>
         </div>
+        <button className={style.buttonCreateCohort} type="submit">
+          Crear Cohorte
+        </button>
       </form>
-      <div className={style.createCohort}>
-        <button className={style.buttonCreateCohort} type="submit">Crear Cohorte</button>
-      </div>
     </div>
   );
 }

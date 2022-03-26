@@ -8,7 +8,6 @@ import { showErrMsg, showSuccessMsg } from "../../../utils/notification";
 
 const initialStateBootcamp = {
   nameBootcamp: "",
-  imageBootcamp: "",
   descriptionBootcamp: "",
   err: "",
   success: "",
@@ -21,23 +20,24 @@ export function CreateBootcamp() {
   const id_user = auth.user.id;
 
   const [bootcamp, setBootcamp] = useState(initialStateBootcamp);
-  const { nameBootcamp, imageBootcapm, descriptionBootcamp, success } =
+  const { nameBootcamp, imageBootcamp, descriptionBootcamp, success } =
     bootcamp;
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
     setBootcamp({ ...bootcamp, [name]: value, err: "", success: "" });
-    console.log(imageBootcapm);
+    console.log(imageBootcamp);
   };
 
   const handleImage = (e) => {
+    const { name, value } = e.target;
     setBootcamp({
       ...bootcamp,
-      imageBootcapm: e.target.value,
+      [name]: value,
       err: "",
       success: "",
     });
-    setImage(e.target.value);
+    setImage(value);
   };
 
   const handleSubmit = async (e) => {
@@ -48,7 +48,7 @@ export function CreateBootcamp() {
           "/api/agora/new-bootcamp",
           {
             nameBootcamp,
-            imageBootcapm,
+            imageBootcamp,
             descriptionBootcamp,
           },
           {
@@ -64,10 +64,6 @@ export function CreateBootcamp() {
         setBootcamp({ ...bootcamp, err: err.response.data.msg, success: "" });
     }
   };
-
-  // useEffect(() => {
-  //   setImage(imageBootcapm)
-  // }, [imageBootcapm]);
 
   return (
     <div>
@@ -104,7 +100,7 @@ export function CreateBootcamp() {
               placeholder="Inserta URL de la imagen Bootcamp"
               type="text"
               name="imageBootcamp"
-              value={imageBootcapm}
+              value={imageBootcamp}
               onChange={handleImage}
             />
             <input

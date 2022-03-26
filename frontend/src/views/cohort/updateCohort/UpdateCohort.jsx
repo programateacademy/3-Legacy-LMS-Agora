@@ -176,7 +176,7 @@ export function UpdateCohort() {
                   type="date"
                   placeholder="Fecha de inico"
                   name="startDateBootcamp"
-                  value={startDateBootcamp}
+                  value={startDateBootcamp.toString()}
                   onChange={handleChangeInput}
                 />
               </div>
