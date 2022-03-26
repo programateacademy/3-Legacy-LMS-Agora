@@ -227,23 +227,19 @@ export function CreateCohort() {
           <div className={style.img_preview}>
             <img className={style.image} src={image} alt="Logo Cohorte" />
           </div>
-          <div className={style.file}>
-            <p className={style.texto}>Agregar imagen</p>
-            <input
-              className={style.input__logoURL}
-              placeholder="Inserta URL de la imagen Bootcamp"
-              type="text"
-              name="imageCohort"
-              value={imageCohort}
-              onChange={handleImage}
-            />
-          </div>
+          <input
+            className={style.input__logoURL}
+            placeholder="Inserta URL de la imagen Bootcamp"
+            type="text"
+            name="imageCohort"
+            value={imageCohort}
+            onChange={handleImage}
+          />
+          <button className={style.buttonCreateCohort} type="submit">
+            Crear Cohorte
+          </button>
         </div>
-        
       </form>
-      <button className={style.buttonCreateCohort} type="submit">
-          Crear Cohorte
-      </button>
     </div>
   );
 }
