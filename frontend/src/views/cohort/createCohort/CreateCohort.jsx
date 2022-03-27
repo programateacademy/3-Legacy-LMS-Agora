@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import style from "./CreateCohort.module.css";
-import { MdDeleteForever } from "react-icons/md";
-import { MdOutlineAddCircle } from "react-icons/md";
+import style from "../CreateUpgradeCohort.module.css";
+import { MdDeleteForever, MdOutlineAddCircle } from "react-icons/md";
 import { useSelector } from "react-redux";
 import { showErrMsg, showSuccessMsg } from "../../../utils/notification";
 import apiAgora from "../../../api";
@@ -195,34 +194,37 @@ export function CreateCohort() {
             </div>
             <div className={style.containerFormadores}>
               <div className={style.select}>
-              <select
-                aria-label="Default select example"
-                name="user"
-                onChange={handleChangeSelect}
-              >
-                <option value="" selected>
-                  Formadores
-                </option>
-                {teachers.map((item, index) => (
-                  <option value={item.id} key={index}>
-                    {item.firstName} {item.middleName} {item.lastName}{" "}
-                    {item.secondSurname}
+                <select
+                  aria-label="Default select example"
+                  name="user"
+                  onChange={handleChangeSelect}
+                >
+                  <option value="" selected>
+                    Formadores
                   </option>
-                ))}
-              </select>
-              <button
-                className={style.buttonAdd}
-                type="button"
-                onClick={onClickTeacher}
-              >
-               <MdOutlineAddCircle size={30}/>
-              </button>
+                  {teachers.map((item, index) => (
+                    <option value={item.id} key={index}>
+                      {item.firstName} {item.middleName} {item.lastName}{" "}
+                      {item.secondSurname}
+                    </option>
+                  ))}
+                </select>
+                <button
+                  className={style.buttonAdd}
+                  type="button"
+                  onClick={onClickTeacher}
+                >
+                  <MdOutlineAddCircle size={30} />
+                </button>
               </div>
               {addedTeacher.length !== 0
                 ? addedTeacher.map((item, index) => (
                     <div key={index} className={style.teacherSelect}>
                       <li>{item.name}</li>
-                      <button onClick={() => onClearTeacher(item.id)} type="button">
+                      <button
+                        onClick={() => onClearTeacher(item.id)}
+                        type="button"
+                      >
                         <MdDeleteForever size={25} />
                       </button>
                     </div>
