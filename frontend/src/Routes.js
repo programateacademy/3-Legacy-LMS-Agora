@@ -43,6 +43,7 @@ import { CompetencesUpdate } from "./views/competences/CompetencesUpdate";
 import { UpdateCohort } from "./views/cohort/updateCohort/UpdateCohort";
 
 import { CreateBootcamp } from "./views/bootcamps/createBootcamp/CreateBootcamp";
+import { CreateProject } from "./views/activities/projects/createProject/CreateProject";
 
 export function RoutesApp() {
   const auth = useSelector((state) => state.auth);
@@ -165,6 +166,7 @@ export function RoutesApp() {
           <Route path="/crearAnuncio" element={<CreateAnnouncement />} />
           <Route path="/anuncios" element={<Announcements />} />
           {/*      //isTeacher //isStudent */}
+          <Route path="/project/:id/create-project" element={<CreateProject />} exact/>
           <Route
             path="/entregasFormador"
             element={<DeliveryProjectTrainer />}
