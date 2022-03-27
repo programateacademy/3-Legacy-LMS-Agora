@@ -4,6 +4,23 @@
   min-height: calc(100vh - 150px);
   margin: 1rem;
 }
+.button_return {
+  align-self: flex-start;
+  background-color: #ffd808;
+  border-radius: 10px;
+  color: var(--colorBlack);
+  display: flex;
+  font-weight: bold;
+  max-width: 100px;
+  padding: 10px;
+  text-align: center;
+  width: auto;
+}
+.button_return:hover {
+  background-color: var(--colorBlack);
+  color: #ffd808;
+  transition: 0.3s;
+}
 .wrapper {
   display: flex;
   align-items: center;
@@ -13,6 +30,13 @@
 
 .typing_demo {
   width: 12ch;
+  animation: typing 1s steps(22), blink 0.5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+}
+.typing_upgrade {
+  width: 14ch;
   animation: typing 1s steps(22), blink 0.5s step-end infinite alternate;
   white-space: nowrap;
   overflow: hidden;
@@ -153,6 +177,7 @@
   align-items: center;
   justify-content: center;
   box-shadow: inset 0px 4px 15px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
 }
 .image {
   width: 100%;
