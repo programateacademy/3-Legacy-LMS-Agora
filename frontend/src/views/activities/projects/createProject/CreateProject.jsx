@@ -1,49 +1,52 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import style from "./CreateProject.module.css";
 import { MdDeleteForever, MdOutlineAddCircle } from "react-icons/md";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { useEffect } from "react";
 import apiAgora from "../../../../api";
 
 const initialState = {
+  competences: [],
   titleProject: "",
   pictureProject: "",
   descriptionProject: "",
-  tagsProject: "",
+  tagsProject: [],
   competenceFramework: "",
-  competencies: "",
   resources: [],
   contextGeneral: "",
-  contextGeneralReq: "",
-  contextTechniciansReq: "",
-  contextExtrasReq: "",
-  pedagogyModality: "",
-  performanceCriterias: "",
-  evaluationModality: "",
-  deliverablesProject: "",
+  contextGeneralReq: [],
+  contextTechniciansReq: [],
+  contextExtrasReq: [],
+  pedagogyModality: [],
+  performanceCriterias: [],
+  evaluationModality: [],
+  deliverablesProject: [],
   date: "",
 };
 
 export function CreateProject() {
+  const auth = useSelector((state) => state.auth);
+  const id_user = auth.user.id;
   const params = useParams();
   const cohortID = params.id;
-  const auth = useSelector((state) => state.auth);
-  const userID = auth.user.id;
   let navigate = useNavigate();
   const [project, setProject] = useState(initialState);
   const [image, setImage] = useState();
   const [cohortCompetences, setCohortCompetences] = useState([]);
-  const [selectedCompetence, setSelectedCompetence] = useState({ id: "", fullNameCompetences: "", level:"" })
-  const [addedCompetence, setAddedCompetence] = useState([])
+  const [selectedCompetence, setSelectedCompetence] = useState({
+    id: "",
+    fullNameCompetences: "",
+    level: "",
+  });
   const [itemArray, setItemArray] = useState("");
+  const [competencesIDS, setCompetencesIDS] = useState([]);
   const {
     titleProject,
     pictureProject,
     descriptionProject,
     competenceFramework,
     tagsProject,
-    competencies,
+    competences,
     resources,
     contextGeneral,
     contextGeneralReq,
@@ -61,7 +64,7 @@ export function CreateProject() {
     const resCompetencesCohort = await apiAgora.get(
       `/api/agora/get-competences/${cohortID}`,
       {
-        headers: { Authorization: userID },
+        headers: { Authorization: id_user },
       }
     );
     setCohortCompetences(resCompetencesCohort.data);
@@ -69,16 +72,17 @@ export function CreateProject() {
 
   // Selecting competences
   const handleChangeSelectLevel = (e) => {
-    setSelectedCompetence({ ...selectedCompetence,
-      level: e.target.value
-    }) 
+    setSelectedCompetence({ ...selectedCompetence, level: e.target.value });
   };
 
   const handleChangeSelect = (e) => {
-    setSelectedCompetence({ ...selectedCompetence, 
-      /* id: e.target.value, */
+    setSelectedCompetence({
+      ...selectedCompetence,
+      id: e.target.value,
+
       fullNameCompetences: e.target.options[e.target.selectedIndex].text,
     });
+    console.log(e.target.options[e.target.selectedIndex].text);
   };
 
   //Image
@@ -97,7 +101,7 @@ export function CreateProject() {
     const { name, value } = e.target;
     setProject({ ...project, [name]: value, err: "", success: "" });
   };
-  //add item 
+  //add item
   const handleChangeArray = (e) => {
     setItemArray(e.target.value);
   };
@@ -110,6 +114,30 @@ export function CreateProject() {
     });
     setItemArray("");
   };
+
+  const onClickCompetences = (name) => {
+    if (
+      !competencesIDS.includes(selectedCompetence.id) &&
+      selectedCompetence.id &&
+      selectedCompetence.level
+    ) {
+      setCompetencesIDS((prev) => [...prev, selectedCompetence.id]);
+      setProject({
+        ...project,
+        [name]: [
+          ...project[name],
+          {
+            competenceID: selectedCompetence.id,
+            level: selectedCompetence.level,
+            name: selectedCompetence.fullNameCompetences,
+          },
+        ],
+
+        err: "",
+        success: "",
+      });
+    }
+  };
   //delete item
   const deleteItemArray = (name, item) => {
     setProject({
@@ -117,9 +145,17 @@ export function CreateProject() {
       [name]: project[name].filter((e) => e !== item),
     });
   };
+
+  const deleteCompetence = (name, item) => {
+    setProject({
+      ...project,
+      [name]: project[name].filter((e) => e.competenceID !== item),
+    });
+  };
   useEffect(() => {
     fetchCohortCompetences();
   }, []);
+
   //save project info Backend
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -169,25 +205,25 @@ export function CreateProject() {
               <div>
                 {resources.length !== 0
                   ? resources.map((item, index) => (
-                    <div key={index}>
-                      <a href={item} target="_blank">
-                        {item}
-                      </a>
-                      <button
-                        type="button"
-                        onClick={() => deleteItemArray("resources", item)}
-                      >
-                        <MdDeleteForever size={30} />
-                      </button>
-                    </div>
-                  ))
+                      <div key={index}>
+                        <a href={item} target="_blank">
+                          {item}
+                        </a>
+                        <button
+                          type="button"
+                          onClick={() => deleteItemArray("resources", item)}
+                        >
+                          <MdDeleteForever size={30} />
+                        </button>
+                      </div>
+                    ))
                   : null}
               </div>
             </div>
             <div>
               <input
                 placeholder="Fecha de entrega"
-                type="date"
+                type="datetime-local"
                 name="date"
                 value={date}
                 onChange={handleChangeInput}
@@ -226,16 +262,16 @@ export function CreateProject() {
               <div>
                 {tagsProject.length !== 0
                   ? tagsProject.map((item, index) => (
-                    <div key={index}>
-                      <p>{item}</p>
-                      <button
-                        type="button"
-                        onClick={() => deleteItemArray("tagsProject", item)}
-                      >
-                        <MdDeleteForever size={30} />
-                      </button>
-                    </div>
-                  ))
+                      <div key={index}>
+                        <p>{item}</p>
+                        <button
+                          type="button"
+                          onClick={() => deleteItemArray("tagsProject", item)}
+                        >
+                          <MdDeleteForever size={30} />
+                        </button>
+                      </div>
+                    ))
                   : null}
               </div>
             </div>
@@ -266,16 +302,18 @@ export function CreateProject() {
               <div>
                 {contextGeneralReq.length !== 0
                   ? contextGeneralReq.map((item, index) => (
-                    <div key={index}>
-                      <p>{item}</p>
-                      <button
-                        type="button"
-                        onClick={() => deleteItemArray("contextGeneralReq", item)}
-                      >
-                        <MdDeleteForever size={30} />
-                      </button>
-                    </div>
-                  ))
+                      <div key={index}>
+                        <p>{item}</p>
+                        <button
+                          type="button"
+                          onClick={() =>
+                            deleteItemArray("contextGeneralReq", item)
+                          }
+                        >
+                          <MdDeleteForever size={30} />
+                        </button>
+                      </div>
+                    ))
                   : null}
               </div>
             </div>
@@ -297,16 +335,18 @@ export function CreateProject() {
               <div>
                 {contextTechniciansReq.length !== 0
                   ? contextTechniciansReq.map((item, index) => (
-                    <div key={index}>
-                      <p>{item}</p>
-                      <button
-                        type="button"
-                        onClick={() => deleteItemArray("contextTechniciansReq", item)}
-                      >
-                        <MdDeleteForever size={30} />
-                      </button>
-                    </div>
-                  ))
+                      <div key={index}>
+                        <p>{item}</p>
+                        <button
+                          type="button"
+                          onClick={() =>
+                            deleteItemArray("contextTechniciansReq", item)
+                          }
+                        >
+                          <MdDeleteForever size={30} />
+                        </button>
+                      </div>
+                    ))
                   : null}
               </div>
             </div>
@@ -328,16 +368,18 @@ export function CreateProject() {
               <div>
                 {contextExtrasReq.length !== 0
                   ? contextExtrasReq.map((item, index) => (
-                    <div key={index}>
-                      <p>{item}</p>
-                      <button
-                        type="button"
-                        onClick={() => deleteItemArray("contextExtrasReq", item)}
-                      >
-                        <MdDeleteForever size={30} />
-                      </button>
-                    </div>
-                  ))
+                      <div key={index}>
+                        <p>{item}</p>
+                        <button
+                          type="button"
+                          onClick={() =>
+                            deleteItemArray("contextExtrasReq", item)
+                          }
+                        >
+                          <MdDeleteForever size={30} />
+                        </button>
+                      </div>
+                    ))
                   : null}
               </div>
             </div>
@@ -359,16 +401,18 @@ export function CreateProject() {
               <div>
                 {pedagogyModality.length !== 0
                   ? pedagogyModality.map((item, index) => (
-                    <div key={index}>
-                      <p>{item}</p>
-                      <button
-                        type="button"
-                        onClick={() => deleteItemArray("pedagogyModality", item)}
-                      >
-                        <MdDeleteForever size={30} />
-                      </button>
-                    </div>
-                  ))
+                      <div key={index}>
+                        <p>{item}</p>
+                        <button
+                          type="button"
+                          onClick={() =>
+                            deleteItemArray("pedagogyModality", item)
+                          }
+                        >
+                          <MdDeleteForever size={30} />
+                        </button>
+                      </div>
+                    ))
                   : null}
               </div>
             </div>
@@ -390,16 +434,18 @@ export function CreateProject() {
               <div>
                 {performanceCriterias.length !== 0
                   ? performanceCriterias.map((item, index) => (
-                    <div key={index}>
-                      <p>{item}</p>
-                      <button
-                        type="button"
-                        onClick={() => deleteItemArray("performanceCriterias", item)}
-                      >
-                        <MdDeleteForever size={30} />
-                      </button>
-                    </div>
-                  ))
+                      <div key={index}>
+                        <p>{item}</p>
+                        <button
+                          type="button"
+                          onClick={() =>
+                            deleteItemArray("performanceCriterias", item)
+                          }
+                        >
+                          <MdDeleteForever size={30} />
+                        </button>
+                      </div>
+                    ))
                   : null}
               </div>
             </div>
@@ -421,16 +467,18 @@ export function CreateProject() {
               <div>
                 {evaluationModality.length !== 0
                   ? evaluationModality.map((item, index) => (
-                    <div key={index}>
-                      <p>{item}</p>
-                      <button
-                        type="button"
-                        onClick={() => deleteItemArray("evaluationModality", item)}
-                      >
-                        <MdDeleteForever size={30} />
-                      </button>
-                    </div>
-                  ))
+                      <div key={index}>
+                        <p>{item}</p>
+                        <button
+                          type="button"
+                          onClick={() =>
+                            deleteItemArray("evaluationModality", item)
+                          }
+                        >
+                          <MdDeleteForever size={30} />
+                        </button>
+                      </div>
+                    ))
                   : null}
               </div>
             </div>
@@ -455,28 +503,29 @@ export function CreateProject() {
           <div>
             {deliverablesProject.length !== 0
               ? deliverablesProject.map((item, index) => (
-                <div key={index}>
-                  <p>{item}</p>
-                  <button
-                    type="button"
-                    onClick={() => deleteItemArray("deliverablesProject", item)}
-                  >
-                    <MdDeleteForever size={30} />
-                  </button>
-                </div>
-              ))
+                  <div key={index}>
+                    <p>{item}</p>
+                    <button
+                      type="button"
+                      onClick={() =>
+                        deleteItemArray("deliverablesProject", item)
+                      }
+                    >
+                      <MdDeleteForever size={30} />
+                    </button>
+                  </div>
+                ))
               : null}
           </div>
         </div>
         <div>
           <h3>Competencias</h3>
 
-
           <div className={style.containerFormadores}>
             <div className={style.select}>
               <select
                 aria-label="Default select example"
-                name="competencies"
+                name="competences"
                 onChange={handleChangeSelect}
               >
                 <option value="" selected>
@@ -484,51 +533,49 @@ export function CreateProject() {
                 </option>
                 {cohortCompetences.map((item, index) => (
                   <option value={item.id} key={index}>
-                    {item.identifierCompetences}{" "}
-                    {item.nameCompetences}
+                    {item.identifierCompetences} {item.nameCompetences}
                   </option>
                 ))}
               </select>
               <select
                 aria-label="Default select example"
-                name="competencies"
+                name="level"
                 onChange={handleChangeSelectLevel}
               >
                 <option value="" selected>
                   Nivel
                 </option>
-                  <option value={"levelOne"}>
-                  Nivel 1
-                  </option>
-                  <option value={"levelTwo"}>
-                  Nivel 2
-                  </option>
-                  <option value={"levelThree"}>
-                  Nivel 3
-                  </option>
+                <option value={"levelOne"}>Nivel 1</option>
+                <option value={"levelTwo"}>Nivel 2</option>
+                <option value={"levelThree"}>Nivel 3</option>
               </select>
               <button
                 className={style.buttonAdd}
                 type="button"
-                /* onClick={} */
+                onClick={() => onClickCompetences("competences")}
               >
                 <MdOutlineAddCircle size={30} />
               </button>
             </div>
           </div>
           <div>
-            {competencies.length !== 0
-              ? competencies.map((item, index) => (
-                <div key={index}>
-                  <p>{item}</p>
-                  <button
-                    type="button"
-                    onClick={() => deleteItemArray("competencies", item)}
-                  >
-                    <MdDeleteForever size={30} />
-                  </button>
-                </div>
-              ))
+            {competences.length !== 0
+              ? competences.map((item, index) => (
+                  <div key={index}>
+                    <p>
+                      {item.name} {item.level}{" "}
+                    </p>
+
+                    <button
+                      type="button"
+                      onClick={() =>
+                        deleteCompetence("competences", item.competenceID)
+                      }
+                    >
+                      <MdDeleteForever size={30} />
+                    </button>
+                  </div>
+                ))
               : null}
           </div>
         </div>

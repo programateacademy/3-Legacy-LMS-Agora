@@ -33,7 +33,7 @@ const projectSchema = new Schema({
     type : String,
     require: true
   },  
-  competencies: {
+  competences: {
     type: Array, 
     require: true,
   },
