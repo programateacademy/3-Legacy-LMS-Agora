@@ -439,7 +439,7 @@ export function CreateProject() {
           <h3>Competencias</h3>
 
 
-          <div className={style.containerFormadores}>
+          {/* <div className={style.containerFormadores}>
               <div className={style.select}>
                 <select
                   aria-label="Default select example"
@@ -477,7 +477,7 @@ export function CreateProject() {
                     </div>
                   ))
                 : null}
-            </div>
+            </div> */}
 
 
               <div>
