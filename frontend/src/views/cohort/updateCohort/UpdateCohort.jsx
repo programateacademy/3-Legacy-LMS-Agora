@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import style from "./UpdateCohort.module.css";
-import { MdDeleteForever } from "react-icons/md";
+import style from "../CreateUpdateCohort.module.css";
+import { MdDeleteForever, MdOutlineAddCircle } from "react-icons/md";
 import { useSelector } from "react-redux";
 import { showErrMsg, showSuccessMsg } from "../../../utils/notification";
 import apiAgora from "../../../api";
@@ -132,7 +132,8 @@ export function UpdateCohort() {
     e.preventDefault();
     try {
       if (auth.isAdmin) {
-        const res = await apiAgora.put(`/api/agora/update-cohort/${cohortID}`,
+        const res = await apiAgora.put(
+          `/api/agora/update-cohort/${cohortID}`,
           {
             assignedTeachersID,
             nameCohort,
@@ -165,36 +166,41 @@ export function UpdateCohort() {
       <button className={style.button_return} onClick={() => navigate(-1)}>
         <BsArrowLeftCircle size={30} />
       </button>
-      <h1>Actualizar información de la Cohorte</h1>
+      <div class={style.wrapper}>
+        <h2 class={style.typing_upgrade}>Actualizar Cohorte</h2>
+      </div>
       <form className={style.form} onSubmit={handleSubmit}>
-        <div className={style.inputs}>
+        <div className={style.container}>
           <div className={style.containerOne}>
-            <input
-              className={style.numberC}
-              type="number"
-              placeholder="#"
-              name="numberCohort"
-              value={numberCohort}
-              onChange={handleChangeInput}
-              min="1"
-            />
-            <input
-              className={style.inputName}
-              type="text"
-              placeholder="Nombre de la cohorte"
-              name="nameCohort"
-              value={nameCohort}
-              onChange={handleChangeInput}
-            />
+            <div className={style.numberC}>
+              <input
+                type="number"
+                placeholder="#"
+                name="numberCohort"
+                value={numberCohort}
+                onChange={handleChangeInput}
+                min="1"
+              />
+            </div>
+            <div className={style.inputName}>
+              <input
+                type="text"
+                placeholder="Nombre de la cohorte"
+                name="nameCohort"
+                value={nameCohort}
+                onChange={handleChangeInput}
+              />
+            </div>
           </div>
           <div>
-            <textarea
-              className={style.textarea}
-              placeholder="Description"
-              name="descriptionCohort"
-              value={descriptionCohort}
-              onChange={handleChangeInput}
-            ></textarea>
+            <div className={style.textarea}>
+              <textarea
+                placeholder="Description"
+                name="descriptionCohort"
+                value={descriptionCohort}
+                onChange={handleChangeInput}
+              ></textarea>
+            </div>
             <div className={style.containerTwo}>
               <div className={style.initialDate}>
                 <label>Fecha de inicio</label>
@@ -217,35 +223,40 @@ export function UpdateCohort() {
                 />
               </div>
             </div>
-            <div className={style.select}>
-              <select
-                aria-label="Default select example"
-                name="user"
-                onChange={handleChangeSelect}
-              >
-                <option value="" selected>
-                  Formadores
-                </option>
-                {teachers.map((item, index) => (
-                  <option value={item.id} key={index}>
-                    {item.firstName} {item.middleName} {item.lastName}{" "}
-                    {item.secondSurname}
+            <div className={style.containerFormadores}>
+              <div className={style.select}>
+                <select
+                  aria-label="Default select example"
+                  name="user"
+                  onChange={handleChangeSelect}
+                >
+                  <option value="" selected>
+                    Formadores
                   </option>
-                ))}
-              </select>
-              <button
-                className={style.buttonAdd}
-                type="button"
-                onClick={onClickTeacher}
-              >
-                Agregar
-              </button>
+                  {teachers.map((item, index) => (
+                    <option value={item.id} key={index}>
+                      {item.firstName} {item.middleName} {item.lastName}{" "}
+                      {item.secondSurname}
+                    </option>
+                  ))}
+                </select>
+                <button
+                  className={style.buttonAdd}
+                  type="button"
+                  onClick={onClickTeacher}
+                >
+                  <MdOutlineAddCircle size={30} />
+                </button>
+              </div>
               {addedTeacher.length !== 0
                 ? addedTeacher.map((item, index) => (
                     <div key={index} className={style.teacherSelect}>
                       <li>{item.name}</li>
-                      <button onClick={() => onClearTeacher(item.id)} type="button">
-                        <MdDeleteForever />
+                      <button
+                        onClick={() => onClearTeacher(item.id)}
+                        type="button"
+                      >
+                        <MdDeleteForever size={25} />
                       </button>
                     </div>
                   ))
@@ -258,7 +269,6 @@ export function UpdateCohort() {
             <img className={style.image} src={image} alt="Logo Cohorte" />
           </div>
           <div className={style.file}>
-            <p className={style.texto}>Agregar imagen</p>
             <input
               className={style.input__logoURL}
               placeholder="Inserta URL de la imagen Bootcamp"
@@ -268,9 +278,11 @@ export function UpdateCohort() {
               onChange={handleImage}
             />
           </div>
-          <button className={style.buttonCreateCohort} type="submit">
-          Actualizar Cohorte
-        </button>
+          <div className={style.container_submit}>
+            <button className={style.buttonCreateCohort} type="submit">
+              Actualizar Cohorte
+            </button>
+          </div>
         </div>
       </form>
     </div>
