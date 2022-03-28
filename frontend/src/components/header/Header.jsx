@@ -27,11 +27,9 @@ export function Header() {
       window.location.href = "/";
     }
   };
-  console.log(user)
 
   const handleClick = () => {
     setOpen(!open);
-    console.log(open)
   };
   return (
     <>

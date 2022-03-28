@@ -16,11 +16,33 @@
   .containerOne {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 49vw;
     margin: 1rem;
   }
+  .file {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  
+  .img_preview {
+    background-color: var(--colorGray);
+    width: 35vw;
+    height: 35vh;
+    margin-bottom: 1.5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0px 4px 15px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+  }
+  .image {
+    width: 100%;
+  }
   .containerTwo {
     display: flex;
+    align-items: center;
     flex-direction: column;
     width: 49vw;
     margin: 1rem;
@@ -28,4 +50,9 @@
   .line{
       border-bottom: 2px solid black;
       width: 100%;
+  }
+  .containerThree{
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
   }

@@ -41,6 +41,7 @@ import { CohortsAdmin } from "./views/cohortsAdmin/CohortsAdmin";
 import { CreateCohort } from "./views/cohort/createCohort/CreateCohort";
 import { CompetencesUpdate } from "./views/competences/CompetencesUpdate";
 import { UpdateCohort } from "./views/cohort/updateCohort/UpdateCohort";
+import { DashboardCohort } from "./views/dashboard/admin/dashboardCohort/DashboardCohort";
 
 import { CreateBootcamp } from './views/bootcamps/createBootcamp/CreateBootcamp';
 import { UpdateBootcamp } from "./views/bootcamps/updateBootcamp/UpdateBootcamp";
@@ -101,7 +102,7 @@ export function RoutesApp() {
           />
           {/* <Route
             path="/user/reset/:token"
-            element={isLogged ? <Error404 /> : <ResetPassword />}
+            element={isLogged ? <ResetPassword /> : <Error404 />}
             exact
           /> */}
           {/* isSuperAdmin */}
@@ -166,6 +167,12 @@ export function RoutesApp() {
             element={isAdmin ? <UpdateBootcamp /> : <Error404 />}
             exact
           />
+          <Route
+            path="/bootcamp/dashboard-cohort/:id"
+            element={isAdmin ? <DashboardCohort /> : <Error404 />}
+            exact
+          />
+          
 
           //isTeacher
 
