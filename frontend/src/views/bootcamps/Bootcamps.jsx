@@ -25,7 +25,8 @@ export function Bootcamps() {
           name={bootcamp.nameBootcamp}
           image={bootcamp.imageBootcamp}
           description={bootcamp.descriptionBootcamp}
-          linkTo={`/bootcamp/cohorts/${bootcamp.id}`}
+          linkCohort={`/bootcamp/cohorts/${bootcamp.id}`}
+          linkUpdate={`/bootcamp/update-bootcamp/${bootcamp.id}`}
           key={index}
         />
       ))}

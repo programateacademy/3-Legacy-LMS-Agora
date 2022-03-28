@@ -26,3 +26,19 @@
   background-color: #ffd808;
   border-radius: 50%;
 }
+.openMenu{
+  display: none;
+}
+.closeMenu{
+  display: none;
+}
+@media (max-width: 885px) {
+  .openMenu{
+    position: absolute;
+    display: block;
+    top: 70px;
+  }
+  .closeMenu{
+    display: none;
+  }
+}

@@ -56,8 +56,3 @@
   width: 100%;
   align-items: center;
 }
-@media (max-width: 885px) {
-  .nav{
-    display: none;
-  }
-}

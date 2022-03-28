@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 
 import { Link } from "react-router-dom";
 import style from "./MenuDashboard.module.css";
+import '../header/UserLink.css'
 import {
   BsFillFileCodeFill,
   BsFileRichtextFill,
@@ -13,12 +14,13 @@ import { FiFileText } from "react-icons/fi";
 import { RiFileUserFill } from "react-icons/ri";
 import { IconContext } from "react-icons";
 
-export function MenuDashboard() {
+export function MenuDashboard({ open, setOpen }) {
   const auth = useSelector((state) => state.auth);
   const { isTeacher } = auth;
   const [activeLink, setActiveLink] = useState(null);
   const handleNavLink = (index) => {
     setActiveLink(index);
+    setOpen(!open)
   };
   const navLinks = [
     {
@@ -64,9 +66,9 @@ export function MenuDashboard() {
     list = navLinks.slice(0, navLinks.length - 1);
   }
   return (
-    <div>
+    <div className={(!open?'closeMenu':'openMenu')}>
       <IconContext.Provider value={{ size: 30 }}>
-        <nav className={style.nav}>
+        <nav  className={style.nav}>
           <ul className={style.ul}>
             {list.map((item, index) => {
               return (

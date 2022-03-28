@@ -5,7 +5,7 @@
 
 :root {
     --surface-color: rgb(0, 0, 0);
-    --curve: 50;
+    --curve: 18;
   }
   
   * {
@@ -52,7 +52,7 @@
     position: relative;
     display: flex;
     gap: 0em;
-    padding: 2em;
+    padding: 0.5em;
     border-radius: calc(var(--curve) * 30px) 0 0;    
     background-color: var(--colorBlack);
     transform: translateY(-100%);
@@ -82,7 +82,8 @@
   }
   
   .card__header__text {
-    height: 30px;
+    height: 10px;
+    margin-bottom: 11vh;
   }
 
   .card__title {
@@ -171,6 +172,7 @@
 .dots:hover .list {
   opacity: 1;
   transform: translateX(0);
+  transition: 0.3s;
 }
 
 .list li {

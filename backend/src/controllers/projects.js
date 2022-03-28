@@ -11,7 +11,7 @@ const controllerProject = {
         descriptionProject,
         tagsProject,
         competenceFramework,
-        competencies,
+        competences,
         resources,
         contextGeneral,
         contextGeneralReq,
@@ -32,7 +32,7 @@ const controllerProject = {
         !descriptionProject ||
         !tagsProject ||
         !competenceFramework ||
-        !competencies ||
+        !competences ||
         !resources ||
         !contextGeneral ||
         !contextGeneralReq ||
@@ -54,7 +54,7 @@ const controllerProject = {
         descriptionProject,
         tagsProject,
         competenceFramework,
-        competencies,
+        competences,
         resources,
         contextGeneral,
         contextGeneralReq,
@@ -101,7 +101,7 @@ const controllerProject = {
         descriptionProject,
         tagsProject,
         competenceFramework,
-        competencies,
+        competences,
         resources,
         contextGeneral,
         contextGeneralReq,
@@ -122,7 +122,7 @@ const controllerProject = {
           descriptionProject,
           tagsProject,
           competenceFramework,
-          competencies,
+          competences,
           resources,
           contextGeneral,
           contextGeneralReq,
