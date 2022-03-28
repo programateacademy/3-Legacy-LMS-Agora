@@ -14,7 +14,7 @@ const UserLink = ({ user, handleLogout }) => {
           <div>
             <TiUser size={30} />
           </div>
-          <p>{user.name}</p>
+          <p>{user.firstName}</p>
         </div>
         <div>
           <Dropdown>

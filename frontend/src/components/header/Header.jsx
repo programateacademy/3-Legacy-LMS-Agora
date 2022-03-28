@@ -3,6 +3,7 @@ import logo from "../../assets/logos/programate-academy-color-.png";
 
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import axios from 'axios'
 
 import UserLink from "./UserLink";
 import "./UserLink.css";
@@ -19,7 +20,7 @@ export function Header() {
 
   const handleLogout = async () => {
     try {
-      // await axios.get('/user/logout')
+      await axios.get('/user/logout')
       localStorage.removeItem("firstLogin");
       localStorage.removeItem("loggedAgoraUser");
       window.location.href = "/";
@@ -27,6 +28,7 @@ export function Header() {
       window.location.href = "/";
     }
   };
+  console.log(user)
 
   const handleClick = () => {
     setOpen(!open);
