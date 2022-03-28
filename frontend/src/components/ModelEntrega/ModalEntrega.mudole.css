@@ -1,0 +1,253 @@
+.containerModal{
+    display: flex;
+    flex-direction: column;
+    margin-left: 25%;
+    margin-top: 40px;
+    width: 700px;
+    height: 450px;
+    box-shadow:0 10px 10px rgb(185, 185, 185);
+    border-radius: 10px;
+    
+}
+
+.cajaTitle{
+    display: flex;
+    justify-content: space-between;
+    background: white;
+    border-bottom: 1 solid;
+    width: 700px;
+    height: 100px;
+    margin: 0;
+    border-bottom: 1px solid black;
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+    background: #FFCC02;
+    width: 75%;
+    height: auto;
+    margin-left: 40px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-radius: 50px;
+    padding: 2vh;
+}
+
+.title >h2{
+    display: flex;
+    justify-content: center;
+    letter-spacing: 0.05em;
+    text-decoration-line: underline;
+    font-weight: 40px;
+    font-size: 25px;
+    line-height: 10px;
+    align-items: center;
+    margin: 0;
+}
+
+.icon{
+    display: flex;
+    justify-content: right;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+.cajaDiv{
+    display: flex;
+    flex-direction: column;
+    background: white;
+    width: 670px;
+    height: 335px;
+    margin-left: 15px;
+    
+}
+
+.subTitle{
+    display: flex;
+    justify-content: center;
+    height: 30px;
+    width: 100%;
+    align-items: center;
+}
+
+.subTitle >h6{
+    font-size: 16px;
+}
+
+.cajaMedia{
+    display: flex;
+    flex-direction: row;
+    
+    height: 100%;
+    width: 100%;
+}
+
+.primerFondo{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: auto;
+    background: rgba(146, 193, 73, 0.3);
+    border-radius: 10px;
+}
+
+.segundoFondo{
+    display: flex;
+    width: 370px;
+    height: 200px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 15px;
+    background: white;
+    box-shadow:0 5px 5px rgb(88, 86, 86);
+    border-radius: 10px;
+}
+
+.inputDes{
+    display: flex;
+    margin-left: 15px;
+    margin-top: 10px;
+
+}
+
+.inputDes >textarea{
+    display: flex;
+    border-radius: 10px;
+    
+}
+
+.inputDes >button{
+    display: flex;
+    justify-content: center;
+    margin-left: 15px;
+    margin-top: 40px;
+    align-items: center;
+    font-size: 12px;
+    width: 55px;
+    height: 25px;
+    border-radius: 5px;
+    border-style: none;
+    background-color: #FFCC02;
+}
+
+
+.cajaUltima{
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+    border-left: 1px solid black;
+    padding-left: 15px;
+        
+}
+
+.calif{
+    display: flex;
+    flex-direction: column;
+    padding: 0%;
+
+}
+
+/* .calif p{
+    margin: 0%;
+} */
+
+.icons{
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+    
+    
+}
+
+.icons >div{
+    background-color: #FFCC02;
+    width: 70px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.icons >h4{
+    display: flex;
+    margin-left: 40px;
+    margin-top: 5px;
+
+}
+
+.boton{
+    display: flex;
+    justify-content: end;
+    margin-top: 20px;
+}
+
+.boton button{
+    background-color: #FFCC02;
+    border-style: none;
+    height: 25px;
+    width: 60px;
+    align-items: center;
+    border-radius: 5px;
+
+}
+
+@media (max-width: 700px) {
+    .containerModal{
+        width: 400px;
+        height: auto;
+        margin-left: 30px;
+        
+    }
+
+    .cajaTitle{
+       width: 100%;
+    }
+
+    .title{
+        width: 70%;
+        margin-left: 30px; 
+    }
+
+    .title >h2{
+        font-size: 20px;
+    }
+
+    .cajaDiv{
+        width: 400px;
+        height: auto;        
+    }
+
+    .cajaMedia{
+        flex-direction: column;
+        height: auto;
+        width: 90%;
+    }
+
+    .primerFondo{
+        width: 370px;
+        height: auto;
+    }
+
+    .segundoFondo{
+        width: 340px;
+        height: 200px;
+    }
+
+    .inputDes{
+        width: 330px;
+        margin-bottom: 15px;
+    }
+
+    .cajaUltima{
+        margin: 20px;
+        border-left: none;
+        box-shadow:0 5px 5px rgb(88, 86, 86);
+    }
+
+    .boton{
+        margin: 10px;
+    }
+
+}
