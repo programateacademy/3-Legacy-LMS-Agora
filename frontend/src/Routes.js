@@ -45,6 +45,7 @@ import { UpdateCohort } from "./views/cohort/updateCohort/UpdateCohort";
 import { CreateBootcamp } from './views/bootcamps/createBootcamp/CreateBootcamp';
 import { UpdateBootcamp } from "./views/bootcamps/updateBootcamp/UpdateBootcamp";
 import { CreateProject } from "./views/activities/projects/createProject/CreateProject";
+import { CreateQuery } from "./views/activities/query/createQuery/CreateQuery";
 
 export function RoutesApp() {
   const auth = useSelector((state) => state.auth);
@@ -163,9 +164,9 @@ export function RoutesApp() {
             element={isAdmin ? <UpdateBootcamp /> : <Error404 />}
             exact
           />
-          
+
           //isTeacher
-          
+
 
           {/* //isTeacher //isStudent //isAdmin */}
           <Route path="/crearProyecto" element={<AddProject />} />
@@ -174,7 +175,8 @@ export function RoutesApp() {
           <Route path="/crearAnuncio" element={<CreateAnnouncement />} />
           <Route path="/anuncios" element={<Announcements />} />
           {/*      //isTeacher //isStudent */}
-          <Route path="/project/create-project/:id" element={isTeacher?<CreateProject />:<Error404/>} exact/>
+          <Route path="/project/create-project/:id" element={isTeacher ? <CreateProject /> : <Error404 />} exact />
+          <Route path="/query/create-query/:id" element={isTeacher ? <CreateQuery /> : <Error404 />} exact />
           <Route
             path="/entregasFormador"
             element={<DeliveryProjectTrainer />}
