@@ -13,7 +13,7 @@ const initialState = {
     success: ''
 }
 
-function ResetPassword() {
+export function ResetPassword() {
     const [data, setData] = useState(initialState)
     const {token} = useParams()
 
@@ -73,4 +73,3 @@ function ResetPassword() {
     )
 }
 
-export default ResetPassword
