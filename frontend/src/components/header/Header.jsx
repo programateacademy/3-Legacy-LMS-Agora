@@ -20,7 +20,6 @@ export function Header() {
 
   const handleLogout = async () => {
     try {
-      await axios.get('/user/logout')
       localStorage.removeItem("firstLogin");
       localStorage.removeItem("loggedAgoraUser");
       window.location.href = "/";
