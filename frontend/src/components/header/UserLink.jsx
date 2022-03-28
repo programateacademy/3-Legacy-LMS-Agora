@@ -32,7 +32,7 @@ const UserLink = ({ user, handleLogout }) => {
               <Link style={{ color: "black" }} to="/">
                 <Dropdown.Item>Configuración</Dropdown.Item>
               </Link>
-              <Link style={{ color: "black" }} to="/" onClick={handleLogout}>
+              <Link style={{ color: "black" }} to="!#" onClick={handleLogout}>
                 <Dropdown.Item>Salir</Dropdown.Item>
               </Link>
             </Dropdown.Menu>
