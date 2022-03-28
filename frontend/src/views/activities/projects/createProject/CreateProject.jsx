@@ -4,7 +4,7 @@ import { MdDeleteForever, MdOutlineAddCircle } from "react-icons/md";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import apiAgora from "../../../../api";
-
+import { showErrMsg, showSuccessMsg } from "../../../../utils/notification";
 const initialState = {
   competences: [],
   titleProject: "",
@@ -26,7 +26,7 @@ const initialState = {
 
 export function CreateProject() {
   const auth = useSelector((state) => state.auth);
-  const id_user = auth.user.id;
+  const userID = auth.user.id;
   const params = useParams();
   const cohortID = params.id;
   let navigate = useNavigate();
@@ -57,6 +57,7 @@ export function CreateProject() {
     evaluationModality,
     deliverablesProject,
     date,
+    success,
   } = project;
 
   // fetch cohort competences
@@ -64,7 +65,7 @@ export function CreateProject() {
     const resCompetencesCohort = await apiAgora.get(
       `/api/agora/get-competences/${cohortID}`,
       {
-        headers: { Authorization: id_user },
+        headers: { Authorization: userID },
       }
     );
     setCohortCompetences(resCompetencesCohort.data);
@@ -79,10 +80,8 @@ export function CreateProject() {
     setSelectedCompetence({
       ...selectedCompetence,
       id: e.target.value,
-
       fullNameCompetences: e.target.options[e.target.selectedIndex].text,
     });
-    console.log(e.target.options[e.target.selectedIndex].text);
   };
 
   //Image
@@ -106,13 +105,15 @@ export function CreateProject() {
     setItemArray(e.target.value);
   };
   const onClickArray = (name) => {
-    setProject({
-      ...project,
-      [name]: [...project[name], itemArray],
-      err: "",
-      success: "",
-    });
-    setItemArray("");
+    if (itemArray.trim()) {
+      setProject({
+        ...project,
+        [name]: [...project[name], itemArray],
+        err: "",
+        success: "",
+      });
+      setItemArray("");
+    }
   };
 
   const onClickCompetences = (name) => {
@@ -151,14 +152,56 @@ export function CreateProject() {
       ...project,
       [name]: project[name].filter((e) => e.competenceID !== item),
     });
+    setCompetencesIDS(competencesIDS.filter((e) => e !== item));
   };
   useEffect(() => {
     fetchCohortCompetences();
   }, []);
 
   //save project info Backend
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    try {
+      if (auth.isTeacher) {
+        const res = await apiAgora.post(
+          "/api/agora//new-project",
+          {
+            cohortID,
+            userID,
+            titleProject,
+            pictureProject,
+            descriptionProject,
+            competenceFramework,
+            tagsProject,
+            competences,
+            resources,
+            contextGeneral,
+            contextGeneralReq,
+            contextTechniciansReq,
+            contextExtrasReq,
+            pedagogyModality,
+            performanceCriterias,
+            evaluationModality,
+            deliverablesProject,
+            date,
+          },
+          {
+            headers: { Authorization: userID },
+          }
+        );
+        showSuccessMsg(success);
+        setProject({ ...project, err: "", success: res.data.msg });
+      }
+    } catch (err) {
+      showErrMsg(err.response.data.msg);
+      err.response.data.msg &&
+        setProject({
+          ...project,
+          err: err.response.data.msg,
+          success: "",
+        });
+    }
   };
   return (
     <div className={style.formContainer}>
@@ -167,12 +210,16 @@ export function CreateProject() {
           <div className={style.containerOne}>
             <div>
               <div className={style.img_preview}>
-                <img className={style.image} src={image} alt="Logo Cohorte" />
+                <img
+                  className={style.image}
+                  src={image}
+                  alt="Imagen del proyecto"
+                />
               </div>
               <div className={style.file}>
                 <input
                   className={style.input__imageURL}
-                  placeholder="Inserta URL de la imagen Bootcamp"
+                  placeholder="Inserta URL de la imagen del proyecto"
                   type="text"
                   name="pictureProject"
                   value={pictureProject}
@@ -206,7 +253,7 @@ export function CreateProject() {
                 {resources.length !== 0
                   ? resources.map((item, index) => (
                       <div key={index}>
-                        <a href={item} target="_blank">
+                        <a href={item} rel="noreferrer" target="_blank">
                           {item}
                         </a>
                         <button
@@ -560,10 +607,10 @@ export function CreateProject() {
           </div>
           <div>
             {competences.length !== 0
-              ? competences.map((item, index) => (
+              ? competences.sort().map((item, index) => (
                   <div key={index}>
                     <p>
-                      {item.name} {item.level}{" "}
+                      {item.name} {item.level}
                     </p>
 
                     <button
@@ -581,7 +628,7 @@ export function CreateProject() {
         </div>
         <div className={style.container_submit}>
           <button className={style.buttonCreateProject} type="submit">
-            Añadir
+            Crear proyecto
           </button>
         </div>
       </form>
