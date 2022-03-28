@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import style from "../CreateUpgradeCohort.module.css";
+import style from "../CreateUpdateCohort.module.css";
 import { MdDeleteForever, MdOutlineAddCircle } from "react-icons/md";
 import { useSelector } from "react-redux";
 import { showErrMsg, showSuccessMsg } from "../../../utils/notification";

@@ -43,7 +43,8 @@ import { CompetencesUpdate } from "./views/competences/CompetencesUpdate";
 import { UpdateCohort } from "./views/cohort/updateCohort/UpdateCohort";
 
 import { CreateBootcamp } from './views/bootcamps/createBootcamp/CreateBootcamp';
-import { UpdateBootcamp } from "./views/bootcamps/updateBootcamp/UpdateBootcapm";
+import { UpdateBootcamp } from "./views/bootcamps/updateBootcamp/UpdateBootcamp";
+import { CreateProject } from "./views/activities/projects/createProject/CreateProject";
 
 export function RoutesApp() {
   const auth = useSelector((state) => state.auth);
@@ -173,6 +174,7 @@ export function RoutesApp() {
           <Route path="/crearAnuncio" element={<CreateAnnouncement />} />
           <Route path="/anuncios" element={<Announcements />} />
           {/*      //isTeacher //isStudent */}
+          <Route path="/project/create-project/:id" element={isTeacher?<CreateProject />:<Error404/>} exact/>
           <Route
             path="/entregasFormador"
             element={<DeliveryProjectTrainer />}
