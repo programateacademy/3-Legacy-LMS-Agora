@@ -76,7 +76,6 @@ export function CreateBootcamp() {
         <h2 class={styles.typing_demo}>Crear Bootcamps</h2>
       </div>
       <form className={styles.form} onSubmit={handleSubmit}>
-        <div className={styles.container}>
           <div className={styles.column__one}>
             <input
               placeholder="Nombre del bootcamp"
@@ -92,7 +91,6 @@ export function CreateBootcamp() {
               name="descriptionBootcamp"
             />
           </div>
-        </div>
         <div className={styles.column__two}>
           <div className={styles.image_preview}>
             <img className={styles.image} src={image} alt="Logo Cohorte" />
