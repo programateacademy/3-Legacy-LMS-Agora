@@ -47,6 +47,8 @@ import { UpdateBootcamp } from "./views/bootcamps/updateBootcamp/UpdateBootcamp"
 import { CreateProject } from "./views/activities/projects/createProject/CreateProject";
 import { CreateQuery } from "./views/activities/query/createQuery/CreateQuery";
 
+import { ProfileStudent } from "./components/ProfileStudent/ProfileStudent";
+
 export function RoutesApp() {
   const auth = useSelector((state) => state.auth);
   const { isLogged, isAdmin, isSuperAdmin, isTeacher, isStudent } = auth;

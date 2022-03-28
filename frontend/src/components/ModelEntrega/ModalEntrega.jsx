@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from "./ModelEntrega.module.css";
+import styles from "./ModalEntrega.module.css";
 
 export function ModelEntrega() {
   return (
