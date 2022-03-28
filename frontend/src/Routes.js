@@ -28,7 +28,7 @@ import Deliverie from "./components/deliverie/Deliverie";
 import ShowProject from "./views/activities/ShowActivities/showProject/ShowProject";
 /* import { ShowProjects } from "./views/activities/ShowActivities/showProjects/showProjects"; */
 
-import ResetPassword from "./views/auth/resetPassword/ResetPassword";
+import { ResetPassword } from "./views/auth/resetPassword/ResetPassword";
 import { Configuration } from "./views/configuration/Configuration";
 
 import ActivationEmail from "./views/auth/activationEmail/ActivationEmail";
@@ -41,11 +41,14 @@ import { CohortsAdmin } from "./views/cohortsAdmin/CohortsAdmin";
 import { CreateCohort } from "./views/cohort/createCohort/CreateCohort";
 import { CompetencesUpdate } from "./views/competences/CompetencesUpdate";
 import { UpdateCohort } from "./views/cohort/updateCohort/UpdateCohort";
+import { DashboardCohort } from "./views/dashboard/admin/dashboardCohort/DashboardCohort";
 
 import { CreateBootcamp } from './views/bootcamps/createBootcamp/CreateBootcamp';
 import { UpdateBootcamp } from "./views/bootcamps/updateBootcamp/UpdateBootcamp";
 import { CreateProject } from "./views/activities/projects/createProject/CreateProject";
 import { CreateQuery } from "./views/activities/query/createQuery/CreateQuery";
+
+import { ProfileStudent } from "./components/ProfileStudent/ProfileStudent";
 
 export function RoutesApp() {
   const auth = useSelector((state) => state.auth);
@@ -94,14 +97,14 @@ export function RoutesApp() {
 
           <Route
             path="/configuration"
-            element={isLogged ? <Configuration /> : <Error404 />}
+            element={isLogged ? <ResetPassword /> : <Error404 />}
             exact
           />
-          <Route
+          {/* <Route
             path="/user/reset/:token"
-            element={isLogged ? <Error404 /> : <ResetPassword />}
+            element={isLogged ? <ResetPassword /> : <Error404 />}
             exact
-          />
+          /> */}
           {/* isSuperAdmin */}
           <Route
             path="/register_admin"
@@ -164,6 +167,12 @@ export function RoutesApp() {
             element={isAdmin ? <UpdateBootcamp /> : <Error404 />}
             exact
           />
+          <Route
+            path="/bootcamp/dashboard-cohort/:id"
+            element={isAdmin ? <DashboardCohort /> : <Error404 />}
+            exact
+          />
+          
 
           //isTeacher
 

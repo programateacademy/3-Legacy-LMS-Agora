@@ -112,7 +112,7 @@ export function CreateProject() {
         err: "",
         success: "",
       });
-      setItemArray("");
+      setItemArray('');
     }
   };
 
