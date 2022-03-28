@@ -179,9 +179,11 @@
   box-shadow: inset 0px 4px 15px rgba(0, 0, 0, 0.5);
   overflow: hidden;
 }
+
 .image {
   width: 100%;
 }
+
 .container_submit {
   display: flex;
   justify-content: flex-end;

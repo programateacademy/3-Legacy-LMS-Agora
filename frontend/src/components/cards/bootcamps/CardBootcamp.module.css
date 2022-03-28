@@ -70,6 +70,7 @@
 .content {
   position: relative;
   display: flex;
+  width: 95%;
   flex-direction: column;
   padding: 10px 15px;
   text-align: justify;
@@ -80,16 +81,21 @@
   -moz-transition: 0.3s ease-in-out;
   -ms-transition: 0.3s ease-in-out;
   -o-transition: 0.3s ease-in-out;
+  overflow-wrap: break-word;
 }
 
 .content h3 {
   text-align: center;
 }
+.button a{
+  width: 130px;
+  margin: 5px;
+}
 .button{
   display: flex;
   align-items: center;
   justify-content: center;
-}
+ }
 
 .card:hover .content {
   margin-top: 30px;
