@@ -4,6 +4,7 @@ const authSuperAdmin = require("../middleware/authSuperAdmin");
 const auth = require('../middleware/auth')
 const authAdmin = require("../middleware/authAdmin");
 const authTeacher = require("../middleware/authTeacher");
+const authUser = require('../middleware/authUser');
 
 router.post("/activation", controllerUser.activateEmail);
 router.get("/activation/:activation_token", controllerUser.activateEmail);

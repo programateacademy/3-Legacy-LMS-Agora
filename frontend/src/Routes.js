@@ -28,7 +28,7 @@ import Deliverie from "./components/deliverie/Deliverie";
 import ShowProject from "./views/activities/ShowActivities/showProject/ShowProject";
 /* import { ShowProjects } from "./views/activities/ShowActivities/showProjects/showProjects"; */
 
-import ResetPassword from "./views/auth/resetPassword/ResetPassword";
+import { ResetPassword } from "./views/auth/resetPassword/ResetPassword";
 import { Configuration } from "./views/configuration/Configuration";
 
 import ActivationEmail from "./views/auth/activationEmail/ActivationEmail";
@@ -94,14 +94,14 @@ export function RoutesApp() {
 
           <Route
             path="/configuration"
-            element={isLogged ? <Configuration /> : <Error404 />}
+            element={isLogged ? <ResetPassword /> : <Error404 />}
             exact
           />
-          <Route
+          {/* <Route
             path="/user/reset/:token"
             element={isLogged ? <Error404 /> : <ResetPassword />}
             exact
-          />
+          /> */}
           {/* isSuperAdmin */}
           <Route
             path="/register_admin"
