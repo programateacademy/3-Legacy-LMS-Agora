@@ -8,6 +8,7 @@ const controllerQuery = {
         userID,
         titleQuery,
         pictureQuery,
+        descriptionQuery,
         tagsQuery,
         basicNotions,
         pathReq,
@@ -24,6 +25,7 @@ const controllerQuery = {
         !userID ||
         !titleQuery ||
         !pictureQuery ||
+        !descriptionQuery ||
         !tagsQuery ||
         !basicNotions ||
         !pathReq ||
@@ -41,6 +43,7 @@ const controllerQuery = {
         userID,
         titleQuery,
         pictureQuery,
+        descriptionQuery,
         tagsQuery,
         basicNotions,
         pathReq,
@@ -83,6 +86,7 @@ const controllerQuery = {
         userID,
         titleQuery,
         pictureQuery,
+        descriptionQuery,
         tagsQuery,
         basicNotions,
         pathReq,
@@ -99,6 +103,7 @@ const controllerQuery = {
           userID,
           titleQuery,
           pictureQuery,
+          descriptionQuery,
           tagsQuery,
           basicNotions,
           pathReq,
