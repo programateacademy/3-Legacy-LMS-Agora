@@ -1,10 +1,10 @@
 import React from "react";
-import { CardCohort } from "../../components/cards/cohort/CardCohort";
+import { CardCohort } from "../../../components/cards/cohort/CardCohort";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
-import apiAgora from "../../api";
-import { Button } from "../../components/buttons/Button/Button";
+import apiAgora from "../../../api";
+import { Button } from "../../../components/buttons/Button/Button";
 import {useNavigate} from "react-router-dom";
 import { BsArrowLeftCircle } from "react-icons/bs";
 

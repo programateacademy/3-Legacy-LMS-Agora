@@ -64,6 +64,8 @@ textarea{
 }
 
 :root{
+  --surface-color: rgb(0, 0, 0);
+  --curve: 18;
  --colorBackground:#E5E5E5;
  --colorWhite:#FEFEFE;
  --colorGreenDark:#1A2818;
@@ -75,3 +77,4 @@ textarea{
  --colorYellow:#FFCC02;
  --colorYellow_65: rgba(255, 204, 2, 0.65);
 }
+

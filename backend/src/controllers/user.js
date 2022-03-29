@@ -92,7 +92,6 @@ const controllerUser = {
         activation_token,
         process.env.ACTIVATION_TOKEN_SECRET
       );
-
       const {
         cohortID,
         assignedCohortsID,
@@ -202,20 +201,29 @@ const controllerUser = {
   },
   resetPassword: async (req, res) => {
     try {
-      const { password } = req.body;
+      const { password,oldPassword, userID} = req.body;
       const passwordHash = await bcrypt.hash(password, 12);
-
-      await User.findOneAndUpdate(
-        { _id: req.user.id },
-        {
-          passwordHash: passwordHash,
-        }
-      );
-
-      res.json({ msg: "Contraseña cambiada correctamente!" });
+      const user = await User.findOne({ userID });
+  
+        const isMatch =
+          user === null
+            ? false
+            : await bcrypt.compare(oldPassword, user.passwordHash);
+      
+      if(isMatch){
+        await User.findOneAndUpdate(
+          { _id: userID },
+          {
+            passwordHash: passwordHash,
+          }
+        );
+        res.json({ msg: "Contraseña cambiada correctamente!" });
+      }
+    
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }
+
   },
   getUserInfo: async (req, res) => {
     try {

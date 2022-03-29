@@ -13,3 +13,49 @@
     color: var(--colorWhite);
     transition: 0.3s;
 }
+
+ .buttongradual a {
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding:2vh;
+    color: var(--colorBlack);
+    text-transform: uppercase;
+    text-decoration: none;
+    box-sizing: border-box;
+    background: linear-gradient(90deg, var(--colorYellow), rgb(240, 231, 100), var(--colorYellow));
+    background-size: 400%;
+    border-radius: 7px;
+    z-index: 1;
+  }
+  .buttongradual a:hover {
+    animation: animate 8s linear infinite;
+    transition: 0.1s;
+    color: white;
+  }
+  @keyframes animate {
+    0% {
+      background-position: 0%;
+    }
+    100% {
+      background-position: 400%;
+    }
+  }
+  .buttongradual a:before {
+    content: "";
+    position: absolute;
+    top: 175px;
+    left: 77px;
+    right: 76px;
+    bottom: 14px;
+    z-index: -1;
+    background: linear-gradient(45deg, #faf201, #fdff86);
+    background-size: 400%;
+    border-radius: 40px;
+    opacity: 0;
+    transition: 0.5%;
+  }
+  .buttongradual a:hover:before {
+    filter: blur(20px);
+    opacity: 1;
+    animation: animate 8s linear infinite;
+  } 

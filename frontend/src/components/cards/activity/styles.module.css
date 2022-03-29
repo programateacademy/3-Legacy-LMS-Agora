@@ -1,43 +1,28 @@
-.cards {
-  max-width: 300px;
-  display: flex;
-}
-
-:root {
-    --surface-color: rgb(0, 0, 0);
-    --curve: 18;
-  }
-  
-  * {
-    box-sizing: border-box;
-  }
-  
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin: 4rem 7vw;
-    padding: 0;
-    list-style-type: none;
-  }
-  
-  .card {
+ .card {
+    display: flex;
+    background-image: url(https://w0.peakpx.com/wallpaper/950/628/HD-wallpaper-coding-2019-code-iphone-iphone11-pro-joker-new-samsung.jpg);
+    background-size: cover;
     position: relative;
-    display: block; 
     overflow: hidden;
     text-decoration: none;
     border-radius: 1.5vw; 
+    width: 250px;
+    height: 70vh;
+    max-height: 390px;
+    margin: max(10px, 3vw);
+    box-shadow: 0.4rem 0.4rem 0 0 #0b0b0b, 0.7rem 0.7rem 0 0 #1e1e1e, 1rem 1rem 0 0 #323232, 1.2rem 1.2rem 0 0 #464646, 1.2rem 1.2rem 0 0 #595959, 0.4rem 0.4rem 1rem 0.4rem var(--colorBlack); 
   }
   
   
   .card__overlay {
+    background-color:var(--colorBlack);
+    background-size: cover;
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     z-index: 1;      
     border-radius: calc(var(--curve) * 2px) 0 0;   
-    background-color: var(--colorBlack);      
     transform: translateY(100%);
     transition: .2s ease-in-out;
     justify-content: center;
@@ -49,12 +34,12 @@
 }
   
   .card__header {
+    background-color: var(--colorBlack);
+    background-size: cover;
     position: relative;
     display: flex;
-    gap: 0em;
-    padding: 0.5em;
+    padding: 0.1em;
     border-radius: calc(var(--curve) * 30px) 0 0;    
-    background-color: var(--colorBlack);
     transform: translateY(-100%);
     transition: .2s ease-in-out;
     justify-content: center;
@@ -72,7 +57,7 @@
       
   
   .card:hover .card__header {
-    transform: translateY(0);
+    transform: translateY(0);;
   }
   
   .card__thumb {
@@ -89,15 +74,14 @@
   .card__title {
     font-size: 2em;
     margin: 0 0 .3em;
+    padding-top: 4vh;
     color: var(--colorYellow);
   }
   
   .card__tagline {
     display: block;
-    margin: 1em 0;
-    font-family: "MockFlowFont";  
+    margin: 1em 0; 
     font-size: .8em; 
-    color: #D7BDCA;  
   }
   
   .card__status {
@@ -106,10 +90,10 @@
   }
   
   .card__description {
-    padding: 0 3em 1em;
-    margin: 0;
-    color: #D7BDCA;
-    font-family: "MockFlowFont";   
+    margin: auto;
+    width: 85% ;
+    text-align: justify;
+    color: var(--colorWhite);   
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
@@ -127,11 +111,13 @@
   justify-content: center;
   padding: 10px;
   cursor: pointer;
-  background-color: rgba(255, 255, 255, 0.35);
+  background-color: rgba(14, 14, 14, 0.665);
+  color: black;
+  background-size: cover;
 }
 
 .dot {
-  background: var(--colorGreenDark);
+  background: var(--colorWhite);
   border-radius: 50%;
   height: 10px;
   margin-right: 6px;
@@ -141,7 +127,7 @@
   margin-right: 0;
 }
 .drop {
-  background: #fff;
+  background: var(--colorWhite);
   height: 5px;
   transform: translateY(0);
   transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -182,7 +168,9 @@
   display: flex;
   font-size: 18px;
   height: 50px;
-  width: 125px;
+  width: 33%;
+  margin-left: 28px;
+  margin-top: -5px;
   list-style: none;
   transition: opacity 100ms cubic-bezier(0.4, 0, 0.2, 1);
   user-select: none;
@@ -236,7 +224,14 @@
   padding: 25px;
   justify-content: center;
   justify-items: center;
-  margin-top: -5px;
-  width: 100%;
 
 }
+
+.card:hover {
+  box-shadow: 5px 5px 20px rgba(0,0,0, 0.9) ;
+  transition: 0.3s;
+}
+
+
+
+

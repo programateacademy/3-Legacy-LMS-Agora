@@ -1,0 +1,132 @@
+.container{
+    display: flex; 
+    min-height: calc(100vh - 140px); 
+    justify-content: center; 
+    margin: auto; 
+   
+}
+
+.containerProfile{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    left: 0;
+    height: 200px;
+    /* background: rgba(196, 196, 196, 0.25); */
+    background-color: #000000;
+}
+
+.buttonVolver{
+    display: flex;
+    margin-top: 15px;
+    height: 40px;
+    width: 40px;
+    align-items: center;
+    background: var(--colorYellow);
+}
+
+.cajaIns{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 60px;
+}
+
+.cajaIns >img{
+    width: 100px;
+    height: 100px;
+    margin-left: 10px;
+    margin-right: 65%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background: var(--colorYellow);
+    border: 0.5px solid #000000;
+    box-sizing: border-box;
+    filter: drop-shadow(4px 4px 9px rgba(0, 0, 0, 0.25));
+    border-radius: 118.5px;
+}
+
+.button_return {
+    align-self: flex-start;
+    background-color: #ffd808;
+    border-radius: 10px;
+    color: var(--colorBlack);
+    display: flex;
+    font-weight: bold;
+    max-width: 100px;
+    padding: 10px;
+    text-align: center;
+    width: auto;
+    margin-top: 20px;
+    }
+    .button_return:hover {
+    color: white;
+    transition: 0.3s;
+    } 
+
+.cajaName{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    color: white;
+}
+
+.cajaLink{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cajaUlt{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2vw;
+}
+
+.cajaUlt >input{
+    display: flex;
+    margin-bottom: 5px;
+    width: 220px;
+    height: 25px;
+    background-color: var(--colorGray);
+}
+
+.cajaUlt > p{
+    display: flex;
+    justify-content: center;
+    margin-left: 10px;
+}
+
+.cajaUlt >button{
+    width: 90px;
+    height: 35px;
+    align-items: center;
+    border-radius: 10px;
+    background: var(--colorYellow);
+}
+
+@media (max-width: 700px) {
+    .containerProfile{
+        flex-direction: column;
+        height: auto;
+    }
+
+    .buttonVolver{
+        margin-left: 20px;
+    }
+
+    .cajaIns{
+        margin-left: 40%;
+    }
+
+    .cajaName{
+        margin-top: 15px;
+    }
+
+    .cajaLink{
+        margin-left: 25%;
+    }
+}

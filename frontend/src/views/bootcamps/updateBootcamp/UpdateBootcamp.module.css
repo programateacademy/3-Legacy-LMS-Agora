@@ -9,11 +9,37 @@ input[type="file"] {
     color: var(--colorBlack);
     display: flex;
     font-weight: bold;
-    margin: 30px;
+    margin: 30px 0 0 30px;
     max-width: 100px;
     padding: 10px;
     text-align: center;
     width: auto;
+  }
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  
+  .typing_demo {
+    width: 16ch;
+    animation: typing 1s steps(22), blink 0.5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+  }
+  
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+  }
+  
+  @keyframes blink {
+    20% {
+      border-color: transparent;
+    }
   }
   .button_return:hover {
     background-color: var(--colorBlack);
@@ -56,28 +82,66 @@ input[type="file"] {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-left: 25px;
+  }
+  .img_preview {
+    background-color: var(--colorGray);
+    width: 35vw;
+    height: 35vh;
+    margin-bottom: 1.5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0px 4px 15px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
   }
   
   .image {
-    width: 60%;
-    max-width: 250px;
-    object-fit: contain;
+    max-width: 100%;
   }
   .input__logoURL {
-    width: 80% !important;
-  
+    width: 35vw;
     height: 35px;
     margin-left: 50px;
-    border: 1px solid #6f6f6f;
+    border: 1px solid #000000;
     outline: none;
     padding: 10px;
     border-radius: 10px;
     box-shadow: inset 0px 6px 15px rgba(0, 0, 0, 0.2);
   }
   .submit{
-    padding: 8px 12px;
+    width: 125px;
     background-color: var(--colorYellow);
-    margin-top: 90px;
-    margin-left: 430px;
+    margin-top: 50px;
+    margin-left: 40px;
+    cursor:pointer;
   }
+
+  .submit:hover {
+    background-color: var(--colorGreenLight);
+    color: var(--colorWhite);
+    transition: 0.4s;
+  }
+  @media only screen and (max-width: 700px) {
+    .container__columns {
+      flex-direction: column;
+      align-items: center;
+    }
+    .column__one{
+      width: 80%;
+    }
+    .column__two {
+      width: 80%;
+      margin-left: 0px;
+    }
+    .img_preview{
+      width: 100%;
+    }
+    .input__logoURL{
+      width:100%;
+    }
+    .submit{
+      width: 35vw;
+    }
   
+  }

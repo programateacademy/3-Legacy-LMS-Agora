@@ -9,10 +9,30 @@
   min-height: calc(100vh - 140px);
 }
 
-.container h1 {
-  text-align: center;
-  padding-top: 20px;
-  padding-bottom: 25px;
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.typing_demo {
+  width: 13ch; 
+  animation: typing 1s steps(22), blink 0.5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes blink {
+  20% {
+    border-color: transparent;
+  }
 }
 
 .tableContainer {

@@ -1,165 +1,174 @@
- /*acordeon principal */ 
- 
-  /*acordeon copetencias */
-  h1{
-   width: 30px;
-   height: 27px;
-   background-color: #0d0e0d;
-   margin: -20px;
-   padding: 10px;
-   font-size: 20px;
-   color: #fbff00;
- }
- .descripcion{
-   font-size: 20px;
-   font-weight: normal;
- }
-  .contenedor{
-    width: 100%;
-  } 
- 
- .accordion-wrapper {
-   width: 70%;
-   display: block;
-   box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2);
-   margin: 0 auto;
-   margin-top: 5px;
- }
- 
- .accordion + .title {
-   user-select: none;
-   height: 40px;
-   cursor: pointer;
+
+ .c1{
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  background-color: #0d0e0d;
+  align-items: center;
+  padding: 5px;
+  color: #fbff00;
+}
+.descripcion{
+  font-size: 15px;
+  font-weight: normal;
+  text-align: center;
+  }
+ .contenedor{
    display: flex;
-   align-items: center;
-   justify-content: space-between;
-   background: #C4C4C4;
-   border-radius: 10px;
- }
- 
-  .title strong {
-   line-height: 24px;
-   color: rgb(0, 0, 0);
- }
- 
- .accordion ~ .title .side-icon {
-   display: block;
- }
- 
- .accordion:checked ~ .title .side-icon {
-   display: none;
- }
- 
- .accordion ~ .title .down-icon {
-   display: none;
- }
- 
- .accordion:checked ~ .title .down-icon {
-   display: block;
- }
- 
- .accordion ~ .content {
-   display: none;
-   cursor: pointer;
- }
- 
- .accordion:checked ~ .content {
-   display: block;
- }
- 
-  /*acordeon niveles */ 
- 
- header{
-   background: #666;
-   color: #fff;
-   width: 80%;
-   height: 120px;
-   margin: 0 auto;
- }
- 
- #main{
+   flex-direction: column;
    width: 100%;
-   box-sizing: border-box;
-   overflow: hidden;
- }
- 
- footer{
-   color: #fff;
-   width: 80%;
-   margin: 0 auto; 
- }
- 
- #tabs{
-   position: relative;
- }
- 
- 
- span.diana {
-   position: fixed;
-   display: none;
-   }
- 
- .diana + a {
-   width: 33.3%;
-   height: 50%;
-   display: flex;
-   justify-content: center;
-   float: left;
-   line-height: 52px;
-   background-color: #A7DB56;
-   text-decoration:none;
- }
- 
- .diana:target + a {
-   background-color: #B7E077;
-   border-bottom-color: #fff; 
- }
- 
- #pnl_1, #pnl_2, #pnl_3{
-   position: absolute;
-   top: 31px;
-   left: 0;
-   border: none;
-   clear: both;
-   overflow: hidden;
-   display: grid;
-   grid-template-columns: 1fr 1fr;
- }
- .text{
-   text-align: left;
- }
- 
-   #pnl_1 > div, #pnl_2 > div, #pnl_3 > div{
-     opacity: 0;
-     transition: all 0.1s ease;
-     padding: 30px;
-   }
- 
- #uno:target ~ #pnl_1, #dos:target ~ #pnl_2, #tres:target ~ #pnl_3{
-   position: static;
-   border: 1px solid #ddd;
- }
- 
-   #uno:target ~ #pnl_1 > div, #dos:target ~ #pnl_2 > div, #tres:target ~ #pnl_3 > div{
-     opacity: 1;
-     transition: all 1s ease;
-   }
- 
-   #uno1:target ~ #pnl_1, #dos1:target ~ #pnl_2, #tres1:target ~ #pnl_3{
-     position: static;
-     border: 1px solid #ddd;
-   }
-   
-     #uno1:target ~ #pnl_1 > div, #dos1:target ~ #pnl_2 > div, #tres1:target ~ #pnl_3 > div{
-       opacity: 1;
-       transition: all 1s ease;
-     }
-   
-   
- 
- 
- 
- 
- 
-   
- 
+   grid-template-columns: 1f;
+ } 
+
+.accordion-wrapper {
+  width: 80%;
+  display: block;
+  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2);
+  margin: 0 auto;
+  margin-top: 5px;
+}
+
+.accordion + .title {
+  user-select: none;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #C4C4C4;
+  border-radius: 10px;
+}
+
+ .title strong {
+  line-height: 24px;
+  color: rgb(0, 0, 0);
+}
+
+.accordion ~ .title .side-icon {
+  display: block;
+}
+
+.accordion:checked ~ .title .side-icon {
+  display: none;
+}
+
+.accordion ~ .title .down-icon {
+  display: none;
+}
+
+.accordion:checked ~ .title .down-icon {
+  display: block;
+}
+
+.accordion ~ .content {
+  display: none;
+  cursor: pointer;
+}
+
+.accordion:checked ~ .content {
+  display: block;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 500px;
+  height: 300px;
+  background: #f1f1f1;
+  margin: 100px auto 0;
+  word-break: break-all;
+  border: 1px solid rgba(0, 0, 0, 0.274);
+}
+
+.bloc-tabs {
+  display: flex;
+}
+.tabs {
+
+  padding: 15px;
+  text-align: center;
+  width: 50%;
+  background: rgba(128, 128, 128, 0.075);
+  cursor: pointer;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.274);
+  box-sizing: content-box;
+  position: relative;
+  outline: none;
+}
+.tabs:not(:last-child){
+  border-right: 1px solid rgba(0, 0, 0, 0.274);
+}
+
+.active-tabs  {
+  background: white;
+  border-bottom: 1px solid transparent;
+}
+
+.active-tabs::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% + 2px);
+  height: 5px;
+  background: rgb(88, 147, 241);
+}
+
+
+
+button {
+  border: none;
+  
+}
+.content-tabs {
+  flex-grow : 1;
+}
+.content {
+  background: white;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+.content h2 {
+  padding: 0px 0 5px 0px;
+}
+.content hr {
+  width: 100px;
+  height: 2px;
+  background: var();
+  margin-bottom: 5px;
+}
+.content p {
+  width: 100%;
+  height: 100%;
+}
+.active-content {
+  display: block;
+}
+ /*img*/ 
+
+.img{
+  width: 50%;
+  background: #0d0e0d;
+}
+ /*barra progreso */ 
+
+.box{
+  display: flex;
+} 
+.progreso{
+  width: 100%;
+  height: 150px;
+  background-color: #C4C4C4;
+  border-radius: 0px 15px 15px 0px;
+}
+.barra{
+  width: 100%;
+  margin: 15px;
+}
+
+

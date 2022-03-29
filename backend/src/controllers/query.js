@@ -8,6 +8,7 @@ const controllerQuery = {
         userID,
         titleQuery,
         pictureQuery,
+        descriptionQuery,
         tagsQuery,
         basicNotions,
         pathReq,
@@ -24,6 +25,7 @@ const controllerQuery = {
         !userID ||
         !titleQuery ||
         !pictureQuery ||
+        !descriptionQuery ||
         !tagsQuery ||
         !basicNotions ||
         !pathReq ||
@@ -41,6 +43,7 @@ const controllerQuery = {
         userID,
         titleQuery,
         pictureQuery,
+        descriptionQuery,
         tagsQuery,
         basicNotions,
         pathReq,
@@ -71,7 +74,6 @@ const controllerQuery = {
   getQuery: async (req, res) => {
     try {
       const query = await Query.findById(req.params._id);
-
       res.json(query);
     } catch (err) {
       return res.status(500).json({ msg: err.message });
@@ -83,6 +85,7 @@ const controllerQuery = {
         userID,
         titleQuery,
         pictureQuery,
+        descriptionQuery,
         tagsQuery,
         basicNotions,
         pathReq,
@@ -99,6 +102,7 @@ const controllerQuery = {
           userID,
           titleQuery,
           pictureQuery,
+          descriptionQuery,
           tagsQuery,
           basicNotions,
           pathReq,

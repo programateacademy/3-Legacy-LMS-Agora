@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./CardBootcamp.module.css";
 import { Button } from "../../buttons/Button/Button";
+
 export function CardBootcamp(props) {
   const { name, image, description, linkCohort, linkUpdate } = props;
   return (

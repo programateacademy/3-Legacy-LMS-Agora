@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import style from "./CreateQuery.module.css";
+import React, { useEffect, useState } from "react";
+import style from "./UpdateQuery.module.css";
 
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { MdDeleteForever, MdOutlineAddCircle } from "react-icons/md";
@@ -8,35 +8,20 @@ import apiAgora from "../../../../api";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-const initialState = {
-  titleQuery: "",
-  pictureQuery: "",
-  descriptionQuery: "",
-  tagsQuery: [],
-  basicNotions: "",
-  pathReq: [],
-  documentationReq: [],
-  importantAspect: "",
-  resources: [],
-  challengeTask: [],
-  challengeExtra: "",
-  date: "",
-  err: "",
-  success: "",
-};
-export function CreateQuery() {
+
+export function UpdateQuery() {
   const auth = useSelector((state) => state.auth);
   const userID = auth.user.id;
   let navigate = useNavigate();
   const params = useParams();
-  const cohortID = params.id;
+  const queryID = params.id;
   const [image, setImage] = useState();
   const [itemArray, setItemArray] = useState("");
   const [objectLink, setObjectLink] = useState({
     nameLink: "",
     link: "",
   });
-  const [query, setQuery] = useState(initialState);
+  const [query, setQuery] = useState({});
   const {
     titleQuery,
     pictureQuery,
@@ -64,6 +49,19 @@ export function CreateQuery() {
     });
     setImage(value);
   };
+  
+  //-------------------------------------nueva area de trabajo ----------------------//
+  const fetchAdmins = async () => {
+    const res = await apiAgora.get("/api/agora/get-query/" + queryID, {
+      headers: { Authorization: userID },
+    });
+    setQuery(res.data);
+    setImage(res.data.pictureQuery);
+  };
+
+  useEffect(() => {
+    fetchAdmins();
+  }, []);
 
   //general info project
   const handleChangeInput = (e) => {
@@ -123,7 +121,8 @@ export function CreateQuery() {
         const res = await apiAgora.post(
           "/api/agora/new-query",
           {
-            cohortID,
+            
+            
             userID,
             titleQuery,
             pictureQuery,
@@ -206,7 +205,7 @@ export function CreateQuery() {
                 </button>
               </div>
               <div>
-                {resources.length !== 0
+                {/* {resources.length !== 0
                   ? resources.map((item, index) => (
                       <div key={index}>
                         <a href={item.link} target="_blank">
@@ -220,7 +219,7 @@ export function CreateQuery() {
                         </button>
                       </div>
                     ))
-                  : null}
+                  : null} */}
               </div>
             </div>
             <div>
@@ -260,7 +259,7 @@ export function CreateQuery() {
                 </button>
               </div>
               <div>
-                {tagsQuery.length !== 0
+                {/* {tagsQuery.length !== 0
                   ? tagsQuery.map((item, index) => (
                       <div key={index}>
                         <p>{item}</p>
@@ -272,7 +271,7 @@ export function CreateQuery() {
                         </button>
                       </div>
                     ))
-                  : null}
+                  : null} */}
               </div>
             </div>
             <div>
@@ -297,7 +296,7 @@ export function CreateQuery() {
                 </button>
               </div>
               <div>
-                {pathReq.length !== 0
+                {/* {pathReq.length !== 0
                   ? pathReq.map((item, index) => (
                       <div key={index}>
                         <p>{item}</p>
@@ -309,7 +308,7 @@ export function CreateQuery() {
                         </button>
                       </div>
                     ))
-                  : null}
+                  : null} */}
               </div>
             </div>
             <div>
@@ -328,7 +327,7 @@ export function CreateQuery() {
                 </button>
               </div>
               <div>
-                {documentationReq.length !== 0
+                {/* {documentationReq.length !== 0
                   ? documentationReq.map((item, index) => (
                       <div key={index}>
                         <p>{item}</p>
@@ -342,7 +341,7 @@ export function CreateQuery() {
                         </button>
                       </div>
                     ))
-                  : null}
+                  : null} */}
               </div>
             </div>
             <div>
@@ -377,7 +376,7 @@ export function CreateQuery() {
               </button>
             </div>
             <div>
-              {challengeTask.length !== 0
+              {/* {challengeTask.length !== 0
                 ? challengeTask.map((item, index) => (
                     <div key={index}>
                       <p>{item}</p>
@@ -389,7 +388,7 @@ export function CreateQuery() {
                       </button>
                     </div>
                   ))
-                : null}
+                : null} */}
             </div>
           </div>
           <div>
