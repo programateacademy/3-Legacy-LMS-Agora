@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./SuperAdminDashboard.module.css"
+import styles from "./SuperAdminHome.module.css"
 import { Table } from '../../../components/table/Table'
 import { useState } from "react";
 import { useEffect } from "react";
@@ -7,7 +7,7 @@ import apiAgora from '../../../api'
 import { Button } from "../../../components/buttons/Button/Button";
 import { useSelector } from "react-redux";
 
-export function SuperAdminDashboard() {
+export function SuperAdminHome() {
   const auth = useSelector((state) => state.auth);
   const id_user = auth.user.id;
   const [admins, setAdmins] = useState([])
@@ -23,7 +23,9 @@ export function SuperAdminDashboard() {
   }, [])
   return (
     <div className={styles.container}>
-        <h1>Listado de Administradores</h1>
+        <div class={styles.wrapper}>
+        <h2 class={styles.typing_demo}>Administradores</h2>
+      </div>
        <div className={styles.tableContainer}>
        <Table tableList={admins} superAdminID={id_user}/>
        </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./CompetencesTable.css";
 
 export function CompetencesTable(props) {
@@ -8,7 +8,11 @@ export function CompetencesTable(props) {
   const toggleTab = (index) => {
     setToggleState(index);
   };
-
+  
+  const orderedCompetences = competencesState.sort((a, b) => {
+    return (a.identifierCompetences > b.identifierCompetences)
+     ? 1 : -1
+  })
   return (
     <>
       <div className="box">
@@ -33,7 +37,7 @@ export function CompetencesTable(props) {
         </div>
       </div>
       <div className="contenedor">
-        {competencesState.map((item) => (
+        {orderedCompetences.map((item) => (
           <label className="accordion-wrapper">
             <input type="checkbox" class="accordion" hidden />
             <div className="title">
@@ -133,7 +137,6 @@ export function CompetencesTable(props) {
                 </div>
               </div>
             </div>
-            
           </label>
         ))}
       </div>

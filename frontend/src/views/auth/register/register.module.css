@@ -17,6 +17,7 @@ button {
   justify-content: center;
   align-items: center;
   background-color: #fff;
+  margin: 1rem;
 }
 .container_register_page {
   height: 80%; /*este noesta funcionando*/

@@ -52,6 +52,11 @@ export function Competences() {
     setCohortCompetences(resCompetencesCohort.data);
   };
 
+  const orderedCompetences = cohortCompetences.sort((a, b) => {
+    return (a.identifierCompetences > b.identifierCompetences)
+     ? 1 : -1
+  })
+
   const { caracteristica, number } = competence;
 
   const { nameCompetences, success } = competences;
@@ -234,7 +239,7 @@ export function Competences() {
         <hr />
         <div className={styles.container__frameOfReference}>
           <h2>Marco de referencias</h2>
-          {cohortCompetences.map((item, index) => (
+          {orderedCompetences.map((item, index) => (
             <CompetencesLabel
               key={index}
               identifierCompetence={item.identifierCompetences}
