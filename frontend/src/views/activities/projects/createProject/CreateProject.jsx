@@ -37,9 +37,8 @@ export function CreateProject() {
   const [image, setImage] = useState();
   const [cohortCompetences, setCohortCompetences] = useState([]);
   const orderedCompetences = cohortCompetences.sort((a, b) => {
-    return (a.identifierCompetences > b.identifierCompetences)
-     ? 1 : -1
-  })
+    return a.identifierCompetences > b.identifierCompetences ? 1 : -1;
+  });
   const [selectedCompetence, setSelectedCompetence] = useState({
     id: "",
     fullNameCompetences: "",
@@ -145,7 +144,7 @@ export function CreateProject() {
         err: "",
         success: "",
       });
-      setItemArray('');
+      setItemArray("");
     }
   };
 
@@ -270,7 +269,7 @@ export function CreateProject() {
                   onChange={handleImage}
                 />
             </div>
-            <div className= {style.frameofcompetence}>
+            <div className={style.frameofcompetence}>
               <h3>Marco de competencias</h3>
               <input
                 type="text"
@@ -362,7 +361,8 @@ export function CreateProject() {
                   type="text"
                   onChange={handleChangeArray}
                 />
-                <button className={style.addTagsProject}
+                <button
+                  className={style.addTagsProject}
                   type="button"
                   onClick={() => onClickArray("tagsProject")}
                 >
@@ -413,7 +413,8 @@ export function CreateProject() {
                   type="text"
                   onChange={handleChangeArray}
                 />
-                <button className={style.addTagsProject}
+                <button
+                  className={style.addTagsProject}
                   type="button"
                   onClick={() => onClickArray("contextGeneralReq")}
                 >
@@ -449,13 +450,14 @@ export function CreateProject() {
                   type="text"
                   onChange={handleChangeArray}
                 />
-                <button className={style.addTagsProject}
+                <button
+                  className={style.addTagsProject}
                   type="button"
                   onClick={() => onClickArray("contextTechniciansReq")}
                 >
                   <MdOutlineAddCircle size={30} />
                 </button>
-                </div>
+              </div>
               <div>
                 {contextTechniciansReq.length !== 0
                   ? contextTechniciansReq.map((item, index) => (
@@ -485,7 +487,8 @@ export function CreateProject() {
                   type="text"
                   onChange={handleChangeArray}
                 />
-                <button className={style.addTagsProject}
+                <button
+                  className={style.addTagsProject}
                   type="button"
                   onClick={() => onClickArray("contextExtrasReq")}
                 >
@@ -520,7 +523,8 @@ export function CreateProject() {
                   type="text"
                   onChange={handleChangeArray}
                 />
-                <button className={style.addTagsProject}
+                <button
+                  className={style.addTagsProject}
                   type="button"
                   onClick={() => onClickArray("pedagogyModality")}
                 >
@@ -555,7 +559,8 @@ export function CreateProject() {
                   type="text"
                   onChange={handleChangeArray}
                 />
-                <button className={style.addTagsProject}
+                <button
+                  className={style.addTagsProject}
                   type="button"
                   onClick={() => onClickArray("performanceCriterias")}
                 >
@@ -590,7 +595,8 @@ export function CreateProject() {
                   type="text"
                   onChange={handleChangeArray}
                 />
-                <button className={style.addTagsProject}
+                <button
+                  className={style.addTagsProject}
                   type="button"
                   onClick={() => onClickArray("evaluationModality")}
                 >
@@ -685,7 +691,7 @@ export function CreateProject() {
               <button
                 className={style.addTagsProject}
                 type="button"
-                onClick={() => onClickCompetences("competences")}
+                onClick={() => onClickArray("deliverablesProject")}
               >
                 <MdOutlineAddCircle size={30} />
               </button>
@@ -711,12 +717,6 @@ export function CreateProject() {
               ))
               : null}
           </div>
-        <div className={style.container_submit}>
-          <button className={style.buttonCreateProject} type="submit">
-            Crear proyecto
-          </button>
-        </div>
-        </div>
         </div>
       </form>
     </div>
