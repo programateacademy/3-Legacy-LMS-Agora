@@ -1,5 +1,5 @@
 .card {
-  width: 280px;
+  width: 270px;
   margin: 2rem;
   background-color: #fff;
   display: flex;
@@ -105,7 +105,8 @@
 
 
 @media (max-width: 768px) {
-  .container {
+  .card{
+    margin: 2.5rem 0;
   }
 }
 

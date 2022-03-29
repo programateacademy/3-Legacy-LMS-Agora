@@ -7,9 +7,9 @@ import { Error404 } from "./components/404/Error404";
 import ForgotPassword from "./views/auth/forgotPassword/ForgotPassword";
 /* import { MenuDashboard } from "./components/menu/MenuDashboard"; */
 
-import { SuperAdminDashboard } from "./views/dashboard/superAdmin/SuperAdminDashboard";
-import { AdminDashboard } from "./views/dashboard/admin/AdminDashboard";
-import { CohortsTeacher } from "./views/cohortsTeacher/CohortsTeacher";
+import { SuperAdminHome } from "./views/home/superAdmin/SuperAdminHome";
+import { AdminHome } from "./views/home/admin/AdminHome";
+import { CohortsTeacher } from "./views/cohort/cohortsTeacher/CohortsTeacher";
 import { Dashboard } from "./views/dashboard/Dashboard";
 
 import { UpdateRegister } from "./views/auth/register/UpdateRegister";
@@ -37,11 +37,11 @@ import { TableTeacher } from "./views/tableTeachers/TableTeacher";
 import { TableStudentCohort } from "./views/tableStudentCohort/TableStudentCohort";
 import { Competences } from "./views/competences/Competences";
 
-import { CohortsAdmin } from "./views/cohortsAdmin/CohortsAdmin";
+import { CohortsAdmin } from "./views/cohort/cohortsAdmin/CohortsAdmin";
 import { CreateCohort } from "./views/cohort/createCohort/CreateCohort";
 import { CompetencesUpdate } from "./views/competences/CompetencesUpdate";
 import { UpdateCohort } from "./views/cohort/updateCohort/UpdateCohort";
-import { DashboardCohort } from "./views/dashboard/admin/dashboardCohort/DashboardCohort";
+import { DashboardCohort } from "./views/dashboard/dashboardCohort/DashboardCohort";
 
 import { CreateBootcamp } from './views/bootcamps/createBootcamp/CreateBootcamp';
 import { UpdateBootcamp } from "./views/bootcamps/updateBootcamp/UpdateBootcamp";
@@ -71,9 +71,9 @@ export function RoutesApp() {
             element={
               isLogged ? (
                 isSuperAdmin ? (
-                  <SuperAdminDashboard />
+                  <SuperAdminHome />
                 ) : isAdmin ? (
-                  <AdminDashboard />
+                  <AdminHome />
                 ) : isTeacher ? (
                   <CohortsTeacher />
                 ) : isStudent ? (

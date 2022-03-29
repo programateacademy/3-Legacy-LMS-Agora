@@ -1,4 +1,4 @@
-import { Link as LinkTo } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Dropdown } from "react-bootstrap";
 import { TiUser } from "react-icons/ti";
 import { useSelector } from "react-redux";
@@ -25,16 +25,16 @@ const UserLink = ({ user, handleLogout }) => {
             <Dropdown.Menu>
               {isStudent ? (
                 <Dropdown.Item>
-                  <LinkTo style={{ color: "black" }} to="/badges">
+                  <Link style={{ color: "black" }} to="/badges">
                   Perfil
-                </LinkTo>
+                </Link>
                 </Dropdown.Item>
                 
               ) : null}
               <Dropdown.Item>
-                <LinkTo style={{ color: "black" }} to="/configuration">
+                <Link style={{ color: "black" }} to="/configuration">
                   Configuración
-                </LinkTo>
+                </Link>
               </Dropdown.Item>
               <Link style={{ color: "black" }} to="!#" onClick={handleLogout}>
                 <Dropdown.Item>Salir</Dropdown.Item>

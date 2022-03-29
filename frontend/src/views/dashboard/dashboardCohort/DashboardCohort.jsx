@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { CompetencesTable } from "../../../../components/competencesTable/CompetencesTable";
-import apiAgora from "../../../../api";
+import { CompetencesTable } from "../../../components/competencesTable/CompetencesTable";
+import apiAgora from "../../../api";
 import { useSelector } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
 
@@ -19,12 +19,12 @@ export function DashboardCohort() {
         headers: { Authorization: userID },
       }
     );
-    setCohortCompetences(resCompetencesCohort.data);
+    const res = resCompetencesCohort.data
+    setCohortCompetences(res);
   };
   useEffect(() => {
     fetchCohortCompetences();
   }, []);
-  console.log(cohortCompetences);
   return (
     <div>
       <CompetencesTable competencesState={cohortCompetences} />

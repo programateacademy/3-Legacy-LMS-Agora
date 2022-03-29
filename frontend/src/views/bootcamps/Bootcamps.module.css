@@ -1,6 +1,7 @@
 .bootcamps {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     padding: 1rem;
     margin: 1.5rem;
@@ -8,4 +9,11 @@
 
 .bootcamps h2 {
     text-align: center;
+}
+@media (max-width: 768px) {
+    .bootcamps{
+        padding: 0;
+        margin: 0;
+        flex-direction: column;
+    }
 }

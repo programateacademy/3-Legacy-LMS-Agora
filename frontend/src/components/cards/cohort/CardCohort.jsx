@@ -28,8 +28,8 @@ export function CardCohort({ info }) {
           ).toLocaleDateString()}`}</h5>
         </div>
         <div className={styles.buttonsContainer}>
-          {/*   <Button title="Dashboard" link={`/bootcamp/cohort/dashboard/${id}`} />*/}
-          <Button title="Dashboard" link="/" />
+          <Button title="Dashboard" link={`/bootcamp/dashboard-cohort/${id}`} />
+
           <Button
             title="Estudiantes"
             link={`/bootcamp/cohort/students/${id}`}

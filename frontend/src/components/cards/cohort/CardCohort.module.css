@@ -7,7 +7,7 @@
   margin: 3vh;
   overflow: hidden;
   width: 60vw;
-  min-height: 30vh;
+  height: 250px;
 }
 
 .cohortInfo h3 {
@@ -20,8 +20,8 @@
 }
 
 .cohortImage {
-  width: 25vh;
-  height: 25vh;
+  width: 30%;
+  height: 90%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,7 +38,7 @@
   justify-content: center;
   align-items: center;
   margin: auto;
-  width: auto;
+  width: 40%;
 }
 
 .cohort h5 {
@@ -53,6 +53,7 @@
   justify-content: space-evenly;
   align-items: space-evenly;
   margin: 0 auto;
+  width: 15%;
 }
 
 @media (max-width: 768px) {

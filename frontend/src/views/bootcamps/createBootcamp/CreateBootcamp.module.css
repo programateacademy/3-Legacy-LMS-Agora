@@ -12,7 +12,7 @@
 }
 
 .typing_demo {
-  width: 14ch; 
+  width: 13ch; 
   animation: typing 1s steps(22), blink 0.5s step-end infinite alternate;
   white-space: nowrap;
   overflow: hidden;
@@ -102,7 +102,6 @@
 .image{
   width: auto;
   max-width: 100%;
-  height: 100%;
 }
 .file {
   display: flex;
@@ -144,10 +143,14 @@
     width: 80%;
   }
   .image_preview{
+    display: flex;
     margin: 0 auto;
+    width: 100%;
+    height: 40vh;
+    align-items: center;
   }
   .image {
-    height: 40vh;
+    width: 100%;
   }
 
 }

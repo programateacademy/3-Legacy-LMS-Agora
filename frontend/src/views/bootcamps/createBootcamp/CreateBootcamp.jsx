@@ -73,7 +73,7 @@ export function CreateBootcamp() {
         </button>
       </div>
       <div class={styles.wrapper}>
-        <h2 class={styles.typing_demo}>Crear Bootcamps</h2>
+        <h2 class={styles.typing_demo}>Crear Bootcamp</h2>
       </div>
       <form className={styles.form} onSubmit={handleSubmit}>
           <div className={styles.column__one}>
