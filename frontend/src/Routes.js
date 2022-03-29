@@ -50,6 +50,9 @@ import { CreateQuery } from "./views/activities/query/createQuery/CreateQuery";
 import { UpdateQuery } from "./views/activities/query/updateQuery/UpdateQuery";
 
 import { ProfileStudent } from "./components/ProfileStudent/ProfileStudent";
+import { UpdateProject } from "./views/activities/projects/updateProject/UpdateProject";
+import { ViewProject } from "./views/activities/projects/viewProject/ViewProject";
+
 
 export function RoutesApp() {
   const auth = useSelector((state) => state.auth);
@@ -186,6 +189,16 @@ export function RoutesApp() {
           <Route path="/anuncios" element={<Announcements />} />
           {/*      //isTeacher //isStudent */}
           <Route path="/project/create-project/:id" element={isTeacher ? <CreateProject /> : <Error404 />} exact />
+          <Route
+            path="/project/update-project/:id"
+            element={isTeacher ? <UpdateProject /> : <Error404 />}
+            exact
+          />
+          {/* <Route
+            path="/project/ViewProject-project/:id"
+            element={isTeacher ? <ViewProject /> : <Error404 />}
+            exact
+          /> */}
           <Route path="/query/create-query/:id" element={isTeacher ? <CreateQuery /> : <Error404 />} exact />
           <Route
             path="/query/update-query/:id"

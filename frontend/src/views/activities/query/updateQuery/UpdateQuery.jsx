@@ -8,6 +8,22 @@ import apiAgora from "../../../../api";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
+const initialState = {
+  titleQuery: "",
+  pictureQuery: "",
+  descriptionQuery: "",
+  tagsQuery: [],
+  basicNotions: "",
+  pathReq: [],
+  documentationReq: [],
+  importantAspect: "",
+  resources: [],
+  challengeTask: [],
+  challengeExtra: "",
+  date: "",
+  err: "",
+  success: "",
+};
 
 export function UpdateQuery() {
   const auth = useSelector((state) => state.auth);
@@ -21,7 +37,7 @@ export function UpdateQuery() {
     nameLink: "",
     link: "",
   });
-  const [query, setQuery] = useState({});
+  const [query, setQuery] = useState(initialState);
   const {
     titleQuery,
     pictureQuery,
@@ -49,13 +65,14 @@ export function UpdateQuery() {
     });
     setImage(value);
   };
-  
+
   //-------------------------------------nueva area de trabajo ----------------------//
   const fetchAdmins = async () => {
     const res = await apiAgora.get("/api/agora/get-query/" + queryID, {
       headers: { Authorization: userID },
     });
     setQuery(res.data);
+    console.log(res.data);
     setImage(res.data.pictureQuery);
   };
 
@@ -118,11 +135,9 @@ export function UpdateQuery() {
     e.preventDefault();
     try {
       if (auth.isTeacher) {
-        const res = await apiAgora.post(
-          "/api/agora/new-query",
+        const res = await apiAgora.put(
+          "/api/agora/update-query/"+ queryID ,
           {
-            
-            
             userID,
             titleQuery,
             pictureQuery,
@@ -151,7 +166,6 @@ export function UpdateQuery() {
     }
   };
 
-  console.log(resources);
   return (
     <div>
       <button className={style.button_return} onClick={() => navigate(-1)}>
@@ -174,11 +188,6 @@ export function UpdateQuery() {
                   onChange={handleImage}
                 />
               </div>
-            </div>
-            <div>
-              <h3>Documentación</h3>
-
-              <input type="text" onChange={handleChangeInput} />
             </div>
             <div>
               <h3>Recursos</h3>
@@ -205,7 +214,7 @@ export function UpdateQuery() {
                 </button>
               </div>
               <div>
-                {/* {resources.length !== 0
+                {resources.length !== 0
                   ? resources.map((item, index) => (
                       <div key={index}>
                         <a href={item.link} target="_blank">
@@ -219,7 +228,7 @@ export function UpdateQuery() {
                         </button>
                       </div>
                     ))
-                  : null} */}
+                  : null}
               </div>
             </div>
             <div>
@@ -259,7 +268,7 @@ export function UpdateQuery() {
                 </button>
               </div>
               <div>
-                {/* {tagsQuery.length !== 0
+                {tagsQuery.length !== 0
                   ? tagsQuery.map((item, index) => (
                       <div key={index}>
                         <p>{item}</p>
@@ -271,7 +280,7 @@ export function UpdateQuery() {
                         </button>
                       </div>
                     ))
-                  : null} */}
+                  : null}
               </div>
             </div>
             <div>
@@ -296,7 +305,7 @@ export function UpdateQuery() {
                 </button>
               </div>
               <div>
-                {/* {pathReq.length !== 0
+                {pathReq.length !== 0
                   ? pathReq.map((item, index) => (
                       <div key={index}>
                         <p>{item}</p>
@@ -308,7 +317,7 @@ export function UpdateQuery() {
                         </button>
                       </div>
                     ))
-                  : null} */}
+                  : null}
               </div>
             </div>
             <div>
@@ -327,7 +336,7 @@ export function UpdateQuery() {
                 </button>
               </div>
               <div>
-                {/* {documentationReq.length !== 0
+                {documentationReq.length !== 0
                   ? documentationReq.map((item, index) => (
                       <div key={index}>
                         <p>{item}</p>
@@ -341,7 +350,7 @@ export function UpdateQuery() {
                         </button>
                       </div>
                     ))
-                  : null} */}
+                  : null}
               </div>
             </div>
             <div>
@@ -376,7 +385,7 @@ export function UpdateQuery() {
               </button>
             </div>
             <div>
-              {/* {challengeTask.length !== 0
+              {challengeTask.length !== 0
                 ? challengeTask.map((item, index) => (
                     <div key={index}>
                       <p>{item}</p>
@@ -388,7 +397,7 @@ export function UpdateQuery() {
                       </button>
                     </div>
                   ))
-                : null} */}
+                : null}
             </div>
           </div>
           <div>

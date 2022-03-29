@@ -166,6 +166,7 @@ export function CreateQuery() {
                 <img className={style.image} src={image} alt="Logo Cohorte" />
               </div>
               <div className={style.file}>
+                
                 <input
                   className={style.input__imageURL}
                   placeholder="Inserta URL de la imagen Bootcamp"
@@ -175,11 +176,6 @@ export function CreateQuery() {
                   onChange={handleImage}
                 />
               </div>
-            </div>
-            <div>
-              <h3>Documentación</h3>
-
-              <input type="text" onChange={handleChangeInput} />
             </div>
             <div>
               <h3>Recursos</h3>
