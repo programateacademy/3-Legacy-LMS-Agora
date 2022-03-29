@@ -52,11 +52,10 @@ export function UpdateQuery() {
   
   //-------------------------------------nueva area de trabajo ----------------------//
   const fetchAdmins = async () => {
-    const res = await apiAgora.get("/api/agora/get-queries/" + queryID, {
+    const res = await apiAgora.get("/api/agora/get-query/" + queryID, {
       headers: { Authorization: userID },
     });
     setQuery(res.data);
-    console.log(res.data);
     setImage(res.data.pictureQuery);
   };
 
