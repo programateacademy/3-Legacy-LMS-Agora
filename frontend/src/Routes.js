@@ -47,6 +47,7 @@ import { CreateBootcamp } from './views/bootcamps/createBootcamp/CreateBootcamp'
 import { UpdateBootcamp } from "./views/bootcamps/updateBootcamp/UpdateBootcamp";
 import { CreateProject } from "./views/activities/projects/createProject/CreateProject";
 import { CreateQuery } from "./views/activities/query/createQuery/CreateQuery";
+import { UpdateQuery } from "./views/activities/query/updateQuery/UpdateQuery";
 
 import { ProfileStudent } from "./components/ProfileStudent/ProfileStudent";
 
@@ -186,6 +187,11 @@ export function RoutesApp() {
           {/*      //isTeacher //isStudent */}
           <Route path="/project/create-project/:id" element={isTeacher ? <CreateProject /> : <Error404 />} exact />
           <Route path="/query/create-query/:id" element={isTeacher ? <CreateQuery /> : <Error404 />} exact />
+          <Route
+            path="/query/update-query/:id"
+            element={isTeacher ? <UpdateQuery /> : <Error404 />}
+            exact
+          />
           <Route
             path="/entregasFormador"
             element={<DeliveryProjectTrainer />}

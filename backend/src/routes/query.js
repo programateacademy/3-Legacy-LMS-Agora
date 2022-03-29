@@ -5,7 +5,7 @@ const controllerQuery = require('../controllers/query')
 
 router.post('/new-query', authTeacher, controllerQuery.create);
 router.get('/get-queries/:_id', controllerQuery.getQueries);
-router.get('/get-queries/:_id', controllerQuery.getQuery);
+router.get('/get-queries/:_id', authTeacher, controllerQuery.getQuery);
 router.put('/update-query/:_id', controllerQuery.updateQuery)
 router.delete('/delete-query/:_id', controllerQuery.deleteQuery);
 
