@@ -68,16 +68,23 @@ input[type="file"] {
   
     height: 35px;
     margin-left: 50px;
-    border: 1px solid #6f6f6f;
+    border: 1px solid #000000;
     outline: none;
     padding: 10px;
     border-radius: 10px;
     box-shadow: inset 0px 6px 15px rgba(0, 0, 0, 0.2);
   }
   .submit{
-    padding: 8px 12px;
+    width: 125px;
     background-color: var(--colorYellow);
-    margin-top: 90px;
-    margin-left: 430px;
+    margin-top: 50px;
+    margin-left: 40px;
+    cursor:pointer;
+  }
+
+  .submit:hover {
+    background-color: var(--colorGreenLight);
+    color: var(--colorWhite);
+    transition: 0.4s;
   }
   
