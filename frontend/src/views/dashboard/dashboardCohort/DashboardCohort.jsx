@@ -27,6 +27,27 @@ export function DashboardCohort() {
   }, []);
   return (
     <div>
+      <div className="box">
+        <div className="img">
+          <h1>imagen</h1>
+        </div>
+        <div className="progreso">
+          <div className="barra">
+            <label for="file">Progreso de la cohorte</label>
+            <progress id="file" value="32" max="100">
+              {" "}
+              32%{" "}
+            </progress>
+          </div>
+          <div className="barra">
+            <label for="file">Tasa de exito de la cohorte</label>
+            <progress id="file" value="70" max="100">
+              {" "}
+              32%{" "}
+            </progress>
+          </div>
+        </div>
+      </div>
       <CompetencesTable competencesState={cohortCompetences} />
     </div>
   );
