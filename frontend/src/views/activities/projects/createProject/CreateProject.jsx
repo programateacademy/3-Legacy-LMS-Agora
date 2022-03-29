@@ -607,7 +607,7 @@ export function CreateProject() {
           </div>
           <div>
             {competences.length !== 0
-              ? competences.sort().map((item, index) => (
+              ? competences.map((item, index) => (
                   <div key={index}>
                     <p>
                       {item.name} {item.level}

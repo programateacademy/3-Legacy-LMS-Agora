@@ -42,10 +42,11 @@ import { CreateCohort } from "./views/cohort/createCohort/CreateCohort";
 import { CompetencesUpdate } from "./views/competences/CompetencesUpdate";
 import { UpdateCohort } from "./views/cohort/updateCohort/UpdateCohort";
 
-import { CreateBootcamp } from './views/bootcamps/createBootcamp/CreateBootcamp';
+import { CreateBootcamp } from "./views/bootcamps/createBootcamp/CreateBootcamp";
 import { UpdateBootcamp } from "./views/bootcamps/updateBootcamp/UpdateBootcamp";
 import { CreateProject } from "./views/activities/projects/createProject/CreateProject";
 import { CreateQuery } from "./views/activities/query/createQuery/CreateQuery";
+import { CreateWorkbook } from "./views/activities/workbook/createWorkbook/CreateWorkbook.jsx";
 
 export function RoutesApp() {
   const auth = useSelector((state) => state.auth);
@@ -91,7 +92,6 @@ export function RoutesApp() {
           />
           <Route path="*" element={<Error404 />} />
           {/*  Universal login */}
-
           <Route
             path="/configuration"
             element={isLogged ? <Configuration /> : <Error404 />}
@@ -164,10 +164,7 @@ export function RoutesApp() {
             element={isAdmin ? <UpdateBootcamp /> : <Error404 />}
             exact
           />
-
           //isTeacher
-
-
           {/* //isTeacher //isStudent //isAdmin */}
           <Route path="/crearProyecto" element={<AddProject />} />
           <Route path="/proyectos" element={<CardProject />} />
@@ -175,8 +172,21 @@ export function RoutesApp() {
           <Route path="/crearAnuncio" element={<CreateAnnouncement />} />
           <Route path="/anuncios" element={<Announcements />} />
           {/*      //isTeacher //isStudent */}
-          <Route path="/project/create-project/:id" element={isTeacher ? <CreateProject /> : <Error404 />} exact />
-          <Route path="/query/create-query/:id" element={isTeacher ? <CreateQuery /> : <Error404 />} exact />
+          <Route
+            path="/project/create-project/:id"
+            element={isTeacher ? <CreateProject /> : <Error404 />}
+            exact
+          />
+          <Route
+            path="/query/create-query/:id"
+            element={isTeacher ? <CreateQuery /> : <Error404 />}
+            exact
+          />
+          <Route
+            path="/workbook/create-workbook/:id"
+            element={isTeacher ? <CreateWorkbook /> : <Error404 />}
+            exact
+          />
           <Route
             path="/entregasFormador"
             element={<DeliveryProjectTrainer />}
