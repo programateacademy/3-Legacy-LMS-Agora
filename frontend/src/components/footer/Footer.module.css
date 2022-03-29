@@ -16,16 +16,20 @@ footer {
 .footerContainer p {
   margin-bottom: 0;
 }
-
+.LogosContainer{
+  display: flex;
+  flex-direction: row;
+}
 .LogosFooterContainer {
   display: flex;
   align-items: center;
+  width: 100px;
+  margin-left: 1rem;
 }
 
-.LogosFooterContainer > img {
-  height: 36px;
+.LogosFooterContainer img {
+  width: 100%;
 }
-
 .socialNetworksContainer {
   display: flex;
   align-items: center;
@@ -45,6 +49,7 @@ footer {
 .sign {
   font-size: 15px;
   margin-right: 1rem;
+  text-align: center;
 }
 
 @media (max-width: 885px) {
@@ -61,7 +66,7 @@ footer {
 
   .LogosFooterContainer {
     order: 2;
-    margin: 30px 0;
+    margin-left: 1rem;
   }
 
   .footerContainer p {

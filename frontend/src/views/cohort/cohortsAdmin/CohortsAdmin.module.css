@@ -16,11 +16,11 @@
     align-self: flex-end;
 }
 .button_return {
+    margin-top: 1rem;
     font-weight: bold;
     background-color: #ffd808;
     algin-items:center;
     color:var(--colorBlack);
-    margin: 30px;
     padding: 10px;
     width: auto;
     display: flex;

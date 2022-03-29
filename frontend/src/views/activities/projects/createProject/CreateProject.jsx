@@ -4,7 +4,7 @@ import { MdDeleteForever, MdOutlineAddCircle } from "react-icons/md";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import apiAgora from "../../../../api";
-import { Button } from "../../../../components/buttons/Button/Button";
+import { showErrMsg, showSuccessMsg } from "../../../../utils/notification";
 
 const initialState = {
   competences: [],
@@ -27,13 +27,17 @@ const initialState = {
 
 export function CreateProject() {
   const auth = useSelector((state) => state.auth);
-  const id_user = auth.user.id;
+  const userID = auth.user.id;
   const params = useParams();
   const cohortID = params.id;
   let navigate = useNavigate();
   const [project, setProject] = useState(initialState);
   const [image, setImage] = useState();
   const [cohortCompetences, setCohortCompetences] = useState([]);
+  const orderedCompetences = cohortCompetences.sort((a, b) => {
+    return (a.identifierCompetences > b.identifierCompetences)
+     ? 1 : -1
+  })
   const [selectedCompetence, setSelectedCompetence] = useState({
     id: "",
     fullNameCompetences: "",
@@ -58,14 +62,20 @@ export function CreateProject() {
     evaluationModality,
     deliverablesProject,
     date,
+    success,
   } = project;
+  const [objectLink, setObjectLink] = useState({
+    nameLink: "",
+    link: "",
+  });
+  const { nameLink, link } = objectLink;
 
   // fetch cohort competences
   const fetchCohortCompetences = async () => {
     const resCompetencesCohort = await apiAgora.get(
       `/api/agora/get-competences/${cohortID}`,
       {
-        headers: { Authorization: id_user },
+        headers: { Authorization: userID },
       }
     );
     setCohortCompetences(resCompetencesCohort.data);
@@ -80,10 +90,8 @@ export function CreateProject() {
     setSelectedCompetence({
       ...selectedCompetence,
       id: e.target.value,
-
       fullNameCompetences: e.target.options[e.target.selectedIndex].text,
     });
-    console.log(e.target.options[e.target.selectedIndex].text);
   };
 
   //Image
@@ -106,14 +114,37 @@ export function CreateProject() {
   const handleChangeArray = (e) => {
     setItemArray(e.target.value);
   };
-  const onClickArray = (name) => {
-    setProject({
-      ...project,
-      [name]: [...project[name], itemArray],
+  //add link resources
+  const handleChangeLink = (e) => {
+    const { name, value } = e.target;
+    setObjectLink({
+      ...objectLink,
+      [name]: value,
       err: "",
       success: "",
     });
-    setItemArray("");
+  };
+  const onClickObject = (name) => {
+    if (objectLink.link.trim() && objectLink.nameLink.trim()) {
+      setProject({
+        ...project,
+        [name]: [...project[name], objectLink],
+        err: "",
+        success: "",
+      });
+    }
+  };
+
+  const onClickArray = (name) => {
+    if (itemArray.trim()) {
+      setProject({
+        ...project,
+        [name]: [...project[name], itemArray],
+        err: "",
+        success: "",
+      });
+      setItemArray('');
+    }
   };
 
   const onClickCompetences = (name) => {
@@ -152,14 +183,60 @@ export function CreateProject() {
       ...project,
       [name]: project[name].filter((e) => e.competenceID !== item),
     });
+    setCompetencesIDS(competencesIDS.filter((e) => e !== item));
   };
   useEffect(() => {
     fetchCohortCompetences();
   }, []);
 
   //save project info Backend
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setProject({
+      ...project, competences: project.competences.sort((a, b) => {
+        return (a.name > b.name)
+         ? 1 : -1
+      })})
+    try {
+      if (auth.isTeacher) {
+        const res = await apiAgora.post(
+          "/api/agora//new-project",
+          {
+            cohortID,
+            userID,
+            titleProject,
+            pictureProject,
+            descriptionProject,
+            competenceFramework,
+            tagsProject,
+            competences,
+            resources,
+            contextGeneral,
+            contextGeneralReq,
+            contextTechniciansReq,
+            contextExtrasReq,
+            pedagogyModality,
+            performanceCriterias,
+            evaluationModality,
+            deliverablesProject,
+            date,
+          },
+          {
+            headers: { Authorization: userID },
+          }
+        );
+        showSuccessMsg(success);
+        setProject({ ...project, err: "", success: res.data.msg });
+      }
+    } catch (err) {
+      showErrMsg(err.response.data.msg);
+      err.response.data.msg &&
+        setProject({
+          ...project,
+          err: err.response.data.msg,
+          success: "",
+        });
+    }
   };
   return (
     <div className={style.formContainer}>
@@ -169,12 +246,16 @@ export function CreateProject() {
           <div className={style.containerOne}>
             <div>
               <div className={style.img_preview}>
-                <img className={style.image} src={image} alt="Logo Cohorte" />
+                <img
+                  className={style.image}
+                  src={image}
+                  alt="Imagen del proyecto"
+                />
               </div>
               <div className={style.file}>
                 <input
                   className={style.input__imageURL}
-                  placeholder="Inserta URL de la imagen Bootcamp"
+                  placeholder="Inserta URL de la imagen del proyecto"
                   type="text"
                   name="pictureProject"
                   value={pictureProject}
@@ -195,31 +276,42 @@ export function CreateProject() {
               <h3>Recursos</h3>
               <div className={style.addResourcesContainer}>
                 <input
+                  placeholder="Nombre del recurso"
+                  type="text"
+                  name="nameLink"
+                  value={nameLink}
+                  onChange={handleChangeLink}
+                />
+                <input
                   placeholder="Link Recurso"
                   type="text"
-                  onChange={handleChangeArray}
+                  name="link"
+                  value={link}
+                  onChange={handleChangeLink}
                 />
-                <div>
-                <button className={style.addTagsProject} type="button" onClick={() => onClickArray("resources")}>
+                <button
+                   className={style.addTagsProject}
+                  type="button"
+                  onClick={() => onClickObject("resources")}
+                >
                   <MdOutlineAddCircle size={30} />
                 </button>
-                </div>
               </div>
               <div>
                 {resources.length !== 0
                   ? resources.map((item, index) => (
-                    <div className={style.deleterResourcesContainer} key={index}>
-                      <a href={item} target="_blank">
-                        {item}
-                      </a>
-                      <button
-                        type="button"
-                        onClick={() => deleteItemArray("resources", item)}
-                      >
-                        <MdDeleteForever size={30} />
-                      </button>
-                    </div>
-                  ))
+                      <div key={index} className={style.deleterResourcesContainer}>
+                        <a href={item.link} target="_blank">
+                          {item.nameLink}
+                        </a>
+                        <button
+                          type="button"
+                          onClick={() => deleteItemArray("resources", item)}
+                        >
+                          <MdDeleteForever size={30} />
+                        </button>
+                      </div>
+                    ))
                   : null}
               </div>
             </div>
@@ -541,7 +633,7 @@ export function CreateProject() {
                 <option value="" selected>
                   Competencias
                 </option>
-                {cohortCompetences.map((item, index) => (
+                {orderedCompetences.map((item, index) => (
                   <option value={item.id} key={index}>
                     {item.identifierCompetences} {item.nameCompetences}
                   </option>
@@ -573,7 +665,7 @@ export function CreateProject() {
               ? competences.map((item, index) => (
                 <div key={index}>
                   <p>
-                    {item.name} {item.level}{" "}
+                   {item.name} - Nivel {item.level==="levelOne"?1:item.level==="levelTwo"?2:3}
                   </p>
 
                   <button ClassName={style.addCompetence}
@@ -589,8 +681,8 @@ export function CreateProject() {
               : null}
           </div>
         <div className={style.container_submit}>
-          <button type="submit">
-            Añadir
+          <button className={style.buttonCreateProject} type="submit">
+            Crear proyecto
           </button>
         </div>
         </div>

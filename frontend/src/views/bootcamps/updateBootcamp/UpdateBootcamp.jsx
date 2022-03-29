@@ -6,8 +6,6 @@ import { useSelector } from "react-redux";
 import apiAgora from "../../../api";
 import { showErrMsg, showSuccessMsg } from "../../../utils/notification";
 
-
-
 export function UpdateBootcamp() {
   const params = useParams();
   const userID = params.id;
@@ -52,7 +50,7 @@ export function UpdateBootcamp() {
     try {
       if (auth.isAdmin) {
         const res = await apiAgora.put(
-          "/api/agora/update-bootcamp/"+userID,
+          "/api/agora/update-bootcamp/" + userID,
           {
             nameBootcamp,
             imageBootcamp,
@@ -72,10 +70,6 @@ export function UpdateBootcamp() {
     }
   };
 
-  // useEffect(() => {
-  //   setImage(imageBootcapm)
-  // }, [imageBootcapm]);
-
   return (
     <div>
       <div>
@@ -83,12 +77,12 @@ export function UpdateBootcamp() {
           <BsArrowLeftCircle size={30} />
         </button>
       </div>
+      <div class={styles.wrapper}>
+        <h2 class={styles.typing_demo}>Actualizar Bootcamp</h2>
+      </div>
       <form className={styles.form__content} onSubmit={handleSubmit}>
         <div className={styles.container__columns}>
           <div className={styles.column__one}>
-            <h2>
-              <u>Actualizar Bootcamp</u>
-            </h2>
             <input
               className={styles.input__createBoot}
               placeholder="nombre"
@@ -105,7 +99,9 @@ export function UpdateBootcamp() {
             />
           </div>
           <div className={styles.column__two}>
-            <img className={styles.image} src={image} alt="Logo Cohorte" />
+            <div className={styles.img_preview}>
+              <img className={styles.image} src={image} alt="Logo Cohorte" />
+            </div>
             <input
               className={styles.input__logoURL}
               placeholder="Inserta URL de la imagen Bootcamp"

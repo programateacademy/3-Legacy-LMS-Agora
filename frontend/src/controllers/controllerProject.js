@@ -1,22 +1,22 @@
-import apiAgora from "../api"
+import apiAgora from "../api";
 
 ////link para post
 export const API_URLP = "/api/agora/new-project";
 ////link para get-one
 const API_URL2 = `/api/agora/get-one-project`;
 
-
 export const listProjects = async (token) => {
-  const res = await apiAgora.get("/api/agora/get-projects",{
-          headers: {Authorization: token}})
+  const res = await apiAgora.get("/api/agora/get-projects", {
+    headers: { Authorization: token },
+  });
   return res;
 };
 
 export const oneproject = async (id, token) => {
-  const res = await apiAgora.get(`${API_URL2}/${id}`,{
-          headers: {Authorization: token}})
+  const res = await apiAgora.get(`${API_URL2}/${id}`, {
+    headers: { Authorization: token },
+  });
   return res;
-  
 };
 
 export const registerProject = async (newProject) => {
@@ -37,7 +37,7 @@ export const registerProject = async (newProject) => {
       picture: String(newProject.picture).trim(),
       resources: Array(newProject.resources),
       tags: Array(newProject.tags),
-      competencies: Array(newProject.competencies),
+      competences: Array(newProject.competences),
       competenceFramework: String(newProject.competenceFramework).trim(),
     }),
   });

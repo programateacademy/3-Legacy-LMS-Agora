@@ -5,7 +5,7 @@ const controllerWorkbook = require('../controllers/workbook')
 
 router.post('/new-workbook', controllerWorkbook.create);
 router.get('/get-workbooks/:_id', controllerWorkbook.getWorkbooks);
-router.get('/get-workbooks/:_id', controllerWorkbook.getWorkbook);
+router.get('/get-workbook/:_id', controllerWorkbook.getWorkbook);
 router.put('/update-workbook/:_id', controllerWorkbook.updateWorkbook)
 router.delete('/delete-workbook/:_id', controllerWorkbook.deleteWorkbook);
 

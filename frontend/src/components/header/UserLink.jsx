@@ -14,7 +14,7 @@ const UserLink = ({ user, handleLogout }) => {
           <div>
             <TiUser size={30} />
           </div>
-          <p>{user.name}</p>
+          <p>{user.firstName}</p>
         </div>
         <div>
           <Dropdown>
@@ -24,14 +24,19 @@ const UserLink = ({ user, handleLogout }) => {
             ></Dropdown.Toggle>
             <Dropdown.Menu>
               {isStudent ? (
-                <Link style={{ color: "black" }} to="/badges">
-                  <Dropdown.Item>Perfil</Dropdown.Item>
+                <Dropdown.Item>
+                  <Link style={{ color: "black" }} to="/badges">
+                  Perfil
                 </Link>
+                </Dropdown.Item>
+                
               ) : null}
-              <Link style={{ color: "black" }} to="/configuration">
-                <Dropdown.Item>Configuración</Dropdown.Item>
-              </Link>
-              <Link style={{ color: "black" }} to="/" onClick={handleLogout}>
+              <Dropdown.Item>
+                <Link style={{ color: "black" }} to="/configuration">
+                  Configuración
+                </Link>
+              </Dropdown.Item>
+              <Link style={{ color: "black" }} to="!#" onClick={handleLogout}>
                 <Dropdown.Item>Salir</Dropdown.Item>
               </Link>
             </Dropdown.Menu>

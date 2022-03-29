@@ -4,6 +4,7 @@
   min-height: calc(100vh - 140px);
   width: 80vw;
   margin: auto;
+  padding: 1rem;
   justify-content: center;
 }
 
@@ -50,6 +51,9 @@
 }
 
 @media (max-width: 768px) {
+  .adminDashboard{
+    width: 100%;
+  }
   .buttonsContainer {
     display: flex;
     align-items: center;

@@ -16,6 +16,10 @@ const querySchema = new Schema(
       type: String,
       require: true,
     },
+    descriptionQuery: {
+      type: String,
+      require: true,
+    },
     pictureQuery: {
       type: String,
       require: true,

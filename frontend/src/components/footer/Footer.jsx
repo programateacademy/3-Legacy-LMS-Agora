@@ -1,8 +1,9 @@
-import React from 'react'
-import logosWhite from '../../assets/logos/logosWhite.png'
+import React from "react";
+import logoWhiteP from "../../assets/logos/programate-academy-blancos.png";
+import logoWhiteE from "../../assets/logos/logo-blanco-alta-.png";
 import style from "./Footer.module.css";
 
-export function Footer () {
+export function Footer() {
   return (
     <>
       <footer>
@@ -13,34 +14,38 @@ export function Footer () {
 
           <div className={style.socialNetworksContainer}>
             <a
-              href='https://www.facebook.com/Somos-EducaM%C3%A1s-109393514766174/'
-              target='_blank'
-              rel='noreferrer'
+              href="https://www.facebook.com/Somos-EducaM%C3%A1s-109393514766174/"
+              target="_blank"
+              rel="noreferrer"
             >
-              <i style={{color:'white'}} className='fab fa-facebook'></i>
+              <i style={{ color: "white" }} className="fab fa-facebook"></i>
             </a>
             <a
-              href='https://www.youtube.com/channel/UCmnr_sLPZ1E8H1VgUtaHGPQ
-'
-              target='_blank'
-              rel='noreferrer'
+              href="https://www.youtube.com/channel/UCmnr_sLPZ1E8H1VgUtaHGPQ
+"
+              target="_blank"
+              rel="noreferrer"
             >
-              <i style={{color:'white'}} className='fab fa-youtube'></i>{' '}
+              <i style={{ color: "white" }} className="fab fa-youtube"></i>{" "}
             </a>
             <a
-              href='https://www.instagram.com/somoseducamas/'
-              target='_blank'
-              rel='noreferrer'
+              href="https://www.instagram.com/somoseducamas/"
+              target="_blank"
+              rel="noreferrer"
             >
-              <i style={{color:'white'}} className='fab fa-instagram'></i>
+              <i style={{ color: "white" }} className="fab fa-instagram"></i>
             </a>
           </div>
-
+          <div className={style.LogosContainer}>
           <div className={style.LogosFooterContainer}>
-            <img src={logosWhite} alt='Programate-LogoBlanco' />
+            <img src={logoWhiteP} alt="Programate-LogoBlanco" />
+          </div>
+          <div className={style.LogosFooterContainer}>
+            <img src={logoWhiteE} alt="Programate-LogoBlanco" />
+          </div>
           </div>
         </div>
       </footer>
     </>
-  )
+  );
 }
