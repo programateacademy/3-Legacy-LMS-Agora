@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
-import style from "./CreateProject.module.css";
+import style from "../../CreateActivity.module.css";
 import { MdDeleteForever, MdOutlineAddCircle } from "react-icons/md";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import apiAgora from "../../../../api";
 import { showErrMsg, showSuccessMsg } from "../../../../utils/notification";
+import { BsArrowLeftCircle } from "react-icons/bs";
+import { AiOutlineLink } from "react-icons/ai";
 
 const initialState = {
   competences: [],
@@ -196,7 +198,7 @@ export function CreateProject() {
       ...project, competences: project.competences.sort((a, b) => {
         return (a.name > b.name)
          ? 1 : -1
-      })})
+      })});
     try {
       if (auth.isTeacher) {
         const res = await apiAgora.post(
@@ -240,7 +242,14 @@ export function CreateProject() {
   };
   return (
     <div className={style.formContainer}>
-      <h1>Crear proyecto</h1>
+      <div>
+        <button className={style.button_return} onClick={() => navigate(-1)}>
+          <BsArrowLeftCircle size={30} />
+        </button>
+      </div>
+      <div className={style.wrapper}>
+        <h2 className={style.typing_demo}>Crear proyecto</h2>
+      </div>
       <form className={style.form} onSubmit={handleSubmit}>
         <div className={style.container}>
           <div className={style.containerOne}>
@@ -252,7 +261,6 @@ export function CreateProject() {
                   alt="Imagen del proyecto"
                 />
               </div>
-              <div className={style.file}>
                 <input
                   className={style.input__imageURL}
                   placeholder="Inserta URL de la imagen del proyecto"
@@ -261,7 +269,6 @@ export function CreateProject() {
                   value={pictureProject}
                   onChange={handleImage}
                 />
-              </div>
             </div>
             <div className= {style.frameofcompetence}>
               <h3>Marco de competencias</h3>
@@ -272,39 +279,45 @@ export function CreateProject() {
                 onChange={handleChangeInput}
               />
             </div>
-            <div className={style.summaryProject}>
+            <div className={style.InitialContainer}>
               <h3>Recursos</h3>
               <div className={style.addResourcesContainer}>
+                <h5>Nombre de recurso</h5>
                 <input
-                  placeholder="Nombre del recurso"
+                  placeholder="..."
                   type="text"
                   name="nameLink"
                   value={nameLink}
                   onChange={handleChangeLink}
                 />
+                <div className={style.tagsProject}>
+                <h5>Link de recurso</h5>  
                 <input
-                  placeholder="Link Recurso"
+                  placeholder="..."
                   type="text"
                   name="link"
                   value={link}
                   onChange={handleChangeLink}
-                />
+                  />
                 <button
                    className={style.addTagsProject}
-                  type="button"
-                  onClick={() => onClickObject("resources")}
-                >
+                   type="button"
+                   onClick={() => onClickObject("resources")}
+                   >
                   <MdOutlineAddCircle size={30} />
                 </button>
+                  </div>
               </div>
               <div>
                 {resources.length !== 0
                   ? resources.map((item, index) => (
-                      <div key={index} className={style.deleterResourcesContainer}>
-                        <a href={item.link} target="_blank">
+                      <div className={style.tagContainer} key={index}>
+                        <AiOutlineLink className={style.linkIcon} size={30} />
+                        <div className={style.tagText}>
+                        <a className={style.tag} href={item.link} target="_blank">
                           {item.nameLink}
-                        </a>
-                        <button
+                        </a></div>
+                        <button className={style.deleteTag}
                           type="button"
                           onClick={() => deleteItemArray("resources", item)}
                         >
@@ -326,24 +339,26 @@ export function CreateProject() {
             </div>
           </div>
           <div className={style.containerTwo}>
-            <div className={style.summaryProject}>
+            <div className={style.InitialContainer}>
+              <h5>Nombre del proyecto</h5>
               <input
-                placeholder="Nombre del proyecto"
+                placeholder="..."
                 type="text"
                 name="titleProject"
                 value={titleProject}
                 onChange={handleChangeInput}
               />
-
+              <h5>Descripción</h5>
               <textarea
                 name="descriptionProject"
                 value={descriptionProject}
-                placeholder="Descripción"
+                placeholder="..."
                 onChange={handleChangeInput}
               ></textarea>
               <div className={style.tagsProject}>
+              <h5>Etiqueta de proyecto</h5>
                 <input
-                  placeholder="Etiquetas proyecto"
+                  placeholder="..."
                   type="text"
                   onChange={handleChangeArray}
                 />
@@ -374,20 +389,27 @@ export function CreateProject() {
             </div>
             <div className={style.contextContainer}>
               <h3>Contexto del Proyecto</h3>
+              <h5>Descripción</h5>
               <textarea 
-                placeholder="Descripción"
+                placeholder="..."
                 name="contextGeneral"
                 value={contextGeneral}
                 onChange={handleChangeInput}
               ></textarea>
             </div>
-            <div className={style.summaryProject}>
+            
+          </div>
+        </div>
+        <div className={style.line}></div>
+        <div className={style.deliveryContainer}>
+        <div className={style.summaryProject}>
             <div>
               <h3>Requerimientos Generales</h3>
               </div>
               <div className={style.tagsProject}>
+              <h5>Etiqueta de proyecto</h5>  
                 <textarea
-                  placeholder="Etiquetas proyecto"
+                  placeholder="..."
                   type="text"
                   onChange={handleChangeArray}
                 />
@@ -421,8 +443,9 @@ export function CreateProject() {
             <div className={style.summaryProject}>
               <h3>Requerimientos Técnicos</h3>
               <div className={style.tagsProject}>
+              <h5>Etiqueta de proyecto</h5>  
                 <textarea
-                  placeholder="Etiquetas proyecto"
+                  placeholder="..."
                   type="text"
                   onChange={handleChangeArray}
                 />
@@ -456,8 +479,9 @@ export function CreateProject() {
             <div className={style.summaryProject}>
               <h3>Requerimientos Adicionales</h3>
               <div className={style.tagsProject}>
+              <h5>Etiqueta de proyecto</h5>  
                 <textarea
-                  placeholder="Etiquetas proyecto"
+                  placeholder="..."
                   type="text"
                   onChange={handleChangeArray}
                 />
@@ -471,8 +495,9 @@ export function CreateProject() {
               <div>
                 {contextExtrasReq.length !== 0
                   ? contextExtrasReq.map((item, index) => (
-                    <div key={index}>
-                      <p className={style.tag}>{item}</p>
+                    <div className={style.tagContainer} key={index}>
+                      <div className={style.tagText}>
+                      <p className={style.tag}>{item}</p></div>
                       <button className={style.deleteTag}
                         type="button"
                         onClick={() =>
@@ -489,8 +514,9 @@ export function CreateProject() {
             <div className={style.summaryProject}>
               <h3>Modalidad Pedagógica</h3>
               <div className={style.tagsProject}>
+              <h5>Etiqueta de proyecto</h5>  
                 <textarea
-                  placeholder="Etiquetas proyecto"
+                  placeholder="..."
                   type="text"
                   onChange={handleChangeArray}
                 />
@@ -504,8 +530,9 @@ export function CreateProject() {
               <div>
                 {pedagogyModality.length !== 0
                   ? pedagogyModality.map((item, index) => (
-                    <div key={index}>
-                      <p className={style.tag}>{item}</p>
+                    <div className={style.tagContainer} key={index}>
+                       <div className={style.tagText}>
+                      <p className={style.tag}>{item}</p></div>
                       <button className={style.deleteTag}
                         type="button"
                         onClick={() =>
@@ -522,8 +549,9 @@ export function CreateProject() {
             <div className={style.summaryProject}>
               <h3>Criterios de Rendimiento</h3>
               <div className={style.tagsProject}>
+              <h5>Descripción</h5>  
                 <textarea
-                  placeholder="Descripción"
+                  placeholder="..."
                   type="text"
                   onChange={handleChangeArray}
                 />
@@ -537,8 +565,9 @@ export function CreateProject() {
               <div>
                 {performanceCriterias.length !== 0
                   ? performanceCriterias.map((item, index) => (
-                    <div key={index}>
-                      <p className={style.tag}>{item}</p>
+                    <div className={style.tagContainer} key={index}>
+                    <div className={style.tagText}>
+                      <p className={style.tag}>{item}</p></div>
                       <button className={style.deleteTag}
                         type="button"
                         onClick={() =>
@@ -555,8 +584,9 @@ export function CreateProject() {
             <div className={style.summaryProject}>
               <h3>Modalidad de Evaluación</h3>
               <div className={style.tagsProject}>
+              <h5>Descripción</h5>  
                 <textarea
-                  placeholder="Descripción"
+                  placeholder="..."
                   type="text"
                   onChange={handleChangeArray}
                 />
@@ -570,8 +600,9 @@ export function CreateProject() {
               <div>
                 {evaluationModality.length !== 0
                   ? evaluationModality.map((item, index) => (
-                    <div key={index}>
-                      <p className={style.tag}>{item}</p>
+                    <div className={style.tagContainer} key={index}>
+                      <div className={style.tagText}>
+                      <p className={style.tag}>{item}</p></div>
                       <button className={style.deleteTag}
                         type="button"
                         onClick={() =>
@@ -585,19 +616,18 @@ export function CreateProject() {
                   : null}
               </div>
             </div>
-          </div>
-        </div>
-        <div className={style.line}></div>
-        <div className={style.deliveryContainer}>
+            <div className={style.line}></div>
           <div className={style.inputsdeliveries}>
           <h3>Entregables del Proyecto</h3>
-          <div>
+          <div className={style.inputDeliveryContainer}>
+            <div className={style.inputDelivery}>
             <textarea
-              placeholder="Etiquetas proyecto"
+              placeholder="..."
               type="text"
               onChange={handleChangeArray}
             />
-            <button className={style.buttonAdd}
+            </div>
+            <button className={style.addTagsProject}
               type="button"
               onClick={() => onClickArray("deliverablesProject")}
             >
@@ -607,9 +637,11 @@ export function CreateProject() {
           <div>
             {deliverablesProject.length !== 0
               ? deliverablesProject.map((item, index) => (
-                <div key={index}>
-                  <p>{item}</p>
-                  <button
+                <div className={style.tagContainer} key={index}>
+                  <div className={style.tagText}>
+                  <p className={style.tag}>{item}</p>
+                  </div>
+                  <button className={style.deleteTag}
                     type="button"
                     onClick={() =>
                       deleteItemArray("deliverablesProject", item)
@@ -621,11 +653,10 @@ export function CreateProject() {
               ))
               : null}
           </div>
-          <h3>Competencias</h3>
-
+            <h3>Competencias</h3>
           <div className={style.containerFormadores}>
             <div className={style.select}>
-              <select
+              <select className={style.selectContainer}
                 aria-label="Default select example"
                 name="competences"
                 onChange={handleChangeSelect}
@@ -639,7 +670,7 @@ export function CreateProject() {
                   </option>
                 ))}
               </select>
-              <select
+              <select className={style.selectLevel}
                 aria-label="Default select example"
                 name="level"
                 onChange={handleChangeSelectLevel}
@@ -652,7 +683,7 @@ export function CreateProject() {
                 <option value={"levelThree"}>Nivel 3</option>
               </select>
               <button
-                className={style.buttonAdd}
+                className={style.addTagsProject}
                 type="button"
                 onClick={() => onClickCompetences("competences")}
               >
@@ -663,12 +694,12 @@ export function CreateProject() {
           <div>
             {competences.length !== 0
               ? competences.map((item, index) => (
-                <div key={index}>
-                  <p>
+                <div className={style.tagContainer} key={index}>
+                  <div className={style.tagText}>
+                  <p className={style.tag}>
                    {item.name} - Nivel {item.level==="levelOne"?1:item.level==="levelTwo"?2:3}
-                  </p>
-
-                  <button ClassName={style.addCompetence}
+                  </p></div>
+                  <button className={style.deleteTag}
                     type="button"
                     onClick={() =>
                       deleteCompetence("competences", item.competenceID)
