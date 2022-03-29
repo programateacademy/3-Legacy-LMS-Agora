@@ -262,11 +262,13 @@ export function CreateProject() {
                   <MdOutlineAddCircle size={30} />
                 </button>
               </div>
-              <div>
+              <div className={style.tagsList}>
                 {tagsProject.length !== 0
                   ? tagsProject.map((item, index) => (
                     <div className={style.tagContainer} key={index}>
+                      <div className={style.tagText}>
                       <p className={style.tag} >{item}</p>
+                      </div>
                       <button className={style.deleteTag}
                         type="button"
                         onClick={() => deleteItemArray("tagsProject", item)}
@@ -288,7 +290,9 @@ export function CreateProject() {
               ></textarea>
             </div>
             <div className={style.summaryProject}>
+            <div>
               <h3>Requerimientos Generales</h3>
+              </div>
               <div className={style.tagsProject}>
                 <textarea
                   placeholder="Etiquetas proyecto"
@@ -305,9 +309,11 @@ export function CreateProject() {
               <div>
                 {contextGeneralReq.length !== 0
                   ? contextGeneralReq.map((item, index) => (
-                    <div key={index}>
-                      <p>{item}</p>
-                      <button
+                    <div className={style.tagContainer} key={index}>
+                      <div className={style.tagText}>
+                      <p className={style.tag}>{item}</p>
+                      </div>
+                      <button className={style.deleteTag}
                         type="button"
                         onClick={() =>
                           deleteItemArray("contextGeneralReq", item)
@@ -338,9 +344,11 @@ export function CreateProject() {
               <div>
                 {contextTechniciansReq.length !== 0
                   ? contextTechniciansReq.map((item, index) => (
-                    <div key={index}>
-                      <p>{item}</p>
-                      <button
+                    <div className={style.tagContainer}  key={index}>
+                      <div className={style.tagText}>
+                      <p className={style.tag}>{item}</p>
+                      </div>
+                      <button className={style.deleteTag}
                         type="button"
                         onClick={() =>
                           deleteItemArray("contextTechniciansReq", item)
@@ -372,8 +380,8 @@ export function CreateProject() {
                 {contextExtrasReq.length !== 0
                   ? contextExtrasReq.map((item, index) => (
                     <div key={index}>
-                      <p>{item}</p>
-                      <button
+                      <p className={style.tag}>{item}</p>
+                      <button className={style.deleteTag}
                         type="button"
                         onClick={() =>
                           deleteItemArray("contextExtrasReq", item)
@@ -405,7 +413,7 @@ export function CreateProject() {
                 {pedagogyModality.length !== 0
                   ? pedagogyModality.map((item, index) => (
                     <div key={index}>
-                      <p>{item}</p>
+                      <p className={style.tag}>{item}</p>
                       <button className={style.deleteTag}
                         type="button"
                         onClick={() =>
@@ -438,8 +446,8 @@ export function CreateProject() {
                 {performanceCriterias.length !== 0
                   ? performanceCriterias.map((item, index) => (
                     <div key={index}>
-                      <p>{item}</p>
-                      <button
+                      <p className={style.tag}>{item}</p>
+                      <button className={style.deleteTag}
                         type="button"
                         onClick={() =>
                           deleteItemArray("performanceCriterias", item)
@@ -471,7 +479,7 @@ export function CreateProject() {
                 {evaluationModality.length !== 0
                   ? evaluationModality.map((item, index) => (
                     <div key={index}>
-                      <p>{item}</p>
+                      <p className={style.tag}>{item}</p>
                       <button className={style.deleteTag}
                         type="button"
                         onClick={() =>

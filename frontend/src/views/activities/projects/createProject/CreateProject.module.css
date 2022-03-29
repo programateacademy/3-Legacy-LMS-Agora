@@ -70,6 +70,17 @@
 
 }
 
+.tagsList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.tagText {
+  width: 100%;
+}
+
 .summaryProject {
   display: flex;
   flex-direction: column;
@@ -118,8 +129,12 @@
 .tagContainer {
   display: flex;
   background-color: rgba(255, 218, 10, 0.596);
-  width: 30vh;
+  width: auto;
   border-radius: 20px;
+  align-items: center;
+  margin-top: 1vh;
+  box-shadow: 6px 10px 10px rgba(0, 0, 0, 0.59);
+  margin-bottom: 2vh;
 }
 
 .tagContainer button {
