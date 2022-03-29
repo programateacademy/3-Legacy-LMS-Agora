@@ -59,6 +59,8 @@
 @media (max-width: 768px) {
   .cohort {
     flex-direction: column;
+    height: auto;
+    width: 90%;
   }
 
   .cohortImage {
@@ -71,9 +73,11 @@
   }
 
   .buttonsContainer {
-    justify-content: space-evenly;
-    align-items: space-evenly;
+    width: 90%;
     margin: 2vh auto;
     gap: 2vh;
+  }
+  .cohortInfo {
+    width: 90%;
   }
 }
