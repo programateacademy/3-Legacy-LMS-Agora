@@ -76,23 +76,23 @@ export function CreateBootcamp() {
         <h2 class={styles.typing_demo}>Crear Bootcamp</h2>
       </div>
       <form className={styles.form} onSubmit={handleSubmit}>
-          <div className={styles.column__one}>
-            <input
-              placeholder="Nombre del bootcamp"
-              value={nameBootcamp}
-              onChange={handleChangeInput}
-              name="nameBootcamp"
-            />
-            <textarea
-              className={styles.textarea__createBoot}
-              placeholder="Descripción"
-              value={descriptionBootcamp}
-              onChange={handleChangeInput}
-              name="descriptionBootcamp"
-            />
-          </div>
+        <div className={styles.column__one}>
+          <input
+            placeholder="Nombre del bootcamp"
+            value={nameBootcamp}
+            onChange={handleChangeInput}
+            name="nameBootcamp"
+          />
+          <textarea
+            className={styles.textarea__createBoot}
+            placeholder="Descripción"
+            value={descriptionBootcamp}
+            onChange={handleChangeInput}
+            name="descriptionBootcamp"
+          />
+        </div>
         <div className={styles.column__two}>
-          <div className={styles.image_preview}>
+          <div className={styles.img_preview}>
             <img className={styles.image} src={image} alt="Logo Cohorte" />
           </div>
           <div className={styles.file}>

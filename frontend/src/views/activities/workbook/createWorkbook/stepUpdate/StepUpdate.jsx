@@ -2,41 +2,46 @@ import React, { useState } from "react";
 import style from "./StepUpdate.module.css";
 
 export function StepUpdate(props) {
-  const {
-    setOpenModal,
-    stepInfo,
-    setStep,
-    step,
-    steps,
-    workbook,
-    setWorkbook,
-  } = props;
-  const { info, position } = stepInfo;
+  const { modalInfo, setOpenModal } = props;
+  const { info, position } = modalInfo;
+  const [stepUpdated, setStepUpdated] = useState({
+    identifier: "",
+    descriptionStep: "",
+    imageExampleStep: "",
+    codeStep: "",
+    imageResultStep: "",
+    notesStep: "",
+    err: "",
+    success: "",
+  });
+
   const {
     descriptionStep,
     imageExampleStep,
     codeStep,
     imageResultStep,
     notesStep,
-  } = info;
-  // Steps
-  const handleChangeStep = (e) => {
+  } = stepUpdated;
+
+  const [imageUpdate, setImageUpdate] = useState({
+    imageExampleStep: "",
+    imageResultStep: "",
+  });
+
+  const handleChangeUpdate = (e) => {
     const { name, value } = e.target;
-    setStep({ ...step, [name]: value });
-  };
-  const onClickUpdateStep = () => {
-    workbook.steps[position] = step;
+    setStepUpdated({ ...stepUpdated, [name]: value });
   };
 
-  // Step images
-  const handleImageStep = (e) => {
+  const handleImageUpdate = (e) => {
     const { name, value } = e.target;
-    setStep({ ...step, [name]: value });
+    setStepUpdated({ ...stepUpdated, [name]: value });
+    setImageUpdate({ ...stepUpdated, [name]: value });
   };
+
 
   return (
     <div className={style.modal}>
-      {stepInfo.position}
       <div className={style.containerModal}>
         <button
           className={style.close}
@@ -44,14 +49,18 @@ export function StepUpdate(props) {
         >
           X
         </button>
+        <div className={style.wrapper}>
+          <h2 className={style.typing_demo}>Actualizar paso</h2>
+        </div>
+        posición en el arreglo {position}
         {/* Description */}
         <div>
           <h3>Descripción</h3>
           <textarea
             name="descriptionStep"
-            value={descriptionStep}
+            value={info.descriptionStep}
             placeholder="Explicación"
-            onChange={handleChangeStep}
+            onChange={handleChangeUpdate}
           ></textarea>
         </div>
         {/*     Image Example*/}
@@ -62,8 +71,8 @@ export function StepUpdate(props) {
               placeholder="Inserta URL de la imagen"
               type="text"
               name="imageExampleStep"
-              value={imageExampleStep}
-              onChange={handleImageStep}
+              value={info.imageExampleStep}
+              onChange={handleImageUpdate}
             />
           </div>
           <div className={style.img_preview}>
@@ -77,9 +86,9 @@ export function StepUpdate(props) {
           <h3>Código</h3>
           <textarea
             name="codeStep"
-            value={codeStep}
+            value={info.codeStep}
             placeholder="Código"
-            onChange={handleChangeStep}
+            onChange={handleChangeUpdate}
           ></textarea>
         </div>
         {/*     Image expected result */}
@@ -91,15 +100,15 @@ export function StepUpdate(props) {
               placeholder="Inserta URL de la imagen"
               type="text"
               name="imageResultStep"
-              value={imageResultStep}
-              onChange={handleImageStep}
+              value={info.imageResultStep}
+              onChange={handleImageUpdate}
             />
           </div>
           <p>Visualice la imagen</p>
           <div className={style.img_preview}>
             <img
               className={style.image}
-              src={imageResultStep}
+              src={info.imageResultStep}
               alt="Resultado esperado"
             />
           </div>
@@ -109,15 +118,13 @@ export function StepUpdate(props) {
           <h3>Notas</h3>
           <textarea
             name="notesStep"
-            value={notesStep}
+            value={info.notesStep}
             placeholder="Notas"
-            onChange={handleChangeStep}
+            onChange={handleChangeUpdate}
           ></textarea>
         </div>
         <div>
-          <button type="button" onClick={() => onClickUpdateStep()}>
-            Actualizar
-          </button>
+          <button type="button" onClick={} >Actualizar</button>
         </div>
       </div>
     </div>

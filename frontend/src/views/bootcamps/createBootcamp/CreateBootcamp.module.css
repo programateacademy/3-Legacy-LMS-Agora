@@ -1,18 +1,41 @@
+.file {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.img_preview {
+  background-color: var(--colorGray);
+  width: 35vw;
+  height: 35vh;
+  margin-bottom: 1.5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0px 4px 15px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.image {
+  max-height: 98%;
+}
+
 .formContainer {
   flex-direction: row;
   justify-items: center;
   min-height: calc(100vh - 150px);
   margin: 1rem;
 }
+
 .wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-	margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .typing_demo {
-  width: 13ch; 
+  width: 13ch;
   animation: typing 1s steps(22), blink 0.5s step-end infinite alternate;
   white-space: nowrap;
   overflow: hidden;
@@ -30,6 +53,7 @@
     border-color: transparent;
   }
 }
+
 .button_return {
   align-self: flex-start;
   background-color: #ffd808;
@@ -42,19 +66,21 @@
   text-align: center;
   width: auto;
 }
+
 .button_return:hover {
   background-color: var(--colorBlack);
   color: #ffd808;
   transition: 0.3s;
 }
 
-.form{
+.form {
   display: flex;
   justify-content: space-around;
   flex-direction: row;
   min-height: calc(100vh - 325px);
-  
+
 }
+
 .input__createBoot {
   width: 100% !important;
   height: 35px;
@@ -65,6 +91,7 @@
   border-radius: 10px;
   box-shadow: inset 0px 6px 15px rgba(0, 0, 0, 0.2);
 }
+
 .textarea__createBoot {
   width: 100%;
   height: 200px;
@@ -73,11 +100,11 @@
   box-shadow: inset 0px 6px 15px rgba(0, 0, 0, 0.2);
 }
 
-.column__one{
+.column__one {
   display: flex;
   flex-direction: column;
   width: 50%;
-  
+
 }
 
 .column__one input {
@@ -99,10 +126,12 @@
   justify-content: center;
   box-shadow: inset 0px 4px 15px rgba(0, 0, 0, 0.5);
 }
-.image{
+
+.image {
   width: auto;
   max-width: 100%;
 }
+
 .file {
   display: flex;
   justify-content: center;
@@ -110,12 +139,12 @@
 }
 
 .container_submit {
-	display: flex;
-	justify-content: flex-end;
-	margin-top: 2rem;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
 }
 
-.buttonCreateBootcamp{
+.buttonCreateBootcamp {
   display: flex;
   background-color: var(--colorYellow);
   padding: 1.5vh;
@@ -132,26 +161,29 @@
 }
 
 @media only screen and (max-width: 700px) {
-  .form{
+  .form {
     flex-direction: column;
     align-items: center;
   }
-  .column__one{
+
+  .column__one {
     width: 80%;
   }
+
   .column__two {
     width: 80%;
   }
-  .image_preview{
+
+  .image_preview {
     display: flex;
     margin: 0 auto;
     width: 100%;
     height: 40vh;
     align-items: center;
   }
+
   .image {
     width: 100%;
   }
 
 }
-

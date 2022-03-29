@@ -37,7 +37,6 @@ export function CreateWorkbook() {
     link: "",
   });
   const [step, setStep] = useState({
-    identifier: "",
     descriptionStep: "",
     imageExampleStep: "",
     codeStep: "",
@@ -48,6 +47,7 @@ export function CreateWorkbook() {
     imageExampleStep: "",
     imageResultStep: "",
   });
+
   const {
     descriptionStep,
     imageExampleStep,
@@ -121,8 +121,16 @@ export function CreateWorkbook() {
     setStep({ ...step, [name]: value });
   };
   const onClickStep = (name) => {
-    setWorkbook({ ...workbook, [name]: [...workbook[name], step] });
+    if (
+      step.descriptionStep.trim() &&
+      step.imageExampleStep.trim() &&
+      step.codeStep.trim() &&
+      step.imageResultStep.trim()
+    ) {
+      setWorkbook({ ...workbook, [name]: [...workbook[name], step] });
+    }
   };
+
   // Step images
   const handleImageStep = (e) => {
     const { name, value } = e.target;
@@ -181,11 +189,11 @@ export function CreateWorkbook() {
   /////////////
   const [openModal, setOpenModal] = useState(false);
   const [modalInfo, setModalInfo] = useState({ info: "", position: "" });
-  const handleModal = (stepInfo, index) => {
+  const handleModal = (item, index) => {
     setOpenModal(!openModal);
-    setModalInfo({ info: stepInfo, position: index });
+    setModalInfo({ info: item, position: index });
   };
-  ///////////
+  ///////////////
 
   return (
     <div className={style.formContainer}>
@@ -506,18 +514,9 @@ export function CreateWorkbook() {
               : null}
           </div>
         </div>
-
         {/* If the modal is shown, display the information*/}
         {openModal ? (
-          <StepUpdate
-            setOpenModal={setOpenModal}
-            stepInfo={modalInfo}
-            setStep={setStep}
-            step={step}
-            steps={steps}
-            workbook={workbook}
-            setWorkbook={setWorkbook}
-          />
+          <StepUpdate setOpenModal={setOpenModal} modalInfo={modalInfo} />
         ) : (
           ""
         )}
