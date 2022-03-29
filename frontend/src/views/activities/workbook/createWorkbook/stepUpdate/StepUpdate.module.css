@@ -1,4 +1,34 @@
-.step {
+.modal {
+    position: fixed;
+    background-color: rgba(32, 35, 41, 0.8);
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 5;
+}
+
+.containerModal {
+    height: 70vh;
     width: 80%;
-    margin: auto;
+    border-radius: 5px;
+    position: relative;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-color: white;
+    padding: 2vw;
+}
+
+.close {
+    top: 5px;
+    right: 10px;
+    border: none;
+    background: none;
+    color: #000000;
+    position: absolute;
+    cursor: pointer;
 }

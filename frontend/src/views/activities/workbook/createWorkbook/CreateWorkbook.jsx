@@ -7,6 +7,8 @@ import apiAgora from "../../../../api";
 import { showErrMsg, showSuccessMsg } from "../../../../utils/notification";
 import { StepUpdate } from "./stepUpdate/StepUpdate";
 import { FiEdit } from "react-icons/fi";
+import { BsArrowLeftCircle } from "react-icons/bs";
+
 const initialState = {
   titleWorkbook: "",
   pictureWorkbook: "",
@@ -187,7 +189,14 @@ export function CreateWorkbook() {
 
   return (
     <div className={style.formContainer}>
-      <h2>Crear Workbook</h2>
+      <div>
+        <button className={style.button_return} onClick={() => navigate(-1)}>
+          <BsArrowLeftCircle size={30} />
+        </button>
+      </div>
+      <div className={style.wrapper}>
+        <h2 className={style.typing_demo}>Crear Workbook</h2>
+      </div>
       <form className={style.form} onSubmit={handleSubmit}>
         <div className={style.container}>
           <div className={style.containerOne}>
@@ -324,70 +333,65 @@ export function CreateWorkbook() {
                 onChange={handleChangeInput}
               ></textarea>
             </div>
-            {/*  Environmental requirements */}
+          </div>
+        </div>
+        {/*  Environmental requirements */}
+        <div>
+          <h3>Entorno de desarrollo</h3>
+          <div>
+            <textarea
+              placeholder="Entorno de desarrollo"
+              type="text"
+              onChange={handleChangeArray}
+            />
+            <button
+              type="button"
+              onClick={() => onClickArray("environmentalReq")}
+            >
+              <MdOutlineAddCircle size={30} />
+            </button>
+          </div>
+          <div>
+            {environmentalReq.length !== 0
+              ? environmentalReq.map((item, index) => (
+                  <div key={index}>
+                    <p>{item}</p>
+                    <button
+                      type="button"
+                      onClick={() => deleteItemArray("environmentalReq", item)}
+                    >
+                      <MdDeleteForever size={30} />
+                    </button>
+                  </div>
+                ))
+              : null}
+          </div>
+          <div>
+            <h3>Conceptos</h3>
             <div>
-              <h3>Entorno de desarrollo</h3>
-              <div>
-                <textarea
-                  placeholder="Entorno de desarrollo"
-                  type="text"
-                  onChange={handleChangeArray}
-                />
-                <button
-                  type="button"
-                  onClick={() => onClickArray("environmentalReq")}
-                >
-                  <MdOutlineAddCircle size={30} />
-                </button>
-              </div>
-              <div>
-                {environmentalReq.length !== 0
-                  ? environmentalReq.map((item, index) => (
-                      <div key={index}>
-                        <p>{item}</p>
-                        <button
-                          type="button"
-                          onClick={() =>
-                            deleteItemArray("environmentalReq", item)
-                          }
-                        >
-                          <MdDeleteForever size={30} />
-                        </button>
-                      </div>
-                    ))
-                  : null}
-              </div>
-              <div>
-                <h3>Conceptos</h3>
-                <div>
-                  <textarea
-                    placeholder="Concepto"
-                    type="text"
-                    onChange={handleChangeArray}
-                  />
-                  <button
-                    type="button"
-                    onClick={() => onClickArray("contextReq")}
-                  >
-                    <MdOutlineAddCircle size={30} />
-                  </button>
-                </div>
-                <div>
-                  {contextReq.length !== 0
-                    ? contextReq.map((item, index) => (
-                        <div key={index}>
-                          <p>{item}</p>
-                          <button
-                            type="button"
-                            onClick={() => deleteItemArray("contextReq", item)}
-                          >
-                            <MdDeleteForever size={30} />
-                          </button>
-                        </div>
-                      ))
-                    : null}
-                </div>
-              </div>
+              <textarea
+                placeholder="Concepto"
+                type="text"
+                onChange={handleChangeArray}
+              />
+              <button type="button" onClick={() => onClickArray("contextReq")}>
+                <MdOutlineAddCircle size={30} />
+              </button>
+            </div>
+            <div>
+              {contextReq.length !== 0
+                ? contextReq.map((item, index) => (
+                    <div key={index}>
+                      <p>{item}</p>
+                      <button
+                        type="button"
+                        onClick={() => deleteItemArray("contextReq", item)}
+                      >
+                        <MdDeleteForever size={30} />
+                      </button>
+                    </div>
+                  ))
+                : null}
             </div>
           </div>
         </div>
