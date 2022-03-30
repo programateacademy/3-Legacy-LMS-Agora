@@ -6,7 +6,7 @@ import { dispatchLogin } from '../../../redux/actions/authAction'
 import { useDispatch } from 'react-redux'
 import { Input } from '../../../components/input/Input'
 import './Login.css'
-import logo from '../../../assets/logos/programateLogo.png'
+import logo from '../../../assets/logos/Programate-academy-negros.png'
 
 const initialState = {
   email: '',
@@ -55,16 +55,16 @@ function Login () {
         <img className='logo' src={logo} alt='logo' />
         <form className='form' onSubmit={handleSubmit}>
           <div className='login-form-content'>
+            <h4>Correo Electronico</h4>
             <Input
-              label='Correo'
-              placeholder='Luis@hotmail.com'
+              placeholder='email@educamas.co'
               name='email'
               value={email}
               onChange={handleChangeInput}
             />
+            <h4>Contraseña</h4>
             <Input
               type='Password'
-              label='Contraseña'
               placeholder='********'
               name='password'
               value={password}
@@ -75,7 +75,7 @@ function Login () {
           <button className='button-login' type='submit'>
             INGRESAR
           </button>
-          <Link to='/forgot_password'>Olvidaste la contraseña?</Link>
+          <Link to='/forgot_password'>¿Olvidó su contraseña?</Link>
         </form>
       </div>
     </div>

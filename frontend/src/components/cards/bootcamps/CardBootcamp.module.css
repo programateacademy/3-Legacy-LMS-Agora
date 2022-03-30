@@ -1,7 +1,7 @@
 .card {
   width: 270px;
   margin: 2rem;
-  background-color: #fff;
+  background-color: var(--colorWhite);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -41,7 +41,7 @@
   margin-top: 5rem;
   margin-left: 5rem;
   border-radius: 50%;
-  border: 10px solid white;
+  border: 10px solid var(--colorWhite);
   background-color: var(--colorBlack);
 }
 .card:hover > .circleDecor {
@@ -56,7 +56,7 @@
   margin-top: 5rem;
   margin-left: 9rem;
   border-radius: 50%;
-  border: 10px solid white;
+  border: 10px solid var(--colorWhite);
   background-color: var(--colorYellow);
 }
 .card:hover > .circleDecor2 {

@@ -28,7 +28,7 @@
 
 .button_return {
   align-self: flex-start;
-  background-color: #ffd808;
+  background-color: var(--colorYellow);
   border-radius: 10px;
   color: var(--colorBlack);
   display: flex;
@@ -47,7 +47,7 @@
 
 .button_return:hover {
   background-color: var(--colorBlack);
-  color: #ffd808;
+  color: var(--colorYellow);
   transition: 0.3s;
 }
 
@@ -122,7 +122,7 @@
 }
 
 .line{
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid var(--colorBlack);
     width: 100%;
 }
 

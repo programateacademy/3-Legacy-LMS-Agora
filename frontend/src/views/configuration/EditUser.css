@@ -14,7 +14,7 @@
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   border-radius: 14px;
   padding: 50px;
-  background-color: #fff;
+  background-color: var(--colorWhite);
 }
 .title-editUser {
   text-shadow: 1px 1px 1px rgba(34, 34, 34, 0.2);
@@ -33,7 +33,7 @@
 }
 .button-editUser-update {
   font-weight: bold;
-  background-color: #ffd808;
+  background-color: var(--colorYellow);
   margin: auto;
   padding: 10px;
   width: 100%;

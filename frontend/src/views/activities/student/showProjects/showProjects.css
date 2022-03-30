@@ -9,7 +9,7 @@
 }
 
 .cardProject {
-  background-color: white;
+  background-color: var(--colorWhite);
   max-width: 340px;
   margin: 0 auto;
   border-radius: 0 0 12px 12px;

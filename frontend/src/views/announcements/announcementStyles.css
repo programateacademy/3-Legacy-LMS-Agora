@@ -65,7 +65,7 @@
   width: 100%;
   padding: 10px;
   border-radius: 5px;
-  color: #fff;
+  color: var(--colorWhite);
   font-size: 16px;
   transition: 0.3s ease all;
 }
@@ -87,19 +87,19 @@
 }
 
 .announcementForm button[type="submit"] {
-  background: #ffd808;
+  background: var(--colorYellow);
   font-family: "Roboto", sans-serif;
   width: 100px;
   margin: auto;
-  color: black;
+  color: var(--colorBlack);
   font-size: 15px;
   -webkit-box-shadow:4px 5px 4px #977902cd;
   
 }
 
 .announcementForm button[type="submit"]:hover {
-  background: black;
-  color: #ffd808;
+  background: var(--colorBlack);
+  color: var(--colorYellow);
 }
 
 /* Estilos del componente CreateAnnouncement*/
@@ -108,7 +108,7 @@
   width: 90%;
   margin: auto;
   max-width: 1300px;
-  background-color: white;
+  background-color: var(--colorWhite);
   padding: 2.5rem;
   border-bottom: 1px solid rgb(185, 185, 185);
 }
@@ -158,7 +158,7 @@
   width: 100%;
   margin: auto;
   max-width: 1300px;
-  background-color: white;
+  background-color: var(--colorWhite);
   padding: 2.5rem;
   border-bottom: 1px solid rgb(185, 185, 185);
 }

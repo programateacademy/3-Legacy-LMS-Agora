@@ -9,7 +9,7 @@ export function Footer() {
       <footer>
         <div className={style.footerContainer}>
           <p className={style.sign}>
-            Desarrollado por Quackcoders - Prográmate - Educamas ©2021
+            Desarrollado - Prográmate - Educamas ©2021-2022
           </p>
 
           <div className={style.socialNetworksContainer}>
@@ -18,7 +18,7 @@ export function Footer() {
               target="_blank"
               rel="noreferrer"
             >
-              <i style={{ color: "white" }} className="fab fa-facebook"></i>
+              <i style={{ color: "#FEFEFE" }} className="fab fa-facebook"></i>
             </a>
             <a
               href="https://www.youtube.com/channel/UCmnr_sLPZ1E8H1VgUtaHGPQ
@@ -26,14 +26,14 @@ export function Footer() {
               target="_blank"
               rel="noreferrer"
             >
-              <i style={{ color: "white" }} className="fab fa-youtube"></i>{" "}
+              <i style={{ color: "#FEFEFE" }} className="fab fa-youtube"></i>{" "}
             </a>
             <a
               href="https://www.instagram.com/somoseducamas/"
               target="_blank"
               rel="noreferrer"
             >
-              <i style={{ color: "white" }} className="fab fa-instagram"></i>
+              <i style={{ color: "#FEFEFE" }} className="fab fa-instagram"></i>
             </a>
           </div>
           <div className={style.LogosContainer}>

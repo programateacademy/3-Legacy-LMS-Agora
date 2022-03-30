@@ -3,79 +3,73 @@
   border-radius: 10px;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
   display: flex;
-  padding: 1rem;
+  height: 250px;
   margin: 3vh;
   overflow: hidden;
+  padding: 1rem;
   width: 60vw;
-  height: 250px;
 }
-
 .cohortInfo h3 {
   text-align: center;
 }
-
 .cohort p {
   letter-spacing: 0.5px;
   text-align: center;
 }
-
 .cohortImage {
-  width: 30%;
-  height: 90%;
+  align-items: center;
+  background-color: var(--colorWhite);
   display: flex;
+  height: 200px;
   justify-content: center;
-  align-items: center;
   margin: auto;
-  background-color: white;
+  width: 30%;
 }
-
 .cohortImage img {
-  width: 100%;
+  height: auto;
+  max-height: 98%;
+  max-width: 95%;
+  width: auto;
 }
-
 .cohortInfo {
-  text-align: justify;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   margin: auto;
+  text-align: justify;
   width: 40%;
 }
-
 .cohort h5 {
   font-weight: bolder;
   margin-top: 2vh;
   text-align: center;
 }
-
 .buttonsContainer {
+  align-items: space-evenly;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  align-items: space-evenly;
   margin: 0 auto;
   width: 15%;
 }
-
 @media (max-width: 768px) {
   .cohort {
     flex-direction: column;
     height: auto;
     width: 90%;
   }
-
   .cohortImage {
-    width: 100%;
-    display: flex;
-    justify-content: center;
     align-items: center;
+    background-color: var(--colorWhite);
+    display: flex;
+    height: 150px;
+    justify-content: center;
     margin: 2vh auto;
-    background-color: white;
+    width: 100%;
   }
-
   .buttonsContainer {
-    width: 90%;
-    margin: 2vh auto;
     gap: 2vh;
+    margin: 2vh auto;
+    width: 90%;
   }
   .cohortInfo {
     width: 90%;

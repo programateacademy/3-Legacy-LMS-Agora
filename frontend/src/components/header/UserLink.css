@@ -1,6 +1,6 @@
 .icon-signIn {
   font-size: 20px;
-  color: #ffd808;
+  color: var(--colorYellow);
 }
 
 .container-main-avatarContainer{
@@ -9,7 +9,7 @@
 
 .link {
   text-decoration: none;
-  color: black;
+  color: var(--colorBlack);
 }
 
 .avatarContainer {
@@ -23,7 +23,7 @@
   justify-content: center;
   width: 40px;
   height: 40px;
-  background-color: #ffd808;
+  background-color: var(--colorYellow);
   border-radius: 50%;
 }
 .openMenu{

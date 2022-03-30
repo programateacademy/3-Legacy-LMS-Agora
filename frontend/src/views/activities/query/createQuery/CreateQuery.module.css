@@ -48,7 +48,7 @@
     margin: 1rem;
   }
   .line{
-      border-bottom: 2px solid black;
+      border-bottom: 2px solid var(--colorBlack);
       width: 100%;
   }
   .containerThree{

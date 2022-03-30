@@ -24,15 +24,15 @@ export function ProfileStudent(){
                 <div className={styles.cajaLink}>
                     <div className={styles.cajaUlt}>
                         <input type="text" placeholder="Enlace Linkedin" />
-                        <AiFillLinkedin size={30} color="white"/>
+                        <AiFillLinkedin size={30} color="#FEFEFE"/>
                     </div>
                     <div className={styles.cajaUlt}>
                         <input type="text" placeholder="Enlace Github"/>
-                        <AiFillGithub size={30} color="white"/>
+                        <AiFillGithub size={30} color="#FEFEFE"/>
                     </div>
                     <div className={styles.cajaUlt}>
                         <input type="text" placeholder="Enlace Portafolio"/>
-                        <FaNewspaper size={30} color="white"/>
+                        <FaNewspaper size={30} color="#FEFEFE"/>
                     </div>
                     <div className={styles.cajaUlt}>
                         <button>boton</button>
