@@ -1,18 +1,16 @@
-import ACTIONS from './index'
-import apiAgora from '../../api'
+import ACTIONS from "./index";
+import apiAgora from "../../api";
 
 export const fetchAllAnunncies = async (token) => {
-    const res = await apiAgora.get('http://localhost:3005/api/agora/get-announcies', {
-        headers: {Authorization: token}
-    })
-    return res
-}
-
+  const res = await apiAgora.get("/api/agora/get-announcies", {
+    headers: { Authorization: token },
+  });
+  return res;
+};
 
 export const dispatchGetAllAnnucies = (res) => {
-    return {
-        type: ACTIONS.GET_ANNUNCIES,
-        payload: res.data
-    }
-}
-
+  return {
+    type: ACTIONS.GET_ANNUNCIES,
+    payload: res.data,
+  };
+};

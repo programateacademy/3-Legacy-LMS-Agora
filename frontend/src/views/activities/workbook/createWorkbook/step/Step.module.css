@@ -1,6 +1,6 @@
-.modal {
+/* .modal {
     position: fixed;
-    background-color: black;
+    background-color: transparent;
     top: -10px;
     left: -10px;
     right: -10px;
@@ -84,4 +84,4 @@
     display: flex;
     justify-content: center;
     margin-top: 2rem;
-}
+} */

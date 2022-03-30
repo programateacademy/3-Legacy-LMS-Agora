@@ -5,7 +5,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import apiAgora from "../../../../api";
 import { showErrMsg, showSuccessMsg } from "../../../../utils/notification";
-import { StepUpdate } from "./stepUpdate/StepUpdate";
+import { Step } from "./step/Step.jsx";
 import { FiEdit } from "react-icons/fi";
 import { BsArrowLeftCircle } from "react-icons/bs";
 
@@ -23,6 +23,7 @@ const initialState = {
   date: "",
 };
 
+const initialStateLink = { nameLink: "", link: "" };
 export function CreateWorkbook() {
   const auth = useSelector((state) => state.auth);
   const userID = auth.user.id;
@@ -30,12 +31,9 @@ export function CreateWorkbook() {
   const cohortID = params.id;
   let navigate = useNavigate();
   const [workbook, setWorkbook] = useState(initialState);
-  const [image, setImage] = useState();
+  const [image, setImage] = useState("");
   const [itemArray, setItemArray] = useState("");
-  const [objectLink, setObjectLink] = useState({
-    nameLink: "",
-    link: "",
-  });
+  const [objectLink, setObjectLink] = useState(initialStateLink);
   const [step, setStep] = useState({
     descriptionStep: "",
     imageExampleStep: "",
@@ -47,14 +45,6 @@ export function CreateWorkbook() {
     imageExampleStep: "",
     imageResultStep: "",
   });
-
-  const {
-    descriptionStep,
-    imageExampleStep,
-    codeStep,
-    imageResultStep,
-    notesStep,
-  } = step;
 
   const {
     titleWorkbook,
@@ -71,6 +61,13 @@ export function CreateWorkbook() {
     success,
   } = workbook;
 
+  const {
+    descriptionStep,
+    imageExampleStep,
+    codeStep,
+    imageResultStep,
+    notesStep,
+  } = step;
   //Image
   const handleImage = (e) => {
     const { name, value } = e.target;
@@ -114,6 +111,7 @@ export function CreateWorkbook() {
         [name]: [...workbook[name], objectLink],
       });
     }
+    setObjectLink(initialStateLink);
   };
   // Steps
   const handleChangeStep = (e) => {
@@ -187,11 +185,11 @@ export function CreateWorkbook() {
   };
 
   /////////////
-  const [openModal, setOpenModal] = useState(false);
-  const [modalInfo, setModalInfo] = useState({ info: "", position: "" });
-  const handleModal = (item, index) => {
-    setOpenModal(!openModal);
-    setModalInfo({ info: item, position: index });
+  const [openInfo, setOpenInfo] = useState(false);
+  const [infoStep, setInfoStep] = useState({ index: "", stepShow: "" });
+  const handleInfostep = (index, stepShow) => {
+    setOpenInfo(!openInfo);
+    setInfoStep({ index: index, stepShow: stepShow });
   };
   ///////////////
 
@@ -504,7 +502,7 @@ export function CreateWorkbook() {
                       </button>
                       <button
                         type="button"
-                        onClick={() => handleModal(item, index)}
+                        onClick={() => handleInfostep(index, item)}
                       >
                         <FiEdit size={30} />
                       </button>
@@ -512,14 +510,10 @@ export function CreateWorkbook() {
                   </div>
                 ))
               : null}
+            {/* If the info is shown, display the information*/}
+            {openInfo ? <Step info={infoStep} setOpenInfo={setOpenInfo} /> : ""}
           </div>
         </div>
-        {/* If the modal is shown, display the information*/}
-        {openModal ? (
-          <StepUpdate setOpenModal={setOpenModal} modalInfo={modalInfo} />
-        ) : (
-          ""
-        )}
 
         {/* Challenge */}
         <div>
