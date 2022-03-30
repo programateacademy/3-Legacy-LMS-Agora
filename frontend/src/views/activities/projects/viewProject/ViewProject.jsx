@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import style from "./UpdateProject.module.css";
+import style from "../updateProject/UpdateProject.module.css";
 import { MdDeleteForever, MdOutlineAddCircle } from "react-icons/md";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -64,11 +64,11 @@ export function ViewProject() {
     date,
     success,
   } = project;
-//   const [objectLink, setObjectLink] = useState({
-//     nameLink: "",
-//     link: "",
-//   });
-//   const { nameLink, link } = objectLink;
+  const [objectLink, setObjectLink] = useState({
+    nameLink: "",
+    link: "",
+  });
+   const { nameLink, link } = objectLink;
   //fetch project 
 
   const fetchAdmins = async () => {
@@ -92,162 +92,160 @@ export function ViewProject() {
     setCohortCompetences(resCompetencesCohort.data);
   };
 
-//   // Selecting competences
-//   const handleChangeSelectLevel = (e) => {
-//     setSelectedCompetence({ ...selectedCompetence, level: e.target.value });
-//   };
+// Selecting competences
+   const handleChangeSelectLevel = (e) => {
+     setSelectedCompetence({ ...selectedCompetence, level: e.target.value });
+   };
+   const handleChangeSelect = (e) => {
+    setSelectedCompetence({
+       ...selectedCompetence,
+      id: e.target.value,
+      fullNameCompetences: e.target.options[e.target.selectedIndex].text,
+    });
+   };
 
-//   const handleChangeSelect = (e) => {
-//     setSelectedCompetence({
-//       ...selectedCompetence,
-//       id: e.target.value,
-//       fullNameCompetences: e.target.options[e.target.selectedIndex].text,
-//     });
-//   };
-
-  //Image
-//   const handleImage = (e) => {
-//     const { name, value } = e.target;
-//     setProject({
-//       ...project,
-//       [name]: value,
-//       err: "",
-//       success: "",
-//     });
-//     setImage(value);
-//   };
+   //Image
+   const handleImage = (e) => {
+    const { name, value } = e.target;
+    setProject({
+      ...project,
+       [name]: value,
+       err: "",
+       success: "",
+    });
+    setImage(value);
+  };
   //general info project
-//   const handleChangeInput = (e) => {
-//     const { name, value } = e.target;
-//     setProject({ ...project, [name]: value, err: "", success: "" });
-//   };
-  //add item
-//   const handleChangeArray = (e) => {
-//     setItemArray(e.target.value);
-//   };
-  //add link resources
-//   const handleChangeLink = (e) => {
-//     const { name, value } = e.target;
-//     setObjectLink({
-//       ...objectLink,
-//       [name]: value,
-//       err: "",
-//       success: "",
-//     });
-//   };
-//   const onClickObject = (name) => {
-//     if (objectLink.link.trim() && objectLink.nameLink.trim()) {
-//       setProject({
-//         ...project,
-//         [name]: [...project[name], objectLink],
-//         err: "",
-//         success: "",
-//       });
-//     }
-//   };
+   const handleChangeInput = (e) => {
+     const { name, value } = e.target;
+    setProject({ ...project, [name]: value, err: "", success: "" });
+   };
+ //add item
+   const handleChangeArray = (e) => {
+     setItemArray(e.target.value);
+   };
+//add link resources
+   const handleChangeLink = (e) => {
+     const { name, value } = e.target;
+     setObjectLink({
+       ...objectLink,
+       [name]: value,
+       err: "",
+       success: "",
+     });
+   };
+   const onClickObject = (name) => {
+     if (objectLink.link.trim() && objectLink.nameLink.trim()) {
+       setProject({
+         ...project,
+         [name]: [...project[name], objectLink],
+         err: "",
+         success: "",
+       });
+     }
+  };
 
-//   const onClickArray = (name) => {
-//     if (itemArray.trim()) {
-//       setProject({
-//         ...project,
-//         [name]: [...project[name], itemArray],
-//         err: "",
-//         success: "",
-//       });
-//       setItemArray('');
-//     }
-//   };
+ const onClickArray = (name) => {
+    if (itemArray.trim()) {
+       setProject({
+         ...project,
+         [name]: [...project[name], itemArray],
+         err: "",
+         success: "",
+      });
+     setItemArray('');
+     }
+  };
 
-//   const onClickCompetences = (name) => {
-//     if (
-//       !competencesIDS.includes(selectedCompetence.id) &&
-//       selectedCompetence.id &&
-//       selectedCompetence.level
-//     ) {
-//       setCompetencesIDS((prev) => [...prev, selectedCompetence.id]);
-//       setProject({
-//         ...project,
-//         [name]: [
-//           ...project[name],
-//           {
-//             competenceID: selectedCompetence.id,
-//             level: selectedCompetence.level,
-//             name: selectedCompetence.fullNameCompetences,
-//           },
-//         ],
+   const onClickCompetences = (name) => {
+    if (
+       !competencesIDS.includes(selectedCompetence.id) &&
+      selectedCompetence.id &&
+     selectedCompetence.level
+    ) {
+      setCompetencesIDS((prev) => [...prev, selectedCompetence.id]);
+       setProject({
+         ...project,
+         [name]: [
+           ...project[name],
+           {
+             competenceID: selectedCompetence.id,
+            level: selectedCompetence.level,
+             name: selectedCompetence.fullNameCompetences,
+           },
+         ],
+        err: "",
+         success: "",
+      });
+     }
+   };
+  //delete item
+   const deleteItemArray = (name, item) => {
+     setProject({
+       ...project,
+       [name]: project[name].filter((e) => e !== item),
+    });
+   };
 
-//         err: "",
-//         success: "",
-//       });
-//     }
-//   };
-//   //delete item
-//   const deleteItemArray = (name, item) => {
-//     setProject({
-//       ...project,
-//       [name]: project[name].filter((e) => e !== item),
-//     });
-//   };
-
-//   const deleteCompetence = (name, item) => {
-//     setProject({
-//       ...project,
-//       [name]: project[name].filter((e) => e.competenceID !== item),
-//     });
-//     setCompetencesIDS(competencesIDS.filter((e) => e !== item));
-//   };
-//   useEffect(() => {
-//     fetchAdmins();
-//   }, []);
+const deleteCompetence = (name, item) => {
+     setProject({
+       ...project,
+       [name]: project[name].filter((e) => e.competenceID !== item),
+     });
+    setCompetencesIDS(competencesIDS.filter((e) => e !== item));
+   };
+   useEffect(() => {
+     fetchAdmins();
+   }, []);
 
   //save project info Backend
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     setProject({
-//       ...project, competences: project.competences.sort((a, b) => {
-//         return (a.name > b.name)
-//          ? 1 : -1
-//       })})
-//     try {
-//       if (auth.isTeacher) {
-//         const res = await apiAgora.put(
-//           "/api/agora/update-project/"+ projectID,
-//           {
-//             userID,
-//             titleProject,
-//             pictureProject,
-//             descriptionProject,
-//             competenceFramework,
-//             tagsProject,
-//             competences,
-//             resources,
-//             contextGeneral,
-//             contextGeneralReq,
-//             contextTechniciansReq,
-//             contextExtrasReq,
-//             pedagogyModality,
-//             performanceCriterias,
-//             evaluationModality,
-//             deliverablesProject,
-//             date,
-//           },
-//           {
-//             headers: { Authorization: userID },
-//           }
-//         );
-//         showSuccessMsg(success);
-//         setProject({ ...project, err: "", success: res.data.msg });
-//       }
-//     } catch (err) {
-//       showErrMsg(err.response.data.msg);
-//       err.response.data.msg &&
-//         setProject({
-//           ...project,
-//           err: err.response.data.msg,
-//           success: "",
-//         });
-//     }
-//   };
+   const handleSubmit = async (e) => {
+     e.preventDefault();
+     setProject({
+       ...project, competences: project.competences.sort((a, b) => {
+        return (a.name > b.name)
+          ? 1 : -1
+      })})
+    try {
+       if (auth.isTeacher) {
+         const res = await apiAgora.put(
+          "/api/agora/update-project/"+ projectID,
+           {
+           userID,
+             titleProject,
+            pictureProject,
+             descriptionProject,
+           competenceFramework,
+             tagsProject,
+             competences,
+            resources,
+             contextGeneral,
+            contextGeneralReq,
+             contextTechniciansReq,
+             contextExtrasReq,
+            pedagogyModality,
+             performanceCriterias,
+             evaluationModality,
+             deliverablesProject,
+            date,
+          },
+           {
+             headers: { Authorization: userID },
+           }
+         );
+         showSuccessMsg(success);
+         setProject({ ...project, err: "", success: res.data.msg });
+       }
+     } catch (err) {
+       showErrMsg(err.response.data.msg);
+       err.response.data.msg &&
+         setProject({
+           ...project,
+           err: err.response.data.msg,
+           success: "",
+         });
+     }
+   };
   return (
     <div className={style.formContainer}>
       <h1>Crear proyecto</h1>
@@ -262,7 +260,7 @@ export function ViewProject() {
                   alt="Imagen del proyecto"
                 />
               </div>
-              {/* <div className={style.file}>
+              <div className={style.file}>
                 <input
                   className={style.input__imageURL}
                   placeholder="Inserta URL de la imagen del proyecto"
@@ -271,7 +269,7 @@ export function ViewProject() {
                   value={pictureProject}
                   onChange={handleImage}
                 />
-              </div> */}
+              </div>
             </div>
             <div className= {style.frameofcompetence}>
               <h3>Marco de competencias</h3>
@@ -282,13 +280,13 @@ export function ViewProject() {
               <div className={style.addResourcesContainer}>
                 <p>{nameLink}</p>
                 <p>{link}</p>
-                {/* <button
+                <button
                    className={style.addTagsProject}
                   type="button"
                   onClick={() => onClickObject("resources")}
                 >
                   <MdOutlineAddCircle size={30} />
-                </button> */}
+                </button>
               </div>
               <div>
                 {resources.length !== 0
