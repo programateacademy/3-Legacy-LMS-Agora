@@ -20,7 +20,9 @@ import { UpdateRegisterAdmin } from "./views/auth/register/UpdateRegisterAdmin";
 import { RegisterTeacher } from "./views/auth/register/RegisterTeacher";
 import { Announcements } from "./views/announcements/Announcements";
 
-import { CardProject } from "../src/components/cards/activity/CardProject";
+import { Projects } from "./views/activities/projects/Projects";
+import { Queries } from "./views/activities/query/Queries";
+import {Workbooks} from "./views/activities/workbook/Workbooks"
 import DeliveryProjectStudent from "./views/activities/student/deliveryProject/DeliveryProjectStudent";
 import DeliveryProjectTrainer from "./views/activities/trainer/deliveryProject/DeliveryProjectTrainer";
 import Deliverie from "./components/deliverie/Deliverie";
@@ -176,6 +178,21 @@ export function RoutesApp() {
           <Route
             path="/project/create-project/:id"
             element={isTeacher ? <CreateProject /> : <Error404 />}
+            exact
+          />
+            <Route
+              path="/queries/:id"
+              element={isTeacher ? <Queries teacher={true} /> : isStudent ? <Queries teacher={false} /> : <Error404 />}
+              exact
+            />
+          <Route
+            path="/projects/:id"
+            element={isTeacher ? <Projects teacher={true} /> : isStudent ? <Projects teacher={false} /> :  <Error404 />}
+            exact
+          />
+          <Route
+            path="/workbooks/:id"
+            element={isTeacher ? <Workbooks teacher={true} /> : isStudent ? <Workbooks teacher={false} /> :  <Error404 />}
             exact
           />
           <Route
