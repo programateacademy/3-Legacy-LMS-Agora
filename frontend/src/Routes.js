@@ -22,7 +22,6 @@ import { Announcements } from "./views/announcements/Announcements";
 import CreateAnnouncement from "./views/announcements/CreateAnnouncement";
 
 import { CardProject } from "../src/components/cards/activity/CardProject";
-import AddProject from "./views/activities/trainer/addProject/AddProject";
 import DeliveryProjectStudent from "./views/activities/student/deliveryProject/DeliveryProjectStudent";
 import DeliveryProjectTrainer from "./views/activities/trainer/deliveryProject/DeliveryProjectTrainer";
 import Deliverie from "./components/deliverie/Deliverie";
@@ -30,7 +29,6 @@ import ShowProject from "./views/activities/ShowActivities/showProject/ShowProje
 /* import { ShowProjects } from "./views/activities/ShowActivities/showProjects/showProjects"; */
 
 import { ResetPassword } from "./views/auth/resetPassword/ResetPassword";
-import { Configuration } from "./views/configuration/Configuration";
 
 import ActivationEmail from "./views/auth/activationEmail/ActivationEmail";
 import { Footer } from "./components/footer/Footer";
@@ -173,14 +171,9 @@ export function RoutesApp() {
             element={isAdmin ? <DashboardCohort /> : <Error404 />}
             exact
           />
-          //isTeacher
-          {/* //isTeacher //isStudent //isAdmin */}
-          <Route path="/crearProyecto" element={<AddProject />} />
-          <Route path="/proyectos" element={<CardProject />} />
-          <Route path="/proyectos/:id" element={<ShowProject />} />
-          <Route path="/crearAnuncio" element={<CreateAnnouncement />} />
-          <Route path="/anuncios" element={<Announcements />} />
-          {/*      //isTeacher //isStudent */}
+          
+          {/* //isTeacher */}
+          
           <Route
             path="/project/create-project/:id"
             element={isTeacher ? <CreateProject /> : <Error404 />}

@@ -137,7 +137,7 @@
   display: flex;
   flex-direction: column;
   background-color: var(--colorGray);
-  box-shadow: 6px 10px 10px rgba(0, 0, 0, 0.59);
+  box-shadow: 6px 10px 10px var(--colorBlackOpacity);
   border-radius: 8px;
   margin-top: 1vh;
   margin-bottom: 4vh;
@@ -163,7 +163,7 @@
   padding: 3vh;
   display: flex;
   flex-direction: row;
-  box-shadow: 6px 10px 10px rgba(0, 0, 0, 0.59);
+  box-shadow: 6px 10px 10px var(--colorBlackOpacity);
 
 }
 
@@ -176,16 +176,15 @@
   width: 80px;
   padding: 2vh;
   border-radius: 1px;
-  background-color: rgba(255, 218, 10, 0.596);
+  background-color: var(--colorYellowOpacity);
   justify-content: center;
   justify-items: center;
 }
 
 .dateTimeDelivery input {
-  margin-top: 55px;
-  background-color: rgba(255, 218, 10, 0.596);
+  background-color: var(--colorYellowOpacity);
   box-shadow: none;
-  box-shadow: 6px 10px 10px rgba(0, 0, 0, 0.59);
+  box-shadow: 6px 10px 10px var(--colorBlackOpacity);
 
 }
 
@@ -204,7 +203,7 @@
   display: flex;
   flex-direction: column;
   background-color: var(--colorGray);
-  box-shadow: 6px 10px 10px rgba(0, 0, 0, 0.59);
+  box-shadow: 6px 10px 10px var(--colorBlackOpacity);
   border-radius: 8px;
   margin-top: 1vh;
   margin-bottom: 4vh;
@@ -250,13 +249,13 @@
 
 .tagContainer {
   display: flex;
-  background-color: rgba(255, 218, 10, 0.596);
+  background-color: var(--colorYellowOpacity);
   width: auto;
   border-radius: 20px;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   margin-top: 1vh;
-  box-shadow: 6px 10px 10px rgba(0, 0, 0, 0.59);
+  box-shadow: 6px 10px 10px var(--colorBlackOpacity);
   margin-bottom: 2vh;
   padding: 0.7vh;
 }
@@ -266,7 +265,7 @@
 }
 
 .tagContainer button:hover {
-  color: rgb(255, 42, 42);
+  color: var(--colorRed);
   transition: 0.2s;
 }
 
@@ -282,7 +281,7 @@
 
 .contextContainer {
   background-color: var(--colorGray);
-  box-shadow: 6px 10px 10px rgba(0, 0, 0, 0.59);
+  box-shadow: 6px 10px 10px var(--colorBlackOpacity);
   padding: 3vh;
   border-radius: 1px;
   margin-top: 15px;
@@ -295,7 +294,7 @@
   width: 85%;
   padding: 3vh;
   margin-bottom: max(3vh, 20px);
-  box-shadow: 6px 10px 10px rgba(0, 0, 0, 0.59);
+  box-shadow: 6px 10px 10px var(--colorBlackOpacity);
 }
 
 .inputsdeliveries {
@@ -329,12 +328,11 @@
   padding: 1.5vh;
   background-color: var(--colorYellow);
   border-radius: 10px;
+  margin-bottom: 20px;
 }
 
 .container_submit button:hover {
-  background-color: var(--colorGreenLight);
-  color: var(--colorWhite);
-  border-radius: 10px;
+  background-color: var(--colorBlack);
   transition: 0.3s;
 }
 
@@ -362,10 +360,12 @@
 .select {
   display: flex;
   align-items: center;
+  justify-content: space-around;
+  width: 80%;
 }
 
 .selectContainer {
-  width: 60%;
+  width: 80%;
   margin-right: 2vh;
 }
 

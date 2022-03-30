@@ -100,7 +100,7 @@
   color: green;
 }
 .table-info-students .icon-times {
-  color: red;
+  color: var(--colorRed)
 }
 .table-info-students .icon-edit {
   background: rgba(255, 218, 10, 0.835);

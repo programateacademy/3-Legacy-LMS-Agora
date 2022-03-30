@@ -46,7 +46,7 @@
 
 .donut-chart circle {
   fill: #dfdfdf;
-  stroke: red;
+  stroke: var(--colorRed)
   stroke-width: 32;
   stroke-dasharray: 0 100;
   -webkit-transition: stroke-dasharray 0.5s ease;

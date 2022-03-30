@@ -196,8 +196,9 @@ export function CreateProject() {
     setProject({
       ...project, competences: project.competences.sort((a, b) => {
         return (a.name > b.name)
-         ? 1 : -1
-      })});
+          ? 1 : -1
+      })
+    });
     try {
       if (auth.isTeacher) {
         const res = await apiAgora.post(
@@ -260,14 +261,15 @@ export function CreateProject() {
                   alt="Imagen del proyecto"
                 />
               </div>
-                <input
-                  className={style.input__imageURL}
-                  placeholder="Inserta URL de la imagen del proyecto"
-                  type="text"
-                  name="pictureProject"
-                  value={pictureProject}
-                  onChange={handleImage}
-                />
+              <h3>Imagen del Proyecto</h3>
+              <input
+                className={style.input__imageURL}
+                placeholder="Inserta URL de la imagen del proyecto"
+                type="text"
+                name="pictureProject"
+                value={pictureProject}
+                onChange={handleImage}
+              />
             </div>
             <div className={style.frameofcompetence}>
               <h3>Marco de competencias</h3>
@@ -290,56 +292,47 @@ export function CreateProject() {
                   onChange={handleChangeLink}
                 />
                 <div className={style.tagsProject}>
-                <h5>Link de recurso</h5>  
-                <input
-                  placeholder="..."
-                  type="text"
-                  name="link"
-                  value={link}
-                  onChange={handleChangeLink}
+                  <h5>Link de recurso</h5>
+                  <input
+                    placeholder="..."
+                    type="text"
+                    name="link"
+                    value={link}
+                    onChange={handleChangeLink}
                   />
-                <button
-                   className={style.addTagsProject}
-                   type="button"
-                   onClick={() => onClickObject("resources")}
-                   >
-                  <MdOutlineAddCircle size={30} />
-                </button>
-                  </div>
+                  <button
+                    className={style.addTagsProject}
+                    type="button"
+                    onClick={() => onClickObject("resources")}
+                  >
+                    <MdOutlineAddCircle size={30} />
+                  </button>
+                </div>
               </div>
               <div>
                 {resources.length !== 0
                   ? resources.map((item, index) => (
-                      <div className={style.tagContainer} key={index}>
-                        <AiOutlineLink className={style.linkIcon} size={30} />
-                        <div className={style.tagText}>
+                    <div className={style.tagContainer} key={index}>
+                      <AiOutlineLink className={style.linkIcon} size={30} />
+                      <div className={style.tagText}>
                         <a className={style.tag} href={item.link} target="_blank">
                           {item.nameLink}
                         </a></div>
-                        <button className={style.deleteTag}
-                          type="button"
-                          onClick={() => deleteItemArray("resources", item)}
-                        >
-                          <MdDeleteForever size={30} />
-                        </button>
-                      </div>
-                    ))
+                      <button className={style.deleteTag}
+                        type="button"
+                        onClick={() => deleteItemArray("resources", item)}
+                      >
+                        <MdDeleteForever size={30} />
+                      </button>
+                    </div>
+                  ))
                   : null}
               </div>
-            </div>
-            <div className={style.dateTimeDelivery}>
-              <input
-                placeholder="Fecha de entrega"
-                type="datetime-local"
-                name="date"
-                value={date}
-                onChange={handleChangeInput}
-              />
             </div>
           </div>
           <div className={style.containerTwo}>
             <div className={style.InitialContainer}>
-              <h5>Nombre del proyecto</h5>
+              <h3>Nombre del Proyecto</h3>
               <input
                 placeholder="..."
                 type="text"
@@ -347,15 +340,15 @@ export function CreateProject() {
                 value={titleProject}
                 onChange={handleChangeInput}
               />
-              <h5>Descripción</h5>
+              <h3>Descripción del Proyecto</h3>
               <textarea
                 name="descriptionProject"
                 value={descriptionProject}
                 placeholder="..."
                 onChange={handleChangeInput}
               ></textarea>
+              <h3>Etiquetas del Proyecto</h3>
               <div className={style.tagsProject}>
-              <h5>Etiqueta de proyecto</h5>
                 <input
                   placeholder="..."
                   type="text"
@@ -374,7 +367,7 @@ export function CreateProject() {
                   ? tagsProject.map((item, index) => (
                     <div className={style.tagContainer} key={index}>
                       <div className={style.tagText}>
-                      <p className={style.tag} >{item}</p>
+                        <p className={style.tag} >{item}</p>
                       </div>
                       <button className={style.deleteTag}
                         type="button"
@@ -389,8 +382,7 @@ export function CreateProject() {
             </div>
             <div className={style.contextContainer}>
               <h3>Contexto del Proyecto</h3>
-              <h5>Descripción</h5>
-              <textarea 
+              <textarea
                 placeholder="..."
                 name="contextGeneral"
                 value={contextGeneral}
@@ -398,239 +390,243 @@ export function CreateProject() {
               ></textarea>
             </div>
             
+            <h3>Fecha y Hora de Entrega</h3>
+            <div className={style.dateTimeDelivery}>
+              <input
+                placeholder="Fecha de entrega"
+                type="datetime-local"
+                name="date"
+                value={date}
+                onChange={handleChangeInput}
+              />
+            </div>
+
           </div>
         </div>
         <div className={style.line}></div>
         <div className={style.deliveryContainer}>
+          <div className={style.summaryProject}>
+            <h3>Requerimientos Generales</h3>
+            <div className={style.tagsProject}>
+              <textarea
+                placeholder="..."
+                type="text"
+                onChange={handleChangeArray}
+              />
+              <button
+                className={style.addTagsProject}
+                type="button"
+                onClick={() => onClickArray("contextGeneralReq")}
+              >
+                <MdOutlineAddCircle size={30} />
+              </button>
+            </div>
+          </div>
+          <div>
+            {contextGeneralReq.length !== 0
+              ? contextGeneralReq.map((item, index) => (
+                <div className={style.tagContainer} key={index}>
+                  <div className={style.tagText}>
+                    <p className={style.tag}>{item}</p>
+                  </div>
+                  <button className={style.deleteTag}
+                    type="button"
+                    onClick={() =>
+                      deleteItemArray("contextGeneralReq", item)
+                    }
+                  >
+                    <MdDeleteForever size={30} />
+                  </button>
+                </div>
+              ))
+              : null}
+          </div>
+        
         <div className={style.summaryProject}>
-              <h3>Requerimientos Generales</h3>
-              </div>
-              <div className={style.tagsProject}>
-              <h5>Etiqueta de proyecto</h5>  
-                <textarea
-                  placeholder="..."
-                  type="text"
-                  onChange={handleChangeArray}
-                />
-                <button
-                  className={style.addTagsProject}
-                  type="button"
-                  onClick={() => onClickArray("contextGeneralReq")}
-                >
-                  <MdOutlineAddCircle size={30} />
-                </button>
-              </div>
-              <div>
-                {contextGeneralReq.length !== 0
-                  ? contextGeneralReq.map((item, index) => (
-                    <div className={style.tagContainer} key={index}>
-                      <div className={style.tagText}>
-                      <p className={style.tag}>{item}</p>
-                      </div>
-                      <button className={style.deleteTag}
-                        type="button"
-                        onClick={() =>
-                          deleteItemArray("contextGeneralReq", item)
-                        }
-                      >
-                        <MdDeleteForever size={30} />
-                      </button>
-                    </div>
-                  ))
-                  : null}
-              </div>
-            </div>
-            <div className={style.summaryProject}>
-              <h3>Requerimientos Técnicos</h3>
-              <div className={style.tagsProject}>
-              <h5>Etiqueta de proyecto</h5>  
-                <textarea
-                  placeholder="..."
-                  type="text"
-                  onChange={handleChangeArray}
-                />
-                <button
-                  className={style.addTagsProject}
-                  type="button"
-                  onClick={() => onClickArray("contextTechniciansReq")}
-                >
-                  <MdOutlineAddCircle size={30} />
-                </button>
-              </div>
-              <div>
-                {contextTechniciansReq.length !== 0
-                  ? contextTechniciansReq.map((item, index) => (
-                    <div className={style.tagContainer}  key={index}>
-                      <div className={style.tagText}>
-                      <p className={style.tag}>{item}</p>
-                      </div>
-                      <button className={style.deleteTag}
-                        type="button"
-                        onClick={() =>
-                          deleteItemArray("contextTechniciansReq", item)
-                        }
-                      >
-                        <MdDeleteForever size={30} />
-                      </button>
-                    </div>
-                  ))
-                  : null}
-              </div>
-            </div>
-            <div className={style.summaryProject}>
-              <h3>Requerimientos Adicionales</h3>
-              <div className={style.tagsProject}>
-              <h5>Etiqueta de proyecto</h5>  
-                <textarea
-                  placeholder="..."
-                  type="text"
-                  onChange={handleChangeArray}
-                />
-                <button
-                  className={style.addTagsProject}
-                  type="button"
-                  onClick={() => onClickArray("contextExtrasReq")}
-                >
-                  <MdOutlineAddCircle size={30} />
-                </button>
-              </div>
-              <div>
-                {contextExtrasReq.length !== 0
-                  ? contextExtrasReq.map((item, index) => (
-                    <div className={style.tagContainer} key={index}>
-                      <div className={style.tagText}>
-                      <p className={style.tag}>{item}</p></div>
-                      <button className={style.deleteTag}
-                        type="button"
-                        onClick={() =>
-                          deleteItemArray("contextExtrasReq", item)
-                        }
-                      >
-                        <MdDeleteForever size={30} />
-                      </button>
-                    </div>
-                  ))
-                  : null}
-              </div>
-            </div>
-            <div className={style.summaryProject}>
-              <h3>Modalidad Pedagógica</h3>
-              <div className={style.tagsProject}>
-              <h5>Etiqueta de proyecto</h5>  
-                <textarea
-                  placeholder="..."
-                  type="text"
-                  onChange={handleChangeArray}
-                />
-                <button
-                  className={style.addTagsProject}
-                  type="button"
-                  onClick={() => onClickArray("pedagogyModality")}
-                >
-                  <MdOutlineAddCircle size={30} />
-                </button>
-              </div>
-              <div>
-                {pedagogyModality.length !== 0
-                  ? pedagogyModality.map((item, index) => (
-                    <div className={style.tagContainer} key={index}>
-                       <div className={style.tagText}>
-                      <p className={style.tag}>{item}</p></div>
-                      <button className={style.deleteTag}
-                        type="button"
-                        onClick={() =>
-                          deleteItemArray("pedagogyModality", item)
-                        }
-                      >
-                        <MdDeleteForever size={30} />
-                      </button>
-                    </div>
-                  ))
-                  : null}
-              </div>
-            </div>
-            <div className={style.summaryProject}>
-              <h3>Criterios de Rendimiento</h3>
-              <div className={style.tagsProject}>
-              <h5>Descripción</h5>  
-                <textarea
-                  placeholder="..."
-                  type="text"
-                  onChange={handleChangeArray}
-                />
-                <button
-                  className={style.addTagsProject}
-                  type="button"
-                  onClick={() => onClickArray("performanceCriterias")}
-                >
-                  <MdOutlineAddCircle size={30} />
-                </button>
-              </div>
-              <div>
-                {performanceCriterias.length !== 0
-                  ? performanceCriterias.map((item, index) => (
-                    <div className={style.tagContainer} key={index}>
-                    <div className={style.tagText}>
-                      <p className={style.tag}>{item}</p></div>
-                      <button className={style.deleteTag}
-                        type="button"
-                        onClick={() =>
-                          deleteItemArray("performanceCriterias", item)
-                        }
-                      >
-                        <MdDeleteForever size={30} />
-                      </button>
-                    </div>
-                  ))
-                  : null}
-              </div>
-            </div>
-            <div className={style.summaryProject}>
-              <h3>Modalidad de Evaluación</h3>
-              <div className={style.tagsProject}>
-              <h5>Descripción</h5>  
-                <textarea
-                  placeholder="..."
-                  type="text"
-                  onChange={handleChangeArray}
-                />
-                <button
-                  className={style.addTagsProject}
-                  type="button"
-                  onClick={() => onClickArray("evaluationModality")}
-                >
-                  <MdOutlineAddCircle size={30} />
-                </button>
-              </div>
-              <div>
-                {evaluationModality.length !== 0
-                  ? evaluationModality.map((item, index) => (
-                    <div className={style.tagContainer} key={index}>
-                      <div className={style.tagText}>
-                      <p className={style.tag}>{item}</p></div>
-                      <button className={style.deleteTag}
-                        type="button"
-                        onClick={() =>
-                          deleteItemArray("evaluationModality", item)
-                        }
-                      >
-                        <MdDeleteForever size={30} />
-                      </button>
-                    </div>
-                  ))
-                  : null}
-              </div>
-            </div>
-            <div className={style.line}></div>
-          <div className={style.inputsdeliveries}>
-          <h3>Entregables del Proyecto</h3>
-          <div className={style.inputDeliveryContainer}>
-            <div className={style.inputDelivery}>
+          <h3>Requerimientos Técnicos</h3>
+          <div className={style.tagsProject}>
             <textarea
               placeholder="..."
               type="text"
               onChange={handleChangeArray}
             />
+            <button
+              className={style.addTagsProject}
+              type="button"
+              onClick={() => onClickArray("contextTechniciansReq")}
+            >
+              <MdOutlineAddCircle size={30} />
+            </button>
+          </div>
+          <div>
+            {contextTechniciansReq.length !== 0
+              ? contextTechniciansReq.map((item, index) => (
+                <div className={style.tagContainer} key={index}>
+                  <div className={style.tagText}>
+                    <p className={style.tag}>{item}</p>
+                  </div>
+                  <button className={style.deleteTag}
+                    type="button"
+                    onClick={() =>
+                      deleteItemArray("contextTechniciansReq", item)
+                    }
+                  >
+                    <MdDeleteForever size={30} />
+                  </button>
+                </div>
+              ))
+              : null}
+          </div>
+        </div>
+        <div className={style.summaryProject}>
+          <h3>Requerimientos Adicionales</h3>
+          <div className={style.tagsProject}>
+            <textarea
+              placeholder="..."
+              type="text"
+              onChange={handleChangeArray}
+            />
+            <button
+              className={style.addTagsProject}
+              type="button"
+              onClick={() => onClickArray("contextExtrasReq")}
+            >
+              <MdOutlineAddCircle size={30} />
+            </button>
+          </div>
+          <div>
+            {contextExtrasReq.length !== 0
+              ? contextExtrasReq.map((item, index) => (
+                <div className={style.tagContainer} key={index}>
+                  <div className={style.tagText}>
+                    <p className={style.tag}>{item}</p></div>
+                  <button className={style.deleteTag}
+                    type="button"
+                    onClick={() =>
+                      deleteItemArray("contextExtrasReq", item)
+                    }
+                  >
+                    <MdDeleteForever size={30} />
+                  </button>
+                </div>
+              ))
+              : null}
+          </div>
+        </div>
+        <div className={style.summaryProject}>
+          <h3>Modalidad Pedagógica</h3>
+          <div className={style.tagsProject}>
+            <textarea
+              placeholder="..."
+              type="text"
+              onChange={handleChangeArray}
+            />
+            <button
+              className={style.addTagsProject}
+              type="button"
+              onClick={() => onClickArray("pedagogyModality")}
+            >
+              <MdOutlineAddCircle size={30} />
+            </button>
+          </div>
+          <div>
+            {pedagogyModality.length !== 0
+              ? pedagogyModality.map((item, index) => (
+                <div className={style.tagContainer} key={index}>
+                  <div className={style.tagText}>
+                    <p className={style.tag}>{item}</p></div>
+                  <button className={style.deleteTag}
+                    type="button"
+                    onClick={() =>
+                      deleteItemArray("pedagogyModality", item)
+                    }
+                  >
+                    <MdDeleteForever size={30} />
+                  </button>
+                </div>
+              ))
+              : null}
+          </div>
+        </div>
+        <div className={style.summaryProject}>
+          <h3>Criterios de Rendimiento</h3>
+          <div className={style.tagsProject}>
+            <textarea
+              placeholder="..."
+              type="text"
+              onChange={handleChangeArray}
+            />
+            <button
+              className={style.addTagsProject}
+              type="button"
+              onClick={() => onClickArray("performanceCriterias")}
+            >
+              <MdOutlineAddCircle size={30} />
+            </button>
+          </div>
+          <div>
+            {performanceCriterias.length !== 0
+              ? performanceCriterias.map((item, index) => (
+                <div className={style.tagContainer} key={index}>
+                  <div className={style.tagText}>
+                    <p className={style.tag}>{item}</p></div>
+                  <button className={style.deleteTag}
+                    type="button"
+                    onClick={() =>
+                      deleteItemArray("performanceCriterias", item)
+                    }
+                  >
+                    <MdDeleteForever size={30} />
+                  </button>
+                </div>
+              ))
+              : null}
+          </div>
+        </div>
+        <div className={style.summaryProject}>
+          <h3>Modalidad de Evaluación</h3>
+          <div className={style.tagsProject}>
+            <textarea
+              placeholder="..."
+              type="text"
+              onChange={handleChangeArray}
+            />
+            <button
+              className={style.addTagsProject}
+              type="button"
+              onClick={() => onClickArray("evaluationModality")}
+            >
+              <MdOutlineAddCircle size={30} />
+            </button>
+          </div>
+          <div>
+            {evaluationModality.length !== 0
+              ? evaluationModality.map((item, index) => (
+                <div className={style.tagContainer} key={index}>
+                  <div className={style.tagText}>
+                    <p className={style.tag}>{item}</p></div>
+                  <button className={style.deleteTag}
+                    type="button"
+                    onClick={() =>
+                      deleteItemArray("evaluationModality", item)
+                    }
+                  >
+                    <MdDeleteForever size={30} />
+                  </button>
+                </div>
+              ))
+              : null}
+          </div>
+        </div>
+        <div className={style.inputsdeliveries}>
+          <h3>Entregables del Proyecto</h3>
+          <div className={style.inputDeliveryContainer}>
+            <div className={style.inputDelivery}>
+              <textarea
+                placeholder="..."
+                type="text"
+                onChange={handleChangeArray}
+              />
             </div>
             <button className={style.addTagsProject}
               type="button"
@@ -644,7 +640,7 @@ export function CreateProject() {
               ? deliverablesProject.map((item, index) => (
                 <div className={style.tagContainer} key={index}>
                   <div className={style.tagText}>
-                  <p className={style.tag}>{item}</p>
+                    <p className={style.tag}>{item}</p>
                   </div>
                   <button className={style.deleteTag}
                     type="button"
@@ -658,7 +654,7 @@ export function CreateProject() {
               ))
               : null}
           </div>
-            <h3>Competencias</h3>
+          <h3>Competencias</h3>
           <div className={style.containerFormadores}>
             <div className={style.select}>
               <select className={style.selectContainer}
@@ -690,7 +686,7 @@ export function CreateProject() {
               <button
                 className={style.addTagsProject}
                 type="button"
-                onClick={() => onClickArray("deliverablesProject")}
+                onClick={() => onClickCompetences("competences")}
               >
                 <MdOutlineAddCircle size={30} />
               </button>
@@ -701,9 +697,9 @@ export function CreateProject() {
               ? competences.map((item, index) => (
                 <div className={style.tagContainer} key={index}>
                   <div className={style.tagText}>
-                  <p className={style.tag}>
-                   {item.name} - Nivel {item.level==="levelOne"?1:item.level==="levelTwo"?2:3}
-                  </p></div>
+                    <p className={style.tag}>
+                      {item.name} - Nivel {item.level === "levelOne" ? 1 : item.level === "levelTwo" ? 2 : 3}
+                    </p></div>
                   <button className={style.deleteTag}
                     type="button"
                     onClick={() =>
@@ -717,6 +713,13 @@ export function CreateProject() {
               : null}
           </div>
         </div>
+        <div className={style.container_submit}>
+          <button className={style.buttonCreateProject} type="submit">
+            Crear Proyecto
+          </button>
+        </div>
+        </div>
+        
       </form>
     </div>
   );
