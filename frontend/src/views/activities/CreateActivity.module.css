@@ -99,10 +99,14 @@
   justify-items: center;
   min-height: calc(100vh - 150px);
   margin: 0vw;
+  width: 90vw;
+  margin-left: 5vw;
 }
 .form {
   display: flex;
   flex-direction: column;
+  margin: auto;
+  width: 100%;
 }
 .container{
     display: flex;
@@ -361,26 +365,18 @@
   padding-top: 4vh;
 }
 
-.select {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  width: 80%;
-}
-
-.selectContainer {
-  width: 80%;
-  margin-right: 2vh;
-}
-
-.selectLevel {
-  width: 12%;
-}
-
 .containerFormadores {
   display: flex;
   align-items: center;
+  justify-content: center;
 
+}
+
+.select {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
 }
 
 .formContainer h5 {

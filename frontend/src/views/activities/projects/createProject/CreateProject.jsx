@@ -389,7 +389,7 @@ export function CreateProject() {
                 onChange={handleChangeInput}
               ></textarea>
             </div>
-            
+
             <h3>Fecha y Hora de Entrega</h3>
             <div className={style.dateTimeDelivery}>
               <input
@@ -655,9 +655,10 @@ export function CreateProject() {
               : null}
           </div>
           <h3>Competencias</h3>
-          <div className={style.containerFormadores}>
+          <div className={style.inputDeliveryContainer}>
             <div className={style.select}>
-              <select className={style.selectContainer}
+              <div className={style.selectContainer}>
+                <select 
                 aria-label="Default select example"
                 name="competences"
                 onChange={handleChangeSelect}
@@ -671,7 +672,10 @@ export function CreateProject() {
                   </option>
                 ))}
               </select>
-              <select className={style.selectLevel}
+              </div>
+              
+              <div className={style.selectLevel}>
+                <select 
                 aria-label="Default select example"
                 name="level"
                 onChange={handleChangeSelectLevel}
@@ -683,6 +687,8 @@ export function CreateProject() {
                 <option value={"levelTwo"}>Nivel 2</option>
                 <option value={"levelThree"}>Nivel 3</option>
               </select>
+              </div>
+              
               <button
                 className={style.addTagsProject}
                 type="button"

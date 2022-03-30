@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import style from "../updateProject/UpdateProject.module.css";
+import style from "../../CreateActivity.module.css";
 import { MdDeleteForever, MdOutlineAddCircle } from "react-icons/md";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
