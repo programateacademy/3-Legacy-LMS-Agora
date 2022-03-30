@@ -265,7 +265,7 @@
   margin-top: 1vh;
   box-shadow: 6px 10px 10px var(--colorBlackOpacity);
   margin-bottom: 2vh;
-  padding: 0.7vh;
+  padding: 0 30px;
 }
 
 .tagContainer button {
