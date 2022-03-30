@@ -52,6 +52,9 @@ import { CreateWorkbook } from "./views/activities/workbook/createWorkbook/Creat
 import { UpdateQuery } from "./views/activities/query/updateQuery/UpdateQuery";
 
 import { ProfileStudent } from "./components/ProfileStudent/ProfileStudent";
+import { UpdateProject } from "./views/activities/projects/updateProject/UpdateProject";
+import { ViewProject } from "./views/activities/projects/viewProject/ViewProject";
+
 
 export function RoutesApp() {
   const auth = useSelector((state) => state.auth);
@@ -102,11 +105,7 @@ export function RoutesApp() {
             element={isLogged ? <ResetPassword /> : <Error404 />}
             exact
           />
-          {/* <Route
-            path="/user/reset/:token"
-            element={isLogged ? <ResetPassword /> : <Error404 />}
-            exact
-          /> */}
+          
           {/* isSuperAdmin */}
           <Route
             path="/register_admin"
@@ -188,13 +187,13 @@ export function RoutesApp() {
             exact
           />
           <Route
-            path="/query/create-query/:id"
-            element={isTeacher ? <CreateQuery /> : <Error404 />}
+            path="/project/update-project/:id"
+            element={isTeacher ? <UpdateProject /> : <Error404 />}
             exact
           />
           <Route
-            path="/workbook/create-workbook/:id"
-            element={isTeacher ? <CreateWorkbook /> : <Error404 />}
+            path="/query/create-query/:id"
+            element={isTeacher ? <CreateQuery /> : <Error404 />}
             exact
           />
           <Route
@@ -202,6 +201,12 @@ export function RoutesApp() {
             element={isTeacher ? <UpdateQuery /> : <Error404 />}
             exact
           />
+          <Route
+            path="/workbook/create-workbook/:id"
+            element={isTeacher ? <CreateWorkbook /> : <Error404 />}
+            exact
+          />
+                    
           <Route
             path="/entregasFormador"
             element={<DeliveryProjectTrainer />}
