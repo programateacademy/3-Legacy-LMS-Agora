@@ -14,7 +14,7 @@ import {
 import styles from "./register.module.css";
 
 import { useNavigate } from "react-router-dom";
-import logo from "../../../assets/logos/programateLogo.png";
+import logo from "../../../assets/logos/Programate-academy-negros.png";
 import { BsArrowLeftCircle } from "react-icons/bs";
 
 const initialState = {

@@ -54,7 +54,7 @@ export function CohortsAdmin() {
       </div>
       <div>
         {cohortsBootcamp.map((cohort, index) => (
-          <CardCohort info={cohort} key={index} />
+          <CardCohort info={cohort} key={index} principal={true} />
         ))}
       </div>
     </div>

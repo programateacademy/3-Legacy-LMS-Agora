@@ -12,7 +12,7 @@
 }
 
 .AddLinkForm {
-  background: #fff;
+  background: var(--colorWhite);
   border: 1.3px solid rgb(211, 211, 211);
   border-radius: 5px;
   padding: 20px;
@@ -62,7 +62,7 @@
   width: 100%;
   padding: 10px;
   border-radius: 5px;
-  color: #fff;
+  color: var(--colorWhite);
   font-size: 16px;
   transition: 0.3s ease all;
 }
@@ -84,17 +84,17 @@
 }
 
 .AddLinkForm button[type="submit"] {
-  background: #ffd808;
+  background: var(--colorYellow);
   font-family: "Roboto", sans-serif;
   width: 84px;
   margin: auto;
-  color: black;
+  color: var(--colorBlack);
   font-size: 15px;
 }
 
 .AddLinkForm button[type="submit"]:hover {
-  background: black;
-  color: #ffd808;
+  background: var(--colorBlack);
+  color: var(--colorYellow);
 }
 
 .container {

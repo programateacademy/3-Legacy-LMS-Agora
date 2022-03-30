@@ -91,7 +91,7 @@ export function CreateBootcamp() {
             name="descriptionBootcamp"
           />
         </div>
-        <div className={styles.column__two}>
+        <div>
           <div className={styles.img_preview}>
             <img className={styles.image} src={image} alt="Logo Cohorte" />
           </div>

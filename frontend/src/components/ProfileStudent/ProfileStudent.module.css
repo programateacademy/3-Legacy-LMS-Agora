@@ -14,7 +14,7 @@
     left: 0;
     height: 200px;
     /* background: rgba(196, 196, 196, 0.25); */
-    background-color: #000000;
+    background-color: var(--colorBlack);
 }
 
 .buttonVolver{
@@ -41,7 +41,7 @@
     margin-top: 10px;
     margin-bottom: 20px;
     background: var(--colorYellow);
-    border: 0.5px solid #000000;
+    border: 0.5px solid var(--colorBlack);
     box-sizing: border-box;
     filter: drop-shadow(4px 4px 9px rgba(0, 0, 0, 0.25));
     border-radius: 118.5px;
@@ -49,7 +49,7 @@
 
 .button_return {
     align-self: flex-start;
-    background-color: #ffd808;
+    background-color: var(--colorYellow);
     border-radius: 10px;
     color: var(--colorBlack);
     display: flex;
@@ -61,7 +61,7 @@
     margin-top: 20px;
     }
     .button_return:hover {
-    color: white;
+    color: var(--colorWhite);
     transition: 0.3s;
     } 
 
@@ -70,7 +70,7 @@
     justify-content: center;
     align-items: center;
     margin-left: 10px;
-    color: white;
+    color: var(--colorWhite);
 }
 
 .cajaLink{

@@ -33,7 +33,7 @@
 
 .button_return {
   font-weight: bold;
-  background-color: #ffd808;
+  background-color: var(--colorYellow);
   algin-items:center;
   color:var(--colorBlack);
   padding: 10px;
@@ -46,7 +46,7 @@
 
 .button_return:hover{
   background-color: var(--colorBlack);
-  color:#ffd808;
+  color:var(--colorYellow);
   transition: 0.3s;
 }
 

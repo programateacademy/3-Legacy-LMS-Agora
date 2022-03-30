@@ -86,7 +86,7 @@
   
   .card__status {
     font-size: .8em;
-    color: #ffffff;
+    color: var(--colorWhite);
   }
   
   .card__description {
@@ -112,7 +112,7 @@
   padding: 10px;
   cursor: pointer;
   background-color: rgba(14, 14, 14, 0.665);
-  color: black;
+  color: var(--colorBlack);
   background-size: cover;
 }
 

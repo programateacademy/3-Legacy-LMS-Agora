@@ -166,8 +166,8 @@ export function UpdateCohort() {
       <button className={style.button_return} onClick={() => navigate(-1)}>
         <BsArrowLeftCircle size={30} />
       </button>
-      <div class={style.wrapper}>
-        <h2 class={style.typing_upgrade}>Actualizar Cohorte</h2>
+      <div className={style.wrapper}>
+        <h2 className={style.typing_upgrade}>Actualizar Cohorte</h2>
       </div>
       <form className={style.form} onSubmit={handleSubmit}>
         <div className={style.container}>

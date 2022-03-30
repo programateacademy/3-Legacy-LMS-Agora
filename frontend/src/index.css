@@ -64,17 +64,40 @@ textarea{
 }
 
 :root{
-  --surface-color: rgb(0, 0, 0);
-  --curve: 18;
+ --curve: 18;
  --colorBackground:#E5E5E5;
  --colorWhite:#FEFEFE;
  --colorGreenDark:#1A2818;
  --colorBlack:#010101;
+ --colorBlackOpacity:#00000096;
  --colorGray:#D7D7D7;
  --colorGray_20:rgba(214, 214, 214, 0.2);
  --colorGreenLight:#92C149;
  --colorGreenLight_31: rgba(145, 193, 73, 0.31);
- --colorYellow:#FFCC02;
+ --colorRed:#ff2a2a;
+ --colorYellow:#ffd808;
  --colorYellow_65: rgba(255, 204, 2, 0.65);
+ --colorYellowOpacity:#ffda0a98;
 }
 
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: var(--colorYellow) var(--colorBlack);
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 15px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: var(--colorBlack);
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--colorYellow);
+    border-radius: 10px;
+    border: 10px solid var(--colorYellow_65);
+  }

@@ -4,7 +4,7 @@ input[type="file"] {
   
   .button_return {
     align-self: flex-start;
-    background-color: #ffd808;
+    background-color: var(--colorYellow);
     border-radius: 10px;
     color: var(--colorBlack);
     display: flex;
@@ -43,7 +43,7 @@ input[type="file"] {
   }
   .button_return:hover {
     background-color: var(--colorBlack);
-    color: #ffd808;
+    color: var(--colorYellow);
     transition: 0.3s;
   }
   .container__columns {
@@ -97,13 +97,17 @@ input[type="file"] {
   }
   
   .image {
-    max-width: 100%;
+    max-height: 98%;
+    max-width: 95%;
+    height: auto;
+    width: auto;
   }
+
   .input__logoURL {
     width: 35vw;
     height: 35px;
     margin-left: 50px;
-    border: 1px solid #000000;
+    border: 1px solid var(--colorBlack);
     outline: none;
     padding: 10px;
     border-radius: 10px;

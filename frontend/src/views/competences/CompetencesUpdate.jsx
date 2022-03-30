@@ -99,7 +99,7 @@ export function CompetencesUpdate() {
     <div className={styles.globalContainer}>
       <div className={styles.container_register}>
         <div className={styles.Container}>
-          <button className={styles.button_return} to={() => navigate(-1)}>
+          <button className={styles.button_return} onClick={() => navigate(-1)}>
             <BsArrowLeftCircle size={30} />
           </button>
         </div>

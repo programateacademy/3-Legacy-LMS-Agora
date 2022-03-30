@@ -25,18 +25,18 @@ const UserLink = ({ user, handleLogout }) => {
             <Dropdown.Menu>
               {isStudent ? (
                 <Dropdown.Item>
-                  <Link style={{ color: "black" }} to="/badges">
+                  <Link style={{ color: "#010101" }} to="/badges">
                   Perfil
                 </Link>
                 </Dropdown.Item>
                 
               ) : null}
               <Dropdown.Item>
-                <Link style={{ color: "black" }} to="/configuration">
+                <Link style={{ color: "#010101" }} to="/configuration">
                   Configuración
                 </Link>
               </Dropdown.Item>
-              <Link style={{ color: "black" }} to="!#" onClick={handleLogout}>
+              <Link style={{ color: "#010101" }} to="!#" onClick={handleLogout}>
                 <Dropdown.Item>Salir</Dropdown.Item>
               </Link>
             </Dropdown.Menu>

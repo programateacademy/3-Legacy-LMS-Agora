@@ -21,7 +21,7 @@
   height: 600px;
   box-shadow: rgb(0 0 0 / 16%) 0px 3px 5px;
   border-radius: 4px;
-  background-color: white;
+  background-color: var(--colorWhite);
   padding: 1.5rem;
 }
 
@@ -30,7 +30,7 @@
   height: 370px;
   box-shadow: rgb(0 0 0 / 16%) 0px 3px 5px;
   border-radius: 4px;
-  background-color: white;
+  background-color: var(--colorWhite);
 }
 
 .titleProject {
@@ -71,7 +71,7 @@
   border: 1.3px solid rgb(243, 243, 243);
   box-shadow: rgb(0 0 0 / 10%) 0px 3px 5px;
   border-radius: 4px;
-  background-color: white;
+  background-color: var(--colorWhite);
   padding: 1rem;
   margin-bottom: 1rem;
   display: flex;

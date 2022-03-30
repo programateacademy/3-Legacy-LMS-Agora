@@ -19,7 +19,7 @@
     position: relative;
     overflow-y: scroll;
     overflow-x: hidden;
-    background-color: white;
+    background-color: var(--colorWhite);
     padding: 2vw;
 }
 
@@ -28,7 +28,7 @@
     right: 10px;
     border: none;
     background: none;
-    color: #000000;
+    color: var(--colorBlack);
     position: absolute;
     cursor: pointer;
 }

@@ -27,18 +27,19 @@ const initialState = {
   date: "",
 };
 
-export function CreateProject() {
+export function UpdateProject() {
   const auth = useSelector((state) => state.auth);
   const userID = auth.user.id;
   const params = useParams();
-  const cohortID = params.id;
+  const projectID = params.id;
   let navigate = useNavigate();
   const [project, setProject] = useState(initialState);
   const [image, setImage] = useState();
   const [cohortCompetences, setCohortCompetences] = useState([]);
   const orderedCompetences = cohortCompetences.sort((a, b) => {
-    return a.identifierCompetences > b.identifierCompetences ? 1 : -1;
-  });
+    return (a.identifierCompetences > b.identifierCompetences)
+     ? 1 : -1
+  })
   const [selectedCompetence, setSelectedCompetence] = useState({
     id: "",
     fullNameCompetences: "",
@@ -70,9 +71,20 @@ export function CreateProject() {
     link: "",
   });
   const { nameLink, link } = objectLink;
+  //fetch project 
+
+  const fetchProject = async () => {
+    const res = await apiAgora.get("/api/agora/get-project/" + projectID, {
+      headers: { Authorization: userID },
+    });
+    res.data.date=new Date(res.data.date).toLocaleDateString("en-CA")+"T"+new Date(res.data.date).toLocaleTimeString()
+    setProject(res.data);
+    setImage(res.data.pictureProject);
+    fetchCohortCompetences(res.data.cohortID);
+  };
 
   // fetch cohort competences
-  const fetchCohortCompetences = async () => {
+  const fetchCohortCompetences = async (cohortID) => {
     const resCompetencesCohort = await apiAgora.get(
       `/api/agora/get-competences/${cohortID}`,
       {
@@ -80,7 +92,7 @@ export function CreateProject() {
       }
     );
     setCohortCompetences(resCompetencesCohort.data);
-  };
+    };
 
   // Selecting competences
   const handleChangeSelectLevel = (e) => {
@@ -144,7 +156,7 @@ export function CreateProject() {
         err: "",
         success: "",
       });
-      setItemArray("");
+      setItemArray('');
     }
   };
 
@@ -187,7 +199,7 @@ export function CreateProject() {
     setCompetencesIDS(competencesIDS.filter((e) => e !== item));
   };
   useEffect(() => {
-    fetchCohortCompetences();
+    fetchProject();
   }, []);
 
   //save project info Backend
@@ -196,15 +208,13 @@ export function CreateProject() {
     setProject({
       ...project, competences: project.competences.sort((a, b) => {
         return (a.name > b.name)
-          ? 1 : -1
-      })
-    });
+         ? 1 : -1
+      })})
     try {
       if (auth.isTeacher) {
-        const res = await apiAgora.post(
-          "/api/agora//new-project",
+        const res = await apiAgora.put(
+          "/api/agora/update-project/"+ projectID,
           {
-            cohortID,
             userID,
             titleProject,
             pictureProject,
@@ -248,12 +258,12 @@ export function CreateProject() {
         </button>
       </div>
       <div className={style.wrapper}>
-        <h2 className={style.typing_demo}>Crear proyecto</h2>
+        <h2 className={style.typing_demo}>Modificar Proyecto</h2>
       </div>
       <form className={style.form} onSubmit={handleSubmit}>
         <div className={style.container}>
           <div className={style.containerOne}>
-            <div>
+          <div>
               <div className={style.img_preview}>
                 <img
                   className={style.image}
@@ -271,7 +281,7 @@ export function CreateProject() {
                 onChange={handleImage}
               />
             </div>
-            <div className={style.frameofcompetence}>
+            <div className= {style.frameofcompetence}>
               <h3>Marco de competencias</h3>
               <input
                 type="text"
@@ -332,9 +342,9 @@ export function CreateProject() {
           </div>
           <div className={style.containerTwo}>
             <div className={style.InitialContainer}>
-              <h3>Nombre del Proyecto</h3>
+            <h3>Nombre del Proyecto</h3>
               <input
-                placeholder="..."
+                placeholder="Nombre del proyecto"
                 type="text"
                 name="titleProject"
                 value={titleProject}
@@ -344,18 +354,17 @@ export function CreateProject() {
               <textarea
                 name="descriptionProject"
                 value={descriptionProject}
-                placeholder="..."
+                placeholder="Descripción"
                 onChange={handleChangeInput}
               ></textarea>
               <h3>Etiquetas del Proyecto</h3>
               <div className={style.tagsProject}>
                 <input
-                  placeholder="..."
+                  placeholder="Etiquetas proyecto"
                   type="text"
                   onChange={handleChangeArray}
                 />
-                <button
-                  className={style.addTagsProject}
+                <button className={style.addTagsProject}
                   type="button"
                   onClick={() => onClickArray("tagsProject")}
                 >
@@ -366,9 +375,7 @@ export function CreateProject() {
                 {tagsProject.length !== 0
                   ? tagsProject.map((item, index) => (
                     <div className={style.tagContainer} key={index}>
-                      <div className={style.tagText}>
-                        <p className={style.tag} >{item}</p>
-                      </div>
+                      <p className={style.tag} >{item}</p>
                       <button className={style.deleteTag}
                         type="button"
                         onClick={() => deleteItemArray("tagsProject", item)}
@@ -382,14 +389,13 @@ export function CreateProject() {
             </div>
             <div className={style.contextContainer}>
               <h3>Contexto del Proyecto</h3>
-              <textarea
-                placeholder="..."
+              <textarea 
+                placeholder="Descripción"
                 name="contextGeneral"
                 value={contextGeneral}
                 onChange={handleChangeInput}
               ></textarea>
             </div>
-
             <h3>Fecha y Hora de Entrega</h3>
             <div className={style.dateTimeDelivery}>
               <input
@@ -400,30 +406,27 @@ export function CreateProject() {
                 onChange={handleChangeInput}
               />
             </div>
-
           </div>
         </div>
         <div className={style.line}></div>
         <div className={style.deliveryContainer}>
-          <div className={style.summaryProject}>
-            <h3>Requerimientos Generales</h3>
-            <div className={style.tagsProject}>
-              <textarea
-                placeholder="..."
-                type="text"
-                onChange={handleChangeArray}
-              />
-              <button
-                className={style.addTagsProject}
-                type="button"
-                onClick={() => onClickArray("contextGeneralReq")}
-              >
-                <MdOutlineAddCircle size={30} />
-              </button>
-            </div>
-          </div>
-          <div>
-            {contextGeneralReq.length !== 0
+        <div className={style.summaryProject}>
+              <h3>Requerimientos Generales</h3>
+              <div className={style.tagsProject}>
+                <textarea
+                  placeholder="Etiquetas proyecto"
+                  type="text"
+                  onChange={handleChangeArray}
+                />
+                <button className={style.addTagsProject}
+                  type="button"
+                  onClick={() => onClickArray("contextGeneralReq")}
+                >
+                  <MdOutlineAddCircle size={30} />
+                </button>
+              </div>
+              <div>
+              {contextGeneralReq.length !== 0
               ? contextGeneralReq.map((item, index) => (
                 <div className={style.tagContainer} key={index}>
                   <div className={style.tagText}>
@@ -440,26 +443,25 @@ export function CreateProject() {
                 </div>
               ))
               : null}
-          </div>
-        
-        <div className={style.summaryProject}>
-          <h3>Requerimientos Técnicos</h3>
-          <div className={style.tagsProject}>
-            <textarea
-              placeholder="..."
-              type="text"
-              onChange={handleChangeArray}
-            />
-            <button
-              className={style.addTagsProject}
-              type="button"
-              onClick={() => onClickArray("contextTechniciansReq")}
-            >
-              <MdOutlineAddCircle size={30} />
-            </button>
-          </div>
-          <div>
-            {contextTechniciansReq.length !== 0
+              </div>
+            </div>
+            <div className={style.summaryProject}>
+              <h3>Requerimientos Técnicos</h3>
+              <div className={style.tagsProject}>
+                <textarea
+                  placeholder="Etiquetas proyecto"
+                  type="text"
+                  onChange={handleChangeArray}
+                />
+                <button className={style.addTagsProject}
+                  type="button"
+                  onClick={() => onClickArray("contextTechniciansReq")}
+                >
+                  <MdOutlineAddCircle size={30} />
+                </button>
+                </div>
+              <div>
+              {contextTechniciansReq.length !== 0
               ? contextTechniciansReq.map((item, index) => (
                 <div className={style.tagContainer} key={index}>
                   <div className={style.tagText}>
@@ -476,26 +478,25 @@ export function CreateProject() {
                 </div>
               ))
               : null}
-          </div>
-        </div>
-        <div className={style.summaryProject}>
-          <h3>Requerimientos Adicionales</h3>
-          <div className={style.tagsProject}>
-            <textarea
-              placeholder="..."
-              type="text"
-              onChange={handleChangeArray}
-            />
-            <button
-              className={style.addTagsProject}
-              type="button"
-              onClick={() => onClickArray("contextExtrasReq")}
-            >
-              <MdOutlineAddCircle size={30} />
-            </button>
-          </div>
-          <div>
-            {contextExtrasReq.length !== 0
+              </div>
+            </div>
+            <div className={style.summaryProject}>
+              <h3>Requerimientos Adicionales</h3>
+              <div className={style.tagsProject}>
+                <textarea
+                  placeholder="Etiquetas proyecto"
+                  type="text"
+                  onChange={handleChangeArray}
+                />
+                <button className={style.addTagsProject}
+                  type="button"
+                  onClick={() => onClickArray("contextExtrasReq")}
+                >
+                  <MdOutlineAddCircle size={30} />
+                </button>
+              </div>
+              <div>
+              {contextExtrasReq.length !== 0
               ? contextExtrasReq.map((item, index) => (
                 <div className={style.tagContainer} key={index}>
                   <div className={style.tagText}>
@@ -511,26 +512,25 @@ export function CreateProject() {
                 </div>
               ))
               : null}
-          </div>
-        </div>
-        <div className={style.summaryProject}>
-          <h3>Modalidad Pedagógica</h3>
-          <div className={style.tagsProject}>
-            <textarea
-              placeholder="..."
-              type="text"
-              onChange={handleChangeArray}
-            />
-            <button
-              className={style.addTagsProject}
-              type="button"
-              onClick={() => onClickArray("pedagogyModality")}
-            >
-              <MdOutlineAddCircle size={30} />
-            </button>
-          </div>
-          <div>
-            {pedagogyModality.length !== 0
+              </div>
+            </div>
+            <div className={style.summaryProject}>
+              <h3>Modalidad Pedagógica</h3>
+              <div className={style.tagsProject}>
+                <textarea
+                  placeholder="Etiquetas proyecto"
+                  type="text"
+                  onChange={handleChangeArray}
+                />
+                <button className={style.addTagsProject}
+                  type="button"
+                  onClick={() => onClickArray("pedagogyModality")}
+                >
+                  <MdOutlineAddCircle size={30} />
+                </button>
+              </div>
+              <div>
+              {pedagogyModality.length !== 0
               ? pedagogyModality.map((item, index) => (
                 <div className={style.tagContainer} key={index}>
                   <div className={style.tagText}>
@@ -546,26 +546,25 @@ export function CreateProject() {
                 </div>
               ))
               : null}
-          </div>
-        </div>
-        <div className={style.summaryProject}>
-          <h3>Criterios de Rendimiento</h3>
-          <div className={style.tagsProject}>
-            <textarea
-              placeholder="..."
-              type="text"
-              onChange={handleChangeArray}
-            />
-            <button
-              className={style.addTagsProject}
-              type="button"
-              onClick={() => onClickArray("performanceCriterias")}
-            >
-              <MdOutlineAddCircle size={30} />
-            </button>
-          </div>
-          <div>
-            {performanceCriterias.length !== 0
+              </div>
+            </div>
+            <div className={style.summaryProject}>
+              <h3>Criterios de Rendimiento</h3>
+              <div className={style.tagsProject}>
+                <textarea
+                  placeholder="Descripción"
+                  type="text"
+                  onChange={handleChangeArray}
+                />
+                <button className={style.addTagsProject}
+                  type="button"
+                  onClick={() => onClickArray("performanceCriterias")}
+                >
+                  <MdOutlineAddCircle size={30} />
+                </button>
+              </div>
+              <div>
+              {performanceCriterias.length !== 0
               ? performanceCriterias.map((item, index) => (
                 <div className={style.tagContainer} key={index}>
                   <div className={style.tagText}>
@@ -581,26 +580,25 @@ export function CreateProject() {
                 </div>
               ))
               : null}
-          </div>
-        </div>
-        <div className={style.summaryProject}>
-          <h3>Modalidad de Evaluación</h3>
-          <div className={style.tagsProject}>
-            <textarea
-              placeholder="..."
-              type="text"
-              onChange={handleChangeArray}
-            />
-            <button
-              className={style.addTagsProject}
-              type="button"
-              onClick={() => onClickArray("evaluationModality")}
-            >
-              <MdOutlineAddCircle size={30} />
-            </button>
-          </div>
-          <div>
-            {evaluationModality.length !== 0
+              </div>
+            </div>
+            <div className={style.summaryProject}>
+              <h3>Modalidad de Evaluación</h3>
+              <div className={style.tagsProject}>
+                <textarea
+                  placeholder="Descripción"
+                  type="text"
+                  onChange={handleChangeArray}
+                />
+                <button className={style.addTagsProject}
+                  type="button"
+                  onClick={() => onClickArray("evaluationModality")}
+                >
+                  <MdOutlineAddCircle size={30} />
+                </button>
+              </div>
+              <div>
+              {evaluationModality.length !== 0
               ? evaluationModality.map((item, index) => (
                 <div className={style.tagContainer} key={index}>
                   <div className={style.tagText}>
@@ -616,9 +614,9 @@ export function CreateProject() {
                 </div>
               ))
               : null}
-          </div>
-        </div>
-        <div className={style.inputsdeliveries}>
+              </div>
+            </div>
+          <div className={style.inputsdeliveries}>
           <h3>Entregables del Proyecto</h3>
           <div className={style.inputDeliveryContainer}>
             <div className={style.inputDelivery}>
@@ -636,7 +634,7 @@ export function CreateProject() {
             </button>
           </div>
           <div>
-            {deliverablesProject.length !== 0
+          {deliverablesProject.length !== 0
               ? deliverablesProject.map((item, index) => (
                 <div className={style.tagContainer} key={index}>
                   <div className={style.tagText}>
@@ -655,10 +653,10 @@ export function CreateProject() {
               : null}
           </div>
           <h3>Competencias</h3>
-          <div className={style.inputDeliveryContainer}>
+
+          <div className={style.containerFormadores}>
             <div className={style.select}>
-              <div className={style.selectContainer}>
-                <select 
+              <select
                 aria-label="Default select example"
                 name="competences"
                 onChange={handleChangeSelect}
@@ -672,10 +670,7 @@ export function CreateProject() {
                   </option>
                 ))}
               </select>
-              </div>
-              
-              <div className={style.selectLevel}>
-                <select 
+              <select
                 aria-label="Default select example"
                 name="level"
                 onChange={handleChangeSelectLevel}
@@ -687,10 +682,8 @@ export function CreateProject() {
                 <option value={"levelTwo"}>Nivel 2</option>
                 <option value={"levelThree"}>Nivel 3</option>
               </select>
-              </div>
-              
               <button
-                className={style.addTagsProject}
+                className={style.buttonAdd}
                 type="button"
                 onClick={() => onClickCompetences("competences")}
               >
@@ -699,7 +692,7 @@ export function CreateProject() {
             </div>
           </div>
           <div>
-            {competences.length !== 0
+          {competences.length !== 0
               ? competences.map((item, index) => (
                 <div className={style.tagContainer} key={index}>
                   <div className={style.tagText}>
@@ -718,14 +711,13 @@ export function CreateProject() {
               ))
               : null}
           </div>
-        </div>
         <div className={style.container_submit}>
           <button className={style.buttonCreateProject} type="submit">
-            Crear Proyecto
+            Actualizar proyecto
           </button>
         </div>
         </div>
-        
+        </div>
       </form>
     </div>
   );

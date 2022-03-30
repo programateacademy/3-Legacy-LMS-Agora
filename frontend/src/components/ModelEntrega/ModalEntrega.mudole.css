@@ -13,18 +13,18 @@
 .cajaTitle{
     display: flex;
     justify-content: space-between;
-    background: white;
+    background: var(--colorWhite);
     border-bottom: 1 solid;
     width: 700px;
     height: 100px;
     margin: 0;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--colorBlack);
 }
 
 .title{
     display: flex;
     justify-content: center;
-    background: #FFCC02;
+    background: var(--colorYellow);
     width: 75%;
     height: auto;
     margin-left: 40px;
@@ -56,7 +56,7 @@
 .cajaDiv{
     display: flex;
     flex-direction: column;
-    background: white;
+    background: var(--colorWhite);
     width: 670px;
     height: 335px;
     margin-left: 15px;
@@ -99,7 +99,7 @@
     margin-left: 15px;
     margin-right: 15px;
     margin-top: 15px;
-    background: white;
+    background: var(--colorWhite);
     box-shadow:0 5px 5px rgb(88, 86, 86);
     border-radius: 10px;
 }
@@ -128,7 +128,7 @@
     height: 25px;
     border-radius: 5px;
     border-style: none;
-    background-color: #FFCC02;
+    background-color: var(--colorYellow);
 }
 
 
@@ -136,7 +136,7 @@
     display: flex;
     flex-direction: column;
     margin-left: 15px;
-    border-left: 1px solid black;
+    border-left: 1px solid var(--colorBlack);
     padding-left: 15px;
         
 }
@@ -161,7 +161,7 @@
 }
 
 .icons >div{
-    background-color: #FFCC02;
+    background-color: var(--colorYellow);
     width: 70px;
     height: 30px;
     display: flex;
@@ -184,7 +184,7 @@
 }
 
 .boton button{
-    background-color: #FFCC02;
+    background-color: var(--colorYellow);
     border-style: none;
     height: 25px;
     width: 60px;
