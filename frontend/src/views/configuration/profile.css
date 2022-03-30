@@ -16,7 +16,7 @@
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   border-radius: 14px;
   padding: 40px;
-  background-color: #fff;
+  background-color: var(--colorWhite);
 }
 .title-profile {
   text-shadow: 2px 2px 2px rgba(34, 34, 34, 0.2);
@@ -39,7 +39,7 @@
 }
 .profile-button-update {
   font-weight: bold;
-  background-color: #ffd808;
+  background-color: var(--colorYellow);
   margin: auto;
   padding: 5px;
   width: 100%;
@@ -58,13 +58,13 @@
 .container-info-admin {
   border-radius: 14px;
   padding: 48px;
-  background-color: #fff;
+  background-color: var(--colorWhite);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   width: 90%;
 }
 .profile-button-createUser {
   font-weight: bold;
-  background-color: #ffd808;
+  background-color: var(--colorYellow);
   padding: 5px;
   width: 25%;
   border: none;
@@ -91,7 +91,7 @@
   padding-bottom: 12px;
   text-align: left;
   background: rgba(255, 218, 10, 0.835);
-  color: black;
+  color: var(--colorBlack);
 }
 .table-info-students i {
   cursor: pointer;
@@ -100,18 +100,18 @@
   color: green;
 }
 .table-info-students .icon-times {
-  color: red;
+  color: var(--colorRed)
 }
 .table-info-students .icon-edit {
   background: rgba(255, 218, 10, 0.835);
   padding: 7px;
-  color: black;
+  color: var(--colorBlack);
   font-size: 15px;
 }
 .table-info-students .icon-trash {
   background: rgba(255, 218, 10, 0.835);
   padding: 7px;
-  color: black !important;
+  color: var(--colorBlack) !important;
   font-size: 15px;
   margin-left: 10px;
 }

@@ -39,13 +39,13 @@
 .competenceFramework {
   font-size: 14px;
   margin: 1.4rem 0;
-  border: 3px solid #ffd808;
+  border: 3px solid var(--colorYellow);
   padding: 1rem;
   font-weight: bold;
 }
 
 .sectionContainer {
-  background-color: white;
+  background-color: var(--colorWhite);
   margin-bottom: 1rem;
   padding: 2rem;
 }
@@ -58,7 +58,7 @@
   font-size: 12px;
   list-style: none;
   margin-right: 10px;
-  background-color: #ffd808;
+  background-color: var(--colorYellow);
   padding: 0.3rem 0.6rem;
   border-radius: 2px;
 }

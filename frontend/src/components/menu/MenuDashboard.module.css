@@ -2,7 +2,7 @@
   display: flex;
   width: 250px;
   height: calc(100vh - 70px);
-  background-color: black;
+  background-color: var(--colorBlack);
 }
 .ul{
   display: flex;
@@ -24,25 +24,25 @@
   margin-top: 1rem;
 }
 .nav li:hover{
-  background-color: white;
+  background-color: var(--colorWhite);
   width: 100%;
 }
 .link:hover{
-  background-color: white;
+  background-color: var(--colorWhite);
 }
 .nav_text{
   color: var(--colorYellow);
   font-size: 20px;
 }
 .link:hover > span{
- color: black;
+ color: var(--colorBlack);
 }
 .icon{
   margin-right: 1rem;
   color: var(--colorYellow);
 }
 .link:hover .icon{
-  color: black;
+  color: var(--colorBlack);
   width: 100%;
 }
 .link_active .icon{
@@ -52,7 +52,7 @@
   color: var(--colorBlack);
 }
 .link_active{
-  background-color: white;
+  background-color: var(--colorWhite);
   width: 100%;
   align-items: center;
 }

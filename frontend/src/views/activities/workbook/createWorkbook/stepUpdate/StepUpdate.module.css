@@ -1,0 +1,87 @@
+.modal {
+    position: fixed;
+    background-color: var(--colorBlack);
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 5;
+}
+
+.containerModal {
+    height: 70vh;
+    width: 80%;
+    border-radius: 5px;
+    position: relative;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-color: var(--colorWhite);
+    padding: 2vw;
+}
+
+.close {
+    top: 5px;
+    right: 10px;
+    border: none;
+    background: none;
+    color: var(--colorBlack);
+    position: absolute;
+    cursor: pointer;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.typing_demo {
+    width: 13ch;
+    animation: typing 1s steps(22), blink 0.5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+}
+
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+}
+
+@keyframes blink {
+    20% {
+        border-color: transparent;
+    }
+}
+
+.image_preview {
+    background-color: var(--colorGray);
+    width: 100%;
+    height: 35vh;
+    margin-bottom: 1.5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0px 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.image {
+    max-height: 98%;
+    max-width: 95%;
+    height: auto;
+    width: auto;
+}
+
+
+.file {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}

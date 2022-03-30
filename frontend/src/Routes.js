@@ -1,5 +1,6 @@
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
+import ScrollToTop from "./utils/ScrollToTop";
 
 import Login from "./views/auth/login/Login";
 import { Header } from "./components/header/Header";
@@ -21,7 +22,6 @@ import { Announcements } from "./views/announcements/Announcements";
 import CreateAnnouncement from "./views/announcements/CreateAnnouncement";
 
 import { CardProject } from "../src/components/cards/activity/CardProject";
-import AddProject from "./views/activities/trainer/addProject/AddProject";
 import DeliveryProjectStudent from "./views/activities/student/deliveryProject/DeliveryProjectStudent";
 import DeliveryProjectTrainer from "./views/activities/trainer/deliveryProject/DeliveryProjectTrainer";
 import Deliverie from "./components/deliverie/Deliverie";
@@ -29,7 +29,6 @@ import ShowProject from "./views/activities/ShowActivities/showProject/ShowProje
 /* import { ShowProjects } from "./views/activities/ShowActivities/showProjects/showProjects"; */
 
 import { ResetPassword } from "./views/auth/resetPassword/ResetPassword";
-import { Configuration } from "./views/configuration/Configuration";
 
 import ActivationEmail from "./views/auth/activationEmail/ActivationEmail";
 import { Footer } from "./components/footer/Footer";
@@ -43,10 +42,11 @@ import { CompetencesUpdate } from "./views/competences/CompetencesUpdate";
 import { UpdateCohort } from "./views/cohort/updateCohort/UpdateCohort";
 import { DashboardCohort } from "./views/dashboard/dashboardCohort/DashboardCohort";
 
-import { CreateBootcamp } from './views/bootcamps/createBootcamp/CreateBootcamp';
+import { CreateBootcamp } from "./views/bootcamps/createBootcamp/CreateBootcamp";
 import { UpdateBootcamp } from "./views/bootcamps/updateBootcamp/UpdateBootcamp";
 import { CreateProject } from "./views/activities/projects/createProject/CreateProject";
 import { CreateQuery } from "./views/activities/query/createQuery/CreateQuery";
+import { CreateWorkbook } from "./views/activities/workbook/createWorkbook/CreateWorkbook.jsx";
 import { UpdateQuery } from "./views/activities/query/updateQuery/UpdateQuery";
 
 import { ProfileStudent } from "./components/ProfileStudent/ProfileStudent";
@@ -59,8 +59,8 @@ export function RoutesApp() {
   const { isLogged, isAdmin, isSuperAdmin, isTeacher, isStudent } = auth;
 
   return (
-    <>
       <Router>
+         <ScrollToTop>
         <Header />
         <Routes>
           {/*  Without being logged in */}
@@ -98,17 +98,12 @@ export function RoutesApp() {
           />
           <Route path="*" element={<Error404 />} />
           {/*  Universal login */}
-
           <Route
             path="/configuration"
             element={isLogged ? <ResetPassword /> : <Error404 />}
             exact
           />
-          {/* <Route
-            path="/user/reset/:token"
-            element={isLogged ? <ResetPassword /> : <Error404 />}
-            exact
-          /> */}
+          
           {/* isSuperAdmin */}
           <Route
             path="/register_admin"
@@ -177,34 +172,39 @@ export function RoutesApp() {
             exact
           />
           
-
-          //isTeacher
-
-
-          {/* //isTeacher //isStudent //isAdmin */}
-          <Route path="/crearProyecto" element={<AddProject />} />
-          <Route path="/proyectos" element={<CardProject />} />
-          <Route path="/proyectos/:id" element={<ShowProject />} />
-          <Route path="/crearAnuncio" element={<CreateAnnouncement />} />
-          <Route path="/anuncios" element={<Announcements />} />
-          {/*      //isTeacher //isStudent */}
-          <Route path="/project/create-project/:id" element={isTeacher ? <CreateProject /> : <Error404 />} exact />
+          {/* //isTeacher */}
+          
+          <Route
+            path="/project/create-project/:id"
+            element={isTeacher ? <CreateProject /> : <Error404 />}
+            exact
+          />
           <Route
             path="/project/update-project/:id"
             element={isTeacher ? <UpdateProject /> : <Error404 />}
             exact
           />
           <Route
-            path="/project/ViewProject-project/:id"
-            element={isTeacher ? <ViewProject /> : <Error404 />}
+            path="/query/create-query/:id"
+            element={isTeacher ? <CreateQuery /> : <Error404 />}
             exact
           />
-          <Route path="/query/create-query/:id" element={isTeacher ? <CreateQuery /> : <Error404 />} exact />
+          <Route
+             path="/project/ViewProject-project/:id"
+             element={isTeacher ? <ViewProject /> : <Error404 />}
+             exact
+           />
           <Route
             path="/query/update-query/:id"
             element={isTeacher ? <UpdateQuery /> : <Error404 />}
             exact
           />
+          <Route
+            path="/workbook/create-workbook/:id"
+            element={isTeacher ? <CreateWorkbook /> : <Error404 />}
+            exact
+          />
+                    
           <Route
             path="/entregasFormador"
             element={<DeliveryProjectTrainer />}
@@ -228,7 +228,7 @@ export function RoutesApp() {
           />
         </Routes>
         <Footer />
+        </ScrollToTop>
       </Router>
-    </>
   );
 }

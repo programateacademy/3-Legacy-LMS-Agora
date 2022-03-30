@@ -8,11 +8,11 @@ const ValidateCompetence = () => {
   const handleChangeValidate = (e) => {
     if (changeStyle) {
       e.target.style.backgroundColor = "green";
-      e.target.style.color = "white";
+      e.target.style.color = "#FEFEFE";
       setChangeStyle(false);
     } else {
-      e.target.style.backgroundColor = "white";
-      e.target.style.color = "black";
+      e.target.style.backgroundColor = "#FEFEFE";
+      e.target.style.color = "#010101";
       setChangeStyle(true);
     }
   };
@@ -20,11 +20,11 @@ const ValidateCompetence = () => {
   const handleChangeInvalidate = (e) => {
     if (changeStyle) {
       e.target.style.backgroundColor = "red";
-      e.target.style.color = "white";
+      e.target.style.color = "#FEFEFE";
       setChangeStyle(false);
     } else {
-      e.target.style.backgroundColor = "white";
-      e.target.style.color = "black";
+      e.target.style.backgroundColor = "#FEFEFE";
+      e.target.style.color = "#010101";
       setChangeStyle(true);
     }
   };

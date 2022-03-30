@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./CardCohort.module.css";
 import { Button } from "../../buttons/Button/Button";
-export function CardCohort({ info }) {
+export function CardCohort({ info, principal }) {
   const {
     id,
     nameCohort,
@@ -28,7 +28,7 @@ export function CardCohort({ info }) {
           ).toLocaleDateString()}`}</h5>
         </div>
         <div className={styles.buttonsContainer}>
-          <Button title="Dashboard" link={`/bootcamp/dashboard-cohort/${id}`} />
+          {principal?<Button title="Dashboard" link={`/bootcamp/dashboard-cohort/${id}`} />:null}
 
           <Button
             title="Estudiantes"

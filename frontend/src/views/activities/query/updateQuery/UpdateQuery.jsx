@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import style from "./UpdateQuery.module.css";
+import style from "../../CreateActivity.module.css";
 
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { MdDeleteForever, MdOutlineAddCircle } from "react-icons/md";
+import { AiOutlineLink } from "react-icons/ai";
 import { showErrMsg, showSuccessMsg } from "../../../../utils/notification";
 import apiAgora from "../../../../api";
 import { useParams, useNavigate } from "react-router-dom";
@@ -66,21 +67,21 @@ export function UpdateQuery() {
     setImage(value);
   };
 
-  //-------------------------------------nueva area de trabajo ----------------------//
-  const fetchAdmins = async () => {
+
+  const fetchQuery = async () => {
     const res = await apiAgora.get("/api/agora/get-query/" + queryID, {
       headers: { Authorization: userID },
     });
+    res.data.date=new Date(res.data.date).toLocaleDateString("en-CA")+"T"+new Date(res.data.date).toLocaleTimeString()
     setQuery(res.data);
-    console.log(res.data);
     setImage(res.data.pictureQuery);
   };
 
   useEffect(() => {
-    fetchAdmins();
+    fetchQuery();
   }, []);
 
-  //general info project
+  //general info Query
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
     setQuery({ ...query, [name]: value, err: "", success: "" });
@@ -130,7 +131,7 @@ export function UpdateQuery() {
       [name]: query[name].filter((e) => e !== item),
     });
   };
-  // Create new project
+  // Create new Query
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -167,10 +168,15 @@ export function UpdateQuery() {
   };
 
   return (
-    <div>
-      <button className={style.button_return} onClick={() => navigate(-1)}>
-        <BsArrowLeftCircle size={30} />
-      </button>
+    <div className={style.formContainer}>
+      <div>
+        <button className={style.button_return} onClick={() => navigate(-1)}>
+          <BsArrowLeftCircle size={30} />
+        </button>
+      </div>
+      <div className={style.wrapper}>
+        <h2 className={style.typing_demo}>Modificar Consulta</h2>
+      </div>
       <form onSubmit={handleSubmit}>
         <div className={style.container}>
           <div className={style.containerOne}>
@@ -178,20 +184,21 @@ export function UpdateQuery() {
               <div className={style.img_preview}>
                 <img className={style.image} src={image} alt="Logo Cohorte" />
               </div>
-              <div className={style.file}>
-                <input
-                  className={style.input__imageURL}
-                  placeholder="Inserta URL de la imagen Bootcamp"
-                  type="text"
-                  name="pictureQuery"
-                  value={pictureQuery}
-                  onChange={handleImage}
-                />
-              </div>
+              <h3>Imagen de la Consulta</h3>
+              <input
+                className={style.input__imageURL}
+                placeholder="Inserta URL de la imagen de la Consulta"
+                type="text"
+                name="pictureQuery"
+                value={pictureQuery}
+                onChange={handleImage}
+              />
             </div>
-            <div>
+            <div className={style.frameofcompetence}></div>
+            <div className={style.InitialContainer}>
               <h3>Recursos</h3>
-              <div>
+              <div className={style.addResourcesContainer}>
+                <h5>Nombre de recurso</h5>
                 <input
                   placeholder="Nombre del recurso"
                   type="text"
@@ -199,28 +206,40 @@ export function UpdateQuery() {
                   value={nameLink}
                   onChange={handleChangeLink}
                 />
-                <input
-                  placeholder="Link Recurso"
-                  type="text"
-                  name="link"
-                  value={link}
-                  onChange={handleChangeLink}
-                />
-                <button
-                  type="button"
-                  onClick={() => onClickObject("resources")}
-                >
-                  <MdOutlineAddCircle size={30} />
-                </button>
+                <div className={style.tagsProject}>
+                  <h5>Link de recurso</h5>
+                  <input
+                    placeholder="Link Recurso"
+                    type="text"
+                    name="link"
+                    value={link}
+                    onChange={handleChangeLink}
+                  />
+                  <button
+                    className={style.addTagsProject}
+                    type="button"
+                    onClick={() => onClickObject("resources")}
+                  >
+                    <MdOutlineAddCircle size={30} />
+                  </button>
+                </div>
               </div>
               <div>
                 {resources.length !== 0
                   ? resources.map((item, index) => (
-                      <div key={index}>
-                        <a href={item.link} target="_blank">
-                          {item.nameLink}
-                        </a>
+                      <div className={style.tagContainer} key={index}>
+                        <AiOutlineLink className={style.linkIcon} size={30} />
+                        <div className={style.tagText}>
+                          <a
+                            className={style.tag}
+                            href={item.link}
+                            target="_blank"
+                          >
+                            {item.nameLink}
+                          </a>
+                        </div>
                         <button
+                          className={style.deleteTag}
                           type="button"
                           onClick={() => deleteItemArray("resources", item)}
                         >
@@ -231,18 +250,10 @@ export function UpdateQuery() {
                   : null}
               </div>
             </div>
-            <div>
-              <input
-                placeholder="Fecha de entrega"
-                type="datetime-local"
-                name="date"
-                value={date}
-                onChange={handleChangeInput}
-              />
-            </div>
           </div>
           <div className={style.containerTwo}>
-            <div>
+            <div className={style.InitialContainer}>
+              <h3>Nombre de la Consulta</h3>
               <input
                 placeholder="Nombre de la consulta"
                 type="text"
@@ -250,29 +261,37 @@ export function UpdateQuery() {
                 value={titleQuery}
                 onChange={handleChangeInput}
               />
-
+              <h3>Descripción de la Consulta</h3>
               <textarea
                 name="descriptionQuery"
                 value={descriptionQuery}
                 placeholder="Descripción"
                 onChange={handleChangeInput}
               ></textarea>
-              <div>
+              <h3>Etiquetas de la Consulta</h3>
+              <div className={style.tagsProject}>
                 <input
                   placeholder="Etiquetas consulta"
                   type="text"
                   onChange={handleChangeArray}
                 />
-                <button type="button" onClick={() => onClickArray("tagsQuery")}>
+                <button
+                  className={style.addTagsProject}
+                  type="button"
+                  onClick={() => onClickArray("tagsQuery")}
+                >
                   <MdOutlineAddCircle size={30} />
                 </button>
               </div>
-              <div>
+              <div className={style.tagsList}>
                 {tagsQuery.length !== 0
                   ? tagsQuery.map((item, index) => (
-                      <div key={index}>
-                        <p>{item}</p>
+                      <div className={style.tagContainer} key={index}>
+                        <div className={style.tagText}>
+                          <p className={style.tag}>{item}</p>
+                        </div>
                         <button
+                          className={style.deleteTag}
                           type="button"
                           onClick={() => deleteItemArray("tagsQuery", item)}
                         >
@@ -283,7 +302,7 @@ export function UpdateQuery() {
                   : null}
               </div>
             </div>
-            <div>
+            <div className={style.contextContainer}>
               <h3>Nociones básicas</h3>
               <textarea
                 placeholder="Descripción"
@@ -292,92 +311,117 @@ export function UpdateQuery() {
                 onChange={handleChangeInput}
               ></textarea>
             </div>
-            <div>
-              <h3>Requerimientos</h3>
-              <div>
-                <textarea
-                  placeholder="Requerimientos Consulta"
-                  type="text"
-                  onChange={handleChangeArray}
-                />
-                <button type="button" onClick={() => onClickArray("pathReq")}>
-                  <MdOutlineAddCircle size={30} />
-                </button>
-              </div>
-              <div>
-                {pathReq.length !== 0
-                  ? pathReq.map((item, index) => (
-                      <div key={index}>
-                        <p>{item}</p>
-                        <button
-                          type="button"
-                          onClick={() => deleteItemArray("pathReq", item)}
-                        >
-                          <MdDeleteForever size={30} />
-                        </button>
-                      </div>
-                    ))
-                  : null}
-              </div>
-            </div>
-            <div>
-              <h3>Documentación Requerida</h3>
-              <div>
-                <textarea
-                  placeholder="Documentación"
-                  type="text"
-                  onChange={handleChangeArray}
-                />
-                <button
-                  type="button"
-                  onClick={() => onClickArray("documentationReq")}
-                >
-                  <MdOutlineAddCircle size={30} />
-                </button>
-              </div>
-              <div>
-                {documentationReq.length !== 0
-                  ? documentationReq.map((item, index) => (
-                      <div key={index}>
-                        <p>{item}</p>
-                        <button
-                          type="button"
-                          onClick={() =>
-                            deleteItemArray("documentationReq", item)
-                          }
-                        >
-                          <MdDeleteForever size={30} />
-                        </button>
-                      </div>
-                    ))
-                  : null}
-              </div>
-            </div>
-            <div>
-              <h3>Aspectos Importantes</h3>
-              <div>
-                <textarea
-                  placeholder="Descripción"
-                  type="text"
-                  name="importantAspect"
-                  value={importantAspect}
-                  onChange={handleChangeInput}
-                />
-              </div>
+
+            <h3>Fecha y Hora de Entrega</h3>
+            <div className={style.dateTimeDelivery}>
+              <input
+                placeholder="Fecha de entrega"
+                type="datetime-local"
+                name="date"
+                value={date}
+                onChange={handleChangeInput}
+              />
             </div>
           </div>
         </div>
         <div className={style.line}></div>
-        <div className={style.containerThree}>
-          <div>
-            <h3>Reto</h3>
+
+        <div className={style.deliveryContainer}>
+          <div className={style.summaryProject}>
+            <h3>Requerimientos</h3>
+            <div className={style.tagsProject}>
+              <textarea
+                placeholder="Requerimientos Consulta"
+                type="text"
+                onChange={handleChangeArray}
+              />
+              <button
+                className={style.addTagsProject}
+                type="button"
+                onClick={() => onClickArray("pathReq")}
+              >
+                <MdOutlineAddCircle size={30} />
+              </button>
+            </div>
             <div>
+              {pathReq.length !== 0
+                ? pathReq.map((item, index) => (
+                    <div className={style.tagContainer} key={index}>
+                      <div className={style.tagText}>
+                        <p className={style.tag}>{item}</p>
+                      </div>
+                      <button
+                        className={style.deleteTag}
+                        type="button"
+                        onClick={() => deleteItemArray("pathReq", item)}
+                      >
+                        <MdDeleteForever size={30} />
+                      </button>
+                    </div>
+                  ))
+                : null}
+            </div>
+          </div>
+          <div className={style.summaryProject}>
+            <h3>Documentación Requerida</h3>
+            <div className={style.tagsProject}>
               <textarea
                 placeholder="Documentación"
                 type="text"
                 onChange={handleChangeArray}
               />
               <button
+                type="button"
+                className={style.addTagsProject}
+                onClick={() => onClickArray("documentationReq")}
+              >
+                <MdOutlineAddCircle size={30} />
+              </button>
+            </div>
+            <div>
+              {documentationReq.length !== 0
+                ? documentationReq.map((item, index) => (
+                    <div className={style.tagContainer} key={index}>
+                      <div className={style.tagText}>
+                        <p className={style.tagText}>{item}</p>
+                      </div>
+
+                      <button
+                        className={style.deleteTag}
+                        type="button"
+                        onClick={() =>
+                          deleteItemArray("documentationReq", item)
+                        }
+                      >
+                        <MdDeleteForever size={30} />
+                      </button>
+                    </div>
+                  ))
+                : null}
+            </div>
+          </div>
+          <div className={style.summaryProject}>
+            <h3>Aspectos Importantes</h3>
+            <div className={style.tagsProject}>
+              <textarea
+                placeholder="Descripción"
+                type="text"
+                name="importantAspect"
+                value={importantAspect}
+                onChange={handleChangeInput}
+              />
+            </div>
+          </div>
+          <div className={style.summaryProject}>
+            <h3>Reto</h3>
+            <div className={style.tagsProject}>
+              <textarea
+                placeholder="Documentación"
+                type="text"
+                onChange={handleChangeArray}
+              />
+              <button
+                className={style.addTagsProject}
                 type="button"
                 onClick={() => onClickArray("challengeTask")}
               >
@@ -387,9 +431,14 @@ export function UpdateQuery() {
             <div>
               {challengeTask.length !== 0
                 ? challengeTask.map((item, index) => (
-                    <div key={index}>
-                      <p>{item}</p>
+                    <div className={style.tagContainer} key={index}>
+                      <div className={style.tagText}>
+                        {" "}
+                        <p className={style.tag}>{item}</p>
+                      </div>
+
                       <button
+                        className={style.deleteTag}
                         type="button"
                         onClick={() => deleteItemArray("challengeTask", item)}
                       >
@@ -400,9 +449,9 @@ export function UpdateQuery() {
                 : null}
             </div>
           </div>
-          <div>
+          <div className={style.summaryProject}>
             <h3>Reto Adicional</h3>
-            <div>
+            <div className={style.tagsProject}>
               <textarea
                 placeholder="Documentación"
                 type="text"
@@ -412,11 +461,11 @@ export function UpdateQuery() {
               />
             </div>
           </div>
-        </div>
-        <div className={style.container_submit}>
-          <button className={style.buttonCreateProject} type="submit">
-            Añadir
-          </button>
+          <div className={style.container_submit}>
+            <button className={style.buttonCreateProject} type="submit">
+              Añadir
+            </button>
+          </div>
         </div>
       </form>
     </div>

@@ -18,7 +18,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: #fff;
+    background: var(--colorWhite);
 }
 
 .input {

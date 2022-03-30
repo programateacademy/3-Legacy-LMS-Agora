@@ -38,7 +38,7 @@ export function UpdateBootcamp() {
   const handleImage = (e) => {
     setBootcamp({
       ...bootcamp,
-      imageBootcapm: e.target.value,
+      imageBootcamp: e.target.value,
       err: "",
       success: "",
     });

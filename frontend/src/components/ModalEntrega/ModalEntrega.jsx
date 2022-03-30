@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from "./ModalEntrega.module.css";
 
-export function ModelEntrega() {
+export function ModalEntrega() {
   return (
     <div className={styles.containerModal}>
     <div className={styles.cajaTitle}>
