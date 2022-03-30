@@ -1,5 +1,6 @@
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
+import ScrollToTop from "./utils/ScrollToTop";
 
 import Login from "./views/auth/login/Login";
 import { Header } from "./components/header/Header";
@@ -57,8 +58,8 @@ export function RoutesApp() {
   const { isLogged, isAdmin, isSuperAdmin, isTeacher, isStudent } = auth;
 
   return (
-    <>
       <Router>
+         <ScrollToTop>
         <Header />
         <Routes>
           {/*  Without being logged in */}
@@ -224,7 +225,7 @@ export function RoutesApp() {
           />
         </Routes>
         <Footer />
+        </ScrollToTop>
       </Router>
-    </>
   );
 }

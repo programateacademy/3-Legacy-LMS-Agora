@@ -124,7 +124,7 @@ export function StepUpdate(props) {
           ></textarea>
         </div>
         <div>
-          <button type="button" onClick={} >Actualizar</button>
+          <button type="button"/*  onClick={}  */>Actualizar</button>
         </div>
       </div>
     </div>

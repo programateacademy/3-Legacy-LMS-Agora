@@ -68,7 +68,7 @@ export function DashboardCohort() {
       <Link className={styles.button_edit} to={"/competences/"+cohortID}>
         Editar o Agregar Competencias <IoCreateSharp size={30}/>
       </Link>
-      <CompetencesTable competencesState={cohortCompetences} />
+      <CompetencesTable competencesState={cohortCompetences} admin={true} />
     </div>
   );
 }

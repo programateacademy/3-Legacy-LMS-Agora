@@ -403,7 +403,6 @@ export function CreateProject() {
         <div className={style.line}></div>
         <div className={style.deliveryContainer}>
         <div className={style.summaryProject}>
-            <div>
               <h3>Requerimientos Generales</h3>
               </div>
               <div className={style.tagsProject}>
