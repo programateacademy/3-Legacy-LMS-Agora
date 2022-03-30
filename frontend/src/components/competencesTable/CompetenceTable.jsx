@@ -57,19 +57,19 @@ export function CompetencesTable(props) {
                 <path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z" />
               </svg>
             </div>
-            <div class="content">
+            <div className="content">
               <section id="main">
                 <div id="tabs">
-                  <span class="diana" id="uno"></span>
-                  <a href="uno" class="tab-e">
+                  <span className="diana" id="pnl_1"></span>
+                  <a href="#pnl_1" className="tab-e">
                     Nivel 1
                   </a>
-                  <span class="diana"></span>
-                  <a href="#dos" class="tab-e">
+                  <span className="diana"></span>
+                  <a href="#dos" className="tab-e">
                     Nivel 2
                   </a>
-                  <span class="diana" id="tres"></span>
-                  <a href="#tres" class="tab-e">
+                  <span className="diana" id="tres"></span>
+                  <a href="#tres" className="tab-e">
                     Nivel 3
                   </a>
 
