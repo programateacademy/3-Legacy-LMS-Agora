@@ -1,58 +1,44 @@
 import React, { useEffect, useState } from "react";
-import {TitleSectionWithButton} from "../../components/titles/TitleSectionWitButton";
-import * as controllerAnnounce from "../../controllers/controllerAnnounce";
-import {TitleSection} from "../../components/titles/TitleSection";
+import { TitleSectionWithButton } from "../../components/titles/TitleSectionWitButton";
+import { TitleSection } from "../../components/titles/TitleSection";
 import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import apiAgora from "../../api";
+import { ModalCreateAnnouncements } from "../../components/modalCreateAnnouncements/ModalCreateAnnouncements";
+import style from "./announcement.module.css";
 
 export const Announcements = () => {
   const auth = useSelector((state) => state.auth);
-  const { isTeacher, isAdmin } = auth;
-  const [announce, setAnnounce] = useState([]);
+  const { isTeacher } = auth;
+  const id_user = auth.user.id;
+  const params = useParams();
+  const cohortID = params.id;
 
-  useEffect(() => {
-    const listAnnounce = async () => {
-      try {
-        const res = await controllerAnnounce.listAnnounces();
-        const data = await res.json();
-        setAnnounce(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    listAnnounce();
-  }, []);
+  const [announcements, setAnnouncements] = useState([]);
+  const [modal, setModal] = useState(false);
 
-  const newdateFormat = (date) => {
-    let newDate = new Date(date).toLocaleString();
-    return newDate;
+  const onClickModal = () =>{
+    setModal(!modal)
+  }
+
+  const fetchAnnouncements = async () => {
+    const res = await apiAgora.get(`/get-announcements/ ${cohortID}`, {
+      headers: { Authorization: id_user },
+    });
+    setAnnouncements(res.data);
   };
 
+  useEffect(() => {
+    fetchAnnouncements();
+  }, []);
+
   return (
-    <>
-    {isAdmin || isTeacher ?  (
-      <TitleSectionWithButton
-        name={"Anuncios"}
-        btnName={"Crear anuncio"}
-        url={"/crearAnuncio"}
-      />
-      ) : (
-        <TitleSection name="CREAR ANUNCIO" />
-
-      )}
-
-      <div style={{ marginBottom: "100px" }}>
-        {announce.map((el, i) => (
-          <div key={i} className="announceContainer">
-            <h5>{el.titleAnnouncement}</h5>
-            <div className="textAnnouncementContainer">
-              <p>{el.textAnnouncement}</p>
-              <small>
-                <b>{newdateFormat(el.updatedAt)}</b>
-              </small>
-            </div>
-          </div>
-        ))}
-      </div>
-    </>
+    <div>
+      <button onClick={ onClickModal}>Crear Anuncios</button>
+      {modal ?  <div /* className={modal ? "style.modal_activate": "style.modal"} */>
+        <ModalCreateAnnouncements setModal={setModal}/>
+      </div>:null}
+      
+    </div>
   );
 };

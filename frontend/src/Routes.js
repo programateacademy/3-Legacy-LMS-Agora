@@ -19,7 +19,6 @@ import { RegisterAdmin } from "./views/auth/register/RegisterAdmin";
 import { UpdateRegisterAdmin } from "./views/auth/register/UpdateRegisterAdmin";
 import { RegisterTeacher } from "./views/auth/register/RegisterTeacher";
 import { Announcements } from "./views/announcements/Announcements";
-import CreateAnnouncement from "./views/announcements/CreateAnnouncement";
 
 import { CardProject } from "../src/components/cards/activity/CardProject";
 import DeliveryProjectStudent from "./views/activities/student/deliveryProject/DeliveryProjectStudent";
@@ -220,6 +219,10 @@ export function RoutesApp() {
           <Route
             path="/competences-update/:id"
             element={isAdmin ? <CompetencesUpdate /> : <Error404 />}
+          />
+          <Route
+            path="/announcements-cohort/:id"
+            element={isTeacher ? <Announcements /> : <Error404 />}
           />
         </Routes>
         <Footer />
