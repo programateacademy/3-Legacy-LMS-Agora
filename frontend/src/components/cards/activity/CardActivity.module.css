@@ -1,6 +1,5 @@
  .card {
     display: flex;
-    background-image: url(https://w0.peakpx.com/wallpaper/950/628/HD-wallpaper-coding-2019-code-iphone-iphone11-pro-joker-new-samsung.jpg);
     background-size: cover;
     position: relative;
     overflow: hidden;
@@ -57,7 +56,12 @@
       
   
   .card:hover .card__header {
-    transform: translateY(0);;
+    transform: translateY(0);
+  }
+
+  .card:hover .card__header__text h3 {
+    display: none;
+    transition: 0.3s ease-in;
   }
   
   .card__thumb {
@@ -231,6 +235,8 @@
   box-shadow: 5px 5px 20px rgba(0,0,0, 0.9) ;
   transition: 0.3s;
 }
+
+
 
 
 
