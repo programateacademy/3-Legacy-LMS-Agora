@@ -194,11 +194,11 @@ export function RoutesApp() {
             element={isTeacher ? <UpdateProject /> : <Error404 />}
             exact
           />
-          {/* <Route
+          <Route
             path="/project/ViewProject-project/:id"
             element={isTeacher ? <ViewProject /> : <Error404 />}
             exact
-          /> */}
+          />
           <Route path="/query/create-query/:id" element={isTeacher ? <CreateQuery /> : <Error404 />} exact />
           <Route
             path="/query/update-query/:id"
