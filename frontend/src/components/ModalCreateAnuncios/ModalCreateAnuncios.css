@@ -1,0 +1,117 @@
+.modal {
+  position: fixed;
+  background-color: rgba(32, 35, 41, 0.8);
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 2;
+}
+
+.containerModal {
+  height: 30rem;
+  width: 60%;
+  border-radius: 5px;
+  position: relative;
+  overflow-x: hidden;
+  background: var(--colorGray);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+.close { 
+  top: 15px; 
+  right: 15px; 
+  border: none; 
+  background: none; 
+  color: var(--colorBlack); 
+  position: absolute; 
+  cursor: pointer; }
+
+.containerTitle {
+  position: -webkit-sticky;
+  position: sticky;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.modalInp{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  
+}
+
+.modalInp input{
+  width: 488px;
+  height: 52px;
+  left: 31px;
+  top: 90px;
+  background: var(--colorWhite);
+  box-shadow: inset 4px 4px 13px rgba(0, 0, 0, 0.25);
+}
+
+.modalInp textarea{
+  width: 488px;
+  height: 155px;
+  left: 31px;
+  margin-top: 10px;
+
+  background: var(--colorWhite);
+  box-shadow: inset 4px 4px 13px rgba(0, 0, 0, 0.25);
+}
+
+.modalButton button{
+  display: flex;
+  justify-content: center;
+  color: var(--colorWhite);
+  align-items: center;
+  font-size: 20px;
+  margin-top: 15px;
+  margin-left: 30%;
+  width: 320px;
+  height: 50px;
+  background: var(--colorBlack);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+@media (max-width: 700px) {
+
+  .containerModal {
+     width: 360px;
+     height: 65%;
+  }
+
+  .containerTitle {
+      font-size: 12px;
+      margin-top: 15px
+  }
+
+  .modalInp{
+      margin-top: 10px;
+  }
+
+  .modalInp input{
+      width: 300px;
+      height: 40px;
+  }
+
+  .modalInp textarea{
+      width: 300px;
+  }
+
+  .modalButton button{
+      width: 250px;
+      height: 40px;
+      margin-left: 50px;
+  }
+  
+}

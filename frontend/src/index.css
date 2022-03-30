@@ -53,6 +53,17 @@ input {
 	background-color: var(--colorGray_20);
   box-shadow: inset 0px 4px 15px rgba(0, 0, 0, 0.5);
 }
+
+select {
+	border: transparent;
+	min-height: 40px;
+  width: 100%;
+	padding: 10px;
+	border-radius: 5px;
+	background-color: var(--colorWhite);
+  box-shadow: inset 0px 4px 15px rgba(0, 0, 0, 0.5);
+}
+
 textarea{
 	width: 100%;
   padding: 10px;
