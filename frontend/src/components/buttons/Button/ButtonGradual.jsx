@@ -6,7 +6,7 @@ export function ButtonGradual (props) {
     const {link}=props
     return (
         <div className={styles.buttongradual}>
-            <Link to={link}>Ver más</Link>
+            <Link to={link}>Detalles</Link>
             </div>
     )
 }
