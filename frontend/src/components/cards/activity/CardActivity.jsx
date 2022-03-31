@@ -4,7 +4,7 @@ import { ButtonGradual } from "../../buttons/Button/ButtonGradual";
 import { Link } from "react-router-dom";
 
 export function CardActivity(props) {
-  const { title, description, image, teacher, id, type } = props
+  const { title, image, teacher, id, type } = props
   return (
 
     <div className={styles.card} style={{ backgroundImage: `url(${image})` }}>

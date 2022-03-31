@@ -1,10 +1,10 @@
 import React from "react";
-import styles from "./styles.module.css"
+import styles from "./Announcement.module.css"
 import {FiEdit} from "react-icons/fi";
 import {MdDeleteForever} from "react-icons/md";
 
-export function Anuncios(props) {
-    const {titleAnnouncement, textAnnouncement, updatedAt}=props
+export function AnnouncementCard(props) {
+    const {titleAnnouncement, textAnnouncement, /* updatedAt */}=props
     return (
         <div style={{ marginBottom: "100px" }}>
 

@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./competences.module.css";
 
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { textarea } from "../../components/input/textarea";
+import { useNavigate, useParams } from "react-router-dom";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import apiAgora from "../../api";
 import { useSelector } from "react-redux";
@@ -42,7 +41,7 @@ export function Competences() {
     setDescriptionBootcamp(res2Name.data.descriptionBootcamp);
   };
 
-  const fetchCohortCompetences = async () => {
+  const fetchCohortCompetences = async (cohortID) => {
     const resCompetencesCohort = await apiAgora.get(
       `/api/agora/get-competences/${cohortID}`,
       {
@@ -91,7 +90,7 @@ export function Competences() {
 
   useEffect(() => {
     fetchCohortName();
-    fetchCohortCompetences();
+    fetchCohortCompetences(cohortID);
   }, []);
 
   useEffect(() => {
@@ -238,7 +237,7 @@ export function Competences() {
         </form>
         <hr />
         <div className={styles.container__frameOfReference}>
-          <h2>Marco de referencias</h2>
+          <h2>Competencias Asignadas</h2>
           {orderedCompetences.map((item, index) => (
             <CompetencesLabel
               key={index}
@@ -246,6 +245,7 @@ export function Competences() {
               competenceID={item.id}
               adminID={id_user}
               name={item.nameCompetences}
+              fetchCohortCompetence={()=>fetchCohortCompetences(cohortID)}
             />
           ))}
         </div>

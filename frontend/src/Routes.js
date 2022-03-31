@@ -45,9 +45,9 @@ import { CreateQuery } from "./views/activities/query/createQuery/CreateQuery";
 import { CreateWorkbook } from "./views/activities/workbook/createWorkbook/CreateWorkbook.jsx";
 import { UpdateQuery } from "./views/activities/query/updateQuery/UpdateQuery";
 
-import { ProfileStudent } from "./components/ProfileStudent/ProfileStudent";
+/* import { ProfileStudent } from "./components/ProfileStudent/ProfileStudent"; */
 import { UpdateProject } from "./views/activities/projects/updateProject/UpdateProject";
-import { ViewProject } from "./views/activities/projects/viewProject/ViewProject";
+/* import { ViewProject } from "./views/activities/projects/viewProject/ViewProject"; */
 
 
 export function RoutesApp() {

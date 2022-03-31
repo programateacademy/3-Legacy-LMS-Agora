@@ -30,7 +30,7 @@ export function Queries(props) {
       <div>
         <Button title="Crear consulta" link={`/query/create-query/${cohortID}`}/>
       </div>
-      {cohortQueries.length != 0 ? cohortQueries.map((activity, index) => (
+      {cohortQueries.length !==0 ? cohortQueries.map((activity, index) => (
         <div key={index}><CardActivity id={activity.id} type="query" title={activity.titleQuery} description={activity.descriptionQuery} image={activity.pictureQuery} teacher={teacher} /></div>
       )) : null}
 

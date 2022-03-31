@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./competences.module.css";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { textarea } from "../../components/input/textarea";
+import { useNavigate, useParams } from "react-router-dom";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import apiAgora from "../../api";
 import { useSelector } from "react-redux";
@@ -29,9 +28,9 @@ export function CompetencesUpdate() {
 
   let navigate = useNavigate();
 
-  const fetchCohortCompetence = async () => {
+  const fetchCohortCompetence = async (competenceID) => {
     const resCompetencesCohort = await apiAgora.get(
-      `/api/agora/get-competence/${competenceCohortID}`,
+      `/api/agora/get-competence/${competenceID}`,
       {
         headers: { Authorization: id_user },
       }
@@ -61,8 +60,8 @@ export function CompetencesUpdate() {
   };
 
   useEffect(() => {
-    fetchCohortCompetence()
-  }, []);
+    fetchCohortCompetence(competenceCohortID)
+  }, [competenceCohortID]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleSubmit = async (e) => {
     e.preventDefault();

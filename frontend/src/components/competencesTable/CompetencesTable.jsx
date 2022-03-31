@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import style from "./CompetencesTable.module.css";
 import { FiEdit } from "react-icons/fi";

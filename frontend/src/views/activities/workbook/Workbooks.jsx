@@ -30,7 +30,7 @@ export function Workbooks(props) {
       <div>
         <Button title="Crear workbook" link={`/workbook/create-workbook/${cohortID}`}/>
       </div>
-      {cohortWorkBooks.length != 0 ? cohortWorkBooks.map((activity, index) => (
+      {cohortWorkBooks.length !==0 ? cohortWorkBooks.map((activity, index) => (
         <div key={index}><CardActivity id={activity.id} type="workbook" title={activity.titleWorkBook} description={activity.descriptionWorkBook} image={activity.pictureWorkBook} teacher={teacher} /></div>
       )) : null}
 

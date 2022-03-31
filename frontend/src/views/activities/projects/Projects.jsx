@@ -29,7 +29,7 @@ export function Projects(props) {
       <div>
         <Button title="Crear proyecto" link={`/project/create-project/${cohortID}`}/>
       </div>
-      {cohortProjects.length != 0 ? cohortProjects.map((activity, index) => (
+      {cohortProjects.length !== 0 ? cohortProjects.map((activity, index) => (
         <div key={index}><CardActivity id={activity.id} type="project" title={activity.titleProject} description={activity.descriptionProject} image={activity.pictureProject} teacher={teacher} /></div>
       )) : null}
 
