@@ -73,7 +73,7 @@ export function ViewQuery() {
         </button>
       </div>
       <div className={style.wrapper}>
-        <h2 className={style.typing_demo}>Consulta</h2>
+        <h2 className={style.typing_demo_view_Project}>Consulta</h2>
       </div>
       <div>
         <div className={style.container}>

@@ -72,7 +72,7 @@ export function ViewProject() {
         </button>
       </div>
       <div className={style.wrapper}>
-        <h2 className={style.typing_demo}>Proyecto</h2>
+        <h2 className={style.typing_demo_view_Project }>Proyecto</h2>
       </div>
       <div className={style.form}>
         <div className={style.container}>

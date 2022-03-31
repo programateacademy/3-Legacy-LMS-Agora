@@ -41,6 +41,15 @@ const controllerCohort = {
       return res.status(500).json({ msg: err.message });
     }
   },
+  getAllCohorts: async (req, res) => {
+    try {
+      const cohort = await Cohort.find();
+
+      res.json(cohort);
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
   getCohorts: async (req, res) => {
     try {
       const cohort = await Cohort.find({ bootcampID: req.params._id });

@@ -15,6 +15,9 @@ export function AdminHome() {
       <div className={styles.bootcampsContainer}>
         <Bootcamps />
       </div>
+      <div className={styles.buttonsContainer}>
+        <Button title="Administrar Información" link="/all-cohorts/" />
+      </div>
     </div>
   );
 }

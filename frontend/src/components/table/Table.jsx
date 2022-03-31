@@ -9,6 +9,11 @@ import Swal from "sweetalert2";
 export function Table(props) {
   const { tableList, superAdminID, adminID, fetchUser } = props;
 
+  const orderedTableList = tableList.sort((a, b) => {
+    return (a.lastName.toUpperCase() > b.lastName.toUpperCase())
+     ? 1 : -1
+  })
+
   const alertErase = (userID) => {
     Swal.fire({
       background: "#E5E5E5",
@@ -56,7 +61,7 @@ export function Table(props) {
         </tr>
       </thead>
       <tbody>
-        {tableList.map((user, index) => {
+        {orderedTableList.map((user, index) => {
           return (
             <tr key={index}>
               <td>{user.firstName + " " + user.middleName}</td>

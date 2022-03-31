@@ -51,7 +51,7 @@ input {
 	padding: 10px;
 	border-radius: 5px;
 	background-color: var(--colorGray_20);
-  box-shadow: inset 0px 4px 15px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0px 4px 15px var(--colorBlackOpacity);
 }
 
 select {
@@ -61,7 +61,7 @@ select {
 	padding: 10px;
 	border-radius: 5px;
 	background-color: var(--colorWhite);
-  box-shadow: inset 0px 4px 15px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0px 4px 15px var(--colorBlackOpacity);
 }
 
 textarea{
@@ -69,7 +69,7 @@ textarea{
   padding: 10px;
 	border-radius: 5px;
 	background-color: var(--colorGray_20);
-  box-shadow: inset 0px 4px 15px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0px 4px 15px var(--colorBlackOpacity);
 	border: transparent;
 	resize: none;
 }

@@ -43,7 +43,7 @@
     background: var(--colorYellow);
     border: 0.5px solid var(--colorBlack);
     box-sizing: border-box;
-    filter: drop-shadow(4px 4px 9px rgba(0, 0, 0, 0.25));
+    filter: drop-shadow(4px 4px 9px var(--colorBlackOpacity));
     border-radius: 118.5px;
 }
 

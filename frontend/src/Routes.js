@@ -49,6 +49,9 @@ import { UpdateQuery } from "./views/activities/query/updateQuery/UpdateQuery";
 import { UpdateProject } from "./views/activities/projects/updateProject/UpdateProject";
 import { ViewProject } from "./views/activities/projects/viewProject/ViewProject";
 import { ViewQuery } from "./views/activities/query/viewQury/viewQuery";
+import { RegisterSuperAdmin } from "./views/auth/register/RegisterSuperAdmin";
+import { AllCohorts } from "./views/cohort/allCohorts/AllCohorts";
+import { TableAllStudents } from "./views/tableStudentCohort/TableAllStudents";
 
 
 export function RoutesApp() {
@@ -64,6 +67,11 @@ export function RoutesApp() {
           <Route
             path="/api/activation/:activation_token"
             element={<ActivationEmail />}
+            exact
+          />
+          <Route
+            path="/register/activation-superAdmin/:id"
+            element={<RegisterSuperAdmin />}
             exact
           />
           <Route path="/forgot_password" element={<ForgotPassword />} exact />
@@ -151,6 +159,16 @@ export function RoutesApp() {
           <Route
             path="/cohort/update/:id"
             element={isAdmin ? <UpdateCohort /> : <Error404 />}
+            exact
+          />
+          <Route
+            path="/all-cohorts/"
+            element={isAdmin ? <AllCohorts /> : <Error404 />}
+            exact
+          />
+          <Route
+            path="/all-students/"
+            element={isAdmin ? <TableAllStudents /> : <Error404 />}
             exact
           />
           <Route
