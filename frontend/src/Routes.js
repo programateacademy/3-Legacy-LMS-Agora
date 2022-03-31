@@ -6,7 +6,7 @@ import Login from "./views/auth/login/Login";
 import { Header } from "./components/header/Header";
 import { Error404 } from "./components/404/Error404";
 import ForgotPassword from "./views/auth/forgotPassword/ForgotPassword";
-/* import { MenuDashboard } from "./components/menu/MenuDashboard"; */
+import { MenuDashboard } from "./components/menu/MenuDashboard";
 
 import { SuperAdminHome } from "./views/home/superAdmin/SuperAdminHome";
 import { AdminHome } from "./views/home/admin/AdminHome";
@@ -192,55 +192,66 @@ export function RoutesApp() {
           {/* //isTeacher */}
 
           <Route
-            path="/cohort/dashboard/:id"
-            element={isTeacher ? <Dashboard /> : <Error404 />}
+            path="/"
+            element={
+              isTeacher ? (
+                <Dashboard />
+              ) : isStudent ? (
+                <Dashboard />
+              ) : (
+                <Error404 />
+              )
+            }
             exact
-          />
+          >
+            {" "}
+            <Route
+              path="/queries/:id"
+              element={
+                isTeacher ? (
+                  <Queries teacher={true} />
+                ) : isStudent ? (
+                  <Queries teacher={false} />
+                ) : (
+                  <Error404 />
+                )
+              }
+              exact
+            />
+            <Route
+              path="/projects/:id"
+              element={
+                isTeacher ? (
+                  <Projects teacher={true} />
+                ) : isStudent ? (
+                  <Projects teacher={false} />
+                ) : (
+                  <Error404 />
+                )
+              }
+              exact
+            />
+            <Route
+              path="/workbooks/:id"
+              element={
+                isTeacher ? (
+                  <Workbooks teacher={true} />
+                ) : isStudent ? (
+                  <Workbooks teacher={false} />
+                ) : (
+                  <Error404 />
+                )
+              }
+              exact
+            />
+          </Route>
 
           <Route
             path="/project/create-project/:id"
             element={isTeacher ? <CreateProject /> : <Error404 />}
             exact
           />
-          <Route
-            path="/queries/:id"
-            element={
-              isTeacher ? (
-                <Queries teacher={true} />
-              ) : isStudent ? (
-                <Queries teacher={false} />
-              ) : (
-                <Error404 />
-              )
-            }
-            exact
-          />
-          <Route
-            path="/projects/:id"
-            element={
-              isTeacher ? (
-                <Projects teacher={true} />
-              ) : isStudent ? (
-                <Projects teacher={false} />
-              ) : (
-                <Error404 />
-              )
-            }
-            exact
-          />
-          <Route
-            path="/workbooks/:id"
-            element={
-              isTeacher ? (
-                <Workbooks teacher={true} />
-              ) : isStudent ? (
-                <Workbooks teacher={false} />
-              ) : (
-                <Error404 />
-              )
-            }
-            exact
-          />
+
           <Route
             path="/project/update-project/:id"
             element={isTeacher ? <UpdateProject /> : <Error404 />}
@@ -249,6 +260,11 @@ export function RoutesApp() {
           <Route
             path="/query/create-query/:id"
             element={isTeacher ? <CreateQuery /> : <Error404 />}
+            exact
+          />
+          <Route
+            path="/project/view-project/:id"
+            element={isTeacher ? <ViewProject /> : <Error404 />}
             exact
           />
           <Route

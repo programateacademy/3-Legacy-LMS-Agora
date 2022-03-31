@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const authUser = require("../middleware/authUser");
+const authUser = require("../middleware/authTeacher");
 const authTeacher = require("../middleware/authTeacher");
 const controllerProject = require("../controllers/projects");
 
@@ -11,10 +11,6 @@ router.put(
   authTeacher,
   controllerProject.updateProject
 );
-router.delete(
-  "/delete-project/:_id",
-  authTeacher,
-  controllerProject.deleteProject
-);
+router.delete("/delete-project/:_id", controllerProject.deleteProject);
 
 module.exports = router;

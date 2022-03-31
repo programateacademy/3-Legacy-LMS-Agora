@@ -7,9 +7,11 @@ export function Dashboard() {
   return (
     <div className={style.Dashboard}>
       <div className={style.Menu}>
-    <MenuDashboard />
-    </div>
-    <Outlet/>
+        <MenuDashboard />
+      </div>
+      <div className={style.container}>
+      <Outlet />
+      </div>
     </div>
   )
 }
