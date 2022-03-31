@@ -2,14 +2,14 @@ import { React, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as controllerAnnounce from "../../controllers/controllerAnnounce";
 import "./announcementStyles.css";
-import {TitleSection} from "../../components/titles/TitleSection";
+
 
 const CreateAnnouncement = () => {
   const [formsent, setFormsent] = useState(false);
 
   return (
     <>
-      <TitleSection name="CREAR ANUNCIO" />
+      
       <div className="formAnnouncementContainer">
         <Formik
           initialValues={{

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {TitleSectionWithButton} from "../../components/titles/TitleSectionWitButton";
 import * as controllerAnnounce from "../../controllers/controllerAnnounce";
-import {TitleSection} from "../../components/titles/TitleSection";
 import { useSelector } from "react-redux";
 
 export const Announcements = () => {
@@ -36,7 +35,7 @@ export const Announcements = () => {
         url={"/crearAnuncio"}
       />
       ) : (
-        <TitleSection name="CREAR ANUNCIO" />
+      
 
       )}
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./competences.module.css";
 
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { Textarea } from "../../components/input/Textarea";
+import { textarea } from "../../components/input/textarea";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import apiAgora from "../../api";
 import { useSelector } from "react-redux";
@@ -186,14 +186,14 @@ export function Competences() {
           <div className={styles.containerInputAddCompetence}>
             <h3>Nivel 1</h3>
             <p>Grupo de acciones</p>
-            <Textarea
+            <textarea
               placeholder="Descripción:"
               name="actions1"
               value={actions1}
               onChange={handleChangeInputLevelOne}
             />
             <p>Criterios de evaluacion</p>
-            <Textarea
+            <textarea
               placeholder="Descripción:"
               name="evaluationCriteria1"
               value={evaluationCriteria1}
@@ -201,14 +201,14 @@ export function Competences() {
             />
             <h3>Nivel 2</h3>
             <p>Grupo de acciones</p>
-            <Textarea
+            <textarea
               placeholder="Descripción:"
               name="actions2"
               value={actions2}
               onChange={handleChangeInputLevelTwo}
             />
             <p>Criterios de evaluacion</p>
-            <Textarea
+            <textarea
               placeholder="Descripción:"
               name="evaluationCriteria2"
               value={evaluationCriteria2}
@@ -216,14 +216,14 @@ export function Competences() {
             />
             <h3>Nivel 3</h3>
             <p>Grupo de acciones</p>
-            <Textarea
+            <textarea
               placeholder="Descripción:"
               name="actions3"
               value={actions3}
               onChange={handleChangeInputLevelThree}
             />
             <p>Criterios de evaluacion</p>
-            <Textarea
+            <textarea
               placeholder="Descripción:"
               name="evaluationCriteria3"
               value={evaluationCriteria3}

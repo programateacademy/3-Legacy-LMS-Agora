@@ -3,7 +3,6 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import apiAgora from '../../api'
 import { showSuccessMsg, showErrMsg } from '../../utils/notification'
-import { Input } from '../../components/input/Input'
 import './EditUser.css'
 
 export function EditUser () {
@@ -62,14 +61,14 @@ export function EditUser () {
         </button>
         <div className='container-info-editUser'>
           <h2 className='title-editUser'>EDITAR USUARIO</h2>
-          <Input
+          <input
             label='Name'
             placeholder='Luis'
             name='name'
             value={editUser.name}
             disabled
           />
-          <Input
+          <input
             label='Email'
             placeholder='Luis@hotmail.com'
             name='email'

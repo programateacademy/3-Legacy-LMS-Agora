@@ -19,16 +19,10 @@ import { RegisterAdmin } from "./views/auth/register/RegisterAdmin";
 import { UpdateRegisterAdmin } from "./views/auth/register/UpdateRegisterAdmin";
 import { RegisterTeacher } from "./views/auth/register/RegisterTeacher";
 import { Announcements } from "./views/announcements/Announcements";
-import CreateAnnouncement from "./views/announcements/CreateAnnouncement";
 
 import { Projects } from "./views/activities/projects/Projects";
 import { Queries } from "./views/activities/query/Queries";
-import {Workbooks} from "./views/activities/workbook/Workbooks"
-import DeliveryProjectStudent from "./views/activities/student/deliveryProject/DeliveryProjectStudent";
-import DeliveryProjectTrainer from "./views/activities/trainer/deliveryProject/DeliveryProjectTrainer";
-import Deliverie from "./components/deliverie/Deliverie";
-import ShowProject from "./views/activities/ShowActivities/showProject/ShowProject";
-/* import { ShowProjects } from "./views/activities/ShowActivities/showProjects/showProjects"; */
+import {Workbooks} from "./views/activities/workbook/Workbooks";
 
 import { ResetPassword } from "./views/auth/resetPassword/ResetPassword";
 
@@ -214,20 +208,6 @@ export function RoutesApp() {
           <Route
             path="/workbook/create-workbook/:id"
             element={isTeacher ? <CreateWorkbook /> : <Error404 />}
-            exact
-          />
-                    
-          <Route
-            path="/entregasFormador"
-            element={<DeliveryProjectTrainer />}
-          />
-          <Route
-            path="/entregasEstudiante"
-            element={<DeliveryProjectStudent />}
-          />
-          <Route
-            path="/user/deliverie/:id_deliverie"
-            element={isLogged ? <Deliverie /> : <Error404 />}
             exact
           />
           <Route
