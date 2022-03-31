@@ -1,4 +1,4 @@
-  import React, { useState } from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 
 import { Link } from "react-router-dom";
@@ -14,11 +14,11 @@ import { useParams } from "react-router-dom";
 
 export function MenuDashboard({ open, setOpen }) {
   const auth = useSelector((state) => state.auth);
-  const params = useParams()
-  const cohortID = params.id
+  const params = useParams();
+  const cohortID = params.id;
   const { isTeacher } = auth;
   const [activeLink, setActiveLink] = useState(null);
-  console.log(auth.user)
+  console.log(auth.user);
   const navLinks = [
     {
       text: "Estadísticas",
@@ -27,17 +27,17 @@ export function MenuDashboard({ open, setOpen }) {
     },
     {
       text: "Proyectos",
-      route: `/projects/${cohortID}`,
+      route: `/dashboard/${cohortID}/projects`,
       icon: <AiFillProject className={style.icon} />,
     },
     {
       text: "Workbooks",
-      route: `/workbooks/${cohortID}`,
+      route: `/dashboard/${cohortID}/workbooks/`,
       icon: <BsFillFileCodeFill className={style.icon} />,
     },
     {
       text: "Consultas",
-      route: `/queries/${cohortID}`,
+      route: `/dashboard/${cohortID}/queries/`,
       icon: <FiFileText className={style.icon} />,
     },
     {
