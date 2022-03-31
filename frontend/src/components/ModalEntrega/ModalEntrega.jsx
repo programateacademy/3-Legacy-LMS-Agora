@@ -3,6 +3,7 @@ import styles from "./ModalEntrega.module.css";
 
 export function ModalEntrega() {
   return (
+
     <div className={styles.containerModal}>
     <div className={styles.cajaTitle}>
         <div className={styles.title}>
@@ -25,7 +26,7 @@ export function ModalEntrega() {
                     <p>descripcion</p>
                 </div>
                 <div className={styles.inputDes}>
-                    <textarea name="mensaje" id="" cols="35" rows="4"></textarea>
+                    <textarea name="mensaje" ></textarea>
                     <button>enviar</button>
                 </div>
             </div>

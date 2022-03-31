@@ -52,6 +52,7 @@ import { ViewQuery } from "./views/activities/query/viewQury/viewQuery";
 import { RegisterSuperAdmin } from "./views/auth/register/RegisterSuperAdmin";
 import { AllCohorts } from "./views/cohort/allCohorts/AllCohorts";
 import { TableAllStudents } from "./views/tableStudentCohort/TableAllStudents";
+import { ModalEntrega } from "./components/ModalEntrega/ModalEntrega";
 
 
 export function RoutesApp() {
@@ -261,6 +262,11 @@ export function RoutesApp() {
           <Route
             path="/announcements-cohort/:id"
             element={isTeacher ? <Announcements /> : <Error404 />}
+          />
+
+          <Route
+            path="/pruebas/"
+            element={isTeacher ? <ModalEntrega /> : <Error404 />}
           />
         </Routes>
         <Footer />
