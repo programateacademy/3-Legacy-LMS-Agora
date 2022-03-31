@@ -4,7 +4,6 @@ import { Link, useNavigate } from 'react-router-dom'
 import { showErrMsg, showSuccessMsg } from '../../../utils/notification'
 import { dispatchLogin } from '../../../redux/actions/authAction'
 import { useDispatch } from 'react-redux'
-import { Input } from '../../../components/input/Input'
 import './Login.css'
 import logo from '../../../assets/logos/Programate-academy-negros.png'
 
@@ -56,14 +55,14 @@ function Login () {
         <form className='form' onSubmit={handleSubmit}>
           <div className='login-form-content'>
             <h4>Correo Electronico</h4>
-            <Input
+            <input
               placeholder='email@educamas.co'
               name='email'
               value={email}
               onChange={handleChangeInput}
             />
             <h4>Contraseña</h4>
-            <Input
+            <input
               type='Password'
               placeholder='********'
               name='password'

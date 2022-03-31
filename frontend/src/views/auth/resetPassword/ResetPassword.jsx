@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import apiAgora from "../../../api";
 import { BsArrowLeftCircle } from "react-icons/bs";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { showErrMsg, showSuccessMsg } from "../../../utils/notification";
 import { isLength, isMatch } from "../../../utils/validation";
 import "./ResetPassword.css";
-import { Input } from "../../../components/input/Input";
 import logo from "../../../assets/logos/Programate-academy-negros.png";
 import { useSelector } from "react-redux";
 
@@ -73,7 +72,7 @@ export function ResetPassword() {
           {err && showErrMsg(err)}
           {success && showSuccessMsg(success)}
           {/*-------prueba --------- */}
-          <Input
+          <input
             type="password"
             label="Contraseña actual"
             placeholder="******"
@@ -82,7 +81,7 @@ export function ResetPassword() {
             onChange={handleChangeInput}
           />
           {/*-------prueba --------- */}
-          <Input
+          <input
             type="password"
             label="Nueva Contraseña"
             placeholder="******"
@@ -90,7 +89,7 @@ export function ResetPassword() {
             value={password}
             onChange={handleChangeInput}
           />
-          <Input
+          <input
             type="password"
             label="Confirmar contraseña"
             placeholder="******"

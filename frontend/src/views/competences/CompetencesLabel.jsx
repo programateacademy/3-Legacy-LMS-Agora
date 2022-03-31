@@ -7,7 +7,7 @@ import {Link} from "react-router-dom"
 import apiAgora from "../../api"
 
 export function CompetencesLabel(props) {
-    const {identifierCompetence, competenceID, name, adminID,fetchCohortCompetence}=props
+    const {identifierCompetence, competenceID, name, adminID, fetchCohortCompetence}=props
 
     const alertErase = (userID)=>{
 		Swal.fire({
@@ -36,7 +36,8 @@ export function CompetencesLabel(props) {
 		if(adminID!=null){
 			 await apiAgora.delete('api/agora/delete-competence/'+competenceID, {
 			  headers: { Authorization: adminID }
-			})}
+			})
+			fetchCohortCompetence();}
 	}
 
   return (

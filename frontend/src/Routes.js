@@ -19,14 +19,10 @@ import { RegisterAdmin } from "./views/auth/register/RegisterAdmin";
 import { UpdateRegisterAdmin } from "./views/auth/register/UpdateRegisterAdmin";
 import { RegisterTeacher } from "./views/auth/register/RegisterTeacher";
 import { Announcements } from "./views/announcements/Announcements";
-import CreateAnnouncement from "./views/announcements/CreateAnnouncement";
 
-import { CardProject } from "../src/components/cards/activity/CardProject";
-import DeliveryProjectStudent from "./views/activities/student/deliveryProject/DeliveryProjectStudent";
-import DeliveryProjectTrainer from "./views/activities/trainer/deliveryProject/DeliveryProjectTrainer";
-import Deliverie from "./components/deliverie/Deliverie";
-import ShowProject from "./views/activities/ShowActivities/showProject/ShowProject";
-/* import { ShowProjects } from "./views/activities/ShowActivities/showProjects/showProjects"; */
+import { Projects } from "./views/activities/projects/Projects";
+import { Queries } from "./views/activities/query/Queries";
+import {Workbooks} from "./views/activities/workbook/Workbooks";
 
 import { ResetPassword } from "./views/auth/resetPassword/ResetPassword";
 
@@ -49,9 +45,9 @@ import { CreateQuery } from "./views/activities/query/createQuery/CreateQuery";
 import { CreateWorkbook } from "./views/activities/workbook/createWorkbook/CreateWorkbook.jsx";
 import { UpdateQuery } from "./views/activities/query/updateQuery/UpdateQuery";
 
-import { ProfileStudent } from "./components/ProfileStudent/ProfileStudent";
+/* import { ProfileStudent } from "./components/ProfileStudent/ProfileStudent"; */
 import { UpdateProject } from "./views/activities/projects/updateProject/UpdateProject";
-import { ViewProject } from "./views/activities/projects/viewProject/ViewProject";
+/* import { ViewProject } from "./views/activities/projects/viewProject/ViewProject"; */
 
 
 export function RoutesApp() {
@@ -185,6 +181,21 @@ export function RoutesApp() {
             element={isTeacher ? <CreateProject /> : <Error404 />}
             exact
           />
+            <Route
+              path="/queries/:id"
+              element={isTeacher ? <Queries teacher={true} /> : isStudent ? <Queries teacher={false} /> : <Error404 />}
+              exact
+            />
+          <Route
+            path="/projects/:id"
+            element={isTeacher ? <Projects teacher={true} /> : isStudent ? <Projects teacher={false} /> :  <Error404 />}
+            exact
+          />
+          <Route
+            path="/workbooks/:id"
+            element={isTeacher ? <Workbooks teacher={true} /> : isStudent ? <Workbooks teacher={false} /> :  <Error404 />}
+            exact
+          />
           <Route
             path="/project/update-project/:id"
             element={isTeacher ? <UpdateProject /> : <Error404 />}
@@ -205,20 +216,6 @@ export function RoutesApp() {
             element={isTeacher ? <CreateWorkbook /> : <Error404 />}
             exact
           />
-                    
-          <Route
-            path="/entregasFormador"
-            element={<DeliveryProjectTrainer />}
-          />
-          <Route
-            path="/entregasEstudiante"
-            element={<DeliveryProjectStudent />}
-          />
-          <Route
-            path="/user/deliverie/:id_deliverie"
-            element={isLogged ? <Deliverie /> : <Error404 />}
-            exact
-          />
           <Route
             path="/competences/:id"
             element={isAdmin ? <Competences /> : <Error404 />}
@@ -226,6 +223,10 @@ export function RoutesApp() {
           <Route
             path="/competences-update/:id"
             element={isAdmin ? <CompetencesUpdate /> : <Error404 />}
+          />
+          <Route
+            path="/announcements-cohort/:id"
+            element={isTeacher ? <Announcements /> : <Error404 />}
           />
         </Routes>
         <Footer />
