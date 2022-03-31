@@ -3,7 +3,7 @@ const authUser = require('../middleware/authUser')
 const authTeacher = require('../middleware/authTeacher')
 const controllerAnnouncement = require('../controllers/announcement')
 
-router.post('/new-announcement', controllerAnnouncement.create);
+router.post('/new-announcement', authTeacher, controllerAnnouncement.create);
 router.get('/get-announcements/:_id',authUser, controllerAnnouncement.getAnnouncements);
 router.get('/get-announcement/:_id', controllerAnnouncement.getAnnouncement);
 router.put('/update-announcement/:_id', controllerAnnouncement.updateAnnouncement);
