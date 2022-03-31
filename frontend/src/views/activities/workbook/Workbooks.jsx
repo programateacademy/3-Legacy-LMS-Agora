@@ -15,15 +15,15 @@ export function Workbooks(props) {
   const [cohortWorkBooks, setCohortWorkBooks] = useState([])
 
 
-  const fetchCohortWorkBooks = async () => {
-      const res = await apiAgora.get(`/api/agora/get-workbooks/${cohortID}`, {
-        headers: { Authorization: userID },
+  const fetchCohortWorkBooks = async (url, id) => {
+      const res = await apiAgora.get(`/api/agora/get-workbooks/${url}`, {
+        headers: { Authorization: id },
       });
       setCohortWorkBooks(res.data);
     };
     useEffect(() => {
-      fetchCohortWorkBooks()
-    }, []);
+      fetchCohortWorkBooks(cohortID,userID)
+    }, [cohortID,userID]);
   return (
     <div>
       <h2>Workbooks</h2>

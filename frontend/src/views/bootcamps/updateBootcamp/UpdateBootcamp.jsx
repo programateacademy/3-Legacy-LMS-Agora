@@ -77,8 +77,8 @@ export function UpdateBootcamp() {
           <BsArrowLeftCircle size={30} />
         </button>
       </div>
-      <div class={styles.wrapper}>
-        <h2 class={styles.typing_demo}>Actualizar Bootcamp</h2>
+      <div className={styles.wrapper}>
+        <h2 className={styles.typing_demo}>Actualizar Bootcamp</h2>
       </div>
       <form className={styles.form__content} onSubmit={handleSubmit}>
         <div className={styles.container__columns}>

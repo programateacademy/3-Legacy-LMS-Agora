@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import style from "../../CreateActivity.module.css";
 
 import { BsArrowLeftCircle } from "react-icons/bs";
-import { MdDeleteForever, MdOutlineAddCircle } from "react-icons/md";
 import { AiOutlineLink } from "react-icons/ai";
-import { showErrMsg, showSuccessMsg } from "../../../../utils/notification";
 import apiAgora from "../../../../api";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -33,15 +31,10 @@ export function ViewQuery() {
   const params = useParams();
   const queryID = params.id;
   const [image, setImage] = useState();
-  const [itemArray, setItemArray] = useState("");
-  const [objectLink, setObjectLink] = useState({
-    nameLink: "",
-    link: "",
-  });
+
   const [query, setQuery] = useState(initialState);
   const {
     titleQuery,
-    pictureQuery,
     descriptionQuery,
     tagsQuery,
     basicNotions,
@@ -52,24 +45,11 @@ export function ViewQuery() {
     challengeTask,
     challengeExtra,
     date,
-    success,
   } = query;
-  const { nameLink, link } = objectLink;
-  //Image
-  //   const handleImage = (e) => {
-  //     const { name, value } = e.target;
-  //     setQuery({
-  //       ...query,
-  //       [name]: value,
-  //       err: "",
-  //       success: "",
-  //     });
-  //     setImage(value);
-  //   };
-
-  const fetchQuery = async () => {
-    const res = await apiAgora.get("/api/agora/get-query/" + queryID, {
-      headers: { Authorization: userID },
+ 
+  const fetchQuery = async (url, id) => {
+    const res = await apiAgora.get("/api/agora/get-query/" + url, {
+      headers: { Authorization: id },
     });
     if (res.data) {
       res.data.date =
@@ -82,8 +62,8 @@ export function ViewQuery() {
   };
 
   useEffect(() => {
-    fetchQuery();
-  }, []);
+    fetchQuery(queryID,userID);
+  }, [queryID,userID]);
 
   return (
     <div className={style.formContainer}>
@@ -117,6 +97,7 @@ export function ViewQuery() {
                             className={style.tag}
                             href={item.link}
                             target="_blank"
+                            rel="noreferrer"
                           >
                             {item.nameLink}
                           </a>

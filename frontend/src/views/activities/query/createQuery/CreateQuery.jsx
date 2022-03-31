@@ -220,6 +220,7 @@ export function CreateQuery() {
                             className={style.tag}
                             href={item.link}
                             target="_blank"
+                            rel="noreferrer"
                           >
                             {item.nameLink}
                           </a>

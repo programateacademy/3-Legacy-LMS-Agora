@@ -68,10 +68,10 @@ export function UpdateQuery() {
   };
 
 
-  const fetchQuery = async () => {
+  const fetchQuery = async (url, id) => {
 
-    const res = await apiAgora.get("/api/agora/get-query/" + queryID, {
-      headers: { Authorization: userID },
+    const res = await apiAgora.get("/api/agora/get-query/" + url, {
+      headers: { Authorization: id },
     });
     if(res.data){
       res.data.date=new Date(res.data.date).toLocaleDateString("en-CA")+"T"+new Date(res.data.date).toLocaleTimeString()
@@ -82,8 +82,8 @@ export function UpdateQuery() {
   };
 
   useEffect(() => {
-    fetchQuery();
-  }, []);
+    fetchQuery(queryID, userID);
+  }, [queryID, userID]);
 
   //general info Query
   const handleChangeInput = (e) => {

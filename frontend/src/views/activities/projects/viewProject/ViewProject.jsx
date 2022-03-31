@@ -4,7 +4,6 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import apiAgora from "../../../../api";
 import { BsArrowLeftCircle } from "react-icons/bs";
-import { MdDeleteForever, MdOutlineAddCircle } from "react-icons/md";
 import { AiOutlineLink } from "react-icons/ai";
 const initialState = {
   competences: [],
@@ -33,16 +32,9 @@ export function ViewProject() {
   let navigate = useNavigate();
   const [project, setProject] = useState(initialState);
   const [image, setImage] = useState();
-  const [cohortCompetences, setCohortCompetences] = useState([]);
-  const orderedCompetences = cohortCompetences.sort((a, b) => {
-    return a.identifierCompetences > b.identifierCompetences ? 1 : -1;
-  });
 
-  const [itemArray, setItemArray] = useState("");
-  const [competencesIDS, setCompetencesIDS] = useState([]);
   const {
     titleProject,
-    pictureProject,
     descriptionProject,
     competenceFramework,
     tagsProject,
@@ -57,18 +49,11 @@ export function ViewProject() {
     evaluationModality,
     deliverablesProject,
     date,
-    success,
   } = project;
-  const [objectLink, setObjectLink] = useState({
-    nameLink: "",
-    link: "",
-  });
-  const { nameLink, link } = objectLink;
-  //fetch project
-
-  const fetchAdmins = async () => {
-    const res = await apiAgora.get("/api/agora/get-project/" + projectID, {
-      headers: { Authorization: userID },
+  
+  const fetchAdmins = async (url, id) => {
+    const res = await apiAgora.get("/api/agora/get-project/" + url, {
+      headers: { Authorization: id },
     });
     res.data.date=new Date(res.data.date).toLocaleDateString("en-CA")+"T"+new Date(res.data.date).toLocaleTimeString()
     setProject(res.data);
@@ -76,12 +61,9 @@ export function ViewProject() {
    
   };
 
-  // fetch cohort competences
-
-
   useEffect(() => {
-    fetchAdmins();
-  }, []);
+    fetchAdmins(projectID,  userID);
+  }, [projectID,  userID]);
   return (
     <div className={style.formContainer}>
       <div>
@@ -123,6 +105,7 @@ export function ViewProject() {
                             className={style.tag}
                             href={item.link}
                             target="_blank"
+                            rel="noreferrer"
                           >
                             {item.nameLink}
                           </a>

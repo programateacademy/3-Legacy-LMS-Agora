@@ -23,8 +23,8 @@ export function SuperAdminHome() {
   }, [id_user])
   return (
     <div className={styles.container}>
-        <div class={styles.wrapper}>
-        <h2 class={styles.typing_demo}>Administradores</h2>
+        <div className={styles.wrapper}>
+        <h2 className={styles.typing_demo}>Administradores</h2>
       </div>
        <div className={styles.tableContainer}>
        <Table tableList={admins} superAdminID={id_user} fetchUser={()=>fetchAdmins(id_user)}/>
