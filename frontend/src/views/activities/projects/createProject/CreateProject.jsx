@@ -202,7 +202,7 @@ export function CreateProject() {
     try {
       if (auth.isTeacher) {
         const res = await apiAgora.post(
-          "/api/agora//new-project",
+          "/api/agora/new-project",
           {
             cohortID,
             userID,

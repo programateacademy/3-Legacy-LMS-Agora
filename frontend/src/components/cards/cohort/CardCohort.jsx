@@ -32,7 +32,7 @@ export function CardCohort({ info, principal, teacher }) {
             onClick={() => window.location.reload(false)}
             className={styles.buttonsContainer}
           >
-            <Button title="Dashboard" link={`/cohort/dashboard/${id}`} />
+            <Button title="Dashboard" link={`dashboard/${id}`} />
           </div>
         ) : (
           <div className={styles.buttonsContainer}>

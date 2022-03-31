@@ -10,12 +10,15 @@ import { MdAnnouncement } from "react-icons/md";
 import { FiFileText } from "react-icons/fi";
 import { RiFileUserFill, RiPagesFill } from "react-icons/ri";
 import { IconContext } from "react-icons";
+import { useParams } from "react-router-dom";
 
 export function MenuDashboard({ open, setOpen }) {
   const auth = useSelector((state) => state.auth);
+  const params = useParams();
+  const cohortID = params.id;
   const { isTeacher } = auth;
   const [activeLink, setActiveLink] = useState(null);
-
+  console.log(auth.user);
   const navLinks = [
     {
       text: "Estadísticas",
@@ -24,17 +27,17 @@ export function MenuDashboard({ open, setOpen }) {
     },
     {
       text: "Proyectos",
-      route: "#about",
+      route: `/dashboard/${cohortID}/projects`,
       icon: <AiFillProject className={style.icon} />,
     },
     {
       text: "Workbooks",
-      route: "#projects",
+      route: `/dashboard/${cohortID}/workbooks/`,
       icon: <BsFillFileCodeFill className={style.icon} />,
     },
     {
       text: "Consultas",
-      route: "#studies",
+      route: `/dashboard/${cohortID}/queries/`,
       icon: <FiFileText className={style.icon} />,
     },
     {
