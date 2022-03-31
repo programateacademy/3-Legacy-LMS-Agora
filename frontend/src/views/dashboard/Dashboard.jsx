@@ -6,7 +6,9 @@ import style from './Dashboard.module.css'
 export function Dashboard() {
   return (
     <div className={style.Dashboard}>
-    <MenuDashboard/>
+      <div className={style.Menu}>
+    <MenuDashboard />
+    </div>
     <Outlet/>
     </div>
   )

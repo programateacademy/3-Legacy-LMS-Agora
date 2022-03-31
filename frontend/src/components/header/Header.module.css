@@ -1,7 +1,7 @@
 header {
   padding: 10px;
   background-color: var(--colorWhite);
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 2px 10px var(--colorBlackOpacity);
 }
 
 .headerContainer {
@@ -61,7 +61,7 @@ header {
   color: #222222;
 }
 
-@media (max-width: 885px) {
+@media (max-width: 700px) {
   .hamburguerMenu {
     display: block;
   }

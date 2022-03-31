@@ -7,6 +7,7 @@ import apiAgora from "../../../api";
 import { useParams } from "react-router-dom";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export function UpdateCohort() {
   const params = useParams();
@@ -129,6 +130,33 @@ export function UpdateCohort() {
       ).toLocaleDateString("en-CA"), err: "", success: ""
     });
   };
+
+  const alertErase = (cohortID) => {
+    Swal.fire({
+      background: "#E5E5E5",
+      title: "¿Desea eliminar esta Cohorte?",
+      text: "Este proceso no es reversible, recuerde borrar primero sus Estudiantes",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#FFCC02",
+      cancelButtonColor: "#010101",
+      confirmButtonText: "Si, seguro",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        deleteBootcamp(cohortID);
+        Swal.fire("Completado", "El Bootcamp ha sido eliminado", "success");
+      }
+    });
+  };
+
+  const deleteBootcamp = async (cohortID) => {
+          await apiAgora.delete("api/agora/delete-cohort/" +cohortID, {
+        headers: { Authorization: id_user },
+      });
+      navigate(-1);
+  };
+
   // Create new cohort
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -165,9 +193,14 @@ export function UpdateCohort() {
 
   return (
     <div className={style.formContainer}>
-      <button className={style.button_return} onClick={() => navigate(-1)}>
-        <BsArrowLeftCircle size={30} />
+      <div className={style.button_container}>
+        <button className={style.button_return} onClick={() => navigate(-1)}>
+          <BsArrowLeftCircle size={30} />
+        </button>
+            <button type="button" className={style.button_clear} onClick={() => alertErase(cohortID)}>
+        Eliminar Cohorte
       </button>
+      </div>
       <div className={style.wrapper}>
         <h2 className={style.typing_upgrade}>Actualizar Cohorte</h2>
       </div>

@@ -13,6 +13,30 @@
   border-right: 3px solid;
 }
 
+.typing_demo_update_Project {
+  width: 15ch;
+  animation: typing 1s steps(22), blink 0.5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+}
+
+.typing_demo_view_Project {
+  width: 7ch;
+  animation: typing 1s steps(22), blink 0.5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+}
+
+.typing_demo_update_Query {
+  width: 14ch;
+  animation: typing 1s steps(22), blink 0.5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+}
+
 
 @keyframes typing {
   from {
@@ -63,7 +87,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: inset 0px 4px 15px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0px 4px 15px var(--colorBlackOpacity);
   overflow: hidden;
 }
 
@@ -442,7 +466,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: inset 0px 4px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0px 4px 15px var(--colorBlackOpacity);
     overflow: hidden;
   }
 

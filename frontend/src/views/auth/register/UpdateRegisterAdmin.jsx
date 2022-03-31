@@ -131,7 +131,7 @@ export function UpdateRegisterAdmin() {
           <form className={styles.register_form} onSubmit={handleSubmit}>
             <div className={styles.container_register_input}>
               <div className={styles.input_register}>
-                <label>Primer Nomre</label>
+                <label>Primer Nombre</label>
                 <input
                   placeholder="Primer Nombre"
                   name="firstName"
@@ -140,9 +140,8 @@ export function UpdateRegisterAdmin() {
                 />
               </div>
               <div className={styles.input_register}>
-                <label>Primer Nomre</label>
+                <label>Primer Nombre</label>
                 <input
-                  label="Segundo nombre"
                   placeholder="Segundo nombre"
                   name="middleName"
                   value={middleName}
@@ -151,10 +150,29 @@ export function UpdateRegisterAdmin() {
               </div>
             </div>
             <div className={styles.container_register_input}>
-              <div className={styles.input_register}>
-                <label>Primer Nomre</label>
+            <div className={styles.input_register}>
+                <label>Primer Nombre</label>
                 <input
-                  label="Primer apellido"
+                  placeholder="Primer Nombre"
+                  name="firstName"
+                  value={firstName}
+                  onChange={handleChangeInput}
+                />
+              </div>
+              <div className={styles.input_register}>
+                <label>Segundo Nombre</label>
+                <input
+                  placeholder="Segundo Nombre"
+                  name="middleName"
+                  value={middleName}
+                  onChange={handleChangeInput}
+                />
+              </div>
+            </div>
+            <div className={styles.container_register_input}>
+              <div className={styles.input_register}>
+                <label>Apellido Paterno</label>
+                <input
                   placeholder="Primer apellido"
                   name="lastName"
                   value={lastName}
@@ -162,10 +180,9 @@ export function UpdateRegisterAdmin() {
                 />
               </div>
               <div className={styles.input_register}>
-                <label>Primer Nomre</label>
+                <label>Apellido Materno</label>
                 <input
-                  label="Segundo apellido"
-                  placeholder="Segundo apellido"
+                  placeholder="Apellido Materno"
                   name="secondSurname"
                   value={secondSurname}
                   onChange={handleChangeInput}
@@ -173,7 +190,7 @@ export function UpdateRegisterAdmin() {
               </div>
             </div>
             <div className={styles.container_register_input}>
-              <div className={styles.input_container}>
+              <div className={styles.input_register}>
                 <label className={styles.input_label}>Tipo de Documento</label>
                 <select
                   className={styles.form_select}
@@ -188,6 +205,7 @@ export function UpdateRegisterAdmin() {
                   <option value="CE">Cédula de Extranjería</option>
                   <option value="PEP">Permiso Especial de Permanencia</option>
                   <option value="PPT">Permiso de Protección Temporal</option>
+                  <option value="PA">Pasporte</option>
                 </select>
               </div>
               <div className={styles.input_register}>

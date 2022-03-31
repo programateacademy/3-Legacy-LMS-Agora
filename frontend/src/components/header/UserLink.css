@@ -32,7 +32,7 @@
 .closeMenu{
   display: none;
 }
-@media (max-width: 885px) {
+@media (max-width: 700px) {
   .openMenu{
     position: absolute;
     display: block;

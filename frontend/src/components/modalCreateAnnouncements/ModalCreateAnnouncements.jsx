@@ -1,10 +1,9 @@
 import React from 'react'
 import style from "./ModalCreateAnnouncements.module.css"
 import {VscError} from "react-icons/vsc"
+
 export function ModalCreateAnnouncements(props) {
     const {setModal}=props
-
-    
 
   return (
     <div className={style.modal}>

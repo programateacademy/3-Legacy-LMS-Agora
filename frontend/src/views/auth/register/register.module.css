@@ -1,15 +1,4 @@
 /* ------------- REGISTER --------------- */
-a {
-  text-decoration: none !important;
-}
-ul {
-  list-style: none !important;
-}
-button {
-  border: none !important;
-  outline: none !important;
-  cursor: pointer !important;
-}
 .container_register {
   width: 100%;
   height: 100%;
@@ -20,11 +9,11 @@ button {
   margin: 1rem;
 }
 .container_register_page {
-  height: 80%; /*este noesta funcionando*/
+  height: 80%;
   max-width: 776px;
   border-radius: 10px;
   width: 100%;
-  box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 4px 4px 4px 4px var(--colorBlackOpacity);
   padding: 10px;
   background-color: var(--colorWhite);
 }

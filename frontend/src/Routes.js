@@ -51,6 +51,10 @@ import { UpdateWorkbook } from "./views/activities/workbook/updateWorkbook/Updat
 import { UpdateProject } from "./views/activities/projects/updateProject/UpdateProject";
 import { ViewProject } from "./views/activities/projects/viewProject/ViewProject";
 import { ViewWorkbook } from "./views/activities/workbook/viewWorkbook/ViewWokbook.jsx";
+import { ViewQuery } from "./views/activities/query/viewQury/viewQuery";
+import { RegisterSuperAdmin } from "./views/auth/register/RegisterSuperAdmin";
+import { AllCohorts } from "./views/cohort/allCohorts/AllCohorts";
+import { TableAllStudents } from "./views/tableStudentCohort/TableAllStudents";
 
 export function RoutesApp() {
   const auth = useSelector((state) => state.auth);
@@ -65,6 +69,11 @@ export function RoutesApp() {
           <Route
             path="/api/activation/:activation_token"
             element={<ActivationEmail />}
+            exact
+          />
+          <Route
+            path="/register/activation-superAdmin/:id"
+            element={<RegisterSuperAdmin />}
             exact
           />
           <Route path="/forgot_password" element={<ForgotPassword />} exact />
@@ -155,6 +164,16 @@ export function RoutesApp() {
             exact
           />
           <Route
+            path="/all-cohorts/"
+            element={isAdmin ? <AllCohorts /> : <Error404 />}
+            exact
+          />
+          <Route
+            path="/all-students/"
+            element={isAdmin ? <TableAllStudents /> : <Error404 />}
+            exact
+          />
+          <Route
             path="/bootcamp/create-bootcamp"
             element={isAdmin ? <CreateBootcamp /> : <Error404 />}
             exact
@@ -171,6 +190,12 @@ export function RoutesApp() {
           />
 
           {/* //isTeacher */}
+
+          <Route
+            path="/cohort/dashboard/:id"
+            element={isTeacher ? <Dashboard /> : <Error404 />}
+            exact
+          />
 
           <Route
             path="/project/create-project/:id"

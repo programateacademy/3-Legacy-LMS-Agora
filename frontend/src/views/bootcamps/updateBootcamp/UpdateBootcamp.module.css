@@ -1,7 +1,11 @@
 input[type="file"] {
     color: transparent;
   }
-  
+  .button_container{
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+  }
   .button_return {
     align-self: flex-start;
     background-color: var(--colorYellow);
@@ -15,6 +19,21 @@ input[type="file"] {
     text-align: center;
     width: auto;
   }
+
+  .button_clear {
+    align-self: flex-end;
+    background-color: var(--colorYellow);
+    border-radius: 10px;
+    color: var(--colorBlack);
+    display: flex;
+    font-weight: bold;
+    margin: 30px 0 0 30px;
+    max-width: 100px;
+    padding: 10px;
+    text-align: center;
+    width: auto;
+  }
+
   .wrapper {
     display: flex;
     align-items: center;
@@ -41,7 +60,7 @@ input[type="file"] {
       border-color: transparent;
     }
   }
-  .button_return:hover {
+  .button_return:hover, .button_clear:hover {
     background-color: var(--colorBlack);
     color: var(--colorYellow);
     transition: 0.3s;
@@ -92,7 +111,7 @@ input[type="file"] {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: inset 0px 4px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0px 4px 15px var(--colorBlackOpacity);
     overflow: hidden;
   }
   
