@@ -190,9 +190,8 @@ export function RoutesApp() {
           />
 
           {/* //isTeacher */}
-
           <Route
-            path="/"
+            path="/dashboard"
             element={
               isTeacher ? (
                 <Dashboard />
@@ -204,9 +203,8 @@ export function RoutesApp() {
             }
             exact
           >
-            {" "}
             <Route
-              path="/queries/:id"
+              path="/dashboard/queries/:id"
               element={
                 isTeacher ? (
                   <Queries teacher={true} />
@@ -219,7 +217,7 @@ export function RoutesApp() {
               exact
             />
             <Route
-              path="/projects/:id"
+              path="/dashboard/projects/:id"
               element={
                 isTeacher ? (
                   <Projects teacher={true} />
@@ -232,7 +230,7 @@ export function RoutesApp() {
               exact
             />
             <Route
-              path="/workbooks/:id"
+              path="/dashboard/workbooks/:id"
               element={
                 isTeacher ? (
                   <Workbooks teacher={true} />

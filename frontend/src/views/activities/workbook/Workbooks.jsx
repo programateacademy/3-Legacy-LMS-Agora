@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import apiAgora from "../../../api";
 import { useParams } from "react-router-dom";
 import { Button } from "../../../components/buttons/Button/Button";
-import styles from "./Workbooks.module.css"
+import styles from "./Workbooks.module.css";
 
 export function Workbooks(props) {
   const { teacher } = props;
@@ -27,27 +27,30 @@ export function Workbooks(props) {
   return (
     <div className={styles.container}>
       <h2>Workbooks</h2>
-      <div>
-        <Button
-          title="Crear workbook"
-          link={`/workbook/create-workbook/${cohortID}`}
-        />
-      </div>
+      {teacher ? (
+        <div>
+          <Button
+            title="Crear workbook"
+            link={`/workbook/create-workbook/${cohortID}`}
+          />
+        </div>
+      ) : null}
+
       <div className={styles.workbooks}>
-      {cohortWorkbooks.length !== 0
-        ? cohortWorkbooks.map((activity, index) => (
-            <div key={index}>
-              <CardActivity
-                id={activity.id}
-                type="workbook"
-                title={activity.titleWorkbook}
-                description={activity.descriptionWorkbook}
-                image={activity.pictureWorkbook}
-                teacher={teacher}
-              />
-            </div>
-          ))
-        : null}
+        {cohortWorkbooks.length !== 0
+          ? cohortWorkbooks.map((activity, index) => (
+              <div key={index}>
+                <CardActivity
+                  id={activity.id}
+                  type="workbook"
+                  title={activity.titleWorkbook}
+                  description={activity.descriptionWorkbook}
+                  image={activity.pictureWorkbook}
+                  teacher={teacher}
+                />
+              </div>
+            ))
+          : null}
       </div>
     </div>
   );
