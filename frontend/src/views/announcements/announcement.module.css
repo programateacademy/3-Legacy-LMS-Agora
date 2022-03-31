@@ -1,5 +1,5 @@
 .modal{
-  display: none;
+  display: block;
 }
 
 .modal_active{

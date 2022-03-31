@@ -20,7 +20,7 @@ export const Announcements = () => {
   }
 
   const fetchAnnouncements = async () => {
-    const res = await apiAgora.get(`/get-announcements/ ${cohortID}`, {
+    const res = await apiAgora.get(`/get-announcements/${cohortID}`, {
       headers: { Authorization: id_user },
     });
     setAnnouncements(res.data);
@@ -29,6 +29,7 @@ export const Announcements = () => {
   useEffect(() => {
     fetchAnnouncements();
   }, []);
+  console.log(announcements)
 
   return (
     <div>
@@ -36,7 +37,11 @@ export const Announcements = () => {
       {modal ?  <div className={style.modal} >
         <ModalCreateAnnouncements setModal={setModal}/>
       </div>:null}
-      
+      {/* {announcements.map((item, index)(
+        <>
+        <p></p>
+        </>
+  ))} */}
     </div>
   );
 };
