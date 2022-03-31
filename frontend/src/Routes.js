@@ -22,12 +22,7 @@ import { Announcements } from "./views/announcements/Announcements";
 
 import { Projects } from "./views/activities/projects/Projects";
 import { Queries } from "./views/activities/query/Queries";
-import {Workbooks} from "./views/activities/workbook/Workbooks"
-import DeliveryProjectStudent from "./views/activities/student/deliveryProject/DeliveryProjectStudent";
-import DeliveryProjectTrainer from "./views/activities/trainer/deliveryProject/DeliveryProjectTrainer";
-import Deliverie from "./components/deliverie/Deliverie";
-import ShowProject from "./views/activities/ShowActivities/showProject/ShowProject";
-/* import { ShowProjects } from "./views/activities/ShowActivities/showProjects/showProjects"; */
+import {Workbooks} from "./views/activities/workbook/Workbooks";
 
 import { ResetPassword } from "./views/auth/resetPassword/ResetPassword";
 
@@ -50,9 +45,10 @@ import { CreateQuery } from "./views/activities/query/createQuery/CreateQuery";
 import { CreateWorkbook } from "./views/activities/workbook/createWorkbook/CreateWorkbook.jsx";
 import { UpdateQuery } from "./views/activities/query/updateQuery/UpdateQuery";
 
-import { ProfileStudent } from "./components/ProfileStudent/ProfileStudent";
+/* import { ProfileStudent } from "./components/ProfileStudent/ProfileStudent"; */
 import { UpdateProject } from "./views/activities/projects/updateProject/UpdateProject";
 import { ViewProject } from "./views/activities/projects/viewProject/ViewProject";
+import { ViewQuery } from "./views/activities/query/viewQury/viewQuery";
 
 
 export function RoutesApp() {
@@ -201,32 +197,33 @@ export function RoutesApp() {
             exact
           />
           <Route
+            path="/project/view-project/:id"
+            element={isTeacher ? <ViewProject /> : <Error404 />}
+            exact
+          />
+          <Route
             path="/query/create-query/:id"
             element={isTeacher ? <CreateQuery /> : <Error404 />}
             exact
           />
+          <Route
+             path="/project/view-project/:id"
+             element={isTeacher ? <ViewProject /> : <Error404 />}
+             exact
+           />
           <Route
             path="/query/update-query/:id"
             element={isTeacher ? <UpdateQuery /> : <Error404 />}
             exact
           />
           <Route
-            path="/workbook/create-workbook/:id"
-            element={isTeacher ? <CreateWorkbook /> : <Error404 />}
+            path="/query/view-query/:id"
+            element={isTeacher ? <ViewQuery /> : <Error404 />}
             exact
           />
-                    
           <Route
-            path="/entregasFormador"
-            element={<DeliveryProjectTrainer />}
-          />
-          <Route
-            path="/entregasEstudiante"
-            element={<DeliveryProjectStudent />}
-          />
-          <Route
-            path="/user/deliverie/:id_deliverie"
-            element={isLogged ? <Deliverie /> : <Error404 />}
+            path="/workbook/create-workbook/:id"
+            element={isTeacher ? <CreateWorkbook /> : <Error404 />}
             exact
           />
           <Route

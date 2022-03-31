@@ -51,9 +51,9 @@ export function CreateCohort() {
     setCohort({ ...cohort, [name]: value, err: "", success: "" });
   };
   // Get teachers info from database
-  const fetchTeachers = async () => {
+  const fetchTeachers = async (id) => {
     const res = await apiAgora.get("api/all_teacher", {
-      headers: { Authorization: id_user },
+      headers: { Authorization: id },
     });
     setTeachers(res.data);
   };
@@ -128,15 +128,15 @@ export function CreateCohort() {
   };
 
   useEffect(() => {
-    fetchTeachers();
-  }, []);
+    fetchTeachers(id_user);
+  }, [id_user]);
   return (
     <div className={style.formContainer}>
       <button className={style.button_return} onClick={() => navigate(-1)}>
         <BsArrowLeftCircle size={30} />
       </button>
-      <div class={style.wrapper}>
-        <h2 class={style.typing_demo}>Crear Cohorte</h2>
+      <div className={style.wrapper}>
+        <h2 className={style.typing_demo}>Crear Cohorte</h2>
       </div>
       <form className={style.form} onSubmit={handleSubmit}>
         <div className={style.container}>

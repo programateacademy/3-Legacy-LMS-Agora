@@ -3,7 +3,6 @@ import logo from "../../assets/logos/programate-academy-color-.png";
 
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import axios from 'axios'
 
 import UserLink from "./UserLink";
 import "./UserLink.css";

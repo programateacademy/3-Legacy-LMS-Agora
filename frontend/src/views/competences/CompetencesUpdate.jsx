@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./competences.module.css";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { Textarea } from "../../components/input/Textarea";
+import { useNavigate, useParams } from "react-router-dom";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import apiAgora from "../../api";
 import { useSelector } from "react-redux";
@@ -29,11 +28,11 @@ export function CompetencesUpdate() {
 
   let navigate = useNavigate();
 
-  const fetchCohortCompetence = async () => {
+  const fetchCohortCompetence = async (url, id) => {
     const resCompetencesCohort = await apiAgora.get(
-      `/api/agora/get-competence/${competenceCohortID}`,
+      `/api/agora/get-competence/${url}`,
       {
-        headers: { Authorization: id_user },
+        headers: { Authorization: id },
       }
     );
     setLevelOne(resCompetencesCohort.data.levelOne);
@@ -61,8 +60,8 @@ export function CompetencesUpdate() {
   };
 
   useEffect(() => {
-    fetchCohortCompetence()
-  }, []);
+    fetchCohortCompetence(competenceCohortID, id_user)
+  }, [competenceCohortID, id_user]);// eslint-disable-line react-hooks/exhaustive-deps
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -123,14 +122,14 @@ export function CompetencesUpdate() {
           <div className={styles.containerInputAddCompetence}>
             <h3>Nivel 1</h3>
             <p>Grupo de acciones</p>
-            <Textarea
+            <textarea
               placeholder="Descripción:"
               name="actions1"
               value={actions1}
               onChange={handleChangeInputLevelOne}
             />
             <p>Criterios de evaluacion</p>
-            <Textarea
+            <textarea
               placeholder="Descripción:"
               name="evaluationCriteria1"
               value={evaluationCriteria1}
@@ -138,14 +137,14 @@ export function CompetencesUpdate() {
             />
             <h3>Nivel 2</h3>
             <p>Grupo de acciones</p>
-            <Textarea
+            <textarea
               placeholder="Descripción:"
               name="actions2"
               value={actions2}
               onChange={handleChangeInputLevelTwo}
             />
             <p>Criterios de evaluacion</p>
-            <Textarea
+            <textarea
               placeholder="Descripción:"
               name="evaluationCriteria2"
               value={evaluationCriteria2}
@@ -153,14 +152,14 @@ export function CompetencesUpdate() {
             />
             <h3>Nivel 3</h3>
             <p>Grupo de acciones</p>
-            <Textarea
+            <textarea
               placeholder="Descripción:"
               name="actions3"
               value={actions3}
               onChange={handleChangeInputLevelThree}
             />
             <p>Criterios de evaluacion</p>
-            <Textarea
+            <textarea
               placeholder="Descripción:"
               name="evaluationCriteria3"
               value={evaluationCriteria3}

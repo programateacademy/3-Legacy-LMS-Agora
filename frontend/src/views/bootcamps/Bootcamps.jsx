@@ -9,15 +9,15 @@ export function Bootcamps() {
   const id_user = auth.user.id;
   const [bootcamps, setBootcamps] = useState([]);
 
-  const fetchBootcamps = async () => {
+  const fetchBootcamps = async (id) => {
     const res = await apiAgora.get("/api/agora/get-bootcamps", {
-      headers: { Authorization: id_user },
+      headers: { Authorization: id },
     });
     setBootcamps(res.data);
   };
   useEffect(() => {
-    fetchBootcamps();
-  }, []);
+    fetchBootcamps(id_user);
+  }, [id_user]);
   return (
     <div className={styles.bootcamps}>
       {bootcamps.map((bootcamp, index) => (

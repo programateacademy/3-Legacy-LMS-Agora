@@ -5,24 +5,7 @@ import {
   dispatchLogin,
   fetchUser,
 } from "./redux/actions/authAction";
-import {
-  dispatchGetAllStudents,
-  fetchAllStudents,
-} from "./redux/actions/usersAction";
-import {
-  dispatchGetAllProjects,
-  fetchAllProjects,
-} from "./redux/actions/projectsAction";
-import {
-  dispatchGetAllDeliveries,
-  dispatchGetDeliveriesByStudent,
-  fetchAllDeliveries,
-  fetchDeliveriesByStudent,
-} from "./redux/actions/deliveriesAction";
-import {
-  dispatchGetAllAnnucies,
-  fetchAllAnunncies,
-} from "./redux/actions/annunciesAction";
+
 import apiAgora from "./api";
 import { RoutesApp } from "./Routes";
 
@@ -30,8 +13,6 @@ export function App() {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.token);
   const auth = useSelector((state) => state.auth);
-
-  const id_user = auth.user.id;
 
   useEffect(() => {
     const loggedUserJSON = window.localStorage.getItem("loggedAgoraUser");
@@ -59,36 +40,6 @@ export function App() {
       getUser();
     }
   }, [token, dispatch]);
-
-  useEffect(() => {
-    if (auth.isTeacher) {
-      fetchAllStudents(token).then((res) => {
-        dispatch(dispatchGetAllStudents(res));
-      });
-      fetchAllProjects(token).then((res) => {
-        dispatch(dispatchGetAllProjects(res));
-      });
-      fetchAllDeliveries(token).then((res) => {
-        dispatch(dispatchGetAllDeliveries(res));
-      });
-      fetchAllAnunncies(token).then((res) => {
-        dispatch(dispatchGetAllAnnucies(res));
-      });
-    }
-  }, [token, auth.isTeacher, dispatch]);
-
-  useEffect(() => {
-    if (auth.isStudent) {
-    fetchAllProjects(token).then((res) => {
-      dispatch(dispatchGetAllProjects(res));
-    });
-    fetchDeliveriesByStudent(token, id_user).then((res) => {
-      dispatch(dispatchGetDeliveriesByStudent(res));
-    });
-    fetchAllAnunncies(token).then((res) => {
-      dispatch(dispatchGetAllAnnucies(res));
-    });}
-  }, [token, auth.isStudent, dispatch, id_user]);
 
   return (
     <>

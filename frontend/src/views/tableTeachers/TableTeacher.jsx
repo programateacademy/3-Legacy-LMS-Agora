@@ -16,15 +16,15 @@ export function TableTeacher() {
 
   let navigate = useNavigate()
 
-  const fetchTeachers = async () => {
+  const fetchTeachers = async (id) => {
     const res = await apiAgora.get("api/all_teacher", {
-      headers: { Authorization: id_user }
+      headers: { Authorization: id }
     })
     setTeachers(res.data)
   }
   useEffect(() => {
-    fetchTeachers()
-  }, [])
+    fetchTeachers(id_user)
+  }, [id_user])
   return (
     <div className={styles.container}>
       <button className={styles.button_return} onClick={()=>navigate(-1)}>
@@ -32,7 +32,7 @@ export function TableTeacher() {
       </button>
         <h1>Listado de formadores</h1>
        <div className={styles.tableContainer}>
-       <Table tableList={teachers} adminID={id_user}/>
+       <Table tableList={teachers} adminID={id_user} fetchUser={()=>fetchTeachers(id_user)}/>
        </div>
         <div className={styles.buttonContainer}>
         <Button title="Crear formador" link="/register_teacher" />

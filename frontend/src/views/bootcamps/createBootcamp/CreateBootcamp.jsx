@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./CreateBootcamp.module.css";
 import { BsArrowLeftCircle } from "react-icons/bs";
@@ -72,8 +72,8 @@ export function CreateBootcamp() {
           <BsArrowLeftCircle size={30} />
         </button>
       </div>
-      <div class={styles.wrapper}>
-        <h2 class={styles.typing_demo}>Crear Bootcamp</h2>
+      <div className={styles.wrapper}>
+        <h2 className={styles.typing_demo}>Crear Bootcamp</h2>
       </div>
       <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.column__one}>

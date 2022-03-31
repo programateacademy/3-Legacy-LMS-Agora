@@ -20,27 +20,27 @@ export function TableStudentCohort() {
 
   let navigate = useNavigate()
 
-  const fetchStudents = async () => {
-    const res = await apiAgora.get(`api/all_students/${cohortID}`, {
-      headers: { Authorization: id_user }
+  const fetchStudents = async (url, id) => {
+    const res = await apiAgora.get(`api/all_students/${url}`, {
+      headers: { Authorization: id }
     })
     setStudents(res.data)
   }
 
-  const fetchCohortName = async () => {
+  const fetchCohortName = async (url, id) => {
     const resName = await apiAgora.get(
-      `/api/agora/get-cohort/${cohortID}`,
+      `/api/agora/get-cohort/${url}`,
       {
-        headers: { Authorization: id_user },
+        headers: { Authorization: id },
       }
     );
     setNameCohort(resName.data.nameCohort);
   };
 
   useEffect(() => {
-    fetchCohortName();
-    fetchStudents();
-  }, [])
+    fetchCohortName(cohortID, id_user);
+    fetchStudents(cohortID, id_user);
+  }, [cohortID, id_user])
   return (
     <div className={styles.container}>
       <button className={styles.button_return} onClick={()=>navigate(-1)}>
@@ -48,7 +48,7 @@ export function TableStudentCohort() {
       </button>
        <h1>{`Listado de Estudiantes - Cohorte ${nameCohort}`}</h1>
        <div className={styles.tableContainer}>
-       <Table tableList={students} adminID={id_user}/>
+       <Table tableList={students} adminID={id_user} fetchUser={()=>fetchStudents(id_user)}/>
        </div>
         <div className={styles.buttonContainer}>
         <Button title="Crear Estudiante" link={"/cohort/register_student/"+cohortID} />

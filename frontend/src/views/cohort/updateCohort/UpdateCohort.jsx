@@ -40,9 +40,9 @@ export function UpdateCohort() {
     setCohort({ ...cohort, [name]: value, err: "", success: "" });
   };
   // Get teachers info from database
-  const fetchTeachers = async () => {
+  const fetchTeachers = async (id) => {
     const res = await apiAgora.get("api/all_teacher", {
-      headers: { Authorization: id_user },
+      headers: { Authorization: id },
     });
     setTeachers(res.data);
     fetchCohort(res.data);
@@ -101,12 +101,12 @@ export function UpdateCohort() {
             .map((e) =>
               e.id === item
                 ? e.firstName +
-                  " " +
-                  e.middleName +
-                  " " +
-                  e.lastName +
-                  " " +
-                  e.secondSurname
+                " " +
+                e.middleName +
+                " " +
+                e.lastName +
+                " " +
+                e.secondSurname
                 : ""
             )
             .toLocaleString()
@@ -118,14 +118,16 @@ export function UpdateCohort() {
     listTeacherAssigned.map((item) =>
       setAssignedTeachersID((prev) => [...prev, item])
     );
-    const startDateBootcamp2= res.data.startDateBootcamp
-    setCohort({ ...cohort, startDateBootcamp: new Date(
-      startDateBootcamp2
-    ).toLocaleDateString("en-CA"), err: "", success: "" });
-    const endBootcamp2= res.data.endBootcamp
-    setCohort({ ...cohort, endBootcamp: new Date(
-      endBootcamp2
-    ).toLocaleDateString("en-CA"), err: "", success: "" });
+    const startDateBootcamp2 = res.data.startDateBootcamp
+    const endBootcamp2 = res.data.endBootcamp
+    setCohort({
+      ...cohort, startDateBootcamp: new Date(
+        startDateBootcamp2
+      ).toLocaleDateString("en-CA"), err: "", success: ""
+   , endBootcamp: new Date(
+        endBootcamp2
+      ).toLocaleDateString("en-CA"), err: "", success: ""
+    });
   };
   // Create new cohort
   const handleSubmit = async (e) => {
@@ -158,8 +160,8 @@ export function UpdateCohort() {
   };
 
   useEffect(() => {
-    fetchTeachers();
-  }, []);
+    fetchTeachers(id_user);
+  }, [id_user]);// eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className={style.formContainer}>
@@ -250,16 +252,16 @@ export function UpdateCohort() {
               </div>
               {addedTeacher.length !== 0
                 ? addedTeacher.map((item, index) => (
-                    <div key={index} className={style.teacherSelect}>
-                      <li>{item.name}</li>
-                      <button
-                        onClick={() => onClearTeacher(item.id)}
-                        type="button"
-                      >
-                        <MdDeleteForever size={25} />
-                      </button>
-                    </div>
-                  ))
+                  <div key={index} className={style.teacherSelect}>
+                    <li>{item.name}</li>
+                    <button
+                      onClick={() => onClearTeacher(item.id)}
+                      type="button"
+                    >
+                      <MdDeleteForever size={25} />
+                    </button>
+                  </div>
+                ))
                 : null}
             </div>
           </div>

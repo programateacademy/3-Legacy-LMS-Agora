@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./competences.module.css";
 
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { Textarea } from "../../components/input/Textarea";
+import { useNavigate, useParams } from "react-router-dom";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import apiAgora from "../../api";
 import { useSelector } from "react-redux";
@@ -27,26 +26,26 @@ export function Competences() {
   
   let navigate = useNavigate();
 
-  const fetchCohortName = async () => {
-    const resName = await apiAgora.get(`/api/agora/get-cohort/${cohortID}`, {
-      headers: { Authorization: id_user },
+  const fetchCohortName = async (url, id) => {
+    const resName = await apiAgora.get(`/api/agora/get-cohort/${url}`, {
+      headers: { Authorization: id },
     });
     setNameCohort(resName.data.nameCohort);
     const res2Name = await apiAgora.get(
       `/api/agora/get-bootcamps/${resName.data.bootcampID}`,
       {
-        headers: { Authorization: id_user },
+        headers: { Authorization: id },
       }
     );
     setNameBootcamp(res2Name.data.nameBootcamp);
     setDescriptionBootcamp(res2Name.data.descriptionBootcamp);
   };
 
-  const fetchCohortCompetences = async () => {
+  const fetchCohortCompetences = async (url, id) => {
     const resCompetencesCohort = await apiAgora.get(
-      `/api/agora/get-competences/${cohortID}`,
+      `/api/agora/get-competences/${url}`,
       {
-        headers: { Authorization: id_user },
+        headers: { Authorization: id },
       }
     );
     setCohortCompetences(resCompetencesCohort.data);
@@ -90,9 +89,9 @@ export function Competences() {
   };
 
   useEffect(() => {
-    fetchCohortName();
-    fetchCohortCompetences();
-  }, []);
+    fetchCohortName(cohortID, id_user);
+    fetchCohortCompetences(cohortID, id_user);
+  }, [cohortID, id_user]);
 
   useEffect(() => {
     setIdentifierCompetences(competence.caracteristica + competence.number);
@@ -186,14 +185,14 @@ export function Competences() {
           <div className={styles.containerInputAddCompetence}>
             <h3>Nivel 1</h3>
             <p>Grupo de acciones</p>
-            <Textarea
+            <textarea
               placeholder="Descripción:"
               name="actions1"
               value={actions1}
               onChange={handleChangeInputLevelOne}
             />
             <p>Criterios de evaluacion</p>
-            <Textarea
+            <textarea
               placeholder="Descripción:"
               name="evaluationCriteria1"
               value={evaluationCriteria1}
@@ -201,14 +200,14 @@ export function Competences() {
             />
             <h3>Nivel 2</h3>
             <p>Grupo de acciones</p>
-            <Textarea
+            <textarea
               placeholder="Descripción:"
               name="actions2"
               value={actions2}
               onChange={handleChangeInputLevelTwo}
             />
             <p>Criterios de evaluacion</p>
-            <Textarea
+            <textarea
               placeholder="Descripción:"
               name="evaluationCriteria2"
               value={evaluationCriteria2}
@@ -216,14 +215,14 @@ export function Competences() {
             />
             <h3>Nivel 3</h3>
             <p>Grupo de acciones</p>
-            <Textarea
+            <textarea
               placeholder="Descripción:"
               name="actions3"
               value={actions3}
               onChange={handleChangeInputLevelThree}
             />
             <p>Criterios de evaluacion</p>
-            <Textarea
+            <textarea
               placeholder="Descripción:"
               name="evaluationCriteria3"
               value={evaluationCriteria3}
@@ -238,7 +237,7 @@ export function Competences() {
         </form>
         <hr />
         <div className={styles.container__frameOfReference}>
-          <h2>Marco de referencias</h2>
+          <h2>Competencias Asignadas</h2>
           {orderedCompetences.map((item, index) => (
             <CompetencesLabel
               key={index}
@@ -246,6 +245,7 @@ export function Competences() {
               competenceID={item.id}
               adminID={id_user}
               name={item.nameCompetences}
+              fetchCohortCompetence={()=>fetchCohortCompetences(cohortID)}
             />
           ))}
         </div>

@@ -68,18 +68,22 @@ export function UpdateQuery() {
   };
 
 
-  const fetchQuery = async () => {
-    const res = await apiAgora.get("/api/agora/get-query/" + queryID, {
-      headers: { Authorization: userID },
+  const fetchQuery = async (url, id) => {
+
+    const res = await apiAgora.get("/api/agora/get-query/" + url, {
+      headers: { Authorization: id },
     });
-    res.data.date=new Date(res.data.date).toLocaleDateString("en-CA")+"T"+new Date(res.data.date).toLocaleTimeString()
+    if(res.data){
+      res.data.date=new Date(res.data.date).toLocaleDateString("en-CA")+"T"+new Date(res.data.date).toLocaleTimeString()
     setQuery(res.data);
     setImage(res.data.pictureQuery);
+    }
+    
   };
 
   useEffect(() => {
-    fetchQuery();
-  }, []);
+    fetchQuery(queryID, userID);
+  }, [queryID, userID]);
 
   //general info Query
   const handleChangeInput = (e) => {
@@ -234,6 +238,7 @@ export function UpdateQuery() {
                             className={style.tag}
                             href={item.link}
                             target="_blank"
+                            rel="noreferrer"
                           >
                             {item.nameLink}
                           </a>
