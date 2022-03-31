@@ -15,12 +15,12 @@ export const Announcements = () => {
   const [announcements, setAnnouncements] = useState([]);
   const [modal, setModal] = useState(false);
 
-  const onClickModal = () =>{
-    setModal(!modal)
-  }
+  const onClickModal = () => {
+    setModal(!modal);
+  };
 
   const fetchAnnouncements = async () => {
-    const res = await apiAgora.get(`/get-announcements/${cohortID}`, {
+    const res = await apiAgora.get(`api/agora/get-announcements/${cohortID}`, {
       headers: { Authorization: id_user },
     });
     setAnnouncements(res.data);
@@ -29,19 +29,31 @@ export const Announcements = () => {
   useEffect(() => {
     fetchAnnouncements();
   }, []);
-  console.log(announcements)
+  console.log(announcements);
 
   return (
     <div>
-      {isTeacher?<button onClick={ onClickModal}>Crear Anuncios</button>:null}
-      {modal ?  <div className={style.modal} >
-        <ModalCreateAnnouncements setModal={setModal}/>
-      </div>:null}
-      {/* {announcements.map((item, index)(
-        <>
-        <p></p>
-        </>
-  ))} */}
+      {isTeacher ? (
+        <button onClick={onClickModal}>Crear Anuncios</button>
+      ) : null}
+      {modal ? (
+        <div className={style.modal}>
+          <ModalCreateAnnouncements
+            auth={auth}
+            cohortID={cohortID}
+            userID={id_user}
+            setModal={setModal}
+          />
+        </div>
+      ) : null}{" "}
+      <div>
+      {announcements.map( (item, index) =>{
+          
+            <p>{item.titleAnnouncement}</p>
+
+        }
+      )}
+      </div>
     </div>
   );
 };
