@@ -61,7 +61,7 @@ export function CompetencesUpdate() {
 
   useEffect(() => {
     fetchCohortCompetence(competenceCohortID, id_user)
-  }, [competenceCohortID, id_user]);
+  }, [competenceCohortID, id_user]);// eslint-disable-line react-hooks/exhaustive-deps
 
   const handleSubmit = async (e) => {
     e.preventDefault();

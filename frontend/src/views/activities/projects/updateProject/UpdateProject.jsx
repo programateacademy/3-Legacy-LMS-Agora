@@ -202,7 +202,7 @@ export function UpdateProject() {
   };
   useEffect(() => {
     fetchProject(projectID, userID);
-  }, [projectID, userID]);
+  }, [projectID, userID]);// eslint-disable-line react-hooks/exhaustive-deps
 
   //save project info Backend
   const handleSubmit = async (e) => {

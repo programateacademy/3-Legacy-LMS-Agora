@@ -119,14 +119,12 @@ export function UpdateCohort() {
       setAssignedTeachersID((prev) => [...prev, item])
     );
     const startDateBootcamp2 = res.data.startDateBootcamp
+    const endBootcamp2 = res.data.endBootcamp
     setCohort({
       ...cohort, startDateBootcamp: new Date(
         startDateBootcamp2
       ).toLocaleDateString("en-CA"), err: "", success: ""
-    });
-    const endBootcamp2 = res.data.endBootcamp
-    setCohort({
-      ...cohort, endBootcamp: new Date(
+   , endBootcamp: new Date(
         endBootcamp2
       ).toLocaleDateString("en-CA"), err: "", success: ""
     });
@@ -163,7 +161,7 @@ export function UpdateCohort() {
 
   useEffect(() => {
     fetchTeachers(id_user);
-  }, [id_user]);
+  }, [id_user]);// eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className={style.formContainer}>
