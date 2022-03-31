@@ -11,18 +11,18 @@ export function CohortsTeacher() {
 
   const [cohortsTeacher, setCohortsTeacher] = useState([]);
 
-  const fetchCohortsTeacher = async () => {
+  const fetchCohortsTeacher = async (id) => {
     const res = await apiAgora.get(
-      `/api/agora/get-cohorts-teacher/${id_user}`,
+      `/api/agora/get-cohorts-teacher/${id}`,
       {
-        headers: { Authorization: id_user },
+        headers: { Authorization: id},
       }
     );
     setCohortsTeacher(res.data);
   };
   useEffect(() => {
-    fetchCohortsTeacher();
-  }, []);
+    fetchCohortsTeacher(id_user );
+  }, [id_user ]);
   return (
     <div className={styles.cohorts}>
       <div className={styles.wrapper}>
