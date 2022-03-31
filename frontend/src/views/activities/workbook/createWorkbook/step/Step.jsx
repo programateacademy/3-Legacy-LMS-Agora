@@ -1,6 +1,5 @@
-import React, { useState } from "react";
 import style from "./Step.module.css";
-
+import { MdExpandLess } from "react-icons/md";
 export function Step(props) {
   const { info, setOpenInfo } = props;
   const { index, stepShow } = info;
@@ -14,16 +13,16 @@ export function Step(props) {
   } = stepShow;
 
   return (
-    <div className={style.modal}>
-      <div className={style.containerModal}>
+    <div className={style.containerOne}>
+      <div className={style.summaryProject}>
         <button
-          className={style.close}
+          className={style.addTagsProject}
           onClick={() => setOpenInfo((prevState) => !prevState)}
         >
-          X
+          <MdExpandLess size={30} />
         </button>
         <div className={style.wrapper}>
-          <h2 className={style.typing_demo}>Paso {index + 1}</h2>
+          <h2 className={style.typing_demo}>Contenido paso {index + 1}</h2>
         </div>
         {/* Description */}
         <div>

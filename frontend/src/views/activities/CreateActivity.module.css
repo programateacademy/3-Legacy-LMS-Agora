@@ -16,13 +16,13 @@
 
 @keyframes typing {
   from {
-      width: 0;
+    width: 0;
   }
 }
 
 @keyframes blink {
   20% {
-      border-color: transparent;
+    border-color: transparent;
   }
 }
 
@@ -52,7 +52,7 @@
 }
 
 .linkIcon {
-  color:dodgerblue
+  color: dodgerblue
 }
 
 .img_preview {
@@ -67,12 +67,12 @@
   overflow: hidden;
 }
 
-  .image {
-    max-height: 98%;
-    max-width: 95%;
-    height: auto;
-    width: auto;
-  }
+.image {
+  max-height: 98%;
+  max-width: 95%;
+  height: auto;
+  width: auto;
+}
 
 
 
@@ -102,22 +102,26 @@
   width: 90vw;
   margin-left: 5vw;
 }
+
 .form {
   display: flex;
   flex-direction: column;
   margin: auto;
   width: 100%;
 }
-.container{
-    display: flex;
-    flex-direction: row;
+
+.container {
+  display: flex;
+  flex-direction: row;
 }
+
 .containerOne {
   display: flex;
   flex-direction: column;
   width: 49vw;
   margin: 2rem;
 }
+
 .containerTwo {
   display: flex;
   flex-direction: column;
@@ -125,9 +129,9 @@
   margin: 2rem;
 }
 
-.line{
-    border-bottom: 2px solid var(--colorBlack);
-    width: 100%;
+.line {
+  border-bottom: 2px solid var(--colorBlack);
+  width: 100%;
 }
 
 
@@ -203,6 +207,7 @@
   max-width: 100%;
   text-align: justify;
 }
+
 .tagText p {
   text-align: justify;
 }
@@ -232,18 +237,18 @@
 .tagsProject {
   display: flex;
   width: 100%;
-  align-items:center;
+  align-items: center;
 
 }
 
 .addTagsProject {
-    margin-left: 2vh;
-    background-color: transparent;
+  margin-left: 2vh;
+  background-color: transparent;
 }
 
 .addTagsProject:hover {
-    color: var(--colorGreenLight);
-    transition: 0.3s;
+  color: var(--colorGreenLight);
+  transition: 0.3s;
 }
 
 .tag {
@@ -378,7 +383,8 @@
   align-items: center;
   width: 90%;
 }
-.selectContainer{
+
+.selectContainer {
   display: flex;
   width: 60%;
 }
@@ -386,7 +392,7 @@
 .formContainer h5 {
   white-space: nowrap;
   padding-right: 2vh;
-  font-size:medium
+  font-size: medium
 }
 
 .formContainer h3 {
@@ -416,6 +422,7 @@
   .containerOne {
     width: 95%;
   }
+
   .containerTwo {
     width: 95%;
   }
