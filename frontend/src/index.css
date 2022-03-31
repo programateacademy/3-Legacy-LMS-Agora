@@ -1,8 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
 @font-face {
   font-family: 'Gilroy-Light';
   src: url('./assets/font/Gilroy-Light.otf');
 }
+
 @font-face {
   font-family: 'Gilroy-Bold';
   src: url('./assets/font/Gilroy-ExtraBold.otf');
@@ -14,14 +16,17 @@
   margin: 0;
   box-sizing: border-box;
 }
-h1{
-  font-family:  'Gilroy-ExtraBold', sans-serif;
+
+h1 {
+  font-family: 'Gilroy-ExtraBold', sans-serif;
   text-align: center;
 }
-h2, h3{
-  font-family:  'Gilroy-Light', sans-serif;
+
+h2, h3, h4 {
+  font-family: 'Gilroy-Light', sans-serif;
   text-align: center;
 }
+
 body {
   background: var(--colorWhite);
   overflow-x: hidden;
@@ -45,8 +50,8 @@ p {
 }
 
 input {
-	border: transparent;
-	min-height: 40px;
+  border: transparent;
+  min-height: 40px;
   width: 100%;
 	padding: 10px;
 	border-radius: 5px;
@@ -55,8 +60,8 @@ input {
 }
 
 select {
-	border: transparent;
-	min-height: 40px;
+  border: transparent;
+  min-height: 40px;
   width: 100%;
 	padding: 10px;
 	border-radius: 5px;
@@ -74,41 +79,51 @@ textarea{
 	resize: none;
 }
 
-:root{
- --curve: 18;
- --colorBackground:#E5E5E5;
- --colorWhite:#FEFEFE;
- --colorGreenDark:#1A2818;
- --colorBlack:#010101;
- --colorBlackOpacity:#00000096;
- --colorGray:#D7D7D7;
- --colorGray_20:rgba(214, 214, 214, 0.2);
- --colorGreenLight:#92C149;
- --colorGreenLight_31: rgba(145, 193, 73, 0.31);
- --colorRed:#ff2a2a;
- --colorYellow:#ffd808;
- --colorYellow_65: rgba(255, 204, 2, 0.65);
- --colorYellowOpacity:#ffda0a98;
+textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: var(--colorGray_20);
+  box-shadow: inset 0px 4px 15px rgba(0, 0, 0, 0.5);
+  border: transparent;
+  resize: none;
+}
+
+:root {
+  --curve: 18;
+  --colorBackground: #E5E5E5;
+  --colorWhite: #FEFEFE;
+  --colorGreenDark: #1A2818;
+  --colorBlack: #010101;
+  --colorBlackOpacity: #00000096;
+  --colorGray: #D7D7D7;
+  --colorGray_20: rgba(214, 214, 214, 0.2);
+  --colorGreenLight: #92C149;
+  --colorGreenLight_31: rgba(145, 193, 73, 0.31);
+  --colorRed: #ff2a2a;
+  --colorYellow: #ffd808;
+  --colorYellow_65: rgba(255, 204, 2, 0.65);
+  --colorYellowOpacity: #ffda0a98;
 }
 
 /* ===== Scrollbar CSS ===== */
-  /* Firefox */
-  * {
-    scrollbar-width: auto;
-    scrollbar-color: var(--colorYellow) var(--colorBlack);
-  }
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: var(--colorYellow) var(--colorBlack);
+}
 
-  /* Chrome, Edge, and Safari */
-  *::-webkit-scrollbar {
-    width: 15px;
-  }
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 15px;
+}
 
-  *::-webkit-scrollbar-track {
-    background: var(--colorBlack);
-  }
+*::-webkit-scrollbar-track {
+  background: var(--colorBlack);
+}
 
-  *::-webkit-scrollbar-thumb {
-    background-color: var(--colorYellow);
-    border-radius: 10px;
-    border: 10px solid var(--colorYellow_65);
-  }
+*::-webkit-scrollbar-thumb {
+  background-color: var(--colorYellow);
+  border-radius: 10px;
+  border: 10px solid var(--colorYellow_65);
+}

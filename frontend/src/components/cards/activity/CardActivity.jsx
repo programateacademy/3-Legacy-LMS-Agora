@@ -1,26 +1,29 @@
 import React from "react";
-import styles from './CardActivity.module.css';
+import styles from "./CardActivity.module.css";
 import { ButtonGradual } from "../../buttons/Button/ButtonGradual";
 import { Link } from "react-router-dom";
 
 export function CardActivity(props) {
-  const { title, image, teacher, id, type } = props
+  const { title, image, teacher, id, type } = props;
   return (
-
     <div className={styles.card} style={{ backgroundImage: `url(${image})` }}>
-      {teacher ? <div className={styles.dots}>
-        <div className={styles.dot}></div>
-        <div className={styles.dot}></div>
-        <div className={styles.list}>
-          <li>
-            <Link to={`/${type}/update-${type}/${id}`}>Editar</Link>
-          </li>
-          <li>
-            <Link to={""}>Calificar</Link>
-          </li>
+      {teacher ? (
+        <div className={styles.dots}>
+          <div className={styles.dot}></div>
+          <div className={styles.dot}></div>
+          <div className={styles.list}>
+            <li>
+              <Link to={`/${type}/update-${type}/${id}`}>Editar</Link>
+            </li>
+            <li>
+              <Link to={""}>Calificar</Link>
+            </li>
+          </div>
+          <div className={styles.dot}></div>
         </div>
-        <div className={styles.dot}></div>
-      </div> : ""}
+      ) : (
+        ""
+      )}
 
       <div className={styles.card__overlay}>
         <div className={styles.card__header}>
