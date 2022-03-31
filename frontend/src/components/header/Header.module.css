@@ -61,7 +61,7 @@ header {
   color: #222222;
 }
 
-@media (max-width: 885px) {
+@media (max-width: 700px) {
   .hamburguerMenu {
     display: block;
   }

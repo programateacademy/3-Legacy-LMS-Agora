@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./CardCohort.module.css";
 import { Button } from "../../buttons/Button/Button";
-export function CardCohort({ info, principal }) {
+export function CardCohort({ info, principal, teacher }) {
   const {
     id,
     nameCohort,
@@ -27,15 +27,28 @@ export function CardCohort({ info, principal }) {
             endBootcamp
           ).toLocaleDateString()}`}</h5>
         </div>
-        <div className={styles.buttonsContainer}>
-          {principal?<Button title="Dashboard" link={`/bootcamp/dashboard-cohort/${id}`} />:null}
-
-          <Button
-            title="Estudiantes"
-            link={`/bootcamp/cohort/students/${id}`}
-          />
-          <Button title="Editar" link={`/cohort/update/${id}`} />
-        </div>
+        {teacher ? (
+          <div
+            onClick={() => window.location.reload(false)}
+            className={styles.buttonsContainer}
+          >
+            <Button title="Dashboard" link={`/cohort/dashboard/${id}`} />
+          </div>
+        ) : (
+          <div className={styles.buttonsContainer}>
+            {principal ? (
+              <Button
+                title="Dashboard"
+                link={`/bootcamp/dashboard-cohort/${id}`}
+              />
+            ) : null}
+            <Button
+              title="Estudiantes"
+              link={`/bootcamp/cohort/students/${id}`}
+            />
+            <Button title="Editar" link={`/cohort/update/${id}`} />
+          </div>
+        )}
       </div>
     </div>
   );
