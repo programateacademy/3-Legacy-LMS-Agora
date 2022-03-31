@@ -1,8 +1,15 @@
-.Dashboar{
+.Dashboard{
     display: flex;
     flex-direction: row;
-    height: 100vh;
+    max-height: calc(100vh - 140px);
 }
+
+.container {
+    max-height: calc(100vh - 140px);
+    overflow:scroll;
+    width: 100%;
+}
+
 @media (max-width: 700px) {
 .Menu{
     display: none;

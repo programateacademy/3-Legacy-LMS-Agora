@@ -1,0 +1,9 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.queries {
+    display: flex;
+    flex-wrap: wrap;
+}
