@@ -17,29 +17,29 @@ export function DashboardCohort() {
   const [cohortCompetences, setCohortCompetences] = useState([]);
   const [cohort, setCohort] = useState({});
 
-  const fetchCohortCompetences = async () => {
+  const fetchCohortCompetences = async (url, id) => {
     const resCompetencesCohort = await apiAgora.get(
-      `/api/agora/get-competences/${cohortID}`,
+      `/api/agora/get-competences/${url}`,
       {
-        headers: { Authorization: userID },
+        headers: { Authorization: id },
       }
     );
     const res = resCompetencesCohort.data
     setCohortCompetences(res);
   };
 
-  const fetchCohort = async () => {
-    const res = await apiAgora.get(`/api/agora/get-cohort/${cohortID}`, {
-      headers: { Authorization: userID },
+  const fetchCohort = async (url, id) => {
+    const res = await apiAgora.get(`/api/agora/get-cohort/${url}`, {
+      headers: { Authorization: id },
     });
     setCohort(res.data);
   };
 
   
   useEffect(() => {
-    fetchCohortCompetences();
-    fetchCohort();
-  }, []);
+    fetchCohortCompetences(cohortID, userID);
+    fetchCohort(cohortID, userID);
+  }, [cohortID, userID]);
   return (
     <div className={styles.cohort}>
       <button className={styles.button_return} onClick={()=>navigate(-1)}>

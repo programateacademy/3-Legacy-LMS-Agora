@@ -15,15 +15,15 @@ export function Queries(props) {
   const [cohortQueries, setCohortQueries] = useState([])
 
 
-  const fetchCohortQueries = async () => {
-      const res = await apiAgora.get(`/api/agora/get-queries/${cohortID}`, {
-        headers: { Authorization: userID },
+  const fetchCohortQueries = async (url, id) => {
+      const res = await apiAgora.get(`/api/agora/get-queries/${url}`, {
+        headers: { Authorization:  id},
       });
       setCohortQueries(res.data);
     };
     useEffect(() => {
-      fetchCohortQueries()
-    }, []);
+      fetchCohortQueries(cohortID,userID)
+    }, [cohortID,userID]);
   return (
     <div>
       <h2>Consultas</h2>

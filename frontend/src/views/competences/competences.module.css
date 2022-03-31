@@ -19,7 +19,7 @@
   align-items: center;
   background-color: var(--colorWhite);
   border-radius: 10px;
-  box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 4px 4px 4px 4px var(--colorBlackOpacity);
   display: flex;
   flex-direction: column;
   height: 100%;

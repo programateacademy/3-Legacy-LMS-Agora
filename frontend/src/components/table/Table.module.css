@@ -1,16 +1,16 @@
 .userTable {
-  width: 100%;
   border-collapse: inherit;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  margin: 5vh;
   text-align: center;
+  width: 100%;
 }
 .userTable th,
 .userTable td {
-  padding: 15px;
   background-color: var(--colorGray);
   color: var(--colorBlack);
+  padding: 15px;
 }
-
 .userTable th {
   text-align: left;
 }
@@ -18,15 +18,12 @@
   background-color: var(--colorYellow);
   text-align: center;
 }
-
 .userTable tbody tr:hover {
   background-color: var(--colorGreenLight);
 }
-
 .userTable tbody td {
   position: relative;
 }
-
 @keyframes rote {
   0% {
     -moz-transform: rotate(-30deg);
@@ -50,28 +47,25 @@
     transform: rotate(30deg);
   }
 }
-
 .delete {
   background-color: transparent;
-  text-align: center;
-  font-size: 25px;
   color: var(--colorBlack);
+  font-size: 25px;
+  text-align: center;
 }
-
 .delete:hover {
-  color: rgb(255, 61, 61);
-  transition: 0.3s;
   animation-duration: 0.5s;
   animation-iteration-count: infinite;
   animation-name: rote;
+  color: rgb(255, 61, 61);
+  transition: 0.3s;
 }
 .edit {
   background-color: transparent;
-  text-align: center;
-  font-size: 20px;
   color: var(--colorBlack);
+  font-size: 20px;
+  text-align: center;
 }
-
 .edit:hover {
   color: var(--colorGreenLight);
   transition: 0.3s;

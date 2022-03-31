@@ -7,6 +7,7 @@ import apiAgora from "../../../api";
 import { useParams } from "react-router-dom";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export function UpdateCohort() {
   const params = useParams();
@@ -40,9 +41,9 @@ export function UpdateCohort() {
     setCohort({ ...cohort, [name]: value, err: "", success: "" });
   };
   // Get teachers info from database
-  const fetchTeachers = async () => {
+  const fetchTeachers = async (id) => {
     const res = await apiAgora.get("api/all_teacher", {
-      headers: { Authorization: id_user },
+      headers: { Authorization: id },
     });
     setTeachers(res.data);
     fetchCohort(res.data);
@@ -101,12 +102,12 @@ export function UpdateCohort() {
             .map((e) =>
               e.id === item
                 ? e.firstName +
-                  " " +
-                  e.middleName +
-                  " " +
-                  e.lastName +
-                  " " +
-                  e.secondSurname
+                " " +
+                e.middleName +
+                " " +
+                e.lastName +
+                " " +
+                e.secondSurname
                 : ""
             )
             .toLocaleString()
@@ -118,15 +119,44 @@ export function UpdateCohort() {
     listTeacherAssigned.map((item) =>
       setAssignedTeachersID((prev) => [...prev, item])
     );
-    const startDateBootcamp2= res.data.startDateBootcamp
-    setCohort({ ...cohort, startDateBootcamp: new Date(
-      startDateBootcamp2
-    ).toLocaleDateString("en-CA"), err: "", success: "" });
-    const endBootcamp2= res.data.endBootcamp
-    setCohort({ ...cohort, endBootcamp: new Date(
-      endBootcamp2
-    ).toLocaleDateString("en-CA"), err: "", success: "" });
+    const startDateBootcamp2 = res.data.startDateBootcamp
+    const endBootcamp2 = res.data.endBootcamp
+    setCohort({
+      ...cohort, startDateBootcamp: new Date(
+        startDateBootcamp2
+      ).toLocaleDateString("en-CA"), err: "", success: ""
+   , endBootcamp: new Date(
+        endBootcamp2
+      ).toLocaleDateString("en-CA"), err: "", success: ""
+    });
   };
+
+  const alertErase = (cohortID) => {
+    Swal.fire({
+      background: "#E5E5E5",
+      title: "¿Desea eliminar esta Cohorte?",
+      text: "Este proceso no es reversible, recuerde borrar primero sus Estudiantes",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#FFCC02",
+      cancelButtonColor: "#010101",
+      confirmButtonText: "Si, seguro",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        deleteBootcamp(cohortID);
+        Swal.fire("Completado", "El Bootcamp ha sido eliminado", "success");
+      }
+    });
+  };
+
+  const deleteBootcamp = async (cohortID) => {
+          await apiAgora.delete("api/agora/delete-cohort/" +cohortID, {
+        headers: { Authorization: id_user },
+      });
+      navigate(-1);
+  };
+
   // Create new cohort
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -158,14 +188,19 @@ export function UpdateCohort() {
   };
 
   useEffect(() => {
-    fetchTeachers();
-  }, []);
+    fetchTeachers(id_user);
+  }, [id_user]);// eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className={style.formContainer}>
-      <button className={style.button_return} onClick={() => navigate(-1)}>
-        <BsArrowLeftCircle size={30} />
+      <div className={style.button_container}>
+        <button className={style.button_return} onClick={() => navigate(-1)}>
+          <BsArrowLeftCircle size={30} />
+        </button>
+            <button type="button" className={style.button_clear} onClick={() => alertErase(cohortID)}>
+        Eliminar Cohorte
       </button>
+      </div>
       <div className={style.wrapper}>
         <h2 className={style.typing_upgrade}>Actualizar Cohorte</h2>
       </div>
@@ -250,16 +285,16 @@ export function UpdateCohort() {
               </div>
               {addedTeacher.length !== 0
                 ? addedTeacher.map((item, index) => (
-                    <div key={index} className={style.teacherSelect}>
-                      <li>{item.name}</li>
-                      <button
-                        onClick={() => onClearTeacher(item.id)}
-                        type="button"
-                      >
-                        <MdDeleteForever size={25} />
-                      </button>
-                    </div>
-                  ))
+                  <div key={index} className={style.teacherSelect}>
+                    <li>{item.name}</li>
+                    <button
+                      onClick={() => onClearTeacher(item.id)}
+                      type="button"
+                    >
+                      <MdDeleteForever size={25} />
+                    </button>
+                  </div>
+                ))
                 : null}
             </div>
           </div>

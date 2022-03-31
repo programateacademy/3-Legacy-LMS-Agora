@@ -47,7 +47,11 @@ import { UpdateQuery } from "./views/activities/query/updateQuery/UpdateQuery";
 
 /* import { ProfileStudent } from "./components/ProfileStudent/ProfileStudent"; */
 import { UpdateProject } from "./views/activities/projects/updateProject/UpdateProject";
-/* import { ViewProject } from "./views/activities/projects/viewProject/ViewProject"; */
+import { ViewProject } from "./views/activities/projects/viewProject/ViewProject";
+import { ViewQuery } from "./views/activities/query/viewQury/viewQuery";
+import { RegisterSuperAdmin } from "./views/auth/register/RegisterSuperAdmin";
+import { AllCohorts } from "./views/cohort/allCohorts/AllCohorts";
+import { TableAllStudents } from "./views/tableStudentCohort/TableAllStudents";
 
 
 export function RoutesApp() {
@@ -63,6 +67,11 @@ export function RoutesApp() {
           <Route
             path="/api/activation/:activation_token"
             element={<ActivationEmail />}
+            exact
+          />
+          <Route
+            path="/register/activation-superAdmin/:id"
+            element={<RegisterSuperAdmin />}
             exact
           />
           <Route path="/forgot_password" element={<ForgotPassword />} exact />
@@ -153,6 +162,16 @@ export function RoutesApp() {
             exact
           />
           <Route
+            path="/all-cohorts/"
+            element={isAdmin ? <AllCohorts /> : <Error404 />}
+            exact
+          />
+          <Route
+            path="/all-students/"
+            element={isAdmin ? <TableAllStudents /> : <Error404 />}
+            exact
+          />
+          <Route
             path="/bootcamp/create-bootcamp"
             element={isAdmin ? <CreateBootcamp /> : <Error404 />}
             exact
@@ -202,13 +221,28 @@ export function RoutesApp() {
             exact
           />
           <Route
+            path="/project/view-project/:id"
+            element={isTeacher ? <ViewProject /> : <Error404 />}
+            exact
+          />
+          <Route
             path="/query/create-query/:id"
             element={isTeacher ? <CreateQuery /> : <Error404 />}
             exact
           />
           <Route
+             path="/project/view-project/:id"
+             element={isTeacher ? <ViewProject /> : <Error404 />}
+             exact
+           />
+          <Route
             path="/query/update-query/:id"
             element={isTeacher ? <UpdateQuery /> : <Error404 />}
+            exact
+          />
+          <Route
+            path="/query/view-query/:id"
+            element={isTeacher ? <ViewQuery /> : <Error404 />}
             exact
           />
           <Route

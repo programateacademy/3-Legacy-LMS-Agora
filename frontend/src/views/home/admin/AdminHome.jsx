@@ -5,8 +5,8 @@ import { Button } from "../../../components/buttons/Button/Button.jsx";
 export function AdminHome() {
   return (
     <div className={styles.adminDashboard}>
-      <div class={styles.wrapper}>
-        <h2 class={styles.typing_demo}>Bootcamps</h2>
+      <div className={styles.wrapper}>
+        <h2 className={styles.typing_demo}>Bootcamps</h2>
       </div>
       <div className={styles.buttonsContainer}>
         <Button title="Crear bootcamp" link="/bootcamp/create-bootcamp" />
@@ -14,6 +14,9 @@ export function AdminHome() {
       </div>
       <div className={styles.bootcampsContainer}>
         <Bootcamps />
+      </div>
+      <div className={styles.buttonsContainer}>
+        <Button title="Administrar Información" link="/all-cohorts/" />
       </div>
     </div>
   );

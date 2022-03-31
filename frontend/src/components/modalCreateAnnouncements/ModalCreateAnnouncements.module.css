@@ -21,7 +21,7 @@
   flex-direction: column;
   overflow-x: hidden;
   background: var(--colorGray);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 4px var(--colorBlackOpacity);
   border-radius: 10px;
 }
 
@@ -57,7 +57,7 @@
   left: 31px;
   top: 90px;
   background: var(--colorWhite);
-  box-shadow: inset 4px 4px 13px rgba(0, 0, 0, 0.25);
+  box-shadow: inset 4px 4px 13px var(--colorBlackOpacity);
 }
 
 .modalInp textarea{
@@ -67,7 +67,7 @@
   margin-top: 10px;
 
   background: var(--colorWhite);
-  box-shadow: inset 4px 4px 13px rgba(0, 0, 0, 0.25);
+  box-shadow: inset 4px 4px 13px var(--colorBlackOpacity);
 }
 
 .modalButton button{
@@ -81,7 +81,7 @@
   width: 320px;
   height: 50px;
   background: var(--colorBlack);
-  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 4px 4px 4px var(--colorBlackOpacity);
   border-radius: 10px;
 }
 

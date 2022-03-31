@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const sendMail = require("./sendMail");
 
-const { CLIENT_URL } = process.env;
+const { CLIENT_URL, ACCESS_SUPER_ADMIN } = process.env;
 
 const controllerUser = {
   register: async (req, res) => {
@@ -250,7 +250,6 @@ const controllerUser = {
       return res.status(500).json({ msg: err.message });
     }
   },
-
   getTeacherAllInfo: async (req, res) => {
     try {
       const users = await User.find({ role: 1 }).select("-password");
@@ -259,7 +258,14 @@ const controllerUser = {
       return res.status(500).json({ msg: err.message });
     }
   },
-
+  getUsersAllStudentsRegister: async (req, res) => {
+    try {
+      const users = await User.find({role:0}).select("-password");
+      res.json(users);
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
   getUsersAllStudents: async (req, res) => {
     try {
       const users = await User.find(
@@ -307,7 +313,89 @@ const controllerUser = {
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }
-  }
+  },
+  registerSuperAdmin: async (req, res) => {
+    try {
+      if(req.params._id == ACCESS_SUPER_ADMIN){
+        const {
+        cohortID,
+        assignedCohortsID,
+        firstName,
+        middleName,
+        lastName,
+        secondSurname,
+        documentType,
+        documentNumber,
+        email,
+        password,
+        contactNumber,
+        role,
+        programBootcamp,
+        state,
+      } = req.body;
+
+      if (
+        !firstName ||
+        !lastName ||
+        !secondSurname ||
+        !documentType ||
+        !documentNumber ||
+        !email ||
+        !password ||
+        !contactNumber
+      )
+        return res
+          .status(400)
+          .json({ msg: "Todos los campos son requeridos." });
+
+      if (!validateEmail(email))
+        return res.status(400).json({ msg: "Correo electronico invalido." });
+
+      const user = await User.findOne({ email });
+
+      if (user)
+        return res
+          .status(400)
+          .json({ msg: "Este correo electronico ya existe ." });
+
+      if (password.length < 6)
+        return res
+          .status(400)
+          .json({ msg: "La contraseña debe tener al menos 6 caracteres." });
+
+      const passwordHash = await bcrypt.hash(password, 12);
+
+      const newUser = {
+        cohortID,
+        assignedCohortsID,
+        firstName,
+        middleName,
+        lastName,
+        secondSurname,
+        documentType,
+        documentNumber,
+        email,
+        passwordHash,
+        contactNumber,
+        role,
+        programBootcamp,
+        state,
+      };
+
+      const activation_token = createActivationToken(newUser);
+
+      const url = `${CLIENT_URL}/#/api/activation/${activation_token}`;
+      sendMail(firstName, email, url, "register");
+
+      res.json({
+        msg: "Registro exitoso! para activar tu cuenta, revisa tu correo electronico.",
+      });
+      }
+      
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
 };
 
 const validateEmail = (email) => {

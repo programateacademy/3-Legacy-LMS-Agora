@@ -50,15 +50,15 @@ export function UpdateRegister() {
   } = user;
   let navigate = useNavigate();
 
-  const fetchAdmins = async () => {
-    const res = await apiAgora.get("api/get_user/" + userID, {
-      headers: { Authorization: id_user },
+  const fetchAdmins = async (url, id) => {
+    const res = await apiAgora.get("api/get_user/" + url , {
+      headers: { Authorization: id },
     });
     setUser(res.data);
   };
   useEffect(() => {
-    fetchAdmins();
-  }, []);
+    fetchAdmins(userID, id_user);
+  }, [userID, id_user]);
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
@@ -78,6 +78,13 @@ export function UpdateRegister() {
       return setUser({
         ...user,
         err: "El telefono debe tener al menos 10 caracteres",
+        success: "",
+      });
+
+      if (!isEmail(email))
+      return setUser({
+        ...user,
+        err: "Este correo electronico ya existe :(",
         success: "",
       });
 
@@ -122,8 +129,8 @@ export function UpdateRegister() {
         <div className={styles.register_form_content}>
           <form className={styles.register_form} onSubmit={handleSubmit}>
             <div className={styles.container_register_input}>
-              <div className={styles.input_register}>
-                <label>Primer Nomre</label>
+            <div className={styles.input_register}>
+                <label>Primer Nombre</label>
                 <input
                   placeholder="Primer Nombre"
                   name="firstName"
@@ -132,10 +139,9 @@ export function UpdateRegister() {
                 />
               </div>
               <div className={styles.input_register}>
-                <label>Primer Nomre</label>
+                <label>Segundo Nombre</label>
                 <input
-                  label="Segundo nombre"
-                  placeholder="Segundo nombre"
+                  placeholder="Segundo Nombre"
                   name="middleName"
                   value={middleName}
                   onChange={handleChangeInput}
@@ -144,9 +150,8 @@ export function UpdateRegister() {
             </div>
             <div className={styles.container_register_input}>
               <div className={styles.input_register}>
-                <label>Primer Nomre</label>
+                <label>Apellido Paterno</label>
                 <input
-                  label="Primer apellido"
                   placeholder="Primer apellido"
                   name="lastName"
                   value={lastName}
@@ -154,10 +159,9 @@ export function UpdateRegister() {
                 />
               </div>
               <div className={styles.input_register}>
-                <label>Primer Nomre</label>
+                <label>Apellido Materno</label>
                 <input
-                  label="Segundo apellido"
-                  placeholder="Segundo apellido"
+                  placeholder="Apellido Materno"
                   name="secondSurname"
                   value={secondSurname}
                   onChange={handleChangeInput}
@@ -165,7 +169,7 @@ export function UpdateRegister() {
               </div>
             </div>
             <div className={styles.container_register_input}>
-              <div className={styles.input_container}>
+              <div className={styles.input_register}>
                 <label className={styles.input_label}>Tipo de Documento</label>
                 <select
                   className={styles.form_select}
@@ -180,6 +184,7 @@ export function UpdateRegister() {
                   <option value="CE">Cédula de Extranjería</option>
                   <option value="PEP">Permiso Especial de Permanencia</option>
                   <option value="PPT">Permiso de Protección Temporal</option>
+                  <option value="PA">Pasporte</option>
                 </select>
               </div>
               <div className={styles.input_register}>
