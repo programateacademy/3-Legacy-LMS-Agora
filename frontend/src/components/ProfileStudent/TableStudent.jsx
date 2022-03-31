@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../ProfileStudent/TableStudent.css";
 
-function Tabs() {
+function TableStudent() {
   const [toggleState, setToggleState] = useState(1);
 
   const toggleTab = (index) => {
@@ -72,4 +72,4 @@ function Tabs() {
   );
 }
 
-export {Tabs}
+export {TableStudent}

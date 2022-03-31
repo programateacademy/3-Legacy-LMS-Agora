@@ -1,6 +1,8 @@
 .container{
     display: flex; 
-    min-height: calc(100vh - 140px); 
+    flex-direction: column;
+    height: auto;
+    /* min-height: calc(100vh - 140px);  */
     justify-content: center; 
     margin: auto; 
    
@@ -12,7 +14,8 @@
     justify-content: space-around;
     width: 100%;
     left: 0;
-    height: 200px;
+    height: auto;
+    padding: 2vh;
     /* background: rgba(196, 196, 196, 0.25); */
     background-color: var(--colorBlack);
 }
@@ -29,23 +32,22 @@
 .cajaIns{
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
     margin-left: 60px;
 }
 
-.cajaIns >img{
-    width: 100px;
-    height: 100px;
-    margin-left: 10px;
-    margin-right: 65%;
-    margin-top: 10px;
-    margin-bottom: 20px;
+.cajaIns img{
+    width: 150px;
+    height: 150px;
+    margin-bottom: 10px;
     background: var(--colorYellow);
     border: 0.5px solid var(--colorBlack);
     box-sizing: border-box;
     filter: drop-shadow(4px 4px 9px var(--colorBlackOpacity));
     border-radius: 118.5px;
 }
+
 
 .button_return {
     align-self: flex-start;
@@ -76,6 +78,7 @@
 .cajaLink{
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
 }
 
@@ -84,6 +87,14 @@
     flex-direction: row;
     align-items: center;
     gap: 2vw;
+}
+
+.cajaUlt:last-child{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 10px;
 }
 
 .cajaUlt >input{
@@ -101,12 +112,27 @@
 }
 
 .cajaUlt >button{
-    width: 90px;
-    height: 35px;
+    display: flex;
+    justify-content: center;
     align-items: center;
+    width: 100px;
+    height: 35px;
     border-radius: 10px;
     background: var(--colorYellow);
+
 }
+
+.tableCompetences{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    width: 80vw;
+    gap: 5vh 0;
+    padding: 5vh 0;
+}
+
 
 @media (max-width: 700px) {
     .containerProfile{
@@ -116,17 +142,29 @@
 
     .buttonVolver{
         margin-left: 20px;
+        margin-top: 10px;
     }
 
     .cajaIns{
-        margin-left: 40%;
+        align-items: center;
+        margin-left: 0;
     }
+
 
     .cajaName{
         margin-top: 15px;
+        align-items: center;
     }
 
     .cajaLink{
-        margin-left: 25%;
+        margin-top: 15px;
+    }
+
+    .cajaUlt input{
+        align-items: center;
+    }
+
+    .cajaUlt button{
+        margin-right: 40%;
     }
 }
