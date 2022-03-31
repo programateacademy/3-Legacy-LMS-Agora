@@ -7,6 +7,6 @@ router.post('/new-query', authTeacher, controllerQuery.create);
 router.get('/get-queries/:_id', authUser, controllerQuery.getQueries);
 router.get('/get-query/:_id', authUser, controllerQuery.getQuery);
 router.put('/update-query/:_id', authTeacher, controllerQuery.updateQuery)
-router.delete('/delete-query/:_id', controllerQuery.deleteQuery);
+router.delete('/delete-query/:_id', authTeacher, controllerQuery.deleteQuery);
 
 module.exports = router
