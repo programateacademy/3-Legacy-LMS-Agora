@@ -218,6 +218,10 @@ export function RoutesApp() {
             path="/competences-update/:id"
             element={isAdmin ? <CompetencesUpdate /> : <Error404 />}
           />
+          <Route
+            path="/announcements-cohort/:id"
+            element={isTeacher ? <Announcements /> : <Error404 />}
+          />
         </Routes>
         <Footer />
         </ScrollToTop>
