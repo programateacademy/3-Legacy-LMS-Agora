@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const authTeacher = require("../middleware/authTeacher");
-const authUser = require("../middleware/auth");
+const authUser = require("../middleware/authUser");
 const controllerWorkbook = require("../controllers/workbook");
 
 router.post("/new-workbook", authTeacher, controllerWorkbook.create);
