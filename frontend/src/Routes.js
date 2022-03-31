@@ -173,6 +173,12 @@ export function RoutesApp() {
           />
           
           {/* //isTeacher */}
+
+          <Route
+            path="/cohort/dashboard/:id"
+            element={isTeacher ? <Dashboard /> : <Error404 />}
+            exact
+          />
           
           <Route
             path="/project/create-project/:id"

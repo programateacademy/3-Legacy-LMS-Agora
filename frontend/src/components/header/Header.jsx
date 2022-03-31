@@ -1,22 +1,27 @@
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../../assets/logos/programate-academy-color-.png";
 
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import axios from 'axios'
 
 import UserLink from "./UserLink";
 import "./UserLink.css";
 import style from "./Header.module.css";
 
 import { HamburguerMenu } from "./HamburguerMenu";
-import { MenuDashboard } from '../menu/MenuDashboard'
+import { MenuDashboard } from "../menu/MenuDashboard";
 
 export function Header() {
   const auth = useSelector((state) => state.auth);
   const [open, setOpen] = useState(false);
 
   const { user, isLogged, isTeacher, isStudent } = auth;
+  const [url, setUrl] = useState("");
+  const urlView = window.location.href.split('/').reverse()[0]
+
+  useEffect(() => {
+    setUrl(urlView)
+  });
 
   const handleLogout = async () => {
     try {
@@ -27,20 +32,22 @@ export function Header() {
       window.location.href = "/";
     }
   };
-
   const handleClick = () => {
     setOpen(!open);
   };
+
   return (
     <>
       <header>
         <div className={style.headerContainer}>
-          {isLogged && (isStudent || isTeacher) ? (
+          {isLogged && (isStudent || isTeacher && url) ? (
             <>
-            <div className={style.hamburguerMenu}>
-              <HamburguerMenu open={open} handleClick={handleClick}/>
-            </div>
-              <MenuDashboard open={open} setOpen={setOpen}/>
+              <div className={style.hamburguerMenu}>
+                <HamburguerMenu open={open} handleClick={handleClick} />
+              </div>
+              <div className={!open ? "closeMenu" : "openMenu"}>
+                <MenuDashboard open={open} setOpen={setOpen} />
+              </div>
             </>
           ) : (
             ""

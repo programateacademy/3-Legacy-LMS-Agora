@@ -50,6 +50,15 @@ const controllerCohort = {
       return res.status(500).json({ msg: err.message });
     }
   },
+  getCohortsTeacher: async (req, res) => {
+    try {
+      const cohort = await Cohort.find({ assignedTeachersID: req.params._id });
+
+      res.json(cohort);
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  },
   getCohort: async (req, res) => {
     try {
       const cohort = await Cohort.findById(req.params._id);
