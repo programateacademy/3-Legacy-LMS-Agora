@@ -11,17 +11,6 @@ export function UpdateBootcamp() {
   const userID = params.id;
   let navigate = useNavigate();
 
-  const fetchAdmins = async () => {
-    const res = await apiAgora.get("api/agora/get-bootcamps/" + userID, {
-      headers: { Authorization: id_user },
-    });
-    setBootcamp(res.data);
-    setImage(res.data.imageBootcamp);
-  };
-  useEffect(() => {
-    fetchAdmins();
-  }, []);
-
   const [image, setImage] = useState("");
   const auth = useSelector((state) => state.auth);
   const id_user = auth.user.id;
@@ -44,6 +33,17 @@ export function UpdateBootcamp() {
     });
     setImage(e.target.value);
   };
+
+  const fetchAdmins = async (url, id) => {
+    const res = await apiAgora.get("api/agora/get-bootcamps/" + url, {
+      headers: { Authorization: id },
+    });
+    setBootcamp(res.data);
+    setImage(res.data.imageBootcamp);
+  };
+  useEffect(() => {
+    fetchAdmins(userID,id_user);
+  }, [userID,id_user]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

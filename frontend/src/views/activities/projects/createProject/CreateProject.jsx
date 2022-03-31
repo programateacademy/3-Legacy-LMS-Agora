@@ -72,11 +72,11 @@ export function CreateProject() {
   const { nameLink, link } = objectLink;
 
   // fetch cohort competences
-  const fetchCohortCompetences = async () => {
+  const fetchCohortCompetences = async (url, id) => {
     const resCompetencesCohort = await apiAgora.get(
-      `/api/agora/get-competences/${cohortID}`,
+      `/api/agora/get-competences/${url}`,
       {
-        headers: { Authorization: userID },
+        headers: { Authorization: id},
       }
     );
     setCohortCompetences(resCompetencesCohort.data);
@@ -187,8 +187,8 @@ export function CreateProject() {
     setCompetencesIDS(competencesIDS.filter((e) => e !== item));
   };
   useEffect(() => {
-    fetchCohortCompetences();
-  }, []);
+    fetchCohortCompetences(cohortID, userID );
+  }, [cohortID, userID]);
 
   //save project info Backend
   const handleSubmit = async (e) => {
@@ -315,7 +315,7 @@ export function CreateProject() {
                     <div className={style.tagContainer} key={index}>
                       <AiOutlineLink className={style.linkIcon} size={30} />
                       <div className={style.tagText}>
-                        <a className={style.tag} href={item.link} target="_blank">
+                        <a className={style.tag} href={item.link} target="_blank" rel="noreferrer">
                           {item.nameLink}
                         </a></div>
                       <button className={style.deleteTag}

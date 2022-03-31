@@ -73,22 +73,22 @@ export function UpdateProject() {
   const { nameLink, link } = objectLink;
   //fetch project 
 
-  const fetchProject = async () => {
-    const res = await apiAgora.get("/api/agora/get-project/" + projectID, {
-      headers: { Authorization: userID },
+  const fetchProject = async (url, id) => {
+    const res = await apiAgora.get("/api/agora/get-project/" + url, {
+      headers: { Authorization: id },
     });
     res.data.date=new Date(res.data.date).toLocaleDateString("en-CA")+"T"+new Date(res.data.date).toLocaleTimeString()
     setProject(res.data);
     setImage(res.data.pictureProject);
-    fetchCohortCompetences(res.data.cohortID);
+    fetchCohortCompetences(res.data.cohortID, id);
   };
 
   // fetch cohort competences
-  const fetchCohortCompetences = async (cohortID) => {
+  const fetchCohortCompetences = async (url, id) => {
     const resCompetencesCohort = await apiAgora.get(
-      `/api/agora/get-competences/${cohortID}`,
+      `/api/agora/get-competences/${url}`,
       {
-        headers: { Authorization: userID },
+        headers: { Authorization: id },
       }
     );
     setCohortCompetences(resCompetencesCohort.data);
@@ -199,8 +199,8 @@ export function UpdateProject() {
     setCompetencesIDS(competencesIDS.filter((e) => e !== item));
   };
   useEffect(() => {
-    fetchProject();
-  }, []);
+    fetchProject(projectID, userID);
+  }, [projectID, userID, project]);
 
   //save project info Backend
   const handleSubmit = async (e) => {
@@ -325,7 +325,7 @@ export function UpdateProject() {
                     <div className={style.tagContainer} key={index}>
                       <AiOutlineLink className={style.linkIcon} size={30} />
                       <div className={style.tagText}>
-                        <a className={style.tag} href={item.link} target="_blank">
+                        <a className={style.tag} href={item.link} target="_blank" rel="noreferrer">
                           {item.nameLink}
                         </a></div>
                       <button className={style.deleteTag}

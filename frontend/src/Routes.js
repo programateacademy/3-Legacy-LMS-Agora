@@ -47,7 +47,7 @@ import { UpdateQuery } from "./views/activities/query/updateQuery/UpdateQuery";
 
 /* import { ProfileStudent } from "./components/ProfileStudent/ProfileStudent"; */
 import { UpdateProject } from "./views/activities/projects/updateProject/UpdateProject";
-/* import { ViewProject } from "./views/activities/projects/viewProject/ViewProject"; */
+import { ViewProject } from "./views/activities/projects/viewProject/ViewProject";
 
 
 export function RoutesApp() {
@@ -193,6 +193,11 @@ export function RoutesApp() {
           <Route
             path="/project/update-project/:id"
             element={isTeacher ? <UpdateProject /> : <Error404 />}
+            exact
+          />
+          <Route
+            path="/project/view-project/:id"
+            element={isTeacher ? <ViewProject /> : <Error404 />}
             exact
           />
           <Route

@@ -14,15 +14,15 @@ export function Projects(props) {
   const userID = auth.user.id;
   const [cohortProjects, setCohortProjects] = useState([])
 
-  const fetchCohortsProjects = async () => {
-    const res = await apiAgora.get(`/api/agora/get-projects/${cohortID}`, {
-      headers: { Authorization: userID },
+  const fetchCohortsProjects = async (url, id) => {
+    const res = await apiAgora.get(`/api/agora/get-projects/${url}`, {
+      headers: { Authorization: id},
     });
     setCohortProjects(res.data);
   };
   useEffect(() => {
-    fetchCohortsProjects()
-  }, []);
+    fetchCohortsProjects(cohortID,userID )
+  }, [cohortID, userID]);
   return (
     <div>
       <h2>Proyectos</h2>

@@ -28,11 +28,11 @@ export function CompetencesUpdate() {
 
   let navigate = useNavigate();
 
-  const fetchCohortCompetence = async (competenceID) => {
+  const fetchCohortCompetence = async (url, id) => {
     const resCompetencesCohort = await apiAgora.get(
-      `/api/agora/get-competence/${competenceID}`,
+      `/api/agora/get-competence/${url}`,
       {
-        headers: { Authorization: id_user },
+        headers: { Authorization: id },
       }
     );
     setLevelOne(resCompetencesCohort.data.levelOne);
@@ -60,8 +60,8 @@ export function CompetencesUpdate() {
   };
 
   useEffect(() => {
-    fetchCohortCompetence(competenceCohortID)
-  }, [competenceCohortID]); // eslint-disable-line react-hooks/exhaustive-deps
+    fetchCohortCompetence(competenceCohortID, id_user)
+  }, [competenceCohortID, id_user]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

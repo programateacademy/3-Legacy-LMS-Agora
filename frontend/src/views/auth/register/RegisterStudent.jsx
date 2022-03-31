@@ -58,16 +58,16 @@ export function RegisterStudent() {
 
   let navigate = useNavigate();
 
-  const fetchCohortName = async () => {
-    const resName = await apiAgora.get(`/api/agora/get-cohort/${cohortID}`, {
-      headers: { Authorization: id_user },
+  const fetchCohortName = async (url, id) => {
+    const resName = await apiAgora.get(`/api/agora/get-cohort/${url}`, {
+      headers: { Authorization: id },
     });
     setNameCohort(resName.data.nameCohort);
   };
 
   useEffect(() => {
-    fetchCohortName();
-  }, []);
+    fetchCohortName(cohortID,id_user);
+  }, [cohortID,id_user]);
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;

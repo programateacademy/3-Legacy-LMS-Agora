@@ -51,15 +51,15 @@ export function UpdateRegisterAdmin() {
 
   let navigate = useNavigate();
 
-  const fetchAdmins = async () => {
-    const res = await apiAgora.get("api/get_admin/" + userID, {
-      headers: { Authorization: id_user },
+  const fetchAdmins = async (url, id) => {
+    const res = await apiAgora.get("api/get_admin/" + url, {
+      headers: { Authorization: id  },
     });
     setUser(res.data);
   };
   useEffect(() => {
-    fetchAdmins();
-  }, []);
+    fetchAdmins(userID,id_user);
+  }, [userID,id_user]);
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
@@ -79,6 +79,13 @@ export function UpdateRegisterAdmin() {
       return setUser({
         ...user,
         err: "El telefono debe tener al menos 10 caracteres",
+        success: "",
+      });
+
+      if (!isEmail(email))
+      return setUser({
+        ...user,
+        err: "Este correo electronico ya existe :(",
         success: "",
       });
 

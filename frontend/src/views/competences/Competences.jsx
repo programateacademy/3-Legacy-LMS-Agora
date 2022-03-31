@@ -26,26 +26,26 @@ export function Competences() {
   
   let navigate = useNavigate();
 
-  const fetchCohortName = async () => {
-    const resName = await apiAgora.get(`/api/agora/get-cohort/${cohortID}`, {
-      headers: { Authorization: id_user },
+  const fetchCohortName = async (url, id) => {
+    const resName = await apiAgora.get(`/api/agora/get-cohort/${url}`, {
+      headers: { Authorization: id },
     });
     setNameCohort(resName.data.nameCohort);
     const res2Name = await apiAgora.get(
       `/api/agora/get-bootcamps/${resName.data.bootcampID}`,
       {
-        headers: { Authorization: id_user },
+        headers: { Authorization: id },
       }
     );
     setNameBootcamp(res2Name.data.nameBootcamp);
     setDescriptionBootcamp(res2Name.data.descriptionBootcamp);
   };
 
-  const fetchCohortCompetences = async (cohortID) => {
+  const fetchCohortCompetences = async (url, id) => {
     const resCompetencesCohort = await apiAgora.get(
-      `/api/agora/get-competences/${cohortID}`,
+      `/api/agora/get-competences/${url}`,
       {
-        headers: { Authorization: id_user },
+        headers: { Authorization: id },
       }
     );
     setCohortCompetences(resCompetencesCohort.data);
@@ -89,9 +89,9 @@ export function Competences() {
   };
 
   useEffect(() => {
-    fetchCohortName();
-    fetchCohortCompetences(cohortID);
-  }, []);
+    fetchCohortName(cohortID, id_user);
+    fetchCohortCompetences(cohortID, id_user);
+  }, [cohortID, id_user]);
 
   useEffect(() => {
     setIdentifierCompetences(competence.caracteristica + competence.number);

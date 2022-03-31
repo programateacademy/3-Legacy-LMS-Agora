@@ -19,26 +19,26 @@ export function CohortsAdmin() {
 
   let navigate = useNavigate()
 
-  const fetchBootcampName = async () => {
+  const fetchBootcampName = async (url, id) => {
     const resName = await apiAgora.get(
-      `/api/agora/get-bootcamps/${bootcampID}`,
+      `/api/agora/get-bootcamps/${url}`,
       {
-        headers: { Authorization: id_user },
+        headers: { Authorization: id },
       }
     );
     setNameBootcamp(resName.data.nameBootcamp);
   };
 
-  const fetchCohortsBootcamp = async () => {
-    const res = await apiAgora.get(`/api/agora/get-cohorts/${bootcampID}`, {
-      headers: { Authorization: id_user },
+  const fetchCohortsBootcamp = async (url, id) => {
+    const res = await apiAgora.get(`/api/agora/get-cohorts/${url}`, {
+      headers: { Authorization: id },
     });
     setCohortsBootcamp(res.data);
   };
   useEffect(() => {
-    fetchCohortsBootcamp();
-    fetchBootcampName();
-  }, []);
+    fetchCohortsBootcamp(bootcampID, id_user);
+    fetchBootcampName(bootcampID, id_user);
+  }, [bootcampID, id_user]);
 
   return (
     <div className={styles.cohorts}>
