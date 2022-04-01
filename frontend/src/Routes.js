@@ -267,14 +267,44 @@ export function RoutesApp() {
           />
           <Route
             path="/project/view-project/:id"
-            element={isTeacher ? <ViewProject teacher={true} /> : <Error404 />}
+            element={
+              isTeacher ? (
+                <ViewProject teacher={true} />
+              ) : isStudent ? (
+                <ViewProject teacher={false} />
+              ) : (
+                <Error404 />
+              )
+            }
             exact
           />
           <Route
             path="/query/view-query/:id"
-            element={isTeacher ? <ViewQuery teacher={true} /> : <Error404 />}
+            element={
+              isTeacher ? (
+                <ViewQuery teacher={true} />
+              ) : isStudent ? (
+                <ViewQuery teacher={false} />
+              ) : (
+                <Error404 />
+              )
+            }
             exact
           />
+          <Route
+            path="/workbook/view-workbook/:id"
+            element={
+              isTeacher ? (
+                <ViewWorkbook teacher={true} />
+              ) : isStudent ? (
+                <ViewWorkbook teacher={false} />
+              ) : (
+                <Error404 />
+              )
+            }
+            exact
+          />
+
           <Route
             path="/query/update-query/:id"
             element={isTeacher ? <UpdateQuery /> : <Error404 />}
@@ -288,11 +318,6 @@ export function RoutesApp() {
           <Route
             path="/workbook/update-workbook/:id"
             element={isTeacher ? <UpdateWorkbook /> : <Error404 />}
-            exact
-          />
-          <Route
-            path="/workbook/view-workbook/:id"
-            element={isTeacher ? <ViewWorkbook teacher={true} /> : <Error404 />}
             exact
           />
 
