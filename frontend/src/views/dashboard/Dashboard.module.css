@@ -5,7 +5,7 @@
 }
 
 .container {
-  min-height: calc(100vh - 140px);
+  max-height: calc(100vh - 70px);
   overflow-x: hidden;
   overflow-y: scroll;
   width: 100%;
