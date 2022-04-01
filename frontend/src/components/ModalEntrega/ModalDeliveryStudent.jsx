@@ -55,10 +55,13 @@ export function ModalDeliveryStudent() {
   }, [deliveryKind]);
 
   const fetchBootcamps = async (activityid, id) => {
-    const res = await apiAgora.get(`/api/agora/get-delivery/${activityid}/${id}`,
+    const res = await apiAgora.get(`/api/agora/get-delivery/${id}`,
      {
       headers: { Authorization: id }});
-    setBootcamps(res);
+    const allDelivery = res.data;
+    const deliverysas = allDelivery.map(item=>item.projectID===activityid?item:item.queryID===activityid?item:item.workbookID===activityid?item:null)
+    const delices = deliverysas.filter((item) => item !== null)
+    setBootcamps(delices);
   };
   useEffect(() => {
     fetchBootcamps(activityID, userID);
