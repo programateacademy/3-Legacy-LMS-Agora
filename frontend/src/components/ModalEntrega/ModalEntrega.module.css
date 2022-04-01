@@ -3,7 +3,7 @@
     flex-direction: column;
     margin: 10px auto;
     width: 80%;
-    height: 80vh;
+    height: auto;
     box-shadow:0 10px 10px rgb(185, 185, 185);
     border-radius: 10px;
     align-items: center;  
@@ -11,7 +11,7 @@
 
 .cajaTitle{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     background: var(--colorWhite);
     border-bottom: 1 solid;
     width:100%;
@@ -19,17 +19,33 @@
     margin: 0;
     border-bottom: 1px solid var(--colorBlack);
 }
-
-.close button{ 
+.button_return {
+    align-self: flex-start;
+    background-color: var(--colorYellow);
+    border-radius: 10px;
+    color: var(--colorBlack);
     display: flex;
-    justify-content: right;
-    margin-top: 20px;
-    margin-right: 20px;
-    align-self: flex-end;
-    cursor: pointer;
-    background: transparent;
-    
-}
+    font-weight: bold;
+    max-width: 100px;
+    padding: 10px;
+    text-align: center;
+    width: auto;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    margin-left: 1vh;
+    margin-top: 3vh;
+  }
+  
+  .button_return:hover {
+    background-color: var(--colorBlack);
+    color: var(--colorYellow);
+    transition: 0.3s;
+  }
+  
+
+
 
 .title{
     display: flex;
@@ -67,8 +83,9 @@
     display: flex;
     flex-direction: column;
     background: var(--colorWhite);
-    margin: 0px auto;
+    margin: 10px auto;
     width: 95%;
+    height: 90%;
  
     
 }
@@ -96,7 +113,7 @@
     display: flex;
     flex-direction: column;
     width: 95%;
-    height: auto;
+    height: 100%;
     background: rgba(146, 193, 73, 0.3);
     border-radius: 10px;
     
@@ -119,13 +136,19 @@
 }
 .segundoFondoestudiantes{
     display: flex;
+    flex-direction: column;
     width: 90%;
-    height: 120px;
+    height: 250px;
     margin: 15px;
     padding: 15px;
     background: var(--colorWhite);
     box-shadow:0 5px 5px rgb(88, 86, 86);
     border-radius: 10px;
+    overflow-y: scroll;
+}
+
+.segundoFondoestudiantes h5{
+    display: inline-block;
 }
 
 .contInpLink{
@@ -149,15 +172,14 @@
 .inputDes{
     
     display: flex;
-    justify-content: space-around;
     align-items: center;
-    margin:0px 10px;
+    margin:0px 15px;
     margin-bottom: 10px;
 
 }
 
 .inputDes >textarea{
-    width: 83%;
+    width: 86%;
     border-radius: 10px;
     
 }
@@ -175,6 +197,9 @@
     cursor:pointer;
     margin-left: 5px;
 }
+.inputDes__intern label{
+    margin-left: 15px;
+}
 
 .cajaUltima{
     display: flex;
@@ -184,6 +209,10 @@
     padding-left: 15px;
     width: 40%;
         
+}
+.textTime{
+text-align: end;
+padding-right:20px ;
 }
 
 .calif{
@@ -241,6 +270,10 @@
 
 /* ---styles render resources */
 
+.container__tagsModal{
+    width: 90%;
+    margin-left: 15px;
+}
 
 .tagContainer {
     display: flex;

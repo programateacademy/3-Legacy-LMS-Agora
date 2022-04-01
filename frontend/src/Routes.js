@@ -55,7 +55,7 @@ import { RegisterSuperAdmin } from "./views/auth/register/RegisterSuperAdmin";
 import { AllCohorts } from "./views/cohort/allCohorts/AllCohorts";
 import { TableAllStudents } from "./views/tableStudentCohort/TableAllStudents";
 import { ModalDeliveryStudent } from "./components/ModalEntrega/ModalDeliveryStudent";
-import { ModalEntrega } from "./components/ModalEntrega/ModalEntrega";
+import { ModalDeliveryTeacher } from "./components/ModalEntrega/ModalDeliveryTeacher";
 
 export function RoutesApp() {
   const auth = useSelector((state) => state.auth);
@@ -348,7 +348,11 @@ export function RoutesApp() {
           />
           <Route
             path="/profile/"
-            element={isStudent ? < ProfileStudent /> : <Error404 />}
+            element={isStudent ? <ProfileStudent /> : <Error404 />}
+          />
+          <Route
+            path="/deliveryTeacher/:kind/:id/:user"
+            element={isTeacher ? <ModalDeliveryTeacher /> : <Error404 />}
           />
         </Routes>
 
