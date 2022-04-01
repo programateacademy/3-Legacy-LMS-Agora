@@ -7,16 +7,16 @@ const deliverySchema = new Schema(
       require: true,
     },
     projectID: {
-      type: Schema.Types.ObjectId,
-      ref: "Project",
+      type: String,
+      // ref: "Project",
     },
     workbookID: {
-      type: Schema.Types.ObjectId,
-      ref: "Workbook",
+      type: String,
+      // ref: "Workbook",
     },
     queryID: {
-      type: Schema.Types.ObjectId,
-      ref: "Query",
+      type: String,
+      // ref: "Query",
     },
     //From Student
     userID: {
@@ -32,6 +32,10 @@ const deliverySchema = new Schema(
     delivery: {
       type: Array,
       require: true,
+    },
+    message:{
+      type:String,
+      require:true,
     }
 
   },

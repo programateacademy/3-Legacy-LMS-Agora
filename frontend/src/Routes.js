@@ -52,6 +52,7 @@ import { ViewQuery } from "./views/activities/query/viewQury/viewQuery";
 import { RegisterSuperAdmin } from "./views/auth/register/RegisterSuperAdmin";
 import { AllCohorts } from "./views/cohort/allCohorts/AllCohorts";
 import { TableAllStudents } from "./views/tableStudentCohort/TableAllStudents";
+import { ModalDeliveryStudent } from "./components/ModalEntrega/ModalDeliveryStudent";
 import { ModalEntrega } from "./components/ModalEntrega/ModalEntrega";
 
 
@@ -265,10 +266,15 @@ export function RoutesApp() {
           />
 
           <Route
-            path="/pruebas/"
-            element={isTeacher ? <ModalEntrega /> : <Error404 />}
+            path="/delivery/:kind/:id"
+            element={isStudent ? <ModalDeliveryStudent /> : <Error404 />}
+          />
+          <Route
+            path="/pruebasStefy/"
+            element={isTeacher ? < ModalEntrega /> : <Error404 />}
           />
         </Routes>
+        
         <Footer />
         </ScrollToTop>
       </Router>

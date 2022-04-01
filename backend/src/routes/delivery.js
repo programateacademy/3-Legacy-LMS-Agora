@@ -1,9 +1,9 @@
 const router = require('express').Router()
-const auth = require('../middleware/auth')
+const authUser = require('../middleware/authUser')
 const authTeacher = require('../middleware/authTeacher')
 const controllerDelivery = require('../controllers/delivery')
 
-router.post('/new-delivery', controllerDelivery.create)
+router.post('/new-delivery', authUser,controllerDelivery.create)
 router.post('/new-delivery/:_id/text', controllerDelivery.addChat)
 router.get('/get-deliveries-cohort/:_id', controllerDelivery.getDeliveries)
 router.get('/get-delivery/:_id', controllerDelivery.getDelivery)

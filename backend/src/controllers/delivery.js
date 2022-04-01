@@ -4,10 +4,10 @@ const Profile = require("../db/models/profile");
 const controllerDelivery = {
   create: async (req, res) => {
     try {
-      const { projectID, cohortID, workbookID, queryID, userID, delivery } =
+      const { projectID, cohortID, workbookID, queryID, userID, delivery,message ,deliveryKind } =
         req.body;
 
-      if (!delivery || !userID || !cohortID)
+      if (!delivery || !userID || !cohortID || !message || !deliveryKind)
         return res.status(400).json({ msg: "Please fill in all fields." });
 
       const deliveryDoc = new Delivery({
@@ -17,6 +17,8 @@ const controllerDelivery = {
         queryID,
         userID,
         delivery,
+        message,
+        deliveryKind,
       });
 
       const savedDelivery = await deliveryDoc.save();
