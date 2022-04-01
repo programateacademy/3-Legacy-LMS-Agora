@@ -44,6 +44,10 @@
     overflow: hidden;
 }
 
+.step {
+    width: 100%;
+}
+
 .image {
     max-height: 98%;
     max-width: 95%;
@@ -79,5 +83,16 @@
         justify-content: center;
         box-shadow: inset 0px 4px 15px rgba(0, 0, 0, 0.5);
         overflow: hidden;
+    }
+
+    .deliveryContainer {
+        width: 100%;
+        margin: auto;
+    }
+
+    .step {
+        justify-content: center;
+        align-items: center;
+        margin: auto;
     }
 }

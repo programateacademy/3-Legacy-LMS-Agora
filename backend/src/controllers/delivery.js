@@ -4,10 +4,10 @@ const Profile = require("../db/models/profile");
 const controllerDelivery = {
   create: async (req, res) => {
     try {
-      const { projectID, cohortID, workbookID, queryID, userID, delivery } =
+      const { projectID, cohortID, workbookID, queryID, userID, delivery,message ,deliveryKind } =
         req.body;
 
-      if (!delivery || !userID || !cohortID)
+      if (!delivery || !userID || !cohortID || !message || !deliveryKind)
         return res.status(400).json({ msg: "Please fill in all fields." });
 
       const deliveryDoc = new Delivery({
@@ -17,13 +17,15 @@ const controllerDelivery = {
         queryID,
         userID,
         delivery,
+        message,
+        deliveryKind,
       });
 
       const savedDelivery = await deliveryDoc.save();
-      const profile = await Profile.findOne({ userID: userID });
+      /* const profile = await Profile.findOne({ userID: userID });
 
       profile.delivery = profile.delivery.concat(savedDelivery._id);
-      await profile.save();
+      await profile.save(); */
 
       res.json({ msg: "Register success! delivery created " });
     } catch (err) {
@@ -60,11 +62,10 @@ const controllerDelivery = {
   //Get one delivery by deliveryID
   getDelivery: async (req, res) => {
     try {
-      const delivery = await Delivery.findById(req.params._id);
-
-      res.json(delivery);
+      const delivery = await Delivery.find({userID:req.params._user});
+      if (delivery.length>0) { res.json(delivery);}
     } catch (err) {
-      return res.status(500).json({ msg: err.message });
+      return res.status(500).json(req.body);
     }
   },
   //Get one deliveries by studentID

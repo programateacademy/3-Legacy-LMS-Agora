@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import style from "../../CreateActivity.module.css";
 import { MdDeleteForever, MdOutlineAddCircle } from "react-icons/md";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import apiAgora from "../../../../api";
 import { showErrMsg, showSuccessMsg } from "../../../../utils/notification";
-import { Step } from "../step/Step.jsx";
+import { Step } from "../step/Step";
 import { MdExpandMore } from "react-icons/md";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { AiOutlineLink } from "react-icons/ai";
-
+import Swal from "sweetalert2";
 const initWorkbook = {
   titleWorkbook: "",
   pictureWorkbook: "",
@@ -33,11 +33,11 @@ const initStep = {
 };
 const initLink = { nameLink: "", link: "" };
 
-export function CreateWorkbook() {
+export function UpdateWorkbook() {
   const auth = useSelector((state) => state.auth);
   const userID = auth.user.id;
   const params = useParams();
-  const cohortID = params.id;
+  const workbookID = params.id;
   let navigate = useNavigate();
 
   const [workbook, setWorkbook] = useState(initWorkbook);
@@ -47,7 +47,6 @@ export function CreateWorkbook() {
   const [step, setStep] = useState(initStep);
   const [openInfo, setOpenInfo] = useState(false);
   const [infoStep, setInfoStep] = useState({ index: "", stepShow: "" });
-
   const {
     titleWorkbook,
     pictureWorkbook,
@@ -71,7 +70,25 @@ export function CreateWorkbook() {
     notesStep,
   } = step;
 
-  // Show somplete step information
+  const fetchWorkbook = async (url, id) => {
+    const res = await apiAgora.get("/api/agora/get-workbook/" + url, {
+      headers: { Authorization: id },
+    });
+    if (res.data) {
+      res.data.date =
+        new Date(res.data.date).toLocaleDateString("en-CA") +
+        "T" +
+        new Date(res.data.date).toLocaleTimeString();
+      setWorkbook(res.data);
+      setImage(res.data.pictureWorkbook);
+    }
+  };
+
+  useEffect(() => {
+    fetchWorkbook(workbookID, userID);
+  }, [workbookID, userID]);
+
+  // Show complete step information
   const handleInfoStep = (index, stepShow) => {
     setOpenInfo(!openInfo);
     setInfoStep({ index: index, stepShow: stepShow });
@@ -119,7 +136,6 @@ export function CreateWorkbook() {
         ...workbook,
         [name]: [...workbook[name], objectLink],
       });
-      setObjectLink({ nameLink: "", link: "" });
     }
   };
   // Steps
@@ -152,10 +168,9 @@ export function CreateWorkbook() {
     e.preventDefault();
     try {
       if (auth.isTeacher) {
-        const res = await apiAgora.post(
-          "/api/agora/new-workbook",
+        const res = await apiAgora.put(
+          `/api/agora/update-workbook/${workbookID}`,
           {
-            cohortID,
             userID,
             titleWorkbook,
             pictureWorkbook,
@@ -175,8 +190,6 @@ export function CreateWorkbook() {
         );
         showSuccessMsg(success);
         setWorkbook({ ...workbook, err: "", success: res.data.msg });
-        setWorkbook(initWorkbook);
-        setImage("");
       }
     } catch (err) {
       showErrMsg(err.response.data.msg);
@@ -188,7 +201,30 @@ export function CreateWorkbook() {
         });
     }
   };
-
+  const alertDelete = (workbookID) => {
+    Swal.fire({
+      background: "#E5E5E5",
+      title: "¿Desea eliminar este workbook?",
+      text: "Este proceso no es reversible",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#FFCC02",
+      cancelButtonColor: "#010101",
+      confirmButtonText: "Si, seguro",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        deleteWorkbook(workbookID);
+        Swal.fire("Completado", "El workbook ha sido eliminado", "success");
+      }
+    });
+  };
+  const deleteWorkbook = async (workbookID) => {
+    await apiAgora.delete(`api/agora/delete-workbook/${workbookID}`, {
+      headers: { Authorization: userID },
+    });
+    navigate(-1);
+  };
   return (
     <div className={style.formContainer}>
       <div>
@@ -196,8 +232,19 @@ export function CreateWorkbook() {
           <BsArrowLeftCircle size={30} />
         </button>
       </div>
+      <div className={style.buttonDelivery}>
+        <button
+          type="button"
+          className={style.button_clear}
+          onClick={() => alertDelete(workbookID)}
+        >
+          Eliminar workbook
+        </button>
+      </div>
       <div className={style.wrapper}>
-        <h2 className={style.typing_demo_create_Workbook}>Crear Workbook</h2>
+        <h2 className={style.typing_demo_update_Workbook}>
+          Actualizar Workbook
+        </h2>
       </div>
       <form className={style.form} onSubmit={handleSubmit}>
         <div className={style.container}>
@@ -215,7 +262,6 @@ export function CreateWorkbook() {
                   onChange={handleImage}
                 />
               </div>
-
               <div className={style.img_preview}>
                 <img
                   className={style.image}
@@ -328,7 +374,7 @@ export function CreateWorkbook() {
                             className={style.deleteTag}
                             type="button"
                             onClick={() =>
-                              deleteItemArray("tagsworkbook", item)
+                              deleteItemArray("tagsWorkbook", item)
                             }
                           >
                             <MdDeleteForever size={30} />
@@ -529,33 +575,37 @@ export function CreateWorkbook() {
           {/*Show steps*/}
           <div className={style.summaryProject}>
             <h3>Pasos añadidos</h3>
-            {steps.length !== 0 ? (
-              steps.map((item, index) => (
-                <div className={style.tagContainer} key={index}>
-                  <div className={style.tagText}>
-                    <p className={style.tag}>
-                      <b>Paso número {index + 1}:</b> {item.descriptionStep}
-                    </p>
-                  </div>
+            <div>
+              {steps.length !== 0 ? (
+                steps.map((item, index) => (
+                  <div className={style.tagContainer} key={index}>
+                    <div className={style.tagText}>
+                      <p className={style.tag}>
+                        <b>Paso número {index + 1}:</b> {item.descriptionStep}
+                      </p>
+                    </div>
 
-                  <button
-                    className={style.deleteTag}
-                    type="button"
-                    onClick={() => deleteItemArray("steps", item)}
-                  >
-                    <MdDeleteForever size={30} />
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => handleInfoStep(index, item)}
-                  >
-                    <MdExpandMore size={30} />
-                  </button>
-                </div>
-              ))
-            ) : (
-              <p>Aún no hay pasos añadidos</p>
-            )}
+                    <div className={style.buttonsStep}>
+                      <button
+                        className={style.deleteTag}
+                        type="button"
+                        onClick={() => deleteItemArray("steps", item)}
+                      >
+                        <MdDeleteForever size={30} />
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => handleInfoStep(index, item)}
+                      >
+                        <MdExpandMore size={30} />
+                      </button>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <p>Aún no hay pasos añadidos</p>
+              )}
+            </div>
           </div>
           {/* If open info  is true, display information*/}
           {openInfo && steps.length !== 0 ? (
@@ -579,7 +629,7 @@ export function CreateWorkbook() {
           <div>
             <div className={style.container_submit}>
               <button className={style.buttonCreateProject} type="submit">
-                Crear Workbook
+                Actualizar Workbook
               </button>
             </div>
           </div>

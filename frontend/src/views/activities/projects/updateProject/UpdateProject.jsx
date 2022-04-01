@@ -7,7 +7,7 @@ import apiAgora from "../../../../api";
 import { showErrMsg, showSuccessMsg } from "../../../../utils/notification";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { AiOutlineLink } from "react-icons/ai";
-
+import Swal from "sweetalert2";
 const initialState = {
   competences: [],
   titleProject: "",
@@ -202,7 +202,7 @@ export function UpdateProject() {
   };
   useEffect(() => {
     fetchProject(projectID, userID);
-  }, [projectID, userID]);// eslint-disable-line react-hooks/exhaustive-deps
+  }, [projectID, userID]); // eslint-disable-line react-hooks/exhaustive-deps
 
   //save project info Backend
   const handleSubmit = async (e) => {
@@ -253,11 +253,44 @@ export function UpdateProject() {
         });
     }
   };
+  const alertDelete = (projectID) => {
+    Swal.fire({
+      background: "#E5E5E5",
+      title: "¿Desea eliminar este Proyecto?",
+      text: "Este proceso no es reversible",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#FFCC02",
+      cancelButtonColor: "#010101",
+      confirmButtonText: "Si, seguro",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        deleteProject(projectID);
+        Swal.fire("Completado", "El proyecto ha sido eliminado", "success");
+      }
+    });
+  };
+  const deleteProject = async (projectID) => {
+    await apiAgora.delete(`api/agora/delete-project/${projectID}`, {
+      headers: { Authorization: userID },
+    });
+    navigate(-1);
+  };
   return (
     <div className={style.formContainer}>
       <div>
         <button className={style.button_return} onClick={() => navigate(-1)}>
           <BsArrowLeftCircle size={30} />
+        </button>
+      </div>
+      <div className={style.buttonDelivery}>
+        <button
+          type="button"
+          className={style.button_clear}
+          onClick={() => alertDelete(projectID)}
+        >
+          Eliminar Proyecto
         </button>
       </div>
       <div className={style.wrapper}>

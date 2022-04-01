@@ -1,13 +1,12 @@
 .containerModal{
     display: flex;
     flex-direction: column;
-    margin-left: 25%;
-    margin-top: 40px;
-    width: 700px;
-    height: 450px;
+    margin: 10px auto;
+    width: 80%;
+    height: 80vh;
     box-shadow:0 10px 10px rgb(185, 185, 185);
     border-radius: 10px;
-    
+    align-items: center;  
 }
 
 .cajaTitle{
@@ -15,10 +14,21 @@
     justify-content: space-between;
     background: var(--colorWhite);
     border-bottom: 1 solid;
-    width: 700px;
-    height: 100px;
+    width:100%;
+    height: 17%;
     margin: 0;
     border-bottom: 1px solid var(--colorBlack);
+}
+
+.close button{ 
+    display: flex;
+    justify-content: right;
+    margin-top: 20px;
+    margin-right: 20px;
+    align-self: flex-end;
+    cursor: pointer;
+    background: transparent;
+    
 }
 
 .title{
@@ -57,9 +67,9 @@
     display: flex;
     flex-direction: column;
     background: var(--colorWhite);
-    width: 670px;
-    height: 335px;
-    margin-left: 15px;
+    margin: 0px auto;
+    width: 95%;
+ 
     
 }
 
@@ -76,43 +86,78 @@
 }
 
 .cajaMedia{
-    display: flex;
-    flex-direction: row;
-    
-    height: 100%;
     width: 100%;
+    display: flex;   
+    height: 100%;
+    
 }
 
 .primerFondo{
     display: flex;
     flex-direction: column;
-    width: 400px;
+    width: 95%;
     height: auto;
     background: rgba(146, 193, 73, 0.3);
     border-radius: 10px;
+    
 }
 
 .segundoFondo{
     display: flex;
-    width: 370px;
+    width: 90%;
     height: 200px;
-    margin-left: 15px;
-    margin-right: 15px;
-    margin-top: 15px;
+   margin: 15px;
+    background: var(--colorWhite);
+    box-shadow:0 5px 5px rgb(88, 86, 86);
+    border-radius: 10px;
+
+}
+
+.addTagsProject{
+    background-color: transparent;
+    cursor: pointer;
+}
+.segundoFondoestudiantes{
+    display: flex;
+    width: 90%;
+    height: 120px;
+    margin: 15px;
+    padding: 15px;
     background: var(--colorWhite);
     box-shadow:0 5px 5px rgb(88, 86, 86);
     border-radius: 10px;
 }
 
-.inputDes{
+.contInpLink{
+    width: 88%;
     display: flex;
-    margin-left: 15px;
-    margin-top: 10px;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0px 15px;
+    gap: 10px;
+}
+.contInpLink input{ 
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+ }
+
+ .contInpLinkIntern{
+     width: 95%;
+ }
+
+.inputDes{
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin:0px 10px;
+    margin-bottom: 10px;
 
 }
 
 .inputDes >textarea{
-    display: flex;
+    width: 83%;
     border-radius: 10px;
     
 }
@@ -120,8 +165,6 @@
 .inputDes >button{
     display: flex;
     justify-content: center;
-    margin-left: 15px;
-    margin-top: 40px;
     align-items: center;
     font-size: 12px;
     width: 55px;
@@ -129,8 +172,9 @@
     border-radius: 5px;
     border-style: none;
     background-color: var(--colorYellow);
+    cursor:pointer;
+    margin-left: 5px;
 }
-
 
 .cajaUltima{
     display: flex;
@@ -138,10 +182,12 @@
     margin-left: 15px;
     border-left: 1px solid var(--colorBlack);
     padding-left: 15px;
+    width: 40%;
         
 }
 
 .calif{
+    width: 100%;
     display: flex;
     flex-direction: column;
     padding: 0%;
@@ -193,11 +239,62 @@
 
 }
 
+/* ---styles render resources */
+
+
+.tagContainer {
+    display: flex;
+    background-color: var(--colorYellowOpacity);
+    width: auto;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1vh;
+    box-shadow: 6px 10px 10px var(--colorBlackOpacity);
+    margin-bottom: 2vh;
+    padding: 0 30px;
+  }
+  
+  .tagContainer button {
+    background-color: transparent;
+  }
+  
+  .tagContainer button:hover {
+    color: var(--colorRed);
+    transition: 0.2s;
+  }
+  .linkIcon {
+    color: dodgerblue
+  }
+  .tagText {
+    max-width: 100%;
+    text-align: justify;
+  }
+  
+  .tagText p {
+    text-align: justify;
+  }
+  .tag {
+    width: 100%;
+    padding: 2vh;
+    border-radius: 50px;
+    text-align: center;
+    overflow: hidden;
+  }
+  
+@media (max-width: 1000px) {
+    .containerModal{
+        width: 85%;
+    }
+}
+
+
 @media (max-width: 700px) {
     .containerModal{
-        width: 400px;
+        width: 100%;
         height: auto;
-        margin-left: 30px;
+        padding: 0px;
+        margin: 0px
         
     }
 
@@ -215,7 +312,7 @@
     }
 
     .cajaDiv{
-        width: 400px;
+        width: 100%;
         height: auto;        
     }
 
@@ -223,25 +320,28 @@
         flex-direction: column;
         height: auto;
         width: 90%;
+        margin: 0px auto;
+      
     }
 
     .primerFondo{
-        width: 370px;
+        width: 100%;
         height: auto;
     }
 
     .segundoFondo{
-        width: 340px;
+        width: 90%;
         height: 200px;
     }
 
     .inputDes{
-        width: 330px;
+        width:90%;
         margin-bottom: 15px;
     }
 
     .cajaUltima{
-        margin: 20px;
+        width: 90%;
+        margin: 10px auto;
         border-left: none;
         box-shadow:0 5px 5px rgb(88, 86, 86);
     }

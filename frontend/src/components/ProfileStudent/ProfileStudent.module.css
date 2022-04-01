@@ -84,6 +84,7 @@
 
 .cajaUlt{
     display: flex;
+    justify-content: center;
     flex-direction: row;
     align-items: center;
     gap: 2vw;
@@ -162,9 +163,5 @@
 
     .cajaUlt input{
         align-items: center;
-    }
-
-    .cajaUlt button{
-        margin-right: 40%;
     }
 }

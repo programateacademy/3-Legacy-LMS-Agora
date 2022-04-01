@@ -32,6 +32,10 @@ const deliverySchema = new Schema(
     delivery: {
       type: Array,
       require: true,
+    },
+    message:{
+      type:String,
+      require:true,
     }
 
   },

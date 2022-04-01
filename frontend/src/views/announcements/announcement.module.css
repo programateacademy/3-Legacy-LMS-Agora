@@ -1,3 +1,68 @@
+.Announcements{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  min-height: calc(100vh - 140px);
+}
+.containerAnnouncement{
+  height: auto;
+  width: 100%;
+  background-color: var(--colorGray);
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 5px;
+}
+.containerButton{
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+.button {
+  background-color: var(--colorYellow);
+  color: var(--colorBlack);
+  border-radius: 10px;
+  padding: 10px;
+  max-width: 200px;
+  text-align: center;
+  margin: 1rem;
+  box-shadow: 5px 5px 10px -2px var(--colorBlack);
+}
+
+.button:hover {
+  background-color: var(--colorGreenLight);
+  color: var(--colorWhite);
+  transition: 0.3s;
+}
+.containerAnnouncements{
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+.containerAnnouncement{
+  display: flex;
+  flex-direction: row;
+}
+.containerText{
+  display: flex;
+  flex-direction: column;
+}
+.buttonsActions{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
+}
+.createdAt{
+  font-size: 14px;
+}
+.button__delete{
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  background-color: transparent;
+}
 .modal{
   display: block;
 }
