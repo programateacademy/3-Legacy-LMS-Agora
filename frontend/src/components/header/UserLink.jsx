@@ -25,7 +25,7 @@ const UserLink = ({ user, handleLogout }) => {
             <Dropdown.Menu>
               {isStudent ? (
                 <Dropdown.Item>
-                  <Link style={{ color: "#010101" }} to="/badges">
+                  <Link style={{ color: "#010101" }} to="/profile">
                   Perfil
                 </Link>
                 </Dropdown.Item>

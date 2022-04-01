@@ -129,8 +129,6 @@ export function UpdateCohort() {
       err: "",
       success: "",
       endBootcamp: new Date(endBootcamp2).toLocaleDateString("en-CA"),
-      err: "",
-      success: "",
     });
   };
 

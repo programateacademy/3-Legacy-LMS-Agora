@@ -10,6 +10,7 @@
   align-items: center;
   flex-direction: column;
   z-index: 2;
+  margin: auto;
 }
 
 .containerModal {
@@ -25,13 +26,13 @@
   border-radius: 10px;
 }
 
-.close button{ 
+.close button {
   display: flex;
   justify-content: right;
   margin-top: 20px;
   margin-right: 20px;
   align-self: flex-end;
-  
+
 }
 
 .containerTitle {
@@ -42,16 +43,36 @@
   justify-content: center;
 }
 
-.modalInp{
+.submitButton {
+  background-color: var(--colorYellow);
+  color: var(--colorBlack);
+  border-radius: 10px;
+  padding: 10px;
+  width: auto;
+  text-align: center;
+  box-shadow: 5px 5px 10px -2px var(--colorBlack);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.submitButton:hover {
+  background-color: var(--colorGreenLight);
+  color: var(--colorWhite);
+  transition: 0.3s;
+}
+
+.modalInp {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 20px;
-  
+
 }
 
-.modalInp input{
+.modalInp input {
   width: 488px;
   height: 52px;
   left: 31px;
@@ -60,7 +81,7 @@
   box-shadow: inset 4px 4px 13px var(--colorBlackOpacity);
 }
 
-.modalInp textarea{
+.modalInp textarea {
   width: 488px;
   height: 155px;
   left: 31px;
@@ -70,7 +91,7 @@
   box-shadow: inset 4px 4px 13px var(--colorBlackOpacity);
 }
 
-.modalButton button{
+.modalButton button {
   display: flex;
   justify-content: center;
   color: var(--colorWhite);
@@ -88,32 +109,32 @@
 @media (max-width: 700px) {
 
   .containerModal {
-     width: 360px;
-     height: 65%;
+    width: 360px;
+    height: 65%;
   }
 
   .containerTitle {
-      font-size: 12px;
-      margin-top: 15px
+    font-size: 12px;
+    margin-top: 15px
   }
 
-  .modalInp{
-      margin-top: 10px;
+  .modalInp {
+    margin-top: 10px;
   }
 
-  .modalInp input{
-      width: 300px;
-      height: 40px;
+  .modalInp input {
+    width: 300px;
+    height: 40px;
   }
 
-  .modalInp textarea{
-      width: 300px;
+  .modalInp textarea {
+    width: 300px;
   }
 
-  .modalButton button{
-      width: 250px;
-      height: 40px;
-      margin-left: 50px;
+  .modalButton button {
+    width: 250px;
+    height: 40px;
+    margin-left: 50px;
   }
-  
+
 }
