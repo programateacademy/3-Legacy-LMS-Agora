@@ -13,12 +13,13 @@ import { IconContext } from "react-icons";
 import { useParams } from "react-router-dom";
 
 export function MenuDashboard({ open, setOpen }) {
+  const state = useSelector((state) => state);
   const auth = useSelector((state) => state.auth);
   const params = useParams();
   const cohortID = params.id;
   const { isTeacher } = auth;
   const [activeLink, setActiveLink] = useState(null);
-  console.log(auth.user);
+  console.log(state);
   const navLinks = [
     {
       text: "Estadísticas",
@@ -67,7 +68,7 @@ export function MenuDashboard({ open, setOpen }) {
   } else {
     list = navLinks.slice(0, navLinks.length - 2);
   }
-  const handleNavLink = (index, text) => {
+  const handleNavLink = (index) => {
     setActiveLink(index);
     if (open) {
       setOpen(!open);

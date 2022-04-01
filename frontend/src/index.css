@@ -115,7 +115,8 @@ textarea {
 
 /* Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
-  width: 15px;
+  width: 8px;
+  overflow-x:hidden;
 }
 
 *::-webkit-scrollbar-track {
@@ -125,5 +126,5 @@ textarea {
 *::-webkit-scrollbar-thumb {
   background-color: var(--colorYellow);
   border-radius: 10px;
-  border: 10px solid var(--colorYellow_65);
+  border: 8px solid var(--colorYellow_65);
 }

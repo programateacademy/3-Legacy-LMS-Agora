@@ -1,11 +1,13 @@
 import React from "react";
 import { CardCohort } from "../../../components/cards/cohort/CardCohort";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { dispatchMenu } from '../../../redux/actions/menuAction'
 import { useState, useEffect } from "react";
 import apiAgora from "../../../api";
 
 import styles from "./CohortsTeacher.module.css";
 export function CohortsTeacher() {
+  const dispatch = useDispatch() //Inicializo hooks
   const auth = useSelector((state) => state.auth);
   const id_user = auth.user.id;
 
@@ -19,6 +21,7 @@ export function CohortsTeacher() {
       }
     );
     setCohortsTeacher(res.data);
+    dispatch(dispatchMenu())
   };
   useEffect(() => {
     fetchCohortsTeacher(id_user );
