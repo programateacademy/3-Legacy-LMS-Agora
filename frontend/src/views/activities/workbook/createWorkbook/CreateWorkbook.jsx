@@ -5,7 +5,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import apiAgora from "../../../../api";
 import { showErrMsg, showSuccessMsg } from "../../../../utils/notification";
-import { Step } from "./step/Step.jsx";
+import { Step } from "../step/Step.jsx";
 import { MdExpandMore } from "react-icons/md";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { AiOutlineLink } from "react-icons/ai";
@@ -47,10 +47,7 @@ export function CreateWorkbook() {
   const [step, setStep] = useState(initStep);
   const [openInfo, setOpenInfo] = useState(false);
   const [infoStep, setInfoStep] = useState({ index: "", stepShow: "" });
-  const [stepImages, setStepImages] = useState({
-    imageExampleStep: "",
-    imageResultStep: "",
-  });
+
   const {
     titleWorkbook,
     pictureWorkbook,
@@ -141,7 +138,6 @@ export function CreateWorkbook() {
   const handleImageStep = (e) => {
     const { name, value } = e.target;
     setStep({ ...step, [name]: value });
-    setStepImages({ ...step, [name]: value });
   };
   //delete item
   const deleteItemArray = (name, item) => {
@@ -201,7 +197,7 @@ export function CreateWorkbook() {
         </button>
       </div>
       <div className={style.wrapper}>
-        <h2 className={style.typing_demo}>Crear Workbook</h2>
+        <h2 className={style.typing_demo_create_Workbook}>Crear Workbook</h2>
       </div>
       <form className={style.form} onSubmit={handleSubmit}>
         <div className={style.container}>
@@ -331,7 +327,9 @@ export function CreateWorkbook() {
                           <button
                             className={style.deleteTag}
                             type="button"
-                            onClick={() => deleteItemArray("tagsProject", item)}
+                            onClick={() =>
+                              deleteItemArray("tagsworkbook", item)
+                            }
                           >
                             <MdDeleteForever size={30} />
                           </button>

@@ -102,12 +102,12 @@ export function UpdateCohort() {
             .map((e) =>
               e.id === item
                 ? e.firstName +
-                " " +
-                e.middleName +
-                " " +
-                e.lastName +
-                " " +
-                e.secondSurname
+                  " " +
+                  e.middleName +
+                  " " +
+                  e.lastName +
+                  " " +
+                  e.secondSurname
                 : ""
             )
             .toLocaleString()
@@ -119,15 +119,18 @@ export function UpdateCohort() {
     listTeacherAssigned.map((item) =>
       setAssignedTeachersID((prev) => [...prev, item])
     );
-    const startDateBootcamp2 = res.data.startDateBootcamp
-    const endBootcamp2 = res.data.endBootcamp
+    const startDateBootcamp2 = res.data.startDateBootcamp;
+    const endBootcamp2 = res.data.endBootcamp;
     setCohort({
-      ...cohort, startDateBootcamp: new Date(
-        startDateBootcamp2
-      ).toLocaleDateString("en-CA"), err: "", success: ""
-   , endBootcamp: new Date(
-        endBootcamp2
-      ).toLocaleDateString("en-CA"), err: "", success: ""
+      ...cohort,
+      startDateBootcamp: new Date(startDateBootcamp2).toLocaleDateString(
+        "en-CA"
+      ),
+      err: "",
+      success: "",
+      endBootcamp: new Date(endBootcamp2).toLocaleDateString("en-CA"),
+      err: "",
+      success: "",
     });
   };
 
@@ -151,10 +154,10 @@ export function UpdateCohort() {
   };
 
   const deleteBootcamp = async (cohortID) => {
-          await apiAgora.delete("api/agora/delete-cohort/" +cohortID, {
-        headers: { Authorization: id_user },
-      });
-      navigate(-1);
+    await apiAgora.delete("api/agora/delete-cohort/" + cohortID, {
+      headers: { Authorization: id_user },
+    });
+    navigate(-1);
   };
 
   // Create new cohort
@@ -189,7 +192,7 @@ export function UpdateCohort() {
 
   useEffect(() => {
     fetchTeachers(id_user);
-  }, [id_user]);// eslint-disable-line react-hooks/exhaustive-deps
+  }, [id_user]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className={style.formContainer}>
@@ -197,9 +200,13 @@ export function UpdateCohort() {
         <button className={style.button_return} onClick={() => navigate(-1)}>
           <BsArrowLeftCircle size={30} />
         </button>
-            <button type="button" className={style.button_clear} onClick={() => alertErase(cohortID)}>
-        Eliminar Cohorte
-      </button>
+        <button
+          type="button"
+          className={style.button_clear}
+          onClick={() => alertErase(cohortID)}
+        >
+          Eliminar Cohorte
+        </button>
       </div>
       <div className={style.wrapper}>
         <h2 className={style.typing_upgrade}>Actualizar Cohorte</h2>
@@ -285,16 +292,16 @@ export function UpdateCohort() {
               </div>
               {addedTeacher.length !== 0
                 ? addedTeacher.map((item, index) => (
-                  <div key={index} className={style.teacherSelect}>
-                    <li>{item.name}</li>
-                    <button
-                      onClick={() => onClearTeacher(item.id)}
-                      type="button"
-                    >
-                      <MdDeleteForever size={25} />
-                    </button>
-                  </div>
-                ))
+                    <div key={index} className={style.teacherSelect}>
+                      <li>{item.name}</li>
+                      <button
+                        onClick={() => onClearTeacher(item.id)}
+                        type="button"
+                      >
+                        <MdDeleteForever size={25} />
+                      </button>
+                    </div>
+                  ))
                 : null}
             </div>
           </div>

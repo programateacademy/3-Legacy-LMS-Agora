@@ -8,7 +8,7 @@ import { showErrMsg, showSuccessMsg } from "../../../../utils/notification";
 import apiAgora from "../../../../api";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-
+import Swal from "sweetalert2";
 const initialState = {
   titleQuery: "",
   pictureQuery: "",
@@ -67,18 +67,18 @@ export function UpdateQuery() {
     setImage(value);
   };
 
-
   const fetchQuery = async (url, id) => {
-
     const res = await apiAgora.get("/api/agora/get-query/" + url, {
       headers: { Authorization: id },
     });
-    if(res.data){
-      res.data.date=new Date(res.data.date).toLocaleDateString("en-CA")+"T"+new Date(res.data.date).toLocaleTimeString()
-    setQuery(res.data);
-    setImage(res.data.pictureQuery);
+    if (res.data) {
+      res.data.date =
+        new Date(res.data.date).toLocaleDateString("en-CA") +
+        "T" +
+        new Date(res.data.date).toLocaleTimeString();
+      setQuery(res.data);
+      setImage(res.data.pictureQuery);
     }
-    
   };
 
   useEffect(() => {
@@ -141,7 +141,7 @@ export function UpdateQuery() {
     try {
       if (auth.isTeacher) {
         const res = await apiAgora.put(
-          "/api/agora/update-query/"+ queryID ,
+          "/api/agora/update-query/" + queryID,
           {
             userID,
             titleQuery,
@@ -170,12 +170,44 @@ export function UpdateQuery() {
         setQuery({ ...query, err: err.response.data.msg, success: "" });
     }
   };
-
+  const alertDelete = (queryID) => {
+    Swal.fire({
+      background: "#E5E5E5",
+      title: "¿Desea eliminar esta Consulta?",
+      text: "Este proceso no es reversible",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#FFCC02",
+      cancelButtonColor: "#010101",
+      confirmButtonText: "Si, seguro",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        deleteQuery(queryID);
+        Swal.fire("Completado", "La consulta ha sido eliminado", "success");
+      }
+    });
+  };
+  const deleteQuery = async (queryID) => {
+    await apiAgora.delete(`api/agora/delete-query/${queryID}`, {
+      headers: { Authorization: userID },
+    });
+    navigate(-1);
+  };
   return (
     <div className={style.formContainer}>
       <div>
         <button className={style.button_return} onClick={() => navigate(-1)}>
           <BsArrowLeftCircle size={30} />
+        </button>
+      </div>
+      <div className={style.buttonDelivery}>
+        <button
+          type="button"
+          className={style.button_clear}
+          onClick={() => alertDelete(queryID)}
+        >
+          Eliminar consulta
         </button>
       </div>
       <div className={style.wrapper}>

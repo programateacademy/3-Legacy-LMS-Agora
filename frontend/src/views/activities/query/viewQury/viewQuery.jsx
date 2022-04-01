@@ -6,7 +6,7 @@ import { AiOutlineLink } from "react-icons/ai";
 import apiAgora from "../../../../api";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-
+import { Button } from "../../../../components/buttons/Button/Button";
 const initialState = {
   titleQuery: "",
   pictureQuery: "",
@@ -24,7 +24,8 @@ const initialState = {
   success: "",
 };
 
-export function ViewQuery() {
+export function ViewQuery(props) {
+  const { teacher } = props;
   const auth = useSelector((state) => state.auth);
   const userID = auth.user.id;
   let navigate = useNavigate();
@@ -46,7 +47,7 @@ export function ViewQuery() {
     challengeExtra,
     date,
   } = query;
- 
+
   const fetchQuery = async (url, id) => {
     const res = await apiAgora.get("/api/agora/get-query/" + url, {
       headers: { Authorization: id },
@@ -62,8 +63,8 @@ export function ViewQuery() {
   };
 
   useEffect(() => {
-    fetchQuery(queryID,userID);
-  }, [queryID,userID]);
+    fetchQuery(queryID, userID);
+  }, [queryID, userID]);
 
   return (
     <div className={style.formContainer}>
@@ -75,6 +76,15 @@ export function ViewQuery() {
       <div className={style.wrapper}>
         <h2 className={style.typing_demo_view_Project}>Consulta</h2>
       </div>
+      {!teacher ? (
+        <div className={style.buttonDelivery}>
+          <Button
+            title="Entregar consulta"
+            link={`/delivery/query/${queryID}`}
+          />
+        </div>
+      ) : null}
+
       <div>
         <div className={style.container}>
           <div className={style.containerOne}>
@@ -86,12 +96,12 @@ export function ViewQuery() {
             <div className={style.frameofcompetence}></div>
             <div className={style.InitialContainer}>
               <h3>Recursos</h3>
-              
+
               <div>
                 {resources.length !== 0
                   ? resources.map((item, index) => (
                       <div className={style.tagContainer} key={index}>
-                           <AiOutlineLink className={style.linkIcon} size={30} />
+                        <AiOutlineLink className={style.linkIcon} size={30} />
                         <div className={style.tagText}>
                           <a
                             className={style.tag}
@@ -178,7 +188,7 @@ export function ViewQuery() {
           <div className={style.summaryProject}>
             <h3>Aspectos Importantes</h3>
             <div className={style.tagsProject}>
-                    <h4>{importantAspect}</h4>
+              <h4>{importantAspect}</h4>
             </div>
           </div>
           <div className={style.summaryProject}>
@@ -203,9 +213,7 @@ export function ViewQuery() {
             </div>
           </div>
           <div className={style.container_submit}>
-            <button className={style.buttonCreateProject} >
-              Entrega
-            </button>
+            <button className={style.buttonCreateProject}>Entrega</button>
           </div>
         </div>
       </div>
