@@ -10,6 +10,7 @@ import {TableStudent} from "./TableStudent"
 import { CompetencesTable } from "../competencesTable/CompetencesTable";
 import { useEffect, useState } from "react";
 import {useSelector} from "react-redux";
+import { showErrMsg, showSuccessMsg } from "../../utils/notification";
 import apiAgora from "../../api"
 
 const initialState = {
@@ -18,7 +19,8 @@ const initialState = {
     gitHub:"",
     image:"",
     portafolio:"",
-    linkedin:""
+    linkedin:"",
+    success:""
 }
 
 export function ProfileStudent(){
@@ -26,16 +28,15 @@ export function ProfileStudent(){
         const userID = auth.user.id;
         const cohortID = auth.user.cohortID;
         let navigate = useNavigate();
+        const [userProfile, setUserProfile] = useState(initialState);
         const [cohortCompetences, setCohortCompetences] = useState([]);
         const [user, setUser] = useState([]);
-        const [userProfile, setUserProfile] = useState(initialState);
-
+        const [image, setImage] = useState();
         const {
-            competence,
             dateOfBirth,
             gitHub,
-            image,
             portafolio,
+            success,
             linkedin
         } = userProfile;
       
@@ -57,6 +58,7 @@ export function ProfileStudent(){
               headers: { Authorization: id },
             }
           );
+         
           const res = resUser.data
           setUser(res);
         };
@@ -68,34 +70,71 @@ export function ProfileStudent(){
               headers: { Authorization: id },
             }
           );
-          
-          const res = resUserProfile.data
-          res.dateOfBirth = new Date(res.dateOfBirth).toLocaleDateString("en-CA")
+          console.log(resUserProfile)
+          const res = resUserProfile.data[0]
+          res.dateOfBirth = new Date(res.dateOfBirth).toLocaleDateString("en-CA")+
+          "T" +
+          new Date(res.dateOfBirth).toLocaleTimeString();
           setUserProfile(res);
+          setImage(res.image);
         };
         const handleChangeInput = (e) => { const { name, value } = e.target; setUserProfile({ ...userProfile, [name]: value, err: "", success: "" }); }; 
-        
+        const handleImage = (e) => {
+            const { name, value } = e.target;
+            setUserProfile({
+              ...userProfile,
+              [name]: value,
+              err: "",
+              success: "",
+            });
+            setImage(value);
+          };
+        const handleSubmit = async (e) => {
+            e.preventDefault();
+            try {
+              if (auth.isStudent) {
+                const res = await apiAgora.put(
+                  "/api/agora/update-profile/" + userID,
+                  {
+                    dateOfBirth,
+                    gitHub,
+                    image,
+                    portafolio,
+                    linkedin
+                  },
+                  {
+                    headers: { Authorization: userID },
+                  }
+                );
+                showSuccessMsg(success);
+                setUserProfile({ ...userProfile, err: "", success: res.data.msg });
+              }
+            } catch (err) {
+              showErrMsg(err.response.data.msg);
+              err.response.data.msg &&
+                setUserProfile({ ...userProfile, err: err.response.data.msg, success: "" });
+            }
+          };
         useEffect(() => {
-          fetchCohortCompetences(cohortID, userID);
-          fetchUser(userID);
           fetchUserProfile(userID);
-
+          fetchUser(userID);
+          fetchCohortCompetences(cohortID, userID);
         }, [cohortID, userID]);
     return(
         <div className={styles.container}>
-            <form className={styles.containerProfile}>
+            <form className={styles.containerProfile} onSubmit={handleSubmit}>
                     <button className={styles.button_return} onClick={() => navigate(-1)}>
                         <BsArrowLeftCircle size={30} />
                     </button>
                 <div className={styles.cajaIns}>
-                    <img src="" alt="logo" />
+                    <img src={image} alt="logo" />
                     <div className={styles.cajaUlt}>
                         <input
                             className={styles.input__imageURL}
                             placeholder="Inserta URL de la imagen"
                             type="text"
                             name="image" value={image}
-                            onChange={handleChangeInput}
+                            onChange={handleImage}
                         />
                     </div>
                 </div>
@@ -105,18 +144,18 @@ export function ProfileStudent(){
                 <div className={styles.cajaLink}>
                     <div className={styles.cajaUlt}>
                         <input type="text" placeholder="Enlace Linkedin" name="linkedin" value={linkedin} onChange={handleChangeInput} />
-                        <AiFillLinkedin size={30} color="#FEFEFE"/>
+                        <a href={linkedin} target="_blank"><AiFillLinkedin size={30} color="#FEFEFE"/></a>
                     </div>
                     <div className={styles.cajaUlt}>
                         <input type="text" placeholder="Enlace Github" name="gitHub" value={gitHub} onChange={handleChangeInput}/>
-                        <AiFillGithub size={30} color="#FEFEFE"/>
+                        <a href={gitHub} target="_blank"><AiFillGithub size={30} color="#FEFEFE"/></a>
                     </div>
                     <div className={styles.cajaUlt}>
                         <input type="text" placeholder="Enlace Portafolio" name="portafolio" value={portafolio} onChange={handleChangeInput}/>
-                        <FaNewspaper size={30} color="#FEFEFE"/>
+                        <a href={portafolio} target="_blank"><FaNewspaper size={30} color="#FEFEFE"/></a>
                     </div>
                     <div className={styles.cajaUlt}>
-                        <input type="date" name="dateOfBirth" value={dateOfBirth} onChange={handleChangeInput}/>
+                        <input type="datetime-local" name="dateOfBirth" value={dateOfBirth} onChange={handleChangeInput}/>
                         <RiCake2Fill size={30} color="#FEFEFE"/>
                     </div>
                     <div className={styles.cajaUlt}>
@@ -124,6 +163,7 @@ export function ProfileStudent(){
                     </div>
                 </div>
             </form>
+           
             <div className={styles.tableCompetences}>
                 
                     <TableStudent/>
