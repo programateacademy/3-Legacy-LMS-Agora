@@ -38,6 +38,55 @@
 }
 
 
+
+
+.typing_demo_view_Workbook {
+  width: 9ch;
+  animation: typing 1s steps(22), blink 0.5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+}
+
+.typing_demo_update_Workbook {
+  width: 17ch;
+  animation: typing 1s steps(22), blink 0.5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  -webkit-animation: typing 1s steps(22), blink 0.5s step-end infinite alternate;
+}
+
+.typing_demo_create_Workbook {
+  width: 13ch;
+  animation: typing 1s steps(22), blink 0.5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+}
+
+.buttonDelivery {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-right: 4vh;
+
+}
+
+.button_clear {
+  align-self: flex-end;
+  background-color: var(--colorYellow);
+  border-radius: 10px;
+  color: var(--colorBlack);
+  display: flex;
+  font-weight: bold;
+  margin: 30px 0 0 30px;
+  max-width: 200px;
+  padding: 10px;
+  text-align: center;
+  width: auto;
+  cursor: pointer;
+}
+
 @keyframes typing {
   from {
     width: 0;
@@ -235,6 +284,8 @@
 .tagText p {
   text-align: justify;
 }
+
+
 
 .summaryProject {
   display: flex;
@@ -434,12 +485,34 @@
   margin-top: 3vh;
 }
 
+.buttonsStep {
+  min-width: 90px;
+}
+
+.formWorkbook p {
+  text-align: justify;
+}
+
+.concepts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 6px;
+}
+
+
 @media only screen and (max-width: 750px) {
   .container {
     flex-direction: column;
     width: 96%;
     align-items: center;
     margin-left: 1.5vh;
+
+  }
+
+  .buttonDelivery {
+    justify-content: center;
+    align-items: center;
+    margin: auto;
 
   }
 
@@ -473,4 +546,10 @@
   .button_return {
     margin: 1vh 1vh;
   }
+
+  .buttonsStep {
+    min-width: 20px;
+  }
+
+
 }

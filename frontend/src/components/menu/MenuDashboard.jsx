@@ -32,12 +32,12 @@ export function MenuDashboard({ open, setOpen }) {
     },
     {
       text: "Workbooks",
-      route: `/dashboard/${cohortID}/workbooks/`,
+      route: `/dashboard/${cohortID}/workbooks`,
       icon: <BsFillFileCodeFill className={style.icon} />,
     },
     {
       text: "Consultas",
-      route: `/dashboard/${cohortID}/queries/`,
+      route: `/dashboard/${cohortID}/queries`,
       icon: <FiFileText className={style.icon} />,
     },
     {
@@ -47,7 +47,7 @@ export function MenuDashboard({ open, setOpen }) {
     },
     {
       text: "Anuncios",
-      route: "#contact",
+      route: `/dashboard/${cohortID}/announcements-cohort`,
       icon: <MdAnnouncement className={style.icon} />,
     },
     {

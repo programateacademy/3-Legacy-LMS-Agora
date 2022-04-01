@@ -1,5 +1,6 @@
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
 import ScrollToTop from "./utils/ScrollToTop";
 
 import Login from "./views/auth/login/Login";
@@ -50,7 +51,7 @@ import { UpdateQuery } from "./views/activities/query/updateQuery/UpdateQuery";
 import { UpdateWorkbook } from "./views/activities/workbook/updateWorkbook/UpdateWorkbook";
 import { UpdateProject } from "./views/activities/projects/updateProject/UpdateProject";
 import { ViewProject } from "./views/activities/projects/viewProject/ViewProject";
-import { ViewWorkbook } from "./views/activities/workbook/viewWorkbook/ViewWokbook.jsx";
+import { ViewWorkbook } from "./views/activities/workbook/viewWorkbook/ViewWokbook";
 import { ViewQuery } from "./views/activities/query/viewQury/viewQuery";
 import { RegisterSuperAdmin } from "./views/auth/register/RegisterSuperAdmin";
 import { AllCohorts } from "./views/cohort/allCohorts/AllCohorts";
@@ -242,6 +243,10 @@ export function RoutesApp() {
               }
               exact
             />
+            <Route
+              path="/dashboard/:id/announcements-cohort"
+              element={isTeacher ? <Announcements /> : <Error404 />}
+            />
           </Route>
 
           <Route
@@ -262,7 +267,12 @@ export function RoutesApp() {
           />
           <Route
             path="/project/view-project/:id"
-            element={isTeacher ? <ViewProject /> : <Error404 />}
+            element={isTeacher ? <ViewProject teacher={true} /> : <Error404 />}
+            exact
+          />
+          <Route
+            path="/query/view-query/:id"
+            element={isTeacher ? <ViewQuery teacher={true} /> : <Error404 />}
             exact
           />
           <Route
@@ -282,7 +292,7 @@ export function RoutesApp() {
           />
           <Route
             path="/workbook/view-workbook/:id"
-            element={isTeacher ? <ViewWorkbook /> : <Error404 />}
+            element={isTeacher ? <ViewWorkbook teacher={true} /> : <Error404 />}
             exact
           />
 
@@ -293,10 +303,6 @@ export function RoutesApp() {
           <Route
             path="/competences-update/:id"
             element={isAdmin ? <CompetencesUpdate /> : <Error404 />}
-          />
-          <Route
-            path="/announcements-cohort/:id"
-            element={isTeacher ? <Announcements /> : <Error404 />}
           />
         </Routes>
         <Footer />

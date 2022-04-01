@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import apiAgora from "../../../../api";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { AiOutlineLink } from "react-icons/ai";
+import { Button } from "../../../../components/buttons/Button/Button";
 const initialState = {
   competences: [],
   titleProject: "",
@@ -24,7 +25,8 @@ const initialState = {
   date: "",
 };
 
-export function ViewProject() {
+export function ViewProject(props) {
+  const { teacher } = props;
   const auth = useSelector((state) => state.auth);
   const userID = auth.user.id;
   const params = useParams();
@@ -50,20 +52,22 @@ export function ViewProject() {
     deliverablesProject,
     date,
   } = project;
-  
+
   const fetchAdmins = async (url, id) => {
     const res = await apiAgora.get("/api/agora/get-project/" + url, {
       headers: { Authorization: id },
     });
-    res.data.date=new Date(res.data.date).toLocaleDateString("en-CA")+"T"+new Date(res.data.date).toLocaleTimeString()
+    res.data.date =
+      new Date(res.data.date).toLocaleDateString("en-CA") +
+      "T" +
+      new Date(res.data.date).toLocaleTimeString();
     setProject(res.data);
     setImage(res.data.pictureProject);
-   
   };
 
   useEffect(() => {
-    fetchAdmins(projectID,  userID);
-  }, [projectID,  userID]);
+    fetchAdmins(projectID, userID);
+  }, [projectID, userID]);
   return (
     <div className={style.formContainer}>
       <div>
@@ -72,8 +76,17 @@ export function ViewProject() {
         </button>
       </div>
       <div className={style.wrapper}>
-        <h2 className={style.typing_demo_view_Project }>Proyecto</h2>
+        <h2 className={style.typing_demo_view_Project}>Proyecto</h2>
       </div>
+      {!teacher ? (
+        <div className={style.buttonDelivery}>
+          <Button
+            title="Entregar proyecto"
+            link={`/delivery/project/${projectID}`}
+          />
+        </div>
+      ) : null}
+
       <div className={style.form}>
         <div className={style.container}>
           <div className={style.containerOne}>
@@ -85,8 +98,6 @@ export function ViewProject() {
                   alt="Imagen del proyecto"
                 />
               </div>
-             
-              
             </div>
             <div className={style.InitialContainer}>
               <h3>Marco de competencias</h3>
@@ -94,12 +105,12 @@ export function ViewProject() {
             </div>
             <div className={style.InitialContainer}>
               <h3>Recursos</h3>
-              
+
               <div>
                 {resources.length !== 0
                   ? resources.map((item, index) => (
                       <div className={style.tagContainer} key={index}>
-                         <AiOutlineLink className={style.linkIcon} size={30} />
+                        <AiOutlineLink className={style.linkIcon} size={30} />
                         <div className={style.tagText}>
                           <a
                             className={style.tag}
@@ -109,7 +120,6 @@ export function ViewProject() {
                           >
                             {item.nameLink}
                           </a>
-                          
                         </div>
                         <AiOutlineLink className={style.linkIcon} size={30} />
                       </div>
@@ -130,7 +140,6 @@ export function ViewProject() {
                   ? tagsProject.map((item, index) => (
                       <div className={style.tagContainer} key={index}>
                         <p className={style.tag}>{item}</p>
-                        
                       </div>
                     ))
                   : null}
@@ -148,7 +157,6 @@ export function ViewProject() {
                 name="date"
                 value={date}
                 disabled
-                
               />
             </div>
           </div>
@@ -157,7 +165,7 @@ export function ViewProject() {
         <div className={style.deliveryContainer}>
           <div className={style.summaryProject}>
             <h3>Requerimientos Generales</h3>
-            
+
             <div>
               {contextGeneralReq.length !== 0
                 ? contextGeneralReq.map((item, index) => (
@@ -165,7 +173,6 @@ export function ViewProject() {
                       <div className={style.tagText}>
                         <p className={style.tag}>{item}</p>
                       </div>
-                     
                     </div>
                   ))
                 : null}
@@ -173,7 +180,7 @@ export function ViewProject() {
           </div>
           <div className={style.summaryProject}>
             <h3>Requerimientos Técnicos</h3>
-            
+
             <div>
               {contextTechniciansReq.length !== 0
                 ? contextTechniciansReq.map((item, index) => (
@@ -181,7 +188,6 @@ export function ViewProject() {
                       <div className={style.tagText}>
                         <p className={style.tag}>{item}</p>
                       </div>
-                     
                     </div>
                   ))
                 : null}
@@ -196,7 +202,6 @@ export function ViewProject() {
                       <div className={style.tagText}>
                         <p className={style.tag}>{item}</p>
                       </div>
-                      
                     </div>
                   ))
                 : null}
@@ -204,7 +209,7 @@ export function ViewProject() {
           </div>
           <div className={style.summaryProject}>
             <h3>Modalidad Pedagógica</h3>
-            
+
             <div>
               {pedagogyModality.length !== 0
                 ? pedagogyModality.map((item, index) => (
@@ -212,7 +217,6 @@ export function ViewProject() {
                       <div className={style.tagText}>
                         <p className={style.tag}>{item}</p>
                       </div>
-                     
                     </div>
                   ))
                 : null}
@@ -220,7 +224,7 @@ export function ViewProject() {
           </div>
           <div className={style.summaryProject}>
             <h3>Criterios de Rendimiento</h3>
-            
+
             <div>
               {performanceCriterias.length !== 0
                 ? performanceCriterias.map((item, index) => (
@@ -228,7 +232,6 @@ export function ViewProject() {
                       <div className={style.tagText}>
                         <p className={style.tag}>{item}</p>
                       </div>
-                      
                     </div>
                   ))
                 : null}
@@ -236,7 +239,7 @@ export function ViewProject() {
           </div>
           <div className={style.summaryProject}>
             <h3>Modalidad de Evaluación</h3>
-            
+
             <div>
               {evaluationModality.length !== 0
                 ? evaluationModality.map((item, index) => (
@@ -244,7 +247,6 @@ export function ViewProject() {
                       <div className={style.tagText}>
                         <p className={style.tag}>{item}</p>
                       </div>
-                     
                     </div>
                   ))
                 : null}
@@ -259,15 +261,12 @@ export function ViewProject() {
                       <div className={style.tagText}>
                         <p className={style.tag}>{item}</p>
                       </div>
-                     
                     </div>
                   ))
                 : null}
             </div>
             <h3>Competencias</h3>
 
-            
-            
             <div>
               {competences.length !== 0
                 ? competences.map((item, index) => (
@@ -282,7 +281,6 @@ export function ViewProject() {
                             : 3}
                         </p>
                       </div>
-                      
                     </div>
                   ))
                 : null}
