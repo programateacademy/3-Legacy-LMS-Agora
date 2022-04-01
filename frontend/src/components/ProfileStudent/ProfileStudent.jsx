@@ -123,7 +123,7 @@ export function ProfileStudent(){
     return(
         <div className={styles.container}>
             <form className={styles.containerProfile} onSubmit={handleSubmit}>
-                    <button className={styles.button_return} onClick={() => navigate(-1)}>
+                    <button className={styles.button_return} type="button" onClick={() => navigate(-1)}>
                         <BsArrowLeftCircle size={30} />
                     </button>
                 <div className={styles.cajaIns}>
@@ -159,7 +159,7 @@ export function ProfileStudent(){
                         <RiCake2Fill size={30} color="#FEFEFE"/>
                     </div>
                     <div className={styles.cajaUlt}>
-                        <button>Confirmar</button>
+                        <button type="submit">Confirmar</button>
                     </div>
                 </div>
             </form>
