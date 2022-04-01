@@ -1,7 +1,7 @@
 import { useState } from "react";
-import "../ProfileStudent/TableStudent.css";
+import style from  "../ProfileStudent/TableStudent.module.css";
 
-function Tabs() {
+function TableStudent() {
   const [toggleState, setToggleState] = useState(1);
 
   const toggleTab = (index) => {
@@ -9,31 +9,43 @@ function Tabs() {
   };
 
   return (
-    <div className="container">
-      <div className="bloc-tabs">
+    <div className={style.container}>
+      <div className={style.bloc_tabs}>
         <button
-          className={toggleState === 1 ? "tabs active-tabs" : "tabs"}
+          className=
+          {toggleState === 1
+            ? `${style.tabs} ${style.active_tabs}`
+            : style.tabs}
           onClick={() => toggleTab(1)}
         >
           Proyectos
         </button>
         <button
-          className={toggleState === 2 ? "tabs active-tabs" : "tabs"}
+          className=
+          {toggleState === 2
+            ? `${style.tabs} ${style.active_tabs}`
+            : style.tabs}
           onClick={() => toggleTab(2)}
         >
           Workbooks
         </button>
         <button
-          className={toggleState === 3 ? "tabs active-tabs" : "tabs"}
+          className=
+          {toggleState === 3
+            ? `${style.tabs} ${style.active_tabs}`
+            : style.tabs}
           onClick={() => toggleTab(3)}
         >
           Consultas
         </button>
       </div>
 
-      <div className="content-tabs">
+      <div className= {style.content_tabs}>
         <div
-          className={toggleState === 1 ? "content  active-content" : "content"}
+          className=
+          {toggleState === 1
+            ? `${style.content}  ${style.active_content}`
+            : style.content}
         >
           <h2>Content 1</h2>
           <hr />
@@ -45,7 +57,10 @@ function Tabs() {
         </div>
 
         <div
-          className={toggleState === 2 ? "content  active-content" : "content"}
+          className=
+          {toggleState === 2
+            ? `${style.content}  ${style.active_content}`
+            : style.content}
         >
           <h2>Content 2</h2>
           <hr />
@@ -56,7 +71,10 @@ function Tabs() {
         </div>
 
         <div
-          className={toggleState === 3 ? "content  active-content" : "content"}
+          className=
+          {toggleState === 3
+            ? `${style.content}  ${style.active_content}`
+            : style.content}
         >
           <h2>Content 3</h2>
           <hr />
@@ -72,4 +90,4 @@ function Tabs() {
   );
 }
 
-export {Tabs}
+export {TableStudent}
