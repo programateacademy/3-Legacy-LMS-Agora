@@ -23,7 +23,9 @@ export function ModalDeliveryStudent() {
   const params = useParams();
   const deliveryKind = params.kind;
   const activityID = params.id
-  console.log(deliveryKind)
+  
+  const [bootcamps, setBootcamps] = useState([]);
+
   const activity = (deliveryKind) => {
     if(deliveryKind === "project")
     {      setDeliveryStudent({
@@ -51,6 +53,15 @@ export function ModalDeliveryStudent() {
   useEffect(() => {
     activity(deliveryKind)
   }, [deliveryKind]);
+
+  const fetchBootcamps = async (activityid, id) => {
+    const res = await apiAgora.get(`/api/agora/get-delivery/${activityid}/${id}`, {
+      headers: { Authorization: id }});
+    setBootcamps(res.data);
+  };
+  useEffect(() => {
+    fetchBootcamps(activityID, userID);
+  }, [activityID, userID]);
 
   const [deliveryStudent, setDeliveryStudent] = useState(initialState);
 

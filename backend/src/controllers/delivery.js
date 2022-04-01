@@ -62,7 +62,7 @@ const controllerDelivery = {
   //Get one delivery by deliveryID
   getDelivery: async (req, res) => {
     try {
-      const delivery = await Delivery.findById(req.params._id);
+      const delivery = await Delivery.find(req.params.activity);
 
       res.json(delivery);
     } catch (err) {
