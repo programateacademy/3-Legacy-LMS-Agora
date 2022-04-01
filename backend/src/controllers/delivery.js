@@ -62,11 +62,14 @@ const controllerDelivery = {
   //Get one delivery by deliveryID
   getDelivery: async (req, res) => {
     try {
-      const delivery = await Delivery.find(req.params.activity);
-
-      res.json(delivery);
+      const deliveryProject = await Delivery.find({projectID:req.params._id}, {userID: req.params.userID});
+      const deliveryQuery = await Delivery.find({queryID:req.params._id}, {userID:req.params.userID});
+      const deliveryWorkbook = await Delivery.find({workbookID:req.params._id}, {userID: req.params.userID});
+      if (deliveryProject.length>0) { res.json(deliveryProject);}
+      if (deliveryQuery.length>0) { res.json(deliveryQuery);}
+      if (deliveryWorkbook.length>0) { res.json(deliveryWorkbook);}
     } catch (err) {
-      return res.status(500).json({ msg: err.message });
+      return res.status(500).json(req.body);
     }
   },
   //Get one deliveries by studentID

@@ -55,9 +55,10 @@ export function ModalDeliveryStudent() {
   }, [deliveryKind]);
 
   const fetchBootcamps = async (activityid, id) => {
-    const res = await apiAgora.get(`/api/agora/get-delivery/${activityid}/${id}`, {
+    const res = await apiAgora.get(`/api/agora/get-delivery/${activityid}/${id}`,
+     {
       headers: { Authorization: id }});
-    setBootcamps(res.data);
+    setBootcamps(res);
   };
   useEffect(() => {
     fetchBootcamps(activityID, userID);
