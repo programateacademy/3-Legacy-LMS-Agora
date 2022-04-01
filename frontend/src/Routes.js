@@ -342,7 +342,7 @@ export function RoutesApp() {
           />
           <Route
             path="/pruebasStefy/"
-            element={isTeacher ? < ModalEntrega /> : <Error404 />}
+            element={isStudent ? < ProfileStudent /> : <Error404 />}
           />
         </Routes>
         
