@@ -11,32 +11,41 @@ import { showErrMsg, showSuccessMsg } from "../../utils/notification";
 
 
 const initialState = {
-  // message:"",
-  // deliveryKind:"",
-  // userID:"",
-  // cohortID:"",
+  message:"",
   delivery: [],
   success:"",
-  // projectID:"",
-  // queryID:"",
-  // workbookID:"",
 };
 
 export function ModalDeliveryStudent() {
   const auth = useSelector((state) => state.auth);
   const userID = auth.user.id;
   const cohortID = auth.user.cohortID;
-  let projectID = "";
-  let workbookID = "";
-  let queryID = "";
   const params = useParams();
   const deliveryKind = params.kind;
+  const activityID = params.id
   console.log(deliveryKind)
   const activity = (deliveryKind) => {
-    if(deliveryKind === "project"){projectID = params.id}
-    if(deliveryKind === "workbook"){(workbookID = params.id)}
-    if(deliveryKind === "query"){(queryID = params.id)}
-    console.log("p"+projectID,"w"+workbookID,"q"+queryID)
+    if(deliveryKind === "project")
+    {      setDeliveryStudent({
+        ...deliveryStudent,
+        projectID: activityID,
+        err: "",
+        success: "",
+      })}
+    if(deliveryKind === "workbook")
+    {      setDeliveryStudent({
+      ...deliveryStudent,
+      workbookID: activityID,
+      err: "",
+      success: "",
+    })}
+    if(deliveryKind === "query")
+    {      setDeliveryStudent({
+      ...deliveryStudent,
+      queryID: activityID,
+      err: "",
+      success: "",
+    })}
   };
   
   useEffect(() => {
@@ -50,7 +59,12 @@ export function ModalDeliveryStudent() {
     link: "",
   });
 
-  const { delivery,message,success } = deliveryStudent;
+  const { delivery,
+    message,
+    projectID,
+    success,
+    workbookID,
+    queryID} = deliveryStudent;
 
   const { nameLink, link } = objectLink;
 

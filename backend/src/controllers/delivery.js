@@ -22,10 +22,10 @@ const controllerDelivery = {
       });
 
       const savedDelivery = await deliveryDoc.save();
-      const profile = await Profile.findOne({ userID: userID });
+      /* const profile = await Profile.findOne({ userID: userID });
 
       profile.delivery = profile.delivery.concat(savedDelivery._id);
-      await profile.save();
+      await profile.save(); */
 
       res.json({ msg: "Register success! delivery created " });
     } catch (err) {
