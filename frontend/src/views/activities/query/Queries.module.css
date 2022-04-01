@@ -7,3 +7,10 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.buttonCreateQuery {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 4vh;
+}
+

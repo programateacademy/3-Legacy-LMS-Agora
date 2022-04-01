@@ -27,6 +27,7 @@
   text-align: center;
   margin: 1rem;
   box-shadow: 5px 5px 10px -2px var(--colorBlack);
+  cursor: pointer;
 }
 
 .button:hover {

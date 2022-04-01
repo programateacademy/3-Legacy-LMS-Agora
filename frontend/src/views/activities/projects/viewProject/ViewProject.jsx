@@ -286,7 +286,7 @@ export function ViewProject(props) {
                 : null}
             </div>
             <div className={style.container_submit}>
-              <button className={style.buttonCreateProject} type="submit">
+              <button className={style.buttonDelivery} type="submit">
                 Entrega
               </button>
             </div>
