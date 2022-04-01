@@ -11,20 +11,24 @@ import { showErrMsg, showSuccessMsg } from "../../utils/notification";
 
 const initialState = {
   message: "",
-  delivery: [],
+  feedback: [],
   success: "",
 };
 
-export function ModalDeliveryStudent() {
+export function ModalDeliveryTeacher() {
   const auth = useSelector((state) => state.auth);
-  const userID = auth.user.id;
-  const cohortID = auth.user.cohortID;
+  const teacherID = auth.user.id;
   const params = useParams();
   const deliveryKind = params.kind;
   const activityID = params.id;
+  const userID = params.user;
+
   let navigate = useNavigate();
 
   const [modal, setModal] = useState([]);
+  const [modalTeacher, setModalTeacher] = useState([])
+
+
 
   const activity = (deliveryKind) => {
     if (deliveryKind === "project") {
@@ -59,7 +63,7 @@ export function ModalDeliveryStudent() {
 
   const fetchDelivery = async (activityid, id) => {
     const res = await apiAgora.get(`/api/agora/get-delivery/${id}`, {
-      headers: { Authorization: id },
+      headers: { Authorization: teacherID },
     });
     const allDelivery = res.data;
     const deliverysas = allDelivery.map((item) =>
@@ -75,8 +79,28 @@ export function ModalDeliveryStudent() {
     setModal(deliveries);
     console.log(deliveries);
   };
+  const fetchFeedbacks = async (activityid, id) => {
+    const res = await apiAgora.get(`/api/agora/get-outcome/${id}`, {
+      headers: { Authorization: teacherID },
+    });
+    const allDelivery = res.data;
+    const deliverysas = allDelivery.map((item) =>
+      item.projectID === activityid
+        ? item
+        : item.queryID === activityid
+        ? item
+        : item.workbookID === activityid
+        ? item
+        : null
+    );
+    const deliveries = deliverysas.filter((item) => item !== null);
+    setModalTeacher(deliveries);
+    console.log(res)
+    
+  };
   useEffect(() => {
     fetchDelivery(activityID, userID);
+    fetchFeedbacks(activityID,userID)
   }, [activityID, userID]);
 
   const [deliveryStudent, setDeliveryStudent] = useState(initialState);
@@ -86,7 +110,7 @@ export function ModalDeliveryStudent() {
     link: "",
   });
 
-  const { delivery, message, projectID, success, workbookID, queryID } =
+  const { feedback, message, projectID, success, workbookID, queryID } =
     deliveryStudent;
 
   const { nameLink, link } = objectLink;
@@ -132,21 +156,20 @@ export function ModalDeliveryStudent() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      if (auth.isStudent) {
+      if (auth.isTeacher) {
         const res = await apiAgora.post(
-          "/api/agora/new-delivery",
+          "/api/agora/new-outcome",
           {
-            delivery,
+            feedback,
             message,
             deliveryKind,
             projectID,
             workbookID,
             queryID,
             userID,
-            cohortID,
           },
           {
-            headers: { Authorization: userID },
+            headers: { Authorization: teacherID },
           }
         );
         showSuccessMsg(success);
@@ -166,6 +189,8 @@ export function ModalDeliveryStudent() {
         });
     }
     fetchDelivery(activityID, userID);
+    fetchFeedbacks(activityID,userID)
+
   };
 
   return (
@@ -253,14 +278,15 @@ export function ModalDeliveryStudent() {
               <button
                 className={styles.addTagsProject}
                 type="button"
-                onClick={() => onClickObject("delivery")}
+                onClick={() => onClickObject("feedback")}
               >
                 <MdOutlineAddCircle size={30} />
               </button>
             </div>
+
             <div className={styles.container__tagsModal}>
-              {delivery.length !== 0
-                ? delivery.map((item, index) => (
+              { feedback.length !== 0
+                ?  feedback.map((item, index) => (
                     <div className={styles.tagContainer} key={index}>
                       <AiOutlineLink className={styles.linkIcon} size={30} />
                       <div className={styles.tagText}>
@@ -276,13 +302,44 @@ export function ModalDeliveryStudent() {
                       <button
                         className={styles.deleteTag}
                         type="button"
-                        onClick={() => deleteItemArray("delivery", item)}
+                        onClick={() => deleteItemArray("feedback", item)}
                       >
                         <MdDeleteForever size={30} />
                       </button>
                     </div>
                   ))
                 : null}
+            </div>
+            <div className={styles.segundoFondoestudiantes}>
+              <h4> Retroalimentaciones</h4>
+              {modalTeacher.map((item, index) => (
+                <div key={index}>
+                  {
+                    <p className={styles.textTime}>
+                      <b>Fecha:</b>{" "}
+                      {new Date(item.createdAt).toLocaleDateString("en-CA")}
+                      <b>Hora:</b>
+                      {new Date(item.createdAt).toLocaleTimeString()}
+                    </p>
+                  }
+
+                  <h5>Descripción:</h5>
+                  <p>{item.message}</p>
+                  <h5>Links:</h5>
+                  <br />
+                  {item.feedback.map((item) => (
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={styles.tag}
+                    >
+                      {item.nameLink}
+                    </a>
+                  ))}
+                  <hr />
+                </div>
+              ))}
             </div>
           </div>
         </div>
