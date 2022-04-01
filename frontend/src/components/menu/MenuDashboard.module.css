@@ -1,12 +1,13 @@
 .nav{
   display: flex;
   width: 250px;
-  height: calc(auto - 70px);
+  height: calc(100vh - 70px);
   background-color: var(--colorBlack);
 }
 .ul{
   display: flex;
   flex-direction: column;
+  height: calc(100vh - 70px);
   justify-content: space-between;
   width: 100%;
 }
@@ -15,18 +16,11 @@
   flex-direction: row;
   align-items: center;
   padding: 11px;
+  height: auto;
   width: 100%;
   padding-left: 25px;
 }
-.nav li{
-  width: 250px;
-  text-align: center;
-  margin-top: 1rem;
-}
-.nav li:hover{
-  background-color: var(--colorWhite);
-  width: 100%;
-}
+
 .link:hover{
   background-color: var(--colorWhite);
 }

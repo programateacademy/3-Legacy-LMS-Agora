@@ -13,15 +13,11 @@ import { MenuDashboard } from "../menu/MenuDashboard";
 
 export function Header() {
   const auth = useSelector((state) => state.auth);
+  const menu = useSelector((state) => state.menu);
   const [open, setOpen] = useState(false);
 
+  const {menuView} = menu
   const { user, isLogged, isTeacher, isStudent } = auth;
-  const [url, setUrl] = useState("");
-  const urlView = window.location.href.split('/').reverse()[0]
-
-  useEffect(() => {
-    setUrl(urlView)
-  });
 
   const handleLogout = async () => {
     try {
@@ -35,16 +31,16 @@ export function Header() {
   const handleClick = () => {
     setOpen(!open);
   };
-
+  console.log(menuView)
   return (
     <>
       <header>
         <div className={style.headerContainer}>
-          {isLogged && (isStudent || isTeacher && url) ? (
+          {isLogged && (isStudent || isTeacher)? (
             <>
-              <div className={style.hamburguerMenu}>
+             {  menuView ?<div className={style.hamburguerMenu}>
                 <HamburguerMenu open={open} handleClick={handleClick} />
-              </div>
+              </div>:null}
               <div className={!open ? "closeMenu" : "openMenu"}>
                 <MenuDashboard open={open} setOpen={setOpen} />
               </div>

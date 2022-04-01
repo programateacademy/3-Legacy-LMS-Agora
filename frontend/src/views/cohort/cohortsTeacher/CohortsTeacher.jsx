@@ -1,28 +1,31 @@
 import React from "react";
 import { CardCohort } from "../../../components/cards/cohort/CardCohort";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { dispatchMenu } from '../../../redux/actions/menuAction'
 import { useState, useEffect } from "react";
 import apiAgora from "../../../api";
 
 import styles from "./CohortsTeacher.module.css";
 export function CohortsTeacher() {
+  const dispatch = useDispatch() //Inicializo hooks
   const auth = useSelector((state) => state.auth);
   const id_user = auth.user.id;
 
   const [cohortsTeacher, setCohortsTeacher] = useState([]);
 
-  const fetchCohortsTeacher = async () => {
+  const fetchCohortsTeacher = async (id) => {
     const res = await apiAgora.get(
-      `/api/agora/get-cohorts-teacher/${id_user}`,
+      `/api/agora/get-cohorts-teacher/${id}`,
       {
-        headers: { Authorization: id_user },
+        headers: { Authorization: id},
       }
     );
     setCohortsTeacher(res.data);
+    dispatch(dispatchMenu())
   };
   useEffect(() => {
-    fetchCohortsTeacher();
-  }, []);
+    fetchCohortsTeacher(id_user );
+  }, [id_user ]);
   return (
     <div className={styles.cohorts}>
       <div className={styles.wrapper}>
