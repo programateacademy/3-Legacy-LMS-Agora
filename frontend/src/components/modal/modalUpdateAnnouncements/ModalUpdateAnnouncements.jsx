@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import style from "./ModalCreateAnnouncements.module.css";
-import { showErrMsg, showSuccessMsg } from "../../utils/notification";
+import React, { useState, useEffect } from "react";
+import style from "../ModalAnnouncements.module.css";
+import { showErrMsg, showSuccessMsg } from "../../../utils/notification";
 import { VscError } from "react-icons/vsc";
-import apiAgora from "../../api";
+import apiAgora from "../../../api";
 
 const initialState = {
   textAnnouncement: "",
@@ -10,10 +10,37 @@ const initialState = {
   success: "",
 };
 
-export function ModalCreateAnnouncements(props) {
-  const { setModal, auth, cohortID, userID } = props;
+export function ModalUpdateAnnouncements(props) {
+  const {
+    setEditOpen,
+    announcementID,
+    userID,
+    auth,
+    setAnnouncements,
+    cohortID,
+  } = props;
+
   const [announcement, setAnnouncement] = useState(initialState);
   const { textAnnouncement, titleAnnouncement, success } = announcement;
+
+  const fetchAnnouncements = async (url, id) => {
+    const res = await apiAgora.get(`api/agora/get-announcements/${url}`, {
+      headers: { Authorization: id },
+    });
+    setAnnouncements(res.data);
+  };
+
+  const fetchAnnouncement = async (url, id) => {
+    const res = await apiAgora.get(`/api/agora/get-announcement/${url}`, {
+      //announcement
+      headers: { Authorization: id },
+    });
+    setAnnouncement(res.data);
+  };
+
+  useEffect(() => {
+    fetchAnnouncement(announcementID, userID);
+  }, [announcementID, userID]);
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
@@ -24,10 +51,9 @@ export function ModalCreateAnnouncements(props) {
     e.preventDefault();
     try {
       if (auth.isTeacher) {
-        const res = await apiAgora.post(
-          "/api/agora/new-announcement",
+        const res = await apiAgora.put(
+          `/api/agora/update-announcement/${announcementID}`,
           {
-            cohortID,
             userID,
             textAnnouncement,
             titleAnnouncement,
@@ -39,6 +65,8 @@ export function ModalCreateAnnouncements(props) {
         showSuccessMsg(success);
         setAnnouncement({ ...announcement, err: "", success: res.data.msg });
       }
+      setEditOpen((prevState) => !prevState);
+      fetchAnnouncements(cohortID, userID);
     } catch (err) {
       showErrMsg(err.response.data.msg);
       err.response.data.msg &&
@@ -54,17 +82,17 @@ export function ModalCreateAnnouncements(props) {
     <form onSubmit={handleSubmit} className={style.modal}>
       <div className={style.containerModal}>
         <div className={style.close}>
-          <button onClick={() => setModal((prevState) => !prevState)}>
+          <button onClick={() => setEditOpen((prevState) => !prevState)}>
             <VscError size={30} />
           </button>
         </div>
         <div className={style.containerTitle}>
-          <h1>
-            {" "}
-            <u>Crear Anuncios</u>{" "}
-          </h1>
+          <h3>
+            <u>Modificar Anuncio</u>
+          </h3>
         </div>
         <div className={style.modalInp}>
+          <label>Título</label>
           <input
             type="text"
             name="titleAnnouncement"
@@ -72,6 +100,7 @@ export function ModalCreateAnnouncements(props) {
             placeholder="Titulo"
             onChange={handleChangeInput}
           />
+          <label>Anuncio</label>
           <textarea
             cols="30"
             rows="10"
@@ -81,8 +110,10 @@ export function ModalCreateAnnouncements(props) {
             onChange={handleChangeInput}
           ></textarea>
         </div>
-        <div className={style.modalButton}>
-          <button type="submit">Crear</button>
+        <div>
+          <button claseName={style.submitButton} type="submit">
+            Modificar
+          </button>
         </div>
       </div>
     </form>

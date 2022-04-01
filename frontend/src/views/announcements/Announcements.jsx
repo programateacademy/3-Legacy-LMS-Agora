@@ -1,37 +1,39 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useImperativeHandle, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import apiAgora from "../../api";
 import Swal from "sweetalert2";
 import { FiEdit } from "react-icons/fi";
 import { MdDeleteForever } from "react-icons/md";
-import { ModalCreateAnnouncements } from "../../components/modalCreateAnnouncements/ModalCreateAnnouncements";
-import styles from "./announcement.module.css";
-
-export const Announcements = () => {
+import { ModalCreateAnnouncements } from "../../components/modal/modalCreateAnnouncements/ModalCreateAnnouncements";
+import { ModalUpdateAnnouncements } from "../../components/modal/modalUpdateAnnouncements/ModalUpdateAnnouncements";
+import styles from "./Announcements.module.css";
+export const Announcements = (props) => {
+  const { teacher } = props;
   const auth = useSelector((state) => state.auth);
   const { isTeacher } = auth;
-  const id_user = auth.user.id;
+  const userID = auth.user.id;
   const params = useParams();
-  const cohortID = params.id;
+  const cohortID = teacher ? params.id : auth.user.cohortID;
 
   const [announcements, setAnnouncements] = useState([]);
   const [modal, setModal] = useState(false);
-
+  const [editOpen, setEditOpen] = useState(false);
+  const [editInfo, setEditInfo] = useState("");
   const onClickModal = () => {
     setModal(!modal);
   };
 
-  const fetchAnnouncements = async () => {
-    const res = await apiAgora.get(`api/agora/get-announcements/${cohortID}`, {
-      headers: { Authorization: id_user },
+  const fetchAnnouncements = async (url, id) => {
+    const res = await apiAgora.get(`api/agora/get-announcements/${url}`, {
+      headers: { Authorization: id },
     });
     setAnnouncements(res.data);
   };
 
   useEffect(() => {
-    fetchAnnouncements();
-  }, []);
+    fetchAnnouncements(cohortID, userID);
+  }, [cohortID, userID]);
 
   const alertErase = (idAnnouncement) => {
     Swal.fire({
@@ -47,27 +49,31 @@ export const Announcements = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         deleteAnnouncement(idAnnouncement);
+        fetchAnnouncements(cohortID, userID);
         Swal.fire("Completado", "El anuncio ha sido eliminado", "success");
       }
     });
   };
 
-  const deleteAnnouncement = async (idAnnouncement) => {
-    if (id_user != null) {
-      await apiAgora.delete("api/agora/delete-announcement/" + idAnnouncement, {
-        headers: { Authorization: id_user },
+  const handleInfoUpdate = (id) => {
+    setEditOpen(!editOpen);
+    setEditInfo(id);
+  };
+  const deleteAnnouncement = async (announcementID) => {
+    if (useImperativeHandle != null) {
+      await apiAgora.delete("api/agora/delete-announcement/" + announcementID, {
+        headers: { Authorization: userID },
       });
       fetchAnnouncements();
     }
   };
-  console.log(announcements);
   return (
     <div className={styles.Announcements}>
       <h2>Anuncios</h2>
       {isTeacher ? (
         <div className={styles.containerButton}>
           <button className={styles.button} onClick={onClickModal}>
-            Crear Anuncios
+            Crear Anuncio
           </button>
         </div>
       ) : null}
@@ -76,8 +82,21 @@ export const Announcements = () => {
           <ModalCreateAnnouncements
             auth={auth}
             cohortID={cohortID}
-            userID={id_user}
+            userID={userID}
             setModal={setModal}
+            setAnnouncements={setAnnouncements}
+          />
+        </div>
+      ) : null}
+      {editOpen ? (
+        <div className={styles.modal}>
+          <ModalUpdateAnnouncements
+            announcementID={editInfo}
+            setEditOpen={setEditOpen}
+            userID={userID}
+            auth={auth}
+            setAnnouncements={setAnnouncements}
+            cohortID={cohortID}
           />
         </div>
       ) : null}
@@ -93,17 +112,29 @@ export const Announcements = () => {
                     <p>{item.textAnnouncement}</p>
                   </div>
                 </div>
-                <div>
-                <div className={styles.buttonsActions}>
-                  <FiEdit size={20} />
-                  <button
-                    className={styles.button__delete}
-                    onClick={() => alertErase(item.id)}
-                  >
-                    <MdDeleteForever size={20} />
-                  </button>
-                </div>
-                <p className={styles.createdAt}>{item.createdAt}</p>
+                <div className={styles.containerRight}>
+                  <p className={styles.createdAt}>
+                    {new Date(item.createdAt).toLocaleDateString()}
+                  </p>
+                  <div>
+                    {teacher ? (
+                      <div className={styles.containerButton}>
+                        <button
+                          className={styles.button__delete}
+                          onClick={() => handleInfoUpdate(item.id)}
+                        >
+                          <FiEdit size={25} />
+                        </button>
+
+                        <button
+                          className={styles.button__delete}
+                          onClick={() => alertErase(item.id)}
+                        >
+                          <MdDeleteForever size={25} />
+                        </button>
+                      </div>
+                    ) : null}
+                  </div>
                 </div>
               </div>
             ))

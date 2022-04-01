@@ -1,13 +1,11 @@
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { Navigate } from "react-router-dom";
 import ScrollToTop from "./utils/ScrollToTop";
 
 import Login from "./views/auth/login/Login";
 import { Header } from "./components/header/Header";
 import { Error404 } from "./components/404/Error404";
 import ForgotPassword from "./views/auth/forgotPassword/ForgotPassword";
-import { MenuDashboard } from "./components/menu/MenuDashboard";
 
 import { SuperAdminHome } from "./views/home/superAdmin/SuperAdminHome";
 import { AdminHome } from "./views/home/admin/AdminHome";
@@ -247,7 +245,15 @@ export function RoutesApp() {
             />
             <Route
               path="/dashboard/:id/announcements-cohort"
-              element={isTeacher ? <Announcements /> : <Error404 />}
+              element={
+                isTeacher ? (
+                  <Announcements teacher={true} />
+                ) : isStudent ? (
+                  <Announcements teacher={false} />
+                ) : (
+                  <Error404 />
+                )
+              }
             />
           </Route>
 
@@ -342,10 +348,10 @@ export function RoutesApp() {
           />
           <Route
             path="/pruebasStefy/"
-            element={isTeacher ? < ModalEntrega /> : <Error404 />}
+            element={isTeacher ? <ModalEntrega /> : <Error404 />}
           />
         </Routes>
-        
+
         <Footer />
       </ScrollToTop>
     </Router>
