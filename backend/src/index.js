@@ -33,7 +33,7 @@ app.use(morgan('dev'))
 app.use(fileUpload({
     useTempFiles: true
 }))
-app.use(express.static('../frontendagora/build'))
+app.use(express.static('../frontend/build'))
 app.use('/api', user)
 app.use('/api/agora', project)
 app.use('/api/agora', announcement)
