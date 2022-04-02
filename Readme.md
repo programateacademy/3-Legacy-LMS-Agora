@@ -77,9 +77,12 @@
     <img src="http://drive.google.com/uc?export=view&id=1Fp6r5TLJgem3Y9ClvsgSjHvuYPmrGsX9" height="300px" width="300px"></p>
 <p align="center">FRONTEND SUPPORT - Daniel Mateo Patarroyo Molina.</br>
     <img src="http://drive.google.com/uc?export=view&id=1xD09vhfwSxDhdeXRJe54YfhVd7R3UiZg" height="300px" width="300px"></p>
-   - Backend leader - Juan Sebastian Murcia Cuevas.</br>
-   - Backend support - Santiago Gustavo López Bernal.</br>
-   - Backend support - Luisa Fernanda Palacios Pérez.</p>
+<p align="center">BACKEND LEADER - Juan Sebastian Murcia Cuevas.</br>
+    <img src="http://drive.google.com/uc?export=view&id=1TbBwp4Qy4Y72HAvIY-MkF6SVUSzor0NS" height="300px" width="300px"></p>
+<p align="center">BACKEND SUPPORT - Santiago Gustavo López Bernal.</br>
+    <img src="http://drive.google.com/uc?export=view&id=" height="300px" width="300px"></p>
+<p align="center">BACKEND SUPPORT - Luisa Fernanda Palacios Pérez.</br>
+    <img src="http://drive.google.com/uc?export=view&id=" height="300px" width="300px"></p>
 
 
 
