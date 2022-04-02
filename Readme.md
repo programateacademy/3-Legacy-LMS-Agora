@@ -4,7 +4,7 @@
 
 <p align="center"><img height="170px" width="600px" src="http://drive.google.com/uc?export=view&id=10Q0O26cR0GZZ5Ubaa7YZhSglSWjFaKRN"></p>
 
-<p>This is a page at the request by the educational organization Educamás. It allows centralizing the project's creation and revision, the competence's evaluation associated to each project and the notifications.</p>
+<p align="center">This is a page at the request by the educational organization Educamás. It allows centralizing the project's creation and revision, the competence's evaluation associated to each project and the notifications.</p>
 
 <h2>LOGIN.🔒️</h2>
 <p>The access is posible by four different accounts:</p>
