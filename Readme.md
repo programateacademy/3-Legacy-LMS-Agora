@@ -75,7 +75,7 @@ For run the page, you must:</br>
 
 <h2 align="center">AUTHORS 🧑‍💻.</h2>
 <p align="center">SCRUM MASTER</br><a href="https://github.com/Miguel-Lopez-97" target="_blank">Miguel Angel Moreno López.</a></br>
-   <img src="./assets_readme/Miguel.png" height="250px" width="280px"></p>
+   <img src="./assets_readme/Miguel.png" height="250px" width="250px"></p>
    </br>
 <p align="center">TECHNICAL LEADER</br><a href="https://github.com/AngieLadinoP" target="_blank">Angie Ladino.</a></br>
     <img src="./assets_readme/Angie.png" height="250px" width="250px"></p>
