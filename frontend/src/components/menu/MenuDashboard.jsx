@@ -23,7 +23,7 @@ export function MenuDashboard({ open, setOpen }) {
   const navLinks = [
     {
       text: "Estadísticas",
-      route: "/estadisitica",
+      route: `/dashboard/${cohortID}/statistics`,
       icon: <AiOutlineFundProjectionScreen className={style.icon} />,
     },
     {
@@ -52,8 +52,8 @@ export function MenuDashboard({ open, setOpen }) {
       icon: <MdAnnouncement className={style.icon} />,
     },
     {
-      text: "Estudiante",
-      route: "#contact",
+      text: "Estudiantes",
+      route: `/dashboard/${cohortID}/students`,
       icon: <RiFileUserFill className={style.icon} />,
     },
     {

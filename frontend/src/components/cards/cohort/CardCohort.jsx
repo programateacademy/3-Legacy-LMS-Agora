@@ -2,11 +2,11 @@ import React from "react";
 import styles from "./CardCohort.module.css";
 import { Button } from "../../buttons/Button/Button";
 import { useDispatch, useSelector } from "react-redux";
-import { dispatchMenuHide } from '../../../redux/actions/menuAction'
+import { dispatchMenuHide } from "../../../redux/actions/menuAction";
 export function CardCohort({ info, principal, teacher }) {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const menu = useSelector((state) => state.menu);
-  const {menuView} = menu
+  const { menuView } = menu;
 
   const {
     id,
@@ -17,7 +17,7 @@ export function CardCohort({ info, principal, teacher }) {
     startDateBootcamp,
     endBootcamp,
   } = info;
-  console.log(menuView)
+  console.log(menuView);
   return (
     <div>
       <div className={styles.cohort}>
@@ -38,7 +38,7 @@ export function CardCohort({ info, principal, teacher }) {
             onClick={() => dispatch(dispatchMenuHide())}
             className={styles.buttonsContainer}
           >
-            <Button title="Dashboard" link={`dashboard/${id}`} />
+            <Button title="Dashboard" link={`dashboard/${id}/statistics`} />
           </div>
         ) : (
           <div className={styles.buttonsContainer}>
