@@ -33,14 +33,6 @@
        - Css modules.</br>
        - Node.js.</br>     
 </p>
-
-<h3>Frontend</h3>
-<p> 
-       - Html.</br>
-       - Css modules.</br>
-       - Node.js.</br>     
-</p>
-
 <h3>Backend</h3>
        - MongoDB.</br>
        - DigitalOcean.</br>
