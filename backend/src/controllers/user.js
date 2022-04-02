@@ -149,7 +149,7 @@ const controllerUser = {
           ? false
           : await bcrypt.compare(password, user.passwordHash);
       if (!isMatch) {
-        res.status(401).json({
+        res.status(500).json({
           error: "Usuario o Contraseña incorrectos",
         });
       }
