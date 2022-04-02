@@ -11,8 +11,8 @@
 
 .buttonCreateProject {
     display: flex;
-    width: auto;
     justify-content: flex-end;
     margin-right: 4vh;
 }
+
 

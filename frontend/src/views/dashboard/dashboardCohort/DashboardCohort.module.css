@@ -19,6 +19,7 @@
   padding: 10px;
   text-algin: center;
   width: auto;
+  cursor: pointer;
 }
 .button_return:hover,
 .button_edit:hover {

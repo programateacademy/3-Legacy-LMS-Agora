@@ -8,3 +8,9 @@
     flex-wrap: wrap;
     
 }
+
+.buttonCreateWorkbook {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 4vh;
+}
