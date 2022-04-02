@@ -6,7 +6,7 @@
 
 <p>This is a page at the request by the educational organization Educamás. It allows centralizing the project's creation and revision, the competence's evaluation associated to each project and the notifications.</p>
 
-<h2>LOGIN</h2>
+<h2>LOGIN.🔒️</h2>
 <p>The access is posible by four different accounts:</p>
 <img src="http://drive.google.com/uc?export=1VfOr1NTS5OZ4CkLkakPsUaK0OAAlN5Y1" height="200px" width="500px">
 
@@ -40,7 +40,7 @@
        - Postman.</br>
  </p>
  
- <h2>DEPENDENCES.</h2>  
+ <h2>DEPENDENCES. 🗃️</h2>  
 <p>- @pathofdev/react-tag-input.</br>
 - @testing-library/jest-dom.</br>
 - @testing-library/react.</br>
@@ -58,15 +58,15 @@
 - Swiper.</br>
 - Web-vitals.</br></p>
 
-<h2>INSTRUCTIONS.🔐</h2>
+<h2>INSTRUCTIONS. 🚧</h2>
 <p>Before run the page locally, is neccessary:</br>
    - Run the file backend: .../Legacy-LMS-Agora/backend$ npm start.</br>
 - Run the file frontend: .../Legacy-LMS-Agora/frontend$ npm start.</br>
 
-<h2>DEPLOYMENT.</h2>
+<h2>DEPLOYMENT. 🚀</h2>
 <p>This page was deployed by DigitalOcean.</p>
 
-<h2>AUTHORS.</h2>
+<h2>AUTHORS 🧑‍💻.</h2>
 <p>- Scrum master - Miguel Angel Moreno López.</br>
    - Technical leader - Angie Ladino.</br>
    - Frontend leader - Laura Valentina Rippe.</br>
