@@ -2,43 +2,6 @@ const Profile = require("../db/models/profile");
 const Competences = require("../db/models/competences");
 
 const controllerProfile = {
-  create: async (req, res) => {
-    try {
-      const {
-        userID,
-        cohortID,
-        image,
-        linkedin,
-        gitHub,
-        portfolio,
-        competence,
-        dateOfBirth,
-      } = req.body;
-
-      if (!userID || !cohortID)
-        return res.status(400).json({ msg: "Please fill in all fields." });
-
-      const profile = new Profile({
-        cohortID,
-        userID,
-        image,
-        linkedin,
-        gitHub,
-        portfolio,
-        competence,
-        dateOfBirth,
-      });
-
-      const savedProfile = await profile.save();
-      const competenceArray = await Competences.find({ cohortID: cohortID });
-      savedProfile.competence = savedProfile.competence.concat(competenceArray);
-      await savedProfile.save();
-
-      res.json({ msg: "Register success! Profile created " });
-    } catch (err) {
-      return res.status(500).json({ msg: err.message });
-    }
-  },
   getProfiles: async (req, res) => {
     try {
       const profile = await Profile.find({cohortID:req.params._id});
@@ -105,15 +68,6 @@ const controllerProfile = {
     }
   },
 
-  deleteProfile: async (req, res) => {
-    try {
-      await Profile.findByIdAndDelete(req.params._id);
-
-      res.json({ msg: "Deleted successfully Profile" });
-    } catch (err) {
-      return res.status(500).json({ msg: err.message });
-    }
-  },
 };
 
 module.exports = controllerProfile;
