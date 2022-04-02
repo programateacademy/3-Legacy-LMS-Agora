@@ -8,7 +8,7 @@
 
 <h2>LOGIN.🔒️</h2>
 <p>The access is posible by four different accounts:</p>
-<p align="center"><img src="http://drive.google.com/uc?export=view&id=1VfOr1NTS5OZ4CkLkakPsUaK0OAAlN5Y1" height="350px" width="690px"></p>
+<p align="center"><img src="http://drive.google.com/uc?export=view&id=1VfOr1NTS5OZ4CkLkakPsUaK0OAAlN5Y1" height="350px" width="675px"></p>
 
 <h3>SuperAdmin.</h3>
 <p>Allows creating, editing and deleting administrators.</p>
