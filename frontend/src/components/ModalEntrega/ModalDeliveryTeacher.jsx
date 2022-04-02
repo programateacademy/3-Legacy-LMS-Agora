@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./ModalEntrega.module.css";
-import { VscError } from "react-icons/vsc";
+import Swal from "sweetalert2";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { MdDeleteForever, MdOutlineAddCircle } from "react-icons/md";
 import { AiOutlineLink } from "react-icons/ai";
@@ -8,6 +8,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import apiAgora from "../../api";
 import { showErrMsg, showSuccessMsg } from "../../utils/notification";
+import { MdCancel } from "react-icons/md";
+import { FiCheckCircle } from "react-icons/fi";
 
 const initialState = {
   message: "",
@@ -26,9 +28,11 @@ export function ModalDeliveryTeacher() {
   let navigate = useNavigate();
 
   const [modal, setModal] = useState([]);
-  const [modalTeacher, setModalTeacher] = useState([])
+  const [modalTeacher, setModalTeacher] = useState([]);
   const [activityProject, setActivityProject] = useState("");
   const [image, setImage] = useState("");
+  const [competences, setCompetenes] = useState([]);
+  const [user, setUser] = useState([]);
 
   const activity = (deliveryKind) => {
     if (deliveryKind === "project") {
@@ -70,10 +74,10 @@ export function ModalDeliveryTeacher() {
       item.projectID === activityid
         ? item
         : item.queryID === activityid
-          ? item
-          : item.workbookID === activityid
-            ? item
-            : null
+        ? item
+        : item.workbookID === activityid
+        ? item
+        : null
     );
     const deliveries = deliveryFilterByActivity.filter((item) => item !== null);
     setModal(deliveries);
@@ -87,10 +91,10 @@ export function ModalDeliveryTeacher() {
       item.projectID === activityid
         ? item
         : item.queryID === activityid
-          ? item
-          : item.workbookID === activityid
-            ? item
-            : null
+        ? item
+        : item.workbookID === activityid
+        ? item
+        : null
     );
     const feedbacks = feedbackFilterByActivity.filter((item) => item !== null);
     setModalTeacher(feedbacks);
@@ -102,6 +106,7 @@ export function ModalDeliveryTeacher() {
     if (deliveryKind === "project") {
       setActivityProject(res.data.titleProject);
       setImage(res.data.pictureProject);
+      setCompetenes(res.data.competences);
     }
     if (deliveryKind === "workbook") {
       setActivityProject(res.data.titleWorkbook);
@@ -112,10 +117,19 @@ export function ModalDeliveryTeacher() {
       setImage(res.data.pictureQuery);
     }
   };
+  const fetchUser = async (id) => {
+    const resUser = await apiAgora.get(`/api/get_user/${id}`, {
+      headers: { Authorization: id },
+    });
+
+    const res = resUser.data;
+    setUser(res);
+  };
   useEffect(() => {
     fetchDelivery(activityID, userID);
     fetchFeedbacks(activityID, userID);
     fetchActivity(deliveryKind, activityID, teacherID);
+    fetchUser(userID);
   }, [activityID, userID]);
 
   const [deliveryStudent, setDeliveryStudent] = useState(initialState);
@@ -168,6 +182,75 @@ export function ModalDeliveryTeacher() {
     });
   };
 
+  const alertValidateCompetence = (competenceID, level, approved) => {
+    Swal.fire({
+      background: "#E5E5E5",
+      title: "¿Desea Validar Esta Competencia Para el Estudiante?",
+      text: "Este proceso es reversible",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#FFCC02",
+      cancelButtonColor: "#010101",
+      confirmButtonText: "Si, seguro",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        handleCheckCompetence(competenceID, level, approved);
+        Swal.fire("Completado", "El estudiante ha validado esta Competencia", "success");
+      }
+    });
+  };
+
+  const alertInvalidateCompetence = (competenceID, level, approved) => {
+    Swal.fire({
+      background: "#E5E5E5",
+      title: "¿Desea No Validar Esta Competencia Para el Estudiante?",
+      text: "Este proceso es reversible",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#FFCC02",
+      cancelButtonColor: "#010101",
+      confirmButtonText: "Si, seguro",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        handleCheckCompetence(competenceID, level, approved);
+        Swal.fire("Completado", "El estudiante no ha validado esta Competencia", "success");
+      }
+    });
+  };
+
+  const handleCheckCompetence = async (competenceID, level, approved) => {
+    try {
+      if (auth.isTeacher) {
+        const res = await apiAgora.put(
+          "/api/agora/update-profile-competence/" + userID,
+          {
+            competenceID,
+            level,
+            approved,
+          },
+          {
+            headers: { Authorization: teacherID },
+          }
+        );
+        showSuccessMsg(success);
+        setDeliveryStudent({
+          ...deliveryStudent,
+          err: "",
+          success: res.data.msg,
+        });
+      }
+    } catch (err) {
+      showErrMsg(err.response.data.msg);
+      err.response.data.msg &&
+        setDeliveryStudent({
+          ...deliveryStudent,
+          err: err.response.data.msg,
+          success: "",
+        });
+    }
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -204,8 +287,7 @@ export function ModalDeliveryTeacher() {
         });
     }
     fetchDelivery(activityID, userID);
-    fetchFeedbacks(activityID, userID)
-
+    fetchFeedbacks(activityID, userID);
   };
 
   return (
@@ -219,12 +301,25 @@ export function ModalDeliveryTeacher() {
           <div className={styles.img_preview}>
             <img src={image} alt="imageDelivery" />
           </div>
+          <h2>Entrega por:</h2>
+          <h2>
+            {user.firstName +
+              " " +
+              user.middleName +
+              " " +
+              user.lastName +
+              " " +
+              user.secondSurname}
+          </h2>
         </div>
       </div>
       <form className={styles.containerModal} onSubmit={handleSubmit}>
         <div className={styles.chat}>
           <div className={styles.segundoFondoestudiantes}>
-            <h4> <b>Entregas</b></h4>
+            <h4>
+              {" "}
+              <b>Entregas</b>
+            </h4>
             {modal.map((item, index) => (
               <div key={index}>
                 {
@@ -256,7 +351,10 @@ export function ModalDeliveryTeacher() {
             ))}
           </div>
           <div className={styles.segundoFondoestudiantes}>
-            <h4> <b>Feedback</b></h4>
+            <h4>
+              {" "}
+              <b>Feedback</b>
+            </h4>
             {modalTeacher.map((item, index) => (
               <div key={index}>
                 {
@@ -331,33 +429,80 @@ export function ModalDeliveryTeacher() {
             </div>
             <button type="submit">enviar</button>
           </div>
-
         </div>
 
         <div className={styles.container__tagsModal}>
           {feedback.length !== 0
             ? feedback.map((item, index) => (
-              <div className={styles.tagContainer} key={index}>
-                <AiOutlineLink className={styles.linkIcon} size={30} />
-                <div className={styles.tagText}>
-                  <a
-                    className={styles.tag}
-                    href={item.link}
-                    target="_blank"
-                    rel="noreferrer"
+                <div className={styles.tagContainer} key={index}>
+                  <AiOutlineLink className={styles.linkIcon} size={30} />
+                  <div className={styles.tagText}>
+                    <a
+                      className={styles.tag}
+                      href={item.link}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {item.nameLink}
+                    </a>
+                  </div>
+                  <button
+                    className={styles.deleteTag}
+                    type="button"
+                    onClick={() => deleteItemArray("delivery", item)}
                   >
-                    {item.nameLink}
-                  </a>
+                    <MdDeleteForever size={30} />
+                  </button>
                 </div>
-                <button
-                  className={styles.deleteTag}
-                  type="button"
-                  onClick={() => deleteItemArray("delivery", item)}
-                >
-                  <MdDeleteForever size={30} />
-                </button>
-              </div>
-            ))
+              ))
+            : null}
+        </div>
+        <div className={styles.container__tagsModal}>
+          <h3>Competencias a Validar</h3>
+          {competences.length !== 0
+            ? competences.map((item, index) => (
+                <div className={styles.tagContainer} key={index}>
+                  <AiOutlineLink className={styles.linkIcon} size={30} />
+                  <div className={styles.tagText}>
+                    <p>
+                      {item.name}- Nivel{" "}
+                      {item.level === "levelOne"
+                        ? 1
+                        : item.level === "levelTwo"
+                        ? 2
+                        : 3}
+                    </p>
+                  </div>
+                  <div className={styles.tagText}>
+                    <button
+                      className={styles.deleteTag}
+                      type="button"
+                      onClick={() =>
+                        alertValidateCompetence(
+                          item.competenceID,
+                          item.level,
+                          true
+                        )
+                      }
+                    >
+                      <FiCheckCircle size={30} />
+                    </button>
+                    <button
+                      className={styles.deleteTag}
+                      type="button"
+                      onClick={() =>
+                        alertInvalidateCompetence(
+                          item.competenceID,
+                          item.level,
+                          false
+                        )
+                      }
+                    >
+                      <MdCancel size={30} />
+                    </button>
+                  </div>
+                </div>
+              ))
             : null}
         </div>
       </form>
