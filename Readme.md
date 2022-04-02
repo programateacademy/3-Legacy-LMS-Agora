@@ -92,11 +92,12 @@ For run the page, you must:</br>
 <p align="center">BACKEND LEADER</br><a href="https://github.com/jsmurcia" target="_blank">Juan Sebastian Murcia Cuevas.</a></br>
     <img src="./assets_readme/Sebastian.png" height="250px" width="250px"></p>
     </br>
+<p align="center">BACKEND SUPPORT</br><a href="https://github.com/lufer04" target="_blank">Luisa Fernanda Palacios Pérez.</a></br>
+    <img src="./assets_readme/Sebastian.png" height="250px" width="250px"></p>
+    </br>
 <p align="center">BACKEND SUPPORT</br><a href="" target="_blank">Santiago Gustavo López Bernal.</a></br>
     <img src="http://drive.google.com/uc?export=view&id=" height="250px" width="250px"></p>
-    </br>
-<p align="center">BACKEND SUPPORT</br><a href="" target="_blank">Luisa Fernanda Palacios Pérez.</a></br>
-    <img src="http://drive.google.com/uc?export=view&id=" height="250px" width="250px"></p>
+    
 
 
 
