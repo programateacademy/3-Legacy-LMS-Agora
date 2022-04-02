@@ -1,6 +1,6 @@
 <h4>Welcome :),</h4>
 
-<h1 align="center">PROYECT AGORA 2.0</h1>
+<h1 align="center">PROYECT AGORA 2.0 🌐</h1>
 
 <img src="http://drive.google.com/uc?export=view&id=10Q0O26cR0GZZ5Ubaa7YZhSglSWjFaKRN" height="180px" width="650px" align="center">
 
