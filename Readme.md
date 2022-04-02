@@ -67,28 +67,28 @@
 <p>This page was deployed by DigitalOcean.</p>
 
 <h2 align="center">AUTHORS 🧑‍💻.</h2>
-<p align="center">SCRUM MASTER</br><a href="https://github.com/Miguel-Lopez-97">Miguel Angel Moreno López.</a></br>
+<p align="center">SCRUM MASTER</br><a href="https://github.com/Miguel-Lopez-97" target="_blank">Miguel Angel Moreno López.</a></br>
    <img src="http://drive.google.com/uc?export=view&id=1dPsga-MM6FTDbzHONz9JtDb8EJjUnTkm" height="250px" width="250px"></p>
    </br>
-<p align="center">TECHNICAL LEADER</br>Angie Ladino.</br>
+<p align="center">TECHNICAL LEADER</br><a href="https://github.com/AngieLadinoP" target="_blank">Angie Ladino.</a></br>
     <img src="http://drive.google.com/uc?export=view&id=1vPRQ8cWFlDXdtZtVdgWxKI_FX3hW5tKO" height="250px" width="250px"></p>
     </br>
-<p align="center">FRONTEND LEADER</br>Laura Valentina Rippe.</br>
+<p align="center">FRONTEND LEADER</br><a href="https://github.com/ValentinaRippe" target="_blank">Laura Valentina Rippe.</a></br>
     <img src="http://drive.google.com/uc?export=view&id=1LWi37B-w5PrzTxbKU2mDq2vgONesiViU" height="250px" width="250px"></p>
     </br>
-<p align="center">FRONTEND SUPPORT</br>Estefani Adelaida Azocar Parra.</br>
+<p align="center">FRONTEND SUPPORT</br><a href="https://github.com/EstefaniAzocar" target="_blank">Estefani Adelaida Azocar Parra.</a></br>
     <img src="http://drive.google.com/uc?export=view&id=1Fp6r5TLJgem3Y9ClvsgSjHvuYPmrGsX9" height="250px" width="250px"></p>
     </br>
-<p align="center">FRONTEND SUPPORT</br>Daniel Mateo Patarroyo Molina.</br>
+<p align="center">FRONTEND SUPPORT</br><a href="https://github.com/MatthewHDemon" target="_blank">Daniel Mateo Patarroyo Molina.</a></br>
     <img src="http://drive.google.com/uc?export=view&id=1xD09vhfwSxDhdeXRJe54YfhVd7R3UiZg" height="250px" width="250px"></p>
     </br>
-<p align="center">BACKEND LEADER</br>Juan Sebastian Murcia Cuevas.</br>
+<p align="center">BACKEND LEADER</br><a href="https://github.com/jsmurcia" target="_blank">Juan Sebastian Murcia Cuevas.</a></br>
     <img src="http://drive.google.com/uc?export=view&id=1TbBwp4Qy4Y72HAvIY-MkF6SVUSzor0NS" height="250px" width="250px"></p>
     </br>
-<p align="center">BACKEND SUPPORT</br>Santiago Gustavo López Bernal.</br>
+<p align="center">BACKEND SUPPORT</br><a href="" target="_blank">Santiago Gustavo López Bernal.</a></br>
     <img src="http://drive.google.com/uc?export=view&id=" height="250px" width="250px"></p>
     </br>
-<p align="center">BACKEND SUPPORT</br>Luisa Fernanda Palacios Pérez.</br>
+<p align="center">BACKEND SUPPORT</br><a href="" target="_blank">Luisa Fernanda Palacios Pérez.</a></br>
     <img src="http://drive.google.com/uc?export=view&id=" height="250px" width="250px"></p>
 
 
