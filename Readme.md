@@ -8,11 +8,11 @@
 
 <h2>LOGIN.🔒️</h2>
 <p>The access is posible by four different accounts:</p>
-<img src="http://drive.google.com/uc?export=view&id=1VfOr1NTS5OZ4CkLkakPsUaK0OAAlN5Y1" height="200px" width="500px">
+<img src="http://drive.google.com/uc?export=view&id=1VfOr1NTS5OZ4CkLkakPsUaK0OAAlN5Y1" height="350px" width="690px">
 
 <h3>SuperAdmin.</h3>
 <p>Allows creating, editing and deleting administrators.</p>
-<img src="http://drive.google.com/uc?export=view&id=16sfgi5NHPjy_AeNHUKfoo8F9xE0S2cez" height="350px" width="690px" >
+<p align="center"><img src="http://drive.google.com/uc?export=view&id=16sfgi5NHPjy_AeNHUKfoo8F9xE0S2cez" height="350px" width="690px"></p>
 
 <h3>Admin.</h3>
 <p>Allows creating Bootcamps, cohorts, and students, also editing and adding competences.</p>
