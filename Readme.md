@@ -58,16 +58,18 @@
 
 <h2>WARNING! 🚧</h2>
 <p>Before run the page locally, is neccessary:</br>
-   - Install dependences for file backend:</br>
-     .../Legacy-LMS-Agora $cd backend</br>
-     .../Legacy-LMS-Agora/backend $npm install</br>
-       
-   - Install dependences for file frontend:</br>
-     .../Legacy-LMS-Agora $cd frontend</br>
-     .../Legacy-LMS-Agora/frontend $npm install</br>
-     For run the page, you must:</br>
-   - Run the file backend: .../Legacy-LMS-Agora/backend$ npm start.</br>
-   - Run the file frontend: .../Legacy-LMS-Agora/frontend$ npm start.</br>
+
+- Install dependences for file backend:</br>
+.../Legacy-LMS-Agora $cd backend</br>
+.../Legacy-LMS-Agora/backend $npm install</br>
+
+- Install dependences for file frontend:</br>
+.../Legacy-LMS-Agora $cd frontend</br>
+.../Legacy-LMS-Agora/frontend $npm install</br>
+
+For run the page, you must:</br>
+- Run the file backend: .../Legacy-LMS-Agora/backend$ npm start.</br>
+- Run the file frontend: .../Legacy-LMS-Agora/frontend$ npm start.</br>
 
 <h2>DEPLOYMENT. 🚀</h2>
 <p>This page was deployed by Netlify.</p>
