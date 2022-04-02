@@ -1,34 +1,44 @@
 .container {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    width: 80vw;
-    margin: auto;
-    justify-content: center;
-    min-height: calc(100vh - 140px);
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  margin: auto;
+  justify-content: center;
+  min-height: calc(100vh - 140px);
 }
 
-.container h1 {
-    text-align: center;
-    padding-top: 20px;
-    padding-bottom: 25px;
+.container h2 {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 25px;
+  margin-bottom: 40px;
 }
 
 .tableContainer {
-    display: flex;
-    overflow: hidden;
-    overflow-x: auto;
-    align-items: center;
-    justify-content: flex-start;
-    height: auto;
-    width: 100%;
+  display: flex;
+  overflow: hidden;
+  overflow-x: auto;
+  align-items: center;
+  justify-content: flex-start;
+  height: auto;
+  width: 90%;
 }
 
 .searchbar {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.studentsTable {
 
+  display: flex;
+  overflow: hidden;
+  overflow-x: auto;
+  align-items: center;
+  justify-content: flex-start;
+  height: auto;
+  width: 100%;
 }

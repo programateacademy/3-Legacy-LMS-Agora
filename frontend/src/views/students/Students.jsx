@@ -52,6 +52,7 @@ export function Students() {
 
   return (
     <div className={style.container}>
+      <h2>Estudiantes cohorte {cohortName}</h2>
       <div className={style.searchbar}>
         <div>
           <Searchbar student={student} setStudent={setStudent} />
@@ -61,7 +62,7 @@ export function Students() {
           <FaSearch size={30} color="var(--colorYellow)" />
         </div>
       </div>
-      <h2>Estudiantes cohorte {cohortName}</h2>
+      
       <div className={style.studentsTable}>
         <ProfilesTable
           list={student ? filteredStudents : students}
