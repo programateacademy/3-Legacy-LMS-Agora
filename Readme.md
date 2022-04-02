@@ -58,6 +58,11 @@
 - Swiper.</br>
 - Web-vitals.</br></p>
 
+<h2>INSTRUCTIONS.</h2>
+<p>Before run the page locally, is neccessary:</br>
+   - Run the file backend: .../Legacy-LMS-Agora/backend$ npm start.</br>
+- Run the file frontend: .../Legacy-LMS-Agora/frontend$ npm start.</br>
+
 
 
 
