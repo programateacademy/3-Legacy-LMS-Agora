@@ -50,6 +50,14 @@
   height:auto;
   padding:10px;
 }
+.descriptionLevel {
+  display:flex;
+  font-weight: normal;
+  text-align: center;
+  height:auto;
+  padding:10px;
+  background-color: var(--colorYellow);
+}
 
 .accordion + .title {
   align-items: center;

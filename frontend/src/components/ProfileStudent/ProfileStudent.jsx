@@ -11,6 +11,7 @@ import { CompetencesTable } from "../competencesTable/CompetencesTable";
 import { useEffect, useState } from "react";
 import {useSelector} from "react-redux";
 import { showErrMsg, showSuccessMsg } from "../../utils/notification";
+import {CompetencesTableUser} from "../competencesTable/CompetencesTableUser"
 import apiAgora from "../../api"
 
 const initialState = {
@@ -167,8 +168,8 @@ export function ProfileStudent(){
             <div className={styles.tableCompetences}>
                 
                     <TableStudent/>
-                
-                    <CompetencesTable competencesState={cohortCompetences} admin={false}/>
+                    <h3>Revise su Progreso en la Tabla de Competencias</h3>
+                    <CompetencesTableUser competencesState={userProfile.competence}/>
                 
             </div>
         </div>
