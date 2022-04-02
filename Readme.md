@@ -24,7 +24,7 @@
 
 <h3>Student.</h3>
 <p>Allows delivering projects, workbooks, and queries, also reading announcements.</p>
-<p align="center"><img src="http://drive.google.com/uc?export=view&id=12eoQR8cI1sWvvwP6kiDmDtE5Z6jgUrHt" width="25%"></p>
+<p align="center"><img src="http://drive.google.com/uc?export=view&id=12eoQR8cI1sWvvwP6kiDmDtE5Z6jgUrHt" height="350px" width="680px" ></p>
 
 <h2>TOOLS 🔧</h2>
 <h3>Frontend</h3>
@@ -68,8 +68,9 @@
 
 <h2 align="center">AUTHORS 🧑‍💻.</h2>
 <p align="center">- Scrum master - Miguel Angel Moreno López.</br>
-    <img src="http://drive.google.com/uc?export=view&id=1dPsga-MM6FTDbzHONz9JtDb8EJjUnTkm" height="350px" width="350px"></p>
-   -  Technical leader - Angie Ladino.</br>
+    <img src="http://drive.google.com/uc?export=view&id=1dPsga-MM6FTDbzHONz9JtDb8EJjUnTkm" height="300px" width="300px"></p>
+<p align="center"> -  Technical leader - Angie Ladino.</br>
+    <img src="http://drive.google.com/uc?export=view&id=1vPRQ8cWFlDXdtZtVdgWxKI_FX3hW5tKO" height="300px" width="300px"></p>
    - Frontend leader - Laura Valentina Rippe.</br>
    - Frontend support - Estefani Adelaida Azocar Parra.</br>
    - Frontend support - Daniel Mateo Patarroyo Molina.</br>
