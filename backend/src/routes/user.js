@@ -22,7 +22,7 @@ router.get("/get_admin/:_id", authSuperAdmin, controllerUser.getAdminInfo);
 router.put("/update_admin/:_id", authSuperAdmin, controllerUser.updateUser);
 router.delete("/delete_admin/:_id", authSuperAdmin, controllerUser.deleteUser);
 
-router.get("/get_user/:_id", authAdmin, controllerUser.getAdminInfo);
+router.get("/get_user/:_id", authUser, controllerUser.getAdminInfo);
 router.put("/update_user/:_id",authAdmin ,controllerUser.updateUser);
 router.get("/all_teacher", authAdmin, controllerUser.getTeacherAllInfo);
 router.get("/all_students_register/", authAdmin, controllerUser.getUsersAllStudentsRegister);

@@ -59,7 +59,7 @@ button {
   height: 350px;
   display: flex;
   flex-direction: column;
-  background: var(--colorGray_20);
+  background: var(--colorGray);
   padding: 15px;
   display: none;
 }
