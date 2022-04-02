@@ -12,19 +12,19 @@
 
 <h3>SuperAdmin.</h3>
 <p>Allows creating, editing and deleting administrators.</p>
-<img src="http://drive.google.com/uc?export=view&id=16sfgi5NHPjy_AeNHUKfoo8F9xE0S2cez" height="350px" width="685px" >
+<img src="http://drive.google.com/uc?export=view&id=16sfgi5NHPjy_AeNHUKfoo8F9xE0S2cez" height="350px" width="690px" >
 
 <h3>Admin.</h3>
 <p>Allows creating Bootcamps, cohorts, and students, also editing and adding competences.</p>
-<img src="http://drive.google.com/uc?export=view&id=1KQC5e298WV6rre7nl2hB5KgnN_gku7Lg" height="200px" width="500px" >
+<img src="http://drive.google.com/uc?export=view&id=1KQC5e298WV6rre7nl2hB5KgnN_gku7Lg" height="350px" width="690px" >
 
 <h3>Teacher.</h3>
 <p>Allows editing and rating projects, workbooks and queries of others students, and creating announcements.</p>
-<img src="http://drive.google.com/uc?export=view&id=1al2LCSfTPtakYNTK7EFr9yr1HaSyDKv-" height="200px" width="500px" >
+<img src="http://drive.google.com/uc?export=view&id=1al2LCSfTPtakYNTK7EFr9yr1HaSyDKv-" height="350px" width="690px" >
 
 <h3>Student.</h3>
 <p>Allows delivering projects, workbooks, and queries, also reading announcements.</p>
-<img src="http://drive.google.com/uc?export=view&id=12eoQR8cI1sWvvwP6kiDmDtE5Z6jgUrHt" height="200px" width="500px">
+<img src="http://drive.google.com/uc?export=view&id=12eoQR8cI1sWvvwP6kiDmDtE5Z6jgUrHt" height="350px" width="690px">
 
 <h2>TOOLS 🔧</h2>
 <h3>Frontend</h3>
