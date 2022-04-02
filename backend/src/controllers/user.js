@@ -149,7 +149,7 @@ const controllerUser = {
           ? false
           : await bcrypt.compare(password, user.passwordHash);
       if (!isMatch) {
-        res.status(401).json({
+        res.status(500).json({
           error: "Usuario o Contraseña incorrectos",
         });
       }
@@ -162,7 +162,7 @@ const controllerUser = {
         msg: "Ingreso exitoso!",
       });
     } catch (err) {
-      return res.status(500).json({ msg: err.message });
+      return res.status(404).json({ msg: err.message });
     }
   },
   getAccessToken: (req, res) => {
