@@ -22,6 +22,18 @@
 <p>Allows editing and rating projects, workbooks and queries of others students, and creating announcements.</p>
 <img src="http://drive.google.com/uc?export=1al2LCSfTPtakYNTK7EFr9yr1HaSyDKv-" height="200px" width="500px" >
 
+<h3>Student.</h3>
+<p>Allows delivering projects, workbooks, and queries, also reading announcements.</p>
+<img src="12eoQR8cI1sWvvwP6kiDmDtE5Z6jgUrHt" height="200px" width="500px">
+
+<h2>TOOLS</h2>
+<p> 
+       - Html.</br>
+       - Css modules.</br>
+       - Node.js.</br>     
+</p>
+
+
 
           
     
