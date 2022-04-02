@@ -87,7 +87,7 @@ For run the page, you must:</br>
     <img src="./assets_readme/Estefi.png" height="250px" width="250px"></p>
     </br>
 <p align="center">FRONTEND SUPPORT</br><a href="https://github.com/MatthewHDemon" target="_blank">Daniel Mateo Patarroyo Molina.</a></br>
-    <img src="./assets_readme/Mateo.png" height="250px" width="250px"></p>
+    <img src="./assets_readme/Mateo.png" height="200px" width="200px"></p>
     </br>
 <p align="center">BACKEND LEADER</br><a href="https://github.com/jsmurcia" target="_blank">Juan Sebastian Murcia Cuevas.</a></br>
     <img src="./assets_readme/Sebastian.png" height="250px" width="250px"></p>
