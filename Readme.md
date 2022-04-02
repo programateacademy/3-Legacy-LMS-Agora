@@ -66,9 +66,11 @@
 <h2>DEPLOYMENT. 🚀</h2>
 <p>This page was deployed by DigitalOcean.</p>
 
-<h2>AUTHORS 🧑‍💻.</h2>
-<p>- Scrum master - Miguel Angel Moreno López.</br>
+<h2 align="center">AUTHORS 🧑‍💻.</h2>
+<p align="center">- Scrum master - Miguel Angel Moreno López.</br>
+     <img>
    - Technical leader - Angie Ladino.</br>
+   - <img src="http://drive.google.com/uc?export=view&id=1dPsga-MM6FTDbzHONz9JtDb8EJjUnTkm" height="450px" width="450px"></p>
    - Frontend leader - Laura Valentina Rippe.</br>
    - Frontend support - Estefani Adelaida Azocar Parra.</br>
    - Frontend support - Daniel Mateo Patarroyo Molina.</br>
