@@ -33,9 +33,9 @@
 <h4>Node.js.</h4>Event-driven environment designed to create scalable applications, allowing multiple connections to be established and managed at the same time.     
 </p>
 <h3>Backend</h3>
-<p><h4>MongoDB</h4>NoSQL database system, document-oriented and open source.</br>
-<p><h4>Express</h4>Minimalist development framework for Node.js that allows us to structure an application in an agile way, providing us with functionalities such as routing, options to manage sessions and cookies, etc.</br>
-<h4>Postman</h4>API platform for building and using APIs that simplifies each step of the API lifecycle and streamlines collaboration so you can create better APIs—faster.
+<p><h4>MongoDB.</h4>NoSQL database system, document-oriented and open source.</br>
+<p><h4>Express.</h4>Minimalist development framework for Node.js that allows us to structure an application in an agile way, providing us with functionalities such as routing, options to manage sessions and cookies, etc.</br>
+<h4>Postman.</h4>API platform for building and using APIs that simplifies each step of the API lifecycle and streamlines collaboration so you can create better APIs—faster.
  </p>
  
  <h2>DEPENDENCES. 🗃️</h2>  
