@@ -42,7 +42,7 @@
 </p>
 
 <h3>Backend</h3>
-       - MongoDB.</br></br>
+       - MongoDB.</br>
        - DigitalOcean.</br>
        - Express.</br>
        - Postman.</br>
