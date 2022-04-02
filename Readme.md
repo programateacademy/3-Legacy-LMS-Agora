@@ -40,26 +40,23 @@
        - Postman.</br>
  </p>
  
- <h2>DEPENDENCES.</h2>
- 
-           <p>
-           - @pathofdev/react-tag-input.</br>
-           - @testing-library/jest-dom.</br>
-           - @testing-library/react.</br>
-           - @testing-library/user-event.</br>
-           - Axios.</br>
-           - Bootstrap.</br>
-           - React.</br>
-           - React-bootstrap.</br>
-           - React-dom.</br>
-           - React-icons.</br>
-           - React-redux.</br>
-           - React-router-dom.</br>
-           - React-scripts.</br>
-           - Sweetalert2.</br>
-           - Swiper.</br>
-           - Web-vitals.</br>
-           </p>
+ <h2>DEPENDENCES.</h2>  
+<p>- @pathofdev/react-tag-input.</br>
+- @testing-library/jest-dom.</br>
+- @testing-library/react.</br>
+- @testing-library/user-event.</br>
+- Axios.</br>
+- Bootstrap.</br>
+- React.</br>
+- React-bootstrap.</br>
+- React-dom.</br>
+- React-icons.</br>
+- React-redux.</br>
+- React-router-dom.</br>
+- React-scripts.</br>
+- Sweetalert2.</br>
+- Swiper.</br>
+- Web-vitals.</br></p>
 
 
 
