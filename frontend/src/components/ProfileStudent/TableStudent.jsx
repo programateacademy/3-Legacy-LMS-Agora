@@ -47,7 +47,7 @@ function TableStudent() {
             ? `${style.content}  ${style.active_content}`
             : style.content}
         >
-          <h2>Content 1</h2>
+          <h2>Proyectos Entregados</h2>
           <hr />
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
@@ -62,7 +62,7 @@ function TableStudent() {
             ? `${style.content}  ${style.active_content}`
             : style.content}
         >
-          <h2>Content 2</h2>
+          <h2>Workbooks</h2>
           <hr />
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
@@ -76,7 +76,7 @@ function TableStudent() {
             ? `${style.content}  ${style.active_content}`
             : style.content}
         >
-          <h2>Content 3</h2>
+          <h2>Consultas Entregados</h2>
           <hr />
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati

@@ -33,6 +33,9 @@ export function ProfileStudent(){
         const [cohortCompetences, setCohortCompetences] = useState([]);
         const [user, setUser] = useState([]);
         const [image, setImage] = useState();
+        const [projects, setProjects] = useState([]);
+        const [queries, setQueries] = useState([]);
+        const [workbooks, setWorkbooks] = useState([]);
         const {
             dateOfBirth,
             gitHub,
@@ -71,7 +74,6 @@ export function ProfileStudent(){
               headers: { Authorization: id },
             }
           );
-          console.log(resUserProfile)
           const res = resUserProfile.data[0]
           res.dateOfBirth = new Date(res.dateOfBirth).toLocaleDateString("en-CA")+
           "T" +
@@ -79,6 +81,20 @@ export function ProfileStudent(){
           setUserProfile(res);
           setImage(res.image);
         };
+
+        const fetchDelivery = async (id) => {
+          const res = await apiAgora.get(`/api/agora/get-delivery/${id}`, {
+            headers: { Authorization: id },
+          });
+          const deliveriesByStudent = res.data;
+          const projectByStudent = deliveriesByStudent.map(item => item.deliveryKind ==="project"?item:null).filter((item) => item !== null);
+          setProjects(projectByStudent);
+          const queryByStudent = deliveriesByStudent.map(item => item.deliveryKind ==="query"?item:null).filter((item) => item !== null);
+          setQueries(queryByStudent)
+          const workbookByStudent = deliveriesByStudent.map(item => item.deliveryKind ==="workbook"?item:null).filter((item) => item !== null);
+          setWorkbooks(workbookByStudent)
+        };
+
         const handleChangeInput = (e) => { const { name, value } = e.target; setUserProfile({ ...userProfile, [name]: value, err: "", success: "" }); }; 
         const handleImage = (e) => {
             const { name, value } = e.target;
@@ -120,6 +136,7 @@ export function ProfileStudent(){
           fetchUserProfile(userID);
           fetchUser(userID);
           fetchCohortCompetences(cohortID, userID);
+          fetchDelivery(userID);
         }, [cohortID, userID]);
     return(
         <div className={styles.container}>
