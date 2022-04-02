@@ -72,7 +72,7 @@ For run the page, you must:</br>
 - Run the file frontend: .../Legacy-LMS-Agora/frontend$ npm start.</br>
 
 <h2>DEPLOYMENT. 🚀</h2>
-<p>This page was deployed by<a href="https://cool-alpaca-14adba.netlify.app/">Netlify.</a></p>
+<p>This page was deployed by <a href="https://cool-alpaca-14adba.netlify.app/">Netlify.</a><p>
 
 <h2 align="center">AUTHORS 🧑‍💻.</h2>
 <p align="center">SCRUM MASTER</br><a href="https://github.com/Miguel-Lopez-97" target="_blank">Miguel Angel Moreno López.</a></br>
