@@ -66,8 +66,8 @@ export function RoutesApp() {
   return (
     <Router>
       <ScrollToTop>
-        <Header />
         <Routes>
+          <Route path='/' element={<Header />}>
           {/*  Without being logged in */}
           <Route
             path="/api/activation/:activation_token"
@@ -344,6 +344,7 @@ export function RoutesApp() {
             path="/pruebasStefy/"
             element={isTeacher ? < ModalEntrega /> : <Error404 />}
           />
+          </Route>
         </Routes>
         
         <Footer />
