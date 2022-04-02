@@ -25,6 +25,7 @@ export function ModalDeliveryStudent() {
   let navigate = useNavigate();
 
   const [modal, setModal] = useState([]);
+  const [modalStudent, setModalStudent] = useState([])
 
   const activity = (deliveryKind) => {
     if (deliveryKind === "project") {
@@ -57,6 +58,25 @@ export function ModalDeliveryStudent() {
     activity(deliveryKind);
   }, [deliveryKind]);
 
+  const fetchFeedbacks = async (activityid, id) => {
+    const res = await apiAgora.get(`/api/agora/get-outcome/${id}`, {
+      headers: { Authorization: id },
+    });
+    const allDelivery = res.data;
+    const deliverysas = allDelivery.map((item) =>
+      item.projectID === activityid
+        ? item
+        : item.queryID === activityid
+        ? item
+        : item.workbookID === activityid
+        ? item
+        : null
+    );
+    const deliveries = deliverysas.filter((item) => item !== null);
+    setModalStudent(deliveries);
+    console.log(res)
+  };
+
   const fetchDelivery = async (activityid, id) => {
     const res = await apiAgora.get(`/api/agora/get-delivery/${id}`, {
       headers: { Authorization: id },
@@ -75,8 +95,10 @@ export function ModalDeliveryStudent() {
     setModal(deliveries);
     console.log(deliveries);
   };
+  
   useEffect(() => {
     fetchDelivery(activityID, userID);
+    fetchFeedbacks(activityID, userID);
   }, [activityID, userID]);
 
   const [deliveryStudent, setDeliveryStudent] = useState(initialState);
@@ -283,6 +305,37 @@ export function ModalDeliveryStudent() {
                     </div>
                   ))
                 : null}
+            </div>
+            <div className={styles.segundoFondoestudiantes}>
+              <h4> Retroalimentaciones</h4>
+              {modalStudent.map((item, index) => (
+                <div key={index}>
+                  {
+                    <p className={styles.textTime}>
+                      <b>Fecha:</b>{" "}
+                      {new Date(item.createdAt).toLocaleDateString("en-CA")}
+                      <b>Hora:</b>
+                      {new Date(item.createdAt).toLocaleTimeString()}
+                    </p>
+                  }
+
+                  <h5>Descripción:</h5>
+                  <p>{item.message}</p>
+                  <h5>Links:</h5>
+                  <br />
+                  {item.feedback.map((item) => (
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={styles.tag}
+                    >
+                      {item.nameLink}
+                    </a>
+                  ))}
+                  <hr />
+                </div>
+              ))}
             </div>
           </div>
         </div>
