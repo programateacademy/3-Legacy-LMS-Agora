@@ -73,13 +73,13 @@
     <img src="http://drive.google.com/uc?export=view&id=1vPRQ8cWFlDXdtZtVdgWxKI_FX3hW5tKO" height="300px" width="300px"></p>
 <p align="center">FRONTEND LEADER - Laura Valentina Rippe.</br>
     <img src="http://drive.google.com/uc?export=view&id=1LWi37B-w5PrzTxbKU2mDq2vgONesiViU" height="300px" width="300px"></p>
-   - Frontend support - Estefani Adelaida Azocar Parra.</br>
 <p align="center">FRONTEND SUPPORT - Estefani Adelaida Azocar Parra.</br>
-    <img src="http://drive.google.com/uc?export=view&id=1LWi37B-w5PrzTxbKU2mDq2vgONesiViU" height="300px" width="300px"></p>
+    <img src="http://drive.google.com/uc?export=view&id=1Fp6r5TLJgem3Y9ClvsgSjHvuYPmrGsX9" height="300px" width="300px"></p>
    - Frontend support - Daniel Mateo Patarroyo Molina.</br>
    - Backend leader - Juan Sebastian Murcia Cuevas.</br>
    - Backend support - Santiago Gustavo López Bernal.</br>
    - Backend support - Luisa Fernanda Palacios Pérez.</p>
+
 
 
 
