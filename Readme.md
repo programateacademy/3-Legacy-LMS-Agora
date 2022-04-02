@@ -45,7 +45,6 @@
 - @testing-library/react.</br>
 - @testing-library/user-event.</br>
 - Axios.</br>
-- Bootstrap.</br>
 - React-bootstrap.</br>
 - React-dom.</br>
 - React-icons.</br>
