@@ -4,9 +4,6 @@ import style from "../table/Table.module.css";
 export function ProfilesTable(props) {
   const { list, cohortID } = props;
 
-  /*   const students = list.sort((a, b) => {
-    return a.lastName.toUpperCase() > b.lastName.toUpperCase() ? 1 : -1;
-  }); */
   return (
     <table className={style.userTable}>
       <thead>

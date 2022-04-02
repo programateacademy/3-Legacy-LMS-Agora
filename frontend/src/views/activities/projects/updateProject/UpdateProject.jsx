@@ -240,7 +240,7 @@ export function UpdateProject() {
             headers: { Authorization: userID },
           }
         );
-        showSuccessMsg(success);
+        showSuccessMsg("Consulta Actualizada","se ha registrado los cambios en la consulta satisfactoriamente");
         setProject({ ...project, err: "", success: res.data.msg });
       }
     } catch (err) {

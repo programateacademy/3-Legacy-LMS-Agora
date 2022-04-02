@@ -169,7 +169,6 @@ const controllerUser = {
   },
   login: async (req, res) => {
     try {
-      console.log(req.body, "ingresologin");
       const { email, password } = req.body;
       const user = await User.findOne({ email });
 

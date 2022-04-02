@@ -69,8 +69,6 @@ export function ResetPassword() {
         <img className="logo" src={logo} alt="logo" />
         <h2 className="title-resetPassword">Restablecer Contraseña</h2>
         <div className="container-info-resetPassword">
-          {err && showErrMsg(err)}
-          {success && showSuccessMsg(success)}
           {/*-------prueba --------- */}
           <input
             type="password"

@@ -109,7 +109,7 @@ export function RegisterSuperAdmin() {
         password,
         role,
       });
-      showSuccessMsg(success);
+      showSuccessMsg("Nuevo Perfil Super Administrador","se ha registrado satisfactoriamente");
       setUser({ ...user, err: "", success: res.data.msg });
     } catch (err) {
       showErrMsg(err.response.data.msg);
@@ -123,8 +123,6 @@ export function RegisterSuperAdmin() {
       <div className={styles.container_register_page}>
         <img className={styles.logo_register} src={logo} alt="logo" />
         <h2 className={styles.title_register}>Registro Super Administrador</h2>
-        {err && showErrMsg(err)}
-        {success && showSuccessMsg(success)}
         <div className={styles.register_form_content}>
           <form className={styles.register_form} onSubmit={handleSubmit}>
             <div className={styles.container_register_input}>

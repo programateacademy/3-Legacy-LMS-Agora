@@ -116,8 +116,7 @@ export function Competences() {
             headers: { Authorization: id_user },
           }
         );
-        console.log(identifierCompetences);
-        showSuccessMsg(success);
+        showSuccessMsg("Nueva Competencia","se ha registrado satisfactoriamente");
         setCompetence({ ...competence, err: "", success: res.data.msg });
       }
     } catch (err) {

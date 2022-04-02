@@ -80,7 +80,7 @@ export function CompetencesUpdate() {
             headers: { Authorization: id_user },
           }
         );
-        showSuccessMsg(success);
+        showSuccessMsg("Competencia Actualizada","Los cambios en la competencia se ha realizado satisfactoriamente");
         setCompetences({ ...competences, err: "", success: res.data.msg });
       }
     } catch (err) {

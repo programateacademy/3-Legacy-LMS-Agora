@@ -117,7 +117,7 @@ export function CompetencesTableUser(props) {
                   <div className={style.text}>
                     <h4>
                       <strong>
-                        Esta Competencia en el Nivel uno, se encuentra{" "}
+                        Esta Competencia en el Nivel dos, se encuentra{" "}
                         {item.levelTwo.approved ? "Aprovada" : "No Validada"}{" "}
                       </strong>
                     </h4>
@@ -144,7 +144,7 @@ export function CompetencesTableUser(props) {
                   <div className={style.text}>
                     <h4>
                       <strong>
-                        Esta Competencia en el Nivel uno, se encuentra{" "}
+                        Esta Competencia en el Nivel tres, se encuentra{" "}
                         {item.levelThree.approved ? "Aprovada" : "No Validada"}{" "}
                       </strong>
                     </h4>
