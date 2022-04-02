@@ -1,5 +1,5 @@
 import axios from "axios"
 
 export default axios.create({
-    baseURL: "https://agora-programate-lms.herokuapp.com/",
+    baseURL: "https://agora-lms.herokuapp.com",
   });
