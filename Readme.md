@@ -27,11 +27,27 @@
 <img src="12eoQR8cI1sWvvwP6kiDmDtE5Z6jgUrHt" height="200px" width="500px">
 
 <h2>TOOLS</h2>
+<h3>Frontend</h3>
 <p> 
        - Html.</br>
        - Css modules.</br>
        - Node.js.</br>     
 </p>
+
+<h3>Frontend</h3>
+<p> 
+       - Html.</br>
+       - Css modules.</br>
+       - Node.js.</br>     
+</p>
+
+<h3>Backend</h3>
+       - MongoDB.</br></br>
+       - DigitalOcean.</br>
+       - Express.</br>
+       - Postman.</br>
+ </p>
+
 
 
 
