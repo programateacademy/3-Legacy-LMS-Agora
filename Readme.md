@@ -29,13 +29,13 @@
 <h2>TOOLS 🔧</h2>
 <h3>Frontend</h3>
 <p> <h4>React.</h4> Open source Javascript library designed to create user interfaces in the order of facilitating the development of single page applications.</br>
-       - Css modules. CSS file that defines class and animation names that are scoped locally by default</br>
-       - Node.js.</br>     
+<h4>Css modules.</h4>CSS file that defines class and animation names that are scoped locally by default</br>
+<h4>Node.js.</h4>Event-driven environment designed to create scalable applications, allowing multiple connections to be established and managed at the same time.     
 </p>
 <h3>Backend</h3>
-       - MongoDB.</br>
-       - Express.</br>
-       - Postman.</br>
+<p><h4>MongoDB</h4>NoSQL database system, document-oriented and open source.</br>
+<p><h4>Express</h4>Minimalist development framework for Node.js that allows us to structure an application in an agile way, providing us with functionalities such as routing, options to manage sessions and cookies, etc.</br>
+<h4>Postman</h4>API platform for building and using APIs that simplifies each step of the API lifecycle and streamlines collaboration so you can create better APIs—faster.
  </p>
  
  <h2>DEPENDENCES. 🗃️</h2>  
