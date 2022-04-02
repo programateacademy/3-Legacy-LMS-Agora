@@ -20,7 +20,7 @@ export function CreateBootcamp() {
   const id_user = auth.user.id;
 
   const [bootcamp, setBootcamp] = useState(initialStateBootcamp);
-  const { nameBootcamp, imageBootcamp, descriptionBootcamp, success } =
+  const { nameBootcamp, imageBootcamp, descriptionBootcamp} =
     bootcamp;
 
   const handleChangeInput = (e) => {

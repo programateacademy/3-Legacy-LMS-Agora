@@ -58,7 +58,7 @@ export function Competences() {
 
   const { caracteristica, number } = competence;
 
-  const { nameCompetences, success } = competences;
+  const { nameCompetences } = competences;
 
   const { actions1, evaluationCriteria1 } = levelOne;
 

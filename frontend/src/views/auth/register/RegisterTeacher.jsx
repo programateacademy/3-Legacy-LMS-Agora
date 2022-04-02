@@ -46,8 +46,6 @@ export function RegisterTeacher() {
     email,
     password,
     cf_password,
-    err,
-    success,
     role,
   } = user;
 

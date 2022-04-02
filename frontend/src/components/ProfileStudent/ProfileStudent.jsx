@@ -7,7 +7,6 @@ import {FaNewspaper} from "react-icons/fa"
 import {RiCake2Fill} from "react-icons/ri"
 import {useNavigate} from "react-router-dom"
 import {TableStudent} from "./TableStudent"
-import { CompetencesTable } from "../competencesTable/CompetencesTable";
 import { useEffect, useState } from "react";
 import {useSelector} from "react-redux";
 import { showErrMsg, showSuccessMsg } from "../../utils/notification";

@@ -139,7 +139,7 @@ export function ModalDeliveryTeacher() {
     link: "",
   });
 
-  const { feedback, message, projectID, success, workbookID, queryID } =
+  const { feedback, message, projectID, workbookID, queryID } =
     deliveryStudent;
 
   const { nameLink, link } = objectLink;
