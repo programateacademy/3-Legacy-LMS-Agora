@@ -7,7 +7,7 @@
 <p align="center">This is a page at the request by the educational organization Educamás. It allows centralizing the project's creation and revision, the competence's evaluation associated to each project and the notifications.</p>
 
 <h2>LOGIN.🔒️</h2>
-<p>The access is posible by four different accounts:</p>
+<p>The access is posible by 4 different roles:</p>
 <p align="center"><img src="http://drive.google.com/uc?export=view&id=1VfOr1NTS5OZ4CkLkakPsUaK0OAAlN5Y1" height="350px" width="680px"></p>
 
 <h3>SuperAdmin.</h3>
@@ -29,13 +29,12 @@
 <h2>TOOLS 🔧</h2>
 <h3>Frontend</h3>
 <p> 
-       - Html.</br>
+       - React.</br>
        - Css modules.</br>
        - Node.js.</br>     
 </p>
 <h3>Backend</h3>
        - MongoDB.</br>
-       - DigitalOcean.</br>
        - Express.</br>
        - Postman.</br>
  </p>
@@ -47,7 +46,6 @@
 - @testing-library/user-event.</br>
 - Axios.</br>
 - Bootstrap.</br>
-- React.</br>
 - React-bootstrap.</br>
 - React-dom.</br>
 - React-icons.</br>
@@ -60,11 +58,19 @@
 
 <h2>WARNING! 🚧</h2>
 <p>Before run the page locally, is neccessary:</br>
+   - Install dependences for file backend:</br>
+     .../Legacy-LMS-Agora $cd backend</br>
+     .../Legacy-LMS-Agora/backend $npm install</br>
+       
+   - Install dependences for file frontend:</br>
+     .../Legacy-LMS-Agora $cd frontend</br>
+     .../Legacy-LMS-Agora/frontend $npm install</br>
+     For run the page, you must:</br>
    - Run the file backend: .../Legacy-LMS-Agora/backend$ npm start.</br>
-- Run the file frontend: .../Legacy-LMS-Agora/frontend$ npm start.</br>
+   - Run the file frontend: .../Legacy-LMS-Agora/frontend$ npm start.</br>
 
 <h2>DEPLOYMENT. 🚀</h2>
-<p>This page was deployed by DigitalOcean.</p>
+<p>This page was deployed by Netlify.</p>
 
 <h2 align="center">AUTHORS 🧑‍💻.</h2>
 <p align="center">SCRUM MASTER</br><a href="https://github.com/Miguel-Lopez-97" target="_blank">Miguel Angel Moreno López.</a></br>
