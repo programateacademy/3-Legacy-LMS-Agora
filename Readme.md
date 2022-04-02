@@ -13,6 +13,10 @@
 <h3>SuperAdmin.</h3>
 <p>Allows creating, editing and deleting administrators.</p>
 <img src="http://drive.google.com/uc?export=16sfgi5NHPjy_AeNHUKfoo8F9xE0S2cez" height="200px" width="500px" >
+
+<h3>Admin.</h3>
+<p>Allows creating Bootcamps, cohorts, and students, also editing and adding competences.</p>
+<img src="http://drive.google.com/uc?export=1KQC5e298WV6rre7nl2hB5KgnN_gku7Lg" height="200px" width="500px" >
           
     
 
