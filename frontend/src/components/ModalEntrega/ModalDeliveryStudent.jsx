@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styles from "./ModalEntrega.module.css";
-import { VscError } from "react-icons/vsc";
+import styles from "./ModalEntrega.module.css"
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { MdDeleteForever, MdOutlineAddCircle } from "react-icons/md";
 import { AiOutlineLink } from "react-icons/ai";
@@ -58,7 +57,8 @@ export function ModalDeliveryStudent() {
 
   useEffect(() => {
     activity(deliveryKind);
-  }, [deliveryKind]);
+    // eslint-disable-next-line
+  }, [deliveryKind])
 
   const fetchFeedbacks = async (activityid, id) => {
     const res = await apiAgora.get(`/api/agora/get-outcome/${id}`, {
@@ -118,7 +118,8 @@ export function ModalDeliveryStudent() {
     fetchDelivery(activityID, userID);
     fetchFeedbacks(activityID, userID);
     fetchActivity(deliveryKind, activityID, userID);
-  }, [activityID, userID]);
+    // eslint-disable-next-line
+  }, [activityID, userID])
 
   const [deliveryStudent, setDeliveryStudent] = useState(initialState);
 
@@ -127,7 +128,7 @@ export function ModalDeliveryStudent() {
     link: "",
   });
 
-  const { delivery, message, projectID, success, workbookID, queryID } =
+  const { delivery, message, projectID, workbookID, queryID } =
     deliveryStudent;
 
   const { nameLink, link } = objectLink;

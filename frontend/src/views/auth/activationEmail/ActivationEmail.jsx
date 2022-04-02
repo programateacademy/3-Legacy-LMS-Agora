@@ -6,7 +6,7 @@ function ActivationEmail () {
   const { activation_token } = useParams()
   const [err, setErr] = useState('')
   const [success, setSuccess] = useState('')
-
+  console.log(err,success)
   
   useEffect(() => {
     if (activation_token) {

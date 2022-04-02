@@ -63,7 +63,6 @@ export function UpdateProject() {
     evaluationModality,
     deliverablesProject,
     date,
-    success,
   } = project;
   const [objectLink, setObjectLink] = useState({
     nameLink: "",

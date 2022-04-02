@@ -51,7 +51,6 @@ export function CreateQuery() {
     challengeTask,
     challengeExtra,
     date,
-    success,
   } = query;
   const { nameLink, link } = objectLink;
   //Image

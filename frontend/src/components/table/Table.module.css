@@ -3,6 +3,12 @@
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
   margin: 5vh;
   text-align: center;
+  width: 90%;
+}
+.userTableProfile {
+  border-collapse: inherit;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  text-align: center;
   width: 100%;
 }
 .userTable th,

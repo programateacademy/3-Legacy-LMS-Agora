@@ -42,7 +42,6 @@ export function CreateCohort() {
     descriptionCohort,
     startDateBootcamp,
     endBootcamp,
-    success,
   } = cohort;
 
   //Info Cohort

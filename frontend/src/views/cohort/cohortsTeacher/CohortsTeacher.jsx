@@ -25,6 +25,7 @@ export function CohortsTeacher() {
   };
   useEffect(() => {
     fetchCohortsTeacher(id_user );
+    // eslint-disable-next-line
   }, [id_user ]);
   return (
     <div className={styles.cohorts}>

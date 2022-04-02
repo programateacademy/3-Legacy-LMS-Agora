@@ -22,7 +22,7 @@ export function ResetPassword() {
   const auth = useSelector((state) => state.auth);
   const userID = auth.user.id;
 
-  const { password, cf_password, oldPassword, err, success } = data;
+  const { password, cf_password, oldPassword } = data;
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;

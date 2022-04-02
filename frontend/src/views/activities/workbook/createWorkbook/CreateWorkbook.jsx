@@ -60,7 +60,7 @@ export function CreateWorkbook() {
     challenge,
     resources,
     date,
-    success,
+    
   } = workbook;
 
   const {

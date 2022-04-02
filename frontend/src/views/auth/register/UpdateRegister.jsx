@@ -45,8 +45,6 @@ export function UpdateRegister() {
     documentNumber,
     contactNumber,
     email,
-    err,
-    success,
   } = user;
   let navigate = useNavigate();
 

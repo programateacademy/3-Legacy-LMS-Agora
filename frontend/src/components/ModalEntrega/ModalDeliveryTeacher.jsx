@@ -63,7 +63,8 @@ export function ModalDeliveryTeacher() {
 
   useEffect(() => {
     activity(deliveryKind);
-  }, [deliveryKind]);
+    // eslint-disable-next-line
+  }, [deliveryKind])
 
   const fetchDelivery = async (activityid, id) => {
     const res = await apiAgora.get(`/api/agora/get-delivery/${id}`, {
@@ -129,8 +130,8 @@ export function ModalDeliveryTeacher() {
     fetchDelivery(activityID, userID);
     fetchFeedbacks(activityID, userID);
     fetchActivity(deliveryKind, activityID, teacherID);
-    fetchUser(userID);
-  }, [activityID, userID]);
+    fetchUser(userID);// eslint-disable-next-line
+  }, [activityID, userID])
 
   const [deliveryStudent, setDeliveryStudent] = useState(initialState);
 
@@ -139,7 +140,7 @@ export function ModalDeliveryTeacher() {
     link: "",
   });
 
-  const { feedback, message, projectID, success, workbookID, queryID } =
+  const { feedback, message, projectID, workbookID, queryID } =
     deliveryStudent;
 
   const { nameLink, link } = objectLink;

@@ -43,8 +43,6 @@ export function RegisterSuperAdmin() {
     email,
     password,
     cf_password,
-    err,
-    success,
     role,
   } = user;
 

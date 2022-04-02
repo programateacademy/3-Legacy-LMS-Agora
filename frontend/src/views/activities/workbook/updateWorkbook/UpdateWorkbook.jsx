@@ -59,7 +59,6 @@ export function UpdateWorkbook() {
     challenge,
     resources,
     date,
-    success,
   } = workbook;
 
   const {
