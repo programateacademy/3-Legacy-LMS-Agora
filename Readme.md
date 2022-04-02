@@ -29,7 +29,7 @@
 <h2>TOOLS 🔧</h2>
 <h3>Frontend</h3>
 <p> 
-       - React.</br>
+       - React. Open source Javascript library designed to create user interfaces in the order of facilitating the development of single page applications.</br>
        - Css modules.</br>
        - Node.js.</br>     
 </p>
