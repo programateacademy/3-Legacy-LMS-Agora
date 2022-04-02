@@ -35,11 +35,11 @@ export function ProfileStudent(){
         const [projects, setProjects] = useState([]);
         const [queries, setQueries] = useState([]);
         const [workbooks, setWorkbooks] = useState([]);
+
         const {
             dateOfBirth,
             gitHub,
             portafolio,
-            success,
             linkedin
         } = userProfile;
       

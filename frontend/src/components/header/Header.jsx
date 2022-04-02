@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import logo from "../../assets/logos/programate-academy-color-.png";
 
 import { Link } from "react-router-dom";

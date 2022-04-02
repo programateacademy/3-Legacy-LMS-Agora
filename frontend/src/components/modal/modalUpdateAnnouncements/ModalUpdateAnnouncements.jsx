@@ -21,7 +21,7 @@ export function ModalUpdateAnnouncements(props) {
   } = props;
 
   const [announcement, setAnnouncement] = useState(initialState);
-  const { textAnnouncement, titleAnnouncement, success } = announcement;
+  const { textAnnouncement, titleAnnouncement} = announcement;
 
   const fetchAnnouncements = async (url, id) => {
     const res = await apiAgora.get(`api/agora/get-announcements/${url}`, {

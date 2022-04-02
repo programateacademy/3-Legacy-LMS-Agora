@@ -13,7 +13,6 @@ import { IconContext } from "react-icons";
 import { useParams } from "react-router-dom";
 
 export function MenuDashboard({ open, setOpen }) {
-  const state = useSelector((state) => state);
   const auth = useSelector((state) => state.auth);
   const params = useParams();
   const cohortID = params.id;

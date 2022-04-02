@@ -14,7 +14,7 @@ const initialState = {
 function ForgotPassword() {
     const [data, setData] = useState(initialState)
 
-    const {email, err, success} = data
+    const {email} = data
 
     const handleChangeInput = e => {
         const {name, value} = e.target
