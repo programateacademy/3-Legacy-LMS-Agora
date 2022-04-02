@@ -26,7 +26,7 @@
 <p>Allows delivering projects, workbooks, and queries, also reading announcements.</p>
 <img src="12eoQR8cI1sWvvwP6kiDmDtE5Z6jgUrHt" height="200px" width="500px">
 
-<h2>TOOLS</h2>
+<h2>TOOLS 🔧</h2>
 <h3>Frontend</h3>
 <p> 
        - Html.</br>
