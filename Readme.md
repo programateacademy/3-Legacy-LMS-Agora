@@ -28,9 +28,8 @@
 
 <h2>TOOLS 🔧</h2>
 <h3>Frontend</h3>
-<p> 
-       - React. Open source Javascript library designed to create user interfaces in the order of facilitating the development of single page applications.</br>
-       - Css modules.</br>
+<p> <h4>React.</h4> Open source Javascript library designed to create user interfaces in the order of facilitating the development of single page applications.</br>
+       - Css modules. CSS file that defines class and animation names that are scoped locally by default</br>
        - Node.js.</br>     
 </p>
 <h3>Backend</h3>
