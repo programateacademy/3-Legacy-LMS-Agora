@@ -37,6 +37,7 @@
     position: absolute;
     display: block;
     top: 70px;
+    z-index: 999;
   }
   .closeMenu{
     display: none;
