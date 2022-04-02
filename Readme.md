@@ -7,8 +7,11 @@
 <p>This is a page at the request by the educational organization Educamás. It allows centralizing the project's creation and revision, the competence's evaluation associated to each project and the notifications.</p>
 
 <h2>LOGIN</h2>
+<p>The access is posible by four different accounts:</p>
+<img src="http://drive.google.com/uc?export=1VfOr1NTS5OZ4CkLkakPsUaK0OAAlN5Y1" height="200px" width="500px">
 
-<img src="http://drive.google.com/uc?export=1VfOr1NTS5OZ4CkLkakPsUaK0OAAlN5Y1" height="200px" width="500px" align="center">
+<h3>SuperAdmin.</h3>
+<p>Allows creating, editing and deleting administrators.</p>
 
 
 
