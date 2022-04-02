@@ -68,19 +68,26 @@
 
 <h2 align="center">AUTHORS 🧑‍💻.</h2>
 <p align="center">SCRUM MASTER - Miguel Angel Moreno López.</br>
-    <img src="http://drive.google.com/uc?export=view&id=1dPsga-MM6FTDbzHONz9JtDb8EJjUnTkm" height="300px" width="300px"></p></br>
+    <img src="http://drive.google.com/uc?export=view&id=1dPsga-MM6FTDbzHONz9JtDb8EJjUnTkm" height="300px" width="300px"></p>
+    </br>
 <p align="center">TECHNICAL LEADER - Angie Ladino.</br>
     <img src="http://drive.google.com/uc?export=view&id=1vPRQ8cWFlDXdtZtVdgWxKI_FX3hW5tKO" height="300px" width="300px"></p>
+    </br>
 <p align="center">FRONTEND LEADER - Laura Valentina Rippe.</br>
     <img src="http://drive.google.com/uc?export=view&id=1LWi37B-w5PrzTxbKU2mDq2vgONesiViU" height="300px" width="300px"></p>
+    </br>
 <p align="center">FRONTEND SUPPORT - Estefani Adelaida Azocar Parra.</br>
     <img src="http://drive.google.com/uc?export=view&id=1Fp6r5TLJgem3Y9ClvsgSjHvuYPmrGsX9" height="300px" width="300px"></p>
+    </br>
 <p align="center">FRONTEND SUPPORT - Daniel Mateo Patarroyo Molina.</br>
     <img src="http://drive.google.com/uc?export=view&id=1xD09vhfwSxDhdeXRJe54YfhVd7R3UiZg" height="300px" width="300px"></p>
+    </br>
 <p align="center">BACKEND LEADER - Juan Sebastian Murcia Cuevas.</br>
     <img src="http://drive.google.com/uc?export=view&id=1TbBwp4Qy4Y72HAvIY-MkF6SVUSzor0NS" height="300px" width="300px"></p>
+    </br>
 <p align="center">BACKEND SUPPORT - Santiago Gustavo López Bernal.</br>
     <img src="http://drive.google.com/uc?export=view&id=" height="300px" width="300px"></p>
+    </br>
 <p align="center">BACKEND SUPPORT - Luisa Fernanda Palacios Pérez.</br>
     <img src="http://drive.google.com/uc?export=view&id=" height="300px" width="300px"></p>
 
