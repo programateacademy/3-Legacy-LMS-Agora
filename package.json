@@ -14,7 +14,7 @@
       "build": "SKIP_PREFLIGHT_CHECK=true npm run build --workspace=frontend",
       "lint": "eslint ./backend ./frontend",
       "start": "npm run start --workspace=backend",
-      "dev:api": "npm run build && npm run dev --workspace=backend"
+      "dev:backend": "npm run build && npm run dev --workspace=backend"
     },
     "eslintConfig": {
       "ignorePatterns": "build",
