@@ -8,7 +8,7 @@
 
 <h2>LOGIN</h2>
 
-<img src="http://drive.google.com/uc?export=1VfOr1NTS5OZ4CkLkakPsUaK0OAAlN5Y1" height="200px" width="650px" align="center">
+<img src="http://drive.google.com/uc?export=1VfOr1NTS5OZ4CkLkakPsUaK0OAAlN5Y1" height="200px" width="500px" align="center">
 
 
 
