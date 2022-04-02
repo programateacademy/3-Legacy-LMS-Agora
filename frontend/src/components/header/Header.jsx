@@ -1,7 +1,7 @@
 import React, { useState} from "react";
 import logo from "../../assets/logos/programate-academy-color-.png";
 
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import UserLink from "./UserLink";
@@ -63,6 +63,9 @@ export function Header() {
           )}
         </div>
       </header>
+      <div className={style.container}>
+      <Outlet/>
+      </div>
     </>
   );
 }

@@ -72,4 +72,7 @@ header {
   .Logo {
     height: 35px;
   }
+  .container{
+    display: block;
+  }
 }
