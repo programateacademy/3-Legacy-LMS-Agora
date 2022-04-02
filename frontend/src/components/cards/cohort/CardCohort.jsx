@@ -17,7 +17,6 @@ export function CardCohort({ info, principal, teacher }) {
     startDateBootcamp,
     endBootcamp,
   } = info;
-  console.log(menuView)
   return (
     <div>
       <div className={styles.cohort}>

@@ -42,7 +42,7 @@ export function ModalCreateAnnouncements(props) {
             headers: { Authorization: userID },
           }
         );
-        showSuccessMsg(success);
+        showSuccessMsg("Nuevo Anuncio","Se ha creado satisfactoriamente el anuncio");
         setAnnouncement({ ...announcement, err: "", success: res.data.msg });
       }
       setModal((prevState) => !prevState);

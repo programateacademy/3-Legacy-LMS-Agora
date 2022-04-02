@@ -143,7 +143,7 @@ export function CreateQuery() {
             headers: { Authorization: userID },
           }
         );
-        showSuccessMsg(success);
+        showSuccessMsg("Nueva Consulta Creada","La consulta se ha creado satisfactoriamente");
         setQuery({ ...query, err: "", success: res.data.msg });
       }
     } catch (err) {

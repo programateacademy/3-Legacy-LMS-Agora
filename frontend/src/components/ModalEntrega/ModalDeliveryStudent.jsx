@@ -190,7 +190,7 @@ export function ModalDeliveryStudent() {
             headers: { Authorization: userID },
           }
         );
-        showSuccessMsg(success);
+        showSuccessMsg("Nueva entrega registrada","La entrega se ha creado satisfactoriamente");
         setDeliveryStudent({
           ...deliveryStudent,
           err: "",
@@ -262,10 +262,10 @@ export function ModalDeliveryStudent() {
               <div key={index}>
                 {
                   <p className={styles.textTime}>
-                    <b>Fecha:</b>{" "}
-                    {new Date(item.createdAt).toLocaleDateString("en-CA")}
-                    <b>Hora:</b>
-                    {new Date(item.createdAt).toLocaleTimeString()}
+                    <b>
+                      {new Date(item.createdAt).toLocaleDateString("en-CA")}-{" "}
+                      {new Date(item.createdAt).toLocaleTimeString()}
+                    </b>
                   </p>
                 }
 

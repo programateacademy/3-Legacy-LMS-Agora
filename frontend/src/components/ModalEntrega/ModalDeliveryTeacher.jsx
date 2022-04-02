@@ -234,7 +234,6 @@ export function ModalDeliveryTeacher() {
             headers: { Authorization: teacherID },
           }
         );
-        showSuccessMsg(success);
         setDeliveryStudent({
           ...deliveryStudent,
           err: "",
@@ -270,7 +269,7 @@ export function ModalDeliveryTeacher() {
             headers: { Authorization: teacherID },
           }
         );
-        showSuccessMsg(success);
+        showSuccessMsg("Nuevo feedback registrado","El feedback se ha creado satisfactoriamente");
         setDeliveryStudent({
           ...deliveryStudent,
           err: "",

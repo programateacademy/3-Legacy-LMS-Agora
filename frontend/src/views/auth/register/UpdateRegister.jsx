@@ -106,7 +106,7 @@ export function UpdateRegister() {
             headers: { Authorization: id_user },
           }
         );
-        showSuccessMsg(success);
+        showSuccessMsg("Perfil Actualizado","Los cambios en el usuario se ha realizado satisfactoriamente");
         setUser({ ...user, err: "", success: res.data.msg });
       }
     } catch (err) {
@@ -124,8 +124,6 @@ export function UpdateRegister() {
         </button>
         <img className={styles.logo_register} src={logo} alt="logo" />
         <h2 className={styles.title_register}>USUARIO</h2>
-        {err && showErrMsg(err)}
-        {success && showSuccessMsg(success)}
         <div className={styles.register_form_content}>
           <form className={styles.register_form} onSubmit={handleSubmit}>
             <div className={styles.container_register_input}>

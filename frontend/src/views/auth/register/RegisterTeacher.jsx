@@ -121,7 +121,7 @@ export function RegisterTeacher() {
             headers: { Authorization: id_user },
           }
         );
-        showSuccessMsg(success);
+        showSuccessMsg("Nuevo Perfil Formador","se ha registrado satisfactoriamente");
         setUser({ ...user, err: "", success: res.data.msg });
       }
     } catch (err) {
@@ -139,8 +139,6 @@ export function RegisterTeacher() {
         </button>
         <img className={styles.logo_register} src={logo} alt="logo" />
         <h2 className={styles.title_register}>Registro Formador</h2>
-        {err && showErrMsg(err)}
-        {success && showSuccessMsg(success)}
         <div className={styles.register_form_content}>
           <form className={styles.register_form} onSubmit={handleSubmit}>
             <div className={styles.container_register_input}>

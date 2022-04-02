@@ -31,7 +31,6 @@ export function Header() {
   const handleClick = () => {
     setOpen(!open);
   };
-  console.log(menuView)
   return (
     <>
       <header>

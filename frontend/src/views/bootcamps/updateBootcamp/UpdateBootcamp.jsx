@@ -88,7 +88,7 @@ export function UpdateBootcamp() {
             headers: { Authorization: id_user },
           }
         );
-        showSuccessMsg(success);
+        showSuccessMsg("Bootcamp Actualizada","Los cambios en el bootcamp se ha realizado satisfactoriamente");
         setBootcamp({ ...bootcamp, err: "", success: res.data.msg });
       }
     } catch (err) {

@@ -43,8 +43,6 @@ function ForgotPassword() {
             <h2 className="title-forgotPassword">OLVIDASTE TU CONTRASEÑA?</h2>
 
             <div className="container-info-forgotPassword">
-                {err && showErrMsg(err)}
-                {success && showSuccessMsg(success)}
 
                 <input 
                 label='Ingresa tu correo electronico'

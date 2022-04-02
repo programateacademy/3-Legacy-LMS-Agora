@@ -178,7 +178,7 @@ export function UpdateCohort() {
             headers: { Authorization: id_user },
           }
         );
-        showSuccessMsg(success);
+        showSuccessMsg("Cohorte Actualizada","Los cambios en la cohorte se ha realizado satisfactoriamente");
         setCohort({ ...cohort, err: "", success: res.data.msg });
       }
     } catch (err) {

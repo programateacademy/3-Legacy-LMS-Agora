@@ -173,7 +173,7 @@ export function CreateWorkbook() {
             headers: { Authorization: userID },
           }
         );
-        showSuccessMsg(success);
+        showSuccessMsg("Nuevo Workbook Creado","El workbook se ha creado satisfactoriamente");
         setWorkbook({ ...workbook, err: "", success: res.data.msg });
         setWorkbook(initWorkbook);
         setImage("");

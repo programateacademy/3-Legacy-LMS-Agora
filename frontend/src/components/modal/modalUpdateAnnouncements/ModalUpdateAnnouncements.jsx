@@ -62,7 +62,7 @@ export function ModalUpdateAnnouncements(props) {
             headers: { Authorization: userID },
           }
         );
-        showSuccessMsg(success);
+        showSuccessMsg("Anuncio Actualizado", "El Anuncio se ha actualizado satisfactoriamente");
         setAnnouncement({ ...announcement, err: "", success: res.data.msg });
       }
       setEditOpen((prevState) => !prevState);

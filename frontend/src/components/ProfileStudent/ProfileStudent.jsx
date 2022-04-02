@@ -123,7 +123,7 @@ export function ProfileStudent(){
                     headers: { Authorization: userID },
                   }
                 );
-                showSuccessMsg(success);
+                showSuccessMsg("Actualización Comletada","Se ha actualizado la información de su perfil satisfactoriamente");
                 setUserProfile({ ...userProfile, err: "", success: res.data.msg });
               }
             } catch (err) {
