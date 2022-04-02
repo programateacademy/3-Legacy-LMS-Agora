@@ -67,10 +67,10 @@ export function ModalCreateAnnouncements(props) {
           </button>
         </div>
         <div className={style.containerTitle}>
-          <h1>
+          <h3>
             {" "}
             <u>Crear Anuncios</u>{" "}
-          </h1>
+          </h3>
         </div>
         <div className={style.modalInp}>
           <input
@@ -89,7 +89,7 @@ export function ModalCreateAnnouncements(props) {
             onChange={handleChangeInput}
           ></textarea>
         </div>
-        <div>
+        <div className={style.Crear}>
           <button type="submit" className={style.submitButton}>
             Crear
           </button>

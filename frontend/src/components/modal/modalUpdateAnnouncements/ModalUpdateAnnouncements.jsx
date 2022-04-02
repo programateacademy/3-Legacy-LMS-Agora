@@ -110,8 +110,8 @@ export function ModalUpdateAnnouncements(props) {
             onChange={handleChangeInput}
           ></textarea>
         </div>
-        <div>
-          <button claseName={style.submitButton} type="submit">
+        <div className={style.Crear}>
+          <button type="submit" className={style.submitButton}>
             Modificar
           </button>
         </div>
