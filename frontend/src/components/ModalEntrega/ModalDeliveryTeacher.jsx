@@ -359,10 +359,10 @@ export function ModalDeliveryTeacher() {
               <div key={index}>
                 {
                   <p className={styles.textTime}>
-                    <b>Fecha:</b>{" "}
-                    {new Date(item.createdAt).toLocaleDateString("en-CA")}
-                    <b>Hora:</b>
-                    {new Date(item.createdAt).toLocaleTimeString()}
+                    <b>
+                    {new Date(item.createdAt).toLocaleDateString("en-CA")}</b>
+                    <b>{" - "}
+                    {new Date(item.createdAt).toLocaleTimeString()}</b>
                   </p>
                 }
 
@@ -388,6 +388,7 @@ export function ModalDeliveryTeacher() {
         </div>
         <div className={styles.secondContainer}>
           <div className={styles.contInpLink}>
+            <h3>Ingrese la retroalimentación y/o Links de apoyo</h3>
             <div className={styles.contInpLinkIntern}>
               <label>Nombre del Link</label>
               <input
@@ -458,7 +459,7 @@ export function ModalDeliveryTeacher() {
             : null}
         </div>
         <div className={styles.container__tagsModal}>
-          <h3>Competencias a Validar</h3>
+          {deliveryKind==="project"?<h3>Competencias a Validar</h3>:null}
           {competences.length !== 0
             ? competences.map((item, index) => (
                 <div className={styles.tagContainer} key={index}>

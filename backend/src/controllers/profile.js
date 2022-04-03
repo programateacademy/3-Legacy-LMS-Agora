@@ -1,5 +1,4 @@
 const Profile = require("../db/models/profile");
-const Competences = require("../db/models/competences");
 
 const controllerProfile = {
   getProfiles: async (req, res) => {

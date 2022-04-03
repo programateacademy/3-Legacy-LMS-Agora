@@ -27,19 +27,6 @@ const controllerDelivery = {
       return res.status(500).json({ msg: err.message });
     }
   },
-  addChat: async (req, res) => {
-    try {
-      const deliveryNew = await Delivery.findById(req.params._id);
-
-      deliveryNew.delivery = deliveryNew.delivery.concat(deliveryArray);
-
-      await deliveryNew.save();
-
-      res.send({ deliveryNew });
-    } catch (err) {
-      return res.status(500).json({ msg: err.message });
-    }
-  },
   //Get all deliveries by Cohort ID
   getDeliveries: async (req, res) => {
     try {
@@ -63,16 +50,6 @@ const controllerDelivery = {
       return res.status(500).json(req.body);
     }
   },
-  //Get one deliveries by studentID
-  getDeliveryStudent: async (req, res) => {
-    try {
-      const delivery = await Delivery.find({ userID: req.params._id });
-
-      res.json(delivery);
-    } catch (err) {
-      return res.status(500).json({ msg: err.message });
-    }
-  },
   // getAll X activity (Project, Query or Workbook)
   getDeliveryProject: async (req, res) => {
     try {
@@ -88,7 +65,6 @@ const controllerDelivery = {
       if (query.length > 0) {
         res.json(query);
       }
-      console.log(project)
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }

@@ -9,7 +9,7 @@ router.get(
   authUser,
   controllerAnnouncement.getAnnouncements
 );
-router.get("/get-announcement/:_id", controllerAnnouncement.getAnnouncement);
+router.get("/get-announcement/:_id", authUser, controllerAnnouncement.getAnnouncement);
 router.put(
   "/update-announcement/:_id",
   authTeacher,

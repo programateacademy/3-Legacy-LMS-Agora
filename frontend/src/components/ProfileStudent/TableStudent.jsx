@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import style from "../ProfileStudent/TableStudent.module.css";
 import apiAgora from "../../api"
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux"
 
 function TableStudent(props) {
   const { projects, queries, workbooks, userID } = props
+  const auth = useSelector((state) => state.auth);
   const [projectInfo, setProjectInfo] = useState([])
   const [queryInfo, setQueryInfo] = useState([])
   const [workbookInfo, setWorkbookInfo] = useState([])
@@ -86,7 +88,6 @@ function TableStudent(props) {
           Consultas
         </button>
       </div>
-
       <div className={style.content_tabs}>
         <div
           className=
@@ -97,11 +98,13 @@ function TableStudent(props) {
           <h2>Proyectos Entregados</h2>
           <hr />
           {projectInfo.map(item => (
-            <div>
+            <div className={style.name}>
               <h4>{item.name}</h4>
-              <Link to={"/project/view-project/" + item.id}>Ver Proyecto</Link>
-              <Link to={"/delivery/project/"+item.id}>Ver Entrega</Link>
-            </div>
+              <div className={style.links}>
+                <Link to={"/project/view-project/" + item.id}>Ver Proyecto</Link>
+              {auth.isTeacher ? <Link to={"/deliveryTeacher/project/" + item.id + "/" + userID}>Ver Entrega</Link> : <Link to={"/delivery/project/" + item.id}>Ver Entrega</Link>}
+              </div>
+              </div>
           ))}
         </div>
 
@@ -114,11 +117,13 @@ function TableStudent(props) {
           <h2>Workbooks</h2>
           <hr />
           {workbookInfo.map(item => (
-            <div>
+            <div className={style.name}>
               <h4>{item.name}</h4>
-              <Link to={"/workbook/view-workbook/" + item.id}>Ver Workbook</Link>
-              <Link to={"/delivery/workbook/"+item.id}>Ver Entrega</Link>
-            </div>
+              <div className={style.links}>
+                <Link to={"/workbook/view-workbook/" + item.id}>Ver Workbook</Link>
+              {auth.isTeacher ? <Link to={"/delivery/workbook/" + item.id + "/" + userID}>Ver Entrega</Link> : <Link to={"/delivery/project/" + item.id}>Ver Entrega</Link>}
+              </div>
+              </div>
           ))}
         </div>
 
@@ -131,10 +136,11 @@ function TableStudent(props) {
           <h2>Consultas Entregados</h2>
           <hr />
           {queryInfo.map(item => (
-            <div>
+            <div className={style.name}>
               <h4>{item.name}</h4>
-              <Link to={"/query/view-query/" + item.id}>Ver Consulta</Link>
-              <Link to={"/delivery/query/"+item.id}>Ver Entrega</Link>
+              <div className={style.links}><Link to={"/query/view-query/" + item.id}>Ver Consulta</Link>
+              {auth.isTeacher ? <Link to={"/delivery/query/" + item.id + "/" + userID}>Ver Entrega</Link> : <Link to={"/delivery/project/" + item.id}>Ver Entrega</Link>}
+            </div>
             </div>
           ))}
         </div>

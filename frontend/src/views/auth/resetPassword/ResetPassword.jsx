@@ -70,26 +70,26 @@ export function ResetPassword() {
         <h2 className="title-resetPassword">Restablecer Contraseña</h2>
         <div className="container-info-resetPassword">
           {/*-------prueba --------- */}
+          <h3>Contraseña actual</h3>
           <input
             type="password"
-            label="Contraseña actual"
             placeholder="******"
             name="oldPassword"
             value={oldPassword}
             onChange={handleChangeInput}
           />
           {/*-------prueba --------- */}
+          <h3>Nueva Contraseña</h3>
           <input
             type="password"
-            label="Nueva Contraseña"
             placeholder="******"
             name="password"
             value={password}
             onChange={handleChangeInput}
           />
+          <h3>Confirmar contraseña</h3>
           <input
             type="password"
-            label="Confirmar contraseña"
             placeholder="******"
             name="cf_password"
             value={cf_password}
