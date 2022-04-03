@@ -103,7 +103,7 @@ export function RoutesApp() {
             ><Route
             path="/"
             element={
-              isStudent ? <Statistics teacher={false} />: <Error404 />
+              isStudent ? <Projects teacher={false} />: <Error404 />
             }
           />
               </Route>

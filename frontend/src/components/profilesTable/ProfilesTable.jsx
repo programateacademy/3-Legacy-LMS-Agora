@@ -24,7 +24,7 @@ export function ProfilesTable(props) {
               return (
                 <tr key={index}>
                   <td>{`${student.firstName} ${student.middleName}`}</td>
-                  <td>{`${student.lastName} ${student.secondSurame}`}</td>
+                  <td>{`${student.lastName} ${student.secondSurname}`}</td>
                   <td>{student.email}</td>
                   <td>{student.contactNumber}</td>
                   <td>

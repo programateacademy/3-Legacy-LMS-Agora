@@ -19,11 +19,11 @@ export function MenuDashboard({ open, setOpen }) {
   const { isTeacher } = auth;
   const [activeLink, setActiveLink] = useState(null);
   const navLinks = [
-    {
+    /* {
       text: "Estadísticas",
       route: `/dashboard/${cohortID}/statistics`,
       icon: <AiOutlineFundProjectionScreen className={style.icon} />,
-    },
+    }, */
     {
       text: "Proyectos",
       route: `/dashboard/${cohortID}/projects`,
