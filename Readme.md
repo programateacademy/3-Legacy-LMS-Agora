@@ -28,15 +28,14 @@
 
 <h2>TOOLS 🔧</h2>
 <h3>Frontend</h3>
-<p> 
-       - React.</br>
-       - Css modules.</br>
-       - Node.js.</br>     
+<p> <h4>React.</h4> Open source Javascript library designed to create user interfaces in the order of facilitating the development of single page applications.</br>
+<h4>Css modules.</h4>CSS file that defines class and animation names that are scoped locally by default</br>
+<h4>Node.js.</h4>Event-driven environment designed to create scalable applications, allowing multiple connections to be established and managed at the same time.     
 </p>
 <h3>Backend</h3>
-       - MongoDB.</br>
-       - Express.</br>
-       - Postman.</br>
+<p><h4>MongoDB.</h4>NoSQL database system, document-oriented and open source.</br>
+<p><h4>Express.</h4>Minimalist development framework for Node.js that allows us to structure an application in an agile way, providing us with functionalities such as routing, options to manage sessions and cookies, etc.</br>
+<h4>Postman.</h4>API platform for building and using APIs that simplifies each step of the API lifecycle and streamlines collaboration so you can create better APIs—faster.
  </p>
  
  <h2>DEPENDENCES. 🗃️</h2>  
@@ -71,31 +70,32 @@ For run the page, you must:</br>
 - Run the file frontend: .../Legacy-LMS-Agora/frontend$ npm start.</br>
 
 <h2>DEPLOYMENT. 🚀</h2>
-<p>This page was deployed by <a href="https://cool-alpaca-14adba.netlify.app/">Netlify.</a><p>
+<p>Backend was deployed by Heroku</br>
+   Frontend was deployed by <a href="https://cool-alpaca-14adba.netlify.app/">Netlify.</a><p>
 
 <h2 align="center">AUTHORS 🧑‍💻.</h2>
-<p align="center">SCRUM MASTER</br><a href="https://github.com/Miguel-Lopez-97" target="_blank">Miguel Angel Moreno López.</a></br>
-   <img src="./assets_readme/Miguel.png" height="250px" width="250px"></p>
+<p align="center"><a href="https://github.com/Miguel-Lopez-97" target="_blank">Miguel Angel Moreno López.</a></br>SCRUM MASTER</br>
+   <img src="./assets_readme/Miguel.png" height="200px" width="250px"></p>
    </br>
-<p align="center">TECHNICAL LEADER</br><a href="https://github.com/AngieLadinoP" target="_blank">Angie Ladino.</a></br>
+<p align="center"><a href="https://github.com/AngieLadinoP" target="_blank">Angie Ladino.</a></br>TECHNICAL LEADER</br>
     <img src="./assets_readme/Angie.png" height="250px" width="250px"></p>
     </br>
-<p align="center">FRONTEND LEADER</br><a href="https://github.com/ValentinaRippe" target="_blank">Laura Valentina Rippe.</a></br>
+<p align="center"><a href="https://github.com/ValentinaRippe" target="_blank">Laura Valentina Rippe.</a></br>FRONTEND LEADER</br>
     <img src="./assets_readme/Valentina.png" height="250px" width="250px"></p>
     </br>
-<p align="center">FRONTEND SUPPORT</br><a href="https://github.com/EstefaniAzocar" target="_blank">Estefani Adelaida Azocar Parra.</a></br>
+<p align="center"><a href="https://github.com/EstefaniAzocar" target="_blank">Estefani Adelaida Azocar Parra.</a></br>FRONTEND SUPPORT</br>
     <img src="./assets_readme/Estefi.png" height="250px" width="250px"></p>
     </br>
-<p align="center">FRONTEND SUPPORT</br><a href="https://github.com/MatthewHDemon" target="_blank">Daniel Mateo Patarroyo Molina.</a></br>
-    <img src="./assets_readme/Mateo.png" height="250px" width="250px"></p>
+<p align="center"><a href="https://github.com/MatthewHDemon" target="_blank">Daniel Mateo Patarroyo Molina.</a></br>FRONTEND SUPPORT</br>
+    <img src="./assets_readme/Mateo.png" height="200px" width="200px"></p>
     </br>
-<p align="center">BACKEND LEADER</br><a href="https://github.com/jsmurcia" target="_blank">Juan Sebastian Murcia Cuevas.</a></br>
+<p align="center"><a href="https://github.com/jsmurcia" target="_blank">Juan Sebastian Murcia Cuevas.</a></br>BACKEND LEADER</br>
     <img src="./assets_readme/Sebastian.png" height="250px" width="250px"></p>
     </br>
-<p align="center">BACKEND SUPPORT</br><a href="https://github.com/lufer04" target="_blank">Luisa Fernanda Palacios Pérez.</a></br>
+<p align="center"><a href="https://github.com/lufer04" target="_blank">Luisa Fernanda Palacios Pérez.</a></br>BACKEND SUPPORT</br>
     <img src="./assets_readme/Luisa.png" height="250px" width="250px"></p>
     </br>
-<p align="center">BACKEND SUPPORT</br><a href="" target="_blank">Santiago Gustavo López Bernal.</a></br>
+<p align="center"><a href="" target="_blank">Santiago Gustavo López Bernal.</a></br>BACKEND SUPPORT</br>
     <img src="http://drive.google.com/uc?export=view&id=" height="250px" width="250px"></p>
     
 
