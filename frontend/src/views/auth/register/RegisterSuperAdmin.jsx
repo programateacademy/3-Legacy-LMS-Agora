@@ -10,9 +10,7 @@ import {
 } from "../../../utils/validation";
 import styles from "./register.module.css";
 import logo from "../../../assets/logos/Programate-academy-negros.png";
-import {useParams} from "react-router-dom";
-import { BsArrowLeftCircle } from "react-icons/bs";
-
+import { useParams } from "react-router-dom";
 
 const initialState = {
   firstName: "",
@@ -33,7 +31,7 @@ const initialState = {
 export function RegisterSuperAdmin() {
   const [user, setUser] = useState(initialState);
   const params = useParams();
-  const token = params.id
+  const token = params.id;
   const {
     firstName,
     middleName,
@@ -45,8 +43,6 @@ export function RegisterSuperAdmin() {
     email,
     password,
     cf_password,
-    err,
-    success,
     role,
   } = user;
 
@@ -99,23 +95,20 @@ export function RegisterSuperAdmin() {
       });
 
     try {
-        const res = await apiAgora.post(
-          "/api/register_superAdmin/"+token,
-          {
-            firstName,
-            middleName,
-            lastName,
-            secondSurname,
-            documentType,
-            documentNumber,
-            contactNumber,
-            email,
-            password,
-            role,
-          }
-        );
-        showSuccessMsg(success);
-        setUser({ ...user, err: "", success: res.data.msg });
+      const res = await apiAgora.post("/api/register_superAdmin/" + token, {
+        firstName,
+        middleName,
+        lastName,
+        secondSurname,
+        documentType,
+        documentNumber,
+        contactNumber,
+        email,
+        password,
+        role,
+      });
+      showSuccessMsg("Nuevo Perfil Super Administrador","se ha registrado satisfactoriamente");
+      setUser({ ...user, err: "", success: res.data.msg });
     } catch (err) {
       showErrMsg(err.response.data.msg);
       err.response.data.msg &&
@@ -125,12 +118,9 @@ export function RegisterSuperAdmin() {
 
   return (
     <div className={styles.container_register}>
-      
       <div className={styles.container_register_page}>
         <img className={styles.logo_register} src={logo} alt="logo" />
         <h2 className={styles.title_register}>Registro Super Administrador</h2>
-        {err && showErrMsg(err)}
-        {success && showSuccessMsg(success)}
         <div className={styles.register_form_content}>
           <form className={styles.register_form} onSubmit={handleSubmit}>
             <div className={styles.container_register_input}>

@@ -2,6 +2,8 @@ const User = require("../db/models/user");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const sendMail = require("./sendMail");
+const Profile = require("../db/models/profile");
+const Competences = require("../db/models/competences");
 
 const { CLIENT_URL, ACCESS_SUPER_ADMIN } = process.env;
 
@@ -133,14 +135,40 @@ const controllerUser = {
       });
 
       await newUser.save();
-      res.json({ msg: "La cuenta fue activada exitosamente" });
+      const newEmail = newUser.email
+      const provisionalProfile = {
+        cohortID: "",
+        userID: "",
+        image: "",
+        linkedin: "",
+        gitHub: "",
+        portfolio: "",
+        competence: [],
+        dateOfBirth: "",
+      };
+      const profile = new Profile({
+        provisionalProfile,
+      });
+
+      const savedProfile = await profile;
+      savedProfile.cohortID = newUser.cohortID;
+      const userBackup = await User.findOne({email:newEmail});
+      savedProfile.userID = userBackup .id;
+      const competenceArray = await Competences.find({
+        cohortID: newUser.cohortID,
+      });
+      savedProfile.competence = savedProfile.competence.concat(competenceArray);
+      await savedProfile.save();
+
+      res.json({
+        msg: "Registro Completado su perfil y cuenta estan activos ",
+      });
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }
   },
   login: async (req, res) => {
     try {
-      console.log(req.body, "ingresologin");
       const { email, password } = req.body;
       const user = await User.findOne({ email });
 
@@ -201,16 +229,16 @@ const controllerUser = {
   },
   resetPassword: async (req, res) => {
     try {
-      const { password,oldPassword, userID} = req.body;
+      const { password, oldPassword, userID } = req.body;
       const passwordHash = await bcrypt.hash(password, 12);
       const user = await User.findOne({ userID });
-  
-        const isMatch =
-          user === null
-            ? false
-            : await bcrypt.compare(oldPassword, user.passwordHash);
-      
-      if(isMatch){
+
+      const isMatch =
+        user === null
+          ? false
+          : await bcrypt.compare(oldPassword, user.passwordHash);
+
+      if (isMatch) {
         await User.findOneAndUpdate(
           { _id: userID },
           {
@@ -219,11 +247,9 @@ const controllerUser = {
         );
         res.json({ msg: "Contraseña cambiada correctamente!" });
       }
-    
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }
-
   },
   getUserInfo: async (req, res) => {
     try {
@@ -260,7 +286,7 @@ const controllerUser = {
   },
   getUsersAllStudentsRegister: async (req, res) => {
     try {
-      const users = await User.find({role:0}).select("-password");
+      const users = await User.find({ role: 0 }).select("-password");
       res.json(users);
     } catch (err) {
       return res.status(500).json({ msg: err.message });
@@ -268,9 +294,9 @@ const controllerUser = {
   },
   getUsersAllStudents: async (req, res) => {
     try {
-      const users = await User.find(
-        { cohortID: req.params._id }
-      ).select("-password");
+      const users = await User.find({ cohortID: req.params._id }).select(
+        "-password"
+      );
       res.json(users);
     } catch (err) {
       return res.status(500).json({ msg: err.message });
@@ -279,7 +305,7 @@ const controllerUser = {
   deleteUser: async (req, res) => {
     try {
       await User.findByIdAndDelete(req.params._id);
-
+      await Profile.findOneAndDelete({userID:req.params._id});
       res.json({ msg: "eliminacion exitosa!" });
     } catch (err) {
       return res.status(500).json({ msg: err.message });
@@ -287,7 +313,7 @@ const controllerUser = {
   },
   updateUser: async (req, res) => {
     try {
-      const{
+      const {
         firstName,
         middleName,
         lastName,
@@ -295,19 +321,22 @@ const controllerUser = {
         documentType,
         documentNumber,
         email,
-        contactNumber
-      }=req.body ;
-      
-      await User.findOneAndUpdate({_id:req.params._id},{
-        firstName,
-        middleName,
-        lastName,
-        secondSurname,
-        documentType,
-        documentNumber,
-        email,
-        contactNumber
-      });
+        contactNumber,
+      } = req.body;
+
+      await User.findOneAndUpdate(
+        { _id: req.params._id },
+        {
+          firstName,
+          middleName,
+          lastName,
+          secondSurname,
+          documentType,
+          documentNumber,
+          email,
+          contactNumber,
+        }
+      );
 
       res.json({ msg: "actualizacion exitosa!" });
     } catch (err) {
@@ -316,82 +345,81 @@ const controllerUser = {
   },
   registerSuperAdmin: async (req, res) => {
     try {
-      if(req.params._id == ACCESS_SUPER_ADMIN){
+      if (req.params._id == ACCESS_SUPER_ADMIN) {
         const {
-        cohortID,
-        assignedCohortsID,
-        firstName,
-        middleName,
-        lastName,
-        secondSurname,
-        documentType,
-        documentNumber,
-        email,
-        password,
-        contactNumber,
-        role,
-        programBootcamp,
-        state,
-      } = req.body;
+          cohortID,
+          assignedCohortsID,
+          firstName,
+          middleName,
+          lastName,
+          secondSurname,
+          documentType,
+          documentNumber,
+          email,
+          password,
+          contactNumber,
+          role,
+          programBootcamp,
+          state,
+        } = req.body;
 
-      if (
-        !firstName ||
-        !lastName ||
-        !secondSurname ||
-        !documentType ||
-        !documentNumber ||
-        !email ||
-        !password ||
-        !contactNumber
-      )
-        return res
-          .status(400)
-          .json({ msg: "Todos los campos son requeridos." });
+        if (
+          !firstName ||
+          !lastName ||
+          !secondSurname ||
+          !documentType ||
+          !documentNumber ||
+          !email ||
+          !password ||
+          !contactNumber
+        )
+          return res
+            .status(400)
+            .json({ msg: "Todos los campos son requeridos." });
 
-      if (!validateEmail(email))
-        return res.status(400).json({ msg: "Correo electronico invalido." });
+        if (!validateEmail(email))
+          return res.status(400).json({ msg: "Correo electronico invalido." });
 
-      const user = await User.findOne({ email });
+        const user = await User.findOne({ email });
 
-      if (user)
-        return res
-          .status(400)
-          .json({ msg: "Este correo electronico ya existe ." });
+        if (user)
+          return res
+            .status(400)
+            .json({ msg: "Este correo electronico ya existe ." });
 
-      if (password.length < 6)
-        return res
-          .status(400)
-          .json({ msg: "La contraseña debe tener al menos 6 caracteres." });
+        if (password.length < 6)
+          return res
+            .status(400)
+            .json({ msg: "La contraseña debe tener al menos 6 caracteres." });
 
-      const passwordHash = await bcrypt.hash(password, 12);
+        const passwordHash = await bcrypt.hash(password, 12);
 
-      const newUser = {
-        cohortID,
-        assignedCohortsID,
-        firstName,
-        middleName,
-        lastName,
-        secondSurname,
-        documentType,
-        documentNumber,
-        email,
-        passwordHash,
-        contactNumber,
-        role,
-        programBootcamp,
-        state,
-      };
+        const newUser = {
+          cohortID,
+          assignedCohortsID,
+          firstName,
+          middleName,
+          lastName,
+          secondSurname,
+          documentType,
+          documentNumber,
+          email,
+          passwordHash,
+          contactNumber,
+          role,
+          programBootcamp,
+          state,
+        };
 
-      const activation_token = createActivationToken(newUser);
+        const activation_token = createActivationToken(newUser);
 
-      const url = `${CLIENT_URL}/#/api/activation/${activation_token}`;
-      sendMail(firstName, email, url, "register");
+        const url = `${CLIENT_URL}/#/api/activation/${activation_token}`;
+        sendMail(firstName, email, url, "register");
 
-      res.json({
-        msg: "Registro exitoso! para activar tu cuenta, revisa tu correo electronico.",
-      });
+        res.json({
+          msg: "Registro exitoso! para activar tu cuenta, revisa tu correo electronico.",
+        });
       }
-      
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }

@@ -13,19 +13,17 @@ import { IconContext } from "react-icons";
 import { useParams } from "react-router-dom";
 
 export function MenuDashboard({ open, setOpen }) {
-  const state = useSelector((state) => state);
   const auth = useSelector((state) => state.auth);
   const params = useParams();
   const cohortID = params.id;
   const { isTeacher } = auth;
   const [activeLink, setActiveLink] = useState(null);
-  console.log(state);
   const navLinks = [
-    {
+    /* {
       text: "Estadísticas",
-      route: "/estadisitica",
+      route: `/dashboard/${cohortID}/statistics`,
       icon: <AiOutlineFundProjectionScreen className={style.icon} />,
-    },
+    }, */
     {
       text: "Proyectos",
       route: `/dashboard/${cohortID}/projects`,
@@ -42,18 +40,13 @@ export function MenuDashboard({ open, setOpen }) {
       icon: <FiFileText className={style.icon} />,
     },
     {
-      text: "Material de apoyo",
-      route: "#skills",
-      icon: <BsFileRichtextFill className={style.icon} />,
-    },
-    {
       text: "Anuncios",
       route: `/dashboard/${cohortID}/announcements-cohort`,
       icon: <MdAnnouncement className={style.icon} />,
     },
     {
-      text: "Estudiante",
-      route: "#contact",
+      text: "Estudiantes",
+      route: `/dashboard/${cohortID}/students`,
       icon: <RiFileUserFill className={style.icon} />,
     },
     {

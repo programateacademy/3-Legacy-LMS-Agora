@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import style from "./ModalCreateAnnouncements.module.css";
-import { showErrMsg, showSuccessMsg } from "../../utils/notification";
+import style from "../ModalAnnouncements.module.css";
+import { showErrMsg, showSuccessMsg } from "../../../utils/notification";
 import { VscError } from "react-icons/vsc";
-import apiAgora from "../../api";
+import apiAgora from "../../../api";
 
 const initialState = {
   textAnnouncement: "",
@@ -11,10 +11,16 @@ const initialState = {
 };
 
 export function ModalCreateAnnouncements(props) {
-  const { setModal, auth, cohortID, userID } = props;
+  const { setModal, auth, cohortID, userID, setAnnouncements } = props;
   const [announcement, setAnnouncement] = useState(initialState);
-  const { textAnnouncement, titleAnnouncement, success } = announcement;
+  const { textAnnouncement, titleAnnouncement } = announcement;
 
+  const fetchAnnouncements = async (url, id) => {
+    const res = await apiAgora.get(`api/agora/get-announcements/${url}`, {
+      headers: { Authorization: id },
+    });
+    setAnnouncements(res.data);
+  };
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
     setAnnouncement({ ...announcement, [name]: value, err: "", success: "" });
@@ -36,9 +42,11 @@ export function ModalCreateAnnouncements(props) {
             headers: { Authorization: userID },
           }
         );
-        showSuccessMsg(success);
+        showSuccessMsg("Nuevo Anuncio","Se ha creado satisfactoriamente el anuncio");
         setAnnouncement({ ...announcement, err: "", success: res.data.msg });
       }
+      setModal((prevState) => !prevState);
+      fetchAnnouncements(cohortID, userID);
     } catch (err) {
       showErrMsg(err.response.data.msg);
       err.response.data.msg &&
@@ -59,10 +67,10 @@ export function ModalCreateAnnouncements(props) {
           </button>
         </div>
         <div className={style.containerTitle}>
-          <h1>
+          <h3>
             {" "}
             <u>Crear Anuncios</u>{" "}
-          </h1>
+          </h3>
         </div>
         <div className={style.modalInp}>
           <input
@@ -81,8 +89,10 @@ export function ModalCreateAnnouncements(props) {
             onChange={handleChangeInput}
           ></textarea>
         </div>
-        <div className={style.modalButton}>
-          <button type="submit">Crear</button>
+        <div className={style.Crear}>
+          <button type="submit" className={style.submitButton}>
+            Crear
+          </button>
         </div>
       </div>
     </form>

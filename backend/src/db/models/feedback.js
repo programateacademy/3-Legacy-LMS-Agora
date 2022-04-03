@@ -1,20 +1,38 @@
 const { Schema, model } = require("mongoose");
 
 const feedbackSchema = new Schema({
-  deliveryID: {
-    type: Schema.Types.ObjectId,
-    ref: "Delivery",
+  feedback: {
+    type: Array,
+    require: true,
   },
-  //UserId from Teacher
+  deliveryKind: {
+    type: String,
+    require: true,
+  },
+  projectID: {
+    type: Schema.Types.ObjectId,
+    ref: "Project",
+  },
+  workbookID: {
+    type: Schema.Types.ObjectId,
+    ref: "Workbook",
+  },
+  queryID: {
+    type: Schema.Types.ObjectId,
+    ref: "Query",
+  },
+  //From Student
   userID: {
     type: Schema.Types.ObjectId,
     ref: "User",
     require: true,
   },
-  feedback: {
-    type: Array,
+  message: {
+    type: String,
     require: true,
   }
+},{    
+  timestamps:true
 });
 
 feedbackSchema.set("toJSON", {

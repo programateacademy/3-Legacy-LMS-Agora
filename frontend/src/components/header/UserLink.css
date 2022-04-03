@@ -1,6 +1,7 @@
 .icon-signIn {
   font-size: 20px;
   color: var(--colorYellow);
+  margin: 10px;
 }
 
 .container-main-avatarContainer{
@@ -15,16 +16,33 @@
 .avatarContainer {
   display: flex;
   align-items: center;
+  margin: 5px;
 }
 
 .avatarContainer div{
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   background-color: var(--colorYellow);
   border-radius: 50%;
+}
+.dropdown button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  width: 10px;
+}
+.icon{
+  margin-right: 10px;
+}
+.containerMenu{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
 }
 .openMenu{
   display: none;
@@ -37,6 +55,7 @@
     position: absolute;
     display: block;
     top: 70px;
+    z-index: 999;
   }
   .closeMenu{
     display: none;

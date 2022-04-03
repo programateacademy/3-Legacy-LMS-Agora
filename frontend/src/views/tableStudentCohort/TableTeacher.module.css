@@ -43,6 +43,7 @@
   text-algin:center;
   align-self: flex-start;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .button_return:hover{

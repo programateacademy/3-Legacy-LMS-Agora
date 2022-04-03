@@ -1,44 +1,6 @@
 const Profile = require("../db/models/profile");
-const Competences = require("../db/models/competences");
 
 const controllerProfile = {
-  create: async (req, res) => {
-    try {
-      const {
-        userID,
-        cohortID,
-        image,
-        linkedin,
-        gitHub,
-        portfolio,
-        competence,
-        dateOfBirth,
-      } = req.body;
-
-      if (!userID || !cohortID)
-        return res.status(400).json({ msg: "Please fill in all fields." });
-
-      const profile = new Profile({
-        cohortID,
-        userID,
-        image,
-        linkedin,
-        gitHub,
-        portfolio,
-        competence,
-        dateOfBirth,
-      });
-
-      const savedProfile = await profile.save();
-      const competenceArray = await Competences.find({ cohortID: cohortID });
-      savedProfile.competence = savedProfile.competence.concat(competenceArray);
-      await savedProfile.save();
-
-      res.json({ msg: "Register success! Profile created " });
-    } catch (err) {
-      return res.status(500).json({ msg: err.message });
-    }
-  },
   getProfiles: async (req, res) => {
     try {
       const profile = await Profile.find({cohortID:req.params._id});
@@ -80,10 +42,11 @@ const controllerProfile = {
       const { competenceID, level, approved } = req.body;
       const profile = await Profile.findOne({ userID: req.params._id });
       const competenceArray = await profile.competence;
-      const specificCompetence = await competenceArray.find(
-        (e) => (e._id = competenceID)
-      );
-      if (level === "levelOne") {
+      const specificCompetence = await competenceArray.map(
+        (e) => JSON.stringify(e._id) === `"${competenceID}"`?e:null
+      ).filter((item) => item !== null)[0];
+      
+       if (level === "levelOne") {
         specificCompetence.levelOne.approved = approved;
       }
       if (level === "levelTwo") {
@@ -93,27 +56,21 @@ const controllerProfile = {
         specificCompetence.levelThree.approved = approved;
       }
 
-      const competence = competenceArray;
+      const specificCompetences = await competenceArray.map(
+        (e) => JSON.stringify(e._id) === `"${competenceID}"`?null:e
+      ).filter((item) => item !== null);
+
+      const competence = specificCompetences.concat(specificCompetence);
       await Profile.findOneAndUpdate(
         { userID: req.params._id },
         { competence }
       );
-
       res.json(profile);
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }
   },
 
-  deleteProfile: async (req, res) => {
-    try {
-      await Profile.findByIdAndDelete(req.params._id);
-
-      res.json({ msg: "Deleted successfully Profile" });
-    } catch (err) {
-      return res.status(500).json({ msg: err.message });
-    }
-  },
 };
 
 module.exports = controllerProfile;

@@ -101,7 +101,8 @@
  .card__description {
    margin: auto;
    width: 85%;
-   text-align: justify;
+   text-align: center;
+   word-spacing: 2px ;
    color: var(--colorWhite);
    display: -webkit-box;
    -webkit-box-orient: vertical;
@@ -198,8 +199,17 @@
  }
 
  .list li:hover {
-   background: var(--colorGreenLight);
+   background-color: var(--colorGreenLight);
+   transition: 0.3s;
+ }
+
+ .list li:hover a {
    color: var(--colorWhite)
+
+ }
+
+ .list a {
+   text-decoration: none ;
  }
 
  .dots.active .container {

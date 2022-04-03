@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import logo from "../../assets/logos/programate-academy-color-.png";
 
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import UserLink from "./UserLink";
@@ -31,7 +31,6 @@ export function Header() {
   const handleClick = () => {
     setOpen(!open);
   };
-  console.log(menuView)
   return (
     <>
       <header>
@@ -64,6 +63,9 @@ export function Header() {
           )}
         </div>
       </header>
+      <div className={style.container}>
+      <Outlet/>
+      </div>
     </>
   );
 }

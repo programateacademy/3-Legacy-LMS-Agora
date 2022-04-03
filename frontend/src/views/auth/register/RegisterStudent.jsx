@@ -51,8 +51,6 @@ export function RegisterStudent() {
     email,
     password,
     cf_password,
-    err,
-    success,
     role,
   } = user;
 
@@ -138,7 +136,7 @@ export function RegisterStudent() {
             headers: { Authorization: id_user },
           }
         );
-        showSuccessMsg(success);
+        showSuccessMsg("Nuevo Estudiante","se ha registrado satisfactoriamente");
         setUser({ ...user, err: "", success: res.data.msg });
       }
     } catch (err) {
@@ -158,8 +156,6 @@ export function RegisterStudent() {
         <h2
           className={styles.title_register}
         >{`Registro Estudiante - Cohorte ${nameCohort}`}</h2>
-        {err && showErrMsg(err)}
-        {success && showSuccessMsg(success)}
         <div className={styles.register_form_content}>
           <form className={styles.register_form} onSubmit={handleSubmit}>
             <div className={styles.container_register_input}>

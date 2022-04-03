@@ -18,7 +18,7 @@ export function CompetencesUpdate() {
   const [levelThree, setLevelThree] = useState({});
   const [competences, setCompetences] = useState({});
 
-  const { nameCompetences, success } = competences;
+  const { nameCompetences } = competences;
 
   const { actions1, evaluationCriteria1 } = levelOne;
 
@@ -80,7 +80,7 @@ export function CompetencesUpdate() {
             headers: { Authorization: id_user },
           }
         );
-        showSuccessMsg(success);
+        showSuccessMsg("Competencia Actualizada","Los cambios en la competencia se ha realizado satisfactoriamente");
         setCompetences({ ...competences, err: "", success: res.data.msg });
       }
     } catch (err) {

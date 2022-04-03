@@ -63,7 +63,6 @@ export function CreateProject() {
     evaluationModality,
     deliverablesProject,
     date,
-    success,
   } = project;
   const [objectLink, setObjectLink] = useState({
     nameLink: "",
@@ -227,7 +226,7 @@ export function CreateProject() {
             headers: { Authorization: userID },
           }
         );
-        showSuccessMsg(success);
+        showSuccessMsg("Nuevo Proyecto Creado","El proyecto se ha creado satisfactoriamente");
         setProject({ ...project, err: "", success: res.data.msg });
         setProject(initialState);
       }

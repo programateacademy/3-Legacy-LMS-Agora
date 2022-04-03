@@ -42,7 +42,6 @@ export function CreateCohort() {
     descriptionCohort,
     startDateBootcamp,
     endBootcamp,
-    success,
   } = cohort;
 
   //Info Cohort
@@ -117,7 +116,7 @@ export function CreateCohort() {
             headers: { Authorization: id_user },
           }
         );
-        showSuccessMsg(success);
+        showSuccessMsg("Nueva Cohorte","se ha registrado una nueva cohorte satisfactoriamente");
         setCohort({ ...cohort, err: "", success: res.data.msg });
       }
     } catch (err) {

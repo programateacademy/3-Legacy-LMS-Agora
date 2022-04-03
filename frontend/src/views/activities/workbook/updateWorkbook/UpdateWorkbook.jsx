@@ -59,7 +59,6 @@ export function UpdateWorkbook() {
     challenge,
     resources,
     date,
-    success,
   } = workbook;
 
   const {
@@ -188,7 +187,7 @@ export function UpdateWorkbook() {
             headers: { Authorization: userID },
           }
         );
-        showSuccessMsg(success);
+        showSuccessMsg("Workbook Actualizado","Los cambios en el workbook se ha realizado satisfactoriamente");
         setWorkbook({ ...workbook, err: "", success: res.data.msg });
       }
     } catch (err) {

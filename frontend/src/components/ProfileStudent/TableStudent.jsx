@@ -1,12 +1,61 @@
-import { useState } from "react";
-import style from  "../ProfileStudent/TableStudent.module.css";
+import { useEffect, useState } from "react";
+import style from "../ProfileStudent/TableStudent.module.css";
+import apiAgora from "../../api"
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux"
 
-function TableStudent() {
+function TableStudent(props) {
+  const { projects, queries, workbooks, userID } = props
+  const auth = useSelector((state) => state.auth);
+  const [projectInfo, setProjectInfo] = useState([])
+  const [queryInfo, setQueryInfo] = useState([])
+  const [workbookInfo, setWorkbookInfo] = useState([])
+
   const [toggleState, setToggleState] = useState(1);
 
+  const fetchActivity = async (activity, url, id) => {
+    const res = await apiAgora.get(`/api/agora/get-${activity}/${url}`, {
+      headers: { Authorization: id },
+    });
+    if (activity === "project") {
+      setProjectInfo((prev) => [...prev, { name: res.data.titleProject, id: url }])
+    }
+    if (activity === "workbook") {
+      setWorkbookInfo((prev) => [...prev, { name: res.data.titleWorkbook, id: url }])
+    }
+    if (activity === "query") {
+      setQueryInfo((prev) => [...prev, { name: res.data.titleQuery, id: url }])
+    }
+  };
   const toggleTab = (index) => {
     setToggleState(index);
   };
+
+  useEffect(() => {
+    projects.map(
+      item => {
+        fetchActivity("project", item, userID)
+      }
+    );
+
+  }, [projects])
+  useEffect(() => {
+
+    queries.map(
+      item => {
+        fetchActivity("query", item, userID)
+      }
+    );
+
+  }, [queries])
+  useEffect(() => {
+
+    workbooks.map(
+      item => {
+        fetchActivity("workbook", item, userID)
+      }
+    );
+  }, [workbooks])
 
   return (
     <div className={style.container}>
@@ -39,21 +88,24 @@ function TableStudent() {
           Consultas
         </button>
       </div>
-
-      <div className= {style.content_tabs}>
+      <div className={style.content_tabs}>
         <div
           className=
           {toggleState === 1
             ? `${style.content}  ${style.active_content}`
             : style.content}
         >
-          <h2>Content 1</h2>
+          <h2>Proyectos Entregados</h2>
           <hr />
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
-            praesentium incidunt quia aspernatur quasi quidem facilis quo nihil
-            vel voluptatum?
-          </p>
+          {projectInfo.map(item => (
+            <div className={style.name}>
+              <h4>{item.name}</h4>
+              <div className={style.links}>
+                <Link to={"/project/view-project/" + item.id}>Ver Proyecto</Link>
+              {auth.isTeacher ? <Link to={"/deliveryTeacher/project/" + item.id + "/" + userID}>Ver Entrega</Link> : <Link to={"/delivery/project/" + item.id}>Ver Entrega</Link>}
+              </div>
+              </div>
+          ))}
         </div>
 
         <div
@@ -62,12 +114,17 @@ function TableStudent() {
             ? `${style.content}  ${style.active_content}`
             : style.content}
         >
-          <h2>Content 2</h2>
+          <h2>Workbooks</h2>
           <hr />
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
-            voluptatum qui adipisci.
-          </p>
+          {workbookInfo.map(item => (
+            <div className={style.name}>
+              <h4>{item.name}</h4>
+              <div className={style.links}>
+                <Link to={"/workbook/view-workbook/" + item.id}>Ver Workbook</Link>
+              {auth.isTeacher ? <Link to={"/delivery/workbook/" + item.id + "/" + userID}>Ver Entrega</Link> : <Link to={"/delivery/project/" + item.id}>Ver Entrega</Link>}
+              </div>
+              </div>
+          ))}
         </div>
 
         <div
@@ -76,13 +133,16 @@ function TableStudent() {
             ? `${style.content}  ${style.active_content}`
             : style.content}
         >
-          <h2>Content 3</h2>
+          <h2>Consultas Entregados</h2>
           <hr />
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
-            praesentium incidunt quia aspernatur quasi quidem facilis quo nihil
-            vel voluptatum?
-          </p>
+          {queryInfo.map(item => (
+            <div className={style.name}>
+              <h4>{item.name}</h4>
+              <div className={style.links}><Link to={"/query/view-query/" + item.id}>Ver Consulta</Link>
+              {auth.isTeacher ? <Link to={"/delivery/query/" + item.id + "/" + userID}>Ver Entrega</Link> : <Link to={"/delivery/project/" + item.id}>Ver Entrega</Link>}
+            </div>
+            </div>
+          ))}
         </div>
 
       </div>
@@ -90,4 +150,4 @@ function TableStudent() {
   );
 }
 
-export {TableStudent}
+export { TableStudent }

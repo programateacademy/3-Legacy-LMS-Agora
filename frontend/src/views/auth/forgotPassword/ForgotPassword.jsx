@@ -14,7 +14,7 @@ const initialState = {
 function ForgotPassword() {
     const [data, setData] = useState(initialState)
 
-    const {email, err, success} = data
+    const {email} = data
 
     const handleChangeInput = e => {
         const {name, value} = e.target
@@ -43,8 +43,6 @@ function ForgotPassword() {
             <h2 className="title-forgotPassword">OLVIDASTE TU CONTRASEÑA?</h2>
 
             <div className="container-info-forgotPassword">
-                {err && showErrMsg(err)}
-                {success && showSuccessMsg(success)}
 
                 <input 
                 label='Ingresa tu correo electronico'

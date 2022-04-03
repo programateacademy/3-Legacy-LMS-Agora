@@ -20,13 +20,12 @@ export function CreateBootcamp() {
   const id_user = auth.user.id;
 
   const [bootcamp, setBootcamp] = useState(initialStateBootcamp);
-  const { nameBootcamp, imageBootcamp, descriptionBootcamp, success } =
+  const { nameBootcamp, imageBootcamp, descriptionBootcamp} =
     bootcamp;
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
     setBootcamp({ ...bootcamp, [name]: value, err: "", success: "" });
-    console.log(imageBootcamp);
   };
 
   const handleImage = (e) => {
@@ -55,7 +54,7 @@ export function CreateBootcamp() {
             headers: { Authorization: id_user },
           }
         );
-        showSuccessMsg(success);
+        showSuccessMsg("Nuevo Bootcamp","se ha creado un nuevo bootcamp satisfactoriamente");
         setBootcamp({ ...bootcamp, err: "", success: res.data.msg });
       }
     } catch (err) {

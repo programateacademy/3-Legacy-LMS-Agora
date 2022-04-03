@@ -79,6 +79,7 @@
     padding: 10px;
     text-align: center;
     width: auto;
+    cursor: pointer;
   }
 .button_return:hover {
   background-color: var(--colorBlack);

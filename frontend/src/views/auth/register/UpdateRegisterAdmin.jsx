@@ -45,21 +45,19 @@ export function UpdateRegisterAdmin() {
     documentNumber,
     contactNumber,
     email,
-    err,
-    success,
   } = user;
 
   let navigate = useNavigate();
 
   const fetchAdmins = async (url, id) => {
     const res = await apiAgora.get("api/get_admin/" + url, {
-      headers: { Authorization: id  },
+      headers: { Authorization: id },
     });
     setUser(res.data);
   };
   useEffect(() => {
-    fetchAdmins(userID,id_user);
-  }, [userID,id_user]);
+    fetchAdmins(userID, id_user);
+  }, [userID, id_user]);
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
@@ -82,7 +80,7 @@ export function UpdateRegisterAdmin() {
         success: "",
       });
 
-      if (!isEmail(email))
+    if (!isEmail(email))
       return setUser({
         ...user,
         err: "Este correo electronico ya existe :(",
@@ -107,7 +105,10 @@ export function UpdateRegisterAdmin() {
             headers: { Authorization: id_user },
           }
         );
-        showSuccessMsg(success);
+        showSuccessMsg(
+          "Perfil Actualizado",
+          "Los cambios en el usuario se ha realizado satisfactoriamente"
+        );
         setUser({ ...user, err: "", success: res.data.msg });
       }
     } catch (err) {
@@ -125,8 +126,7 @@ export function UpdateRegisterAdmin() {
         </button>
         <img className={styles.logo_register} src={logo} alt="logo" />
         <h2 className={styles.title_register}>Administrador</h2>
-        {err && showErrMsg(err)}
-        {success && showSuccessMsg(success)}
+
         <div className={styles.register_form_content}>
           <form className={styles.register_form} onSubmit={handleSubmit}>
             <div className={styles.container_register_input}>
@@ -150,7 +150,7 @@ export function UpdateRegisterAdmin() {
               </div>
             </div>
             <div className={styles.container_register_input}>
-            <div className={styles.input_register}>
+              <div className={styles.input_register}>
                 <label>Primer Nombre</label>
                 <input
                   placeholder="Primer Nombre"

@@ -32,7 +32,6 @@ export function UpdateCohort() {
     descriptionCohort,
     startDateBootcamp,
     endBootcamp,
-    success,
   } = cohort;
 
   //Info Cohort
@@ -129,8 +128,6 @@ export function UpdateCohort() {
       err: "",
       success: "",
       endBootcamp: new Date(endBootcamp2).toLocaleDateString("en-CA"),
-      err: "",
-      success: "",
     });
   };
 
@@ -180,7 +177,7 @@ export function UpdateCohort() {
             headers: { Authorization: id_user },
           }
         );
-        showSuccessMsg(success);
+        showSuccessMsg("Cohorte Actualizada","Los cambios en la cohorte se ha realizado satisfactoriamente");
         setCohort({ ...cohort, err: "", success: res.data.msg });
       }
     } catch (err) {

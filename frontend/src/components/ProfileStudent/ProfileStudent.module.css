@@ -27,6 +27,7 @@
     width: 40px;
     align-items: center;
     background: var(--colorYellow);
+    cursor: pointer;
 }
 
 .cajaIns{
@@ -125,13 +126,16 @@
 
 .tableCompetences{
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     flex-direction: column;
     align-items: center;
     margin: auto;
     width: 80vw;
-    gap: 5vh 0;
     padding: 5vh 0;
+}
+
+.tableCompetences h3{
+margin-top: 10vh;
 }
 
 

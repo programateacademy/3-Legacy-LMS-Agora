@@ -16,9 +16,6 @@ const cohort = require('./routes/cohort')
 const competence = require('./routes/competence')
 const profile = require ('./routes/profile')
 
-
-
-
 // Conection MongoDB
 require('./db/mongo')
 
@@ -33,7 +30,9 @@ app.use(morgan('dev'))
 app.use(fileUpload({
     useTempFiles: true
 }))
-app.use(express.static('../frontend/build'))
+app.use(express.static('../frontendagora/build'))
+
+//Routes by controllers use api just users action and use api/agora by the others
 app.use('/api', user)
 app.use('/api/agora', project)
 app.use('/api/agora', announcement)
@@ -45,8 +44,6 @@ app.use('/api/agora', delivery)
 app.use('/api/agora',cohort)
 app.use('/api/agora',competence)
 app.use('/api/agora',profile)
-
-
 
 // Setting
 const port = (process.env.PORT || 3005)

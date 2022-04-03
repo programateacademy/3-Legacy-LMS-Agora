@@ -11,12 +11,12 @@ const UserLink = ({ user, handleLogout }) => {
     <>
       <div className="container-main-avatarContainer">
         <div className="avatarContainer">
-          <div>
+          <div className="icon">
             <TiUser size={30} />
           </div>
-          <p>{user.firstName}</p>
+          <u>{user.firstName}</u>
         </div>
-        <div>
+        <div className="containerMenu">
           <Dropdown>
             <Dropdown.Toggle
               variant="bg-transparent"
@@ -25,7 +25,7 @@ const UserLink = ({ user, handleLogout }) => {
             <Dropdown.Menu>
               {isStudent ? (
                 <Dropdown.Item>
-                  <Link style={{ color: "#010101" }} to="/badges">
+                  <Link style={{ color: "#010101" }} to="/profile">
                   Perfil
                 </Link>
                 </Dropdown.Item>

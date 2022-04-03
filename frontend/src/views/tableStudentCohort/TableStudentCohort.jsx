@@ -48,7 +48,7 @@ export function TableStudentCohort() {
       </button>
        <h1>{`Listado de Estudiantes - Cohorte ${nameCohort}`}</h1>
        <div className={styles.tableContainer}>
-       <Table tableList={students} adminID={id_user} fetchUser={()=>fetchStudents(id_user)}/>
+       <Table tableList={students} adminID={id_user} fetchUser={()=>fetchStudents(cohortID, id_user)}/>
        </div>
         <div className={styles.buttonContainer}>
         <Button title="Crear Estudiante" link={"/cohort/register_student/"+cohortID} />

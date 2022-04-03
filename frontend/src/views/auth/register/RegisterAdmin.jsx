@@ -46,8 +46,6 @@ export function RegisterAdmin() {
     email,
     password,
     cf_password,
-    err,
-    success,
     role,
   } = user;
 
@@ -121,7 +119,7 @@ export function RegisterAdmin() {
             headers: { Authorization: id_user },
           }
         );
-        showSuccessMsg(success);
+        showSuccessMsg("Nuevo Perfil Administrador","se ha registrado satisfactoriamente");
         setUser({ ...user, err: "", success: res.data.msg });
       }
     } catch (err) {
@@ -140,8 +138,6 @@ export function RegisterAdmin() {
       </button>
         <img className={styles.logo_register} src={logo} alt="logo" />
         <h2 className={styles.title_register}>Registro Administrador</h2>
-        {err && showErrMsg(err)}
-        {success && showSuccessMsg(success)}
         <div className={styles.register_form_content}>
           <form className={styles.register_form} onSubmit={handleSubmit}>
             <div className={styles.container_register_input}>

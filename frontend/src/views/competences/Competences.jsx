@@ -58,7 +58,7 @@ export function Competences() {
 
   const { caracteristica, number } = competence;
 
-  const { nameCompetences, success } = competences;
+  const { nameCompetences } = competences;
 
   const { actions1, evaluationCriteria1 } = levelOne;
 
@@ -116,8 +116,7 @@ export function Competences() {
             headers: { Authorization: id_user },
           }
         );
-        console.log(identifierCompetences);
-        showSuccessMsg(success);
+        showSuccessMsg("Nueva Competencia","se ha registrado satisfactoriamente");
         setCompetence({ ...competence, err: "", success: res.data.msg });
       }
     } catch (err) {

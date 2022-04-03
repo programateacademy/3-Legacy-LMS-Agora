@@ -53,7 +53,7 @@ export function ViewProject(props) {
     date,
   } = project;
 
-  const fetchAdmins = async (url, id) => {
+  const fetchProject = async (url, id) => {
     const res = await apiAgora.get("/api/agora/get-project/" + url, {
       headers: { Authorization: id },
     });
@@ -66,7 +66,7 @@ export function ViewProject(props) {
   };
 
   useEffect(() => {
-    fetchAdmins(projectID, userID);
+    fetchProject(projectID, userID);
   }, [projectID, userID]);
   return (
     <div className={style.formContainer}>
@@ -286,7 +286,7 @@ export function ViewProject(props) {
                 : null}
             </div>
             <div className={style.container_submit}>
-              <button className={style.buttonCreateProject} type="submit">
+              <button className={style.buttonDelivery} type="submit">
                 Entrega
               </button>
             </div>

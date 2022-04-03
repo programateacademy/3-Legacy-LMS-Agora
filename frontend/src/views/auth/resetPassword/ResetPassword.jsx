@@ -22,7 +22,7 @@ export function ResetPassword() {
   const auth = useSelector((state) => state.auth);
   const userID = auth.user.id;
 
-  const { password, cf_password, oldPassword, err, success } = data;
+  const { password, cf_password, oldPassword } = data;
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
@@ -69,29 +69,27 @@ export function ResetPassword() {
         <img className="logo" src={logo} alt="logo" />
         <h2 className="title-resetPassword">Restablecer Contraseña</h2>
         <div className="container-info-resetPassword">
-          {err && showErrMsg(err)}
-          {success && showSuccessMsg(success)}
           {/*-------prueba --------- */}
+          <h3>Contraseña actual</h3>
           <input
             type="password"
-            label="Contraseña actual"
             placeholder="******"
             name="oldPassword"
             value={oldPassword}
             onChange={handleChangeInput}
           />
           {/*-------prueba --------- */}
+          <h3>Nueva Contraseña</h3>
           <input
             type="password"
-            label="Nueva Contraseña"
             placeholder="******"
             name="password"
             value={password}
             onChange={handleChangeInput}
           />
+          <h3>Confirmar contraseña</h3>
           <input
             type="password"
-            label="Confirmar contraseña"
             placeholder="******"
             name="cf_password"
             value={cf_password}

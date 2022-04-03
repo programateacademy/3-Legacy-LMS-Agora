@@ -1,23 +1,27 @@
-.Announcements{
+.Announcements {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 1rem;
   min-height: calc(100vh - 140px);
 }
-.containerAnnouncement{
+
+.containerAnnouncement {
   height: auto;
   width: 100%;
   background-color: var(--colorGray);
   padding: 1rem;
   margin: 1rem;
   border-radius: 5px;
+  display: flex;
 }
-.containerButton{
+
+.containerButton {
   display: flex;
   justify-content: flex-end;
   width: 100%;
 }
+
 .button {
   background-color: var(--colorYellow);
   color: var(--colorBlack);
@@ -27,6 +31,7 @@
   text-align: center;
   margin: 1rem;
   box-shadow: 5px 5px 10px -2px var(--colorBlack);
+  cursor: pointer;
 }
 
 .button:hover {
@@ -34,39 +39,58 @@
   color: var(--colorWhite);
   transition: 0.3s;
 }
-.containerAnnouncements{
+
+.containerAnnouncements {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   width: 80%;
+  align-items: center;
 }
-.containerAnnouncement{
+
+.containerAnnouncement {
   display: flex;
   flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
 }
-.containerText{
+
+.containerText {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
 }
-.buttonsActions{
+
+.buttonsActions {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   margin: 1rem;
+
 }
-.createdAt{
+
+.containerRight {
+  margin-right: 0;
+}
+
+.createdAt {
   font-size: 14px;
 }
-.button__delete{
+
+.button__delete {
   display: flex;
   justify-content: center;
   cursor: pointer;
   background-color: transparent;
 }
-.modal{
+
+.modal {
   display: block;
 }
 
-.modal_active{
+.modal_active {
   display: flex;
 }
