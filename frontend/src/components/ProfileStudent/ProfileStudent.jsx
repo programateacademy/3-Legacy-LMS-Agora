@@ -13,7 +13,7 @@ import { useSelector } from "react-redux";
 import { showErrMsg, showSuccessMsg } from "../../utils/notification";
 import { CompetencesTableUser } from "../competencesTable/CompetencesTableUser";
 import apiAgora from "../../api";
-
+import { useParams } from "react-router-dom";
 const initialState = {
   competence: [],
   dateOfBirth: "",
@@ -24,10 +24,12 @@ const initialState = {
   success: "",
 };
 
-export function ProfileStudent() {
+export function ProfileStudent(props) {
+  const { teacher } = props;
+  const params = useParams();
   const auth = useSelector((state) => state.auth);
-  const userID = auth.user.id;
-  const cohortID = auth.user.cohortID;
+  const userID = teacher ? params.student : auth.user.id;
+  const cohortID = teacher ? params.cohort : auth.user.cohortID;
   let navigate = useNavigate();
   const [userProfile, setUserProfile] = useState(initialState);
   const [user, setUser] = useState([]);
@@ -68,19 +70,27 @@ export function ProfileStudent() {
     const projectByStudent = deliveriesByStudent
       .map((item) => (item.deliveryKind === "project" ? item.projectID : null))
       .filter((item) => item !== null);
-    const projectsFilter = projectByStudent.filter((el, index)=> projectByStudent.indexOf(el)===index)
-    setProjects(projectsFilter)
+    const projectsFilter = projectByStudent.filter(
+      (el, index) => projectByStudent.indexOf(el) === index
+    );
+    setProjects(projectsFilter);
     const queryByStudent = deliveriesByStudent
       .map((item) => (item.deliveryKind === "query" ? item.queryID : null))
       .filter((item) => item !== null);
-    const queriesFilter = queryByStudent.filter((el, index)=> queryByStudent.indexOf(el)===index)
-    setQueries(queriesFilter)
+    const queriesFilter = queryByStudent.filter(
+      (el, index) => queryByStudent.indexOf(el) === index
+    );
+    setQueries(queriesFilter);
 
     const workbookByStudent = deliveriesByStudent
-      .map((item) => (item.deliveryKind === "workbook" ? item.workbookID : null))
+      .map((item) =>
+        item.deliveryKind === "workbook" ? item.workbookID : null
+      )
       .filter((item) => item !== null);
-      const workbookFilter = workbookByStudent.filter((el, index)=> workbookByStudent.indexOf(el)===index)
-      setWorkbooks(workbookFilter)
+    const workbookFilter = workbookByStudent.filter(
+      (el, index) => workbookByStudent.indexOf(el) === index
+    );
+    setWorkbooks(workbookFilter);
   };
 
   const handleChangeInput = (e) => {
@@ -146,17 +156,19 @@ export function ProfileStudent() {
           <BsArrowLeftCircle size={30} />
         </button>
         <div className={styles.cajaIns}>
-          <img src={image} alt="logo" />
-          <div className={styles.cajaUlt}>
-            <input
-              className={styles.input__imageURL}
-              placeholder="Inserta URL de la imagen"
-              type="text"
-              name="image"
-              value={image}
-              onChange={handleImage}
-            />
-          </div>
+          <img src={image} alt="foto" />
+          {!teacher ? (
+            <div className={styles.cajaUlt}>
+              <input
+                className={styles.input__imageURL}
+                placeholder="Inserta URL de la imagen"
+                type="text"
+                name="image"
+                value={image}
+                onChange={handleImage}
+              />
+            </div>
+          ) : null}
         </div>
         <div className={styles.cajaName}>
           <h2>
@@ -169,61 +181,122 @@ export function ProfileStudent() {
               user.secondSurname}
           </h2>
         </div>
-        <div className={styles.cajaLink}>
-          <div className={styles.cajaUlt}>
-            <input
-              type="text"
-              placeholder="Enlace Linkedin"
-              name="linkedin"
-              value={linkedin}
-              onChange={handleChangeInput}
-            />
-            <a href={linkedin} target="_blank">
-              <AiFillLinkedin size={30} color="#FEFEFE" />
-            </a>
+        {teacher ? (
+          <div className={styles.cajaLink}>
+            <div className={styles.cajaUlt}>
+              <input
+                type="text"
+                name="linkedin"
+                value={linkedin}
+                onChange={handleChangeInput}
+                disabled
+              />
+              <a href={linkedin} rel="noreferrer" target="_blank">
+                <AiFillLinkedin size={30} color="#FEFEFE" />
+              </a>
+            </div>
+            <div className={styles.cajaUlt}>
+              <input
+                type="text"
+                name="gitHub"
+                value={gitHub}
+                onChange={handleChangeInput}
+                disabled
+              />
+              <a href={gitHub} rel="noreferrer" target="_blank">
+                <AiFillGithub size={30} color="#FEFEFE" />
+              </a>
+            </div>
+            <div className={styles.cajaUlt}>
+              <input
+                type="text"
+                name="portafolio"
+                value={portafolio}
+                onChange={handleChangeInput}
+                disabled
+              />
+              <a href={portafolio} rel="noreferrer" target="_blank">
+                <FaNewspaper size={30} color="#FEFEFE" />
+              </a>
+            </div>
+            <div className={styles.cajaUlt}>
+              <input
+                type="datetime-local"
+                name="dateOfBirth"
+                value={dateOfBirth}
+                onChange={handleChangeInput}
+                disabled
+              />
+              <RiCake2Fill size={30} color="#FEFEFE" />
+            </div>
           </div>
-          <div className={styles.cajaUlt}>
-            <input
-              type="text"
-              placeholder="Enlace Github"
-              name="gitHub"
-              value={gitHub}
-              onChange={handleChangeInput}
-            />
-            <a href={gitHub} target="_blank">
-              <AiFillGithub size={30} color="#FEFEFE" />
-            </a>
+        ) : (
+          <div className={styles.cajaLink}>
+            <div className={styles.cajaUlt}>
+              <input
+                type="text"
+                placeholder="Enlace Linkedin"
+                name="linkedin"
+                value={linkedin}
+                onChange={handleChangeInput}
+              />
+              <a href={linkedin} rel="noreferrer" target="_blank">
+                <AiFillLinkedin size={30} color="#FEFEFE" />
+              </a>
+            </div>
+            <div className={styles.cajaUlt}>
+              <input
+                type="text"
+                placeholder="Enlace Github"
+                name="gitHub"
+                value={gitHub}
+                onChange={handleChangeInput}
+              />
+              <a href={gitHub} rel="noreferrer" target="_blank">
+                <AiFillGithub size={30} color="#FEFEFE" />
+              </a>
+            </div>
+            <div className={styles.cajaUlt}>
+              <input
+                type="text"
+                placeholder="Enlace Portafolio"
+                name="portafolio"
+                value={portafolio}
+                onChange={handleChangeInput}
+              />
+              <a href={portafolio} rel="noreferrer" target="_blank">
+                <FaNewspaper size={30} color="#FEFEFE" />
+              </a>
+            </div>
+            <div className={styles.cajaUlt}>
+              <input
+                type="datetime-local"
+                name="dateOfBirth"
+                value={dateOfBirth}
+                onChange={handleChangeInput}
+              />
+              <RiCake2Fill size={30} color="#FEFEFE" />
+            </div>
+            <div className={styles.cajaUlt}>
+              <button type="submit">Confirmar</button>
+            </div>
           </div>
-          <div className={styles.cajaUlt}>
-            <input
-              type="text"
-              placeholder="Enlace Portafolio"
-              name="portafolio"
-              value={portafolio}
-              onChange={handleChangeInput}
-            />
-            <a href={portafolio} target="_blank">
-              <FaNewspaper size={30} color="#FEFEFE" />
-            </a>
-          </div>
-          <div className={styles.cajaUlt}>
-            <input
-              type="datetime-local"
-              name="dateOfBirth"
-              value={dateOfBirth}
-              onChange={handleChangeInput}
-            />
-            <RiCake2Fill size={30} color="#FEFEFE" />
-          </div>
-          <div className={styles.cajaUlt}>
-            <button type="submit">Confirmar</button>
-          </div>
-        </div>
+        )}
       </form>
 
       <div className={styles.tableCompetences}>
-        <TableStudent projects={projects} queries={queries} workbooks={workbooks} userID={userID} />
-        <h3>Revise su Progreso en la Tabla de Competencias</h3>
+        <TableStudent
+          projects={projects}
+          queries={queries}
+          workbooks={workbooks}
+          userID={userID}
+        />
+        {!teacher ? (
+          <h3>Revise su Progreso en la Tabla de Competencias</h3>
+        ) : (
+          <h3>Progreso en la Tabla de Competencias</h3>
+        )}
+
         <CompetencesTableUser competencesState={userProfile.competence} />
       </div>
     </div>

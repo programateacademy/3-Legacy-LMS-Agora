@@ -25,7 +25,9 @@ export function ProfilesTable(props) {
                   <td>{student.email}</td>
                   <td>{student.contactNumber}</td>
                   <td>
-                    <Link to={`profile/${student.id}`}>Ver perfil</Link>
+                    <Link to={`/profile/${cohortID}/${student.id}`}>
+                      Ver perfil
+                    </Link>
                   </td>
                 </tr>
               );
