@@ -28,7 +28,7 @@ export function Workbooks(props) {
     <div className={styles.container}>
       <h2>Workbooks</h2>
       {teacher ? (
-        <div>
+        <div className={styles.buttonCreateWorkbook}>
           <Button
             title="Crear workbook"
             link={`/workbook/create-workbook/${cohortID}`}
@@ -41,6 +41,7 @@ export function Workbooks(props) {
           ? cohortWorkbooks.map((activity, index) => (
               <div key={index}>
                 <CardActivity
+                  cohortID={cohortID}
                   id={activity.id}
                   type="workbook"
                   title={activity.titleWorkbook}

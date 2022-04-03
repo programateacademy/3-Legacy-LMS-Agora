@@ -57,6 +57,7 @@ import { AllCohorts } from "./views/cohort/allCohorts/AllCohorts";
 import { TableAllStudents } from "./views/tableStudentCohort/TableAllStudents";
 import { ModalDeliveryStudent } from "./components/ModalEntrega/ModalDeliveryStudent";
 import { ModalDeliveryTeacher } from "./components/ModalEntrega/ModalDeliveryTeacher";
+import { Grade } from "./views/activities/grade/Grade";
 
 export function RoutesApp() {
   const auth = useSelector((state) => state.auth);
@@ -381,6 +382,7 @@ export function RoutesApp() {
               path="/deliveryTeacher/:kind/:id/:user"
               element={isTeacher ? <ModalDeliveryTeacher /> : <Error404 />}
             />
+            <Route path='/:cohort/:kind/grade/:id' element={isTeacher ?<Grade/>: <Error404 />}/>
           </Route>
         </Routes>
 

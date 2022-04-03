@@ -4,7 +4,7 @@ const Profile = require("../db/models/profile");
 const controllerDelivery = {
   create: async (req, res) => {
     try {
-      const { projectID, cohortID, workbookID, queryID, userID, delivery,message ,deliveryKind } =
+      const { projectID, cohortID, workbookID, queryID, userID, delivery, message, deliveryKind } =
         req.body;
 
       if (!delivery || !userID || !cohortID || !message || !deliveryKind)
@@ -22,7 +22,6 @@ const controllerDelivery = {
       });
 
       const savedDelivery = await deliveryDoc.save();
-     
       res.json({ msg: "Register success! delivery created " });
     } catch (err) {
       return res.status(500).json({ msg: err.message });
@@ -58,8 +57,8 @@ const controllerDelivery = {
   //Get one delivery by deliveryID
   getDelivery: async (req, res) => {
     try {
-      const delivery = await Delivery.find({userID:req.params._user});
-      if (delivery.length>0) { res.json(delivery);}
+      const delivery = await Delivery.find({ userID: req.params._user });
+      if (delivery.length > 0) { res.json(delivery); }
     } catch (err) {
       return res.status(500).json(req.body);
     }
@@ -77,9 +76,19 @@ const controllerDelivery = {
   // getAll X activity (Project, Query or Workbook)
   getDeliveryProject: async (req, res) => {
     try {
-      const delivery = await Delivery.find({ activityID: req.params._id });
-
-      res.json(delivery);
+      const query = await Delivery.find({ queryID: req.params._id });
+      const project = await Delivery.find({ projectID: req.params._id });
+      const workbook = await Delivery.find({ workbookID: req.params._id });
+      if (workbook.length > 0) {
+        res.json(workbook);
+      }
+      if (project.length > 0) {
+        res.json(project);
+      }
+      if (query.length > 0) {
+        res.json(query);
+      }
+      console.log(project)
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }

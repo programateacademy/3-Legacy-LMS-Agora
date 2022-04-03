@@ -29,7 +29,7 @@ export function Queries(props) {
     <div className={styles.container}>
       <h2>Consultas</h2>
       {teacher ? (
-        <div>
+        <div className={styles.buttonCreateQuery}>
           <Button
             title="Crear consulta"
             link={`/query/create-query/${cohortID}`}
@@ -42,6 +42,7 @@ export function Queries(props) {
           ? cohortQueries.map((activity, index) => (
               <div key={index}>
                 <CardActivity
+                  cohortID={cohortID}
                   id={activity.id}
                   type="query"
                   title={activity.titleQuery}

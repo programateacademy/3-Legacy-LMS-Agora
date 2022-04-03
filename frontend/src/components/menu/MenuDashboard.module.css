@@ -23,6 +23,7 @@
 
 .link:hover{
   background-color: var(--colorWhite);
+  text-decoration: none;
 }
 .nav_text{
   color: var(--colorYellow);

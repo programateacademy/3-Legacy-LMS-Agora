@@ -1,6 +1,6 @@
 .modal {
   position: fixed;
-  background-color: rgba(32, 35, 41, 0.8);
+  background-color: rgba(0, 0, 0, 0.8);
   top: -10px;
   left: -10px;
   right: -10px;
@@ -21,34 +21,40 @@
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
-  background: var(--colorGray);
+  background: #c5c9d1;
   box-shadow: 0px 4px 4px var(--colorBlackOpacity);
   border-radius: 10px;
 }
 
 .close button {
+  cursor: pointer;
   display: flex;
   justify-content: right;
   margin-top: 20px;
   margin-right: 20px;
   align-self: flex-end;
+  background-color: transparent;
 
 }
 
 .containerTitle {
   position: -webkit-sticky;
   position: sticky;
-  margin-top: 20px;
   display: flex;
   justify-content: center;
 }
-
+.Crear{
+  display: flex;
+  justify-content: center;
+}
 .submitButton {
+  cursor: pointer;
   background-color: var(--colorYellow);
   color: var(--colorBlack);
   border-radius: 10px;
+  margin: 25px;
   padding: 10px;
-  width: auto;
+  width: 130px;
   text-align: center;
   box-shadow: 5px 5px 10px -2px var(--colorBlack);
   -webkit-border-radius: 10px;
@@ -57,11 +63,17 @@
   -o-border-radius: 10px;
 }
 
+
 .submitButton:hover {
   background-color: var(--colorGreenLight);
   color: var(--colorWhite);
   transition: 0.3s;
 }
+
+.close{
+  margin-left: 15px;
+}
+
 
 .modalInp {
   display: flex;
@@ -73,16 +85,16 @@
 }
 
 .modalInp input {
-  width: 488px;
+  width: 50vw;
   height: 52px;
   left: 31px;
   top: 90px;
   background: var(--colorWhite);
-  box-shadow: inset 4px 4px 13px var(--colorBlackOpacity);
+  box-shadow: inset 2px 4px 15px var(--colorBlackOpacity);
 }
 
 .modalInp textarea {
-  width: 488px;
+  width: 50vw;
   height: 155px;
   left: 31px;
   margin-top: 10px;
@@ -105,6 +117,11 @@
   box-shadow: 4px 4px 4px var(--colorBlackOpacity);
   border-radius: 10px;
 }
+
+.icon{
+  background-color: chartreuse;
+}
+
 
 @media (max-width: 700px) {
 

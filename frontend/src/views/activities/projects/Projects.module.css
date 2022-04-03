@@ -7,12 +7,13 @@
 .cards {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .buttonCreateProject {
     display: flex;
-    width: auto;
     justify-content: flex-end;
     margin-right: 4vh;
 }
+
 

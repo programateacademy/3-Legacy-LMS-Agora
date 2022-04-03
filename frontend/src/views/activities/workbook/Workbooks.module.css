@@ -6,5 +6,12 @@
 .workbooks {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     
+}
+
+.buttonCreateWorkbook {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 4vh;
 }
