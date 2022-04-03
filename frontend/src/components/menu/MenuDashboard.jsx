@@ -40,11 +40,6 @@ export function MenuDashboard({ open, setOpen }) {
       icon: <FiFileText className={style.icon} />,
     },
     {
-      text: "Material de apoyo",
-      route: "#skills",
-      icon: <BsFileRichtextFill className={style.icon} />,
-    },
-    {
       text: "Anuncios",
       route: `/dashboard/${cohortID}/announcements-cohort`,
       icon: <MdAnnouncement className={style.icon} />,

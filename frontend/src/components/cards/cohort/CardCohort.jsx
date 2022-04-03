@@ -5,8 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { dispatchMenuHide } from "../../../redux/actions/menuAction";
 export function CardCohort({ info, principal, teacher }) {
   const dispatch = useDispatch();
-  const menu = useSelector((state) => state.menu);
-  const { menuView } = menu;
 
   const {
     id,

@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Grade.module.css";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
+import { BsArrowLeftCircle } from "react-icons/bs";
 import { useSelector } from "react-redux";
 import apiAgora from "../../../api";
 
 export function Grade() {
   const auth = useSelector((state) => state.auth);
   const id_user = auth.user.id;
+  let navigate = useNavigate();
   const params = useParams();
   const activityID = params.id;
   const kind = params.kind;
   const cohortID = params.cohort;
   const [students, setStudents] = useState([]);
   const [activity, setAtivity] = useState([]);
+  const [infoActivity, setInfoActivity] = useState("");
 
   const fetchStudents = async (url, id) => {
     const res = await apiAgora.get(`api/cohort/all_students/${url}`, {
@@ -29,7 +32,24 @@ export function Grade() {
     const aaa = aa.filter((e, index) => aa.indexOf(e) === index);
     setAtivity(aaa);
   };
+
+  const fetchInfoActivity = async (activity, url, id) => {
+    const res = await apiAgora.get(`/api/agora/get-${activity}/${url}`, {
+      headers: { Authorization: id },
+    });
+    if (kind === "project") {
+      setInfoActivity(res.data.titleProject);
+    }
+    if (kind === "workbook") {
+      setInfoActivity(res.data.titleWorkbook);
+    }
+    if (kind === "query") {
+      setInfoActivity(res.data.titleQuery);
+    }
+  };
+
   useEffect(() => {
+    fetchInfoActivity(kind, activityID, id_user);
     fetchActivity(activityID, id_user);
     fetchStudents(cohortID, id_user);
   }, [cohortID, id_user, activityID]);
@@ -39,12 +59,18 @@ export function Grade() {
   });
   return (
     <div className={styles.conteiner}>
+      <div>
+        <button className={styles.button_return} onClick={() => navigate(-1)}>
+          <BsArrowLeftCircle size={30} />
+        </button>
+        <h3>{infoActivity}</h3>
+      </div>
       <table className={styles.userTable}>
         <thead>
           <tr>
             <th>Nombres</th>
             <th>Apellidos</th>
-            <th>Entrega</th>
+            <th>Estado</th>
             <th></th>
           </tr>
         </thead>
@@ -63,7 +89,7 @@ export function Grade() {
                   <Link
                     to={`/deliveryTeacher/${kind}/${activityID}/${user.id}`}
                   >
-                    Entrega
+                    Ver entrega
                   </Link>
                 </td>
               </tr>

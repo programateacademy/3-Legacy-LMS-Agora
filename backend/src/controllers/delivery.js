@@ -88,7 +88,6 @@ const controllerDelivery = {
       if (query.length > 0) {
         res.json(query);
       }
-      console.log(project)
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }
