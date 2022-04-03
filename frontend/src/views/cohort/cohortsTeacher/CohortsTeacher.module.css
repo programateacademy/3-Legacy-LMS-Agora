@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: center;
     padding: 1rem;
+    min-height: calc(100vh - 140px);
 }
 .wrapper {
     display: flex;

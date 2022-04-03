@@ -27,11 +27,13 @@
 }
 
 .close button {
+  cursor: pointer;
   display: flex;
   justify-content: right;
   margin-top: 20px;
   margin-right: 20px;
   align-self: flex-end;
+  background-color: transparent;
 
 }
 
@@ -46,6 +48,7 @@
   justify-content: center;
 }
 .submitButton {
+  cursor: pointer;
   background-color: var(--colorYellow);
   color: var(--colorBlack);
   border-radius: 10px;
@@ -82,7 +85,7 @@
 }
 
 .modalInp input {
-  width: 488px;
+  width: 50vw;
   height: 52px;
   left: 31px;
   top: 90px;
@@ -91,7 +94,7 @@
 }
 
 .modalInp textarea {
-  width: 488px;
+  width: 50vw;
   height: 155px;
   left: 31px;
   margin-top: 10px;

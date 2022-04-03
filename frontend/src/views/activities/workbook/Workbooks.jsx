@@ -41,6 +41,7 @@ export function Workbooks(props) {
           ? cohortWorkbooks.map((activity, index) => (
               <div key={index}>
                 <CardActivity
+                  cohortID={cohortID}
                   id={activity.id}
                   type="workbook"
                   title={activity.titleWorkbook}

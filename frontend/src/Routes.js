@@ -56,6 +56,7 @@ import { AllCohorts } from "./views/cohort/allCohorts/AllCohorts";
 import { TableAllStudents } from "./views/tableStudentCohort/TableAllStudents";
 import { ModalDeliveryStudent } from "./components/ModalEntrega/ModalDeliveryStudent";
 import { ModalEntrega } from "./components/ModalEntrega/ModalEntrega";
+import { Grade } from "./views/activities/grade/Grade";
 
 export function RoutesApp() {
   const auth = useSelector((state) => state.auth);
@@ -312,6 +313,8 @@ export function RoutesApp() {
             }
             exact
           />
+
+          <Route path='/:cohort/:kind/grade/:id' element={<Grade/>}/>
 
           <Route
             path="/query/update-query/:id"

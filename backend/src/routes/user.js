@@ -27,6 +27,7 @@ router.put("/update_user/:_id",authAdmin ,controllerUser.updateUser);
 router.get("/all_teacher", authAdmin, controllerUser.getTeacherAllInfo);
 router.get("/all_students_register/", authAdmin, controllerUser.getUsersAllStudentsRegister);
 router.get("/all_students/:_id", authAdmin, controllerUser.getUsersAllStudents);
+router.get("/cohort/all_students/:_id", authTeacher, controllerUser.getUsersAllStudents);
 router.delete("/delete_user/:_id", authAdmin, controllerUser.deleteUser);
 router.post("/register_teacher",authAdmin, controllerUser.register);
 router.post("/register_student", authAdmin, controllerUser.register);

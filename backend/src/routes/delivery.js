@@ -8,6 +8,6 @@ router.post('/new-delivery/:_id/text', controllerDelivery.addChat)
 router.get('/get-deliveries-cohort/:_id', controllerDelivery.getDeliveries)
 router.get('/get-delivery/:_user', authUser, controllerDelivery.getDelivery)
 router.get('/get-delivery-student/:_id', controllerDelivery.getDeliveryStudent)
-router.get('/get-delivery-activity/:_id', controllerDelivery.getDeliveryProject)
+router.get('/get-delivery-activity/:_id', authTeacher ,controllerDelivery.getDeliveryProject)
 
 module.exports = router

@@ -4,7 +4,7 @@ import { ButtonGradual } from "../../buttons/Button/ButtonGradual";
 import { Link } from "react-router-dom";
 
 export function CardActivity(props) {
-  const { title, image, teacher, id, type } = props;
+  const { title, image, teacher, id, type, cohortID } = props;
   return (
     <div className={styles.card} style={{ backgroundImage: `url(${image})` }}>
       {teacher ? (
@@ -16,7 +16,7 @@ export function CardActivity(props) {
               <Link to={`/${type}/update-${type}/${id}`}>Editar</Link>
             </li>
             <li>
-              <Link to={""}>Calificar</Link>
+              <Link to={`/${cohortID}/${type}/grade/${id}`}>Calificar</Link>
             </li>
           </div>
           <div className={styles.dot}></div>

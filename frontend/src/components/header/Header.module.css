@@ -1,5 +1,5 @@
 header {
-  padding: 15px;
+  padding: 2px;
   background-color: var(--colorWhite);
   box-shadow: 0px 2px 10px var(--colorBlackOpacity);
 }
@@ -10,7 +10,6 @@ header {
   justify-content: space-between;
   align-items: center;
 }
-
 
 .Logo {
   display: flex;
@@ -54,6 +53,7 @@ header {
 .hamburguerMenu {
   display: none;
   cursor: pointer;
+  margin-left: 1rem;
 }
 .link_singIn {
   text-transform: uppercase;
