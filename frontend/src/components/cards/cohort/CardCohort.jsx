@@ -35,7 +35,7 @@ export function CardCohort({ info, principal, teacher }) {
             onClick={() => dispatch(dispatchMenuHide())}
             className={styles.buttonsContainer}
           >
-            <Button title="Dashboard" link={`dashboard/${id}/statistics`} />
+            <Button title="Dashboard" link={`dashboard/${id}/projects`} />
           </div>
         ) : (
           <div className={styles.buttonsContainer}>
