@@ -367,7 +367,15 @@ export function RoutesApp() {
             />
             <Route
               path="/profile/"
-              element={isStudent ? <ProfileStudent /> : <Error404 />}
+              element={
+                isStudent ? <ProfileStudent teacher={false} /> : <Error404 />
+              }
+            />
+            <Route
+              path="/profile/:cohort/:student"
+              element={
+                isTeacher ? <ProfileStudent teacher={true} /> : <Error404 />
+              }
             />
             <Route
               path="/deliveryTeacher/:kind/:id/:user"
