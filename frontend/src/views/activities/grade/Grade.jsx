@@ -65,6 +65,7 @@ export function Grade() {
         </button>
         <h3>{infoActivity}</h3>
       </div>
+      <div className={styles.studentsTableContainer}>
       <table className={styles.userTable}>
         <thead>
           <tr>
@@ -97,6 +98,7 @@ export function Grade() {
           })}
         </tbody>
       </table>
+      </div>
     </div>
   );
 }

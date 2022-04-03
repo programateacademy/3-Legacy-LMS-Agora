@@ -82,3 +82,13 @@
     transform: rotate(30deg);
   }
 }
+.studentsTableContainer {
+
+  display: flex;
+  overflow: hidden;
+  overflow-x: auto;
+  align-items: center;
+  justify-content: flex-start;
+  height: auto;
+  width: 100%;
+}

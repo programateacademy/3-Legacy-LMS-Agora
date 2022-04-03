@@ -59,6 +59,10 @@ input {
   box-shadow: inset 0px 4px 15px var(--colorBlackOpacity);
 }
 
+input::placeholder {
+  padding-left: 10px; 
+            }
+
 select {
   border: transparent;
   min-height: 40px;
