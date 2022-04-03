@@ -100,7 +100,14 @@ export function RoutesApp() {
                 )
               }
               exact
-            />
+            ><Route
+            path="/"
+            element={
+              isStudent ? <Statistics teacher={false} />: <Error404 />
+            }
+          />
+              </Route>
+
             <Route
               path="/login"
               element={isLogged ? <Error404 /> : <Login />}
@@ -206,6 +213,7 @@ export function RoutesApp() {
               }
               exact
             >
+              
               <Route
                 path="/dashboard/:id/statistics"
                 element={
@@ -372,6 +380,7 @@ export function RoutesApp() {
                 isStudent ? <ProfileStudent teacher={false} /> : <Error404 />
               }
             />
+            
             <Route
               path="/profile/:cohort/:student"
               element={
