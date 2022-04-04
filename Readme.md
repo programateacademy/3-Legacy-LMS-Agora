@@ -94,7 +94,6 @@ For run the page, you must:</br>
     </br>
 <p align="center"><a href="https://github.com/lufer04" target="_blank">Luisa Fernanda Palacios Pérez.</a></br>BACKEND SUPPORT</br>
     <img src="./assets_readme/Luisa.png" height="250px" width="250px"></p>
-    </br>
 
 
 
