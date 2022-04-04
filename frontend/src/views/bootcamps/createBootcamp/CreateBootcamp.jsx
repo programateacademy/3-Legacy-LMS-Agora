@@ -92,7 +92,7 @@ export function CreateBootcamp() {
         </div>
         <div>
           <div className={styles.img_preview}>
-            <img className={styles.image} src={image} alt="Logo Cohorte" />
+            <img className={styles.image} src={image} alt="Logo Bootcamp" />
           </div>
           <div className={styles.file}>
             <input

@@ -26,14 +26,14 @@ export function Step(props) {
         </div>
         {/* Description */}
         {descriptionStep ? (
-          <div>
+          <div className={style.steps}>
             <h3>Descripción</h3>
             <p>{descriptionStep}</p>
           </div>
         ) : null}
         {/*     Image Example*/}
         {imageExampleStep ? (
-          <div>
+          <div className={style.steps}>
             <h3>Imagen de referencia</h3>
             <div className={style.img_preview}>
               <img
@@ -46,7 +46,7 @@ export function Step(props) {
         ) : null}
         {/* Code */}
         {codeStep ? (
-          <div>
+          <div className={style.steps}>
             <h3>Código</h3>
             <p>{codeStep}</p>
           </div>
@@ -54,7 +54,7 @@ export function Step(props) {
 
         {/*     Image expected result */}
         {imageResultStep ? (
-          <div>
+          <div className={style.steps}>
             <h3>Resultado esperado</h3>
             <div className={style.img_preview}>
               <img
@@ -67,7 +67,7 @@ export function Step(props) {
         ) : null}
         {/* Notes */}
         {notesStep ? (
-          <div>
+          <div className={style.steps}>
             <h3>Notas</h3>
             <p>{notesStep}</p>
           </div>

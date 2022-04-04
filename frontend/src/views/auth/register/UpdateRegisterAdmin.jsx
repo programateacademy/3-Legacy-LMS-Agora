@@ -140,26 +140,6 @@ export function UpdateRegisterAdmin() {
                 />
               </div>
               <div className={styles.input_register}>
-                <label>Primer Nombre</label>
-                <input
-                  placeholder="Segundo nombre"
-                  name="middleName"
-                  value={middleName}
-                  onChange={handleChangeInput}
-                />
-              </div>
-            </div>
-            <div className={styles.container_register_input}>
-              <div className={styles.input_register}>
-                <label>Primer Nombre</label>
-                <input
-                  placeholder="Primer Nombre"
-                  name="firstName"
-                  value={firstName}
-                  onChange={handleChangeInput}
-                />
-              </div>
-              <div className={styles.input_register}>
                 <label>Segundo Nombre</label>
                 <input
                   placeholder="Segundo Nombre"

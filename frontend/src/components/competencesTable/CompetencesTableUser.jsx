@@ -89,11 +89,13 @@ export function CompetencesTableUser(props) {
                 >
                   <div className={style.text}>
                     <h4>
-                      <strong>
-                        Esta Competencia en el Nivel uno, se encuentra{" "}
-                        {item.levelOne.approved ? "Aprovada" : "No Validada"}{" "}
-                      </strong>
+                      Esta competencia en el nivel uno, se encuentra{" "}
+
                     </h4>
+                    <h4>   <strong>
+
+                      {item.levelOne.approved ? "Aprobada ✔" : "No Validada ✘"}{" "}
+                    </strong></h4>
                     <h3>
                       <u>Descripción</u>
                     </h3>
@@ -115,16 +117,20 @@ export function CompetencesTableUser(props) {
                   }
                 >
                   <div className={style.text}>
-                    <h4>
-                      <strong>
-                        Esta Competencia en el Nivel dos, se encuentra{" "}
-                        {item.levelTwo.approved ? "Aprovada" : "No Validada"}{" "}
-                      </strong>
-                    </h4>
-                    <h3>
-                      <u>Descripción</u>
-                    </h3>
-                    <p>{item.levelTwo.actions2}</p>
+                  
+                      <h4>
+                        Esta competencia en el nivel dos, se encuentra{" "}
+
+                      </h4>
+                      <h4>   <strong>
+
+                        {item.levelTwo.approved ? "Aprobada ✔" : "No Validada ✘"}{" "}
+                      </strong></h4>
+                      <h3>
+
+                        <u>Descripción</u>
+                      </h3>
+                      <p>{item.levelTwo.actions2}</p>
                   </div>
                   <div className={style.text}>
                     <h3>
@@ -143,11 +149,14 @@ export function CompetencesTableUser(props) {
                 >
                   <div className={style.text}>
                     <h4>
-                      <strong>
-                        Esta Competencia en el Nivel tres, se encuentra{" "}
-                        {item.levelThree.approved ? "Aprovada" : "No Validada"}{" "}
-                      </strong>
+                      Esta competencia en el nivel tres, se encuentra{" "}
+
                     </h4>
+                    <h4>   <strong>
+
+                      {item.levelThree.approved ? "Aprobada ✔" : "No Validada ✘"}{" "}
+                    </strong></h4>
+
                     <h3>
                       <u>Descripción</u>
                     </h3>

@@ -58,6 +58,7 @@ import { TableAllStudents } from "./views/tableStudentCohort/TableAllStudents";
 import { ModalDeliveryStudent } from "./components/ModalEntrega/ModalDeliveryStudent";
 import { ModalDeliveryTeacher } from "./components/ModalEntrega/ModalDeliveryTeacher";
 import { Grade } from "./views/activities/grade/Grade";
+import { ResetPasswordForgotten } from "./views/auth/resetPassword/ResetPasswordForgotten";
 
 export function RoutesApp() {
   const auth = useSelector((state) => state.auth);
@@ -72,6 +73,11 @@ export function RoutesApp() {
             <Route
               path="/api/activation/:activation_token"
               element={<ActivationEmail />}
+              exact
+            />
+            <Route
+              path="/user/reset/:token"
+              element={<ResetPasswordForgotten />}
               exact
             />
             <Route

@@ -239,7 +239,7 @@ export function UpdateProject() {
             headers: { Authorization: userID },
           }
         );
-        showSuccessMsg("Consulta Actualizada","se ha registrado los cambios en la consulta satisfactoriamente");
+        showSuccessMsg("Proyecto Actualizado","se ha registrado los cambios en la proyecto satisfactoriamente");
         setProject({ ...project, err: "", success: res.data.msg });
       }
     } catch (err) {

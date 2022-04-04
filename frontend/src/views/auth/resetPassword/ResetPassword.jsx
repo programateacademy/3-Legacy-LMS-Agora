@@ -22,7 +22,7 @@ export function ResetPassword() {
   const auth = useSelector((state) => state.auth);
   const userID = auth.user.id;
 
-  const { password, cf_password, oldPassword } = data;
+  const { password, cf_password, oldPassword, err, success } = data;
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
@@ -49,7 +49,7 @@ export function ResetPassword() {
         "/api/reset",
         { password, oldPassword, userID },
         {
-          headers: { Authorization: "623b2f6c8cb9795f96b60dc2" },
+          headers: { Authorization: userID },
         }
       );
       showSuccessMsg(res.data.msg);
@@ -69,6 +69,8 @@ export function ResetPassword() {
         <img className="logo" src={logo} alt="logo" />
         <h2 className="title-resetPassword">Restablecer Contraseña</h2>
         <div className="container-info-resetPassword">
+          {err && showErrMsg(err)}
+          {success && showSuccessMsg(success)}
           {/*-------prueba --------- */}
           <h3>Contraseña actual</h3>
           <input

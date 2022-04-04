@@ -251,6 +251,23 @@ const controllerUser = {
       return res.status(500).json({ msg: err.message });
     }
   },
+  resetPasswordForgotten: async (req, res) => {
+    try {
+      const { password } = req.body
+      const passwordHash = await bcrypt.hash(password, 12)
+
+      await User.findOneAndUpdate(
+        { _id: req.user.id },
+        {
+          passwordHash: passwordHash
+        }
+      )
+
+      res.json({ msg: 'Contraseña cambiada correctamente!' })
+    } catch (err) {
+      return res.status(500).json({ msg: err.message })
+    }
+  },
   getUserInfo: async (req, res) => {
     try {
       const user = await User.findById(req.user.id);

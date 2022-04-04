@@ -290,6 +290,7 @@ export function ModalDeliveryStudent() {
             ))}
           </div>
         </div>
+        <h3>Ingrese la entrega y sus Links correspondientes</h3>
         <div className={styles.secondContainer}>
           <div className={styles.contInpLink}>
             <div className={styles.contInpLinkIntern}>

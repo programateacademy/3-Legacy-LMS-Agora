@@ -175,6 +175,10 @@ button {
   flex-direction: column;
   margin: 20px;
 }
+.text h4{
+  padding: 5px;
+  border-bottom: 5px solid var(--colorGreenLight);
+}
 .text p{
   text-align: justify;
 }

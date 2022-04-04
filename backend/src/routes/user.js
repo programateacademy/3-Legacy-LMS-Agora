@@ -12,7 +12,8 @@ router.post("/login", controllerUser.login);
 router.post("/refresh_token", controllerUser.getAccessToken);
 router.post("/forgot", controllerUser.forgotPassword);
 router.post("/register_superAdmin/:_id", controllerUser.registerSuperAdmin);
-router.post("/reset", controllerUser.resetPassword);
+router.post("/reset", authUser, controllerUser.resetPassword);
+router.post("/reset-forgotten", auth, controllerUser.resetPasswordForgotten);
 
 router.get("/info", auth, controllerUser.getUserInfo);
 

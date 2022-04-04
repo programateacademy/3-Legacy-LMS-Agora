@@ -167,7 +167,7 @@ export function CreateQuery() {
           <div className={style.containerOne}>
             <div>
               <div className={style.img_preview}>
-                <img className={style.image} src={image} alt="Logo Cohorte" />
+                <img className={style.image} src={image} alt="Consulta" />
               </div>
               <h3>Imagen de la Consulta</h3>
               <input

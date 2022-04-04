@@ -90,7 +90,7 @@ export function ViewQuery(props) {
           <div className={style.containerOne}>
             <div>
               <div className={style.img_preview}>
-                <img className={style.image} src={image} alt="Logo Cohorte" />
+                <img className={style.image} src={image} alt="Consulta" />
               </div>
             </div>
             <div className={style.frameofcompetence}></div>
@@ -211,9 +211,6 @@ export function ViewQuery(props) {
             <div className={style.tagsProject}>
               <h4>{challengeExtra}</h4>
             </div>
-          </div>
-          <div className={style.container_submit}>
-            <button className={style.buttonCreateProject}>Entrega</button>
           </div>
         </div>
       </div>

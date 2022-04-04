@@ -386,9 +386,9 @@ export function ModalDeliveryTeacher() {
             ))}
           </div>
         </div>
+        <h3>Ingrese la retroalimentación y/o Links de apoyo</h3>
         <div className={styles.secondContainer}>
           <div className={styles.contInpLink}>
-            <h3>Ingrese la retroalimentación y/o Links de apoyo</h3>
             <div className={styles.contInpLinkIntern}>
               <label>Nombre del Link</label>
               <input

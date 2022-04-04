@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import apiAgora from '../../../api'
 import {isEmail} from '../../../utils/validation'
 import { showErrMsg, showSuccessMsg } from '../../../utils/notification'
-import logo from '../../../assets/logos/programateLogo.png'
+import logo from '../../../assets/logos/Programate-academy-negros.png'
 import './ForgotPassword.css'
 
 const initialState = {
@@ -37,21 +37,21 @@ function ForgotPassword() {
     }
     
     return (
-        <div className="container-main-forgotPassword">
-            <div className="container-forgotPassword">
+        <div className="container-main-resetPassword">
+            <div className="container-resetPassword">
             <img className="logo" src={logo} alt="logo" />
-            <h2 className="title-forgotPassword">OLVIDASTE TU CONTRASEÑA?</h2>
+            <h2 className="title-resetPassword">OLVIDASTE TU CONTRASEÑA?</h2>
 
-            <div className="container-info-forgotPassword">
+            <div className="container-info-resetPassword">
 
                 <input 
                 label='Ingresa tu correo electronico'
-                placeholder="Juan@hotmail.com"
+                placeholder="educamas@educamas.com"
                 name='email'
                 value={email}
                 onChange={handleChangeInput}
                 />
-                <button className="button-forgotPassword" onClick={forgotPassword}>Verificar tu correo</button>
+                <button className="button-resetPassword" onClick={forgotPassword}>Verificar tu correo</button>
             </div>
             </div>
         </div>

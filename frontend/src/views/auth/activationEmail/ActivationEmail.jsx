@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import apiAgora from '../../../api'
 import style from "./style.module.css"
+import { showErrMsg, showSuccessMsg } from '../../../utils/notification'
 function ActivationEmail () {
   const { activation_token } = useParams()
   const [err, setErr] = useState('')
@@ -26,6 +27,8 @@ function ActivationEmail () {
 
   return (
     <div className={style.active_page}>
+      {err && showErrMsg(err)}
+      {success && showSuccessMsg(success)}
     </div>
   )
 }

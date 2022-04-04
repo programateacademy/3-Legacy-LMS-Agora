@@ -131,7 +131,7 @@ export function UpdateBootcamp() {
           </div>
           <div className={styles.column__two}>
             <div className={styles.img_preview}>
-              <img className={styles.image} src={image} alt="Logo Cohorte" />
+              <img className={styles.image} src={image} alt="Logo Bootcamp" />
             </div>
             <input
               className={styles.input__logoURL}

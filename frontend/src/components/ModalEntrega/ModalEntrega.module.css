@@ -16,6 +16,7 @@
     height: auto; 
     margin: 5vh auto; 
     width: 90%; 
+    gap: 2vh;
   } 
   .InitialContainer { 
     align-items: center; 

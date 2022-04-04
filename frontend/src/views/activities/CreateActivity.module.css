@@ -347,7 +347,7 @@
   border-radius: 20px;
   align-items: center;
   justify-content: space-between;
-  margin-top: 1vh;
+  margin: 1vh;
   box-shadow: 6px 10px 10px var(--colorBlackOpacity);
   margin-bottom: 2vh;
   padding: 0.5vh 30px;
@@ -502,6 +502,7 @@
 
 .concepts {
   display: flex;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   gap: 0 6px;
 }
