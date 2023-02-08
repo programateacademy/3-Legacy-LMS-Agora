@@ -49,6 +49,10 @@ app.use('/api/agora',profile)
 const port = (process.env.PORT || 3005)
 app.set('port', port)
 
+app.get('/', (req,res) => {
+  res.send('Online')
+})
+
 // Init Server
 app.listen(app.get('port'), (error) => {
   if (error) {
