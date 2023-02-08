@@ -35,6 +35,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "npm": "9.4.1"
+    "npm": "^9.4.2"
   }
 }
