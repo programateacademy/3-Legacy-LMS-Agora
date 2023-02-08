@@ -1,20 +1,26 @@
-<h4>Variables de entorno</h4>
+<h2>Variables de entorno</h2>
 
-<p>MONGO_DB_URI=mongodb+srv://agora:1234@agora.fr0cnoy.mongodb.net/test?retryWrites=true&w=majority</p>
-<p>MONGO_DB_URI_TEST=mongodb+srv://agora:1234@agora.fr0cnoy.mongodb.net/test?retryWrites=true&w=majority</p>
+<p align="center">MONGO_DB_URI=mongodb+srv://agora:1234@agora.fr0cnoy.mongodb.net/test?retryWrites=true&w=majority</p>
+<p align="center">MONGO_DB_URI_TEST=mongodb+srv://agora:1234@agora.fr0cnoy.mongodb.net/test?retryWrites=true&w=majority</p>
 
-<p>ACTIVATION_TOKEN_SECRET=J2@sW/fLmR;bV!.dxm6#mrY}$#v8f/8JJLf%e7q{W7<UPG.Wfp</p>
-<p>ACCESS_TOKEN_SECRET=b?AS]ewDruG$z(>%@+d:Ak2R@Qy*Xxy%dYp#&de#W%B,gS8'Uc</p>
-<p>REFRESH_TOKEN_SECRET=uCWtjR5W^up7+(?ajH7kzbnEwmr^MF5;T$!vp#be#H<tqj_H=Ua'w!\>8Z([{'CZEhG:'XKNdv-*xHF:c2rkPUe_!tTav!"D\V
+<p align="center">ACTIVATION_TOKEN_SECRET=J2@sW/fLmR;bV!.dxm6#mrY}$#v8f/8JJLf%e7q{W7<UPG.Wfp</p>
+<p align="center">ACCESS_TOKEN_SECRET=b?AS]ewDruG$z(>%@+d:Ak2R@Qy*Xxy%dYp#&de#W%B,gS8'Uc</p>
+<p align="center">REFRESH_TOKEN_SECRET=uCWtjR5W^up7+(?ajH7kzbnEwmr^MF5;T$!vp#be#H<tqj_H=Ua'w!\>8Z([{'CZEhG:'XKNdv-*xHF:c2rkPUe_!tTav!"D\V
 
-<p>CLIENT_URL=http://localhost:3000</p>
+<p align="center">CLIENT_URL=http://localhost:3000</p>
 
-<p>MAILING_SERVICE_CLIENT_ID=95375970215-3d9di0k3c5be1sn73e4q90ce5ouj9i0u.apps.googleusercontent.com</p>
-<p>MAILING_SERVICE_CLIENT_SECRET=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</p>
-<p>MAILING_SERVICE_REFRESH_TOKEN=1//<p>
-<p>044ImY0HqPJVlCgYIARAAGAQSNwF-L9Ir4SXm-uhsSV0j3JhGQRXWfVssR-hI9Deppe26p4iuqyfPYF1x_8L9rVH3tLBD_gBTfP0</p>
-<p>SENDER_EMAIL_ADDRESS=programate.agora@gmail.com</p>
+<p align="center">MAILING_SERVICE_CLIENT_ID=95375970215-3d9di0k3c5be1sn73e4q90ce5ouj9i0u.apps.googleusercontent.com</p>
+<p align="center">MAILING_SERVICE_CLIENT_SECRET=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</p>
+<p align="center">MAILING_SERVICE_REFRESH_TOKEN=1//<p>
+<p align="center">044ImY0HqPJVlCgYIARAAGAQSNwF-L9Ir4SXm-uhsSV0j3JhGQRXWfVssR-hI9Deppe26p4iuqyfPYF1x_8L9rVH3tLBD_gBTfP0</p>
+<p align="center">SENDER_EMAIL_ADDRESS=programate.agora@gmail.com</p>
 
+<h2>Credenciales</h2>
+
+<p align="center">SuperAdmin: miguel.m.lopez.p@gmail.com - agora2021</p>
+<p align="center">Admin: danielmateopatarroyomolina@gmail.com - agora2021</p>
+<p align="center">Formador: lu04fer@gmail.com - agora2022<p>
+<p align="center">Estudiante: smurcia162@gmail.com - agora2022</p>
 
 <h4>Welcome :)</h4>
 
