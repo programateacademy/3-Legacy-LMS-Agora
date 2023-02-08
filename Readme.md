@@ -1,6 +1,6 @@
 <h1>Variables de entorno</h1>
 
-<p>
+><p>
     MONGO_DB_URI=mongodb+srv://agora:1234@agora.fr0cnoy.mongodb.net/test?retryWrites=true&w=majority
     MONGO_DB_URI_TEST=mongodb+srv://agora:1234@agora.fr0cnoy.mongodb.net/test?retryWrites=true&w=majority 
 
