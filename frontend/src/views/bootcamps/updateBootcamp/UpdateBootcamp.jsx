@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import styles from "./UpdateBootcamp.module.css";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { useSelector } from "react-redux";
-import apiAgora from "../../../api";
+import apiAgora from "../../../api/index";
 import { showErrMsg, showSuccessMsg } from "../../../utils/notification";
 import Swal from "sweetalert2";
 

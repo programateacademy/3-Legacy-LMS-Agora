@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import apiAgora from '../../../api'
+import apiAgora from '../../../api/index'
 import style from "./style.module.css"
 import { showErrMsg, showSuccessMsg } from '../../../utils/notification'
 function ActivationEmail () {

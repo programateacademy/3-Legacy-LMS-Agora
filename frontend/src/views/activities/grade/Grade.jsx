@@ -3,7 +3,7 @@ import styles from "./Grade.module.css";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { useSelector } from "react-redux";
-import apiAgora from "../../../api";
+import apiAgora from "../../../api/index";
 
 export function Grade() {
   const auth = useSelector((state) => state.auth);

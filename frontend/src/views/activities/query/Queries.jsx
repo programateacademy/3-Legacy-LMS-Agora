@@ -2,7 +2,7 @@ import React from "react";
 import { CardActivity } from "../../../components/cards/activity/CardActivity";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import apiAgora from "../../../api";
+import apiAgora from "../../../api/index";
 import { useParams } from "react-router-dom";
 import { Button } from "../../../components/buttons/Button/Button";
 import styles from "./Queries.module.css";

@@ -6,7 +6,7 @@ import { MdDeleteForever, MdOutlineAddCircle } from "react-icons/md";
 import { AiOutlineLink } from "react-icons/ai";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import apiAgora from "../../api";
+import apiAgora from "../../api/index";
 import { showErrMsg, showSuccessMsg } from "../../utils/notification";
 import { MdCancel } from "react-icons/md";
 import { FiCheckCircle } from "react-icons/fi";

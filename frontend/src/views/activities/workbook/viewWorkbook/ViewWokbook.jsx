@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import style from "../../CreateActivity.module.css";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import apiAgora from "../../../../api";
+import apiAgora from "../../../../api/index";
 import { Step } from "../step/Step";
 import { MdExpandMore } from "react-icons/md";
 import { BsArrowLeftCircle } from "react-icons/bs";

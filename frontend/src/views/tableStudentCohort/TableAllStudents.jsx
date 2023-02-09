@@ -3,7 +3,7 @@ import styles from "./TableTeacher.module.css"
 import { Table } from '../../components/table/Table'
 import { useState } from "react";
 import { useEffect } from "react";
-import apiAgora from '../../api'
+import apiAgora from '../../api/index'
 import { useSelector } from "react-redux";
 import {useNavigate} from "react-router-dom";
 import { BsArrowLeftCircle } from "react-icons/bs";

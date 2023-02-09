@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
-import apiAgora from "../../api";
+import apiAgora from "../../api/index";
 import { CardBootcamp } from "../../components/cards/bootcamps/CardBootcamp.jsx";
 import styles from "./Bootcamps.module.css";
 export function Bootcamps() {

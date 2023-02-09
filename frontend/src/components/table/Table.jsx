@@ -3,7 +3,7 @@ import styles from "./Table.module.css";
 import { FiEdit } from "react-icons/fi";
 import { MdDeleteForever } from "react-icons/md";
 import { Link } from "react-router-dom";
-import apiAgora from "../../api";
+import apiAgora from "../../api/index";
 import Swal from "sweetalert2";
 
 export function Table(props) {

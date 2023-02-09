@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { CompetencesTable } from "../../../components/competencesTable/CompetencesTable";
-import apiAgora from "../../../api";
+import apiAgora from "../../../api/index";
 import { useSelector } from "react-redux";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import styles from "./DashboardCohort.module.css";

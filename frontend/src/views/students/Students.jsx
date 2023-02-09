@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import apiAgora from "../../api";
+import apiAgora from "../../api/index";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import style from "../ModalAnnouncements.module.css";
 import { showErrMsg, showSuccessMsg } from "../../../utils/notification";
 import { VscError } from "react-icons/vsc";
-import apiAgora from "../../../api";
+import apiAgora from "../../../api/index";
 
 const initialState = {
   textAnnouncement: "",

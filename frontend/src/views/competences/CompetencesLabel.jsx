@@ -4,7 +4,7 @@ import { FiEdit } from "react-icons/fi";
 import { MdDeleteForever } from "react-icons/md";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
-import apiAgora from "../../api";
+import apiAgora from "../../api/index";
 
 export function CompetencesLabel(props) {
   const {

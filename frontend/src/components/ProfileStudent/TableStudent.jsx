@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import style from "../ProfileStudent/TableStudent.module.css";
-import apiAgora from "../../api"
+import apiAgora from "../../api/index"
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux"
 

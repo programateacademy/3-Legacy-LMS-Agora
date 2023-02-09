@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./competences.module.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { BsArrowLeftCircle } from "react-icons/bs";
-import apiAgora from "../../api";
+import apiAgora from "../../api/index";
 import { useSelector } from "react-redux";
 import { showErrMsg, showSuccessMsg } from "../../utils/notification";
 

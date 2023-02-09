@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { showErrMsg, showSuccessMsg } from "../../utils/notification";
 import { CompetencesTableUser } from "../competencesTable/CompetencesTableUser";
-import apiAgora from "../../api";
+import apiAgora from "../../api/index";
 import { useParams } from "react-router-dom";
 const initialState = {
   competence: [],

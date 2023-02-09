@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
-import apiAgora from "../../../api";
+import apiAgora from "../../../api/index";
 import { showErrMsg, showSuccessMsg } from "../../../utils/notification";
 import {
   isEmpty,

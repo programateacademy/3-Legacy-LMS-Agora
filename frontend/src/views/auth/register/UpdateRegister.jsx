@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import apiAgora from "../../../api";
+import apiAgora from "../../../api/index";
 import { showErrMsg, showSuccessMsg } from "../../../utils/notification";
 import {
   isEmpty,

@@ -5,7 +5,7 @@ import { BsArrowLeftCircle } from "react-icons/bs";
 import { MdDeleteForever, MdOutlineAddCircle } from "react-icons/md";
 import { AiOutlineLink } from "react-icons/ai";
 import { showErrMsg, showSuccessMsg } from "../../../../utils/notification";
-import apiAgora from "../../../../api";
+import apiAgora from "../../../../api/index";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 

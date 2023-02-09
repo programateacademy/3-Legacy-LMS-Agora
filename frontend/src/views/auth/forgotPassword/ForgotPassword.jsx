@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import apiAgora from '../../../api'
+import apiAgora from '../../../api/index'
 import {isEmail} from '../../../utils/validation'
 import { showErrMsg, showSuccessMsg } from '../../../utils/notification'
 import logo from '../../../assets/logos/Programate-academy-negros.png'

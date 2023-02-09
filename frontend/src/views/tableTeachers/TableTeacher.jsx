@@ -3,7 +3,7 @@ import styles from "./TableTeacher.module.css"
 import { Table } from '../../components/table/Table'
 import { useState } from "react";
 import { useEffect } from "react";
-import apiAgora from '../../api'
+import apiAgora from '../../api/index'
 import { Button } from "../../components/buttons/Button/Button";
 import { useSelector } from "react-redux";
 import {useNavigate} from "react-router-dom";

@@ -3,7 +3,7 @@ import style from "../../CreateActivity.module.css";
 import { MdDeleteForever, MdOutlineAddCircle } from "react-icons/md";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import apiAgora from "../../../../api";
+import apiAgora from "../../../../api/index";
 import { showErrMsg, showSuccessMsg } from "../../../../utils/notification";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { AiOutlineLink } from "react-icons/ai";

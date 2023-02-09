@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import apiAgora from "../../../api";
+import apiAgora from "../../../api/index";
 import { showErrMsg, showSuccessMsg } from "../../../utils/notification";
 import {
   isEmpty,

@@ -3,7 +3,7 @@ import style from "../CreateUpdateCohort.module.css";
 import { MdDeleteForever, MdOutlineAddCircle } from "react-icons/md";
 import { useSelector } from "react-redux";
 import { showErrMsg, showSuccessMsg } from "../../../utils/notification";
-import apiAgora from "../../../api";
+import apiAgora from "../../../api/index";
 import { useParams } from "react-router-dom";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";

@@ -1,7 +1,7 @@
 import React, { useEffect, useImperativeHandle, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import apiAgora from "../../api";
+import apiAgora from "../../api/index";
 import Swal from "sweetalert2";
 import { FiEdit } from "react-icons/fi";
 import { MdDeleteForever } from "react-icons/md";
