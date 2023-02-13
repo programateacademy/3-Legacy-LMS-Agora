@@ -4,11 +4,6 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import style from "./MenuDashboard.module.css";
 import "../header/UserLink.css";
-import { BsFillFileCodeFill, BsFileRichtextFill } from "react-icons/bs";
-import { AiOutlineFundProjectionScreen, AiFillProject } from "react-icons/ai";
-import { MdAnnouncement } from "react-icons/md";
-import { FiFileText } from "react-icons/fi";
-import { RiFileUserFill, RiPagesFill } from "react-icons/ri";
 import { IconContext } from "react-icons";
 import { useParams } from "react-router-dom";
 
@@ -27,32 +22,32 @@ export function MenuDashboard({ open, setOpen }) {
     {
       text: "Proyectos",
       route: `/dashboard/${cohortID}/projects`,
-      icon: <AiFillProject className={style.icon} />,
+      icon: <i className={`ri-bar-chart-box-line icon ${style.icon}`}></i>,
     },
     {
       text: "Workbooks",
       route: `/dashboard/${cohortID}/workbooks`,
-      icon: <BsFillFileCodeFill className={style.icon} />,
+      icon: <i className={`ri-bar-chart-box-line icon ${style.icon}`}></i>,
     },
     {
       text: "Consultas",
       route: `/dashboard/${cohortID}/queries`,
-      icon: <FiFileText className={style.icon} />,
+      icon: <i className={`ri-bar-chart-box-line icon ${style.icon}`}></i>,
     },
     {
       text: "Anuncios",
       route: `/dashboard/${cohortID}/announcements-cohort`,
-      icon: <MdAnnouncement className={style.icon} />,
+      icon: <i className={`ri-bar-chart-box-line icon ${style.icon}`}></i>,
     },
     {
       text: "Estudiantes",
       route: `/dashboard/${cohortID}/students`,
-      icon: <RiFileUserFill className={style.icon} />,
+      icon: <i className={`ri-bar-chart-box-line icon ${style.icon}`}></i>,
     },
     {
       text: "Cohortes",
       route: "/",
-      icon: <RiPagesFill className={style.icon} />,
+      icon: <i className={`ri-bar-chart-box-line icon ${style.icon}`}></i>,
     },
   ];
   let list = [];

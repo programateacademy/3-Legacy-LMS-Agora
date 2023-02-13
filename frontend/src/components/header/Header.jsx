@@ -40,6 +40,11 @@ export function Header() {
               {menuView ? <div className={style.hamburguerMenu}>
                 <HamburguerMenu open={open} handleClick={handleClick} />
               </div> : null}
+              {menuView ? (
+                <div className={style.hamburguerMenu}>
+                  <HamburguerMenu open={open} handleClick={handleClick} />
+                </div>
+              ) : null}
               <div className={!open ? "closeMenu" : "openMenu"}>
                 <MenuDashboard open={open} setOpen={setOpen} />
               </div>
@@ -55,7 +60,7 @@ export function Header() {
           ) : (
             <Link className={style.link_singIn} to="/login">
               <i
-                className="fas fa-user icon-signIn"
+                class="ri-user-line icon-signIn"
                 style={{ marginRight: "1rem" }}
               ></i>
               Ingresar
