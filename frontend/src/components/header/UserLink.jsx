@@ -14,7 +14,6 @@ const UserLink = ({ user, handleLogout }) => {
           <div className="icon">
             <TiUser size={30} />
           </div>
-          <u>{user.firstName}</u>
         </div>
         <div className="containerMenu">
           <Dropdown>
