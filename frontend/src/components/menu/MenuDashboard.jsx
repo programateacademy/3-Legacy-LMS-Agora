@@ -35,6 +35,11 @@ export function MenuDashboard({ open, setOpen }) {
       icon: <i className={`ri-bar-chart-box-line icon ${style.icon}`}></i>,
     },
     {
+      text: "Material de apoyo",
+      route: `/dashboard/${cohortID}/workbooks`,
+      icon: <i className={`ri-bar-chart-box-line icon ${style.icon}`}></i>,
+    },
+    {
       text: "Anuncios",
       route: `/dashboard/${cohortID}/announcements-cohort`,
       icon: <i className={`ri-bar-chart-box-line icon ${style.icon}`}></i>,
