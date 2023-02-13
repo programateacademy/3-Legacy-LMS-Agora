@@ -27,7 +27,7 @@ export function MenuDashboard({ open, setOpen }) {
     {
       text: "Proyectos",
       route: `/dashboard/${cohortID}/projects`,
-      icon: <AiFillProject className={style.icon} />,
+      icon: <i className={`ri-bar-chart-box-line ${style.icon}`}></i>
     },
     {
       text: "Workbooks",
