@@ -52,6 +52,7 @@ function ForgotPassword() {
                 name='email'
                 value={email}
                 onChange={handleChangeInput}
+                required 
                 />
                 <button className="button-resetPassword" onClick={forgotPassword}>Verificar tu correo</button>
             </div>

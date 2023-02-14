@@ -73,6 +73,7 @@ function Login () {
               name='email'
               value={email}
               onChange={handleChangeInput}
+              required
             />
             <h4 style={{margin:"20px 0"}}> Contraseña</h4>
             <input className='clave'
@@ -81,6 +82,7 @@ function Login () {
               name='password'
               value={password}
               onChange={handleChangeInput}
+              required
             />
           </div>
           <Link className='requerid'>Todos los campos son requeridos</Link>
