@@ -12,7 +12,8 @@ const UserLink = ({ user, handleLogout }) => {
       <div className="container-main-avatarContainer">
         <div className="avatarContainer">
           <div className="icon">
-            <TiUser size={30} />
+            <i class="ri-user-6-line"></i>  
+            { /*<TiUser size={100} />*/}
           </div>
         </div>
         <div className="containerMenu">

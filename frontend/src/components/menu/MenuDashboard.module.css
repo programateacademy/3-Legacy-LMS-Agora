@@ -4,7 +4,7 @@
   height: calc(100vh - 70px);
   background-color: var(--colorNav);
   border-radius: 25px;
-  margin: 10px;
+  margin: 50px  20px;
 }
 .ul{
   display: flex;
