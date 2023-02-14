@@ -97,6 +97,9 @@ textarea {
   --curve: 18;
   --colorBackground: #E5E5E5;
   --colorWhite: #FEFEFE;
+  --colorHeader: #454544;
+  --colorNav: #737171;
+  --colorHoverNav: #404040;
   --colorGreenDark: #1A2818;
   --colorBlack: #010101;
   --colorBlackOpacity: #00000096;

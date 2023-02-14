@@ -1,5 +1,5 @@
-import React, { useState} from "react";
-import logo from "../../assets/logos/programate-academy-color-.png";
+import React, { useState } from "react";
+import logo from "../../assets/logos/programate-academy-blancos.png";
 
 import { Link, Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -16,7 +16,7 @@ export function Header() {
   const menu = useSelector((state) => state.menu);
   const [open, setOpen] = useState(false);
 
-  const {menuView} = menu
+  const { menuView } = menu
   const { user, isLogged, isTeacher, isStudent } = auth;
 
   const handleLogout = async () => {
@@ -35,11 +35,11 @@ export function Header() {
     <>
       <header>
         <div className={style.headerContainer}>
-          {isLogged && (isStudent || isTeacher)? (
+          {isLogged && (isStudent || isTeacher) ? (
             <>
-             {  menuView ?<div className={style.hamburguerMenu}>
+              {menuView ? <div className={style.hamburguerMenu}>
                 <HamburguerMenu open={open} handleClick={handleClick} />
-              </div>:null}
+              </div> : null}
               <div className={!open ? "closeMenu" : "openMenu"}>
                 <MenuDashboard open={open} setOpen={setOpen} />
               </div>
@@ -64,7 +64,7 @@ export function Header() {
         </div>
       </header>
       <div className={style.container}>
-      <Outlet/>
+        <Outlet />
       </div>
     </>
   );
