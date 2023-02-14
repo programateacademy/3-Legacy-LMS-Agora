@@ -18,15 +18,15 @@ import { useParams } from "react-router-dom";
 export function MenuDashboard({ open, setOpen }) {
   const auth = useSelector((state) => state.auth);
   const params = useParams();
-  const cohortID = params._id;
+  const cohortID = params.id;
   const { isTeacher } = auth;
   const [activeLink, setActiveLink] = useState(null);
   const navLinks = [
-    {
-      text: "Estadísticas",
-      route: `/dashboard/${cohortID}/statistics`,
-      icon: <AiOutlineFundProjectionScreen className={style.icon} />,
-    }, 
+    // {
+    //   text: "Estadísticas",
+    //   route: `/dashboard/${cohortID}/statistics`,
+    //   icon: <AiOutlineFundProjectionScreen className={style.icon} />,
+    // }, 
     {
       text: "Proyectos",
       route: `/dashboard/${cohortID}/projects`,
