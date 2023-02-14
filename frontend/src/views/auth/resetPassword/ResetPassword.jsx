@@ -62,6 +62,7 @@ export function ResetPassword() {
   };
   return (
     <div className="container-main-resetPassword">
+      
       <div className="container-resetPassword">
       <button className="button_return" onClick={() => navigate(-1)}>
         <BsArrowLeftCircle size={30} />

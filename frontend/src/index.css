@@ -25,10 +25,11 @@ h1 {
 h2, h3, h4 {
   font-family: 'Gilroy-Light', sans-serif;
   text-align: center;
+ 
 }
 
 body {
-  background: var(--colorWhite);
+background-image: url(./assets/font/fondo.svg);
   overflow-x: hidden;
 }
 
@@ -49,19 +50,7 @@ p {
   margin-bottom: 0;
 }
 
-input {
-  border: transparent;
-  min-height: 40px;
-  width: 100%;
-	padding: 10px;
-	border-radius: 5px;
-	background-color: var(--colorGray_20);
-  box-shadow: inset 0px 4px 15px var(--colorBlackOpacity);
-}
 
-input::placeholder {
-  padding-left: 10px; 
-            }
 
 select {
   border: transparent;
