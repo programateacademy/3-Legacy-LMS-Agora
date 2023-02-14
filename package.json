@@ -8,7 +8,7 @@
     "frontend"
   ],
   "engines": {
-    "npm": "9.4.1"
+    "npm": "9.4.2"
   },
   "scripts": {
     "build": "SKIP_PREFLIGHT_CHECK=true npm run build --workspace=frontend",

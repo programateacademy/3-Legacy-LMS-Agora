@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import apiAgora from "../../../api/index";
 
 import styles from "./CohortsTeacher.module.css";
+
 export function CohortsTeacher() {
   const dispatch = useDispatch() //Inicializo hooks
   const auth = useSelector((state) => state.auth);
@@ -24,9 +25,9 @@ export function CohortsTeacher() {
     dispatch(dispatchMenu())
   };
   useEffect(() => {
-    fetchCohortsTeacher(id_user );
+    fetchCohortsTeacher(id_user);
     // eslint-disable-next-line
-  }, [id_user ]);
+  }, [id_user]);
   return (
     <div className={styles.cohorts}>
       <div className={styles.wrapper}>
