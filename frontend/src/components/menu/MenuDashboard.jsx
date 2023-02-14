@@ -27,37 +27,32 @@ export function MenuDashboard({ open, setOpen }) {
     {
       text: "Proyectos",
       route: `/dashboard/${cohortID}/projects`,
-      icon: <i className={`ri-bar-chart-box-line icon ${style.icon}`}></i>,
+      icon: <AiFillProject className={style.icon} />,
     },
     {
       text: "Workbooks",
       route: `/dashboard/${cohortID}/workbooks`,
-      icon: <i className={`ri-bar-chart-box-line icon ${style.icon}`}></i>,
+      icon: <BsFillFileCodeFill className={style.icon} />,
     },
     {
       text: "Consultas",
       route: `/dashboard/${cohortID}/queries`,
-      icon: <i className={`ri-bar-chart-box-line icon ${style.icon}`}></i>,
-    },
-    {
-      text: "Material de apoyo",
-      route: `/dashboard/${cohortID}/workbooks`,
-      icon: <i className={`ri-bar-chart-box-line icon ${style.icon}`}></i>,
+      icon: <FiFileText className={style.icon} />,
     },
     {
       text: "Anuncios",
       route: `/dashboard/${cohortID}/announcements-cohort`,
-      icon: <i className={`ri-bar-chart-box-line icon ${style.icon}`}></i>,
+      icon: <MdAnnouncement className={style.icon} />,
     },
     {
       text: "Estudiantes",
       route: `/dashboard/${cohortID}/students`,
-      icon: <i className={`ri-bar-chart-box-line icon ${style.icon}`}></i>,
+      icon: <RiFileUserFill className={style.icon} />,
     },
     {
       text: "Cohortes",
       route: "/",
-      icon: <i className={`ri-bar-chart-box-line icon ${style.icon}`}></i>,
+      icon: <RiPagesFill className={style.icon} />,
     },
   ];
   let list = [];
