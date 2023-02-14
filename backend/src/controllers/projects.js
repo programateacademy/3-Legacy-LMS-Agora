@@ -81,6 +81,7 @@ const controllerProject = {
       res.json(projects);
     } catch (err) {
       return res.status(500).json({ msg: err.message });
+     
     }
   },
   getProject: async (req, res) => {

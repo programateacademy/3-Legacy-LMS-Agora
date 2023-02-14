@@ -176,7 +176,7 @@ export function UpdateRegisterAdmin() {
                   className={styles.form_select}
                   aria-label="Default select example"
                   name="documentType"
-                  value={documentType}
+                  defaultValue={documentType}
                   onChange={handleChangeInput}
                 >
                   <option selected>Seleccione...</option>
