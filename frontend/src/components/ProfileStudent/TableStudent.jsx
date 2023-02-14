@@ -58,7 +58,7 @@ function TableStudent(props) {
   }, [workbooks])
 
   return (
-    <div className={style.container}>
+    <div className="container">
       <div className={style.bloc_tabs}>
         <button
           className=

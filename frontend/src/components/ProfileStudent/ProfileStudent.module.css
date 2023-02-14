@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
+
 .container{
     display: flex; 
     flex-direction: column;
@@ -16,17 +19,17 @@
     left: 0;
     height: auto;
     padding: 2vh;
-    /* background: rgba(196, 196, 196, 0.25); */
-    background-color: var(--colorBlack);
+    background-color: #F9F9F9;
+    box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, .3) inset;
 }
 
-.buttonVolver{
+.button_return{
     display: flex;
     margin-top: 15px;
     height: 40px;
     width: 40px;
     align-items: center;
-    background: var(--colorYellow);
+    background: #4A484A;
     cursor: pointer;
 }
 
@@ -62,6 +65,7 @@
     text-align: center;
     width: auto;
     margin-top: 20px;
+    font-family: 'Roboto', sans-serif;
     }
     .button_return:hover {
     color: var(--colorWhite);

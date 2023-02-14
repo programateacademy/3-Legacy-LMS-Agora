@@ -145,15 +145,18 @@ export function ProfileStudent(props) {
     fetchDelivery(userID);
   }, [cohortID, userID]);
   return (
+    <>
+    <button
+    className="button_return"
+    type="button"
+    onClick={() => navigate(-1)}
+  >
+    <BsArrowLeftCircle size={30} />
+    </button>
     <div className={styles.container}>
+
       <form className={styles.containerProfile} onSubmit={handleSubmit}>
-        <button
-          className={styles.button_return}
-          type="button"
-          onClick={() => navigate(-1)}
-        >
-          <BsArrowLeftCircle size={30} />
-        </button>
+        
         <div className={styles.cajaIns}>
           <img src={image} alt="foto" />
           {!teacher ? (
@@ -299,5 +302,6 @@ export function ProfileStudent(props) {
         <CompetencesTableUser competencesState={userProfile.competence} />
       </div>
     </div>
+    </>
   );
 }
