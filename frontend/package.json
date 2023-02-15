@@ -12,7 +12,10 @@
     "react": "18.2.0",
     "react-bootstrap": "^2.7.1",
     "react-dom": "18.2.0",
+<<<<<<< HEAD
     "react-icons": "^4.7.1",
+=======
+>>>>>>> 2313358 (Desinstalando dependencias innecesarias)
     "react-redux": "8.0.5",
     "react-router-dom": "6.8.1",
     "react-scripts": "5.0.1",

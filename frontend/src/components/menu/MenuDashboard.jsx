@@ -30,7 +30,11 @@ export function MenuDashboard({ open, setOpen }) {
     {
       text: "Proyectos",
       route: `/dashboard/${cohortID}/projects`,
+<<<<<<< HEAD
       icon: <i className={`ri-bar-chart-box-line icon ${style.icon}`}></i>,
+=======
+      icon: <i className={`ri-bar-chart-box-line ${style.icon}`}></i>
+>>>>>>> 349814f (merge arreglado)
     },
     {
       text: "Workbooks",
