@@ -8,6 +8,7 @@ import { MdDeleteForever } from "react-icons/md";
 import { ModalCreateAnnouncements } from "../../components/modal/modalCreateAnnouncements/ModalCreateAnnouncements";
 import { ModalUpdateAnnouncements } from "../../components/modal/modalUpdateAnnouncements/ModalUpdateAnnouncements";
 import styles from "./Announcements.module.css";
+
 export const Announcements = (props) => {
   const { teacher } = props;
   const auth = useSelector((state) => state.auth);
@@ -111,6 +112,9 @@ export const Announcements = (props) => {
                   <div>
                     <p>{item.textAnnouncement}</p>
                   </div>
+                  {/* <div>
+                    <p>{}</p>
+                  </div> */}
                 </div>
                 <div className={styles.containerRight}>
                   <p className={styles.createdAt}>

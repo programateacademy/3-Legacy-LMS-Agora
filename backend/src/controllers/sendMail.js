@@ -25,7 +25,7 @@ const sendEmail = (userName, to, url, action) => {
   });
 
   const accessToken = oauth2Client.getAccessToken();
-  const smtpTransport = nodemailer.createTransport({
+  /* const smtpTransport = nodemailer.createTransport({
     service: "gmail",
     auth: {
       type: "OAuth2",
@@ -35,6 +35,13 @@ const sendEmail = (userName, to, url, action) => {
       refreshToken: MAILING_SERVICE_REFRESH_TOKEN,
       accessToken,
     },
+  }); */
+
+  const smtpTransport = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    secure: true, // true for 465, false for other ports
+    port: 465,
+    auth: { user: '****', pass: '****' },
   });
 
   const mailOptions =
@@ -85,6 +92,7 @@ const sendEmail = (userName, to, url, action) => {
       : null;
 
   smtpTransport.sendMail(mailOptions, (err, infor) => {
+    console.debug(err, 'email')
     if (err) return err;
     return infor;
   });

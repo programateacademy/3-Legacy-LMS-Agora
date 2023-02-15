@@ -46,7 +46,7 @@ const controllerProfile = {
         (e) => JSON.stringify(e._id) === `"${competenceID}"`?e:null
       ).filter((item) => item !== null)[0];
       
-       if (level === "levelOne") {
+      if (level === "levelOne") {
         specificCompetence.levelOne.approved = approved;
       }
       if (level === "levelTwo") {
@@ -67,6 +67,7 @@ const controllerProfile = {
       );
       res.json(profile);
     } catch (err) {
+      console.error(err)
       return res.status(500).json({ msg: err.message });
     }
   },
