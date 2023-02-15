@@ -1,0 +1,40 @@
+{
+  "name": "agora",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "engines": {
+    "npm": "9.4.2"
+  },
+  "scripts": {
+    "build": "SKIP_PREFLIGHT_CHECK=true npm run build --workspace=frontend",
+    "lint": "eslint ./backend ./frontend",
+    "start": "npm run start --workspace=backend",
+    "dev:backend": "npm run build && npm run dev --workspace=backend"
+  },
+  "eslintConfig": {
+    "ignorePatterns": "build",
+    "extends": "./node_modules/standard/eslintrc.json",
+    "env": {
+      "cypress/globals": true,
+      "jest": true
+    },
+    "plugins": [
+      "cypress"
+    ]
+  },
+  "devDependencies": {
+    "eslint-plugin-cypress": "2.12.1",
+    "standard": "17.0.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "npm": "^9.4.2"
+  }
+}

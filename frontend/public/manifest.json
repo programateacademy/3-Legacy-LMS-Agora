@@ -1,0 +1,25 @@
+{
+  "short_name": "Agora App",
+  "name": "Agora App by Programate Academy",
+  "icons": [
+    {
+      "src": "programate-academy.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "programate-academy.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "programate-academy.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#010101",
+  "background_color": "#D7D7D7"
+}

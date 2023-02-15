@@ -1,0 +1,19 @@
+.projects {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.buttonCreateProject {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 4vh;
+}
+
+

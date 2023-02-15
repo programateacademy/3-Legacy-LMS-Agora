@@ -1,0 +1,78 @@
+.userTable {
+  border-collapse: inherit;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  margin: 5vh;
+  text-align: center;
+  width: 90%;
+}
+.userTableProfile {
+  border-collapse: inherit;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  text-align: center;
+  width: 100%;
+}
+.userTable th,
+.userTable td {
+  background-color: var(--colorGray);
+  color: var(--colorBlack);
+  padding: 15px;
+}
+.userTable th {
+  text-align: left;
+}
+.userTable thead th {
+  background-color: var(--colorYellow);
+  text-align: center;
+}
+.userTable tbody tr:hover {
+  background-color: var(--colorGreenLight);
+}
+.userTable tbody td {
+  position: relative;
+}
+@keyframes rote {
+  0% {
+    -moz-transform: rotate(-30deg);
+    -ms-transform: rotate(-30deg);
+    -o-transform: rotate(-30deg);
+    -webkit-transform: rotate(-30deg);
+    transform: rotate(-30deg);
+  }
+  50% {
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(30deg);
+    -ms-transform: rotate(30deg);
+    -o-transform: rotate(30deg);
+    -webkit-transform: rotate(30deg);
+    transform: rotate(30deg);
+  }
+}
+.delete {
+  background-color: transparent;
+  color: var(--colorBlack);
+  font-size: 25px;
+  text-align: center;
+}
+.delete:hover {
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+  animation-name: rote;
+  color: rgb(255, 61, 61);
+  transition: 0.3s;
+}
+.edit {
+  background-color: transparent;
+  color: var(--colorBlack);
+  font-size: 20px;
+  text-align: center;
+}
+.edit:hover {
+  color: var(--colorGreenLight);
+  transition: 0.3s;
+}

@@ -1,0 +1,171 @@
+.container{
+    display: flex; 
+    flex-direction: column;
+    height: auto;
+    /* min-height: calc(100vh - 140px);  */
+    justify-content: center; 
+    margin: auto; 
+   
+}
+
+.containerProfile{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    left: 0;
+    height: auto;
+    padding: 2vh;
+    /* background: rgba(196, 196, 196, 0.25); */
+    background-color: var(--colorBlack);
+}
+
+.buttonVolver{
+    display: flex;
+    margin-top: 15px;
+    height: 40px;
+    width: 40px;
+    align-items: center;
+    background: var(--colorYellow);
+    cursor: pointer;
+}
+
+.cajaIns{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 60px;
+}
+
+.cajaIns img{
+    width: 150px;
+    height: 150px;
+    margin-bottom: 10px;
+    background: var(--colorYellow);
+    border: 0.5px solid var(--colorBlack);
+    box-sizing: border-box;
+    filter: drop-shadow(4px 4px 9px var(--colorBlackOpacity));
+    border-radius: 118.5px;
+}
+
+
+.button_return {
+    align-self: flex-start;
+    background-color: var(--colorYellow);
+    border-radius: 10px;
+    color: var(--colorBlack);
+    display: flex;
+    font-weight: bold;
+    max-width: 100px;
+    padding: 10px;
+    text-align: center;
+    width: auto;
+    margin-top: 20px;
+    }
+    .button_return:hover {
+    color: var(--colorWhite);
+    transition: 0.3s;
+    } 
+
+.cajaName{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    color: var(--colorWhite);
+}
+
+.cajaLink{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cajaUlt{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    gap: 2vw;
+}
+
+.cajaUlt:last-child{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 10px;
+}
+
+.cajaUlt >input{
+    display: flex;
+    margin-bottom: 5px;
+    width: 220px;
+    height: 25px;
+    background-color: var(--colorGray);
+}
+
+.cajaUlt > p{
+    display: flex;
+    justify-content: center;
+    margin-left: 10px;
+}
+
+.cajaUlt >button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 35px;
+    border-radius: 10px;
+    background: var(--colorYellow);
+
+}
+
+.tableCompetences{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    width: 80vw;
+    padding: 5vh 0;
+}
+
+.tableCompetences h3{
+margin-top: 10vh;
+}
+
+
+@media (max-width: 700px) {
+    .containerProfile{
+        flex-direction: column;
+        height: auto;
+    }
+
+    .buttonVolver{
+        margin-left: 20px;
+        margin-top: 10px;
+    }
+
+    .cajaIns{
+        align-items: center;
+        margin-left: 0;
+    }
+
+
+    .cajaName{
+        margin-top: 15px;
+        align-items: center;
+    }
+
+    .cajaLink{
+        margin-top: 15px;
+    }
+
+    .cajaUlt input{
+        align-items: center;
+    }
+}

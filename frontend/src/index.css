@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
+@font-face {
+  font-family: 'Gilroy-Light';
+  src: url('./assets/font/Gilroy-Light.otf');
+}
+
+@font-face {
+  font-family: 'Gilroy-Bold';
+  src: url('./assets/font/Gilroy-ExtraBold.otf');
+}
+
+* {
+  font-family: 'Roboto', sans-serif;
+  padding: 0px;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-family: 'Gilroy-ExtraBold', sans-serif;
+  text-align: center;
+}
+
+h2, h3, h4 {
+  font-family: 'Gilroy-Light', sans-serif;
+  text-align: center;
+}
+
+body {
+  background: var(--colorWhite);
+  overflow-x: hidden;
+}
+
+i {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+i:hover {
+  color: var(--colorYellow);
+}
+
+li {
+  list-style: none;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+input {
+  border: transparent;
+  min-height: 40px;
+  width: 100%;
+	padding: 10px;
+	border-radius: 5px;
+	background-color: var(--colorGray_20);
+  box-shadow: inset 0px 4px 15px var(--colorBlackOpacity);
+}
+
+input::placeholder {
+  padding-left: 10px; 
+            }
+
+select {
+  border: transparent;
+  min-height: 40px;
+  width: 100%;
+	padding: 10px;
+	border-radius: 5px;
+	background-color: var(--colorWhite);
+  box-shadow: inset 0px 4px 15px var(--colorBlackOpacity);
+}
+
+textarea{
+	width: 100%;
+  padding: 10px;
+	border-radius: 5px;
+	background-color: var(--colorGray_20);
+  box-shadow: inset 0px 4px 15px var(--colorBlackOpacity);
+	border: transparent;
+	resize: none;
+}
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: var(--colorGray_20);
+  box-shadow: inset 0px 4px 15px rgba(0, 0, 0, 0.5);
+  border: transparent;
+  resize: none;
+}
+
+:root {
+  --curve: 18;
+  --colorBackground: #E5E5E5;
+  --colorWhite: #FEFEFE;
+  --colorHeader: #454544;
+  --colorNav: #737171;
+  --colorHoverNav: #404040;
+  --colorGreenDark: #1A2818;
+  --colorBlack: #010101;
+  --colorBlackOpacity: #00000096;
+  --colorGray: #D7D7D7;
+  --colorGray_20: rgba(214, 214, 214, 0.2);
+  --colorGreenLight: #92C149;
+  --colorGreenLight_31: rgba(145, 193, 73, 0.31);
+  --colorRed: #ff2a2a;
+  --colorYellow: #ffd808;
+  --colorYellow_65: rgba(255, 204, 2, 0.65);
+  --colorYellowOpacity: #ffda0a98;
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: var(--colorYellow) var(--colorBlack);
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 8px;
+  overflow-x:hidden;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--colorBlack);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--colorYellow);
+  border-radius: 10px;
+  border: 8px solid var(--colorYellow_65);
+}

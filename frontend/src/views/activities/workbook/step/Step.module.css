@@ -1,0 +1,95 @@
+.deliveryContainer {
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  align-items: center;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  min-width: 90%;
+}
+.containerOne {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  width: 85vw;
+}
+.summaryProject {
+  align-items: center;
+  background-color: var(--colorYellowOpacity);
+  border-radius: 8px;
+  box-shadow: 6px 10px 10px var(--colorBlackOpacity);
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 4vh;
+  margin-top: 1vh;
+  padding: 15px 0;
+  width: 85vw;
+}
+.img_preview {
+  align-items: center;
+  background-color: var(--colorGray);
+  box-shadow: inset 0px 4px 15px rgba(0, 0, 0, 0.5);
+  display: flex;
+  height: 70vw;
+  justify-content: center;
+  margin-bottom: 1.5vh;
+  overflow: hidden;
+  width: 70vw;
+}
+.steps {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 2vh;
+}
+.step {
+  width: 100%;
+}
+.image {
+  height: auto;
+  max-height: 98%;
+  max-width: 95%;
+  width: auto;
+}
+.summaryProject input {
+  margin-bottom: 2vh;
+}
+.summaryProject textarea {
+  margin-bottom: 2vh;
+}
+.addTagsProject {
+  background-color: transparent;
+  margin-left: 2vh;
+}
+.addTagsProject:hover {
+  color: var(--colorGreenLight);
+  transition: 0.3s;
+}
+@media only screen and (max-width: 750px) {
+  .img_preview {
+    align-items: center;
+    box-shadow: inset 0px 4px 15px rgba(0, 0, 0, 0.5);
+    display: flex;
+    height: 50vh;
+    justify-content: center;
+    margin-bottom: 1.5vh;
+    overflow: hidden;
+    width: 99%;
+  }
+  .deliveryContainer {
+    margin: auto;
+    width: 100%;
+  }
+  .step {
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+  }
+}

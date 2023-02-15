@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.queries {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.buttonCreateQuery {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 4vh;
+}
+

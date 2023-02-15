@@ -1,0 +1,43 @@
+.cohorts {
+    display: flex;
+    min-height: calc(100vh - 140px);
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    flex-direction: column;
+    width: 80vw;
+}
+
+.buttonsContainer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 2vh;
+  }
+  
+.cohorts h2 {
+    text-align: center;
+}
+
+.buttonContainer {
+    align-self: flex-end;
+}
+.button_return {
+    margin-top: 1rem;
+    font-weight: bold;
+    background-color: var(--colorYellow);
+    algin-items:center;
+    color:var(--colorBlack);
+    padding: 10px;
+    width: auto;
+    display: flex;
+    text-algin:center;
+    align-self: flex-start;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  .button_return:hover{
+    background-color: var(--colorBlack);
+    color:var(--colorYellow);
+    transition: 0.3s;
+  }

@@ -1,0 +1,57 @@
+
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  margin: auto;
+  justify-content: center;
+  min-height: calc(100vh - 140px);
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.typing_demo {
+  width: 13ch; 
+  animation: typing 1s steps(22), blink 0.5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes blink {
+  20% {
+    border-color: transparent;
+  }
+}
+
+.tableContainer {
+  display: flex;
+  overflow: hidden;
+  overflow-x: auto;
+  align-items: center;
+  justify-content:flex-start;
+  height: auto;
+  width: 100%;
+}
+
+.buttonContainer {
+  display: flex;
+  align-self: flex-end;
+  margin-top: 1vh;
+}
+
+
+
+
+

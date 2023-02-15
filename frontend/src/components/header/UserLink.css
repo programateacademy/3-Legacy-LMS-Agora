@@ -1,0 +1,64 @@
+.icon-signIn {
+  font-size: 20px;
+  color: var(--colorYellow);
+  margin: 10px;
+}
+
+.container-main-avatarContainer{
+  display: flex;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--colorBlack);
+}
+
+.avatarContainer {
+  display: flex;
+  align-items: center;
+  margin: 5px;
+}
+
+.avatarContainer div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border-radius: 50%;
+}
+.dropdown button{
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  background-color: transparent;
+  width: 10px;
+  color:var(--colorWhite);
+}
+.icon{
+  color: var(--colorWhite);
+}
+.containerMenu{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+.openMenu{
+  display: none;
+}
+.closeMenu{
+  display: none;
+}
+@media (max-width: 700px) {
+  .openMenu{
+    position: absolute;
+    display: block;
+    top: 70px;
+    z-index: 999;
+  }
+  .closeMenu{
+    display: none;
+  }
+}

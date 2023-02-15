@@ -1,0 +1,172 @@
+.globalContainer {
+  align-items: center;
+  align-self: center;
+  background-color: var(--colorWhite);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+.Container {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 90%;
+}
+.container_register {
+  align-items: center;
+  background-color: var(--colorWhite);
+  border-radius: 10px;
+  box-shadow: 4px 4px 4px 4px var(--colorBlackOpacity);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 3vh;
+  max-width: 776px;
+  padding: 20px;
+  width: 80%;
+}
+.globalContainer h2 {
+  font-family: "Roboto";
+  font-size: 25px;
+  text-align: center;
+}
+.globalContainer a {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.numeral {
+  align-items: center;
+  background-color: var(--colorGray_20);
+  border-radius: 10px;
+  border: 1px solid #6f6f6f;
+  box-shadow: inset 0px 6px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  height: 35px;
+  justify-content: center;
+  margin-right: 5px;
+  margin-top: 10px;
+  width: 40px;
+}
+.numeral select {
+  background-color: var(--colorGray_20);
+  border: none;
+}
+.containerSectionFirst {
+  display: flex;
+  flex-direction: column;
+}
+.containerGeneral {
+  display: flex;
+  justify-content: space-around;
+}
+.inputDescription {
+  width: 65%;
+}
+.inputName {
+  margin: 0px 10px;
+  width: 30%;
+}
+.containerInputAddCompetence {
+  width: 96%;
+}
+.button_submit_register {
+  background-color: var(--colorYellow);
+  border-radius: 10px;
+  border: none !important;
+  cursor: pointer !important;
+  display: block;
+  font-weight: bold;
+  margin-right: 23px;
+  padding: 10px;
+  width: 150px;
+}
+.button_submit_register:hover {
+  background-color: var(--colorGreenLight);
+}
+.container__button {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+.container__frameOfReference {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.cardReferences {
+  align-items: center;
+  background-color: var(--colorYellow);
+  border-radius: 10px;
+  display: flex;
+  font-size: 20px;
+  height: auto;
+  justify-content: space-evenly;
+  margin: 16px;
+  padding: 0px 10px;
+  width: 80%;
+}
+.cardReferences p{
+  width: 70%;
+}
+.button__edit,
+.button__delete {
+  color: rgb(0, 0, 0);
+  font-size: 30px;
+  background-color: transparent;
+  margin-left: 10px;
+  text-decoration: none;
+}
+.button__edit:hover {
+  color: var(--colorGreenLight);
+}
+.button__delete:hover {
+  color: rgb(255, 0, 0);
+}
+.button_return {
+  align-self: flex-start;
+  background-color: var(--colorYellow);
+  border-radius: 10px;
+  color: var(--colorBlack);
+  display: flex;
+  font-weight: bold;
+  margin: 30px;
+  max-width: 100px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+.button_return:hover {
+  background-color: var(--colorBlack);
+  color: var(--colorYellow);
+  transition: 0.3s;
+}
+/*------------STYLES INPUT-----------*/
+.input_register {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.input_register label {
+  font-size: 14px;
+}
+.input_register input {
+  border-radius: 10px;
+  border: 1px solid #6f6f6f;
+  box-shadow: inset 0px 6px 15px rgba(0, 0, 0, 0.2);
+  height: 35px;
+  margin: 10px 0;
+  outline: none;
+  padding: 0 10px;
+  width: 100% !important;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+}
