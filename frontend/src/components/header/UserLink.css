@@ -25,18 +25,19 @@
   justify-content: center;
   width: 30px;
   height: 30px;
-  background-color: var(--colorYellow);
+  background-color: transparent;
   border-radius: 50%;
 }
 .dropdown button{
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: end;
   background-color: transparent;
   width: 10px;
+  color:var(--colorWhite);
 }
 .icon{
-  margin-right: 10px;
+  color: var(--colorWhite);
 }
 .containerMenu{
   display: flex;
