@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development nodemon src ",
-    "start": "cross-env NODE_ENV=production node index.js",
+    "start": "cross-env NODE_ENV=production npm run dev",
+    "dev": "cross-env NODE_ENV=development nodemon index.js ",
     "test": "cross-env NODE_ENV=test PORT=1234 jest --verbose"
   },
   "keywords": [],
@@ -23,6 +23,7 @@
     "express-fileupload": "1.4.0",
     "googleapis": "110.0.0",
     "jsonwebtoken": "9.0.0",
+    "moment": "^2.29.4",
     "mongoose": "6.9.1",
     "morgan": "1.10.0",
     "node-fetch": "3.3.0",

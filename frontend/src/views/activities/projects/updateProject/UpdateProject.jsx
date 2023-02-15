@@ -27,6 +27,8 @@ const initialState = {
   date: "",
 };
 
+const dateFormat = (date) => `${new Date(date).toLocaleDateString("en-CA")}T${new Date(date).toLocaleTimeString()}`;
+
 export function UpdateProject() {
   const auth = useSelector((state) => state.auth);
   const userID = auth.user.id;
@@ -75,10 +77,7 @@ export function UpdateProject() {
     const res = await apiAgora.get("/api/agora/get-project/" + url, {
       headers: { Authorization: id },
     });
-    res.data.date =
-      new Date(res.data.date).toLocaleDateString("en-CA") +
-      "T" +
-      new Date(res.data.date).toLocaleTimeString();
+    console.log(res.data.date, '--res.data.date')
     setProject(res.data);
     setImage(res.data.pictureProject);
     fetchCohortCompetences(res.data.cohortID, id);
@@ -446,7 +445,7 @@ export function UpdateProject() {
                 placeholder="Fecha de entrega"
                 type="datetime-local"
                 name="date"
-                value={date}
+                value={dateFormat(date)}
                 onChange={handleChangeInput}
               />
             </div>

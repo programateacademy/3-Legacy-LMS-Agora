@@ -138,6 +138,7 @@ const controllerProject = {
       );
       res.json({ msg: "Updating Project successfully!" });
     } catch (err) {
+      console.error(err)
       return res.status(500).json({ msg: err.message });
     }
   },

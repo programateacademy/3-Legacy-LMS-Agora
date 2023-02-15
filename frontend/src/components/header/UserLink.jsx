@@ -14,11 +14,6 @@ const UserLink = ({ user, handleLogout }) => {
             <i class="ri-user-5-line"></i>
             <i class="ri-user-5-fill"></i>
             <i class="ri-user-6-line"></i>  
-            { /*<TiUser size={100} />*/}
-          </div>
-        </div>
-        <div className="containerMenu">
-          <Dropdown>
             <Dropdown.Toggle
               variant="bg-transparent"
               id="dropdown-basic"

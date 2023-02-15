@@ -3,23 +3,23 @@ import style from "../ProfileStudent/TableStudent.module.css";
 import apiAgora from "../../api/index"
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux"
+import useProjects from "../../hooks/useProjects";
 
 function TableStudent(props) {
   const { projects, queries, workbooks, userID } = props
   const auth = useSelector((state) => state.auth);
-  const [projectInfo, setProjectInfo] = useState([])
+  const projectInfoData = useSelector(state => state.projects.data)
   const [queryInfo, setQueryInfo] = useState([])
   const [workbookInfo, setWorkbookInfo] = useState([])
 
   const [toggleState, setToggleState] = useState(1);
 
+  const { getProject } = useProjects();
+
   const fetchActivity = async (activity, url, id) => {
     const res = await apiAgora.get(`/api/agora/get-${activity}/${url}`, {
       headers: { Authorization: id },
     });
-    if (activity === "project") {
-      setProjectInfo((prev) => [...prev, { name: res.data.titleProject, id: url }])
-    }
     if (activity === "workbook") {
       setWorkbookInfo((prev) => [...prev, { name: res.data.titleWorkbook, id: url }])
     }
@@ -32,12 +32,7 @@ function TableStudent(props) {
   };
 
   useEffect(() => {
-    projects.map(
-      item => {
-        fetchActivity("project", item, userID)
-      }
-    );
-
+    projects.forEach(id => getProject(id, userID));
   }, [projects])
   useEffect(() => {
 
@@ -56,6 +51,8 @@ function TableStudent(props) {
       }
     );
   }, [workbooks])
+
+  const projectInfo = Object.keys(projectInfoData).map(projectId => projectInfoData[projectId]);
 
   return (
     <div className={style.container}>
