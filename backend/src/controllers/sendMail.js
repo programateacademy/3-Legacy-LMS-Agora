@@ -25,7 +25,7 @@ const sendEmail = (userName, to, url, action) => {
   });
 
   const accessToken = oauth2Client.getAccessToken();
-  const smtpTransport = nodemailer.createTransport({
+  /*const smtpTransport = nodemailer.createTransport({
     service: "gmail",
     auth: {
       type: "OAuth2",
@@ -35,7 +35,27 @@ const sendEmail = (userName, to, url, action) => {
       refreshToken: MAILING_SERVICE_REFRESH_TOKEN,
       accessToken,
     },
+  });*/
+
+  const smtpTransport = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true, // true for 465, false for other ports
+    auth: { 
+      user: 'agoraaa233@gmail.com', 
+      pass: 'xpqsldqiytflwhpo' 
+    },
   });
+
+  // verify connection configuration
+  smtpTransport.verify(function (error, success) {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log("Server is ready to take our messages");
+    }
+  });
+
 
   const mailOptions =
     action == "register"
@@ -85,6 +105,7 @@ const sendEmail = (userName, to, url, action) => {
       : null;
 
   smtpTransport.sendMail(mailOptions, (err, infor) => {
+    console.debug(err, 'email')
     if (err) return err;
     return infor;
   });
