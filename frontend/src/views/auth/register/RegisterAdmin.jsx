@@ -187,7 +187,7 @@ export function RegisterAdmin() {
                   className={styles.form_select}
                   aria-label="Default select example"
                   name="documentType"
-                  value={documentType}
+                  defaultValue={documentType}
                   onChange={handleChangeInput}
                 >
                   <option selected>Seleccione...</option>
@@ -257,7 +257,7 @@ export function RegisterAdmin() {
               </div>
             </div>
 
-            <button className={styles.button_submit_register} type="submit">
+            <button onClick={()=>navigate(-1)} className={styles.button_submit_register} type="submit">
               CREAR CUENTA DE ADMINISTRADOR
             </button>
           </form>
