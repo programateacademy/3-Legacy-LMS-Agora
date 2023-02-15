@@ -23,9 +23,8 @@ h1 {
 }
 
 h2, h3, h4 {
-  font-family: 'Roboto';
+  font-family: 'Gilroy-Light', sans-serif;
   text-align: center;
-  color: #5F5F5F;
 }
 
 body {
