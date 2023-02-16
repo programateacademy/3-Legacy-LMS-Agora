@@ -30,7 +30,7 @@
 
 <h1 align="center">PROYECT AGORA 2.0 🌐</h1>
 
-<p align="center"><img height="170px" width="600px" src="./assets_readme/Educamás.png"></p>
+<p align="center"></p>
 
 <p align="center">This is a page at the request by the educational organization Educamás. It allows centralizing creation and revision of activities, the competence's evaluation associated to each project and the notifications.</p>
 
