@@ -15,12 +15,16 @@ const feedback = require('./src/routes/feedback')
 const cohort = require('./src/routes/cohort')
 const competence = require('./src/routes/competence')
 const profile = require ('./src/routes/profile')
+const compression = require('compression');
 
 // Conection MongoDB
 require('./src/db/mongo')
 
 // Init Express
 const app = express()
+
+// Compression
+app.use(compression());
 
 // Middleware
 app.use(cors())
