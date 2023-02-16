@@ -3,6 +3,7 @@ import apiAgora from '../../../api/index'
 import {isEmail} from '../../../utils/validation'
 import { showErrMsg, showSuccessMsg } from '../../../utils/notification'
 import logo from '../../../assets/logos/Programate-academy-negros.png'
+import Agora from "../../../assets/logos/agora.png"
 import './ForgotPassword.css'
 
 const initialState = {
@@ -38,8 +39,9 @@ function ForgotPassword() {
     
     return (
         <div className="container-main-resetPassword">
+            <img className='agora' src={Agora} alt="" />
+            <img className="logo2" src={logo} alt="logo" />
             <div className="container-resetPassword">
-            <img className="logo" src={logo} alt="logo" />
             <h2 className="title-resetPassword">OLVIDASTE TU CONTRASEÑA?</h2>
 
             <div className="container-info-resetPassword">
@@ -50,6 +52,7 @@ function ForgotPassword() {
                 name='email'
                 value={email}
                 onChange={handleChangeInput}
+                required 
                 />
                 <button className="button-resetPassword" onClick={forgotPassword}>Verificar tu correo</button>
             </div>
