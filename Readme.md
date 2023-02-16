@@ -36,23 +36,23 @@
 
 <h2>LOGIN.🔒️</h2>
 <p>The access is posible by 4 different roles:</p>
-<p align="center"><img src="./assets_readme/Login.png" height="350px" width="680px"></p>
+<p align="center"></p>
 
 <h3>SuperAdmin.</h3>
 <p>Allows creating, editing and deleting administrators.</p>
-<p align="center"><img src="./assets_readme/SuperAdmin.png" height="350px" width="680px"></p>
+<p align="center"></p>
 
 <h3>Admin.</h3>
 <p>Allows creating Bootcamps, cohorts, and students, also editing and adding competences.</p>
-<p align="center"><img src="./assets_readme/Admin.png" height="350px" width="680px" ></p>
+<p align="center"></p>
 
 <h3>Teacher.</h3>
 <p>Allows editing and rating projects, workbooks and queries of others students, and creating announcements.</p>
-<p align="center"><img src="./assets_readme/Teacher.png" height="350px" width="680px" ></p>
+<p align="center"></p>
 
 <h3>Student.</h3>
 <p>Allows delivering projects, workbooks, and queries, also reading announcements.</p>
-<p align="center"><img src="./assets_readme/Student.png" height="350px" width="680px" ></p>
+<p align="center"></p>
 
 <h2>TOOLS 🔧</h2>
 <h3>Frontend</h3>
