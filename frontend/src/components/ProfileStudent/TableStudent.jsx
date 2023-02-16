@@ -58,7 +58,7 @@ function TableStudent(props) {
   }, [workbooks])
 
   return (
-    <div className="container">
+    <div className={style.container}>
       <div className={style.bloc_tabs}>
         <button
           className=
@@ -95,7 +95,7 @@ function TableStudent(props) {
             ? `${style.content}  ${style.active_content}`
             : style.content}
         >
-          <h2>Proyectos Entregados</h2>
+          <h2 className={style.proyectrow}>Proyectos Entregados</h2>
           <hr />
           {projectInfo.map(item => (
             <div className={style.name}>
@@ -114,7 +114,7 @@ function TableStudent(props) {
             ? `${style.content}  ${style.active_content}`
             : style.content}
         >
-          <h2>Workbooks</h2>
+          <h2 className={style.proyectrow}>Workbooks</h2>
           <hr />
           {workbookInfo.map(item => (
             <div className={style.name}>
@@ -133,7 +133,7 @@ function TableStudent(props) {
             ? `${style.content}  ${style.active_content}`
             : style.content}
         >
-          <h2>Consultas Entregados</h2>
+          <h2 className={style.proyectrow}>Consultas Entregados</h2>
           <hr />
           {queryInfo.map(item => (
             <div className={style.name}>

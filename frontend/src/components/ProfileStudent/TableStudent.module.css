@@ -1,13 +1,21 @@
 .container {
   align-content: stretch;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   height: auto;
   justify-content: center;
   padding: 2vh;
   width: 80vw;
   word-break: break-all;
+  font-family: 'Roboto', sans-serif;
+
 }
+
+.proyectrow{
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+}
+
 .name {
   align-items: center;
   border-radius: 15px;
@@ -16,28 +24,33 @@
   margin-top: 5vh;
   margin: auto;
   min-width: 95%;
+  
 }
 .name h4 {
   width: 90%;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
 }
 .bloc_tabs {
   display: flex;
-  flex-wrap: wrap;
   height: auto;
-  justify-content: flex-end;
   max-height: 200px;
-  width: 30%;
+  width: 93%;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-left: 0.5rem;
 }
 .bloc_tabs button {
   border: none;
-  border-bottom: 2px solid var(--colorBlack);
 }
 .links {
-  border-bottom: 2px solid var(--colorBlack);
+  border-bottom: 2px solid #aeaeae;
   display: flex;
   justify-content: space-evenly;
   margin: 10px;
   padding: 5px;
+  margin-bottom: 2rem;
   width: 80%;
 }
 .links a {
@@ -47,53 +60,55 @@
   -webkit-border-radius: 10px;
   align-items: center;
   background-color: var(--colorYellow);
-  border-radius: 10px;
+  border-radius: 50px;
   color: var(--colorBlack);
   cursor: pointer;
   display: flex;
   justify-content: center;
-  padding: 5px;
+  padding: 8px 15px ;
+  margin-bottom: 2rem;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
 }
+
+
+
 .links a:hover {
-  background-color: var(--colorYellow);
-  color: var(--colorBlack);
-  transition: 0.3s;
+  background-color: #454544;
+  color: white;
+  transition: 0.2s;
 }
 .tabs {
-  background: var(--colorYellow);
-  border-radius: 10px 0px 0px 10px;
+  background: #BABABA;
+  border-radius: 10px 10px 0px 0px;
+  color: #5F5F5F;
   box-sizing: content-box;
   cursor: pointer;
   outline: none;
   padding: 8px;
   position: relative;
   text-align: center;
-  width: 100%;
+  width: 50%;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
 }
-.tabs:not(:last-child) {
-  border-right: 1px solid var(--colorBlack);
-}
+
 .active_tabs {
-  background: var(--colorBlack);
-  color: var(--colorWhite);
+  background: var(--colorYellow);
+  color: #454544;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
 }
-.active_tabs::before {
-  background: var(--colorGreenLight);
-  border-radius: 10px;
-  content: "";
-  display: block;
-  height: 5px;
-  left: 50%;
-  position: absolute;
-  top: -2px;
-  transform: translateX(-50%);
-  width: calc(100% + 2px);
-}
+
 
 .content_tabs {
   display: flex;
   height: auto;
-  width: 70%;
+  width: 100%;
 }
 .content {
   background: var(--colorGray);
@@ -102,7 +117,7 @@
   flex-direction: column;
   height: auto;
   min-height: 100%;
-  min-width: 95%;
+  min-width: 100%;
   padding: 15px;
 }
 .content hr {
@@ -113,7 +128,8 @@
   width: 100%;
 }
 .active_content {
-  background: var(--colorGray);
+  background: white;
+  border: 3px solid #616161;
   display: flex;
   display: flex;
   flex-direction: column;
@@ -127,7 +143,7 @@
     flex-direction: column;
   }
   .bloc_tabs {
-    width: 100%;
+    font-size: 13px;
   }
   .content_tabs {
     width: 100%;
