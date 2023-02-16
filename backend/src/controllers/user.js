@@ -134,11 +134,11 @@ const controllerUser = {
         state,
       });
 
-      await newUser.save();
-      const newEmail = newUser.email
+      const {_id: userID} = await newUser.save();
+      //const newEmail = newUser.email
       const provisionalProfile = {
-        cohortID: "",
-        userID: "",
+        cohortID,
+        userID,
         image: "",
         linkedin: "",
         gitHub: "",
@@ -146,27 +146,35 @@ const controllerUser = {
         competence: [],
         dateOfBirth: "",
       };
-      const profile = new Profile({
-        provisionalProfile,
-      });
 
-      const savedProfile = await profile;
-      savedProfile.cohortID = newUser.cohortID;
-      const userBackup = await User.findOne({email:newEmail});
-      savedProfile.userID = userBackup .id;
-      const competenceArray = await Competences.find({
-        cohortID: newUser.cohortID,
-      });
-      savedProfile.competence = savedProfile.competence.concat(competenceArray);
-      await savedProfile.save();
+      const searchPorfile = await Profile.findOne({ userID });
+      // search competences
+      const searchCompetences = await Competences.find({ cohortID });
 
-      res.json({
-        msg: "Registro Completado su perfil y cuenta estan activos ",
-      });
+      if (searchPorfile) {
+        const competence = searchPorfile.competence.concat(searchCompetences);
+        await Profile.findOneAndUpdate({ userID }, { ...provisionalProfile, competence });
+
+        res.json({
+          msg: "Registro Completado su perfil y cuenta estan activos ",
+        });
+      }
+      else {
+        const savedProfile = new Profile({
+          ...provisionalProfile,
+          competence: searchCompetences
+        });
+        await savedProfile.save();
+
+        res.json({
+          msg: "Registro Completado su perfil y cuenta estan activos ",
+        });
+      }
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }
   },
+  
   login: async (req, res) => {
     try {
       const { email, password } = req.body;

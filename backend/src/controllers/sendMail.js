@@ -34,7 +34,7 @@ const sendEmail = (userName, to, url, action) => {
       clientSecret: MAILING_SERVICE_CLIENT_SECRET,
       refreshToken: MAILING_SERVICE_REFRESH_TOKEN,
       accessToken,
-    },
+    }
   });*/
 
   const smtpTransport = nodemailer.createTransport({
