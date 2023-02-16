@@ -11,9 +11,11 @@ const UserLink = ({ user, handleLogout }) => {
       <div className="container-main-avatarContainer">
         <div className="avatarContainer">
           <div className="icon">
-            <i class="ri-user-5-line"></i>
             <i class="ri-user-5-fill"></i>
-            <i class="ri-user-6-line"></i>  
+          </div>
+        </div>
+        <div className="containerMenu">
+          <Dropdown>
             <Dropdown.Toggle
               variant="bg-transparent"
               id="dropdown-basic"

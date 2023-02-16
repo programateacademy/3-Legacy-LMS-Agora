@@ -71,7 +71,7 @@ header {
 
 @media (max-width: 700px) {
   .hamburguerMenu {
-    display: block;
+    /*display: block;*/
   }
 
   .iconsContainer {
@@ -80,7 +80,7 @@ header {
   .Logo {
     height: 35px;
   }
-  .container{
+  /*.container{
     display: block;
-  }
+  }*/
 }

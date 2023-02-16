@@ -88,7 +88,7 @@
  }
 
  .card__tagline {
-   display: block;
+   /*display: block;*/
    margin: 1em 0;
    font-size: .8em;
  }
@@ -102,7 +102,7 @@
    margin: auto;
    width: 85%;
    text-align: center;
-   word-spacing: 2px ;
+   word-spacing: 2px;
    color: var(--colorWhite);
    display: -webkit-box;
    -webkit-box-orient: vertical;
@@ -205,11 +205,10 @@
 
  .list li:hover a {
    color: var(--colorWhite)
-
  }
 
  .list a {
-   text-decoration: none ;
+   text-decoration: none;
  }
 
  .dots.active .container {

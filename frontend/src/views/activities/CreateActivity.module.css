@@ -68,7 +68,7 @@
 .buttonDelivery {
   display: flex;
   flex-direction: row-reverse;
-  margin-right: 4vh;
+  margin-right: 5vh;
   cursor: pointer;
 
 }
@@ -102,9 +102,9 @@
 
 .button_return {
   align-self: flex-start;
-  background-color: var(--colorYellow);
-  border-radius: 10px;
-  color: var(--colorBlack);
+  background-color: var(--colorHeader);
+  border-radius: 5px;
+  color: var(--colorWhite);
   display: flex;
   font-weight: bold;
   max-width: 100px;
@@ -115,38 +115,43 @@
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
-  margin-left: 1vh;
-  margin-top: 1vh;
+  margin-left: 5vh;
+  margin-top: 3vh;
   cursor: pointer;
 }
-
+.button_return i{
+  color: var(--colorWhite);
+}
+.button_return i:hover{
+  color: var(--colorBlack);
+}
 .button_return:hover {
-  background-color: var(--colorBlack);
-  color: var(--colorYellow);
+  background-color: var(--colorYellow);
   transition: 0.3s;
 }
 
 .linkIcon {
-  color: dodgerblue
+  color: dodgerblue;
+  margin-left: 40%;
 }
 
 .img_preview {
-  background-color: var(--colorGray);
+  
   width: 100%;
   height: 35vh;
-  margin-bottom: 1.5vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: inset 0px 4px 15px var(--colorBlackOpacity);
   overflow: hidden;
 }
 
+
 .image {
-  max-height: 98%;
-  max-width: 95%;
-  height: auto;
+  margin-top: 20px;
+  height: 98%;
   width: auto;
+  display: flex;
+  justify-self: center;
 }
 
 
@@ -157,10 +162,6 @@
   margin-top: 2rem;
 }
 
-.image {
-  width: auto;
-  max-width: 100%;
-}
 
 .file {
   display: flex;
@@ -174,8 +175,8 @@
   justify-items: center;
   min-height: calc(100vh - 150px);
   margin: 0vw;
-  width: 90vw;
-  margin-left: 5vw;
+  width: 100vw;
+  /*margin-left: 5vw;*/
 }
 
 .form {
@@ -219,11 +220,9 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  background-color: var(--colorGray);
+  background-color: var(--colorHeader);
   box-shadow: 6px 10px 10px var(--colorBlackOpacity);
   border-radius: 8px;
-  margin-top: 1vh;
-  margin-bottom: 4vh;
   padding: 3vh;
 }
 
@@ -294,12 +293,12 @@
 .summaryProject {
   display: flex;
   flex-direction: column;
-  background-color: var(--colorGray);
+  background-color: var(--colorHeader);
   box-shadow: 6px 10px 10px var(--colorBlackOpacity);
   border-radius: 8px;
   margin-top: 1vh;
   margin-bottom: 4vh;
-  width: 85%;
+  width: 100%;
   align-items: center;
 
   padding: 3vh;
@@ -344,9 +343,10 @@
   display: flex;
   background-color: var(--colorYellowOpacity);
   width: auto;
-  border-radius: 20px;
+  border-radius: 5px;
   align-items: center;
   justify-content: space-between;
+  text-align: center;
   margin: 1vh;
   box-shadow: 6px 10px 10px var(--colorBlackOpacity);
   margin-bottom: 2vh;
@@ -374,13 +374,28 @@
 }
 
 .contextContainer {
-  background-color: var(--colorGray);
+  background-color: var(--colorHeader);
   box-shadow: 6px 10px 10px var(--colorBlackOpacity);
   padding: 3vh;
-  border-radius: 1px;
+  border-radius: 10px;
   margin-top: 15px;
   margin-bottom: 25px;
 }
+
+.first{
+  background-color: var(--colorHeader) ;
+  margin: 5px 0px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  color: var(--colorWhite);
+}
+
+.formContainer .first h3{
+  text-align: left;
+}
+
+
 
 .inputsdeliveries {
   display: flex;
@@ -478,8 +493,11 @@
 }
 
 .formContainer h3 {
-  color: var(--colorBlack);
+  color: var(--colorWhite);
   padding: 2.5vh;
+  text-decoration: underline;
+  font-weight: bolder;
+  text-align: center;
 }
 
 .formContainer p {
@@ -541,15 +559,17 @@
   }
 
   .img_preview {
-    width: 99%;
+    /*width: 99%;
     height: 50vh;
-    margin-bottom: 1.5vh;
+    background-color: var(--colorHeader);
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: inset 0px 4px 15px var(--colorBlackOpacity);
-    overflow: hidden;
+    overflow: hidden;*/
+
   }
+
+  
 
   .button_return {
     margin: 1vh 1vh;

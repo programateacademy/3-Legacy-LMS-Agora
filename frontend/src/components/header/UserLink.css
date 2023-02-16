@@ -54,7 +54,7 @@
 @media (max-width: 700px) {
   .openMenu{
     position: absolute;
-    display: block;
+    /*display: block;*/
     top: 70px;
     z-index: 999;
   }
