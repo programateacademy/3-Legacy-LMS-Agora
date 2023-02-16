@@ -42,8 +42,8 @@ const sendEmail = (userName, to, url, action) => {
     port: 465,
     secure: true, // true for 465, false for other ports
     auth: { 
-      user: 'agoraaa233@gmail.com', 
-      pass: 'xpqsldqiytflwhpo' 
+      user: '******', 
+      pass: '*******' 
     },
   });
 
