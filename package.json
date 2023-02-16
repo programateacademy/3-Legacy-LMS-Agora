@@ -37,6 +37,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "npm": "^9.4.2"
+    "npm": "^9.4.2",
+    "remixicon": "^2.5.0"
   }
 }
