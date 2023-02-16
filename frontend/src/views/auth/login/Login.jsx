@@ -18,6 +18,7 @@ const initialState = {
   success: ''
 }
 
+
 function Login () {
   const [user, setUser] = useState(initialState) //Inicializo hooks
   const dispatch = useDispatch() //Inicializo hooks
@@ -54,11 +55,11 @@ function Login () {
 
   return (
     <div className='container-login'>
-      <div>
+      <div className='imagenes'>
         <img className='agora' src={Agora} alt=""/>
       
-      </div>
      
+      </div>
       <img className='logo' src={logo} alt="" />
       <div className='login-page'>
         <div style={{ display:"flex", justifyContent:"space-between" }}>

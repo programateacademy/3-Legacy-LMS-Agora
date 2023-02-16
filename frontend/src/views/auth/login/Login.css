@@ -5,6 +5,7 @@
   align-items: center;
   display: flex;
   justify-content: space-between;
+ background-image: url(../../../assets/font/fondo.svg);
   min-height: calc(90vh);
   padding: 10px;
   width: 100%;
@@ -206,14 +207,21 @@ hr{
   .logo {
     width: 200px;
     height: 80px;
+    display: flex;
+    margin: auto;
+}
 
-  }
+
   .group {
     width: 70px;
 }
+img.agora{
+  margin: auto;
+    display: flex;
+}
   .container-login{
     display: block;
-    width: 100px;
+   
    margin: auto;
   }
   h4::before{
@@ -231,4 +239,5 @@ hr{
       top: 0px;
   
   }
+
 }
