@@ -6,6 +6,9 @@ import { showErrMsg, showSuccessMsg } from "../../../utils/notification";
 import { isLength, isMatch } from "../../../utils/validation";
 import "./ResetPassword.css";
 import logo from "../../../assets/logos/Programate-academy-negros.png";
+import Agora from "../../../assets/logos/agora.png"
+import Facebook from "../../../assets/icons/facebook.png"
+import Instagram from "../../../assets/icons/instagram.png"
 import { useSelector } from "react-redux";
 import LazyLoad from "react-lazy-load";
 
@@ -63,6 +66,9 @@ export function ResetPassword() {
   };
   return (
     <div className="container-main-resetPassword">
+      <img className='agora' src={Agora} alt="" />
+            <img className="logo2" src={logo} alt="logo" />
+      
       <div className="container-resetPassword">
       <button className="button_return" onClick={() => navigate(-1)}>
         <BsArrowLeftCircle size={30} />
@@ -100,9 +106,14 @@ export function ResetPassword() {
             value={cf_password}
             onChange={handleChangeInput}
           />
-          <button className="button-resetPassword" onClick={handleResetPass}>
-            Cambiar Contraseña
-          </button>
+          <hr />
+           <div className="redes-sociales">
+           <button className="button-resetPassword" onClick={handleResetPass}>
+            Confirmar
+           </button>
+           <img src={Instagram} alt="" />
+           <img src={Facebook} alt="" />
+          </div>
         </div>
       </div>
     </div>
