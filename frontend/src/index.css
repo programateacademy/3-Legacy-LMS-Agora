@@ -18,17 +18,17 @@
 }
 
 h1 {
-  font-family: 'Gilroy-ExtraBold', sans-serif;
+  font-family:'Roboto', sans-serif;
   text-align: center;
 }
 
 h2, h3 {
-  font-family: 'Gilroy-Light', sans-serif;
+  font-family: 'Roboto', sans-serif;
   text-align: left;
 }
 
 h4 {
-  font-family: 'Gilroy-Light', sans-serif;
+  font-family: 'Roboto', sans-serif;;
   text-align: left;
   color: var(--colorWhite);
   padding-left: 20px;
