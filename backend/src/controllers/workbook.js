@@ -62,7 +62,6 @@ const controllerWorkbook = {
   getWorkbooks: async (req, res) => {
     try {
       const workbooks = await Workbook.find({ cohortID: req.params._id });
-
       res.json(workbooks);
     } catch (err) {
       return res.status(500).json({ msg: err.message });

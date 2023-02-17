@@ -1,0 +1,111 @@
+.card {
+   display: flex;
+   background-size: cover;
+   background-position: center;
+   position: relative;
+   overflow: hidden;
+   text-decoration: none;
+   border-radius: 1.5vw;
+   width: 250px;
+   height: 70vh;
+   max-height: 390px;
+   margin: max(10px, 3vw);
+   box-shadow: 0.4rem 0.4rem 0 0 #0b0b0b, 0.7rem 0.7rem 0 0 #1e1e1e, 1rem 1rem 0 0 #323232, 1.2rem 1.2rem 0 0 #464646, 1.2rem 1.2rem 0 0 #595959, 0.4rem 0.4rem 1rem 0.4rem var(--colorBlack);
+ }
+
+
+ .card__overlay {
+   background-color: var(--colorBlack);
+   background-size: cover;
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   z-index: 1;
+   border-radius: calc(var(--curve) * 2px) 0 0;
+   transform: translateY(100%);
+   transition: .2s ease-in-out;
+   justify-content: center;
+   text-align: center;
+   -webkit-border-radius: calc(var(--curve) * 2px) 0 0;
+   -moz-border-radius: calc(var(--curve) * 2px) 0 0;
+   -ms-border-radius: calc(var(--curve) * 2px) 0 0;
+   -o-border-radius: calc(var(--curve) * 2px) 0 0;
+ }
+
+ .card:hover .card__overlay {
+   transform: translateY(0);
+ }
+
+ .card__header {
+   background-color: var(--colorBlack);
+   background-size: cover;
+   position: relative;
+   display: flex;
+   padding: 0.1em;
+   border-radius: calc(var(--curve) * 30px) 0 0;
+   transform: translateY(-100%);
+   transition: .2s ease-in-out;
+   justify-content: center;
+
+ }
+
+ .card__arc {
+   width: 80px;
+   height: 80px;
+   position: absolute;
+   bottom: 100%;
+   right: 0;
+   z-index: 1;
+ }
+
+
+ .card:hover .card__header {
+   transform: translateY(0);
+ }
+
+ .card:hover .card__header__text h3 {
+   display: none;
+   transition: 0.3s ease-in;
+ }
+
+ .card__thumb {
+   flex-shrink: 0;
+   width: 50px;
+   height: 50px;
+ }
+
+ .card__header__text {
+   height: 10px;
+   margin-bottom: 11vh;
+ }
+
+ .card__title {
+   font-size: 2em;
+   margin: 0 0 .3em;
+   padding-top: 4vh;
+   color: var(--colorYellow);
+ }
+
+ .card__tagline {
+   display: block;
+   margin: 1em 0;
+   font-size: .8em;
+ }
+
+ .card__status {
+   font-size: .8em;
+   color: var(--colorWhite);
+ }
+
+ .card__description {
+   margin: auto;
+   width: 85%;
+   text-align: center;
+   word-spacing: 2px ;
+   color: var(--colorWhite);
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 3;
+   overflow: hidden;
+ }

@@ -1,11 +1,53 @@
-.progressBar {
-    background-color: whiteSmoke;
+.progressBar{
     border-radius: 2px;
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25) inset;
-
     width: 250px;
-    height: 20px;
+    height: 30px;
+    margin-top: 40px; 
+}
+.progressBar progress{
+    width: 700px;
+    height: 25px;
+}
+.progressBar label{
+    margin-bottom: 0px;
+}
+.Recuadro{
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+    border-radius: 10px;
+    width: 850px;
+}
+.contAllStatistics{
+    width: 800px;
+    margin: auto;
+    margin-top: 50px;
+    font-weight: 500;
+}
+.contTareasEntregas{
+    display: flex;
+    background-color: #C4C4C4;
+    padding: 20px;
+    width: 369px;
+    height: 176px;
+    align-items: center;
+    border-radius: 10px;
+}
+.contInsignias{
+    display: flex;
+    background-color: #C4C4C4;
+    padding: 20px;
+    width: 369px;
+    height: 176px;
+    align-items: center;
+    border-radius: 10px;
+}
 
-    position: relative;
-    display: block;
+.contTareasEntregas h2{
+    text-align: center;
+}
+.cont{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin-top: 40px;
+    gap: 20px;
 }
