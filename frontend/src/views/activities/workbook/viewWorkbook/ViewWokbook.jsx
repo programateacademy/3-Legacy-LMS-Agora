@@ -93,7 +93,7 @@ export function ViewWorkbook(props) {
         <div className={style.container}>
           <div className={style.containerOne}>
             {/*     Image */}
-            <div>
+            <div >
               <div className={style.img_preview}>
                 <img
                   className={style.image}

@@ -76,7 +76,11 @@ export function ViewProject(props) {
         </button>
       </div>
       <div className={style.wrapper}>
-        <h2 className={`${style.typing_demo_view_Project} ${style.titlesGlobales}`}>Proyecto</h2>
+        <h2
+          className={`${style.typing_demo_view_Project} ${style.titlesGlobales}`}
+        >
+          Proyecto
+        </h2>
       </div>
       {!teacher ? (
         <div className={style.buttonDelivery}>
@@ -90,13 +94,29 @@ export function ViewProject(props) {
       <div className={style.form}>
         <div className={style.container}>
           <div className={style.containerOne}>
-            <div>
+            <div className={style.InitialContainer}>
               <div className={style.img_preview}>
                 <img
                   className={style.image}
                   src={image}
                   alt="Imagen del proyecto"
                 />
+              </div>
+              <div className={style.Initial}>
+                <h3>Nombre del Proyecto</h3>
+                <h4>{titleProject}</h4>
+                <h3>Descripción del Proyecto</h3>
+                <h4>{descriptionProject}</h4>
+                <h3>Etiquetas del Proyecto</h3>
+                <div className={style.tagsList}>
+                  {tagsProject.length !== 0
+                    ? tagsProject.map((item, index) => (
+                        <div className={style.tagContainer} key={index}>
+                          <p className={style.tag}>{item}</p>
+                        </div>
+                      ))
+                    : null}
+                </div>
               </div>
             </div>
             <div className={style.InitialContainer}>
@@ -285,8 +305,7 @@ export function ViewProject(props) {
                   ))
                 : null}
             </div>
-            <div className={style.container_submit}>
-            </div>
+            <div className={style.container_submit}></div>
           </div>
         </div>
       </div>

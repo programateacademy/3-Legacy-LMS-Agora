@@ -112,27 +112,19 @@
 
 /**/
 
+.containerImage{
+  background-color: aliceblue;
+}
+
 .linkIcon {
   color: dodgerblue;
 }
 
 .img_preview {
-  background-color: var(--colorGray);
-  width: 100%;
-  height: 35vh;
-  margin-bottom: 1.5vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: inset 0px 4px 15px var(--colorBlackOpacity);
+  width: 40%;
+  height: 100%;
+  border-radius: 8px;
   overflow: hidden;
-}
-
-.image {
-  max-height: 98%;
-  max-width: 95%;
-  height: auto;
-  width: auto;
 }
 
 .file {
@@ -142,8 +134,8 @@
 }
 
 .image {
-  width: auto;
-  max-width: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .file {
@@ -162,22 +154,9 @@
   margin-left: 5vw;
 }
 
-.form {
-  display: flex;
-  flex-direction: column;
-  margin: auto;
-  width: 100%;
-}
-
-.container {
-  display: flex;
-  flex-direction: row;
-}
-
 .containerOne {
   display: flex;
   flex-direction: column;
-  width: 49vw;
   margin: 2rem;
 }
 
@@ -199,15 +178,19 @@
 }
 
 .InitialContainer {
-  width: 100%;
   display: flex;
-  flex-direction: column;
-  background-color: var(--colorGray);
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--colorNav);
   box-shadow: 6px 10px 10px var(--colorBlackOpacity);
   border-radius: 8px;
   margin-top: 1vh;
   margin-bottom: 4vh;
-  padding: 3vh;
+  padding: 5px;
+}
+
+.Initial{
+  flex-grow: 1;
 }
 
 .InitialContainer .addResourcesContainer {
