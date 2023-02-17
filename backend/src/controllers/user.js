@@ -143,7 +143,7 @@ const controllerUser = {
         image: "",
         linkedin: "",
         gitHub: "",
-        portfolio: "",
+        portafolio: "",
         competence: [],
         dateOfBirth: "",
       };

@@ -21,14 +21,14 @@ const controllerProfile = {
   },
   updateProfile: async (req, res) => {
     try {
-      const { image, linkedin, gitHub, portfolio, dateOfBirth } = req.body;
+      const { image, linkedin, gitHub, portafolio, dateOfBirth } = req.body;
       await Profile.findOneAndUpdate(
         { userID: req.params._id },
         {
           image,
           linkedin,
           gitHub,
-          portfolio,
+          portafolio,
           dateOfBirth,
         }
       );

@@ -169,7 +169,7 @@ export function ProfileStudent(props) {
           {/* se pone imagen provicional para posterior conexion con el backend*/}
           <img src={profiletemporalimg} alt="img_profile" />
         </div>
-        <button className={styles.chargeimg} ><img src={uploadicon} alt='imagen de subir foto'/></button>
+        <button className={styles.chargeimg} ><i className="ri-upload-cloud-2-line"></i></button>
       
           {!teacher ? (
            <div className={styles.cajaUlt}>

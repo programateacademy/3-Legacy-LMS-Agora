@@ -20,7 +20,7 @@ const profileSchema = new Schema({
   gitHub: {
     type: String,
   },
-  portfolio: {
+  portafolio: {
     type: String,
   },
   competence: {
