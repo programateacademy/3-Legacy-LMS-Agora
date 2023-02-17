@@ -6,6 +6,8 @@ import apiAgora from "../../../../api/index";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { AiOutlineLink } from "react-icons/ai";
 import { Button } from "../../../../components/buttons/Button/Button";
+import LazyLoad from "react-lazy-load";
+
 const initialState = {
   competences: [],
   titleProject: "",
@@ -91,13 +93,13 @@ export function ViewProject(props) {
         <div className={style.container}>
           <div className={style.containerOne}>
             <div>
-              <div className={style.img_preview}>
+              <LazyLoad className={style.img_preview}>
                 <img
                   className={style.image}
                   src={image}
                   alt="Imagen del proyecto"
                 />
-              </div>
+              </LazyLoad>
             </div>
             <div className={style.InitialContainer}>
               <h3>Marco de competencias</h3>

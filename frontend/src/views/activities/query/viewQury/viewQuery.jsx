@@ -7,6 +7,8 @@ import apiAgora from "../../../../api/index";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Button } from "../../../../components/buttons/Button/Button";
+import LazyLoad from "react-lazy-load";
+
 const initialState = {
   titleQuery: "",
   pictureQuery: "",
@@ -101,9 +103,9 @@ export function ViewQuery(props) {
           
           <div className={style.first}>
               {/* IMAGEN */}
-              <div className={style.img_preview}>
+              <LazyLoad className={style.img_preview}>
                 <img className={style.image} src={image} alt="Consulta" />
-              </div>
+              </LazyLoad>
               {/* ------------*/}
             
 

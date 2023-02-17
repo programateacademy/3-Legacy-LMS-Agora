@@ -13,6 +13,7 @@ import styles from "./register.module.css";
 import logo from "../../../assets/logos/Programate-academy-negros.png";
 import { useNavigate } from "react-router-dom";
 import { BsArrowLeftCircle } from "react-icons/bs";
+import LazyLoad from "react-lazy-load";
 
 const initialState = {
   firstName: "",
@@ -124,7 +125,9 @@ export function UpdateRegisterAdmin() {
         <button className={styles.button_return} onClick={() => navigate(-1)}>
           <BsArrowLeftCircle size={30} />
         </button>
-        <img className={styles.logo_register} src={logo} alt="logo" />
+        <LazyLoad>
+          <img className={styles.logo_register} src={logo} alt="logo" />
+        </LazyLoad>
         <h2 className={styles.title_register}>Administrador</h2>
 
         <div className={styles.register_form_content}>

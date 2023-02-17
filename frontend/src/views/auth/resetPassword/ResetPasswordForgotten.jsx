@@ -5,6 +5,7 @@ import {isLength, isMatch} from '../../../utils/validation'
 import './ResetPassword.css'
 import logo from "../../../assets/logos/Programate-academy-negros.png";
 import apiAgora from "../../../api/index";
+import LazyLoad from "react-lazy-load";
 
 const initialState = {
     password: '',
@@ -47,7 +48,9 @@ export function ResetPasswordForgotten() {
     return (
         <div className="container-main-resetPassword">
             <div className="container-resetPassword">
+            <LazyLoad>    
             <img className="logo" src={logo} alt="logo" />
+            </LazyLoad>
             <h2 className="title-resetPassword">RESTABLECER CONTRASEÑA</h2>
             <div className="container-info-resetPassword">
                 {err && showErrMsg(err)}

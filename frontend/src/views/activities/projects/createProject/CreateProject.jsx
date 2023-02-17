@@ -7,6 +7,7 @@ import apiAgora from "../../../../api/index";
 import { showErrMsg, showSuccessMsg } from "../../../../utils/notification";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { AiOutlineLink } from "react-icons/ai";
+import LazyLoad from "react-lazy-load";
 
 const initialState = {
   competences: [],
@@ -263,13 +264,13 @@ export function CreateProject() {
                 value={pictureProject}
                 onChange={handleImage}
               />
-              <div className={style.img_preview}>
+              <LazyLoad className={style.img_preview}>
                 <img
                   className={style.image}
                   src={image}
                   alt="Imagen del proyecto"
                 />
-              </div>
+              </LazyLoad>
             </div>
             <div className={style.frameofcompetence}>
               <h3>Marco de competencias</h3>

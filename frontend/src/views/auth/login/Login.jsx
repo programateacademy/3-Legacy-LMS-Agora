@@ -6,6 +6,7 @@ import { dispatchLogin } from '../../../redux/actions/authAction'
 import { useDispatch } from 'react-redux'
 import './Login.css'
 import logo from '../../../assets/logos/Programate-academy-negros.png'
+import LazyLoad from "react-lazy-load";
 
 const initialState = {
   email: '',
@@ -51,7 +52,9 @@ function Login () {
   return (
     <div className='container-login'>
       <div className='login-page'>
-        <img className='logo' src={logo} alt='logo' />
+        <LazyLoad>
+          <img className='logo' src={logo} alt='logo' />
+        </LazyLoad>
         <form className='form' onSubmit={handleSubmit}>
           <div className='login-form-content'>
             <h4>Correo Electronico</h4>

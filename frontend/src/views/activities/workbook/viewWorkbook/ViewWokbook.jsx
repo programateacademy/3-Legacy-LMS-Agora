@@ -8,6 +8,7 @@ import { MdExpandMore } from "react-icons/md";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { AiOutlineLink } from "react-icons/ai";
 import { Button } from "../../../../components/buttons/Button/Button";
+import LazyLoad from "react-lazy-load";
 const initWorkbook = {
   titleWorkbook: "",
   pictureWorkbook: "",
@@ -94,13 +95,13 @@ export function ViewWorkbook(props) {
           <div className={style.containerOne}>
             {/*     Image */}
             <div>
-              <div className={style.img_preview}>
+              <LazyLoad className={style.img_preview}>
                 <img
                   className={style.image}
                   src={image}
                   alt="Imagen del workbook"
                 />
-              </div>
+              </LazyLoad>
             </div>
             {/* Resources */}
 

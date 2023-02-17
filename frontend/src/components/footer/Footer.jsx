@@ -2,15 +2,16 @@ import React from "react";
 import logo from "../../assets/logos/Logo-negro-completo.png";
 import a from "../../assets/logos/a.png";
 import style from "./Footer.module.css";
+import LazyLoad from "react-lazy-load";
 
 export function Footer() {
   return (
     <>
       <footer>
         <div className={style.footerContainer}>
-          <div className="a">
+          <LazyLoad className="a">
             <img src={a} alt="a" className="ani"/>
-          </div>
+          </LazyLoad>
           <div className="help">
             <svg width="221" height="209" viewBox="0 0 221 209" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M254.9 1.44998C230.78 -3.75002 188.08 5.42998 175.73 38.68C159.05 83.61 182.55 121.37 167.86 160.87C150.19 208.39 58.97 256.92 0.23999 204.2L60.41 305.03L329.57 126.57L254.9 1.44998Z" fill="url(#paint0_linear_295_7329)" />
@@ -43,9 +44,9 @@ export function Footer() {
             Todos los derechos reservados <br/>2023© 
             </p>
           </div>
-          <div >
+          <LazyLoad >
               <img src={logo} alt="logo" className={style.logos}/>
-          </div>
+          </LazyLoad>
         </div>
       </footer>
     </>

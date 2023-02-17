@@ -13,6 +13,7 @@ import { showErrMsg, showSuccessMsg } from "../../utils/notification";
 import { CompetencesTableUser } from "../competencesTable/CompetencesTableUser";
 import apiAgora from "../../api/index";
 import { useParams } from "react-router-dom";
+import LazyLoad from "react-lazy-load";
 const initialState = {
   competence: [],
   dateOfBirth: "",
@@ -154,7 +155,7 @@ export function ProfileStudent(props) {
         >
           <BsArrowLeftCircle size={30} />
         </button>
-        <div className={styles.cajaIns}>
+        <LazyLoad className={styles.cajaIns}>
           <img src={image} alt="foto" />
           {!teacher ? (
             <div className={styles.cajaUlt}>
@@ -168,7 +169,7 @@ export function ProfileStudent(props) {
               />
             </div>
           ) : null}
-        </div>
+        </LazyLoad>
         <div className={styles.cajaName}>
           <h2>
             {user.firstName +

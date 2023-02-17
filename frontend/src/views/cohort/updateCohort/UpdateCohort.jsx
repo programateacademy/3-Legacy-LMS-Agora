@@ -8,7 +8,7 @@ import { useParams } from "react-router-dom";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-
+import LazyLoad from "react-lazy-load";
 export function UpdateCohort() {
   const params = useParams();
   const cohortID = params.id;
@@ -304,9 +304,9 @@ export function UpdateCohort() {
           </div>
         </div>
         <div>
-          <div className={style.img_preview}>
+          <LazyLoad className={style.img_preview}>
             <img className={style.image} src={image} alt="Logo Cohorte" />
-          </div>
+          </LazyLoad>
           <div className={style.file}>
             <input
               className={style.input__logoURL}

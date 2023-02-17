@@ -8,6 +8,7 @@ import { showErrMsg, showSuccessMsg } from "../../../../utils/notification";
 import apiAgora from "../../../../api/index";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import LazyLoad from "react-lazy-load";
 
 const initialState = {
   titleQuery: "",
@@ -175,9 +176,9 @@ export function CreateQuery() {
           <div className={style.containerOne}>
             <div>
                {/* Contenedor imagen */}
-              <div className={style.img_preview}>
+              <LazyLoad className={style.img_preview}>
                 <img className={style.image} src={image} alt="Consulta" />
-              </div>
+              </LazyLoad>
               <h3>Imagen de la Consulta</h3>
               <input
                 className={style.input__imageURL}
