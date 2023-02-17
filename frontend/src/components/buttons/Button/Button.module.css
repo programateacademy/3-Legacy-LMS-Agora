@@ -1,24 +1,49 @@
+.yellowButton {
+    background-color: var(--colorYellow);
+    color: var(--colorBlack);
+    border-radius: 10px;
+    padding: 10px;
+    width:auto;
+    text-align: center;
+    box-shadow: 5px 5px 10px -2px var(--colorBlack);
+}
+
+.yellowButton:hover {
+    background-color: var(--colorGreenLight);
+    color: var(--colorWhite);
+    transition: 0.3s;
+    text-decoration: none;
+}
+
 .btn {
   position: relative;
   padding: 16px 50px;
   display: inline-block;
   border-radius: 50px;
-  transition: all 0.2s;
   background: linear-gradient(
     90deg,
     var(--colorYellow),
     rgb(240, 231, 100),
     var(--colorYellow)
   );
+  color: var(--colorBlack);
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s;
   cursor: pointer;
 }
 
 .btn:hover {
+  color: var(--colorNav);
+  text-decoration: none;
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .btn:active {
+  color: var(--colorNav);
+  text-decoration: none;
   transform: translateY(-1px);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
@@ -43,11 +68,4 @@
 .btn:hover::after {
   transform: scaleX(1.4) scaleY(1.6);
   opacity: 0;
-}
-
-.btn a {
-  color: var(--colorBlack);
-  text-transform: uppercase;
-  text-decoration: none;
-  font-weight: 600;
 }

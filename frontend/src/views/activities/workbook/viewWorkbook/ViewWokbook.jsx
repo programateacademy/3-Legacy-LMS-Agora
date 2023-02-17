@@ -71,14 +71,14 @@ export function ViewWorkbook(props) {
     setInfoStep({ index: index, stepShow: stepShow });
   };
   return (
-    <div className={(style.formContainer, style.formContainerWorkbook)}>
+    <div className={style.formContainer}>
       <div>
         <button className={style.button_return} onClick={() => navigate(-1)}>
           <BsArrowLeftCircle size={30} />
         </button>
       </div>
       <div className={style.wrapper}>
-        <h2 className={style.typing_demo_view_Workbook}>Workbook</h2>
+        <h2 className={`${style.typing_demo_view_Workbook} ${style.titlesGlobales}`}>Workbook</h2>
       </div>
       {!teacher ? (
         <div className={style.buttonDelivery}>
@@ -93,7 +93,7 @@ export function ViewWorkbook(props) {
         <div className={style.container}>
           <div className={style.containerOne}>
             {/*     Image */}
-            <div>
+            <div >
               <div className={style.img_preview}>
                 <img
                   className={style.image}

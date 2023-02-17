@@ -197,7 +197,7 @@ export function CreateWorkbook() {
         </button>
       </div>
       <div className={style.wrapper}>
-        <h2 className={style.typing_demo_create_Workbook}>Crear Workbook</h2>
+        <h2 className={`${style.typing_demo_create_Workbook} ${style.titlesGlobales}`}>Crear Workbook</h2>
       </div>
       <form className={style.form} onSubmit={handleSubmit}>
         <div className={style.container}>

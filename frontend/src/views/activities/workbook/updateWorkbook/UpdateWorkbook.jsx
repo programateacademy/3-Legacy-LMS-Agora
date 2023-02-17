@@ -241,7 +241,7 @@ export function UpdateWorkbook() {
         </button>
       </div>
       <div className={style.wrapper}>
-        <h2 className={style.typing_demo_update_Workbook}>
+        <h2 className={`${style.typing_demo_update_Workbook} ${style.titlesGlobales}`}>
           Actualizar Workbook
         </h2>
       </div>
