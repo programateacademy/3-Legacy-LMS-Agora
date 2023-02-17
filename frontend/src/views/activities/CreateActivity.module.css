@@ -433,6 +433,16 @@
   border-radius: 15px;
 }
 
+.delivery {
+  margin-top: 5vh;
+  margin-left: 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 15px;
+  width: 95vw;
+}
+
 .container_submit button {
   padding: 1.5vh;
   background-color: var(--colorYellow);
@@ -523,6 +533,14 @@
   justify-content: space-evenly;
   flex-wrap: wrap;
   gap: 0 6px;
+}
+
+.res{
+  margin-top: 15px;
+}
+
+.ajus{
+  margin-top: 20%;
 }
 
 

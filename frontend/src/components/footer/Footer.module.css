@@ -4,10 +4,10 @@
     color: rgb(218, 218, 218);
   }
 
-  svg {
+  footer svg {
     margin-left: 83%;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     margin-top: -208px;
   }
 
@@ -52,7 +52,7 @@
     padding: 0px 0;
   }
 
-  svg {
+  footer.footer footer svg {
     margin-left: 80%;
     display: flex;
     justify-content: end;
@@ -100,7 +100,7 @@
     padding: 0px 0;
   }
 
-  svg {
+  footer footer svg {
     margin-left: 72%;
     display: flex;
     justify-content: end;
@@ -147,7 +147,7 @@
     padding: 0px 0;
   }
 
-  svg {
+  footer footer svg {
     margin-left: 55%;
     display: flex;
     justify-content: end;
@@ -195,7 +195,7 @@
     padding: 0px 0;
   }
 
-  svg {
+  footer footer svg {
     margin-left: 55%;
     display: flex;
     justify-content: end;

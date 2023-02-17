@@ -74,7 +74,7 @@ export function ViewProject(props) {
     <div className={style.formContainer}>
       <div>
         <button className={style.button_return} onClick={() => navigate(-1)}>
-          <BsArrowLeftCircle size={30} />
+          <i class="ri-arrow-left-circle-line" ></i>
         </button>
       </div>
       <div className={style.wrapper}>
@@ -101,10 +101,35 @@ export function ViewProject(props) {
                 />
               </LazyLoad>
             </div>
+
+             {/*General */}
+            <div className={style.InitialContainer}>
+              <h3>Nombre del Proyecto</h3>
+              <h4>{titleProject}</h4>
+              <h3>Descripción del Proyecto</h3>
+              <h4>{descriptionProject}</h4>
+              <h3>Etiquetas del Proyecto</h3>
+              <div className={style.tagsList}>
+                {tagsProject.length !== 0
+                  ? tagsProject.map((item, index) => (
+                      <div className={style.tagContainer} key={index}>
+                        <p className={style.tag}>{item}</p>
+                      </div>
+                    ))
+                  : null}
+              </div>
+            </div>
+
+            {/*Marco */}
+            <div className={style.res}>
             <div className={style.InitialContainer}>
               <h3>Marco de competencias</h3>
               <h4>{competenceFramework}</h4>
             </div>
+            </div>
+
+            {/*Recursos */}
+            <div className={style.res}>
             <div className={style.InitialContainer}>
               <h3>Recursos</h3>
 
@@ -129,28 +154,35 @@ export function ViewProject(props) {
                   : null}
               </div>
             </div>
-          </div>
-          <div className={style.containerTwo}>
-            <div className={style.InitialContainer}>
-              <h3>Nombre del Proyecto</h3>
-              <h4>{titleProject}</h4>
-              <h3>Descripción del Proyecto</h3>
-              <h4>{descriptionProject}</h4>
-              <h3>Etiquetas del Proyecto</h3>
-              <div className={style.tagsList}>
-                {tagsProject.length !== 0
-                  ? tagsProject.map((item, index) => (
-                      <div className={style.tagContainer} key={index}>
-                        <p className={style.tag}>{item}</p>
-                      </div>
-                    ))
-                  : null}
-              </div>
             </div>
+              {/*Contexto */}
             <div className={style.contextContainer}>
               <h3>Contexto del Proyecto</h3>
               <p>{contextGeneral}</p>
             </div>
+              
+              {/*Criterios */}
+            <div className={style.summaryProject}>
+            <h3>Criterios de Rendimiento</h3>
+
+            <div>
+              {performanceCriterias.length !== 0
+                ? performanceCriterias.map((item, index) => (
+                    <div className={style.tagContainer} key={index}>
+                      <div className={style.tagText}>
+                        <p className={style.tag}>{item}</p>
+                      </div>
+                    </div>
+                  ))
+                : null}
+            </div>
+          </div>
+            
+
+          </div>
+          <div className={style.containerTwo}>
+
+          <div className={style.summaryProject}>
             <h3>Fecha y Hora de Entrega</h3>
             <div className={style.dateTimeDelivery}>
               <input
@@ -161,11 +193,9 @@ export function ViewProject(props) {
                 disabled
               />
             </div>
-          </div>
-        </div>
-        <div className={style.line}></div>
-        <div className={style.deliveryContainer}>
-          <div className={style.summaryProject}>
+            </div>
+
+            <div className={style.summaryProject}>
             <h3>Requerimientos Generales</h3>
 
             <div>
@@ -180,9 +210,9 @@ export function ViewProject(props) {
                 : null}
             </div>
           </div>
+
           <div className={style.summaryProject}>
             <h3>Requerimientos Técnicos</h3>
-
             <div>
               {contextTechniciansReq.length !== 0
                 ? contextTechniciansReq.map((item, index) => (
@@ -194,7 +224,8 @@ export function ViewProject(props) {
                   ))
                 : null}
             </div>
-          </div>
+          </div> 
+
           <div className={style.summaryProject}>
             <h3>Requerimientos Adicionales</h3>
             <div>
@@ -209,6 +240,8 @@ export function ViewProject(props) {
                 : null}
             </div>
           </div>
+
+          {/*Modalidad */ }
           <div className={style.summaryProject}>
             <h3>Modalidad Pedagógica</h3>
 
@@ -224,22 +257,8 @@ export function ViewProject(props) {
                 : null}
             </div>
           </div>
-          <div className={style.summaryProject}>
-            <h3>Criterios de Rendimiento</h3>
-
-            <div>
-              {performanceCriterias.length !== 0
-                ? performanceCriterias.map((item, index) => (
-                    <div className={style.tagContainer} key={index}>
-                      <div className={style.tagText}>
-                        <p className={style.tag}>{item}</p>
-                      </div>
-                    </div>
-                  ))
-                : null}
-            </div>
-          </div>
-          <div className={style.summaryProject}>
+            {/*Mod. Evaluación */}
+           <div className={style.summaryProject}>
             <h3>Modalidad de Evaluación</h3>
 
             <div>
@@ -254,6 +273,14 @@ export function ViewProject(props) {
                 : null}
             </div>
           </div>
+
+          </div>
+        </div>
+        
+        {/*Abajo */}
+        <div className={style.deliveryContainer}>
+
+          {/*Entregables*/}
           <div className={style.inputsdeliveries}>
             <h3>Entregables del Proyecto</h3>
             <div>
