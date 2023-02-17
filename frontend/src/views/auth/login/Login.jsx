@@ -10,6 +10,7 @@ import Facebook from "../../../assets/icons/facebook.png"
 import Instagram from "../../../assets/icons/instagram.png"
 import './Login.css'
 import logo from '../../../assets/logos/Programate-academy-negros.png'
+import LazyLoad from "react-lazy-load";
 
 const initialState = {
   email: '',
@@ -55,16 +56,20 @@ function Login () {
 
   return (
     <div className='container-login'>
-      <div className='imagenes'>
+      <LazyLoad className='imagenes'>
         <img className='agora' src={Agora} alt=""/>
       
      
-      </div>
-      <img className='logo' src={logo} alt="" />
+      </LazyLoad>
+      <LazyLoad>
+        <img className='logo' src={logo} alt="" />
+      </LazyLoad>
       <div className='login-page'>
         <div style={{ display:"flex", justifyContent:"space-between" }}>
         <h1 className='title'>Ingreso de <br /> Usuario</h1>
+        <LazyLoad>
         <img className='group' src={Group} alt="" />
+        </LazyLoad>
         </div>
         <form className='form' onSubmit={handleSubmit}>
           <div className='login-form-content'>
@@ -95,8 +100,10 @@ function Login () {
         </form>
         <div className='redes'>
           <Link className='clave' to='/forgot_password'>¿Olvidó su contraseña?</Link>
-          <img src={Instagram} alt="" />
-          <img src={Facebook} alt="" />
+          <LazyLoad>
+            <img src={Instagram} alt="" />
+            <img src={Facebook} alt="" />
+          </LazyLoad>
           </div>
       </div>
     </div>

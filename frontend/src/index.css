@@ -1,16 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
 
-@font-face {
-  font-family: 'Gilroy-Light';
-  src: url('./assets/font/Gilroy-Light.otf');
-}
-
-@font-face {
-  font-family: 'Gilroy-Bold';
-  src: url('./assets/font/Gilroy-ExtraBold.otf');
-}
-
-* {
+*{
   font-family: 'Roboto', sans-serif;
   padding: 0px;
   margin: 0;
@@ -18,18 +8,14 @@
 }
 
 h1 {
-  font-family: 'Gilroy-ExtraBold', sans-serif;
   text-align: center;
 }
 
 h2, h3 {
-  font-family: 'Gilroy-Light', sans-serif;
   text-align: center;
- 
 }
 
 body {
-
   overflow-x: hidden;
 }
 

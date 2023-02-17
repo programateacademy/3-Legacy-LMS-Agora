@@ -13,6 +13,7 @@ import styles from "./register.module.css";
 import logo from "../../../assets/logos/Programate-academy-negros.png";
 import { useNavigate } from "react-router-dom";
 import { BsArrowLeftCircle } from "react-icons/bs";
+import LazyLoad from "react-lazy-load";
 
 const initialState = {
   firstName: "",
@@ -120,7 +121,9 @@ export function UpdateRegister() {
         <button className={styles.button_return} onClick={() => navigate(-1)}>
           <BsArrowLeftCircle size={30} />
         </button>
+        <LazyLoad>
         <img className={styles.logo_register} src={logo} alt="logo" />
+        </LazyLoad>
         <h2 className={styles.title_register}>USUARIO</h2>
         <div className={styles.register_form_content}>
           <form className={styles.register_form} onSubmit={handleSubmit}>

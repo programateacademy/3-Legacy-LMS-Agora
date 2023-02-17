@@ -3,6 +3,7 @@ import styles from "./CardCohort.module.css";
 import { Button } from "../../buttons/Button/Button";
 import { useDispatch } from "react-redux";
 import { dispatchMenuHide } from "../../../redux/actions/menuAction";
+import LazyLoad from "react-lazy-load";
 export function CardCohort({ info, principal, teacher }) {
   const dispatch = useDispatch();
 
@@ -18,9 +19,9 @@ export function CardCohort({ info, principal, teacher }) {
   return (
     <div>
       <div className={styles.cohort}>
-        <div className={styles.cohortImage}>
+        <LazyLoad className={styles.cohortImage}>
           <img src={imageCohort} alt={nameCohort} />
-        </div>
+        </LazyLoad>
         <div className={styles.cohortInfo}>
           <h3>{`${nameCohort} - Cohorte ${numberCohort}`}</h3>
           <p>{descriptionCohort}</p>

@@ -36,7 +36,7 @@ function TableStudent(props) {
 
   useEffect(() => {
     projects.forEach((id) => getProject(id, userID));
-  }, [projects, getProject,userID]);
+  }, [projects, getProject, userID]);
 
   useEffect(() => {
     queries.map((item) => fetchActivity("query", item, userID));
@@ -46,7 +46,9 @@ function TableStudent(props) {
     workbooks.map((item) => fetchActivity("workbook", item, userID));
   }, [workbooks, userID]);
 
-  const projectInfo = Object.keys(projectInfoData).map(projectId => projectInfoData[projectId]);
+  const projectInfo = Object.keys(projectInfoData).map(
+    (projectId) => projectInfoData[projectId]
+  );
 
   return (
     <div className={style.container}>

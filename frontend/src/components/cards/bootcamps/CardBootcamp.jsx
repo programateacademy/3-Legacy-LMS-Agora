@@ -1,14 +1,15 @@
 import React from "react";
 import styles from "./CardBootcamp.module.css";
 import { Button } from "../../buttons/Button/Button";
+import  LazyLoad  from  'react-lazy-load' ;
 
 export function CardBootcamp(props) {
   const { name, image, description, linkCohort, linkUpdate } = props;
   return (
       <div className={styles.card}>
-        <div className={styles.image}>
+        <LazyLoad className={styles.image}>
           <img src={image} alt={name} />
-        </div>
+        </LazyLoad>
         <div className={styles.content}>
           <h3>{name}</h3>
           <p>{description}</p>

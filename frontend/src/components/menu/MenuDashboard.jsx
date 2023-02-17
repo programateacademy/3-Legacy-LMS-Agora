@@ -18,8 +18,8 @@ export function MenuDashboard({ open, setOpen }) {
     {
       text: "Estadísticas",
       route: `/dashboard/${cohortID}/statistics`,
-      icon: <i className={`ri-folders-fill ${style.icon}`}></i>,
-    },
+      icon: <i className={`ri-bar-chart-2-fill ${style.icon}`}></i>,
+    }, 
     {
       text: "Proyectos",
       route: `/dashboard/${cohortID}/projects`,

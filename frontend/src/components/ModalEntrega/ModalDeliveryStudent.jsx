@@ -7,6 +7,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import apiAgora from "../../api/index";
 import { showErrMsg, showSuccessMsg } from "../../utils/notification";
+import LazyLoad from "react-lazy-load";
 
 const initialState = {
   message: "",
@@ -218,9 +219,9 @@ export function ModalDeliveryStudent() {
         </button>
         <div className={styles.InitialContainer}>
           <h2>{activityProject}</h2>
-          <div className={styles.img_preview}>
+          <LazyLoad className={styles.img_preview}>
             <img src={image} alt="imageDelivery" />
-          </div>
+          </LazyLoad>
         </div>
       </div>
       <form className={styles.containerModal} onSubmit={handleSubmit}>

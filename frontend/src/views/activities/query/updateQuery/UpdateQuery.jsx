@@ -8,6 +8,7 @@ import apiAgora from "../../../../api/index";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Swal from "sweetalert2";
+import LazyLoad from "react-lazy-load";
 
 const initialState = {
   titleQuery: "",
@@ -216,9 +217,9 @@ export function UpdateQuery() {
         <div className={style.container}>
           <div className={style.containerOne}>
             <div>
-              <div className={style.img_preview}>
+              <LazyLoad className={style.img_preview}>
                 <img className={style.image} src={image} alt="Consulta" />
-              </div>
+              </LazyLoad>
               <h3>Imagen de la Consulta</h3>
               <input
                 className={style.input__imageURL}

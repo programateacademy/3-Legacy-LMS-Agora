@@ -5,6 +5,7 @@ import { BsArrowLeftCircle } from "react-icons/bs";
 import { useSelector } from "react-redux";
 import apiAgora from "../../../api/index";
 import { showErrMsg, showSuccessMsg } from "../../../utils/notification";
+import LazyLoad from "react-lazy-load";
 
 const initialStateBootcamp = {
   nameBootcamp: "",
@@ -91,9 +92,9 @@ export function CreateBootcamp() {
           />
         </div>
         <div>
-          <div className={styles.img_preview}>
+          <LazyLoad className={styles.img_preview}>
             <img className={styles.image} src={image} alt="Logo Bootcamp" />
-          </div>
+          </LazyLoad>
           <div className={styles.file}>
             <input
               className={styles.input__logoURL}

@@ -10,6 +10,7 @@ import apiAgora from "../../api/index";
 import { showErrMsg, showSuccessMsg } from "../../utils/notification";
 import { MdCancel } from "react-icons/md";
 import { FiCheckCircle } from "react-icons/fi";
+import LazyLoad from "react-lazy-load";
 
 const initialState = {
   message: "",
@@ -298,9 +299,9 @@ export function ModalDeliveryTeacher() {
         </button>
         <div className={styles.InitialContainer}>
           <h2>{activityProject}</h2>
-          <div className={styles.img_preview}>
+          <LazyLoad className={styles.img_preview}>
             <img src={image} alt="imageDelivery" />
-          </div>
+          </LazyLoad>
           <h2>Entrega por:</h2>
           <h2>
             {user.firstName +

@@ -1,5 +1,6 @@
 import style from "./Step.module.css";
 import { MdExpandLess } from "react-icons/md";
+import LazyLoad from "react-lazy-load";
 export function Step(props) {
   const { info, setOpenInfo } = props;
   const { index, stepShow } = info;
@@ -35,13 +36,13 @@ export function Step(props) {
         {imageExampleStep ? (
           <div className={style.steps}>
             <h3>Imagen de referencia</h3>
-            <div className={style.img_preview}>
+            <LazyLoad className={style.img_preview}>
               <img
                 className={style.image}
                 src={imageExampleStep}
                 alt="Imagen"
               />
-            </div>
+            </LazyLoad>
           </div>
         ) : null}
         {/* Code */}
@@ -56,13 +57,13 @@ export function Step(props) {
         {imageResultStep ? (
           <div className={style.steps}>
             <h3>Resultado esperado</h3>
-            <div className={style.img_preview}>
+            <LazyLoad className={style.img_preview}>
               <img
                 className={style.image}
                 src={imageResultStep}
                 alt="Resultado esperado"
               />
-            </div>
+            </LazyLoad>
           </div>
         ) : null}
         {/* Notes */}

@@ -3,6 +3,7 @@ import logo from "../../assets/logos/programate-academy-blancos.png";
 
 import { Link, Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
+import LazyLoad from "react-lazy-load";
 
 import UserLink from "./UserLink";
 import "./UserLink.css";
@@ -10,6 +11,7 @@ import style from "./Header.module.css";
 
 import { HamburguerMenu } from "./HamburguerMenu";
 import { MenuDashboard } from "../menu/MenuDashboard";
+
 
 export function Header() {
   const auth = useSelector((state) => state.auth);
@@ -52,9 +54,9 @@ export function Header() {
           ) : (
             ""
           )}
-          <span className={style.Logo}>
+          <LazyLoad className={style.Logo}>
             <img src={logo} alt="Prográmate-logotipo" />
-          </span>
+          </LazyLoad>
           {isLogged ? (
             <UserLink user={user} handleLogout={handleLogout} />
           ) : (

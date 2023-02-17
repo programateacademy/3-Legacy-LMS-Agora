@@ -162,7 +162,7 @@
 
 /*Tablet Vertical*/
 
-@media (min-width:481px) and (max-width:768px) and (orientation:portrait){
+@media (min-width:481px) and (max-width:768px) and (orientation:portrait) {
   header {
     padding: 2px;
     background-color: var(--colorHeader);
@@ -248,7 +248,7 @@
 }
 
 /*Cel Horizontal*/
-@media (min-width:399px) and (max-width:760px) and ( orientation:landscape){
+@media (min-width:399px) and (max-width:760px) and (orientation:landscape) {
   header {
     padding: 2px;
     background-color: var(--colorHeader);
@@ -330,7 +330,7 @@
 }
 
 /*Cel Vertical*/
-@media (min-width: 320px) and (max-width: 480px) and (orientation:portrait){
+@media (min-width: 320px) and (max-width: 480px) and (orientation:portrait) {
   header {
     padding: 2px;
     background-color: var(--colorHeader);

@@ -8,6 +8,7 @@ import { showErrMsg, showSuccessMsg } from "../../../../utils/notification";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { AiOutlineLink } from "react-icons/ai";
 import Swal from "sweetalert2";
+import LazyLoad from "react-lazy-load";
 const initialState = {
   competences: [],
   titleProject: "",
@@ -304,13 +305,13 @@ export function UpdateProject() {
         <div className={style.container}>
           <div className={style.containerOne}>
             <div>
-              <div className={style.img_preview}>
+              <LazyLoad className={style.img_preview}>
                 <img
                   className={style.image}
                   src={image}
                   alt="Imagen del proyecto"
                 />
-              </div>
+              </LazyLoad>
               <h3>Imagen del Proyecto</h3>
               <input
                 className={style.input__imageURL}

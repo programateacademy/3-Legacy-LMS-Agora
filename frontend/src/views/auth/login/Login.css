@@ -25,7 +25,8 @@ input {
   background-color: var(--colorWhite);
   box-shadow: 2px 1px 5px black;
 }
-.title {
+
+.login-page .title{
   font-size: 30px;
   color: rgb(99, 96, 96);
   font-weight: bold;
@@ -34,7 +35,13 @@ input {
   width: 100px;
   margin: 0;
 }
-.rayas {
+
+.login-form-content h4{
+  text-align: center;
+}
+
+
+h4{
   font-size: 20px;
   display: inline-block;
   position: relative;
@@ -42,8 +49,7 @@ input {
   color: gray;
   text-align: center;
 }
-.rayas::after,
-.rayas::before {
+.login-form-content h4::after, .login-form-content h4::before{
   content: " ";
   position: absolute;
   width: 70px;

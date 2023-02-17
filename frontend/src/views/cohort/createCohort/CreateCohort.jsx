@@ -7,6 +7,7 @@ import apiAgora from "../../../api/index";
 import { useParams } from "react-router-dom";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
+import LazyLoad from "react-lazy-load";
 
 const initialStateCohort = {
   nameCohort: "",
@@ -233,9 +234,9 @@ export function CreateCohort() {
           </div>
         </div>
         <div>
-          <div className={style.img_preview}>
+          <LazyLoad className={style.img_preview}>
             <img className={style.image} src={image} alt="Logo Cohorte" />
-          </div>
+          </LazyLoad>
           <div className={style.file}>
             <input
               className={style.input__logoURL}

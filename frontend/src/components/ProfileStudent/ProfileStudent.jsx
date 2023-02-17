@@ -15,6 +15,7 @@ import { showErrMsg, showSuccessMsg } from "../../utils/notification";
 import { CompetencesTableUser } from "../competencesTable/CompetencesTableUser";
 import apiAgora from "../../api/index";
 import { useParams } from "react-router-dom";
+import LazyLoad from "react-lazy-load";
 const initialState = {
   competence: [],
   dateOfBirth: "",
@@ -155,20 +156,20 @@ export function ProfileStudent(props) {
     type="button"
     onClick={() => navigate(-1)}
   >
-     <BsArrowLeftCircle size={30} />
+     <i class="ri-arrow-left-circle-line" ></i>
     </button>
    
     <div className={styles.container}>
 
       <form className={styles.containerProfile} onSubmit={handleSubmit}>
         
-        
+  
         <div className={styles.cajaIns}>
 
-        <div className={styles.backround_profile}>
+        <LazyLoad className={styles.backround_profile}>
           {/* se pone imagen provicional para posterior conexion con el backend*/}
           <img src={profiletemporalimg} alt="img_profile" />
-        </div>
+        </LazyLoad>
         <button className={styles.chargeimg} ><i className="ri-upload-cloud-2-line"></i></button>
       
           {!teacher ? (

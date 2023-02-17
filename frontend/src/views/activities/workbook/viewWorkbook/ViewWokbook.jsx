@@ -8,6 +8,7 @@ import { MdExpandMore } from "react-icons/md";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { AiOutlineLink } from "react-icons/ai";
 import { Button } from "../../../../components/buttons/Button/Button";
+import LazyLoad from "react-lazy-load";
 const initWorkbook = {
   titleWorkbook: "",
   pictureWorkbook: "",
@@ -74,7 +75,7 @@ export function ViewWorkbook(props) {
     <div className={style.formContainer}>
       <div>
         <button className={style.button_return} onClick={() => navigate(-1)}>
-          <BsArrowLeftCircle size={30} />
+          <i class="ri-arrow-left-circle-line" ></i>
         </button>
       </div>
       <div className={style.wrapper}>
@@ -93,17 +94,40 @@ export function ViewWorkbook(props) {
         <div className={style.container}>
           <div className={style.containerOne}>
             {/*     Image */}
-            <div >
-              <div className={style.img_preview}>
+            <div>
+              <LazyLoad className={style.img_preview}>
                 <img
                   className={style.image}
                   src={image}
                   alt="Imagen del workbook"
                 />
+              </LazyLoad>
+            </div>
+
+             {/* Name*/}
+              <div className={style.InitialContainer}>
+              <h3>Nombre del workbook</h3>
+              <h4>{titleWorkbook}</h4>
+              {/* Description */}
+              <h3>Descripción del proyecto</h3>
+              <p>{descriptionWorkbook}</p>
+              {/* Tags */}
+              <div>
+                <h3>Etiquetas del Workbook</h3>
+                <div className={style.tagsList}>
+                  {tagsWorkbook.length !== 0
+                    ? tagsWorkbook.map((item, index) => (
+                        <div className={style.tagContainer} key={index}>
+                          <p className={style.tag}>{item}</p>
+                        </div>
+                      ))
+                    : null}
+                </div>
               </div>
             </div>
-            {/* Resources */}
 
+            {/* Resources */}
+            <div className={style.res}>
             <div className={style.InitialContainer}>
               <h3>Recursos</h3>
               <div>
@@ -127,37 +151,19 @@ export function ViewWorkbook(props) {
                   : null}
               </div>
             </div>
+            </div>
             {/* Basic Notions  */}
             <div className={style.contextContainer}>
               <h3>Nociones básicas</h3>
               <p>{basicNotions}</p>
             </div>
           </div>
-          <div className={style.containerTwo}>
-            {/* Name*/}
-            <div className={style.InitialContainer}>
-              <h3>Nombre del workbook</h3>
-              <h4>{titleWorkbook}</h4>
-              {/* Description */}
-              <h3>Descripción del proyecto</h3>
-              <p>{descriptionWorkbook}</p>
-              {/* Tags */}
-              <div>
-                <h3>Etiquetas del Workbook</h3>
-                <div className={style.tagsList}>
-                  {tagsWorkbook.length !== 0
-                    ? tagsWorkbook.map((item, index) => (
-                        <div className={style.tagContainer} key={index}>
-                          <p className={style.tag}>{item}</p>
-                        </div>
-                      ))
-                    : null}
-                </div>
-              </div>
-            </div>
 
+
+          <div className={style.containerTwo}>
+            <div className={style.ajus}>
             {/* Delivery date */}
-            <div>
+            <div className={style.summaryProject}>
               <h3>Fecha y hora de entrega</h3>
               <div className={style.dateTimeDelivery}>
                 <input
@@ -169,12 +175,10 @@ export function ViewWorkbook(props) {
                 />
               </div>
             </div>
-          </div>
-        </div>
-        <div className={style.line}></div>
-        {/*  Environmental requirements */}
-        <div className={style.deliveryContainer}>
-          <div className={style.summaryProject}>
+
+            {/*Entorno*/}
+
+            <div className={style.summaryProject}>
             <h3>Entorno de desarrollo</h3>
             <div className={(style.tagsList, style.concepts)}>
               {environmentalReq.length !== 0
@@ -186,6 +190,8 @@ export function ViewWorkbook(props) {
                 : null}
             </div>
           </div>
+
+          {/*Conceptos */}
           <div className={style.summaryProject}>
             <h3>Conceptos a investigar</h3>
             <div className={style.concepts}>
@@ -200,6 +206,13 @@ export function ViewWorkbook(props) {
                 : null}
             </div>
           </div>
+          </div>
+          </div>
+        </div>
+       
+        {/*  Environmental requirements */}
+        <div className={style.delivery}>
+          
           {/*Show steps*/}
           <div className={style.summaryProject}>
             <h3>Pasos</h3>
