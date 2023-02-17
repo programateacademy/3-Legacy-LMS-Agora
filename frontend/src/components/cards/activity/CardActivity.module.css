@@ -14,7 +14,7 @@
   box-shadow: 35px 35px 68px 0px rgba(89, 89, 92, 0.2),
     inset -8px -8px 16px 0px rgba(43, 43, 44, 0.6),
     inset 0px 11px 28px 0px rgb(0, 0, 0);
-  transition: all 0.2s;
+  transition: 0.2s all;
 }
 
 /* Hover Card Principal */
@@ -25,7 +25,6 @@
 
 /* Desplegue de la info */
 .card__overlay {
-  clip-path: polygon(0 11%, 100% 33%, 100% 100%, 0% 100%);
   background-color: rgba(0, 0, 0, .8);
   background-size: cover;
   text-align: center;
@@ -35,13 +34,15 @@
   right: 0;
   z-index: 1;
   transform: translateY(100%);
-  transition: 0.3s ease-in-out;
+  transition: 0.2s ease-in-out;
 }
 
 /* Acciones del despliegue cuando se activa el hover de la card principal */
 .card:hover .card__overlay {
+  clip-path: polygon(0 11%, 100% 33%, 100% 100%, 0% 100%);
   transform: translateY(0);
   overflow: hidden;
+  transition: 0.4s ease-in-out;
 }
 
 /* Babecera que indica ver más acciones */
@@ -54,19 +55,20 @@
   justify-content: center;
   border-radius: calc(2 * 30px) 0 0;
   transform: translateY(-100%);
-  transition: 0.1s ease-in-out;
+  transition: 0.4s ease-in-out;
 }
 
 /* Acciones de la cabecera cuando se activa el hover */
 .card:hover .card__header {
   transform: translateY(0);
   background-color: transparent;
+  transition: 0.2s ease-in-out;
 }
 
 /* Acciones del texto cuando se activa el hover */
 .card:hover .card__header__text h3 {
   display: none;
-  transition: 0.3s ease-in;
+  transition: 0.2s ease-in;
 }
 
 /* Contenedor de los textos */
@@ -95,6 +97,8 @@
   -webkit-line-clamp: 3;
   overflow: hidden;
 }
+
+
 
 /*  */
 

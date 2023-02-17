@@ -1,3 +1,10 @@
+.projects > .title {
+ font-size: 40px;
+ margin-top: 20px;
+ font-weight: 600;
+ color: var(--colorNav);
+}
+
 .projects {
     display: flex;
     flex-direction: column;

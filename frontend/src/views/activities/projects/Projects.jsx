@@ -25,7 +25,7 @@ export function Projects(props) {
   }, [cohortID, userID]);
   return (
     <div className={styles.projects}>
-      <h5>Proyectos</h5>
+      <h2 className={styles.title}>Proyectos</h2>
       {teacher ? (
         <div className={styles.buttonCreateProject}>
           <Button
