@@ -298,7 +298,7 @@ export function UpdateProject() {
         </button>
       </div>
       <div className={style.wrapper}>
-        <h2 className={style.typing_demo_update_Project}>Modificar Proyecto</h2>
+        <h2 className={`${style.typing_demo_update_Project} ${style.titlesGlobales}`}>Modificar Proyecto</h2>
       </div>
       <form className={style.form} onSubmit={handleSubmit}>
         <div className={style.container}>

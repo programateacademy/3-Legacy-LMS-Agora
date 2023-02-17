@@ -74,7 +74,7 @@ export function ViewQuery(props) {
         </button>
       </div>
       <div className={style.wrapper}>
-        <h2 className={style.typing_demo_view_Project}>Consulta</h2>
+        <h2 className={`${style.typing_demo_view_Project} ${style.titlesGlobales}`}>Consulta</h2>
       </div>
       {!teacher ? (
         <div className={style.buttonDelivery}>

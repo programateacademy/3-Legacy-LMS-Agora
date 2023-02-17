@@ -248,7 +248,7 @@ export function CreateProject() {
         </button>
       </div>
       <div className={style.wrapper}>
-        <h2 className={style.typing_demo}>Crear proyecto</h2>
+        <h2 className={`${style.typing_demo} ${style.titlesGlobales}`}>Crear proyecto</h2>
       </div>
       <form className={style.form} onSubmit={handleSubmit}>
         <div className={style.container}>
