@@ -211,7 +211,7 @@ export function UpdateQuery() {
         </button>
       </div>
       <div className={style.wrapper}>
-        <h2 className={style.typing_demo_update_Query}>Modificar Consulta</h2>
+        <h2 className={`${style.typing_demo_update_Query} ${style.titlesGlobales}`}>Modificar Consulta</h2>
       </div>
       <form onSubmit={handleSubmit}>
         <div className={style.container}>

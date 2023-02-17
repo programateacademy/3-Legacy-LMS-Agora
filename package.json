@@ -28,6 +28,8 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
     "eslint-plugin-cypress": "2.12.1",
     "standard": "17.0.0"
   },
@@ -35,6 +37,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "compression": "^1.7.4",
+    "nodemon": "^2.0.20",
     "npm": "^9.4.2"
   }
 }

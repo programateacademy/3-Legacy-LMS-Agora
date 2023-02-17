@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;1,300&family=KoHo&display=swap');
+
+.Overlay-modal{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(33, 22, 67, .8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.container-modal{
+    width: 500px;
+    min-height: 200px;
+    background-color: white;
+    position: relative;
+    border-radius: 15px;
+    box-shadow: rgb(0, 0, 0, .4)5px 5px 10px 1px;
+    padding: 1rem;
+}
+
+.modal_encabezated{
+    display: flex;
+    justify-content: center;
+}
+
+.modal_encabezated h1{
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
+    color: #898989;
+    margin-bottom: 2rem;
+}
+
+.close_button{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    opacity: .5;
+    cursor: pointer;
+}
+
+.close_button:hover{
+    opacity: 1;
+}
+
+.inputs-container{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    margin-bottom: 4rem;
+}
+
+
+
+
+/*styles input name movie*/
+
+#movie-name{
+    width: 90%;
+    border: none;
+    border-bottom: 1px solid #898989 ;
+    padding: 1rem;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    font-size: 21px;
+    color: #898989;
+}
+
+#movie-name::placeholder{
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    font-size: 21px;
+    color: #adadad;
+}
+
+/*styles input name director*/
+
+#movie-director{
+    width: 80%;
+    border: none;
+    border-bottom: 1px solid #898989 ;
+    padding: 1rem;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    font-size: 21px;
+    color: #898989;
+}
+
+#movie-director::placeholder{
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    font-size: 21px;
+    color: #adadad;
+}
+
+/*styles input duration*/
+
+#movie-duration{
+    width: 80%;
+    border: none;
+    border-bottom: 1px solid #898989 ;
+    padding: 1rem;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    font-size: 21px;
+    color: #898989;
+}
+
+#movie-duration::placeholder{
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    font-size: 21px;
+    color: #adadad;
+}
+
+/*styles selec country*/
+
+#country{
+    width: 80%;
+    border: none;
+    border-bottom: 1px solid #898989 ;
+    padding: 1rem;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    font-size: 21px;
+    color: #898989;
+}
+
+/*styles selec year*/
+
+#year{
+    width: 80%;
+    border: none;
+    border-bottom: 1px solid #898989 ;
+    padding: 1rem;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    font-size: 21px;
+    color: #898989;
+}
+
+/*styles selec lenguaje*/
+
+#lenguaje{
+    width: 80%;
+    border: none;
+    border-bottom: 1px solid #898989 ;
+    padding: 1rem;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    font-size: 21px;
+    color: #898989;
+}
+
+/*styles input premiere*/
+
+#premiere{
+    width: 80%;
+    border: none;
+    border-bottom: 1px solid #898989 ;
+    padding: 1rem;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    font-size: 21px;
+    color: #898989;
+}
+
+/*Styles button save*/
+
+.save_button{
+    background-color: #170E3C;
+    position: absolute;
+    border-radius: 15px;
+    border: none;
+    color: white;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    bottom: 15px;
+    right: 15px;
+}
+
+.save_button:hover{
+    background-color: rgb(85, 23, 142);
+}
+
+@media (max-width:425px) {
+
+    .inputs-container{
+        display: flex;
+        flex-direction: column;
+    }
+    
+}

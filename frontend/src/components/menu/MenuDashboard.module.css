@@ -2,7 +2,9 @@
   display: flex;
   width: 250px;
   height: calc(100vh - 70px);
-  background-color: var(--colorBlack);
+  background-color: var(--colorNav);
+  border-radius: 25px;
+  margin: 50px  20px;
 }
 .ul{
   display: flex;
@@ -22,23 +24,24 @@
 }
 
 .link:hover{
-  background-color: var(--colorWhite);
+  background-color: var(--colorHoverNav);
   text-decoration: none;
+  border-radius: 25px;
 }
 .nav_text{
-  color: var(--colorYellow);
+  color: var(--colorWhite);
   font-size: 18px;
 }
+.nav_text:hover{
+  box-shadow: 0px 3px 0.5px var(--colorYellow);
+  width: 70%;
+}
 .link:hover > span{
- color: var(--colorBlack);
+  color: var(--colorYellow);
 }
 .icon{
   margin-right: 1rem;
   color: var(--colorYellow);
-}
-.link:hover .icon{
-  color: var(--colorBlack);
-  width: 100%;
 }
 .link_active .icon{
   color: var(--colorBlack);

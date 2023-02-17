@@ -1,9 +1,10 @@
 /* ------------- LOGIN--------------- */
+
 .container-login {
   align-items: center;
-  background-color: var(--colorWhite)fff;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  background-image: url(../../../assets/font/fondo.svg);
   min-height: calc(90vh);
   padding: 10px;
   width: 100%;
@@ -13,33 +14,94 @@
   flex-direction: column;
   justify-content: space-evenly;
 }
+
+input {
+  border: transparent;
+  min-height: 40px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px 0;
+  background-color: var(--colorWhite);
+  box-shadow: 2px 1px 5px black;
+}
+.title {
+  font-size: 30px;
+  color: rgb(99, 96, 96);
+  font-weight: bold;
+}
+.group {
+  width: 100px;
+  margin: 0;
+}
+.rayas {
+  font-size: 20px;
+  display: inline-block;
+  position: relative;
+  font-weight: bold;
+  color: gray;
+  text-align: center;
+}
+.rayas::after,
+.rayas::before {
+  content: " ";
+  position: absolute;
+  width: 70px;
+  height: 1px;
+  background-color: rgb(104, 104, 104);
+  top: 0.6em;
+}
+
+.rayas::before {
+  left: -1px;
+}
+.rayas::after {
+  right: -10px;
+}
+
+input::placeholder {
+  padding-left: 10px;
+}
 .login-form-content * {
   padding: 0;
 
   margin: 0;
 }
 .login-page {
-  background-color: var(--colorGray);
+  background-color: var(--colorWhite);
   border-radius: 14px;
-  box-shadow: 0.4rem 0.4rem 0 0 var(--colorBlack);
-  height: 80vh;
-  max-width: 400px;
+  height: auto;
+  max-width: 450px;
+  width: 500px;
   padding: 25px;
-  width: 100%;
+  border: 1px solid;
+  box-shadow: 5px 5px 5px rgb(39, 38, 38);
+  margin: 0 30px;
 }
 .form {
-  margin-top: 50px;
+  margin: 40px 0;
 }
-.logo {
-  display: block;
-  margin: auto;
-  width: 80%;
+.logo,
+.logo2 {
+  width: 250px;
+  height: 100px;
+  position: relative;
+  right: 100px;
+  bottom: 100px;
 }
+.redes {
+  display: flex;
+  justify-content: flex-end;
+}
+link .clave {
+  color: gray;
+}
+
 .button-login {
-  background-color: var(--colorBlack);
+  background-color: var(--colorYellow);
   border-radius: 10px;
   border: none;
-  color: #e3e3e3;
+  color: #000000;
   cursor: pointer;
   display: block;
   font-weight: bold;
@@ -60,26 +122,60 @@
   margin: 15px 0;
 }
 .login-page a {
-  color: var(--colorBlack);
-  font-size: 14px;
+  text-decoration: underline;
+  font-size: 16px;
+  color: gray;
   font-weight: 600;
   padding: 5px;
 }
-.login-page a:hover {
-  background-color: var(--colorYellow);
-  padding: 5px;
+img.agora {
+  width: 400px;
 }
+hr {
+  background-color: var(--colorBlack);
+}
+.requerid {
+  color: blueviolet !important;
+  text-decoration: underline;
+  display: flex;
+  justify-content: flex-end;
+  margin: 10px 0;
+}
+.redes img {
+  width: 40px;
+  height: 40px;
+}
+
 /* ------------- MEDIA QUERIES --------------- */
-@media (max-width: 1290px) {
-  .login-page {
-    height: 100%;
+
+@media (max-width: 1220px) {
+  .rayas::after,
+  .rayas::before {
+    width: 40px;
+  }
+
+  .rayas {
+    font-size: 16px;
+  }
+  .rayas::before {
+    left: -25px;
+  }
+  .rayas::after {
+    right: -25px;
+  }
+  .title {
+    font-size: 20px;
+  }
+
+  .login-page a {
+    font-size: 10px;
+  }
+  .redes img {
+    width: 25px;
+    height: 25px;
   }
 }
-@media (max-width: 1238px) {
-  .container-register-page {
-    height: 90%;
-  }
-}
+
 @media (max-width: 1059px) {
   .form {
     margin-top: 70px;
@@ -89,10 +185,46 @@
   }
   .login-page {
     height: 85%;
+    width: 700px;
+    margin: auto;
   }
 }
-@media (max-width: 300px) {
+
+@media (max-width: 900px) {
   .button-login {
     margin: 20px auto;
+  }
+  .logo {
+    width: 200px;
+    height: 80px;
+    display: flex;
+    margin: auto;
+  }
+
+  .group {
+    width: 70px;
+  }
+  img.agora {
+    margin: auto;
+    display: flex;
+  }
+  .container-login {
+    display: block;
+
+    margin: auto;
+  }
+  .rayas::before {
+    left: -10px;
+  }
+  .rayas::after {
+    right: -10px;
+  }
+  .rayas::after,
+  .rayas::before {
+    width: 90px;
+  }
+  .logo {
+    left: 50px;
+    top: 0px;
   }
 }

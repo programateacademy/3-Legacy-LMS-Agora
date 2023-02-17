@@ -4,6 +4,11 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import style from "./MenuDashboard.module.css";
 import "../header/UserLink.css";
+import { BsFillFileCodeFill } from "react-icons/bs";
+import { AiOutlineFundProjectionScreen, AiFillProject } from "react-icons/ai";
+import { MdAnnouncement } from "react-icons/md";
+import { FiFileText } from "react-icons/fi";
+import { RiFileUserFill, RiPagesFill } from "react-icons/ri";
 import { IconContext } from "react-icons";
 import { useParams } from "react-router-dom";
 
@@ -13,41 +18,42 @@ export function MenuDashboard({ open, setOpen }) {
   const cohortID = params.id;
   const { isTeacher } = auth;
   const [activeLink, setActiveLink] = useState(null);
+  console.log(cohortID)
   const navLinks = [
-    /* {
-      text: "Estadísticas",
-      route: `/dashboard/${cohortID}/statistics`,
-      icon: <AiOutlineFundProjectionScreen className={style.icon} />,
-    }, */
+    // {
+    //   text: "Estadísticas",
+    //   route: `/dashboard/${cohortID}/statistics`,
+    //   icon: <AiOutlineFundProjectionScreen className={style.icon} />,
+    // }, 
     {
       text: "Proyectos",
       route: `/dashboard/${cohortID}/projects`,
-      icon: <i className={`ri-bar-chart-box-line icon ${style.icon}`}></i>,
+      icon: <i className={`ri-folders-fill ${style.icon}`}></i>,
     },
     {
       text: "Workbooks",
       route: `/dashboard/${cohortID}/workbooks`,
-      icon: <i className={`ri-bar-chart-box-line icon ${style.icon}`}></i>,
+      icon: <i className={`ri-draft-fill ${style.icon}`}></i>,
     },
     {
       text: "Consultas",
       route: `/dashboard/${cohortID}/queries`,
-      icon: <i className={`ri-bar-chart-box-line icon ${style.icon}`}></i>,
+      icon: <i className={`ri-chat-smile-3-line ${style.icon}`}></i>,
     },
     {
       text: "Anuncios",
       route: `/dashboard/${cohortID}/announcements-cohort`,
-      icon: <i className={`ri-bar-chart-box-line icon ${style.icon}`}></i>,
+      icon: <i className={`ri-notification-3-line ${style.icon}`}></i>,
     },
     {
       text: "Estudiantes",
       route: `/dashboard/${cohortID}/students`,
-      icon: <i className={`ri-bar-chart-box-line icon ${style.icon}`}></i>,
+      icon: <RiFileUserFill className={style.icon} />,
     },
     {
       text: "Cohortes",
       route: "/",
-      icon: <i className={`ri-bar-chart-box-line icon ${style.icon}`}></i>,
+      icon: <RiPagesFill className={style.icon} />,
     },
   ];
   let list = [];

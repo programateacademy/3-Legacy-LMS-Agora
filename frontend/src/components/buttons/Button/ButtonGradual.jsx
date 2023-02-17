@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 export function ButtonGradual(props) {
   const { link } = props;
   return (
-    <div className={styles.buttongradual}>
-      <Link to={link}>Detalles</Link>
-    </div>
+      <Link className={styles.btn} to={link}>
+        Detalles !
+      </Link>
   );
 }
