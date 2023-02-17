@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { Dropdown } from "react-bootstrap";
-import { TiUser } from "react-icons/ti";
 import { useSelector } from "react-redux";
 
 const UserLink = ({ user, handleLogout }) => {
@@ -12,7 +11,7 @@ const UserLink = ({ user, handleLogout }) => {
       <div className="container-main-avatarContainer">
         <div className="avatarContainer">
           <div className="icon">
-            <TiUser size={30} />
+            <i class="ri-user-5-fill"></i>
           </div>
         </div>
         <div className="containerMenu">

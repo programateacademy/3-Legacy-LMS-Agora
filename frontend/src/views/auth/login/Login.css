@@ -1,15 +1,13 @@
 /* ------------- LOGIN--------------- */
 
-
 .container-login {
   align-items: center;
   display: flex;
   justify-content: space-between;
- background-image: url(../../../assets/font/fondo.svg);
+  background-image: url(../../../assets/font/fondo.svg);
   min-height: calc(90vh);
   padding: 10px;
   width: 100%;
-  
 }
 .login-form-content {
   display: flex;
@@ -21,51 +19,49 @@ input {
   border: transparent;
   min-height: 40px;
   width: 100%;
-	padding: 10px;
-	border-radius: 10px;
+  padding: 10px;
+  border-radius: 10px;
   margin: 10px 0;
-	background-color: var(--colorWhite);
+  background-color: var(--colorWhite);
   box-shadow: 2px 1px 5px black;
- ;
 }
-.title{
+.title {
   font-size: 30px;
   color: rgb(99, 96, 96);
   font-weight: bold;
- 
 }
-.group{
+.group {
   width: 100px;
   margin: 0;
-
 }
-.rayas{
+.rayas {
   font-size: 20px;
   display: inline-block;
   position: relative;
   font-weight: bold;
   color: gray;
+  text-align: center;
 }
-.rayas::after,h4::before{
+.rayas::after,
+.rayas::before {
   content: " ";
   position: absolute;
   width: 70px;
   height: 1px;
   background-color: rgb(104, 104, 104);
   top: 0.6em;
-
 }
 
-.rayas::before{
+.rayas::before {
   left: -1px;
 }
-.rayas::after{
+.rayas::after {
   right: -10px;
 }
 
 input::placeholder {
-  padding-left: 10px; 
-            }
+  padding-left: 10px;
+}
 .login-form-content * {
   padding: 0;
 
@@ -80,27 +76,24 @@ input::placeholder {
   padding: 25px;
   border: 1px solid;
   box-shadow: 5px 5px 5px rgb(39, 38, 38);
- margin: 0 30px;
-   
+  margin: 0 30px;
 }
 .form {
- margin: 40px 0;
-
+  margin: 40px 0;
 }
-.logo , .logo2 {
+.logo,
+.logo2 {
   width: 250px;
   height: 100px;
   position: relative;
   right: 100px;
   bottom: 100px;
- 
-
 }
-.redes{
+.redes {
   display: flex;
   justify-content: flex-end;
 }
-link .clave{
+link .clave {
   color: gray;
 }
 
@@ -129,26 +122,26 @@ link .clave{
   margin: 15px 0;
 }
 .login-page a {
-  text-decoration:underline;
+  text-decoration: underline;
   font-size: 16px;
   color: gray;
   font-weight: 600;
   padding: 5px;
 }
-img.agora{
+img.agora {
   width: 400px;
 }
-hr{
-  background-color:var(--colorBlack)
+hr {
+  background-color: var(--colorBlack);
 }
-.requerid{
+.requerid {
   color: blueviolet !important;
-  text-decoration:underline;
+  text-decoration: underline;
   display: flex;
   justify-content: flex-end;
   margin: 10px 0;
 }
-.redes img{
+.redes img {
   width: 40px;
   height: 40px;
 }
@@ -156,34 +149,31 @@ hr{
 /* ------------- MEDIA QUERIES --------------- */
 
 @media (max-width: 1220px) {
-  h4::after,h4::before{
+  .rayas::after,
+  .rayas::before {
     width: 40px;
   }
- 
-  h4{
+
+  .rayas {
     font-size: 16px;
   }
-  h4::before{
+  .rayas::before {
     left: -25px;
   }
-  h4::after{
+  .rayas::after {
     right: -25px;
   }
-  .title{
+  .title {
     font-size: 20px;
   }
-   
-  
+
   .login-page a {
     font-size: 10px;
   }
-  .redes img{
+  .redes img {
     width: 25px;
     height: 25px;
   }
-  
- 
- 
 }
 
 @media (max-width: 1059px) {
@@ -209,35 +199,32 @@ hr{
     height: 80px;
     display: flex;
     margin: auto;
-}
-
+  }
 
   .group {
     width: 70px;
-}
-img.agora{
-  margin: auto;
-    display: flex;
-}
-  .container-login{
-    display: block;
-   
-   margin: auto;
   }
-  h4::before{
+  img.agora {
+    margin: auto;
+    display: flex;
+  }
+  .container-login {
+    display: block;
+
+    margin: auto;
+  }
+  .rayas::before {
     left: -10px;
   }
-  h4::after{
+  .rayas::after {
     right: -10px;
   }
-  h4::after,h4::before{
+  .rayas::after,
+  .rayas::before {
     width: 90px;
   }
   .logo {
- 
     left: 50px;
-      top: 0px;
-  
+    top: 0px;
   }
-
 }

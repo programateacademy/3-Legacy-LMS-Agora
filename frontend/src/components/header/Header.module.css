@@ -1,72 +1,410 @@
-header {
-  padding: 2px;
-  background-color: var(--colorHeader);
-  box-shadow: 0px 2px 10px var(--colorBlackOpacity);
-  border-radius: 50px;
-  margin: 10px;
+@media (min-width:1025px) {
+  header {
+    padding: 2px;
+    background-color: var(--colorHeader);
+    box-shadow: 0px 2px 10px var(--colorBlackOpacity);
+    border-radius: 50px;
+    margin: 10px;
+  }
+
+  .headerContainer {
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .Logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 55px;
+    width: 170px;
+    margin-left: 1rem;
+  }
+
+  .Logo img {
+    width: 100%;
+  }
+
+  .iconsContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .linksHeader {
+    margin: 0 10px;
+    color: var(--colorBlack);
+  }
+
+  .linksHeader:hover {
+    font-weight: bold;
+    color: var(--colorBlack);
+    text-decoration: none;
+  }
+
+  .iconsContainer>div {
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+  }
+
+
+  .btnConfig {
+    text-decoration: none;
+    margin-left: 10px;
+    font-size: 20px;
+  }
+
+  .hamburguerMenu {
+    display: none;
+    cursor: pointer;
+    margin-left: 1rem;
+  }
+
+  .link_singIn {
+    text-transform: uppercase;
+    margin: 10px;
+    color: var(--colorWhite);
+  }
+
+  .link_singIn:hover {
+    color: #222222;
+  }
+
+  .p {
+    margin: 10px;
+  }
 }
 
-.headerContainer {
-  height: 70px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/*Tablet Horizontal*/
+@media (min-width:761px) and (max-width:1024px) and (orientation:landscape) {
+  header {
+    padding: 2px;
+    background-color: var(--colorHeader);
+    box-shadow: 0px 2px 10px var(--colorBlackOpacity);
+    border-radius: 50px;
+    margin: 10px;
+  }
+
+  .headerContainer {
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .Logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4rem;
+    height: 55px;
+    width: 170px;
+    margin-left: 1rem;
+  }
+
+  .Logo img {
+    width: 100%;
+  }
+
+  .iconsContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .linksHeader {
+    margin: 0 10px;
+    color: var(--colorBlack);
+  }
+
+  .linksHeader:hover {
+    font-weight: bold;
+    color: var(--colorBlack);
+    text-decoration: none;
+  }
+
+  .iconsContainer>div {
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+  }
+
+
+  .btnConfig {
+    text-decoration: none;
+    margin-left: 10px;
+    font-size: 20px;
+  }
+
+  .hamburguerMenu {
+    display: none;
+    cursor: pointer;
+    margin-left: 1rem;
+  }
+
+  .link_singIn {
+    text-transform: uppercase;
+    margin: 10px;
+    color: var(--colorWhite);
+  }
+
+  .link_singIn:hover {
+    color: #222222;
+  }
+
+  .p {
+    margin: 10px;
+  }
 }
 
-.Logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 55px;
-  width: 170px;
-  margin-left: 1rem;
-}
-.Logo img {
-  width: 100%;
-}
-.iconsContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/*Tablet Vertical*/
+
+@media (min-width:481px) and (max-width:768px) and (orientation:portrait){
+  header {
+    padding: 2px;
+    background-color: var(--colorHeader);
+    box-shadow: 0px 2px 10px var(--colorBlackOpacity);
+    border-radius: 50px;
+    margin: 10px;
+  }
+
+  .headerContainer {
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .Logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    height: 55px;
+    width: 170px;
+    margin-left: 1rem;
+  }
+
+  .Logo img {
+    width: 100%;
+  }
+
+  .iconsContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .linksHeader {
+    margin: 0 10px;
+    color: var(--colorBlack);
+  }
+
+  .linksHeader:hover {
+    font-weight: bold;
+    color: var(--colorBlack);
+    text-decoration: none;
+  }
+
+  .iconsContainer>div {
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+  }
+
+
+  .btnConfig {
+    text-decoration: none;
+    margin-left: 10px;
+    font-size: 20px;
+  }
+
+  .hamburguerMenu {
+    display: none;
+    cursor: pointer;
+    margin-left: 1rem;
+  }
+
+  .link_singIn {
+    text-transform: uppercase;
+    margin: 10px;
+    color: var(--colorWhite);
+  }
+
+  .link_singIn:hover {
+    color: #222222;
+  }
+
+  .p {
+    margin: 10px;
+  }
 }
 
-.linksHeader {
-  margin: 0 10px;
-  color: var(--colorBlack);
-}
-.linksHeader:hover {
-  font-weight: bold;
-  color: var(--colorBlack);
-  text-decoration: none;
+/*Cel Horizontal*/
+@media (min-width:399px) and (max-width:760px) and ( orientation:landscape){
+  header {
+    padding: 2px;
+    background-color: var(--colorHeader);
+    box-shadow: 0px 2px 10px var(--colorBlackOpacity);
+    border-radius: 50px;
+    margin: 10px;
+  }
+
+  .headerContainer {
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .Logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    height: 50px;
+    width: 160px;
+    margin-left: -115%;
+  }
+
+  .Logo img {
+    width: 100%;
+  }
+
+  .iconsContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .linksHeader {
+    margin: 0 10px;
+    color: var(--colorBlack);
+  }
+
+  .linksHeader:hover {
+    font-weight: bold;
+    color: var(--colorBlack);
+    text-decoration: none;
+  }
+
+  .iconsContainer>div {
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+  }
+
+
+  .btnConfig {
+    text-decoration: none;
+    margin-left: 10px;
+    font-size: 20px;
+  }
+
+  .hamburguerMenu {
+    display: none;
+    cursor: pointer;
+    margin-left: 1rem;
+  }
+
+  .link_singIn {
+    text-transform: uppercase;
+    margin: 10px;
+    color: var(--colorWhite);
+  }
+
+  .link_singIn:hover {
+    color: #222222;
+  }
+
+  .p {
+    margin: 10px;
+  }
 }
 
-.iconsContainer > div {
-  display: flex;
-  align-items: center;
-  margin-left: 30px;
-}
+/*Cel Vertical*/
+@media (min-width: 320px) and (max-width: 480px) and (orientation:portrait){
+  header {
+    padding: 2px;
+    background-color: var(--colorHeader);
+    box-shadow: 0px 2px 10px var(--colorBlackOpacity);
+    border-radius: 50px;
+    margin: 10px;
+  }
+
+  .headerContainer {
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .Logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    height: 30px;
+    width: 140px;
+    margin-left: -90%;
+  }
+
+  .Logo img {
+    width: 100%;
+  }
+
+  .iconsContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .linksHeader {
+    margin: 0 10px;
+    color: var(--colorBlack);
+  }
+
+  .linksHeader:hover {
+    font-weight: bold;
+    color: var(--colorBlack);
+    text-decoration: none;
+  }
+
+  .iconsContainer>div {
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+  }
 
 
-.btnConfig {
-  text-decoration: none;
-  margin-left: 10px;
-  font-size: 20px;
-}
-.hamburguerMenu {
-  display: none;
-  cursor: pointer;
-  margin-left: 1rem;
-}
-.link_singIn {
-  text-transform: uppercase;
-  margin: 10px;
-  color: var(--colorWhite);
-}
-.link_singIn:hover {
-  color: #222222;
-}
-.p{
-  margin: 10px;
+  .btnConfig {
+    text-decoration: none;
+    margin-left: 10px;
+    font-size: 20px;
+  }
+
+  .hamburguerMenu {
+    display: none;
+    cursor: pointer;
+    margin-left: 1rem;
+  }
+
+  .link_singIn {
+    text-transform: uppercase;
+    margin: 10px;
+    color: var(--colorWhite);
+  }
+
+  .link_singIn:hover {
+    color: #222222;
+  }
+
+  .p {
+    margin: 10px;
+  }
 }
 
 @media (max-width: 700px) {
@@ -77,10 +415,12 @@ header {
   .iconsContainer {
     display: none;
   }
+
   .Logo {
     height: 35px;
   }
-  .container{
+
+  .container {
     display: block;
   }
 }

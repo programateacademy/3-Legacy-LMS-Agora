@@ -47,6 +47,7 @@ const sendEmail = (userName, to, url, action) => {
     },
   });
 
+
   // verify connection configuration
   smtpTransport.verify(function (error, success) {
     if (error) {

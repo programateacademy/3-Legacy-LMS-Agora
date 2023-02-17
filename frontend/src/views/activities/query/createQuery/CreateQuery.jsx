@@ -154,18 +154,27 @@ export function CreateQuery() {
 
   return (
     <div className={style.formContainer}>
+       {/* Contenedor grande */}
+       {/* Btn atras*/}
       <div>
         <button className={style.button_return} onClick={() => navigate(-1)}>
           <BsArrowLeftCircle size={30} />
         </button>
       </div>
+      {/* ---------- FIN ATRAS -------*/}
+       {/*---------------------------------- */}
+       {/* Titulos consultas */}
       <div className={style.wrapper}>
         <h2 className={`${style.typing_demo} ${style.titlesGlobales}`}>Crear Consulta</h2>
       </div>
+       {/* ---------------------------------*/}
       <form onSubmit={handleSubmit}>
+         {/* Contenedor superior */}
         <div className={style.container}>
+         {/* Contenedor derecha */}
           <div className={style.containerOne}>
             <div>
+               {/* Contenedor imagen */}
               <div className={style.img_preview}>
                 <img className={style.image} src={image} alt="Consulta" />
               </div>
@@ -180,7 +189,96 @@ export function CreateQuery() {
               />
             </div>
             <div className={style.frameofcompetence}></div>
+            
+          </div>
+           {/* Contenedor Derecha */}
+          <div className={style.containerTwo}>
+             {/* Contenedor GENERAL */}
             <div className={style.InitialContainer}>
+              <h3>Nombre de la Consulta</h3>
+              <input
+                placeholder="Nombre de la consulta"
+                type="text"
+                name="titleQuery"
+                value={titleQuery}
+                onChange={handleChangeInput}
+              />
+              <h3>Descripción de la Consulta</h3>
+              <textarea
+                name="descriptionQuery"
+                value={descriptionQuery}
+                placeholder="Descripción"
+                onChange={handleChangeInput}
+              ></textarea>
+              <h3>Etiquetas de la Consulta</h3>
+              <div className={style.tagsProject}>
+                <input
+                  placeholder="Etiquetas consulta"
+                  type="text"
+                  onChange={handleChangeArray}
+                />
+                <button
+                  className={style.addTagsProject}
+                  type="button"
+                  onClick={() => onClickArray("tagsQuery")}
+                >
+                  <MdOutlineAddCircle size={30} />
+                </button>
+              </div>
+              <div className={style.tagsList}>
+                {tagsQuery.length !== 0
+                  ? tagsQuery.map((item, index) => (
+                      <div className={style.tagContainer} key={index}>
+                        <div className={style.tagText}>
+                          <p className={style.tag}>{item}</p>
+                        </div>
+                        <button
+                          className={style.deleteTag}
+                          type="button"
+                          onClick={() => deleteItemArray("tagsQuery", item)}
+                        >
+                          <MdDeleteForever size={30} />
+                        </button>
+                      </div>
+                    ))
+                  : null}
+              </div>
+            </div>
+             {/*------FIN GENERAL ----- */}
+
+              {/* Contenedor Nociones */}
+            <div className={style.contextContainer}>
+              <h3>Nociones básicas</h3>
+              <textarea
+                placeholder="Descripción"
+                name="basicNotions"
+                value={basicNotions}
+                onChange={handleChangeInput}
+              ></textarea>
+            </div>
+             {/* ----FIN NOCIONES---- */}
+
+             {/* Contenedor FECHA */}
+            <h3>Fecha y Hora de Entrega</h3>
+            <div className={style.dateTimeDelivery}>
+              <input
+                placeholder="Fecha de entrega"
+                type="datetime-local"
+                name="date"
+                value={date}
+                onChange={handleChangeInput}
+              />
+            </div>
+             {/* ---- FIN FECHA---*/}
+          </div>
+            {/* ----FIN DERECHA---- */}
+        </div>
+           {/* ----FIN SUPERIOR----- */}
+
+          {/* Contenedor ABAJO */}
+        <div className={style.deliveryContainer}>
+           {/* Contenedor Recursos */}
+           <div className={style.InitialContainer}>
               <h3>Recursos</h3>
               <div className={style.addResourcesContainer}>
                 <h5>Nombre de recurso</h5>
@@ -236,83 +334,8 @@ export function CreateQuery() {
                   : null}
               </div>
             </div>
-          </div>
-          <div className={style.containerTwo}>
-            <div className={style.InitialContainer}>
-              <h3>Nombre de la Consulta</h3>
-              <input
-                placeholder="Nombre de la consulta"
-                type="text"
-                name="titleQuery"
-                value={titleQuery}
-                onChange={handleChangeInput}
-              />
-              <h3>Descripción de la Consulta</h3>
-              <textarea
-                name="descriptionQuery"
-                value={descriptionQuery}
-                placeholder="Descripción"
-                onChange={handleChangeInput}
-              ></textarea>
-              <h3>Etiquetas de la Consulta</h3>
-              <div className={style.tagsProject}>
-                <input
-                  placeholder="Etiquetas consulta"
-                  type="text"
-                  onChange={handleChangeArray}
-                />
-                <button
-                  className={style.addTagsProject}
-                  type="button"
-                  onClick={() => onClickArray("tagsQuery")}
-                >
-                  <MdOutlineAddCircle size={30} />
-                </button>
-              </div>
-              <div className={style.tagsList}>
-                {tagsQuery.length !== 0
-                  ? tagsQuery.map((item, index) => (
-                      <div className={style.tagContainer} key={index}>
-                        <div className={style.tagText}>
-                          <p className={style.tag}>{item}</p>
-                        </div>
-                        <button
-                          className={style.deleteTag}
-                          type="button"
-                          onClick={() => deleteItemArray("tagsQuery", item)}
-                        >
-                          <MdDeleteForever size={30} />
-                        </button>
-                      </div>
-                    ))
-                  : null}
-              </div>
-            </div>
-            <div className={style.contextContainer}>
-              <h3>Nociones básicas</h3>
-              <textarea
-                placeholder="Descripción"
-                name="basicNotions"
-                value={basicNotions}
-                onChange={handleChangeInput}
-              ></textarea>
-            </div>
-
-            <h3>Fecha y Hora de Entrega</h3>
-            <div className={style.dateTimeDelivery}>
-              <input
-                placeholder="Fecha de entrega"
-                type="datetime-local"
-                name="date"
-                value={date}
-                onChange={handleChangeInput}
-              />
-            </div>
-          </div>
-        </div>
-        <div className={style.line}></div>
-
-        <div className={style.deliveryContainer}>
+            {/* ------ FIN RECURSOS -------*/}
+           {/* REQUERIMIENTOS */}
           <div className={style.summaryProject}>
             <h3>Requerimientos</h3>
             <div className={style.tagsProject}>
@@ -348,6 +371,9 @@ export function CreateQuery() {
                 : null}
             </div>
           </div>
+           {/* ------FIN REQUERIMIENTOS------- */}
+
+            {/* DOCUMENTACION */}
           <div className={style.summaryProject}>
             <h3>Documentación Requerida</h3>
             <div className={style.tagsProject}>
@@ -386,6 +412,9 @@ export function CreateQuery() {
                 : null}
             </div>
           </div>
+           {/* -------FIN DOCUMENTACION------- */}
+
+            {/* Aspectos Importantes */}
           <div className={style.summaryProject}>
             <h3>Aspectos Importantes</h3>
             <div className={style.tagsProject}>
@@ -398,6 +427,9 @@ export function CreateQuery() {
               />
             </div>
           </div>
+           {/* ------FIN ASPECTOS------ */}
+
+            {/* Reto*/}
           <div className={style.summaryProject}>
             <h3>Reto</h3>
             <div className={style.tagsProject}>
@@ -435,6 +467,9 @@ export function CreateQuery() {
                 : null}
             </div>
           </div>
+           {/* --- FIN RETO----------- */}
+
+            {/* Reto Adicional */}
           <div className={style.summaryProject}>
             <h3>Reto Adicional</h3>
             <div className={style.tagsProject}>
@@ -447,13 +482,19 @@ export function CreateQuery() {
               />
             </div>
           </div>
+            {/* ------FIN ADICIONAL--------- */}
+
+             {/* Btn Añadir */}
           <div className={style.container_submit}>
             <button className={style.buttonCreateProject} type="submit">
               Añadir
             </button>
           </div>
+           {/* ------FIN AÑADIR------ */}
         </div>
+         {/* ----- FIN ABAJO ---- */}
       </form>
+      {/* ---------- FIN GRANDE -------*/}
     </div>
   );
 }

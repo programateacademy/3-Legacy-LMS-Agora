@@ -45,7 +45,6 @@ const controllerProfile = {
       const specificCompetence = await competenceArray.map(
         (e) => JSON.stringify(e._id) === `"${competenceID}"` ? e : null
       ).filter((item) => item !== null)[0];
-
       if (level === "levelOne") {
         specificCompetence.levelOne.approved = approved;
       }
@@ -71,7 +70,6 @@ const controllerProfile = {
       return res.status(500).json({ msg: err.message });
     }
   },
-
 };
 
 module.exports = controllerProfile;

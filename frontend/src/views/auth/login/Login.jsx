@@ -76,7 +76,7 @@ function Login () {
               onChange={handleChangeInput}
               required
             />
-            <h4 style={{margin:"20px 0"}}> Contraseña</h4>
+            <h4 className='rayas' style={{margin:"20px 0"}}> Contraseña</h4>
             <input className='clave'
               type='Password'
               placeholder='********'

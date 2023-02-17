@@ -22,22 +22,22 @@ export function MenuDashboard({ open, setOpen }) {
     {
       text: "Proyectos",
       route: `/dashboard/${cohortID}/projects`,
-      icon: <i className={`ri-bar-chart-box-line icon ${style.icon}`}></i>,
+      icon: <i className={`ri-folders-fill ${style.icon}`}></i>,
     },
     {
       text: "Workbooks",
       route: `/dashboard/${cohortID}/workbooks`,
-      icon: <i className={`ri-bar-chart-box-line icon ${style.icon}`}></i>,
+      icon: <i className={`ri-draft-fill ${style.icon}`}></i>,
     },
     {
       text: "Consultas",
       route: `/dashboard/${cohortID}/queries`,
-      icon: <i className={`ri-bar-chart-box-line icon ${style.icon}`}></i>,
+      icon: <i className={`ri-chat-smile-3-line ${style.icon}`}></i>,
     },
     {
       text: "Anuncios",
       route: `/dashboard/${cohortID}/announcements-cohort`,
-      icon: <i className={`ri-bar-chart-box-line icon ${style.icon}`}></i>,
+      icon: <i className={`ri-notification-3-line ${style.icon}`}></i>,
     },
     {
       text: "Estudiantes",

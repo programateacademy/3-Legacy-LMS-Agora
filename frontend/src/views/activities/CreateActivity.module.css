@@ -102,7 +102,12 @@
   transition: 0.3s all;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, .5);
 }
-
+.button_return i{
+  color: var(--colorWhite);
+}
+.button_return i:hover{
+  color: var(--colorBlack);
+}
 .button_return:hover {
   transform: translateX(-5px);
   background-color: var(--colorHoverNav);
@@ -150,8 +155,8 @@
   justify-items: center;
   min-height: calc(100vh - 150px);
   margin: 0vw;
-  width: 90vw;
-  margin-left: 5vw;
+  width: 100vw;
+  /*margin-left: 5vw;*/
 }
 
 .containerOne {
@@ -256,12 +261,12 @@
 .summaryProject {
   display: flex;
   flex-direction: column;
-  background-color: var(--colorGray);
+  background-color: var(--colorHeader);
   box-shadow: 6px 10px 10px var(--colorBlackOpacity);
   border-radius: 8px;
   margin-top: 1vh;
   margin-bottom: 4vh;
-  width: 85%;
+  width: 100%;
   align-items: center;
 
   padding: 3vh;
@@ -304,9 +309,10 @@
   display: flex;
   background-color: var(--colorYellowOpacity);
   width: auto;
-  border-radius: 20px;
+  border-radius: 5px;
   align-items: center;
   justify-content: space-between;
+  text-align: center;
   margin: 1vh;
   box-shadow: 6px 10px 10px var(--colorBlackOpacity);
   margin-bottom: 2vh;
@@ -334,13 +340,28 @@
 }
 
 .contextContainer {
-  background-color: var(--colorGray);
+  background-color: var(--colorHeader);
   box-shadow: 6px 10px 10px var(--colorBlackOpacity);
   padding: 3vh;
-  border-radius: 1px;
+  border-radius: 10px;
   margin-top: 15px;
   margin-bottom: 25px;
 }
+
+.first{
+  background-color: var(--colorHeader) ;
+  margin: 5px 0px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  color: var(--colorWhite);
+}
+
+.formContainer .first h3{
+  text-align: left;
+}
+
+
 
 .inputsdeliveries {
   display: flex;
@@ -435,8 +456,11 @@
 }
 
 .formContainer h3 {
-  color: var(--colorBlack);
+  color: var(--colorWhite);
   padding: 2.5vh;
+  text-decoration: underline;
+  font-weight: bolder;
+  text-align: center;
 }
 
 .formContainer p {
@@ -494,16 +518,18 @@
     width: 20vh;
   }
 
-  .img_preview {
-    width: 99%;
+  /*.img_preview {
+   width: 99%;
     height: 50vh;
-    margin-bottom: 1.5vh;
+    background-color: var(--colorHeader);
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: inset 0px 4px 15px var(--colorBlackOpacity);
-    overflow: hidden;
+    overflow: hidden;*/
+
   }
+
+  
 
   .button_return {
     margin: 1vh 1vh;
@@ -512,4 +538,3 @@
   .buttonsStep {
     min-width: 20px;
   }
-}

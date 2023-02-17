@@ -75,8 +75,9 @@ const controllerUser = {
         state,
       };
 
+      
       const activation_token = createActivationToken(newUser);
-
+      
       const url = `${CLIENT_URL}/#/api/activation/${activation_token}`;
       sendMail(firstName, email, url, "register");
 

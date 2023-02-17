@@ -22,7 +22,7 @@ h1 {
   text-align: center;
 }
 
-h2, h3, h4 {
+h2, h3 {
   font-family: 'Gilroy-Light', sans-serif;
   text-align: center;
  
@@ -96,7 +96,7 @@ textarea {
   --colorGreenLight: #92C149;
   --colorGreenLight_31: rgba(145, 193, 73, 0.31);
   --colorRed: #ff2a2a;
-  --colorYellow: #ffd808;
+  --colorYellow: #ffcc02;
   --colorYellow_65: rgba(255, 204, 2, 0.65);
   --colorYellowOpacity: #ffda0a98;
 }

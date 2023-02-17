@@ -51,7 +51,6 @@ function TableStudent(props) {
   const projectInfo = Object.keys(projectInfoData).map(
     (projectId) => projectInfoData[projectId]
   );
-
   return (
     <div className={style.container}>
       <div className={style.bloc_tabs}>
