@@ -5,9 +5,10 @@ import { App } from "./App";
 import DataProvider from "./redux/store";
 import 'remixicon/fonts/remixicon.css';
 
-const Root = createRoot(document.getElementById("root"));
+const Conteiner = document.getElementById("root");
+const root = createRoot(Conteiner);
 
-Root.render(
+root.render(
   <React.StrictMode>
     <DataProvider>
       <App />

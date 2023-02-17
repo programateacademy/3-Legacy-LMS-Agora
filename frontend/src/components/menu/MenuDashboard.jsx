@@ -14,12 +14,13 @@ export function MenuDashboard({ open, setOpen }) {
   const cohortID = params._id;
   const { isTeacher } = auth;
   const [activeLink, setActiveLink] = useState(null);
+  console.log(cohortID)
   const navLinks = [
-    /*{
+    {
       text: "Estadísticas",
       route: `/dashboard/${cohortID}/statistics`,
-      icon: <AiOutlineFundProjectionScreen className={style.icon} />,
-    }, */
+      icon: <i className={`ri-bar-chart-2-fill ${style.icon}`}></i>,
+    }, 
     {
       text: "Proyectos",
       route: `/dashboard/${cohortID}/projects`,
