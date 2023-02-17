@@ -52,7 +52,7 @@ h4{
   font-weight: bold;
   color: gray;
 }
-.login-form-content h4::after, .login-form-contenth4::before{
+.login-form-content h4::after, .login-form-content h4::before{
   content: " ";
   position: absolute;
   width: 70px;
@@ -162,7 +162,7 @@ hr{
 /* ------------- MEDIA QUERIES --------------- */
 
 @media (max-width: 1220px) {
-  .login-form-content h4::after, .login-form-contenth4::before{
+  h4::after,h4::before{
     width: 40px;
   }
  
@@ -236,7 +236,7 @@ img.agora{
   h4::after{
     right: -10px;
   }
-  .login-form-content h4::after, .login-form-contenth4::before{
+  h4::after,h4::before{
     width: 90px;
   }
   .logo {
