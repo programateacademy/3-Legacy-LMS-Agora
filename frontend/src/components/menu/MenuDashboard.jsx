@@ -4,6 +4,11 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import style from "./MenuDashboard.module.css";
 import "../header/UserLink.css";
+import { BsFillFileCodeFill } from "react-icons/bs";
+import { AiOutlineFundProjectionScreen, AiFillProject } from "react-icons/ai";
+import { MdAnnouncement } from "react-icons/md";
+import { FiFileText } from "react-icons/fi";
+import { RiFileUserFill, RiPagesFill } from "react-icons/ri";
 import { IconContext } from "react-icons";
 import { useParams } from "react-router-dom";
 
@@ -42,12 +47,12 @@ export function MenuDashboard({ open, setOpen }) {
     {
       text: "Estudiantes",
       route: `/dashboard/${cohortID}/students`,
-      icon: <i className={`ri-bar-chart-box-line icon ${style.icon}`}></i>,
+      icon: <RiFileUserFill className={style.icon} />,
     },
     {
       text: "Cohortes",
       route: "/",
-      icon: <i className={`ri-bar-chart-box-line icon ${style.icon}`}></i>,
+      icon: <RiPagesFill className={style.icon} />,
     },
   ];
   let list = [];
