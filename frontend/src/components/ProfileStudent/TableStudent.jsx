@@ -3,23 +3,23 @@ import style from "../ProfileStudent/TableStudent.module.css";
 import apiAgora from "../../api/index"
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux"
-import useProjects from "../../hooks/useProjects";
 
 function TableStudent(props) {
   const { projects, queries, workbooks, userID } = props
   const auth = useSelector((state) => state.auth);
-  const projectInfoData = useSelector(state => state.projects.data)
+  const [projectInfo, setProjectInfo] = useState([])
   const [queryInfo, setQueryInfo] = useState([])
   const [workbookInfo, setWorkbookInfo] = useState([])
 
   const [toggleState, setToggleState] = useState(1);
 
-  const { getProject } = useProjects();
-
   const fetchActivity = async (activity, url, id) => {
     const res = await apiAgora.get(`/api/agora/get-${activity}/${url}`, {
       headers: { Authorization: id },
     });
+    if (activity === "project") {
+      setProjectInfo((prev) => [...prev, { name: res.data.titleProject, id: url }])
+    }
     if (activity === "workbook") {
       setWorkbookInfo((prev) => [...prev, { name: res.data.titleWorkbook, id: url }])
     }
@@ -32,7 +32,12 @@ function TableStudent(props) {
   };
 
   useEffect(() => {
-    projects.forEach(id => getProject(id, userID));
+    projects.map(
+      item => {
+        fetchActivity("project", item, userID)
+      }
+    );
+
   }, [projects])
   useEffect(() => {
 
@@ -51,8 +56,6 @@ function TableStudent(props) {
       }
     );
   }, [workbooks])
-
-  const projectInfo = Object.keys(projectInfoData).map(projectId => projectInfoData[projectId]);
 
   return (
     <div className={style.container}>
@@ -92,7 +95,7 @@ function TableStudent(props) {
             ? `${style.content}  ${style.active_content}`
             : style.content}
         >
-          <h2 className={style.proyectrow}>Proyectos Entregados</h2>
+          <h2>Proyectos Entregados</h2>
           <hr />
           {projectInfo.map(item => (
             <div className={style.name}>
@@ -111,7 +114,7 @@ function TableStudent(props) {
             ? `${style.content}  ${style.active_content}`
             : style.content}
         >
-          <h2 className={style.proyectrow}>Workbooks</h2>
+          <h2>Workbooks</h2>
           <hr />
           {workbookInfo.map(item => (
             <div className={style.name}>
@@ -130,7 +133,7 @@ function TableStudent(props) {
             ? `${style.content}  ${style.active_content}`
             : style.content}
         >
-          <h2 className={style.proyectrow}>Consultas Entregados</h2>
+          <h2>Consultas Entregados</h2>
           <hr />
           {queryInfo.map(item => (
             <div className={style.name}>
