@@ -241,6 +241,10 @@
   .p {
     margin: 10px;
   }
+.link_singIn {
+  text-transform: uppercase;
+  margin: 10px;
+  color: var(--colorWhite);
 }
 
 /*Cel Horizontal*/
@@ -423,4 +427,5 @@
   .container {
     display: block;
   }
+}
 }

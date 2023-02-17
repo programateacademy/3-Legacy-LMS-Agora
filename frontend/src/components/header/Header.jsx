@@ -37,6 +37,9 @@ export function Header() {
         <div className={style.headerContainer}>
           {isLogged && (isStudent || isTeacher) ? (
             <>
+              {menuView ? <div className={style.hamburguerMenu}>
+                <HamburguerMenu open={open} handleClick={handleClick} />
+              </div> : null}
               {menuView ? (
                 <div className={style.hamburguerMenu}>
                   <HamburguerMenu open={open} handleClick={handleClick} />

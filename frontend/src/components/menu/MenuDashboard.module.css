@@ -4,7 +4,11 @@
   height: calc(100vh - 70px);
   background-color: var(--colorNav);
   border-radius: 25px;
+<<<<<<< HEAD
   margin: 50px  20px;
+=======
+  margin: 10px;
+>>>>>>> 2363a2c2076ad392263b67128041a3260b836309
 }
 .ul{
   display: flex;

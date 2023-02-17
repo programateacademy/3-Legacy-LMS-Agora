@@ -37,20 +37,25 @@ function TableStudent(props) {
   useEffect(() => {
     projects.forEach((id) => getProject(id, userID));
   }, [projects]);
+
   useEffect(() => {
     queries.map((item) => {
       fetchActivity("query", item, userID);
     });
   }, [queries]);
+
   useEffect(() => {
     workbooks.map((item) => {
       fetchActivity("workbook", item, userID);
     });
   }, [workbooks]);
 
-  const projectInfo = Object.keys(projectInfoData).map(
-    (projectId) => projectInfoData[projectId]
-  );
+    workbooks.map(item => {
+        fetchActivity("workbook", item, userID);
+  }, [workbooks]);
+
+  const projectInfo = Object.keys(projectInfoData).map(projectId => projectInfoData[projectId]);
+
   return (
     <div className={style.container}>
       <div className={style.bloc_tabs}>

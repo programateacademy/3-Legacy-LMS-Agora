@@ -53,6 +53,8 @@
   width: 100%;
   justify-content: space-between;
   align-items: center;
+  background-color: #F0F0F0;
+  box-shadow: 4px 4px 2px -2px rgb(0 0 0 / 50%);
 }
 
 .containerText {
@@ -61,6 +63,12 @@
   justify-content: center;
   align-items: center;
   margin: auto;
+}
+
+.containerText p{
+  font-family: 'Roboto';
+  font-weight: 200;
+  color: #404040;
 }
 
 .buttonsActions {
@@ -77,7 +85,10 @@
 }
 
 .createdAt {
+  font-family: 'Roboto';
   font-size: 14px;
+  font-weight: 500;
+  color: #404040;
 }
 
 .button__delete {

@@ -39,12 +39,9 @@ const sendEmail = (userName, to, url, action) => {
 
   const smtpTransport = nodemailer.createTransport({
     host: "smtp.gmail.com",
-    port: 465,
     secure: true, // true for 465, false for other ports
-    auth: { 
-      user: '******', 
-      pass: '*******' 
-    },
+    port: 465,
+    auth: { user: '****', pass: '****' },
   });
 
 
