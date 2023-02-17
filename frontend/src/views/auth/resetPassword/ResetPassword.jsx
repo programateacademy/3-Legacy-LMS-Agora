@@ -66,9 +66,10 @@ export function ResetPassword() {
   };
   return (
     <div className="container-main-resetPassword">
+      <LazyLoad>
       <img className='agora' src={Agora} alt="" />
             <img className="logo2" src={logo} alt="logo" />
-      
+      </LazyLoad>
       <div className="container-resetPassword">
       <button className="button_return" onClick={() => navigate(-1)}>
         <BsArrowLeftCircle size={30} />
@@ -111,8 +112,10 @@ export function ResetPassword() {
            <button className="button-resetPassword" onClick={handleResetPass}>
             Confirmar
            </button>
-           <img src={Instagram} alt="" />
-           <img src={Facebook} alt="" />
+           <LazyLoad>
+            <img src={Instagram} alt="" />
+            <img src={Facebook} alt="" />
+           </LazyLoad>
           </div>
         </div>
       </div>

@@ -56,12 +56,14 @@ function Login () {
 
   return (
     <div className='container-login'>
-      <div className='imagenes'>
+      <LazyLoad className='imagenes'>
         <img className='agora' src={Agora} alt=""/>
       
      
-      </div>
-      <img className='logo' src={logo} alt="" />
+      </LazyLoad>
+      <LazyLoad>
+        <img className='logo' src={logo} alt="" />
+      </LazyLoad>
       <div className='login-page'>
         <div style={{ display:"flex", justifyContent:"space-between" }}>
         <h1 className='title'>Ingreso de <br /> Usuario</h1>
@@ -98,8 +100,10 @@ function Login () {
         </form>
         <div className='redes'>
           <Link className='clave' to='/forgot_password'>¿Olvidó su contraseña?</Link>
-          <img src={Instagram} alt="" />
-          <img src={Facebook} alt="" />
+          <LazyLoad>
+            <img src={Instagram} alt="" />
+            <img src={Facebook} alt="" />
+          </LazyLoad>
           </div>
       </div>
     </div>

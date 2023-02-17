@@ -5,7 +5,7 @@
   align-items: center;
   display: flex;
   justify-content: space-between;
- background-image: url(../../../assets/font/fondo.svg);
+  background-image: url(../../../assets/font/fondo.svg);
   min-height: calc(90vh);
   padding: 10px;
   width: 100%;
@@ -28,17 +28,23 @@ input {
   box-shadow: 2px 1px 5px black;
  ;
 }
-.title{
+
+.login-page .title{
   font-size: 30px;
   color: rgb(99, 96, 96);
   font-weight: bold;
- 
 }
 .group{
   width: 100px;
   margin: 0;
 
 }
+
+.login-form-content h4{
+  text-align: center;
+}
+
+
 h4{
   font-size: 20px;
   display: inline-block;
@@ -46,7 +52,7 @@ h4{
   font-weight: bold;
   color: gray;
 }
-h4::after,h4::before{
+.login-form-content h4::after, .login-form-contenth4::before{
   content: " ";
   position: absolute;
   width: 70px;
@@ -156,7 +162,7 @@ hr{
 /* ------------- MEDIA QUERIES --------------- */
 
 @media (max-width: 1220px) {
-  h4::after,h4::before{
+  .login-form-content h4::after, .login-form-contenth4::before{
     width: 40px;
   }
  
@@ -230,7 +236,7 @@ img.agora{
   h4::after{
     right: -10px;
   }
-  h4::after,h4::before{
+  .login-form-content h4::after, .login-form-contenth4::before{
     width: 90px;
   }
   .logo {
