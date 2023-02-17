@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import style from "../../CreateActivity.module.css";
-
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { MdDeleteForever, MdOutlineAddCircle } from "react-icons/md";
 import { AiOutlineLink } from "react-icons/ai";
@@ -9,6 +8,7 @@ import apiAgora from "../../../../api/index";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Swal from "sweetalert2";
+
 const initialState = {
   titleQuery: "",
   pictureQuery: "",
@@ -51,8 +51,7 @@ export function UpdateQuery() {
     resources,
     challengeTask,
     challengeExtra,
-    date,
-    success,
+    date
   } = query;
   const { nameLink, link } = objectLink;
   //Image

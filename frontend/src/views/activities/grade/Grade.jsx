@@ -33,7 +33,7 @@ export function Grade() {
     setAtivity(aaa);
   };
 
-  const fetchInfoActivity = async (activity, url, id) => {
+  const fetchInfoActivity = async (kind, activity, url, id) => {
     const res = await apiAgora.get(`/api/agora/get-${activity}/${url}`, {
       headers: { Authorization: id },
     });
@@ -52,7 +52,7 @@ export function Grade() {
     fetchInfoActivity(kind, activityID, id_user);
     fetchActivity(activityID, id_user);
     fetchStudents(cohortID, id_user);
-  }, [cohortID, id_user, activityID]);
+  }, [kind, cohortID, id_user, activityID]);
 
   const orderedTableList = students.sort((a, b) => {
     return a.lastName.toUpperCase() > b.lastName.toUpperCase() ? 1 : -1;

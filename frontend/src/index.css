@@ -103,23 +103,23 @@ textarea {
 
 /* ===== Scrollbar CSS ===== */
 /* Firefox */
-* {
+body {
   scrollbar-width: auto;
   scrollbar-color: var(--colorYellow) var(--colorBlack);
 }
 
 /* Chrome, Edge, and Safari */
-*::-webkit-scrollbar {
+body::-webkit-scrollbar {
   width: 8px;
   overflow-x:hidden;
 }
 
-*::-webkit-scrollbar-track {
-  background: var(--colorBlack);
+body::-webkit-scrollbar-track {
+  background: var(--colorGray);
 }
 
-*::-webkit-scrollbar-thumb {
-  background-color: var(--colorYellow);
+body::-webkit-scrollbar-thumb {
+  background-color: var(--colorBackground);
   border-radius: 10px;
   border: 8px solid var(--colorYellow_65);
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./CardCohort.module.css";
 import { Button } from "../../buttons/Button/Button";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { dispatchMenuHide } from "../../../redux/actions/menuAction";
 export function CardCohort({ info, principal, teacher }) {
   const dispatch = useDispatch();

@@ -4,11 +4,6 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import style from "./MenuDashboard.module.css";
 import "../header/UserLink.css";
-import { BsFillFileCodeFill } from "react-icons/bs";
-import { AiOutlineFundProjectionScreen, AiFillProject } from "react-icons/ai";
-import { MdAnnouncement } from "react-icons/md";
-import { FiFileText } from "react-icons/fi";
-import { RiFileUserFill, RiPagesFill } from "react-icons/ri";
 import { IconContext } from "react-icons";
 import { useParams } from "react-router-dom";
 
@@ -20,11 +15,11 @@ export function MenuDashboard({ open, setOpen }) {
   const [activeLink, setActiveLink] = useState(null);
   console.log(cohortID)
   const navLinks = [
-    // {
-    //   text: "Estadísticas",
-    //   route: `/dashboard/${cohortID}/statistics`,
-    //   icon: <AiOutlineFundProjectionScreen className={style.icon} />,
-    // }, 
+    {
+      text: "Estadísticas",
+      route: `/dashboard/${cohortID}/statistics`,
+      icon: <i className={`ri-folders-fill ${style.icon}`}></i>,
+    },
     {
       text: "Proyectos",
       route: `/dashboard/${cohortID}/projects`,
@@ -48,12 +43,12 @@ export function MenuDashboard({ open, setOpen }) {
     {
       text: "Estudiantes",
       route: `/dashboard/${cohortID}/students`,
-      icon: <RiFileUserFill className={style.icon} />,
+      icon: <i className={`ri-notification-3-line ${style.icon}`}></i>,
     },
     {
       text: "Cohortes",
       route: "/",
-      icon: <RiPagesFill className={style.icon} />,
+      icon: <i className={`ri-notification-3-line ${style.icon}`}></i>,
     },
   ];
   let list = [];

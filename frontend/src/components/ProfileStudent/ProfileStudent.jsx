@@ -39,7 +39,7 @@ export function ProfileStudent(props) {
   const [queries, setQueries] = useState([]);
   const [workbooks, setWorkbooks] = useState([]);
 
-  const { dateOfBirth, gitHub, portafolio, success, linkedin } = userProfile;
+  const { dateOfBirth, gitHub, portafolio, linkedin } = userProfile;
 
   const fetchUser = async (id) => {
     const resUser = await apiAgora.get(`/api/get_user/${id}`, {
@@ -169,7 +169,7 @@ export function ProfileStudent(props) {
           {/* se pone imagen provicional para posterior conexion con el backend*/}
           <img src={profiletemporalimg} alt="img_profile" />
         </div>
-        <button className={styles.chargeimg} ><img src={uploadicon}/></button>
+        <button className={styles.chargeimg} ><img src={uploadicon} alt='imagen de subir foto'/></button>
       
           {!teacher ? (
            <div className={styles.cajaUlt}>

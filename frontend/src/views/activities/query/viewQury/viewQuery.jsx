@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import style from "../../CreateActivity.module.css";
-
-import { BsArrowLeftCircle } from "react-icons/bs";
 import { AiOutlineLink } from "react-icons/ai";
 import apiAgora from "../../../../api/index";
 import { useParams, useNavigate } from "react-router-dom";

@@ -11,6 +11,21 @@
   width: 100%;
 }
 
+.container::-webkit-scrollbar {
+  width: 3px;
+  overflow-x:hidden;
+}
+
+.container::-webkit-scrollbar-track {
+  background: var(--colorGray);
+}
+
+.container::-webkit-scrollbar-thumb {
+  background-color: var(--colorNav);
+  border-radius: 10px;
+  border: 8px solid transparent;
+}
+
 @media (max-width: 700px) {
   .Menu {
     display: none;
