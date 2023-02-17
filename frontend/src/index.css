@@ -12,7 +12,15 @@ h1 {
 }
 
 h2, h3 {
-  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  text-align: left;
+}
+
+h4 {
+  font-family: 'Roboto', sans-serif;;
+  text-align: left;
+  color: var(--colorWhite);
+  padding-left: 20px;
 }
 
 body {

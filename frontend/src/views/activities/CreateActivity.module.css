@@ -17,7 +17,7 @@
   overflow: hidden;
   animation: typing 1s steps(22), blink 0.5s step-end infinite alternate;
   -webkit-animation: typing 1s steps(22), blink 0.5s step-end infinite alternate;
-  text-shadow: 4px 4px 10px rgba(0, 0, 0, .5);
+  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 .typing_demo {
@@ -100,12 +100,12 @@
   -o-border-radius: 10px;
   cursor: pointer;
   transition: 0.3s all;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, .5);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
 }
-.button_return i{
+.button_return i {
   color: var(--colorWhite);
 }
-.button_return i:hover{
+.button_return i:hover {
   color: var(--colorBlack);
 }
 .button_return:hover {
@@ -116,31 +116,32 @@
 }
 
 /**/
-
-.containerImage{
-  background-color: aliceblue;
-}
-
 .linkIcon {
   color: dodgerblue;
+  margin-left: 40%;
 }
 
 .img_preview {
-  width: 40%;
-  height: 100%;
-  border-radius: 8px;
+  width: 100%;
+  height: 35vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
+}
+
+.image {
+  margin-top: 20px;
+  height: 98%;
+  width: auto;
+  display: flex;
+  justify-self: center;
 }
 
 .file {
   display: flex;
   justify-content: center;
   margin-top: 2rem;
-}
-
-.image {
-  width: 100%;
-  height: 100%;
 }
 
 .file {
@@ -159,9 +160,22 @@
   /*margin-left: 5vw;*/
 }
 
+.form {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
 .containerOne {
   display: flex;
   flex-direction: column;
+  width: 49vw;
   margin: 2rem;
 }
 
@@ -183,19 +197,13 @@
 }
 
 .InitialContainer {
+  width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: var(--colorNav);
+  flex-direction: column;
+  background-color: var(--colorHeader);
   box-shadow: 6px 10px 10px var(--colorBlackOpacity);
   border-radius: 8px;
-  margin-top: 1vh;
-  margin-bottom: 4vh;
-  padding: 5px;
-}
-
-.Initial{
-  flex-grow: 1;
+  padding: 3vh;
 }
 
 .InitialContainer .addResourcesContainer {
@@ -348,8 +356,8 @@
   margin-bottom: 25px;
 }
 
-.first{
-  background-color: var(--colorHeader) ;
+.first {
+  background-color: var(--colorHeader);
   margin: 5px 0px;
   border-radius: 10px;
   display: flex;
@@ -357,11 +365,9 @@
   color: var(--colorWhite);
 }
 
-.formContainer .first h3{
+.formContainer .first h3 {
   text-align: left;
 }
-
-
 
 .inputsdeliveries {
   display: flex;
@@ -498,14 +504,13 @@
   gap: 0 6px;
 }
 
-.res{
+.res {
   margin-top: 15px;
 }
 
-.ajus{
+.ajus {
   margin-top: 20%;
 }
-
 
 @media only screen and (max-width: 750px) {
   .container {
@@ -537,19 +542,6 @@
     width: 20vh;
   }
 
-  /*.img_preview {
-   width: 99%;
-    height: 50vh;
-    background-color: var(--colorHeader);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;*/
-
-  }
-
-  
-
   .button_return {
     margin: 1vh 1vh;
   }
@@ -557,3 +549,4 @@
   .buttonsStep {
     min-width: 20px;
   }
+}

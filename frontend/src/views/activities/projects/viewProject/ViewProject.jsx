@@ -77,7 +77,7 @@ export function ViewProject(props) {
         </button>
       </div>
       <div className={style.wrapper}>
-        <h2 className={style.typing_demo_view_Project}>Proyecto</h2>
+        <h2 className={`${style.typing_demo_view_Project} ${style.titlesGlobales}`}>Proyecto</h2>
       </div>
       {!teacher ? (
         <div className={style.buttonDelivery}>
