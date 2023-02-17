@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
+
 .container{
     display: flex; 
     flex-direction: column;
@@ -16,19 +19,10 @@
     left: 0;
     height: auto;
     padding: 2vh;
-    /* background: rgba(196, 196, 196, 0.25); */
-    background-color: var(--colorBlack);
+    background-color: #F9F9F9;
+    box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, .3) inset;
 }
 
-.buttonVolver{
-    display: flex;
-    margin-top: 15px;
-    height: 40px;
-    width: 40px;
-    align-items: center;
-    background: var(--colorYellow);
-    cursor: pointer;
-}
 
 .cajaIns{
     display: flex;
@@ -39,41 +33,103 @@
 }
 
 .cajaIns img{
+   margin-left: 5px;
+    margin-top: 5px;
     width: 150px;
     height: 150px;
-    margin-bottom: 10px;
-    background: var(--colorYellow);
-    border: 0.5px solid var(--colorBlack);
     box-sizing: border-box;
-    filter: drop-shadow(4px 4px 9px var(--colorBlackOpacity));
-    border-radius: 118.5px;
+    filter: drop-shadow(4px 4px 3px var(--colorBlackOpacity));
+    border-radius: 50%;
+    position: relative;
 }
 
+.backround_profile{
+    width: 175px;
+    height: 175px;
+    background-color: #AFAFAF;
+    border-radius: 50%;
+}
+
+.chargeimg {
+    background-color: rgb(255, 255, 255);
+    box-shadow: -2px 2px 6px 1px rgb(0, 0, 0, .5);
+    border-radius: 50%;
+    padding: 5px;
+    width: 25px;
+    height: 25px;
+    margin-left: 150px;
+    position: absolute;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.chargeimg:hover{
+    background-color: #d1d1d1;
+}
+
+.chargeimg img{
+    width: 13px;
+    margin-top: -67px;
+    margin-left: -1px;
+    filter: drop-shadow(0px 0px 0px var(--colorBlackOpacity));
+}
 
 .button_return {
     align-self: flex-start;
-    background-color: var(--colorYellow);
+    background-color: #4A484A;
     border-radius: 10px;
-    color: var(--colorBlack);
+    color: var(--colorWhite);
     display: flex;
     font-weight: bold;
-    max-width: 100px;
+    width: 40px;
+    height: 50px;
     padding: 10px;
     text-align: center;
     width: auto;
     margin-top: 20px;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+    margin-left: 1.5rem;
     }
     .button_return:hover {
-    color: var(--colorWhite);
+    background-color: #232323;
+    color: var(--colorYellow);
     transition: 0.3s;
     } 
 
 .cajaName{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-left: 10px;
     color: var(--colorWhite);
+}
+
+.cajaName h2{
+    font-family: 'Roboto', sans-serif;
+    color: #232323;
+    font-size: 30px;
+}
+
+.cajaName p{
+    font-family: 'Roboto', sans-serif;
+    color: #9D9D9D;
+    font-size: 19px;
+}
+
+.cajaUlt_container{
+    position: relative;
+}
+
+.iconcajaUlt{
+    position: absolute;
+    margin-left: 1rem;
+    top: 15px;
+    left: 20px;
+    z-index: 3;
+    border-right: 1px solid #5F5F5F;
+    padding-right: 5px;
 }
 
 .cajaLink{
@@ -88,7 +144,7 @@
     justify-content: center;
     flex-direction: row;
     align-items: center;
-    gap: 2vw;
+    gap: 0;
 }
 
 .cajaUlt:last-child{
@@ -102,16 +158,17 @@
 .cajaUlt >input{
     display: flex;
     margin-bottom: 5px;
-    width: 220px;
+    width: 170px;
     height: 25px;
-    background-color: var(--colorGray);
+    background-color: #BBBBBB;
+    box-shadow: none;
+    border-radius: 15px;
+    margin-left: 20px;
+    padding-left: 2.5rem;
+    position: relative;
+    overflow: hidden;
 }
 
-.cajaUlt > p{
-    display: flex;
-    justify-content: center;
-    margin-left: 10px;
-}
 
 .cajaUlt >button{
     display: flex;
@@ -119,9 +176,18 @@
     align-items: center;
     width: 100px;
     height: 35px;
-    border-radius: 10px;
+    border-radius: 50px;
+    color: 454544;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    color: #232323;
     background: var(--colorYellow);
+    cursor: pointer;
+}
 
+.cajaUlt >button:hover{
+    background: #232323;
+    color: white;
 }
 
 .tableCompetences{

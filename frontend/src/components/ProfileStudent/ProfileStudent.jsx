@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "./ProfileStudent.module.css";
 import { BsArrowLeftCircle } from "react-icons/bs";
+import profiletemporalimg from "../../assets/icons/profile_img.jpg"
+import uploadicon from "../../assets/icons/upload-icon.svg"
 import { AiFillLinkedin } from "react-icons/ai";
 import { AiFillGithub } from "react-icons/ai";
 import { FaNewspaper } from "react-icons/fa";
@@ -145,20 +147,33 @@ export function ProfileStudent(props) {
     fetchUser(userID);
     fetchDelivery(userID);
   }, [cohortID, userID]);
+
+
   return (
+    <>
+    <button
+    className={styles.button_return}
+    type="button"
+    onClick={() => navigate(-1)}
+  >
+     <i class="ri-arrow-left-circle-line" ></i>
+    </button>
+   
     <div className={styles.container}>
+
       <form className={styles.containerProfile} onSubmit={handleSubmit}>
-        <button
-          className={styles.button_return}
-          type="button"
-          onClick={() => navigate(-1)}
-        >
-          <BsArrowLeftCircle size={30} />
-        </button>
-        <LazyLoad className={styles.cajaIns}>
-          <img src={image} alt="foto" />
+        
+  
+        <div className={styles.cajaIns}>
+
+        <LazyLoad className={styles.backround_profile}>
+          {/* se pone imagen provicional para posterior conexion con el backend*/}
+          <img src={profiletemporalimg} alt="img_profile" />
+        </LazyLoad>
+        <button className={styles.chargeimg} ><img src={uploadicon}/></button>
+      
           {!teacher ? (
-            <div className={styles.cajaUlt}>
+           <div className={styles.cajaUlt}>
               <input
                 className={styles.input__imageURL}
                 placeholder="Inserta URL de la imagen"
@@ -167,9 +182,10 @@ export function ProfileStudent(props) {
                 value={image}
                 onChange={handleImage}
               />
-            </div>
+          </div>
           ) : null}
-        </LazyLoad>
+        </div>
+        
         <div className={styles.cajaName}>
           <h2>
             {user.firstName +
@@ -180,6 +196,7 @@ export function ProfileStudent(props) {
               " " +
               user.secondSurname}
           </h2>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
         </div>
         {teacher ? (
           <div className={styles.cajaLink}>
@@ -208,6 +225,9 @@ export function ProfileStudent(props) {
               </a>
             </div>
             <div className={styles.cajaUlt}>
+            <a href={portafolio} rel="noreferrer" target="_blank">
+                <FaNewspaper size={30} color="#585858" />
+              </a>
               <input
                 type="text"
                 name="portafolio"
@@ -215,9 +235,6 @@ export function ProfileStudent(props) {
                 onChange={handleChangeInput}
                 disabled
               />
-              <a href={portafolio} rel="noreferrer" target="_blank">
-                <FaNewspaper size={30} color="#FEFEFE" />
-              </a>
             </div>
             <div className={styles.cajaUlt}>
               <input
@@ -232,7 +249,11 @@ export function ProfileStudent(props) {
           </div>
         ) : (
           <div className={styles.cajaLink}>
+            <div className={styles.cajaUlt_container}>
             <div className={styles.cajaUlt}>
+            <a href={linkedin} rel="noreferrer" target="_blank">
+                <AiFillLinkedin size={30} color="#585858" className={styles.iconcajaUlt} />
+              </a>
               <input
                 type="text"
                 placeholder="Enlace Linkedin"
@@ -240,11 +261,14 @@ export function ProfileStudent(props) {
                 value={linkedin}
                 onChange={handleChangeInput}
               />
-              <a href={linkedin} rel="noreferrer" target="_blank">
-                <AiFillLinkedin size={30} color="#FEFEFE" />
-              </a>
+            </div> 
             </div>
+
+            <div className={styles.cajaUlt_container}>
             <div className={styles.cajaUlt}>
+            <a href={gitHub} rel="noreferrer" target="_blank">
+                <AiFillGithub size={30} color="#585858" className={styles.iconcajaUlt}/>
+              </a>
               <input
                 type="text"
                 placeholder="Enlace Github"
@@ -252,11 +276,13 @@ export function ProfileStudent(props) {
                 value={gitHub}
                 onChange={handleChangeInput}
               />
-              <a href={gitHub} rel="noreferrer" target="_blank">
-                <AiFillGithub size={30} color="#FEFEFE" />
-              </a>
+            </div>  
             </div>
+            <div className={styles.cajaUlt_container}>
             <div className={styles.cajaUlt}>
+            <a href={portafolio} rel="noreferrer" target="_blank">
+                <FaNewspaper size={30} color="#585858" className={styles.iconcajaUlt}/>
+              </a>
               <input
                 type="text"
                 placeholder="Enlace Portafolio"
@@ -264,18 +290,19 @@ export function ProfileStudent(props) {
                 value={portafolio}
                 onChange={handleChangeInput}
               />
-              <a href={portafolio} rel="noreferrer" target="_blank">
-                <FaNewspaper size={30} color="#FEFEFE" />
-              </a>
+            </div> 
             </div>
+
+            <div className={styles.cajaUlt_container}>
             <div className={styles.cajaUlt}>
+              <RiCake2Fill size={30} color="#585858" className={styles.iconcajaUlt}/>
               <input
                 type="datetime-local"
                 name="dateOfBirth"
                 value={dateOfBirth}
                 onChange={handleChangeInput}
-              />
-              <RiCake2Fill size={30} color="#FEFEFE" />
+              />   
+            </div>
             </div>
             <div className={styles.cajaUlt}>
               <button type="submit">Confirmar</button>
@@ -300,5 +327,6 @@ export function ProfileStudent(props) {
         <CompetencesTableUser competencesState={userProfile.competence} />
       </div>
     </div>
+    </>
   );
 }
