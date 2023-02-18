@@ -73,7 +73,7 @@ export function ViewProject(props) {
     <div className={style.formContainer}>
       <div>
         <button className={style.button_return} onClick={() => navigate(-1)}>
-          <i class="ri-arrow-left-circle-line"></i>
+          <i className="ri-arrow-left-circle-line"></i>
         </button>
       </div>
       <div className={style.wrapper}>

@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { CardActivity } from "../../../components/cards/activity/CardActivity";
-import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import apiAgora from "../../../api/index";
 import { useParams } from "react-router-dom";

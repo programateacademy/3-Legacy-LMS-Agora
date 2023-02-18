@@ -62,7 +62,7 @@ export function Header() {
           ) : (
             <Link className={style.link_singIn} to="/login">
               <i
-                class="ri-user-line icon-signIn"
+                className="ri-user-line icon-signIn"
                 style={{ marginRight: "1rem" }}
               ></i>
               Ingresar

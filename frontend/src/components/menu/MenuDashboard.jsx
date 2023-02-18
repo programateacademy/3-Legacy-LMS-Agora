@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import style from "./MenuDashboard.module.css";
 import "../header/UserLink.css";
 import { IconContext } from "react-icons";
-import { useParams } from "react-router-dom";
 
 export function MenuDashboard({ open, setOpen }) {
   const auth = useSelector((state) => state.auth);

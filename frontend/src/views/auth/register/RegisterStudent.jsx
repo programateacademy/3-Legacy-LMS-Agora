@@ -1,7 +1,5 @@
-import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useEffect } from "react";
 import apiAgora from "../../../api/index";
 import { showErrMsg, showSuccessMsg } from "../../../utils/notification";
 import {
@@ -13,10 +11,9 @@ import {
 } from "../../../utils/validation";
 import styles from "./register.module.css";
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import logo from "../../../assets/logos/Programate-academy-negros.png";
 import { BsArrowLeftCircle } from "react-icons/bs";
-import LazyLoad from "react-lazy-load";
 
 const initialState = {
   firstName: "",
@@ -65,8 +62,8 @@ export function RegisterStudent() {
   };
 
   useEffect(() => {
-    fetchCohortName(cohortID,id_user);
-  }, [cohortID,id_user]);
+    fetchCohortName(cohortID, id_user);
+  }, [cohortID, id_user]);
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
@@ -137,7 +134,10 @@ export function RegisterStudent() {
             headers: { Authorization: id_user },
           }
         );
-        showSuccessMsg("Nuevo Estudiante","se ha registrado satisfactoriamente");
+        showSuccessMsg(
+          "Nuevo Estudiante",
+          "se ha registrado satisfactoriamente"
+        );
         setUser({ ...user, err: "", success: res.data.msg });
       }
     } catch (err) {
@@ -153,16 +153,16 @@ export function RegisterStudent() {
         <button className={styles.button_return} onClick={() => navigate(-1)}>
           <BsArrowLeftCircle size={30} />
         </button>
-        <LazyLoad>
-        <img className={styles.logo_register} src={logo} alt="logo" />
-        </LazyLoad>
+        <div>
+          <img className={styles.logo_register} src={logo} alt="logo" />
+        </div>
         <h2
           className={styles.title_register}
         >{`Registro Estudiante - Cohorte ${nameCohort}`}</h2>
         <div className={styles.register_form_content}>
           <form className={styles.register_form} onSubmit={handleSubmit}>
             <div className={styles.container_register_input}>
-            <div className={styles.input_register}>
+              <div className={styles.input_register}>
                 <label>Primer Nombre</label>
                 <input
                   placeholder="Primer Nombre"

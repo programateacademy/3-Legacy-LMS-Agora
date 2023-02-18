@@ -11,7 +11,7 @@ const UserLink = ({ user, handleLogout }) => {
       <div className="container-main-avatarContainer">
         <div className="avatarContainer">
           <div className="icon">
-            <i class="ri-user-5-fill"></i>
+            <i className="ri-user-5-fill"></i>
           </div>
         </div>
         <div className="containerMenu">

@@ -1,13 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./TableTeacher.module.css"
 import { Table } from '../../components/table/Table'
-import { useState } from "react";
-import { useEffect } from "react";
 import apiAgora from '../../api/index'
 import { Button } from "../../components/buttons/Button/Button";
 import { useSelector } from "react-redux";
-import {useParams} from "react-router-dom";
-import {useNavigate} from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { BsArrowLeftCircle } from "react-icons/bs";
 
 export function TableStudentCohort() {

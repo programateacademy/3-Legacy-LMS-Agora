@@ -65,7 +65,7 @@ export function ModalDeliveryTeacher() {
   useEffect(() => {
     activity(deliveryKind);
     // eslint-disable-next-line
-  }, [deliveryKind])
+  }, [deliveryKind]);
 
   const fetchDelivery = async (activityid, id) => {
     const res = await apiAgora.get(`/api/agora/get-delivery/${id}`, {
@@ -131,8 +131,8 @@ export function ModalDeliveryTeacher() {
     fetchDelivery(activityID, userID);
     fetchFeedbacks(activityID, userID);
     fetchActivity(deliveryKind, activityID, teacherID);
-    fetchUser(userID);// eslint-disable-next-line
-  }, [activityID, userID])
+    fetchUser(userID); // eslint-disable-next-line
+  }, [activityID, userID]);
 
   const [deliveryStudent, setDeliveryStudent] = useState(initialState);
 
@@ -141,8 +141,7 @@ export function ModalDeliveryTeacher() {
     link: "",
   });
 
-  const { feedback, message, projectID, workbookID, queryID } =
-    deliveryStudent;
+  const { feedback, message, projectID, workbookID, queryID } = deliveryStudent;
 
   const { nameLink, link } = objectLink;
 
@@ -198,7 +197,11 @@ export function ModalDeliveryTeacher() {
     }).then((result) => {
       if (result.isConfirmed) {
         handleCheckCompetence(competenceID, level, approved);
-        Swal.fire("Completado", "El estudiante ha validado esta Competencia", "success");
+        Swal.fire(
+          "Completado",
+          "El estudiante ha validado esta Competencia",
+          "success"
+        );
       }
     });
   };
@@ -217,7 +220,11 @@ export function ModalDeliveryTeacher() {
     }).then((result) => {
       if (result.isConfirmed) {
         handleCheckCompetence(competenceID, level, approved);
-        Swal.fire("Completado", "El estudiante no ha validado esta Competencia", "success");
+        Swal.fire(
+          "Completado",
+          "El estudiante no ha validado esta Competencia",
+          "success"
+        );
       }
     });
   };
@@ -271,7 +278,10 @@ export function ModalDeliveryTeacher() {
             headers: { Authorization: teacherID },
           }
         );
-        showSuccessMsg("Nuevo feedback registrado","El feedback se ha creado satisfactoriamente");
+        showSuccessMsg(
+          "Nuevo feedback registrado",
+          "El feedback se ha creado satisfactoriamente"
+        );
         setDeliveryStudent({
           ...deliveryStudent,
           err: "",
@@ -361,9 +371,12 @@ export function ModalDeliveryTeacher() {
                 {
                   <p className={styles.textTime}>
                     <b>
-                    {new Date(item.createdAt).toLocaleDateString("en-CA")}</b>
-                    <b>{" - "}
-                    {new Date(item.createdAt).toLocaleTimeString()}</b>
+                      {new Date(item.createdAt).toLocaleDateString("en-CA")}
+                    </b>
+                    <b>
+                      {" - "}
+                      {new Date(item.createdAt).toLocaleTimeString()}
+                    </b>
                   </p>
                 }
 
@@ -460,7 +473,7 @@ export function ModalDeliveryTeacher() {
             : null}
         </div>
         <div className={styles.container__tagsModal}>
-          {deliveryKind==="project"?<h3>Competencias a Validar</h3>:null}
+          {deliveryKind === "project" ? <h3>Competencias a Validar</h3> : null}
           {competences.length !== 0
             ? competences.map((item, index) => (
                 <div className={styles.tagContainer} key={index}>

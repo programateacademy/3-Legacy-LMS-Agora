@@ -108,7 +108,10 @@ export function RegisterSuperAdmin() {
         password,
         role,
       });
-      showSuccessMsg("Nuevo Perfil Super Administrador","se ha registrado satisfactoriamente");
+      showSuccessMsg(
+        "Nuevo Perfil Super Administrador",
+        "se ha registrado satisfactoriamente"
+      );
       setUser({ ...user, err: "", success: res.data.msg });
     } catch (err) {
       showErrMsg(err.response.data.msg);
@@ -121,7 +124,7 @@ export function RegisterSuperAdmin() {
     <div className={styles.container_register}>
       <div className={styles.container_register_page}>
         <LazyLoad>
-        <img className={styles.logo_register} src={logo} alt="logo" />
+          <img className={styles.logo_register} src={logo} alt="logo" />
         </LazyLoad>
         <h2 className={styles.title_register}>Registro Super Administrador</h2>
         <div className={styles.register_form_content}>

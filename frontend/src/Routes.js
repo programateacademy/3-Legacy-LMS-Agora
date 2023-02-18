@@ -107,12 +107,12 @@ export function RoutesApp() {
               }
               exact
             ><Route
-            path="/"
-            element={
-              isStudent ? <Projects teacher={false} />: <Error404 />
-            }
-          />
-              </Route>
+                path="/"
+                element={
+                  isStudent ? <Projects teacher={false} /> : <Error404 />
+                }
+              />
+            </Route>
 
             <Route
               path="/login"
@@ -219,7 +219,7 @@ export function RoutesApp() {
               }
               exact
             >
-              
+
               <Route
                 path="/dashboard/:id/statistics"
                 element={
@@ -386,7 +386,7 @@ export function RoutesApp() {
                 isStudent ? <ProfileStudent teacher={false} /> : <Error404 />
               }
             />
-            
+
             <Route
               path="/profile/:cohort/:student"
               element={
@@ -397,7 +397,7 @@ export function RoutesApp() {
               path="/deliveryTeacher/:kind/:id/:user"
               element={isTeacher ? <ModalDeliveryTeacher /> : <Error404 />}
             />
-            <Route path='/:cohort/:kind/grade/:id' element={isTeacher ?<Grade/>: <Error404 />}/>
+            <Route path='/:cohort/:kind/grade/:id' element={isTeacher ? <Grade /> : <Error404 />} />
           </Route>
         </Routes>
 

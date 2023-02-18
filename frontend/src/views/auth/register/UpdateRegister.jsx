@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import apiAgora from "../../../api/index";
 import { showErrMsg, showSuccessMsg } from "../../../utils/notification";
@@ -11,7 +10,7 @@ import {
 import styles from "./register.module.css";
 
 import logo from "../../../assets/logos/Programate-academy-negros.png";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import LazyLoad from "react-lazy-load";
 
@@ -50,7 +49,7 @@ export function UpdateRegister() {
   let navigate = useNavigate();
 
   const fetchAdmins = async (url, id) => {
-    const res = await apiAgora.get("api/get_user/" + url , {
+    const res = await apiAgora.get("api/get_user/" + url, {
       headers: { Authorization: id },
     });
     setUser(res.data);
@@ -80,7 +79,7 @@ export function UpdateRegister() {
         success: "",
       });
 
-      if (!isEmail(email))
+    if (!isEmail(email))
       return setUser({
         ...user,
         err: "Este correo electronico ya existe :(",
@@ -105,7 +104,10 @@ export function UpdateRegister() {
             headers: { Authorization: id_user },
           }
         );
-        showSuccessMsg("Perfil Actualizado","Los cambios en el usuario se ha realizado satisfactoriamente");
+        showSuccessMsg(
+          "Perfil Actualizado",
+          "Los cambios en el usuario se ha realizado satisfactoriamente"
+        );
         setUser({ ...user, err: "", success: res.data.msg });
       }
     } catch (err) {
@@ -122,13 +124,13 @@ export function UpdateRegister() {
           <BsArrowLeftCircle size={30} />
         </button>
         <LazyLoad>
-        <img className={styles.logo_register} src={logo} alt="logo" />
+          <img className={styles.logo_register} src={logo} alt="logo" />
         </LazyLoad>
         <h2 className={styles.title_register}>USUARIO</h2>
         <div className={styles.register_form_content}>
           <form className={styles.register_form} onSubmit={handleSubmit}>
             <div className={styles.container_register_input}>
-            <div className={styles.input_register}>
+              <div className={styles.input_register}>
                 <label>Primer Nombre</label>
                 <input
                   placeholder="Primer Nombre"

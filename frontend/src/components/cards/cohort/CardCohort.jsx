@@ -17,7 +17,7 @@ export function CardCohort({ info, principal, teacher }) {
     endBootcamp,
   } = info;
   return (
-    <div>
+    <>
       <div className={styles.cohort}>
         <LazyLoad className={styles.cohortImage}>
           <img src={imageCohort} alt={nameCohort} />
@@ -54,6 +54,6 @@ export function CardCohort({ info, principal, teacher }) {
           </div>
         )}
       </div>
-    </div>
+    </>
   );
 }

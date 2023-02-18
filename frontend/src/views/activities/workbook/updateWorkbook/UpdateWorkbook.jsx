@@ -226,156 +226,101 @@ export function UpdateWorkbook() {
     navigate(-1);
   };
   return (
-    <div className={style.formContainer}>
-      <div>
-        <button className={style.button_return} onClick={() => navigate(-1)}>
-          <BsArrowLeftCircle size={30} />
-        </button>
-      </div>
-      <div className={style.buttonDelivery}>
-        <button
-          type="button"
-          className={style.button_clear}
-          onClick={() => alertDelete(workbookID)}
-        >
-          Eliminar workbook
-        </button>
-      </div>
-      <div className={style.wrapper}>
-        <h2 className={`${style.typing_demo_update_Workbook} ${style.titlesGlobales}`}>
-          Actualizar Workbook
-        </h2>
-      </div>
-      <form className={style.form} onSubmit={handleSubmit}>
-        <div className={style.container}>
-          <div className={style.containerOne}>
-            {/*     Image */}
-            <div>
+    <>
+      <div className={style.formContainer}>
+        <div>
+          <button className={style.button_return} onClick={() => navigate(-1)}>
+            <BsArrowLeftCircle size={30} />
+          </button>
+        </div>
+        <div className={style.buttonDelivery}>
+          <button
+            type="button"
+            className={style.button_clear}
+            onClick={() => alertDelete(workbookID)}
+          >
+            Eliminar workbook
+          </button>
+        </div>
+        <div className={style.wrapper}>
+          <h2
+            className={`${style.typing_demo_update_Workbook} ${style.titlesGlobales}`}
+          >
+            Actualizar Workbook
+          </h2>
+        </div>
+        <form className={style.form} onSubmit={handleSubmit}>
+          <div className={style.container}>
+            <div className={style.containerOne}>
+              {/*     Image */}
               <div>
-                <h3>Imagen del workbook</h3>
-                <input
-                  className={style.input__imageURL}
-                  placeholder="Inserta URL de la imagen del proyecto"
-                  type="text"
-                  name="pictureWorkbook"
-                  value={pictureWorkbook}
-                  onChange={handleImage}
-                />
-              </div>
-              <LazyLoad className={style.img_preview}>
-                <img
-                  className={style.image}
-                  src={image}
-                  alt="Imagen del workbook"
-                />
-              </LazyLoad>
-            </div>
-            {/* Resources */}
-
-            <div className={style.InitialContainer}>
-              <h3>Recursos</h3>
-              <div className={style.addResourcesContainer}>
-                <h5>Nombre del recurso</h5>
-                <input
-                  placeholder="Nombre del recurso"
-                  type="text"
-                  name="nameLink"
-                  onChange={handleChangeLink}
-                />
-                <div className={style.tagsProject}>
-                  <h5>Link de recurso</h5>
+                <div>
+                  <h3>Imagen del workbook</h3>
                   <input
-                    placeholder="Link del Recurso"
+                    className={style.input__imageURL}
+                    placeholder="Inserta URL de la imagen del proyecto"
                     type="text"
-                    name="link"
+                    name="pictureWorkbook"
+                    value={pictureWorkbook}
+                    onChange={handleImage}
+                  />
+                </div>
+                <LazyLoad className={style.img_preview}>
+                  <img
+                    className={style.image}
+                    src={image}
+                    alt="Imagen del workbook"
+                  />
+                </LazyLoad>
+              </div>
+              {/* Resources */}
+
+              <div className={style.InitialContainer}>
+                <h3>Recursos</h3>
+                <div className={style.addResourcesContainer}>
+                  <h5>Nombre del recurso</h5>
+                  <input
+                    placeholder="Nombre del recurso"
+                    type="text"
+                    name="nameLink"
                     onChange={handleChangeLink}
                   />
-                  <button
-                    className={style.addTagsProject}
-                    type="button"
-                    onClick={() => onClickObject("resources")}
-                  >
-                    <MdOutlineAddCircle size={30} />
-                  </button>
-                </div>
-              </div>
-              <div>
-                {resources.length !== 0
-                  ? resources.map((item, index) => (
-                      <div className={style.tagContainer} key={index}>
-                        <AiOutlineLink className={style.linkIcon} size={30} />
-                        <div className={style.tagText}>
-                          <a
-                            className={style.tag}
-                            href={item.link}
-                            rel="noreferrer"
-                            target="_blank"
-                          >
-                            {item.nameLink}
-                          </a>
-                        </div>
-                        <button
-                          className={style.deleteTag}
-                          type="button"
-                          onClick={() => deleteItemArray("resources", item)}
-                        >
-                          <MdDeleteForever size={30} />
-                        </button>
-                      </div>
-                    ))
-                  : null}
-              </div>
-            </div>
-          </div>
-          <div className={style.containerTwo}>
-            {/* Name*/}
-            <div className={style.InitialContainer}>
-              <h3>Nombre del workbook</h3>
-              <input
-                placeholder="Nombre del workbook"
-                type="text"
-                name="titleWorkbook"
-                value={titleWorkbook}
-                onChange={handleChangeInput}
-              />
-              {/* Description */}
-              <h3>Descripción del proyecto</h3>
-              <textarea
-                name="descriptionWorkbook"
-                value={descriptionWorkbook}
-                placeholder="Descripción"
-                onChange={handleChangeInput}
-              ></textarea>
-              {/* Tags */}
-              <div>
-                <h3>Etiquetas del Workbook</h3>
-                <div className={style.tagsProject}>
-                  <input
-                    placeholder="Etiquetas workbook"
-                    type="text"
-                    onChange={handleChangeArray}
-                  />
-                  <button
-                    className={style.addTagsProject}
-                    type="button"
-                    onClick={() => onClickArray("tagsWorkbook")}
-                  >
-                    <MdOutlineAddCircle size={30} />
-                  </button>
+                  <div className={style.tagsProject}>
+                    <h5>Link de recurso</h5>
+                    <input
+                      placeholder="Link del Recurso"
+                      type="text"
+                      name="link"
+                      onChange={handleChangeLink}
+                    />
+                    <button
+                      className={style.addTagsProject}
+                      type="button"
+                      onClick={() => onClickObject("resources")}
+                    >
+                      <MdOutlineAddCircle size={30} />
+                    </button>
+                  </div>
                 </div>
                 <div>
-                  {tagsWorkbook.length !== 0
-                    ? tagsWorkbook.map((item, index) => (
+                  {resources.length !== 0
+                    ? resources.map((item, index) => (
                         <div className={style.tagContainer} key={index}>
+                          <AiOutlineLink className={style.linkIcon} size={30} />
                           <div className={style.tagText}>
-                            <p className={style.tag}>{item}</p>
+                            <a
+                              className={style.tag}
+                              href={item.link}
+                              rel="noreferrer"
+                              target="_blank"
+                            >
+                              {item.nameLink}
+                            </a>
                           </div>
                           <button
                             className={style.deleteTag}
                             type="button"
-                            onClick={() =>
-                              deleteItemArray("tagsWorkbook", item)
-                            }
+                            onClick={() => deleteItemArray("resources", item)}
                           >
                             <MdDeleteForever size={30} />
                           </button>
@@ -385,256 +330,315 @@ export function UpdateWorkbook() {
                 </div>
               </div>
             </div>
-
-            {/* Basic Notions  */}
-            <div className={style.contextContainer}>
-              <h3>Nociones básicas</h3>
-              <textarea
-                placeholder="Descripción"
-                name="basicNotions"
-                value={basicNotions}
-                onChange={handleChangeInput}
-              ></textarea>
-            </div>
-            {/* Delivery date */}
-            <div>
-              <h3>Fecha y hora de entrega</h3>
-              <div className={style.dateTimeDelivery}>
+            <div className={style.containerTwo}>
+              {/* Name*/}
+              <div className={style.InitialContainer}>
+                <h3>Nombre del workbook</h3>
                 <input
-                  placeholder="Fecha de entrega"
-                  type="datetime-local"
-                  name="date"
-                  value={date}
+                  placeholder="Nombre del workbook"
+                  type="text"
+                  name="titleWorkbook"
+                  value={titleWorkbook}
                   onChange={handleChangeInput}
                 />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className={style.line}></div>
-        {/*  Environmental requirements */}
-        <div className={style.deliveryContainer}>
-          <div className={style.summaryProject}>
-            <h3>Entorno de desarrollo</h3>
-            <div className={style.tagsProject}>
-              <textarea
-                placeholder="Entorno de desarrollo"
-                type="text"
-                onChange={handleChangeArray}
-              />
-              <button
-                className={style.addTagsProject}
-                type="button"
-                onClick={() => onClickArray("environmentalReq")}
-              >
-                <MdOutlineAddCircle size={30} />
-              </button>
-            </div>
-
-            <div>
-              {environmentalReq.length !== 0
-                ? environmentalReq.map((item, index) => (
-                    <div className={style.tagContainer} key={index}>
-                      <div className={style.tagText}>
-                        <p className={style.tag}>{item}</p>
-                      </div>
-
-                      <button
-                        className={style.deleteTag}
-                        type="button"
-                        onClick={() =>
-                          deleteItemArray("environmentalReq", item)
-                        }
-                      >
-                        <MdDeleteForever size={30} />
-                      </button>
-                    </div>
-                  ))
-                : null}
-            </div>
-          </div>
-          <div className={style.summaryProject}>
-            <h3>Conceptos a investigar</h3>
-            <div className={style.tagsProject}>
-              <textarea
-                placeholder="Concepto"
-                type="text"
-                onChange={handleChangeArray}
-              />
-              <button
-                className={style.addTagsProject}
-                type="button"
-                onClick={() => onClickArray("contextReq")}
-              >
-                <MdOutlineAddCircle size={30} />
-              </button>
-            </div>
-            <div>
-              {contextReq.length !== 0
-                ? contextReq.map((item, index) => (
-                    <div className={style.tagContainer} key={index}>
-                      <div className={style.tagText}>
-                        <p className={style.tag}>{item}</p>
-                      </div>
-                      <button
-                        className={style.deleteTag}
-                        type="button"
-                        onClick={() => deleteItemArray("contextReq", item)}
-                      >
-                        <MdDeleteForever size={30} />
-                      </button>
-                    </div>
-                  ))
-                : null}
-            </div>
-          </div>
-
-          {/* Steps */}
-          <div className={style.summaryProject}>
-            <h3>Pasos</h3>
-            <div className={style.containerOne}>
-              {/* Description */}
-              <div>
-                <h4>Descripción del paso</h4>
+                {/* Description */}
+                <h3>Descripción del proyecto</h3>
                 <textarea
-                  name="descriptionStep"
-                  value={descriptionStep}
-                  placeholder="Explicación"
-                  onChange={handleChangeStep}
+                  name="descriptionWorkbook"
+                  value={descriptionWorkbook}
+                  placeholder="Descripción"
+                  onChange={handleChangeInput}
+                ></textarea>
+                {/* Tags */}
+                <div>
+                  <h3>Etiquetas del Workbook</h3>
+                  <div className={style.tagsProject}>
+                    <input
+                      placeholder="Etiquetas workbook"
+                      type="text"
+                      onChange={handleChangeArray}
+                    />
+                    <button
+                      className={style.addTagsProject}
+                      type="button"
+                      onClick={() => onClickArray("tagsWorkbook")}
+                    >
+                      <MdOutlineAddCircle size={30} />
+                    </button>
+                  </div>
+                  <div>
+                    {tagsWorkbook.length !== 0
+                      ? tagsWorkbook.map((item, index) => (
+                          <div className={style.tagContainer} key={index}>
+                            <div className={style.tagText}>
+                              <p className={style.tag}>{item}</p>
+                            </div>
+                            <button
+                              className={style.deleteTag}
+                              type="button"
+                              onClick={() =>
+                                deleteItemArray("tagsWorkbook", item)
+                              }
+                            >
+                              <MdDeleteForever size={30} />
+                            </button>
+                          </div>
+                        ))
+                      : null}
+                  </div>
+                </div>
+              </div>
+
+              {/* Basic Notions  */}
+              <div className={style.contextContainer}>
+                <h3>Nociones básicas</h3>
+                <textarea
+                  placeholder="Descripción"
+                  name="basicNotions"
+                  value={basicNotions}
+                  onChange={handleChangeInput}
                 ></textarea>
               </div>
-              {/*     Image Example*/}
+              {/* Delivery date */}
               <div>
-                <h4>Imagen del paso</h4>
-                <div className={style.file}>
+                <h3>Fecha y hora de entrega</h3>
+                <div className={style.dateTimeDelivery}>
                   <input
-                    className={style.input__imageURL}
-                    placeholder="Inserta URL de la imagen"
-                    type="text"
-                    name="imageExampleStep"
-                    value={imageExampleStep}
-                    onChange={handleImageStep}
+                    placeholder="Fecha de entrega"
+                    type="datetime-local"
+                    name="date"
+                    value={date}
+                    onChange={handleChangeInput}
                   />
                 </div>
-                <LazyLoad className={style.img_preview}>
-                  <img
-                    className={style.image}
-                    src={imageExampleStep}
-                    alt="Imagen"
-                  />
-                </LazyLoad>
               </div>
-              {/* Code */}
-              <div>
-                <h4>Código</h4>
+            </div>
+          </div>
+          <div className={style.line}></div>
+          {/*  Environmental requirements */}
+          <div className={style.deliveryContainer}>
+            <div className={style.summaryProject}>
+              <h3>Entorno de desarrollo</h3>
+              <div className={style.tagsProject}>
                 <textarea
-                  name="codeStep"
-                  value={codeStep}
-                  placeholder="Código"
-                  onChange={handleChangeStep}
-                ></textarea>
+                  placeholder="Entorno de desarrollo"
+                  type="text"
+                  onChange={handleChangeArray}
+                />
+                <button
+                  className={style.addTagsProject}
+                  type="button"
+                  onClick={() => onClickArray("environmentalReq")}
+                >
+                  <MdOutlineAddCircle size={30} />
+                </button>
               </div>
-              {/*     Image expected result */}
+
               <div>
-                <h4>Resultado esperado</h4>
-                <div className={style.file}>
-                  <input
-                    className={style.input__imageURL}
-                    placeholder="Inserta URL de la imagen"
-                    type="text"
-                    name="imageResultStep"
-                    value={imageResultStep}
-                    onChange={handleImageStep}
-                  />
+                {environmentalReq.length !== 0
+                  ? environmentalReq.map((item, index) => (
+                      <div className={style.tagContainer} key={index}>
+                        <div className={style.tagText}>
+                          <p className={style.tag}>{item}</p>
+                        </div>
+
+                        <button
+                          className={style.deleteTag}
+                          type="button"
+                          onClick={() =>
+                            deleteItemArray("environmentalReq", item)
+                          }
+                        >
+                          <MdDeleteForever size={30} />
+                        </button>
+                      </div>
+                    ))
+                  : null}
+              </div>
+            </div>
+            <div className={style.summaryProject}>
+              <h3>Conceptos a investigar</h3>
+              <div className={style.tagsProject}>
+                <textarea
+                  placeholder="Concepto"
+                  type="text"
+                  onChange={handleChangeArray}
+                />
+                <button
+                  className={style.addTagsProject}
+                  type="button"
+                  onClick={() => onClickArray("contextReq")}
+                >
+                  <MdOutlineAddCircle size={30} />
+                </button>
+              </div>
+              <div>
+                {contextReq.length !== 0
+                  ? contextReq.map((item, index) => (
+                      <div className={style.tagContainer} key={index}>
+                        <div className={style.tagText}>
+                          <p className={style.tag}>{item}</p>
+                        </div>
+                        <button
+                          className={style.deleteTag}
+                          type="button"
+                          onClick={() => deleteItemArray("contextReq", item)}
+                        >
+                          <MdDeleteForever size={30} />
+                        </button>
+                      </div>
+                    ))
+                  : null}
+              </div>
+            </div>
+
+            {/* Steps */}
+            <div className={style.summaryProject}>
+              <h3>Pasos</h3>
+              <div className={style.containerOne}>
+                {/* Description */}
+                <div>
+                  <h4>Descripción del paso</h4>
+                  <textarea
+                    name="descriptionStep"
+                    value={descriptionStep}
+                    placeholder="Explicación"
+                    onChange={handleChangeStep}
+                  ></textarea>
                 </div>
-                <LazyLoad className={style.img_preview}>
-                  <img
-                    className={style.image}
-                    src={imageResultStep}
-                    alt="Resultado esperado"
-                  />
-                </LazyLoad>
+                {/*     Image Example*/}
+                <div>
+                  <h4>Imagen del paso</h4>
+                  <div className={style.file}>
+                    <input
+                      className={style.input__imageURL}
+                      placeholder="Inserta URL de la imagen"
+                      type="text"
+                      name="imageExampleStep"
+                      value={imageExampleStep}
+                      onChange={handleImageStep}
+                    />
+                  </div>
+                  <LazyLoad className={style.img_preview}>
+                    <img
+                      className={style.image}
+                      src={imageExampleStep}
+                      alt="Imagen"
+                    />
+                  </LazyLoad>
+                </div>
+                {/* Code */}
+                <div>
+                  <h4>Código</h4>
+                  <textarea
+                    name="codeStep"
+                    value={codeStep}
+                    placeholder="Código"
+                    onChange={handleChangeStep}
+                  ></textarea>
+                </div>
+                {/*     Image expected result */}
+                <div>
+                  <h4>Resultado esperado</h4>
+                  <div className={style.file}>
+                    <input
+                      className={style.input__imageURL}
+                      placeholder="Inserta URL de la imagen"
+                      type="text"
+                      name="imageResultStep"
+                      value={imageResultStep}
+                      onChange={handleImageStep}
+                    />
+                  </div>
+                  <LazyLoad className={style.img_preview}>
+                    <img
+                      className={style.image}
+                      src={imageResultStep}
+                      alt="Resultado esperado"
+                    />
+                  </LazyLoad>
+                </div>
+                {/* Notes */}
+                <div>
+                  <h4>Notas del formador</h4>
+                  <textarea
+                    name="notesStep"
+                    value={notesStep}
+                    placeholder="Notas"
+                    onChange={handleChangeStep}
+                  ></textarea>
+                </div>
+                <div className={style.container_submit}>
+                  <button type="button" onClick={() => onClickStep("steps")}>
+                    Agregar paso
+                  </button>
+                </div>
               </div>
-              {/* Notes */}
+            </div>
+            {/*Show steps*/}
+            <div className={style.summaryProject}>
+              <h3>Pasos añadidos</h3>
               <div>
-                <h4>Notas del formador</h4>
+                {steps.length !== 0 ? (
+                  steps.map((item, index) => (
+                    <div className={style.tagContainer} key={index}>
+                      <div className={style.tagText}>
+                        <p className={style.tag}>
+                          <b>Paso número {index + 1}:</b> {item.descriptionStep}
+                        </p>
+                      </div>
+
+                      <div className={style.buttonsStep}>
+                        <button
+                          className={style.deleteTag}
+                          type="button"
+                          onClick={() => deleteItemArray("steps", item)}
+                        >
+                          <MdDeleteForever size={30} />
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => handleInfoStep(index, item)}
+                        >
+                          <MdExpandMore size={30} />
+                        </button>
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  <p>Aún no hay pasos añadidos</p>
+                )}
+              </div>
+            </div>
+            {/* If open info  is true, display information*/}
+            {openInfo && steps.length !== 0 ? (
+              <Step info={infoStep} setOpenInfo={setOpenInfo} />
+            ) : (
+              ""
+            )}
+
+            {/* Challenge */}
+            <div className={style.summaryProject}>
+              <h3>Reto</h3>
+              <div className={style.tagsProject}>
                 <textarea
-                  name="notesStep"
-                  value={notesStep}
-                  placeholder="Notas"
-                  onChange={handleChangeStep}
+                  name="challenge"
+                  value={challenge}
+                  placeholder="Reto"
+                  onChange={handleChangeInput}
                 ></textarea>
               </div>
+            </div>
+            <div>
               <div className={style.container_submit}>
-                <button type="button" onClick={() => onClickStep("steps")}>
-                  Agregar paso
+                <button className={style.buttonCreateProject} type="submit">
+                  Actualizar Workbook
                 </button>
               </div>
             </div>
           </div>
-          {/*Show steps*/}
-          <div className={style.summaryProject}>
-            <h3>Pasos añadidos</h3>
-            <div>
-              {steps.length !== 0 ? (
-                steps.map((item, index) => (
-                  <div className={style.tagContainer} key={index}>
-                    <div className={style.tagText}>
-                      <p className={style.tag}>
-                        <b>Paso número {index + 1}:</b> {item.descriptionStep}
-                      </p>
-                    </div>
-
-                    <div className={style.buttonsStep}>
-                      <button
-                        className={style.deleteTag}
-                        type="button"
-                        onClick={() => deleteItemArray("steps", item)}
-                      >
-                        <MdDeleteForever size={30} />
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => handleInfoStep(index, item)}
-                      >
-                        <MdExpandMore size={30} />
-                      </button>
-                    </div>
-                  </div>
-                ))
-              ) : (
-                <p>Aún no hay pasos añadidos</p>
-              )}
-            </div>
-          </div>
-          {/* If open info  is true, display information*/}
-          {openInfo && steps.length !== 0 ? (
-            <Step info={infoStep} setOpenInfo={setOpenInfo} />
-          ) : (
-            ""
-          )}
-
-          {/* Challenge */}
-          <div className={style.summaryProject}>
-            <h3>Reto</h3>
-            <div className={style.tagsProject}>
-              <textarea
-                name="challenge"
-                value={challenge}
-                placeholder="Reto"
-                onChange={handleChangeInput}
-              ></textarea>
-            </div>
-          </div>
-          <div>
-            <div className={style.container_submit}>
-              <button className={style.buttonCreateProject} type="submit">
-                Actualizar Workbook
-              </button>
-            </div>
-          </div>
-        </div>
-      </form>
-    </div>
+        </form>
+      </div>
+    </>
   );
 }

@@ -14,6 +14,7 @@ export function Step(props) {
   } = stepShow;
 
   return (
+    <>
     <div className={`${style.containerOne} ${style.step}`}>
       <div className={style.summaryProject}>
         <button
@@ -75,5 +76,6 @@ export function Step(props) {
         ) : null}
       </div>
     </div>
+    </>
   );
 }
