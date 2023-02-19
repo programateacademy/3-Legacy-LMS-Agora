@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { CardCohort } from "../../../components/cards/cohort/CardCohort";
 import { useSelector } from "react-redux";
 import apiAgora from "../../../api/index";
-import { Button } from "../../../components/buttons/Button/Button";
+import { Button } from "../../../components/Buttons/Button";
 import { useNavigate, useParams } from "react-router-dom";
 import { BsArrowLeftCircle } from "react-icons/bs";
 

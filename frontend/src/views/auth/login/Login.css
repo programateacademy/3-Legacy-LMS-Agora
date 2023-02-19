@@ -4,7 +4,7 @@
   align-items: center;
   display: flex;
   justify-content: space-between;
-  background-image: url(../../../assets/font/fondo.svg);
+  background-image: url(../../../assets/icons/fondo.svg);
   min-height: calc(90vh);
   padding: 10px;
   width: 100%;

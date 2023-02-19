@@ -3,7 +3,7 @@ import { CardActivity } from "../../../components/cards/activity/CardActivity";
 import { useSelector } from "react-redux";
 import apiAgora from "../../../api/index";
 import { useParams } from "react-router-dom";
-import { Button } from "../../../components/buttons/Button/Button";
+import { Button } from "../../../components/Buttons/Button";
 import styles from "./Queries.module.css";
 
 export function Queries(props) {

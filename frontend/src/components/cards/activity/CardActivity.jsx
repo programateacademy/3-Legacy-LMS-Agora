@@ -1,6 +1,8 @@
+//Importamos las funciones de React, los estilos, la ruta de redirección y el componente boton
+//Exportamos la funcione con su estructura html e info que le llegue de props
 import React from "react";
 import styles from "./CardActivity.module.css";
-import { ButtonGradual } from "../../buttons/Button/ButtonGradual";
+import { ButtonGradual } from "../../Buttons/Button";
 import { Link } from "react-router-dom";
 
 export function CardActivity(props) {

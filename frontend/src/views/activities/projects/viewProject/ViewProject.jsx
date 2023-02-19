@@ -4,7 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import apiAgora from "../../../../api/index";
 import { AiOutlineLink } from "react-icons/ai";
-import { Button } from "../../../../components/buttons/Button/Button";
+import { Button } from "../../../../components/Buttons/Button";
 import LazyLoad from "react-lazy-load";
 
 const initialState = {

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styles from "./TableTeacher.module.css"
 import { Table } from '../../components/table/Table'
 import apiAgora from '../../api/index'
-import { Button } from "../../components/buttons/Button/Button";
+import { Button } from "../../components/Buttons/Button";
 import { useSelector } from "react-redux";
 import {useNavigate} from "react-router-dom";
 import { BsArrowLeftCircle } from "react-icons/bs";

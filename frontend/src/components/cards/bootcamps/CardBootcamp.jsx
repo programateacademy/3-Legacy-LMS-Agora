@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./CardBootcamp.module.css";
-import { Button } from "../../buttons/Button/Button";
+import { Button } from "../../Buttons/Button";
 import LazyLoad from "react-lazy-load";
 
 export function CardBootcamp(props) {

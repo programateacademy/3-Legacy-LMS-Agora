@@ -6,7 +6,7 @@ import apiAgora from "../../../../api/index";
 import { Step } from "../step/Step";
 import { MdExpandMore } from "react-icons/md";
 import { AiOutlineLink } from "react-icons/ai";
-import { Button } from "../../../../components/buttons/Button/Button";
+import { Button } from "../../../../components/Buttons/Button";
 import LazyLoad from "react-lazy-load";
 const initWorkbook = {
   titleWorkbook: "",
