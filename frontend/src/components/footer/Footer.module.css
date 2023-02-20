@@ -5,7 +5,7 @@
   }
 
   footer svg {
-    margin-left: 83%;
+    margin-left: auto;
     display: flex;
     justify-content: flex-end;
     margin-top: -208px;
@@ -32,7 +32,7 @@
   .sign {
     font-size: 15px;
     font-weight: bolder;
-    margin-right: 11rem;
+    margin-right: 5rem;
     margin-top: -4rem;
     margin-bottom: -0.5rem;
     text-align: right;
@@ -40,7 +40,7 @@
   }
 
   .logos {
-    margin-left: 50%;
+    margin-left: 55%;
     padding: 0;
     width: 17%;
   }
@@ -53,7 +53,7 @@
   }
 
   footer svg {
-    margin-left: 80%;
+    margin-left: auto;
     display: flex;
     justify-content: flex-end;
     margin-top: -211px;
@@ -80,7 +80,7 @@
   .sign {
     font-size: 14px;
     font-weight: bolder;
-    margin-right: 11rem;
+    margin-right: 5rem;
     margin-top: -4rem;
     text-align: right;
     color: var(--colorHeader);
@@ -101,7 +101,7 @@
   }
 
   footer svg {
-    margin-left: 72%;
+    margin-left: auto;
     display: flex;
     justify-content: flex-end;
     margin-top: -209px;
@@ -128,7 +128,7 @@
   .sign {
     font-size: 12px;
     font-weight: bolder;
-    margin-right: 11rem;
+    margin-right: 5rem;
     margin-top: -4rem;
     text-align: right;
     color: var(--colorHeader);
@@ -148,7 +148,7 @@
   }
 
   footer svg {
-    margin-left: 55%;
+    margin-left: auto;
     display: flex;
     justify-content: flex-end;
     margin-top: -210px;
@@ -196,7 +196,7 @@
   }
 
   footer svg {
-    margin-left: 55%;
+    margin-left: auto;
     display: flex;
     justify-content: flex-end;
     margin-top: -132px;

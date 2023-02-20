@@ -1,14 +1,18 @@
 .Dashboard {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
   min-height: calc(100vh - 140px);
 }
 
 .container {
+  width: 75%;
+  margin-top: 15px;
   max-height: calc(100vh - 70px);
   overflow-x: hidden;
   overflow-y: scroll;
-  width: 100%;
+  border-radius: 10px;
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, .1);
 }
 
 .container::-webkit-scrollbar {
