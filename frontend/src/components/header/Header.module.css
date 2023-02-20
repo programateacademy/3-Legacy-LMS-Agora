@@ -20,7 +20,7 @@
     justify-content: center;
     height: 55px;
     width: 170px;
-    margin-left: 1rem;
+    margin-left: 3rem;
   }
 
   .Logo img {
@@ -99,10 +99,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 4rem;
     height: 55px;
     width: 170px;
-    margin-left: 1rem;
+    margin-left: 3rem;
   }
 
   .Logo img {
@@ -182,10 +181,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 2rem;
     height: 55px;
     width: 170px;
-    margin-left: 1rem;
+    margin-left: 3rem;
   }
 
   .Logo img {
@@ -268,10 +266,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 1rem;
     height: 50px;
     width: 160px;
-    margin-left: -115%;
+    margin-left: 3rem;
   }
 
   .Logo img {
@@ -350,10 +347,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 1rem;
     height: 30px;
     width: 140px;
-    margin-left: -90%;
+    margin-left: 3rem;
   }
 
   .Logo img {
