@@ -42,11 +42,6 @@ export function Header() {
                   <HamburguerMenu open={open} handleClick={handleClick} />
                 </div>
               ) : null}
-              {menuView ? (
-                <div className={style.hamburguerMenu}>
-                  <HamburguerMenu open={open} handleClick={handleClick} />
-                </div>
-              ) : null}
               <div className={!open ? "closeMenu" : "openMenu"}>
                 <MenuDashboard open={open} setOpen={setOpen} />
               </div>
