@@ -77,9 +77,6 @@ export function ResetPassword() {
           <button className="button_return" onClick={() => navigate(-1)}>
             <BsArrowLeftCircle size={30} />
           </button>
-          <LazyLoad>
-            <img className="logo" src={logo} alt="logo" />
-          </LazyLoad>
           <h2 className="title-resetPassword">Restablecer Contraseña</h2>
           <div className="container-info-resetPassword">
             {err && showErrMsg(err)}
