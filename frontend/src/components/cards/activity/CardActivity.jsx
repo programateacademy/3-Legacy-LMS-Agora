@@ -28,7 +28,7 @@ export function CardActivity(props) {
       <div className={styles.card__overlay}>
         <div className={styles.card__header}>
           <div className={styles.card__header__text}>
-            <h3 className={styles.card__title}>Ver más</h3>
+            <h3 className={styles.card__title}>{title}</h3>
           </div>
         </div>
         <h5 className={styles.card__description}>{title}</h5>
