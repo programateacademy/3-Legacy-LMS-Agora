@@ -204,6 +204,7 @@
   box-shadow: 6px 10px 10px var(--colorBlackOpacity);
   border-radius: 8px;
   padding: 3vh;
+  margin-top: 10px;
 }
 
 .InitialContainer .addResourcesContainer {
@@ -215,6 +216,10 @@
 .InitialContainer input {
   margin-bottom: 2vh;
   margin-top: 2vh;
+}
+
+.h4InitialContainer{
+  color: white;
 }
 
 .resourcesContainer {
@@ -315,7 +320,7 @@
 
 .tagContainer {
   display: flex;
-  background-color: var(--colorYellowOpacity);
+  background-color: var(--colorYellow);
   width: auto;
   border-radius: 5px;
   align-items: center;

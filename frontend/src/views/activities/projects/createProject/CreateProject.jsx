@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import apiAgora from "../../../../api/index";
 import { showErrMsg, showSuccessMsg } from "../../../../utils/notification";
 import { BsArrowLeftCircle } from "react-icons/bs";
-import { AiOutlineLink } from "react-icons/ai";
+/* import { AiOutlineLink } from "react-icons/ai"; */
 import LazyLoad from "react-lazy-load";
 
 const initialState = {
@@ -316,7 +316,7 @@ export function CreateProject() {
                   {resources.length !== 0
                     ? resources.map((item, index) => (
                         <div className={style.tagContainer} key={index}>
-                          <AiOutlineLink className={style.linkIcon} size={30} />
+                          {/* <AiOutlineLink className={style.linkIcon} size={30} /> */}
                           <div className={style.tagText}>
                             <a
                               className={style.tag}
