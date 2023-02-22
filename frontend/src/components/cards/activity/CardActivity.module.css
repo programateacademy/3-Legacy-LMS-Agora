@@ -1,3 +1,17 @@
+/* Imagen de la Card Principal */
+
+.image {
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Efecto de la imagen  */
+.card:hover .image {
+  filter: blur(1px);
+  transform: scale(1.2);
+  transition: 0.8s ease-in-out;
+}
+
 /* Card Principal */
 .card {
   width: 280px;
@@ -11,22 +25,20 @@
   background-position: center;
   position: relative;
   overflow: hidden;
-  box-shadow: 35px 35px 68px 0px rgba(89, 89, 92, 0.2),
-    inset -8px -8px 16px 0px rgba(43, 43, 44, 0.6),
-    inset 0px 11px 28px 0px rgb(0, 0, 0);
-  transition: 0.2s all;
+  box-shadow: 0px 0px 35px rgba(0, 0, 0, 0.5);
+  transition: 0.3s ease-in-out;
 }
 
-/* Hover Card Principal */
+/* Efecto a Card Principal */
 .card:hover {
-  transform: scale(.95);
-  box-shadow: 35px 35px 68px 0px rgba(49, 50, 50, 0.5);
+  transform: scale(0.95);
+  border-radius: 2.5vw 1vw;
+  box-shadow: 0px 0px 45px rgba(0, 0, 0, 0.9);
+  transition: 0.5s ease-in-out;
 }
 
 /* Desplegue de la info */
 .card__overlay {
-  background-color: rgba(0, 0, 0, .8);
-  background-size: cover;
   text-align: center;
   position: absolute;
   bottom: 0;
@@ -34,12 +46,13 @@
   right: 0;
   z-index: 1;
   transform: translateY(100%);
+  background-color: rgba(17, 25, 40, 0.6);
   transition: 0.2s ease-in-out;
 }
 
 /* Acciones del despliegue cuando se activa el hover de la card principal */
 .card:hover .card__overlay {
-  clip-path: polygon(0 11%, 100% 33%, 100% 100%, 0% 100%);
+  clip-path: polygon(0 10%, 100% 25%, 100% 100%, 0% 100%);
   transform: translateY(0);
   overflow: hidden;
   transition: 0.4s ease-in-out;
@@ -48,14 +61,15 @@
 /* Babecera que indica ver más acciones */
 .card__header {
   padding: 0.1em;
-  background-color: rgba(47, 47, 47, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   background-size: cover;
   position: relative;
   display: flex;
   justify-content: center;
   border-radius: calc(2 * 30px) 0 0;
   transform: translateY(-100%);
-  transition: 0.4s ease-in-out;
+  transition: 0.1s ease-in-out;
+  text-transform: capitalize;
 }
 
 /* Acciones de la cabecera cuando se activa el hover */
@@ -98,7 +112,22 @@
   overflow: hidden;
 }
 
+/* Dispositivos menores a 768px se activara el boton automaticamente */
+@media only screen and (max-width: 768px) {
+  .card .image {
+    filter: blur(1px);
+  }
 
+  .card {
+    transform: scale(0.95);
+  }
+
+  .card .card__overlay {
+    clip-path: polygon(0 10%, 100% 25%, 100% 100%, 0% 100%);
+    transform: translateY(0);
+    overflow: hidden;
+  }
+}
 
 /*  */
 
@@ -111,62 +140,11 @@
   z-index: 1;
 }
 
-
 .card__thumb {
   flex-shrink: 0;
   width: 50px;
   height: 50px;
 }
- /* .card:hover .card__header {
-   transform: translateY(0);
- }
-
- .card:hover .card__header__text h3 {
-   display: none;
-   transition: 0.3s ease-in;
- }
-
- .card__thumb {
-   flex-shrink: 0;
-   width: 50px;
-   height: 50px;
- }
-
- .card__header__text {
-   height: 10px;
-   margin-bottom: 11vh;
- }
-
- .card__title {
-   font-size: 2em;
-   margin: 0 0 .3em;
-   padding-top: 4vh;
-   color: var(--colorYellow);
- }
-
- .card__tagline {
-   display: block;
-   margin: 1em 0;
-   font-size: .8em;
- }
-
- .card__status {
-   font-size: .8em;
-   color: var(--colorWhite);
- }
-
- .card__description {
-   margin: auto;
-   width: 85%;
-   text-align: center;
-   word-spacing: 2px;
-   color: var(--colorWhite);
-   display: -webkit-box;
-   -webkit-box-orient: vertical;
-   -webkit-line-clamp: 3;
-   overflow: hidden;
- } */
-
 
 .card__tagline {
   margin: 1em 0;
@@ -262,13 +240,13 @@
   cursor: pointer;
 }
 
- .list li:hover a {
-   color: var(--colorWhite)
- }
+.list li:hover a {
+  color: var(--colorWhite);
+}
 
- .list a {
-   text-decoration: none;
- }
+.list a {
+  text-decoration: none;
+}
 
 .list a {
   text-decoration: none;
