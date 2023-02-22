@@ -157,7 +157,7 @@ export function ViewProject(props) {
             {/*Contexto */}
             <div className={style.contextContainer}>
               <h3>Contexto del Proyecto</h3>
-              <p>{contextGeneral}</p>
+              <p className={style.pContainer}>{contextGeneral}</p>
             </div>
 
             {/*Criterios */}

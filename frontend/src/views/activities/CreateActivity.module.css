@@ -197,14 +197,14 @@
 }
 
 .InitialContainer {
-  width: 100%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   background-color: var(--colorHeader);
   box-shadow: 6px 10px 10px var(--colorBlackOpacity);
   border-radius: 8px;
   padding: 3vh;
-  margin-top: 10px;
+  margin: 10px auto;
 }
 
 .InitialContainer .addResourcesContainer {
@@ -220,6 +220,19 @@
 
 .h4InitialContainer{
   color: white;
+}
+
+.h3Workwook{
+  color: white;
+}
+
+.h4Workwook{
+  color: white;
+}
+
+.pWorkwook{
+  color: white;
+  text-align: center;
 }
 
 .resourcesContainer {
@@ -249,7 +262,7 @@
 }
 
 .dateTimeDelivery input {
-  background-color: var(--colorYellowOpacity);
+  background-color: var(--colorYellow);
   box-shadow: none;
   box-shadow: 6px 10px 10px var(--colorBlackOpacity);
   cursor: pointer;
@@ -277,9 +290,8 @@
   background-color: var(--colorHeader);
   box-shadow: 6px 10px 10px var(--colorBlackOpacity);
   border-radius: 8px;
-  margin-top: 1vh;
-  margin-bottom: 4vh;
-  width: 100%;
+  margin: 4vh auto;
+  width: 80%;
   align-items: center;
 
   padding: 3vh;
@@ -316,6 +328,7 @@
   border-radius: 50px;
   text-align: center;
   overflow: hidden;
+  color: black;
 }
 
 .tagContainer {
@@ -353,12 +366,17 @@
 }
 
 .contextContainer {
+  width: 80%;
   background-color: var(--colorHeader);
   box-shadow: 6px 10px 10px var(--colorBlackOpacity);
   padding: 3vh;
   border-radius: 10px;
-  margin-top: 15px;
-  margin-bottom: 25px;
+  margin: 25px auto;
+}
+
+.pContainer{
+  color: white;
+  text-align: center;
 }
 
 .first {
@@ -484,12 +502,8 @@
   text-align: center;
 }
 
-.formContainer p {
-  color: var(--colorBlack);
-}
-
 .inputsdeliveries {
-  background-color: var(--colorGray);
+  background-color: var(--colorHeader);
   border-radius: 10px;
   margin-top: 3vh;
 }
