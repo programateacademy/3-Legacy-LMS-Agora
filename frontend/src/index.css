@@ -1,41 +1,48 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
 
-@font-face {
-  font-family: 'Gilroy-Light';
-  src: url('./assets/font/Gilroy-Light.otf');
+/* Colores y fuentes globales */
+:root {
+  --fontPrincipal: 'Roboto', sans-serif;
+  --colorBackground: #E5E5E5;
+  --colorWhite: #FEFEFE;
+  --colorHeader: #454544;
+  --colorNav: #737171;
+  --colorHoverNav: #404040;
+  --colorGreenDark: #1A2818;
+  --colorBlack: #161616;
+  --colorBlackOpacity: #00000096;
+  --colorGray: #D7D7D7;
+  --colorGray_20: rgba(214, 214, 214, 0.2);
+  --colorGreenLight: #92C149;
+  --colorGreenLight_31: rgba(145, 193, 73, 0.31);
+  --colorRed: #ff2a2a;
+  --colorYellow: #ffcc02;
+  --colorYellow_65: rgba(255, 204, 2, 0.65);
+  --colorYellowOpacity: #ffda0a98;
 }
 
-@font-face {
-  font-family: 'Gilroy-Bold';
-  src: url('./assets/font/Gilroy-ExtraBold.otf');
-}
-
-* {
-  font-family: 'Roboto', sans-serif;
+*{
+  font-family: var(--fontPrincipal);
   padding: 0px;
   margin: 0;
   box-sizing: border-box;
 }
 
 h1 {
-  font-family:'Roboto', sans-serif;
   text-align: center;
 }
 
 h2, h3 {
-  font-family: 'Roboto', sans-serif;
-  text-align: left;
+  text-align: center;
 }
 
 h4 {
-  font-family: 'Roboto', sans-serif;;
-  text-align: left;
+  text-align: center;
   color: var(--colorWhite);
   padding-left: 20px;
 }
 
 body {
-
   overflow-x: hidden;
 }
 
@@ -56,8 +63,6 @@ p {
   margin-bottom: 0;
 }
 
-
-
 select {
   border: transparent;
   min-height: 40px;
@@ -68,65 +73,35 @@ select {
   box-shadow: inset 0px 4px 15px var(--colorBlackOpacity);
 }
 
-textarea{
-	width: 100%;
-  padding: 10px;
-	border-radius: 5px;
-	background-color: var(--colorGray_20);
-  box-shadow: inset 0px 4px 15px var(--colorBlackOpacity);
-	border: transparent;
-	resize: none;
-}
-
 textarea {
   width: 100%;
   padding: 10px;
   border-radius: 5px;
   background-color: var(--colorGray_20);
-  box-shadow: inset 0px 4px 15px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0px 4px 15px var(--colorBlackOpacity);
   border: transparent;
   resize: none;
 }
 
-:root {
-  --curve: 18;
-  --colorBackground: #E5E5E5;
-  --colorWhite: #FEFEFE;
-  --colorHeader: #454544;
-  --colorNav: #737171;
-  --colorHoverNav: #404040;
-  --colorGreenDark: #1A2818;
-  --colorBlack: #010101;
-  --colorBlackOpacity: #00000096;
-  --colorGray: #D7D7D7;
-  --colorGray_20: rgba(214, 214, 214, 0.2);
-  --colorGreenLight: #92C149;
-  --colorGreenLight_31: rgba(145, 193, 73, 0.31);
-  --colorRed: #ff2a2a;
-  --colorYellow: #ffcc02;
-  --colorYellow_65: rgba(255, 204, 2, 0.65);
-  --colorYellowOpacity: #ffda0a98;
-}
-
 /* ===== Scrollbar CSS ===== */
 /* Firefox */
-* {
+body {
   scrollbar-width: auto;
   scrollbar-color: var(--colorYellow) var(--colorBlack);
 }
 
 /* Chrome, Edge, and Safari */
-*::-webkit-scrollbar {
+body::-webkit-scrollbar {
   width: 8px;
   overflow-x:hidden;
 }
 
-*::-webkit-scrollbar-track {
-  background: var(--colorBlack);
+body::-webkit-scrollbar-track {
+  background: var(--colorGray);
 }
 
-*::-webkit-scrollbar-thumb {
-  background-color: var(--colorYellow);
+body::-webkit-scrollbar-thumb {
+  background-color: var(--colorBackground);
   border-radius: 10px;
   border: 8px solid var(--colorYellow_65);
 }

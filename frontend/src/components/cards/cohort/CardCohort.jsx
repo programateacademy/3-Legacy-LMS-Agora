@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./CardCohort.module.css";
-import { Button } from "../../buttons/Button/Button";
-import { useDispatch, useSelector } from "react-redux";
+import { Button } from "../../Buttons/Button";
+import { useDispatch } from "react-redux";
 import { dispatchMenuHide } from "../../../redux/actions/menuAction";
 import LazyLoad from "react-lazy-load";
 export function CardCohort({ info, principal, teacher }) {
@@ -17,7 +17,7 @@ export function CardCohort({ info, principal, teacher }) {
     endBootcamp,
   } = info;
   return (
-    <div>
+    <>
       <div className={styles.cohort}>
         <LazyLoad className={styles.cohortImage}>
           <img src={imageCohort} alt={nameCohort} />
@@ -54,6 +54,6 @@ export function CardCohort({ info, principal, teacher }) {
           </div>
         )}
       </div>
-    </div>
+    </>
   );
 }

@@ -3,7 +3,7 @@ const Profile = require("../db/models/profile");
 const controllerProfile = {
   getProfiles: async (req, res) => {
     try {
-      const profile = await Profile.find({cohortID:req.params._id});
+      const profile = await Profile.find({ cohortID: req.params._id });
 
       res.json(profile);
     } catch (err) {
@@ -21,14 +21,14 @@ const controllerProfile = {
   },
   updateProfile: async (req, res) => {
     try {
-      const { image, linkedin, gitHub, portfolio, dateOfBirth } = req.body;
+      const { image, linkedin, gitHub, portafolio, dateOfBirth } = req.body;
       await Profile.findOneAndUpdate(
         { userID: req.params._id },
         {
           image,
           linkedin,
           gitHub,
-          portfolio,
+          portafolio,
           dateOfBirth,
         }
       );
@@ -43,9 +43,8 @@ const controllerProfile = {
       const profile = await Profile.findOne({ userID: req.params._id });
       const competenceArray = await profile.competence;
       const specificCompetence = await competenceArray.map(
-        (e) => JSON.stringify(e._id) === `"${competenceID}"`?e:null
+        (e) => JSON.stringify(e._id) === `"${competenceID}"` ? e : null
       ).filter((item) => item !== null)[0];
-      
       if (level === "levelOne") {
         specificCompetence.levelOne.approved = approved;
       }
@@ -57,7 +56,7 @@ const controllerProfile = {
       }
 
       const specificCompetences = await competenceArray.map(
-        (e) => JSON.stringify(e._id) === `"${competenceID}"`?null:e
+        (e) => JSON.stringify(e._id) === `"${competenceID}"` ? null : e
       ).filter((item) => item !== null);
 
       const competence = specificCompetences.concat(specificCompetence);
@@ -74,3 +73,4 @@ const controllerProfile = {
 };
 
 module.exports = controllerProfile;
+

@@ -1,7 +1,7 @@
 import React from "react";
 import { Bootcamps } from "../../bootcamps/Bootcamps.jsx";
 import styles from "./AdminHome.module.css";
-import { Button } from "../../../components/buttons/Button/Button.jsx";
+import { Button } from "../../../components/Buttons/Button.jsx";
 export function AdminHome() {
   return (
     <div className={styles.adminDashboard}>

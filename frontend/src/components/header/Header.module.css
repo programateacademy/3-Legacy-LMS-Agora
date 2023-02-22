@@ -18,10 +18,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 5.5rem;
     height: 55px;
     width: 170px;
-    margin-left: 1rem;
+    margin-left: 3rem;
   }
 
   .Logo img {
@@ -100,10 +99,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 4rem;
     height: 55px;
     width: 170px;
-    margin-left: 1rem;
+    margin-left: 3rem;
   }
 
   .Logo img {
@@ -183,10 +181,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 2rem;
     height: 55px;
     width: 170px;
-    margin-left: 1rem;
+    margin-left: 3rem;
   }
 
   .Logo img {
@@ -242,6 +239,11 @@
   .p {
     margin: 10px;
   }
+.link_singIn {
+  text-transform: uppercase;
+  margin: 10px;
+  color: var(--colorWhite);
+}
 }
 
 /*Cel Horizontal*/
@@ -265,10 +267,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 1rem;
     height: 50px;
     width: 160px;
-    margin-left: -115%;
+    margin-left: 0;
   }
 
   .Logo img {
@@ -308,7 +309,7 @@
   .hamburguerMenu {
     display: none;
     cursor: pointer;
-    margin-left: 1rem;
+    margin-left: 0;
   }
 
   .link_singIn {
@@ -347,10 +348,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 1rem;
     height: 30px;
     width: 140px;
-    margin-left: -90%;
+    margin-left: 0;
   }
 
   .Logo img {

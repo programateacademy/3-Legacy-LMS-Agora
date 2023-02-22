@@ -1,24 +1,22 @@
+/* dependecnias y componentes */
 import React, { useState } from "react";
-import logo from "../../assets/logos/programate-academy-blancos.png";
-
 import { Link, Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 import LazyLoad from "react-lazy-load";
-
 import UserLink from "./UserLink";
-import "./UserLink.css";
-import style from "./Header.module.css";
-
 import { HamburguerMenu } from "./HamburguerMenu";
 import { MenuDashboard } from "../menu/MenuDashboard";
-
+/* assets y styles */
+import "./UserLink.css";
+import style from "./Header.module.css";
+import logo from "../../assets/logos/programate-academy-blancos.png";
 
 export function Header() {
   const auth = useSelector((state) => state.auth);
   const menu = useSelector((state) => state.menu);
   const [open, setOpen] = useState(false);
 
-  const { menuView } = menu
+  const { menuView } = menu;
   const { user, isLogged, isTeacher, isStudent } = auth;
 
   const handleLogout = async () => {
@@ -39,9 +37,6 @@ export function Header() {
         <div className={style.headerContainer}>
           {isLogged && (isStudent || isTeacher) ? (
             <>
-              {menuView ? <div className={style.hamburguerMenu}>
-                <HamburguerMenu open={open} handleClick={handleClick} />
-              </div> : null}
               {menuView ? (
                 <div className={style.hamburguerMenu}>
                   <HamburguerMenu open={open} handleClick={handleClick} />
@@ -62,10 +57,9 @@ export function Header() {
           ) : (
             <Link className={style.link_singIn} to="/login">
               <i
-                class="ri-user-line icon-signIn"
+                className="ri-user-line icon-signIn"
                 style={{ marginRight: "1rem" }}
-              ></i>
-              Ingresar
+              >Ingresar</i>
             </Link>
           )}
         </div>

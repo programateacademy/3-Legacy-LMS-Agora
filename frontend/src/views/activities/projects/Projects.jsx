@@ -1,10 +1,9 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { CardActivity } from "../../../components/cards/activity/CardActivity";
 import { useSelector } from "react-redux";
 import apiAgora from "../../../api/index";
-import { Button } from "../../../components/buttons/Button/Button";
+import { Button } from "../../../components/Buttons/Button";
 import styles from "./Projects.module.css";
 
 export function Projects(props) {
@@ -26,7 +25,7 @@ export function Projects(props) {
   }, [cohortID, userID]);
   return (
     <div className={styles.projects}>
-      <h2>Proyectos</h2>
+      <h2 className={styles.title}>Proyectos</h2>
       {teacher ? (
         <div className={styles.buttonCreateProject}>
           <Button

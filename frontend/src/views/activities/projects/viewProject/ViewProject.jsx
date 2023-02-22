@@ -3,9 +3,8 @@ import style from "../../CreateActivity.module.css";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import apiAgora from "../../../../api/index";
-import { BsArrowLeftCircle } from "react-icons/bs";
 import { AiOutlineLink } from "react-icons/ai";
-import { Button } from "../../../../components/buttons/Button/Button";
+import { Button } from "../../../../components/Buttons/Button";
 import LazyLoad from "react-lazy-load";
 
 const initialState = {
@@ -74,11 +73,11 @@ export function ViewProject(props) {
     <div className={style.formContainer}>
       <div>
         <button className={style.button_return} onClick={() => navigate(-1)}>
-          <i class="ri-arrow-left-circle-line" ></i>
+          <i className="ri-arrow-left-circle-line"></i>
         </button>
       </div>
       <div className={style.wrapper}>
-        <h2 className={style.typing_demo_view_Project}>Proyecto</h2>
+        <h2 className={`${style.typing_demo_view_Project} ${style.titlesGlobales}`}>Proyecto</h2>
       </div>
       {!teacher ? (
         <div className={style.buttonDelivery}>
@@ -102,7 +101,7 @@ export function ViewProject(props) {
               </LazyLoad>
             </div>
 
-             {/*General */}
+            {/*General */}
             <div className={style.InitialContainer}>
               <h3>Nombre del Proyecto</h3>
               <h4>{titleProject}</h4>
@@ -122,164 +121,159 @@ export function ViewProject(props) {
 
             {/*Marco */}
             <div className={style.res}>
-            <div className={style.InitialContainer}>
-              <h3>Marco de competencias</h3>
-              <h4>{competenceFramework}</h4>
-            </div>
+              <div className={style.InitialContainer}>
+                <h3>Marco de competencias</h3>
+                <h4>{competenceFramework}</h4>
+              </div>
             </div>
 
             {/*Recursos */}
             <div className={style.res}>
-            <div className={style.InitialContainer}>
-              <h3>Recursos</h3>
+              <div className={style.InitialContainer}>
+                <h3>Recursos</h3>
+
+                <div>
+                  {resources.length !== 0
+                    ? resources.map((item, index) => (
+                        <div className={style.tagContainer} key={index}>
+                          <AiOutlineLink className={style.linkIcon} size={30} />
+                          <div className={style.tagText}>
+                            <a
+                              className={style.tag}
+                              href={item.link}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              {item.nameLink}
+                            </a>
+                          </div>
+                          <AiOutlineLink className={style.linkIcon} size={30} />
+                        </div>
+                      ))
+                    : null}
+                </div>
+              </div>
+            </div>
+            {/*Contexto */}
+            <div className={style.contextContainer}>
+              <h3>Contexto del Proyecto</h3>
+              <p>{contextGeneral}</p>
+            </div>
+
+            {/*Criterios */}
+            <div className={style.summaryProject}>
+              <h3>Criterios de Rendimiento</h3>
 
               <div>
-                {resources.length !== 0
-                  ? resources.map((item, index) => (
+                {performanceCriterias.length !== 0
+                  ? performanceCriterias.map((item, index) => (
                       <div className={style.tagContainer} key={index}>
-                        <AiOutlineLink className={style.linkIcon} size={30} />
                         <div className={style.tagText}>
-                          <a
-                            className={style.tag}
-                            href={item.link}
-                            target="_blank"
-                            rel="noreferrer"
-                          >
-                            {item.nameLink}
-                          </a>
+                          <p className={style.tag}>{item}</p>
                         </div>
-                        <AiOutlineLink className={style.linkIcon} size={30} />
                       </div>
                     ))
                   : null}
               </div>
             </div>
-            </div>
-              {/*Contexto */}
-            <div className={style.contextContainer}>
-              <h3>Contexto del Proyecto</h3>
-              <p>{contextGeneral}</p>
-            </div>
-              
-              {/*Criterios */}
-            <div className={style.summaryProject}>
-            <h3>Criterios de Rendimiento</h3>
-
-            <div>
-              {performanceCriterias.length !== 0
-                ? performanceCriterias.map((item, index) => (
-                    <div className={style.tagContainer} key={index}>
-                      <div className={style.tagText}>
-                        <p className={style.tag}>{item}</p>
-                      </div>
-                    </div>
-                  ))
-                : null}
-            </div>
-          </div>
-            
-
           </div>
           <div className={style.containerTwo}>
-
-          <div className={style.summaryProject}>
-            <h3>Fecha y Hora de Entrega</h3>
-            <div className={style.dateTimeDelivery}>
-              <input
-                placeholder="Fecha de entrega"
-                type="datetime-local"
-                name="date"
-                value={date}
-                disabled
-              />
-            </div>
+            <div className={style.summaryProject}>
+              <h3>Fecha y Hora de Entrega</h3>
+              <div className={style.dateTimeDelivery}>
+                <input
+                  placeholder="Fecha de entrega"
+                  type="datetime-local"
+                  name="date"
+                  value={date}
+                  disabled
+                />
+              </div>
             </div>
 
             <div className={style.summaryProject}>
-            <h3>Requerimientos Generales</h3>
+              <h3>Requerimientos Generales</h3>
 
-            <div>
-              {contextGeneralReq.length !== 0
-                ? contextGeneralReq.map((item, index) => (
-                    <div className={style.tagContainer} key={index}>
-                      <div className={style.tagText}>
-                        <p className={style.tag}>{item}</p>
+              <div>
+                {contextGeneralReq.length !== 0
+                  ? contextGeneralReq.map((item, index) => (
+                      <div className={style.tagContainer} key={index}>
+                        <div className={style.tagText}>
+                          <p className={style.tag}>{item}</p>
+                        </div>
                       </div>
-                    </div>
-                  ))
-                : null}
+                    ))
+                  : null}
+              </div>
             </div>
-          </div>
 
-          <div className={style.summaryProject}>
-            <h3>Requerimientos Técnicos</h3>
-            <div>
-              {contextTechniciansReq.length !== 0
-                ? contextTechniciansReq.map((item, index) => (
-                    <div className={style.tagContainer} key={index}>
-                      <div className={style.tagText}>
-                        <p className={style.tag}>{item}</p>
+            <div className={style.summaryProject}>
+              <h3>Requerimientos Técnicos</h3>
+              <div>
+                {contextTechniciansReq.length !== 0
+                  ? contextTechniciansReq.map((item, index) => (
+                      <div className={style.tagContainer} key={index}>
+                        <div className={style.tagText}>
+                          <p className={style.tag}>{item}</p>
+                        </div>
                       </div>
-                    </div>
-                  ))
-                : null}
+                    ))
+                  : null}
+              </div>
             </div>
-          </div> 
 
-          <div className={style.summaryProject}>
-            <h3>Requerimientos Adicionales</h3>
-            <div>
-              {contextExtrasReq.length !== 0
-                ? contextExtrasReq.map((item, index) => (
-                    <div className={style.tagContainer} key={index}>
-                      <div className={style.tagText}>
-                        <p className={style.tag}>{item}</p>
+            <div className={style.summaryProject}>
+              <h3>Requerimientos Adicionales</h3>
+              <div>
+                {contextExtrasReq.length !== 0
+                  ? contextExtrasReq.map((item, index) => (
+                      <div className={style.tagContainer} key={index}>
+                        <div className={style.tagText}>
+                          <p className={style.tag}>{item}</p>
+                        </div>
                       </div>
-                    </div>
-                  ))
-                : null}
+                    ))
+                  : null}
+              </div>
             </div>
-          </div>
 
-          {/*Modalidad */ }
-          <div className={style.summaryProject}>
-            <h3>Modalidad Pedagógica</h3>
+            {/*Modalidad */}
+            <div className={style.summaryProject}>
+              <h3>Modalidad Pedagógica</h3>
 
-            <div>
-              {pedagogyModality.length !== 0
-                ? pedagogyModality.map((item, index) => (
-                    <div className={style.tagContainer} key={index}>
-                      <div className={style.tagText}>
-                        <p className={style.tag}>{item}</p>
+              <div>
+                {pedagogyModality.length !== 0
+                  ? pedagogyModality.map((item, index) => (
+                      <div className={style.tagContainer} key={index}>
+                        <div className={style.tagText}>
+                          <p className={style.tag}>{item}</p>
+                        </div>
                       </div>
-                    </div>
-                  ))
-                : null}
+                    ))
+                  : null}
+              </div>
             </div>
-          </div>
             {/*Mod. Evaluación */}
-           <div className={style.summaryProject}>
-            <h3>Modalidad de Evaluación</h3>
+            <div className={style.summaryProject}>
+              <h3>Modalidad de Evaluación</h3>
 
-            <div>
-              {evaluationModality.length !== 0
-                ? evaluationModality.map((item, index) => (
-                    <div className={style.tagContainer} key={index}>
-                      <div className={style.tagText}>
-                        <p className={style.tag}>{item}</p>
+              <div>
+                {evaluationModality.length !== 0
+                  ? evaluationModality.map((item, index) => (
+                      <div className={style.tagContainer} key={index}>
+                        <div className={style.tagText}>
+                          <p className={style.tag}>{item}</p>
+                        </div>
                       </div>
-                    </div>
-                  ))
-                : null}
+                    ))
+                  : null}
+              </div>
             </div>
-          </div>
-
           </div>
         </div>
-        
+
         {/*Abajo */}
         <div className={style.deliveryContainer}>
-
           {/*Entregables*/}
           <div className={style.inputsdeliveries}>
             <h3>Entregables del Proyecto</h3>
@@ -314,8 +308,7 @@ export function ViewProject(props) {
                   ))
                 : null}
             </div>
-            <div className={style.container_submit}>
-            </div>
+            <div className={style.container_submit}></div>
           </div>
         </div>
       </div>

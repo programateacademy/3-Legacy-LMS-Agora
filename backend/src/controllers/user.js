@@ -135,15 +135,15 @@ const controllerUser = {
         state,
       });
 
-      const { _id: userID } = await newUser.save();
-      // const newEmail = newUser.email
+      const {_id: userID} = await newUser.save();
+      //const newEmail = newUser.email
       const provisionalProfile = {
         cohortID,
         userID,
         image: "",
         linkedin: "",
         gitHub: "",
-        portfolio: "",
+        portafolio: "",
         competence: [],
         dateOfBirth: "",
       };
@@ -160,7 +160,7 @@ const controllerUser = {
           msg: "Registro Completado su perfil y cuenta estan activos ",
         });
       }
-      else{
+      else {
         const savedProfile = new Profile({
           ...provisionalProfile,
           competence: searchCompetences
@@ -171,11 +171,11 @@ const controllerUser = {
           msg: "Registro Completado su perfil y cuenta estan activos ",
         });
       }
-
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }
   },
+  
   login: async (req, res) => {
     try {
       const { email, password } = req.body;

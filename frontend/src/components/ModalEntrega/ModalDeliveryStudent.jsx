@@ -212,159 +212,166 @@ export function ModalDeliveryStudent() {
   };
 
   return (
-    <div className={styles.formContainer}>
-      <div className={styles.InitialContainer}>
-        <button className={styles.button_return} onClick={() => navigate(-1)}>
-          <BsArrowLeftCircle size={30} />
-        </button>
+    <>
+      <div className={styles.formContainer}>
         <div className={styles.InitialContainer}>
-          <h2>{activityProject}</h2>
-          <LazyLoad className={styles.img_preview}>
-            <img src={image} alt="imageDelivery" />
-          </LazyLoad>
-        </div>
-      </div>
-      <form className={styles.containerModal} onSubmit={handleSubmit}>
-        <div className={styles.chat}>
-          <div className={styles.segundoFondoestudiantes}>
-            <h4> <b>Entregas</b></h4>
-            {modal.map((item, index) => (
-              <div key={index}>
-                {
-                  <p className={styles.textTime}>
-                    <b>
-                      {new Date(item.createdAt).toLocaleDateString("en-CA")}-{" "}
-                      {new Date(item.createdAt).toLocaleTimeString()}
-                    </b>
-                  </p>
-                }
-
-                <h5>Descripción:</h5>
-                <p>{item.message}</p>
-                <br />
-                <h5>Links:</h5>
-                <br />
-                {item.delivery.map((item) => (
-                  <a
-                    href={item.link}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={styles.tag}
-                  >
-                    {item.nameLink}
-                  </a>
-                ))}
-                <hr />
-              </div>
-            ))}
-          </div>
-          <div className={styles.segundoFondoestudiantes}>
-            <h4> <b>Feedback</b></h4>
-            {modalStudent.map((item, index) => (
-              <div key={index}>
-                {
-                  <p className={styles.textTime}>
-                    <b>
-                      {new Date(item.createdAt).toLocaleDateString("en-CA")}-{" "}
-                      {new Date(item.createdAt).toLocaleTimeString()}
-                    </b>
-                  </p>
-                }
-
-                <h5>Descripción:</h5>
-                <p>{item.message}</p>
-                <br />
-                <h5>Links:</h5>
-                <br />
-                {item.feedback.map((item) => (
-                  <a
-                    href={item.link}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={styles.tag}
-                  >
-                    {item.nameLink}
-                  </a>
-                ))}
-                <hr />
-              </div>
-            ))}
+          <button className={styles.button_return} onClick={() => navigate(-1)}>
+            <BsArrowLeftCircle size={30} />
+          </button>
+          <div className={styles.InitialContainer}>
+            <h2>{activityProject}</h2>
+            <LazyLoad className={styles.img_preview}>
+              <img src={image} alt="imageDelivery" />
+            </LazyLoad>
           </div>
         </div>
-        <h3>Ingrese la entrega y sus Links correspondientes</h3>
-        <div className={styles.secondContainer}>
-          <div className={styles.contInpLink}>
-            <div className={styles.contInpLinkIntern}>
-              <label>Nombre del Link</label>
-              <input
-                type="text"
-                className={styles.inputLink}
-                placeholder="nombre"
-                name="nameLink"
-                value={nameLink}
-                onChange={handleChangeLink}
-              />
-              <label>Dirección URL</label>
-              <input
-                type="text"
-                className={styles.inputLink}
-                placeholder="Link de entrega"
-                name="link"
-                value={link}
-                onChange={handleChangeLink}
-              />
-            </div>
+        <form className={styles.containerModal} onSubmit={handleSubmit}>
+          <div className={styles.chat}>
+            <div className={styles.segundoFondoestudiantes}>
+              <h4>
+                {" "}
+                <b>Entregas</b>
+              </h4>
+              {modal.map((item, index) => (
+                <div key={index}>
+                  {
+                    <p className={styles.textTime}>
+                      <b>
+                        {new Date(item.createdAt).toLocaleDateString("en-CA")}-{" "}
+                        {new Date(item.createdAt).toLocaleTimeString()}
+                      </b>
+                    </p>
+                  }
 
-            <button
-              className={styles.addTagsProject}
-              type="button"
-              onClick={() => onClickObject("delivery")}
-            >
-              <MdOutlineAddCircle size={30} />
-            </button>
-          </div>
-          <div className={styles.secondText}>
-            <label>Mensaje para la Entrega</label>
-            <div className={styles.inputDes}>
-              <textarea
-                name="message"
-                value={message}
-                placeholder="Descripcion"
-                onChange={handleChangeInput}
-              ></textarea>
-            </div>
-            <button type="submit">enviar</button>
-          </div>
-
-        </div>
-
-        <div className={styles.container__tagsModal}>
-          {delivery.length !== 0
-            ? delivery.map((item, index) => (
-              <div className={styles.tagContainer} key={index}>
-                <AiOutlineLink className={styles.linkIcon} size={30} />
-                <div className={styles.tagText}>
-                  <a
-                    className={styles.tag}
-                    href={item.link}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {item.nameLink}
-                  </a>
+                  <h5>Descripción:</h5>
+                  <p>{item.message}</p>
+                  <br />
+                  <h5>Links:</h5>
+                  <br />
+                  {item.delivery.map((item) => (
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={styles.tag}
+                    >
+                      {item.nameLink}
+                    </a>
+                  ))}
+                  <hr />
                 </div>
-                <button
-                  className={styles.deleteTag}
-                  type="button"
-                  onClick={() => deleteItemArray("delivery", item)}
-                >
-                  <MdDeleteForever size={30} />
-                </button>
+              ))}
+            </div>
+            <div className={styles.segundoFondoestudiantes}>
+              <h4>
+                {" "}
+                <b>Feedback</b>
+              </h4>
+              {modalStudent.map((item, index) => (
+                <div key={index}>
+                  {
+                    <p className={styles.textTime}>
+                      <b>
+                        {new Date(item.createdAt).toLocaleDateString("en-CA")}-{" "}
+                        {new Date(item.createdAt).toLocaleTimeString()}
+                      </b>
+                    </p>
+                  }
+
+                  <h5>Descripción:</h5>
+                  <p>{item.message}</p>
+                  <br />
+                  <h5>Links:</h5>
+                  <br />
+                  {item.feedback.map((item) => (
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={styles.tag}
+                    >
+                      {item.nameLink}
+                    </a>
+                  ))}
+                  <hr />
+                </div>
+              ))}
+            </div>
+          </div>
+          <h3>Ingrese la entrega y sus Links correspondientes</h3>
+          <div className={styles.secondContainer}>
+            <div className={styles.contInpLink}>
+              <div className={styles.contInpLinkIntern}>
+                <label>Nombre del Link</label>
+                <input
+                  type="text"
+                  className={styles.inputLink}
+                  placeholder="nombre"
+                  name="nameLink"
+                  value={nameLink}
+                  onChange={handleChangeLink}
+                />
+                <label>Dirección URL</label>
+                <input
+                  type="text"
+                  className={styles.inputLink}
+                  placeholder="Link de entrega"
+                  name="link"
+                  value={link}
+                  onChange={handleChangeLink}
+                />
               </div>
-            ))
-            : null}
-        </div>
-      </form>
-    </div>
+
+              <button
+                className={styles.addTagsProject}
+                type="button"
+                onClick={() => onClickObject("delivery")}
+              >
+                <MdOutlineAddCircle size={30} />
+              </button>
+            </div>
+            <div className={styles.secondText}>
+              <label>Mensaje para la Entrega</label>
+              <div className={styles.inputDes}>
+                <textarea
+                  name="message"
+                  value={message}
+                  placeholder="Descripcion"
+                  onChange={handleChangeInput}
+                ></textarea>
+              </div>
+              <button type="submit">enviar</button>
+            </div>
+          </div>
+
+          <div className={styles.container__tagsModal}>
+            {delivery.length !== 0
+              ? delivery.map((item, index) => (
+                  <div className={styles.tagContainer} key={index}>
+                    <AiOutlineLink className={styles.linkIcon} size={30} />
+                    <div className={styles.tagText}>
+                      <a
+                        className={styles.tag}
+                        href={item.link}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        {item.nameLink}
+                      </a>
+                    </div>
+                    <button
+                      className={styles.deleteTag}
+                      type="button"
+                      onClick={() => deleteItemArray("delivery", item)}
+                    >
+                      <MdDeleteForever size={30} />
+                    </button>
+                  </div>
+                ))
+              : null}
+          </div>
+        </form>
+      </div>
+    </>
   );
 }

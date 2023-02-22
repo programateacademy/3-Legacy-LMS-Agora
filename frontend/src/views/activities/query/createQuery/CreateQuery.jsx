@@ -166,7 +166,7 @@ export function CreateQuery() {
        {/*---------------------------------- */}
        {/* Titulos consultas */}
       <div className={style.wrapper}>
-        <h2 className={style.typing_demo}>Crear Consulta</h2>
+        <h2 className={`${style.typing_demo} ${style.titlesGlobales}`}>Crear Consulta</h2>
       </div>
        {/* ---------------------------------*/}
       <form onSubmit={handleSubmit}>

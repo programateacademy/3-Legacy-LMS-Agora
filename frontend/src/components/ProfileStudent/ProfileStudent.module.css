@@ -23,6 +23,10 @@
     box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, .3) inset;
 }
 
+.containerProfile i {
+    font-size: 15px;
+}
+
 
 .cajaIns{
     display: flex;
@@ -125,7 +129,7 @@
 .iconcajaUlt{
     position: absolute;
     margin-left: 1rem;
-    top: 15px;
+    top: 24px;
     left: 20px;
     z-index: 3;
     border-right: 1px solid #5F5F5F;

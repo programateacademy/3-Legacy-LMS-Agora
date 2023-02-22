@@ -120,7 +120,10 @@ export function RegisterTeacher() {
             headers: { Authorization: id_user },
           }
         );
-        showSuccessMsg("Nuevo Perfil Formador","se ha registrado satisfactoriamente");
+        showSuccessMsg(
+          "Nuevo Perfil Formador",
+          "se ha registrado satisfactoriamente"
+        );
         setUser({ ...user, err: "", success: res.data.msg });
       }
     } catch (err) {
@@ -143,7 +146,7 @@ export function RegisterTeacher() {
         <div className={styles.register_form_content}>
           <form className={styles.register_form} onSubmit={handleSubmit}>
             <div className={styles.container_register_input}>
-            <div className={styles.input_register}>
+              <div className={styles.input_register}>
                 <label>Primer Nombre</label>
                 <input
                   placeholder="Primer Nombre"

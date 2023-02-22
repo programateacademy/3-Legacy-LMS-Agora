@@ -24,6 +24,7 @@ const useProjects = () => {
   return {
     getProject,
   }
-}
+};
 
-export default useProjects
+export default useProjects;
+

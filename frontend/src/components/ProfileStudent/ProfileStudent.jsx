@@ -1,20 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./ProfileStudent.module.css";
-import { BsArrowLeftCircle } from "react-icons/bs";
-import profiletemporalimg from "../../assets/icons/profile_img.jpg"
-import uploadicon from "../../assets/icons/upload-icon.svg"
+import profiletemporalimg from "../../assets/icons/profile_img.jpg";
 import { AiFillLinkedin } from "react-icons/ai";
 import { AiFillGithub } from "react-icons/ai";
 import { FaNewspaper } from "react-icons/fa";
 import { RiCake2Fill } from "react-icons/ri";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { TableStudent } from "./TableStudent";
-import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { showErrMsg, showSuccessMsg } from "../../utils/notification";
 import { CompetencesTableUser } from "../competencesTable/CompetencesTableUser";
 import apiAgora from "../../api/index";
-import { useParams } from "react-router-dom";
 import LazyLoad from "react-lazy-load";
 const initialState = {
   competence: [],
@@ -40,7 +36,7 @@ export function ProfileStudent(props) {
   const [queries, setQueries] = useState([]);
   const [workbooks, setWorkbooks] = useState([]);
 
-  const { dateOfBirth, gitHub, portafolio, success, linkedin } = userProfile;
+  const { dateOfBirth, gitHub, portafolio, linkedin } = userProfile;
 
   const fetchUser = async (id) => {
     const resUser = await apiAgora.get(`/api/get_user/${id}`, {
@@ -148,185 +144,200 @@ export function ProfileStudent(props) {
     fetchDelivery(userID);
   }, [cohortID, userID]);
 
-
   return (
     <>
-    <button
-    className={styles.button_return}
-    type="button"
-    onClick={() => navigate(-1)}
-  >
-     <i class="ri-arrow-left-circle-line" ></i>
-    </button>
-   
-    <div className={styles.container}>
+      <button
+        className={styles.button_return}
+        type="button"
+        onClick={() => navigate(-1)}
+      >
+        <i className="ri-arrow-left-circle-line"></i>
+      </button>
 
-      <form className={styles.containerProfile} onSubmit={handleSubmit}>
-        
-  
-        <div className={styles.cajaIns}>
+      <div className={styles.container}>
+        <form className={styles.containerProfile} onSubmit={handleSubmit}>
+          <div className={styles.cajaIns}>
+            <LazyLoad className={styles.backround_profile}>
+              <img src={profiletemporalimg} alt="img_profile" />
+            </LazyLoad>
+            <button className={styles.chargeimg}>
+              <i className="ri-upload-cloud-2-line"></i>
+            </button>
 
-        <LazyLoad className={styles.backround_profile}>
-          {/* se pone imagen provicional para posterior conexion con el backend*/}
-          <img src={profiletemporalimg} alt="img_profile" />
-        </LazyLoad>
-        <button className={styles.chargeimg} ><img src={uploadicon}/></button>
-      
+            {!teacher ? (
+              <div className={styles.cajaUlt}>
+                <input
+                  className={styles.input__imageURL}
+                  placeholder="Inserta URL de la imagen"
+                  type="text"
+                  name="image"
+                  value={image}
+                  onChange={handleImage}
+                />
+              </div>
+            ) : null}
+          </div>
+
+          <div className={styles.cajaName}>
+            <h2>
+              {user.firstName +
+                " " +
+                user.middleName +
+                " " +
+                user.lastName +
+                " " +
+                user.secondSurname}
+            </h2>
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry.
+            </p>
+          </div>
+          {teacher ? (
+            <div className={styles.cajaLink}>
+              <div className={styles.cajaUlt}>
+                <input
+                  type="text"
+                  name="linkedin"
+                  value={linkedin}
+                  onChange={handleChangeInput}
+                  disabled
+                />
+                <a href={linkedin} rel="noreferrer" target="_blank">
+                  <AiFillLinkedin size={30} color="#FEFEFE" />
+                </a>
+              </div>
+              <div className={styles.cajaUlt}>
+                <input
+                  type="text"
+                  name="gitHub"
+                  value={gitHub}
+                  onChange={handleChangeInput}
+                  disabled
+                />
+                <a href={gitHub} rel="noreferrer" target="_blank">
+                  <AiFillGithub size={30} color="#FEFEFE" />
+                </a>
+              </div>
+              <div className={styles.cajaUlt}>
+                <a href={portafolio} rel="noreferrer" target="_blank">
+                  <FaNewspaper size={30} color="#585858" />
+                </a>
+                <input
+                  type="text"
+                  name="portafolio"
+                  value={portafolio}
+                  onChange={handleChangeInput}
+                  disabled
+                />
+              </div>
+              <div className={styles.cajaUlt}>
+                <input
+                  type="datetime-local"
+                  name="dateOfBirth"
+                  value={dateOfBirth}
+                  onChange={handleChangeInput}
+                  disabled
+                />
+                <RiCake2Fill size={30} color="#FEFEFE" />
+              </div>
+            </div>
+          ) : (
+            <div className={styles.cajaLink}>
+              <div className={styles.cajaUlt_container}>
+                <div className={styles.cajaUlt}>
+                  <a href={linkedin} rel="noreferrer" target="_blank">
+                    <AiFillLinkedin
+                      size={30}
+                      color="#585858"
+                      className={styles.iconcajaUlt}
+                    />
+                  </a>
+                  <input
+                    type="text"
+                    placeholder="Enlace Linkedin"
+                    name="linkedin"
+                    value={linkedin}
+                    onChange={handleChangeInput}
+                  />
+                </div>
+              </div>
+
+              <div className={styles.cajaUlt_container}>
+                <div className={styles.cajaUlt}>
+                  <a href={gitHub} rel="noreferrer" target="_blank">
+                    <AiFillGithub
+                      size={30}
+                      color="#585858"
+                      className={styles.iconcajaUlt}
+                    />
+                  </a>
+                  <input
+                    type="text"
+                    placeholder="Enlace Github"
+                    name="gitHub"
+                    value={gitHub}
+                    onChange={handleChangeInput}
+                  />
+                </div>
+              </div>
+              <div className={styles.cajaUlt_container}>
+                <div className={styles.cajaUlt}>
+                  <a href={portafolio} rel="noreferrer" target="_blank">
+                    <FaNewspaper
+                      size={30}
+                      color="#585858"
+                      className={styles.iconcajaUlt}
+                    />
+                  </a>
+                  <input
+                    type="text"
+                    placeholder="Enlace Portafolio"
+                    name="portafolio"
+                    value={portafolio}
+                    onChange={handleChangeInput}
+                  />
+                </div>
+              </div>
+
+              <div className={styles.cajaUlt_container}>
+                <div className={styles.cajaUlt}>
+                  <RiCake2Fill
+                    size={30}
+                    color="#585858"
+                    className={styles.iconcajaUlt}
+                  />
+                  <input
+                    type="datetime-local"
+                    name="dateOfBirth"
+                    value={dateOfBirth}
+                    onChange={handleChangeInput}
+                  />
+                </div>
+              </div>
+              <div className={styles.cajaUlt}>
+                <button type="submit">Confirmar</button>
+              </div>
+            </div>
+          )}
+        </form>
+
+        <div className={styles.tableCompetences}>
+          <TableStudent
+            projects={projects}
+            queries={queries}
+            workbooks={workbooks}
+            userID={userID}
+          />
           {!teacher ? (
-           <div className={styles.cajaUlt}>
-              <input
-                className={styles.input__imageURL}
-                placeholder="Inserta URL de la imagen"
-                type="text"
-                name="image"
-                value={image}
-                onChange={handleImage}
-              />
-          </div>
-          ) : null}
+            <h3>Revise su Progreso en la Tabla de Competencias</h3>
+          ) : (
+            <h3>Progreso en la Tabla de Competencias</h3>
+          )}
+
+          <CompetencesTableUser competencesState={userProfile.competence} />
         </div>
-        
-        <div className={styles.cajaName}>
-          <h2>
-            {user.firstName +
-              " " +
-              user.middleName +
-              " " +
-              user.lastName +
-              " " +
-              user.secondSurname}
-          </h2>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-        </div>
-        {teacher ? (
-          <div className={styles.cajaLink}>
-            <div className={styles.cajaUlt}>
-              <input
-                type="text"
-                name="linkedin"
-                value={linkedin}
-                onChange={handleChangeInput}
-                disabled
-              />
-              <a href={linkedin} rel="noreferrer" target="_blank">
-                <AiFillLinkedin size={30} color="#FEFEFE" />
-              </a>
-            </div>
-            <div className={styles.cajaUlt}>
-              <input
-                type="text"
-                name="gitHub"
-                value={gitHub}
-                onChange={handleChangeInput}
-                disabled
-              />
-              <a href={gitHub} rel="noreferrer" target="_blank">
-                <AiFillGithub size={30} color="#FEFEFE" />
-              </a>
-            </div>
-            <div className={styles.cajaUlt}>
-            <a href={portafolio} rel="noreferrer" target="_blank">
-                <FaNewspaper size={30} color="#585858" />
-              </a>
-              <input
-                type="text"
-                name="portafolio"
-                value={portafolio}
-                onChange={handleChangeInput}
-                disabled
-              />
-            </div>
-            <div className={styles.cajaUlt}>
-              <input
-                type="datetime-local"
-                name="dateOfBirth"
-                value={dateOfBirth}
-                onChange={handleChangeInput}
-                disabled
-              />
-              <RiCake2Fill size={30} color="#FEFEFE" />
-            </div>
-          </div>
-        ) : (
-          <div className={styles.cajaLink}>
-            <div className={styles.cajaUlt_container}>
-            <div className={styles.cajaUlt}>
-            <a href={linkedin} rel="noreferrer" target="_blank">
-                <AiFillLinkedin size={30} color="#585858" className={styles.iconcajaUlt} />
-              </a>
-              <input
-                type="text"
-                placeholder="Enlace Linkedin"
-                name="linkedin"
-                value={linkedin}
-                onChange={handleChangeInput}
-              />
-            </div> 
-            </div>
-
-            <div className={styles.cajaUlt_container}>
-            <div className={styles.cajaUlt}>
-            <a href={gitHub} rel="noreferrer" target="_blank">
-                <AiFillGithub size={30} color="#585858" className={styles.iconcajaUlt}/>
-              </a>
-              <input
-                type="text"
-                placeholder="Enlace Github"
-                name="gitHub"
-                value={gitHub}
-                onChange={handleChangeInput}
-              />
-            </div>  
-            </div>
-            <div className={styles.cajaUlt_container}>
-            <div className={styles.cajaUlt}>
-            <a href={portafolio} rel="noreferrer" target="_blank">
-                <FaNewspaper size={30} color="#585858" className={styles.iconcajaUlt}/>
-              </a>
-              <input
-                type="text"
-                placeholder="Enlace Portafolio"
-                name="portafolio"
-                value={portafolio}
-                onChange={handleChangeInput}
-              />
-            </div> 
-            </div>
-
-            <div className={styles.cajaUlt_container}>
-            <div className={styles.cajaUlt}>
-              <RiCake2Fill size={30} color="#585858" className={styles.iconcajaUlt}/>
-              <input
-                type="datetime-local"
-                name="dateOfBirth"
-                value={dateOfBirth}
-                onChange={handleChangeInput}
-              />   
-            </div>
-            </div>
-            <div className={styles.cajaUlt}>
-              <button type="submit">Confirmar</button>
-            </div>
-          </div>
-        )}
-      </form>
-
-      <div className={styles.tableCompetences}>
-        <TableStudent
-          projects={projects}
-          queries={queries}
-          workbooks={workbooks}
-          userID={userID}
-        />
-        {!teacher ? (
-          <h3>Revise su Progreso en la Tabla de Competencias</h3>
-        ) : (
-          <h3>Progreso en la Tabla de Competencias</h3>
-        )}
-
-        <CompetencesTableUser competencesState={userProfile.competence} />
       </div>
-    </div>
     </>
   );
 }

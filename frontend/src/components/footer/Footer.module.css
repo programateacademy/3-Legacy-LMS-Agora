@@ -5,7 +5,7 @@
   }
 
   footer svg {
-    margin-left: 83%;
+    margin-left: auto;
     display: flex;
     justify-content: flex-end;
     margin-top: -208px;
@@ -23,7 +23,7 @@
     background: linear-gradient(270deg, #F9DA39 31.92%, rgba(217, 217, 217, 0) 84.84%);
   }
 
-  img {
+  footer img {
     width: 12%;
     height: auto;
     margin-top: -90px;
@@ -32,7 +32,7 @@
   .sign {
     font-size: 15px;
     font-weight: bolder;
-    margin-right: 11rem;
+    margin-right: 5rem;
     margin-top: -4rem;
     margin-bottom: -0.5rem;
     text-align: right;
@@ -40,7 +40,7 @@
   }
 
   .logos {
-    margin-left: 50%;
+    margin-left: 55%;
     padding: 0;
     width: 17%;
   }
@@ -52,10 +52,10 @@
     padding: 0px 0;
   }
 
-  footer.footer footer svg {
-    margin-left: 80%;
+  footer svg {
+    margin-left: auto;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     margin-top: -211px;
   }
 
@@ -71,7 +71,7 @@
     background: linear-gradient(270deg, #F9DA39 31.92%, rgba(217, 217, 217, 0) 84.84%);
   }
 
-  img {
+  footer img {
     width: 12%;
     height: auto;
     margin-top: -60px;
@@ -80,7 +80,7 @@
   .sign {
     font-size: 14px;
     font-weight: bolder;
-    margin-right: 11rem;
+    margin-right: 5rem;
     margin-top: -4rem;
     text-align: right;
     color: var(--colorHeader);
@@ -100,10 +100,10 @@
     padding: 0px 0;
   }
 
-  footer footer svg {
-    margin-left: 72%;
+  footer svg {
+    margin-left: auto;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     margin-top: -209px;
   }
 
@@ -119,7 +119,7 @@
     background: linear-gradient(270deg, #F9DA39 31.92%, rgba(217, 217, 217, 0) 84.84%);
   }
 
-  img {
+  footer img {
     width: 13%;
     height: auto;
     margin-top: -30px;
@@ -128,7 +128,7 @@
   .sign {
     font-size: 12px;
     font-weight: bolder;
-    margin-right: 11rem;
+    margin-right: 5rem;
     margin-top: -4rem;
     text-align: right;
     color: var(--colorHeader);
@@ -147,10 +147,10 @@
     padding: 0px 0;
   }
 
-  footer footer svg {
-    margin-left: 55%;
+  footer svg {
+    margin-left: auto;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     margin-top: -210px;
   }
 
@@ -166,7 +166,7 @@
     background: linear-gradient(270deg, #F9DA39 31.92%, rgba(217, 217, 217, 0) 84.84%);
   }
 
-  img {
+  footer img {
     width: 17%;
     height: auto;
     margin-top: -16px;
@@ -195,10 +195,10 @@
     padding: 0px 0;
   }
 
-  footer footer svg {
-    margin-left: 55%;
+  footer svg {
+    margin-left: auto;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     margin-top: -132px;
     width: 45%;
     height: 50%;
@@ -216,7 +216,7 @@
     background: linear-gradient(270deg, #F9DA39 31.92%, rgba(217, 217, 217, 0) 84.84%);
   }
 
-  img {
+  footer img {
     width: 18%;
     height: auto;
     margin-top: -14px;

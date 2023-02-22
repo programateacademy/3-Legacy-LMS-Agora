@@ -28,7 +28,10 @@ const initialState = {
   date: "",
 };
 
-const dateFormat = (date) => `${new Date(date).toLocaleDateString("en-CA")}T${new Date(date).toLocaleTimeString()}`;
+const dateFormat = (date) =>
+  `${new Date(date).toLocaleDateString("en-CA")}T${new Date(
+    date
+  ).toLocaleTimeString()}`;
 
 export function UpdateProject() {
   const auth = useSelector((state) => state.auth);
@@ -78,7 +81,7 @@ export function UpdateProject() {
     const res = await apiAgora.get("/api/agora/get-project/" + url, {
       headers: { Authorization: id },
     });
-    console.log(res.data.date, '--res.data.date')
+    console.log(res.data.date, "--res.data.date");
     setProject(res.data);
     setImage(res.data.pictureProject);
     fetchCohortCompetences(res.data.cohortID, id);
@@ -239,7 +242,10 @@ export function UpdateProject() {
             headers: { Authorization: userID },
           }
         );
-        showSuccessMsg("Proyecto Actualizado","se ha registrado los cambios en la proyecto satisfactoriamente");
+        showSuccessMsg(
+          "Proyecto Actualizado",
+          "se ha registrado los cambios en la proyecto satisfactoriamente"
+        );
         setProject({ ...project, err: "", success: res.data.msg });
       }
     } catch (err) {
@@ -293,7 +299,7 @@ export function UpdateProject() {
         </button>
       </div>
       <div className={style.wrapper}>
-        <h2 className={style.typing_demo_update_Project}>Modificar Proyecto</h2>
+        <h2 className={`${style.typing_demo_update_Project} ${style.titlesGlobales}`}>Modificar Proyecto</h2>
       </div>
       <form className={style.form} onSubmit={handleSubmit}>
         <div className={style.container}>

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Dropdown } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import './UserLink.css';
 
 const UserLink = ({ user, handleLogout }) => {
   const auth = useSelector((state) => state.auth);
@@ -9,32 +10,25 @@ const UserLink = ({ user, handleLogout }) => {
   return (
     <>
       <div className="container-main-avatarContainer">
-        <div className="avatarContainer">
-          <div className="icon">
-            <i class="ri-user-5-fill"></i>
-          </div>
-        </div>
         <div className="containerMenu">
           <Dropdown>
-            <Dropdown.Toggle
-              variant="bg-transparent"
-              id="dropdown-basic"
-            ></Dropdown.Toggle>
+            <Dropdown.Toggle variant="bg-transparent" id="dropdown-basic">
+              <div className="avatarContainer">
+                <div className="icon">
+                  <i className="ri-user-5-fill"></i>
+                </div>
+              </div>
+            </Dropdown.Toggle>
             <Dropdown.Menu>
               {isStudent ? (
                 <Dropdown.Item>
-                  <Link style={{ color: "#010101" }} to="/profile">
-                  Perfil
-                </Link>
+                  <Link to="/profile">Perfil</Link>
                 </Dropdown.Item>
-                
               ) : null}
-              <Dropdown.Item>
-                <Link style={{ color: "#010101" }} to="/configuration">
-                  Configuración
-                </Link>
-              </Dropdown.Item>
-              <Link style={{ color: "#010101" }} to="!#" onClick={handleLogout}>
+              <Link to="/configuration">
+                <Dropdown.Item>Configuración</Dropdown.Item>
+              </Link>
+              <Link to="!#" onClick={handleLogout}>
                 <Dropdown.Item>Salir</Dropdown.Item>
               </Link>
             </Dropdown.Menu>

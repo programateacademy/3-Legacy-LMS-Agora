@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { CardActivity } from "../../../components/cards/activity/CardActivity";
-import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import apiAgora from "../../../api/index";
 import { useParams } from "react-router-dom";
-import { Button } from "../../../components/buttons/Button/Button";
+import { Button } from "../../../components/Buttons/Button";
 import styles from "./Workbooks.module.css";
 
 export function Workbooks(props) {

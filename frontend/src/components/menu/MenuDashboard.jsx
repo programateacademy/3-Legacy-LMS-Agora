@@ -1,20 +1,17 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import style from "./MenuDashboard.module.css";
 import "../header/UserLink.css";
-import { RiFileUserFill, RiPagesFill } from "react-icons/ri";
 import { IconContext } from "react-icons";
-import { useParams } from "react-router-dom";
 
 export function MenuDashboard({ open, setOpen }) {
   const auth = useSelector((state) => state.auth);
   const params = useParams();
-  const cohortID = params._id;
+  const cohortID = params.id;
   const { isTeacher } = auth;
   const [activeLink, setActiveLink] = useState(null);
-  console.log(cohortID)
   const navLinks = [
     {
       text: "Estadísticas",
@@ -44,12 +41,12 @@ export function MenuDashboard({ open, setOpen }) {
     {
       text: "Estudiantes",
       route: `/dashboard/${cohortID}/students`,
-      icon: <RiFileUserFill className={style.icon} />,
+      icon: <i className={`ri-notification-3-line ${style.icon}`}></i>,
     },
     {
       text: "Cohortes",
       route: "/",
-      icon: <RiPagesFill className={style.icon} />,
+      icon: <i className={`ri-notification-3-line ${style.icon}`}></i>,
     },
   ];
   let list = [];

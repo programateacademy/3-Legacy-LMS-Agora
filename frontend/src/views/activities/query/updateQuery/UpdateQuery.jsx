@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import style from "../../CreateActivity.module.css";
-
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { MdDeleteForever, MdOutlineAddCircle } from "react-icons/md";
 import { AiOutlineLink } from "react-icons/ai";
@@ -53,8 +52,7 @@ export function UpdateQuery() {
     resources,
     challengeTask,
     challengeExtra,
-    date,
-    success,
+    date
   } = query;
   const { nameLink, link } = objectLink;
   //Image
@@ -213,7 +211,7 @@ export function UpdateQuery() {
         </button>
       </div>
       <div className={style.wrapper}>
-        <h2 className={style.typing_demo_update_Query}>Modificar Consulta</h2>
+        <h2 className={`${style.typing_demo_update_Query} ${style.titlesGlobales}`}>Modificar Consulta</h2>
       </div>
       <form onSubmit={handleSubmit}>
         <div className={style.container}>

@@ -1,91 +1,50 @@
+/* Titluos principales de las secciones */
 .wrapper {
+  margin-bottom: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1rem;
+}
+
+/* Animaciones globales */
+.titlesGlobales {
+  white-space: nowrap;
+  margin-top: 20px;
+  color: var(--colorNav);
+  font-size: 40px;
+  font-weight: 600;
+  border-right: 3px solid;
+  overflow: hidden;
+  animation: typing 1s steps(22), blink 0.5s step-end infinite alternate;
+  -webkit-animation: typing 1s steps(22), blink 0.5s step-end infinite alternate;
+  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 .typing_demo {
   width: 13ch;
-  animation: typing 1s steps(22), blink 0.5s step-end infinite alternate;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 3px solid;
 }
-
 .typing_demo_update_Project {
   width: 15ch;
-  animation: typing 1s steps(22), blink 0.5s step-end infinite alternate;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 3px solid;
 }
 
 .typing_demo_view_Project {
   width: 7ch;
-  animation: typing 1s steps(22), blink 0.5s step-end infinite alternate;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 3px solid;
 }
 
 .typing_demo_update_Query {
   width: 14ch;
-  animation: typing 1s steps(22), blink 0.5s step-end infinite alternate;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 3px solid;
 }
-
-
-
 
 .typing_demo_view_Workbook {
   width: 9ch;
-  animation: typing 1s steps(22), blink 0.5s step-end infinite alternate;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 3px solid;
 }
 
 .typing_demo_update_Workbook {
   width: 17ch;
-  animation: typing 1s steps(22), blink 0.5s step-end infinite alternate;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 3px solid;
-  -webkit-animation: typing 1s steps(22), blink 0.5s step-end infinite alternate;
 }
 
 .typing_demo_create_Workbook {
   width: 13ch;
-  animation: typing 1s steps(22), blink 0.5s step-end infinite alternate;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 3px solid;
-}
-
-.buttonDelivery {
-  display: flex;
-  flex-direction: row-reverse;
-  margin-right: 5vh;
-  cursor: pointer;
-
-}
-
-.button_clear {
-  align-self: flex-end;
-  background-color: var(--colorYellow);
-  border-radius: 10px;
-  color: var(--colorBlack);
-  display: flex;
-  font-weight: bold;
-  margin: 30px 0 0 30px;
-  max-width: 200px;
-  padding: 10px;
-  text-align: center;
-  width: auto;
-  cursor: pointer;
 }
 
 @keyframes typing {
@@ -100,43 +59,69 @@
   }
 }
 
-.button_return {
-  align-self: flex-start;
-  background-color: var(--colorHeader);
-  border-radius: 5px;
-  color: var(--colorWhite);
+/* Botones */
+.buttonDelivery {
+  margin-right: 4vh;
   display: flex;
-  font-weight: bold;
-  max-width: 100px;
-  padding: 10px;
-  text-align: center;
+  flex-direction: row-reverse;
+  cursor: pointer;
+}
+
+.button_clear {
   width: auto;
+  margin: 30px 0 0 30px;
+  padding: 10px;
+  max-width: 200px;
+  color: var(--colorBlack);
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  align-self: flex-end;
+  background-color: var(--colorYellow);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.button_return {
+  width: auto;
+  margin-left: 1vh;
+  margin-top: 2vh;
+  padding: 10px;
+  max-width: 100px;
+  color: var(--colorWhite);
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  border-radius: 10px;
+  background-color: var(--colorBlackOpacity);
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
-  margin-left: 5vh;
-  margin-top: 3vh;
   cursor: pointer;
+  transition: 0.3s all;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
 }
-.button_return i{
+.button_return i {
   color: var(--colorWhite);
 }
-.button_return i:hover{
+.button_return i:hover {
   color: var(--colorBlack);
 }
 .button_return:hover {
-  background-color: var(--colorYellow);
-  transition: 0.3s;
+  transform: translateX(-5px);
+  background-color: var(--colorHoverNav);
+  color: var(--colorYellow);
+  transition: 0.3s all;
 }
 
+/**/
 .linkIcon {
   color: dodgerblue;
   margin-left: 40%;
 }
 
 .img_preview {
-  
   width: 100%;
   height: 35vh;
   display: flex;
@@ -144,7 +129,6 @@
   justify-content: center;
   overflow: hidden;
 }
-
 
 .image {
   margin-top: 20px;
@@ -154,14 +138,11 @@
   justify-self: center;
 }
 
-
-
 .file {
   display: flex;
   justify-content: center;
   margin-top: 2rem;
 }
-
 
 .file {
   display: flex;
@@ -210,7 +191,6 @@
   width: 100%;
 }
 
-
 .frameofcompetence {
   margin-top: 3vh;
   margin-bottom: 3vh;
@@ -246,7 +226,6 @@
   display: flex;
   flex-direction: row;
   box-shadow: 6px 10px 10px var(--colorBlackOpacity);
-
 }
 
 .deleterResourcesContainer {
@@ -269,7 +248,6 @@
   box-shadow: none;
   box-shadow: 6px 10px 10px var(--colorBlackOpacity);
   cursor: pointer;
-
 }
 
 .tagsList {
@@ -287,8 +265,6 @@
 .tagText p {
   text-align: justify;
 }
-
-
 
 .summaryProject {
   display: flex;
@@ -316,7 +292,6 @@
   display: flex;
   width: 100%;
   align-items: center;
-
 }
 
 .addTagsProject {
@@ -337,7 +312,6 @@
   text-align: center;
   overflow: hidden;
 }
-
 
 .tagContainer {
   display: flex;
@@ -382,8 +356,8 @@
   margin-bottom: 25px;
 }
 
-.first{
-  background-color: var(--colorHeader) ;
+.first {
+  background-color: var(--colorHeader);
   margin: 5px 0px;
   border-radius: 10px;
   display: flex;
@@ -391,11 +365,9 @@
   color: var(--colorWhite);
 }
 
-.formContainer .first h3{
+.formContainer .first h3 {
   text-align: left;
 }
-
-
 
 .inputsdeliveries {
   display: flex;
@@ -408,7 +380,6 @@
 
 .inputsdeliveries {
   color: transparent;
-
 }
 
 .inputDelivery {
@@ -419,7 +390,6 @@
   display: flex;
   flex-direction: row;
 }
-
 
 .addCompetence {
   background-color: transparent;
@@ -481,7 +451,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
 .select {
@@ -499,7 +468,7 @@
 .formContainer h5 {
   white-space: nowrap;
   padding-right: 2vh;
-  font-size: medium
+  font-size: medium;
 }
 
 .formContainer h3 {
@@ -535,14 +504,13 @@
   gap: 0 6px;
 }
 
-.res{
+.res {
   margin-top: 15px;
 }
 
-.ajus{
+.ajus {
   margin-top: 20%;
 }
-
 
 @media only screen and (max-width: 750px) {
   .container {
@@ -550,14 +518,12 @@
     width: 96%;
     align-items: center;
     margin-left: 1.5vh;
-
   }
 
   .buttonDelivery {
     justify-content: center;
     align-items: center;
     margin: auto;
-
   }
 
   .containerOne {
@@ -576,19 +542,6 @@
     width: 20vh;
   }
 
-  .img_preview {
-    /*width: 99%;
-    height: 50vh;
-    background-color: var(--colorHeader);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;*/
-
-  }
-
-  
-
   .button_return {
     margin: 1vh 1vh;
   }
@@ -596,6 +549,4 @@
   .buttonsStep {
     min-width: 20px;
   }
-
-
 }

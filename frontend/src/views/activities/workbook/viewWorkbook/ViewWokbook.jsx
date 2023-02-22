@@ -5,9 +5,8 @@ import { useSelector } from "react-redux";
 import apiAgora from "../../../../api/index";
 import { Step } from "../step/Step";
 import { MdExpandMore } from "react-icons/md";
-import { BsArrowLeftCircle } from "react-icons/bs";
 import { AiOutlineLink } from "react-icons/ai";
-import { Button } from "../../../../components/buttons/Button/Button";
+import { Button } from "../../../../components/Buttons/Button";
 import LazyLoad from "react-lazy-load";
 const initWorkbook = {
   titleWorkbook: "",
@@ -75,11 +74,11 @@ export function ViewWorkbook(props) {
     <div className={(style.formContainer, style.formContainerWorkbook)}>
       <div>
         <button className={style.button_return} onClick={() => navigate(-1)}>
-          <i class="ri-arrow-left-circle-line" ></i>
+          <i className="ri-arrow-left-circle-line"></i>
         </button>
       </div>
       <div className={style.wrapper}>
-        <h2 className={style.typing_demo_view_Workbook}>Workbook</h2>
+        <h2 className={`${style.typing_demo_view_Project} ${style.titlesGlobales}`}>Workbook</h2>
       </div>
       {!teacher ? (
         <div className={style.buttonDelivery}>
@@ -104,8 +103,8 @@ export function ViewWorkbook(props) {
               </LazyLoad>
             </div>
 
-             {/* Name*/}
-              <div className={style.InitialContainer}>
+            {/* Name*/}
+            <div className={style.InitialContainer}>
               <h3>Nombre del workbook</h3>
               <h4>{titleWorkbook}</h4>
               {/* Description */}
@@ -128,29 +127,29 @@ export function ViewWorkbook(props) {
 
             {/* Resources */}
             <div className={style.res}>
-            <div className={style.InitialContainer}>
-              <h3>Recursos</h3>
-              <div>
-                {resources.length !== 0
-                  ? resources.map((item, index) => (
-                      <div className={style.tagContainer} key={index}>
-                        <AiOutlineLink className={style.linkIcon} size={30} />
-                        <div className={style.tagText}>
-                          <a
-                            className={style.tag}
-                            href={item.link}
-                            rel="noreferrer"
-                            target="_blank"
-                          >
-                            {item.nameLink}
-                          </a>
+              <div className={style.InitialContainer}>
+                <h3>Recursos</h3>
+                <div>
+                  {resources.length !== 0
+                    ? resources.map((item, index) => (
+                        <div className={style.tagContainer} key={index}>
+                          <AiOutlineLink className={style.linkIcon} size={30} />
+                          <div className={style.tagText}>
+                            <a
+                              className={style.tag}
+                              href={item.link}
+                              rel="noreferrer"
+                              target="_blank"
+                            >
+                              {item.nameLink}
+                            </a>
+                          </div>
+                          <AiOutlineLink className={style.linkIcon} size={30} />
                         </div>
-                        <AiOutlineLink className={style.linkIcon} size={30} />
-                      </div>
-                    ))
-                  : null}
+                      ))
+                    : null}
+                </div>
               </div>
-            </div>
             </div>
             {/* Basic Notions  */}
             <div className={style.contextContainer}>
@@ -159,60 +158,58 @@ export function ViewWorkbook(props) {
             </div>
           </div>
 
-
           <div className={style.containerTwo}>
             <div className={style.ajus}>
-            {/* Delivery date */}
-            <div className={style.summaryProject}>
-              <h3>Fecha y hora de entrega</h3>
-              <div className={style.dateTimeDelivery}>
-                <input
-                  placeholder="Fecha de entrega"
-                  type="datetime-local"
-                  name="date"
-                  value={date}
-                  disabled
-                />
+              {/* Delivery date */}
+              <div className={style.summaryProject}>
+                <h3>Fecha y hora de entrega</h3>
+                <div className={style.dateTimeDelivery}>
+                  <input
+                    placeholder="Fecha de entrega"
+                    type="datetime-local"
+                    name="date"
+                    value={date}
+                    disabled
+                  />
+                </div>
+              </div>
+
+              {/*Entorno*/}
+
+              <div className={style.summaryProject}>
+                <h3>Entorno de desarrollo</h3>
+                <div className={(style.tagsList, style.concepts)}>
+                  {environmentalReq.length !== 0
+                    ? environmentalReq.map((item, index) => (
+                        <div className={style.tagContainer} key={index}>
+                          <p className={style.tag}>{item}</p>
+                        </div>
+                      ))
+                    : null}
+                </div>
+              </div>
+
+              {/*Conceptos */}
+              <div className={style.summaryProject}>
+                <h3>Conceptos a investigar</h3>
+                <div className={style.concepts}>
+                  {contextReq.length !== 0
+                    ? contextReq.map((item, index) => (
+                        <div className={style.tagContainer} key={index}>
+                          <div className={style.tagText}>
+                            <p className={style.tag}>{item}</p>
+                          </div>
+                        </div>
+                      ))
+                    : null}
+                </div>
               </div>
             </div>
-
-            {/*Entorno*/}
-
-            <div className={style.summaryProject}>
-            <h3>Entorno de desarrollo</h3>
-            <div className={(style.tagsList, style.concepts)}>
-              {environmentalReq.length !== 0
-                ? environmentalReq.map((item, index) => (
-                    <div className={style.tagContainer} key={index}>
-                      <p className={style.tag}>{item}</p>
-                    </div>
-                  ))
-                : null}
-            </div>
-          </div>
-
-          {/*Conceptos */}
-          <div className={style.summaryProject}>
-            <h3>Conceptos a investigar</h3>
-            <div className={style.concepts}>
-              {contextReq.length !== 0
-                ? contextReq.map((item, index) => (
-                    <div className={style.tagContainer} key={index}>
-                      <div className={style.tagText}>
-                        <p className={style.tag}>{item}</p>
-                      </div>
-                    </div>
-                  ))
-                : null}
-            </div>
-          </div>
-          </div>
           </div>
         </div>
-       
+
         {/*  Environmental requirements */}
         <div className={style.delivery}>
-          
           {/*Show steps*/}
           <div className={style.summaryProject}>
             <h3>Pasos</h3>

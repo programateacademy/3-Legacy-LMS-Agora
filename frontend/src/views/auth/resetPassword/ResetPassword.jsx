@@ -65,60 +65,67 @@ export function ResetPassword() {
     }
   };
   return (
-    <div className="container-main-resetPassword">
-      <LazyLoad>
-      <img className='agora' src={Agora} alt="" />
-            <img className="logo2" src={logo} alt="logo" />
-      </LazyLoad>
-      <div className="container-resetPassword">
-      <button className="button_return" onClick={() => navigate(-1)}>
-        <BsArrowLeftCircle size={30} />
-      </button>
-      <LazyLoad>
-        <img className="logo" src={logo} alt="logo" />
-      </LazyLoad> 
-        <h2 className="title-resetPassword">Restablecer Contraseña</h2>
-        <div className="container-info-resetPassword">
-          {err && showErrMsg(err)}
-          {success && showSuccessMsg(success)}
-          {/*-------prueba --------- */}
-          <h3>Contraseña actual</h3>
-          <input
-            type="password"
-            placeholder="******"
-            name="oldPassword"
-            value={oldPassword}
-            onChange={handleChangeInput}
-          />
-          {/*-------prueba --------- */}
-          <h3>Nueva Contraseña</h3>
-          <input
-            type="password"
-            placeholder="******"
-            name="password"
-            value={password}
-            onChange={handleChangeInput}
-          />
-          <h3>Confirmar contraseña</h3>
-          <input
-            type="password"
-            placeholder="******"
-            name="cf_password"
-            value={cf_password}
-            onChange={handleChangeInput}
-          />
-          <hr />
-           <div className="redes-sociales">
-           <button className="button-resetPassword" onClick={handleResetPass}>
-            Confirmar
-           </button>
-           <LazyLoad>
-            <img src={Instagram} alt="" />
-            <img src={Facebook} alt="" />
-           </LazyLoad>
+    <>
+      <div className="container-main-resetPassword">
+        <LazyLoad>
+          <img className="agora" src={Agora} alt="" />
+        </LazyLoad>
+        <LazyLoad>
+          <img className="logo2" src={logo} alt="logo" />
+        </LazyLoad>
+        <div className="container-resetPassword">
+          <button className="button_return" onClick={() => navigate(-1)}>
+            <BsArrowLeftCircle size={30} />
+          </button>
+          <LazyLoad>
+            <img className="logo" src={logo} alt="logo" />
+          </LazyLoad>
+          <h2 className="title-resetPassword">Restablecer Contraseña</h2>
+          <div className="container-info-resetPassword">
+            {err && showErrMsg(err)}
+            {success && showSuccessMsg(success)}
+            {/*-------prueba --------- */}
+            <h3>Contraseña actual</h3>
+            <input
+              type="password"
+              placeholder="******"
+              name="oldPassword"
+              value={oldPassword}
+              onChange={handleChangeInput}
+            />
+            {/*-------prueba --------- */}
+            <h3>Nueva Contraseña</h3>
+            <input
+              type="password"
+              placeholder="******"
+              name="password"
+              value={password}
+              onChange={handleChangeInput}
+            />
+            <h3>Confirmar contraseña</h3>
+            <input
+              type="password"
+              placeholder="******"
+              name="cf_password"
+              value={cf_password}
+              onChange={handleChangeInput}
+            />
+            <hr />
+            <div className="redes-sociales">
+              <button
+                className="button-resetPassword"
+                onClick={handleResetPass}
+              >
+                Confirmar
+              </button>
+              <LazyLoad>
+                <img src={Instagram} alt="" />
+                <img src={Facebook} alt="" />
+              </LazyLoad>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
