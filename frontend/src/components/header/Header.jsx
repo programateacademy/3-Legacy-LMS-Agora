@@ -59,8 +59,7 @@ export function Header() {
               <i
                 className="ri-user-line icon-signIn"
                 style={{ marginRight: "1rem" }}
-              ></i>
-              Ingresar
+              >Ingresar</i>
             </Link>
           )}
         </div>

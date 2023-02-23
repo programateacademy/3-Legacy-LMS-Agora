@@ -245,6 +245,7 @@
   margin: 10px;
   color: var(--colorWhite);
 }
+}
 
 /*Cel Horizontal*/
 @media (min-width:399px) and (max-width:760px) and (orientation:landscape) {
@@ -309,7 +310,7 @@
   .hamburguerMenu {
     display: none;
     cursor: pointer;
-    margin-left: 1rem;
+    margin-left: 0;
   }
 
   .link_singIn {
@@ -350,7 +351,7 @@
     justify-content: center;
     height: 30px;
     width: 140px;
-    margin-left: 3rem;
+    margin-left: 0;
   }
 
   .Logo img {
@@ -424,5 +425,4 @@
   .container {
     display: block;
   }
-}
 }
