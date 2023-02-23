@@ -1,3 +1,4 @@
+
 import apiAgora from "../../../api/index";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -76,6 +77,7 @@ function Login() {
                 ingresa tu e-mail
               </h4>
               <input
+                className="correo"
                 placeholder="email@educamas.co"
                 name="email"
                 value={email}
