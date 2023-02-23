@@ -176,7 +176,7 @@
   display: flex;
   flex-direction: column;
   width: 49vw;
-  margin: 2rem;
+  margin: 1rem;
 }
 
 .containerTwo {
@@ -201,7 +201,7 @@
   display: flex;
   flex-direction: column;
   background-color: var(--colorHeader);
-  box-shadow: 6px 10px 10px var(--colorBlackOpacity);
+  /* box-shadow: 6px 10px 10px var(--colorBlackOpacity); */
   border-radius: 8px;
   padding: 3vh;
   margin: 10px auto;
@@ -233,6 +233,10 @@
 .pWorkwook{
   color: white;
   text-align: center;
+}
+
+.h4Query{
+  color: white;
 }
 
 .resourcesContainer {
@@ -288,7 +292,6 @@
   display: flex;
   flex-direction: column;
   background-color: var(--colorHeader);
-  box-shadow: 6px 10px 10px var(--colorBlackOpacity);
   border-radius: 8px;
   margin: 4vh auto;
   width: 80%;
@@ -368,7 +371,6 @@
 .contextContainer {
   width: 80%;
   background-color: var(--colorHeader);
-  box-shadow: 6px 10px 10px var(--colorBlackOpacity);
   padding: 3vh;
   border-radius: 10px;
   margin: 25px auto;
@@ -380,8 +382,9 @@
 }
 
 .first {
+  width: 80%;
   background-color: var(--colorHeader);
-  margin: 5px 0px;
+  margin: 5px auto;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -398,7 +401,6 @@
   width: 85%;
   padding: 3vh;
   margin-bottom: max(3vh, 20px);
-  box-shadow: 6px 10px 10px var(--colorBlackOpacity);
 }
 
 .inputsdeliveries {
