@@ -1,5 +1,7 @@
 <h1>Variables de entorno</h1>
 
+<h2>Complete documentation of the project (available in Spanish) <a href="https://grass-sassafras-003.notion.site/gora-Academy-3-0-LMS-Tecnical-documentation-81cced57cc434b53887bb821c94f26f8"><h2>
+
 ><p>
     MONGO_DB_URI=mongodb+srv://agora:1234@agora.fr0cnoy.mongodb.net/test?retryWrites=true&w=majority
     MONGO_DB_URI_TEST=mongodb+srv://agora:1234@agora.fr0cnoy.mongodb.net/test?retryWrites=true&w=majority 
