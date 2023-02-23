@@ -262,13 +262,14 @@
   cursor: pointer;
 }
 
- .list li:hover a {
-   color: var(--colorWhite)
- }
+.list li a {
+  color: var(--colorBlack);
+}
 
- .list a {
-   text-decoration: none;
- }
+.list li:hover {
+  background-color: var(--colorGreenLight);
+  transition: 0.3s;
+}
 
 .list a {
   text-decoration: none;
