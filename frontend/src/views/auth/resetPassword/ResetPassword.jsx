@@ -27,7 +27,6 @@ export function ResetPassword() {
   const userID = auth.user.id;
 
   const { password, cf_password, oldPassword, err, success } = data;
-
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
     setData({ ...data, [name]: value, err: "", success: "" });
@@ -70,16 +69,15 @@ export function ResetPassword() {
         <LazyLoad>
           <img className="agora" src={Agora} alt="" />
         </LazyLoad>
+
         <LazyLoad>
-          <img className="logo2" src={logo} alt="logo" />
+          <img className="logo" src={logo} alt="logo" />
         </LazyLoad>
+
         <div className="container-resetPassword">
           <button className="button_return" onClick={() => navigate(-1)}>
             <BsArrowLeftCircle size={30} />
           </button>
-          <LazyLoad>
-            <img className="logo" src={logo} alt="logo" />
-          </LazyLoad>
           <h2 className="title-resetPassword">Restablecer Contraseña</h2>
           <div className="container-info-resetPassword">
             {err && showErrMsg(err)}
