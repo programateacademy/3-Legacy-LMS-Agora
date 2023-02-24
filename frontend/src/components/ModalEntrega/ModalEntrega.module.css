@@ -1,7 +1,7 @@
 .formContainer {
   align-items: center;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-items: center;
   margin-bottom: 3vh;
   margin-left: 5vw;
@@ -20,19 +20,18 @@
 }
 .InitialContainer {
   align-items: center;
-  background-color: var(--colorGreenLight_31);
+  background-color: var(--colorHoverNav);
   border-radius: 8px;
   box-shadow: 6px 10px 10px var(--colorBlackOpacity);
   display: flex;
   flex-direction: column;
-  margin-bottom: 4vh;
-  margin-top: 1vh;
   padding: 3vh;
   width: 30%;
+  margin: 50px;
 }
 .secondContainer {
   align-items: center;
-  background-color: var(--colorGreenLight_31);
+  background-color: var(--colorYellow_65);
   border-radius: 8px;
   box-shadow: 6px 10px 10px var(--colorBlackOpacity);
   display: flex;
@@ -43,7 +42,7 @@
 }
 .secondText {
   align-items: center;
-  background-color: var(--colorGreenLight_31);
+  background-color: var(--colorYellow_65);
   border-radius: 8px;
   box-shadow: 6px 10px 10px var(--colorBlackOpacity);
   display: flex;
@@ -62,11 +61,11 @@
   width: 100%;
 }
 .img_preview img {
-  width: auto;
+  width: 300px;
   height: auto;
   max-width: 95%;
   max-height: 95%;
-  border-radius: 34% 66% 54% 46% / 33% 51% 49% 67% ;
+  border-radius: 34% 66% 54% 46% / 33% 51% 49% 67%;
 }
 .cajaTitle {
   background: var(--colorWhite);
@@ -101,7 +100,7 @@
 .button_return i {
   color: var(--colorWhite);
 }
-.button_return:hover i{
+.button_return:hover i {
   color: var(--colorYellowOpacity);
 }
 .button_return:hover {
@@ -162,7 +161,7 @@
   width: 100%;
 }
 .chat {
-  background: rgba(146, 193, 73, 0.3);
+  background: var(--colorYellow_65);
   border-radius: 10px;
   display: flex;
   height: 100%;
@@ -343,6 +342,22 @@
   padding: 2vh;
   text-align: center;
   width: 100%;
+}
+input, textarea {
+  border: none;
+  outline: none;
+  border-radius: 15px;
+  padding: 1em;
+  background-color: rgba(70, 70, 70, 0.5);
+  box-shadow: inset 2px 5px 10px rgba(0,0,0,0.3);
+  transition: 300ms ease-in-out;
+}
+
+input:focus, textarea:focus {
+  background-color: var(--colorYellow_65);
+  transform: scale(1.05);
+  box-shadow: 13px 13px 100px #969696,
+             -13px -13px 100px #ffffff;
 }
 @media (max-width: 700px) {
   .chat {
