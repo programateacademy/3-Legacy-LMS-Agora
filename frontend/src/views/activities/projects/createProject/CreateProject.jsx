@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
 import style from "../../CreateActivity.module.css";
-import {MdOutlineAddCircle } from "react-icons/md";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import apiAgora from "../../../../api/index";
 import { showErrMsg, showSuccessMsg } from "../../../../utils/notification";
-
-import { AiOutlineLink } from "react-icons/ai";
 import LazyLoad from "react-lazy-load";
 
 const initialState = {
@@ -308,7 +305,7 @@ export function CreateProject() {
                     type="button"
                     onClick={() => onClickObject("resources")}
                   >
-                    <MdOutlineAddCircle size={30} />
+                    <i className="ri-add-circle-fill" style={{fontSize: '25px'}}></i>
                   </button>
                 </div>
               </div>
@@ -316,7 +313,7 @@ export function CreateProject() {
                 {resources.length !== 0
                   ? resources.map((item, index) => (
                       <div className={style.tagContainer} key={index}>
-                        <AiOutlineLink className={style.linkIcon} size={30} />
+                        <i className={`ri-link-m ${style.linkIcon}`}></i>
                         <div className={style.tagText}>
                           <a
                             className={style.tag}
@@ -369,7 +366,7 @@ export function CreateProject() {
                   type="button"
                   onClick={() => onClickArray("tagsProject")}
                 >
-                  <MdOutlineAddCircle size={30} />
+                  <i className="ri-add-circle-fill" style={{fontSize: '25px'}}></i>
                 </button>
               </div>
               <div className={style.tagsList}>
@@ -428,7 +425,7 @@ export function CreateProject() {
                 type="button"
                 onClick={() => onClickArray("contextGeneralReq")}
               >
-                <MdOutlineAddCircle size={30} />
+                <i className="ri-add-circle-fill" style={{fontSize: '25px'}}></i>
               </button>
             </div>
           </div>
@@ -464,7 +461,7 @@ export function CreateProject() {
                 type="button"
                 onClick={() => onClickArray("contextTechniciansReq")}
               >
-                <MdOutlineAddCircle size={30} />
+                <i className="ri-add-circle-fill" style={{fontSize: '25px'}}></i>
               </button>
             </div>
             <div>
@@ -501,7 +498,7 @@ export function CreateProject() {
                 type="button"
                 onClick={() => onClickArray("contextExtrasReq")}
               >
-                <MdOutlineAddCircle size={30} />
+                <i className="ri-add-circle-fill" style={{fontSize: '25px'}}></i>
               </button>
             </div>
             <div>
@@ -538,7 +535,7 @@ export function CreateProject() {
                 type="button"
                 onClick={() => onClickArray("pedagogyModality")}
               >
-                <MdOutlineAddCircle size={30} />
+                <i className="ri-add-circle-fill" style={{fontSize: '25px'}}></i>
               </button>
             </div>
             <div>
@@ -575,7 +572,7 @@ export function CreateProject() {
                 type="button"
                 onClick={() => onClickArray("performanceCriterias")}
               >
-                <MdOutlineAddCircle size={30} />
+                <i className="ri-add-circle-fill" style={{fontSize: '25px'}}></i>
               </button>
             </div>
             <div>
@@ -612,7 +609,7 @@ export function CreateProject() {
                 type="button"
                 onClick={() => onClickArray("evaluationModality")}
               >
-                <MdOutlineAddCircle size={30} />
+                <i className="ri-add-circle-fill" style={{fontSize: '25px'}}></i>
               </button>
             </div>
             <div>
@@ -651,7 +648,7 @@ export function CreateProject() {
                 type="button"
                 onClick={() => onClickArray("deliverablesProject")}
               >
-                <MdOutlineAddCircle size={30} />
+                <i className="ri-add-circle-fill" style={{fontSize: '25px'}}></i>
               </button>
             </div>
             <div>
@@ -714,7 +711,7 @@ export function CreateProject() {
                   type="button"
                   onClick={() => onClickCompetences("competences")}
                 >
-                  <MdOutlineAddCircle size={30} />
+                  <i className="ri-add-circle-fill" style={{fontSize: '25px'}}></i>
                 </button>
               </div>
             </div>

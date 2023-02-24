@@ -3,7 +3,6 @@ import style from "../../CreateActivity.module.css";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import apiAgora from "../../../../api/index";
-import { AiOutlineLink } from "react-icons/ai";
 import { Button } from "../../../../components/Buttons/Button";
 import LazyLoad from "react-lazy-load";
 
@@ -29,11 +28,11 @@ const initialState = {
 export function ViewProject(props) {
   const { teacher } = props;
   const auth = useSelector((state) => state.auth);
-  const userID = "63e3e46a39cb1aea19895659";
-  const projectID = "63eaeb009be3c3a734cc7dc5";
+  // const userID = "63e3e46a39cb1aea19895659";
+  // const projectID = "63eaeb009be3c3a734cc7dc5";
   const params = useParams();
-  // const userID = auth.user.id;
-  // const projectID = params.id;
+  const userID = auth.user.id;
+  const projectID = params.id;
   let navigate = useNavigate();
   const [project, setProject] = useState(initialState);
   const [image, setImage] = useState();
@@ -85,7 +84,7 @@ export function ViewProject(props) {
       </div>
       {!teacher ? (
         <div className={style.buttonDelivery}>
-          <Button title="Entregar proyecto"  link={`/delivery/project/${projectID}`}/> Entregar Proyecto
+          <Button title="Entregar proyecto"  link={`/delivery/project/${projectID}`}/>
         </div>
       ) : null}
 
@@ -133,13 +132,13 @@ export function ViewProject(props) {
                   {resources.length !== 0
                     ? resources.map((item, index) => (
                         <div className={style.tagContainer} key={index}>
-                          <AiOutlineLink className={style.linkIcon} size={30} />
+                          <i className={`ri-link-m ${style.linkIcon}`}></i>
                           <div className={style.tagText}>
                             <a className={style.tag} href={item.link} target="_blank" rel="noreferrer">
                               {item.nameLink}
                             </a>
                           </div>
-                          <AiOutlineLink className={style.linkIcon} size={30} />
+                          <i className={`ri-link-m ${style.linkIcon}`}></i>
                         </div>
                       ))
                     : null}

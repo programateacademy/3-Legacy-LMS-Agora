@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./ModalEntrega.module.css";
 
-import { MdOutlineAddCircle } from "react-icons/md";
-import { AiOutlineLink } from "react-icons/ai";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import apiAgora from "../../api/index";
@@ -327,7 +325,7 @@ export function ModalDeliveryStudent() {
                 type="button"
                 onClick={() => onClickObject("delivery")}
               >
-                <MdOutlineAddCircle size={30} />
+                <i className="ri-add-circle-fill" style={{fontSize: '25px'}}></i>
               </button>
             </div>
             <div className={styles.secondText}>
@@ -348,7 +346,7 @@ export function ModalDeliveryStudent() {
             {delivery.length !== 0
               ? delivery.map((item, index) => (
                   <div className={styles.tagContainer} key={index}>
-                    <AiOutlineLink className={styles.linkIcon} size={30} />
+                    <i className={`ri-link-m ${styles.linkIcon}`}></i>
                     <div className={styles.tagText}>
                       <a
                         className={styles.tag}

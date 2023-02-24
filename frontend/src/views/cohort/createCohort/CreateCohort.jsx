@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import style from "../CreateUpdateCohort.module.css";
-import { MdOutlineAddCircle } from "react-icons/md";
 import { useSelector } from "react-redux";
 import { showErrMsg, showSuccessMsg } from "../../../utils/notification";
 import apiAgora from "../../../api/index";
@@ -214,7 +213,7 @@ export function CreateCohort() {
                     type="button"
                     onClick={onClickTeacher}
                   >
-                    <MdOutlineAddCircle size={30} />
+                    <i className="ri-add-circle-fill" style={{fontSize: '25px'}}></i>
                   </button>
                 </div>
                 {addedTeacher.length !== 0

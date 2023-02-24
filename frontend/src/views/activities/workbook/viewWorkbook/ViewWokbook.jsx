@@ -4,8 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import apiAgora from "../../../../api/index";
 import { Step } from "../step/Step";
-import { MdExpandMore } from "react-icons/md";
-import { AiOutlineLink } from "react-icons/ai";
+
 import { Button } from "../../../../components/Buttons/Button";
 import LazyLoad from "react-lazy-load";
 const initWorkbook = {
@@ -71,14 +70,18 @@ export function ViewWorkbook(props) {
     setInfoStep({ index: index, stepShow: stepShow });
   };
   return (
-    <div className={(style.formContainer)}>
+    <div className={style.formContainer}>
       <div>
         <button className={style.button_return} onClick={() => navigate(-1)}>
           <i className="ri-arrow-go-back-line"></i>
         </button>
       </div>
       <div className={style.wrapper}>
-        <h2 className={`${style.typing_demo_view_Workbook} ${style.titlesGlobales}`}>Workbook</h2>
+        <h2
+          className={`${style.typing_demo_view_Workbook} ${style.titlesGlobales}`}
+        >
+          Workbook
+        </h2>
       </div>
       {!teacher ? (
         <div className={style.buttonDelivery}>
@@ -133,7 +136,7 @@ export function ViewWorkbook(props) {
                   {resources.length !== 0
                     ? resources.map((item, index) => (
                         <div className={style.tagContainer} key={index}>
-                          <AiOutlineLink className={style.linkIcon} size={30} />
+                          <i className={`ri-link-m ${style.linkIcon}`}></i>
                           <div className={style.tagText}>
                             <a
                               className={style.tag}
@@ -144,7 +147,7 @@ export function ViewWorkbook(props) {
                               {item.nameLink}
                             </a>
                           </div>
-                          <AiOutlineLink className={style.linkIcon} size={30} />
+                          <i className={`ri-link-m ${style.linkIcon}`}></i>
                         </div>
                       ))
                     : null}
@@ -228,7 +231,10 @@ export function ViewWorkbook(props) {
                           type="button"
                           onClick={() => handleInfoStep(index, item)}
                         >
-                          <MdExpandMore size={30} />
+                          <i
+                            className="ri-arrow-down-s-line"
+                            style={{ fontSize: "25px" }}
+                          ></i>
                         </button>
                       </div>
                     </div>

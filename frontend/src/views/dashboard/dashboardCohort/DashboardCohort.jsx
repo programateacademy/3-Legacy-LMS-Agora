@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import styles from "./DashboardCohort.module.css";
 import { CardCohort } from "../../../components/cards/cohort/CardCohort";
-import { IoCreateSharp } from "react-icons/io5";
 
 
 export function DashboardCohort() {
@@ -48,7 +47,7 @@ export function DashboardCohort() {
       <CardCohort info={cohort} key={"HeaderCohort"} principal={false} />
 
       <Link className={styles.button_edit} to={"/competences/" + cohortID}>
-        Editar o Agregar Competencias <IoCreateSharp size={30} />
+        Editar o Agregar Competencias <i class="ri-edit-box-fill" style={{fontSize: '30px'}}></i>
       </Link>
       <CompetencesTable competencesState={cohortCompetences} admin={true} />
     </div>
