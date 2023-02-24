@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styles from "./ModalEntrega.module.css";
-
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import apiAgora from "../../api/index";
