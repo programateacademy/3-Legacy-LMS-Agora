@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import style from "./CompetencesTable.module.css";
-import { FiEdit } from "react-icons/fi";
 
 export function CompetencesTable(props) {
   const { competencesState, admin} = props;
@@ -49,7 +48,7 @@ export function CompetencesTable(props) {
               
             <div className={style.container}>
               {admin?<Link className={style.c2} to={"/competences-update/" + item.id}>
-                <FiEdit size={30} />
+                <i className="ri-edit-line"></i>
               </Link>:null}
               <div className={style.bloc_tabs}>
                 <button

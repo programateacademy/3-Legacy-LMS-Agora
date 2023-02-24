@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import style from "../../CreateActivity.module.css";
-import { AiOutlineLink } from "react-icons/ai";
 import apiAgora from "../../../../api/index";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -72,7 +71,7 @@ export function ViewQuery(props) {
       {/* BTN ATRAS */}
       <div>
         <button className={style.button_return} onClick={() => navigate(-1)}>
-          <i className="ri-arrow-left-circle-line"></i>
+          <i className="ri-arrow-go-back-line"></i>
         </button>
       </div>
       {/*-----FIN ATRAS ----- */}
@@ -153,7 +152,7 @@ export function ViewQuery(props) {
                 {resources.length !== 0
                   ? resources.map((item, index) => (
                       <div className={style.tagContainer} key={index}>
-                        <AiOutlineLink className={style.linkIcon} size={10} />
+                        <i className={`ri-link-m ${style.linkIcon}`}></i>
                         <div className={style.tagText}>
                           <a
                             className={style.tag}
@@ -164,7 +163,7 @@ export function ViewQuery(props) {
                             {item.nameLink}
                           </a>
                         </div>
-                        <AiOutlineLink className={style.linkIcon} size={10} />
+                        <i className={`ri-link-m ${style.linkIcon}`}></i>
                       </div>
                     ))
                   : null}

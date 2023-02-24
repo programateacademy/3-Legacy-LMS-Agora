@@ -13,7 +13,7 @@ import styles from "./register.module.css";
 
 import logo from "../../../assets/logos/Programate-academy-negros.png";
 import { useNavigate } from "react-router-dom";
-import { BsArrowLeftCircle } from "react-icons/bs";
+
 import LazyLoad from "react-lazy-load";
 
 const initialState = {
@@ -137,7 +137,7 @@ export function RegisterTeacher() {
     <div className={styles.container_register}>
       <div className={styles.container_register_page}>
         <button className={styles.button_return} onClick={() => navigate(-1)}>
-          <BsArrowLeftCircle size={30} />
+          <i className="ri-arrow-go-back-line"></i>
         </button>
         <LazyLoad>
           <img className={styles.logo_register} src={logo} alt="logo" />

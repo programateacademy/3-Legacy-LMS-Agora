@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import style from "../CreateUpdateCohort.module.css";
-import { MdDeleteForever, MdOutlineAddCircle } from "react-icons/md";
 import { useSelector } from "react-redux";
 import { showErrMsg, showSuccessMsg } from "../../../utils/notification";
 import apiAgora from "../../../api/index";
-import { BsArrowLeftCircle } from "react-icons/bs";
+
 import { useNavigate, useParams } from "react-router-dom";
 import LazyLoad from "react-lazy-load";
 
@@ -133,7 +132,7 @@ export function CreateCohort() {
     <>
       <div className={style.formContainer}>
         <button className={style.button_return} onClick={() => navigate(-1)}>
-          <BsArrowLeftCircle size={30} />
+          <i className="ri-arrow-go-back-line"></i>
         </button>
         <div className={style.wrapper}>
           <h2 className={style.typing_demo}>Crear Cohorte</h2>
@@ -214,7 +213,7 @@ export function CreateCohort() {
                     type="button"
                     onClick={onClickTeacher}
                   >
-                    <MdOutlineAddCircle size={30} />
+                    <i className="ri-add-circle-fill" style={{fontSize: '25px'}}></i>
                   </button>
                 </div>
                 {addedTeacher.length !== 0
@@ -225,7 +224,7 @@ export function CreateCohort() {
                           onClick={() => onClearTeacher(item.id)}
                           type="button"
                         >
-                          <MdDeleteForever size={25} />
+                          <i className="ri-delete-bin-5-line"></i>
                         </button>
                       </div>
                     ))

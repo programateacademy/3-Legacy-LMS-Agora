@@ -9,7 +9,8 @@ import { Link } from "react-router-dom";
 export function CardActivity(props) {
   const { title, image, teacher, id, type, cohortID } = props;
   return (
-    <div className={styles.card} style={{ backgroundImage: `url(${image})` }}>
+    <div className={styles.card}>
+      <img className={styles.image} src={image} alt="Imagen del proyecto" />
       {teacher ? (
         <div className={styles.dots}>
           <div className={styles.dot}></div>

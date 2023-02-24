@@ -1,14 +1,10 @@
 import React, { useState } from "react";
 import style from "../../CreateActivity.module.css";
-import { MdDeleteForever, MdOutlineAddCircle } from "react-icons/md";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import apiAgora from "../../../../api/index";
 import { showErrMsg, showSuccessMsg } from "../../../../utils/notification";
 import { Step } from "../step/Step.jsx";
-import { MdExpandMore } from "react-icons/md";
-import { BsArrowLeftCircle } from "react-icons/bs";
-import { AiOutlineLink } from "react-icons/ai";
 import LazyLoad from "react-lazy-load";
 
 const initWorkbook = {
@@ -195,7 +191,7 @@ export function CreateWorkbook() {
       <div className={style.formContainer}>
         <div>
           <button className={style.button_return} onClick={() => navigate(-1)}>
-            <BsArrowLeftCircle size={30} />
+            <i className="ri-arrow-go-back-line"></i>
           </button>
         </div>
         <div className={style.wrapper}>
@@ -255,7 +251,10 @@ export function CreateWorkbook() {
                       type="button"
                       onClick={() => onClickObject("resources")}
                     >
-                      <MdOutlineAddCircle size={30} />
+                      <i
+                        className="ri-add-circle-fill"
+                        style={{ fontSize: "25px" }}
+                      ></i>
                     </button>
                   </div>
                 </div>
@@ -263,7 +262,7 @@ export function CreateWorkbook() {
                   {resources.length !== 0
                     ? resources.map((item, index) => (
                         <div className={style.tagContainer} key={index}>
-                          <AiOutlineLink className={style.linkIcon} size={30} />
+                          <i className={`ri-link-m ${style.linkIcon}`}></i>
                           <div className={style.tagText}>
                             <a
                               className={style.tag}
@@ -279,7 +278,7 @@ export function CreateWorkbook() {
                             type="button"
                             onClick={() => deleteItemArray("resources", item)}
                           >
-                            <MdDeleteForever size={30} />
+                            <i className="ri-delete-bin-5-line"></i>
                           </button>
                         </div>
                       ))
@@ -320,7 +319,10 @@ export function CreateWorkbook() {
                       type="button"
                       onClick={() => onClickArray("tagsWorkbook")}
                     >
-                      <MdOutlineAddCircle size={30} />
+                      <i
+                        className="ri-add-circle-fill"
+                        style={{ fontSize: "25px" }}
+                      ></i>
                     </button>
                   </div>
                   <div>
@@ -337,7 +339,7 @@ export function CreateWorkbook() {
                                 deleteItemArray("tagsworkbook", item)
                               }
                             >
-                              <MdDeleteForever size={30} />
+                              <i className="ri-delete-bin-5-line"></i>
                             </button>
                           </div>
                         ))
@@ -387,7 +389,10 @@ export function CreateWorkbook() {
                   type="button"
                   onClick={() => onClickArray("environmentalReq")}
                 >
-                  <MdOutlineAddCircle size={30} />
+                  <i
+                    className="ri-add-circle-fill"
+                    style={{ fontSize: "25px" }}
+                  ></i>
                 </button>
               </div>
 
@@ -406,7 +411,7 @@ export function CreateWorkbook() {
                             deleteItemArray("environmentalReq", item)
                           }
                         >
-                          <MdDeleteForever size={30} />
+                          <i className="ri-delete-bin-5-line"></i>
                         </button>
                       </div>
                     ))
@@ -426,7 +431,10 @@ export function CreateWorkbook() {
                   type="button"
                   onClick={() => onClickArray("contextReq")}
                 >
-                  <MdOutlineAddCircle size={30} />
+                  <i
+                    className="ri-add-circle-fill"
+                    style={{ fontSize: "25px" }}
+                  ></i>
                 </button>
               </div>
               <div>
@@ -441,7 +449,7 @@ export function CreateWorkbook() {
                           type="button"
                           onClick={() => deleteItemArray("contextReq", item)}
                         >
-                          <MdDeleteForever size={30} />
+                          <i className="ri-delete-bin-5-line"></i>
                         </button>
                       </div>
                     ))
@@ -549,13 +557,13 @@ export function CreateWorkbook() {
                       type="button"
                       onClick={() => deleteItemArray("steps", item)}
                     >
-                      <MdDeleteForever size={30} />
+                      <i className="ri-delete-bin-5-line"></i>
                     </button>
                     <button
                       type="button"
                       onClick={() => handleInfoStep(index, item)}
                     >
-                      <MdExpandMore size={30} />
+                      <i className="ri-arrow-down-s-line" style={{fontSize: '25px'}}></i>
                     </button>
                   </div>
                 ))
