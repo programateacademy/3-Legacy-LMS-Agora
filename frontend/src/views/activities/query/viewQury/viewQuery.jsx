@@ -25,11 +25,13 @@ const initialState = {
 
 export function ViewQuery(props) {
   const { teacher } = props;
-  const auth = useSelector((state) => state.auth);
-  const userID = auth.user.id;
+  //const auth = useSelector((state) => state.auth);
+  //const userID = auth.user.id;
+  const userID = '63e3e39d39cb1aea19895658'
   let navigate = useNavigate();
-  const params = useParams();
-  const queryID = params.id;
+  //const params = useParams();
+  //const queryID = params.id;
+  const queryID ='63eaf0fc9be3c3a734cc7e84'
   const [image, setImage] = useState();
 
   const [query, setQuery] = useState(initialState);
