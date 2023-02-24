@@ -1,10 +1,10 @@
-import {render, screen} from "@testing-library/react"
-import {ViewQuery} from "./viewQury/viewQuery"
-import "@testing-library/jest-dom"
+import {render, screen} from "@testing-library/react";
+import {ViewQuery} from "./viewQury/viewQuery";
+import "@testing-library/jest-dom";
+jest.mock('react-redux');
+jest.mock('react-redux-dom');
 
-describe("Query", () => {
-    it("view query", () =>{
-        render(ViewQuery)
-        expect(screen.getByText(/Consultas/i))
-    });
-});
+test("Query", () =>{
+    render(<ViewQuery/>)
+    expect(screen.getByTitle(/Consultas/i))
+})
