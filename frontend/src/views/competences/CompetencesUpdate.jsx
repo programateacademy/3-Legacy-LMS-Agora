@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./competences.module.css";
 import { useNavigate, useParams } from "react-router-dom";
-import { BsArrowLeftCircle } from "react-icons/bs";
+
 import apiAgora from "../../api/index";
 import { useSelector } from "react-redux";
 import { showErrMsg, showSuccessMsg } from "../../utils/notification";
@@ -99,7 +99,7 @@ export function CompetencesUpdate() {
       <div className={styles.container_register}>
         <div className={styles.Container}>
           <button className={styles.button_return} onClick={() => navigate(-1)}>
-            <BsArrowLeftCircle size={30} />
+            <i className="ri-arrow-go-back-line"></i>
           </button>
         </div>
         <h2>Crear competencias para la Cohorte</h2>

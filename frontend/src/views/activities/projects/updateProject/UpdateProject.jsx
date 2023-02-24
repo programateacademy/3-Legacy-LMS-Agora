@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import style from "../../CreateActivity.module.css";
-import { MdDeleteForever, MdOutlineAddCircle } from "react-icons/md";
+import { MdOutlineAddCircle } from "react-icons/md";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import apiAgora from "../../../../api/index";
 import { showErrMsg, showSuccessMsg } from "../../../../utils/notification";
-import { BsArrowLeftCircle } from "react-icons/bs";
+
 import { AiOutlineLink } from "react-icons/ai";
 import Swal from "sweetalert2";
 import LazyLoad from "react-lazy-load";
@@ -286,7 +286,7 @@ export function UpdateProject() {
     <div className={style.formContainer}>
       <div>
         <button className={style.button_return} onClick={() => navigate(-1)}>
-          <BsArrowLeftCircle size={30} />
+          <i className="ri-arrow-go-back-line"></i>
         </button>
       </div>
       <div className={style.buttonDelivery}>
@@ -380,7 +380,7 @@ export function UpdateProject() {
                           type="button"
                           onClick={() => deleteItemArray("resources", item)}
                         >
-                          <MdDeleteForever size={30} />
+                          <i className="ri-delete-bin-5-line"></i>
                         </button>
                       </div>
                     ))
@@ -430,7 +430,7 @@ export function UpdateProject() {
                           type="button"
                           onClick={() => deleteItemArray("tagsProject", item)}
                         >
-                          <MdDeleteForever size={30} />
+                          <i className="ri-delete-bin-5-line"></i>
                         </button>
                       </div>
                     ))
@@ -490,7 +490,7 @@ export function UpdateProject() {
                           deleteItemArray("contextGeneralReq", item)
                         }
                       >
-                        <MdDeleteForever size={30} />
+                        <i className="ri-delete-bin-5-line"></i>
                       </button>
                     </div>
                   ))
@@ -527,7 +527,7 @@ export function UpdateProject() {
                           deleteItemArray("contextTechniciansReq", item)
                         }
                       >
-                        <MdDeleteForever size={30} />
+                        <i className="ri-delete-bin-5-line"></i>
                       </button>
                     </div>
                   ))
@@ -564,7 +564,7 @@ export function UpdateProject() {
                           deleteItemArray("contextExtrasReq", item)
                         }
                       >
-                        <MdDeleteForever size={30} />
+                        <i className="ri-delete-bin-5-line"></i>
                       </button>
                     </div>
                   ))
@@ -601,7 +601,7 @@ export function UpdateProject() {
                           deleteItemArray("pedagogyModality", item)
                         }
                       >
-                        <MdDeleteForever size={30} />
+                        <i className="ri-delete-bin-5-line"></i>
                       </button>
                     </div>
                   ))
@@ -638,7 +638,7 @@ export function UpdateProject() {
                           deleteItemArray("performanceCriterias", item)
                         }
                       >
-                        <MdDeleteForever size={30} />
+                        <i className="ri-delete-bin-5-line"></i>
                       </button>
                     </div>
                   ))
@@ -675,7 +675,7 @@ export function UpdateProject() {
                           deleteItemArray("evaluationModality", item)
                         }
                       >
-                        <MdDeleteForever size={30} />
+                        <i className="ri-delete-bin-5-line"></i>
                       </button>
                     </div>
                   ))
@@ -714,7 +714,7 @@ export function UpdateProject() {
                           deleteItemArray("deliverablesProject", item)
                         }
                       >
-                        <MdDeleteForever size={30} />
+                        <i className="ri-delete-bin-5-line"></i>
                       </button>
                     </div>
                   ))
@@ -780,7 +780,7 @@ export function UpdateProject() {
                           deleteCompetence("competences", item.competenceID)
                         }
                       >
-                        <MdDeleteForever size={30} />
+                        <i className="ri-delete-bin-5-line"></i>
                       </button>
                     </div>
                   ))

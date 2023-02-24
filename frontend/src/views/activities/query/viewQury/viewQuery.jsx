@@ -72,7 +72,7 @@ export function ViewQuery(props) {
       {/* BTN ATRAS */}
       <div>
         <button className={style.button_return} onClick={() => navigate(-1)}>
-          <i className="ri-arrow-left-circle-line"></i>
+          <i className="ri-arrow-go-back-line"></i>
         </button>
       </div>
       {/*-----FIN ATRAS ----- */}

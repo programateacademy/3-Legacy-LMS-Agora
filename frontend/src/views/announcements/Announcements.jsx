@@ -3,8 +3,6 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import apiAgora from "../../api/index";
 import Swal from "sweetalert2";
-import { FiEdit } from "react-icons/fi";
-import { MdDeleteForever } from "react-icons/md";
 import { ModalCreateAnnouncements } from "../../components/modal/modalCreateAnnouncements/ModalCreateAnnouncements";
 import { ModalUpdateAnnouncements } from "../../components/modal/modalUpdateAnnouncements/ModalUpdateAnnouncements";
 import styles from "./Announcements.module.css";
@@ -123,14 +121,14 @@ export const Announcements = (props) => {
                           className={styles.button__delete}
                           onClick={() => handleInfoUpdate(item.id)}
                         >
-                          <FiEdit size={25} />
+                          <i className="ri-edit-line"></i>
                         </button>
 
                         <button
                           className={styles.button__delete}
                           onClick={() => alertErase(item.id)}
                         >
-                          <MdDeleteForever size={25} />
+                          <i className="ri-delete-bin-5-line"></i>
                         </button>
                       </div>
                     ) : null}

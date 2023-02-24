@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styles from "./ModalEntrega.module.css";
 import Swal from "sweetalert2";
-import { BsArrowLeftCircle } from "react-icons/bs";
-import { MdDeleteForever, MdOutlineAddCircle } from "react-icons/md";
+
+import { MdOutlineAddCircle } from "react-icons/md";
 import { AiOutlineLink } from "react-icons/ai";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -305,7 +305,7 @@ export function ModalDeliveryTeacher() {
     <div className={styles.formContainer}>
       <div className={styles.InitialContainer}>
         <button className={styles.button_return} onClick={() => navigate(-1)}>
-          <BsArrowLeftCircle size={30} />
+          <i className="ri-arrow-go-back-line"></i>
         </button>
         <div className={styles.InitialContainer}>
           <h2>{activityProject}</h2>
@@ -466,7 +466,7 @@ export function ModalDeliveryTeacher() {
                     type="button"
                     onClick={() => deleteItemArray("delivery", item)}
                   >
-                    <MdDeleteForever size={30} />
+                    <i className="ri-delete-bin-5-line"></i>
                   </button>
                 </div>
               ))

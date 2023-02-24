@@ -151,7 +151,7 @@ export function ProfileStudent(props) {
         type="button"
         onClick={() => navigate(-1)}
       >
-        <i className="ri-arrow-left-circle-line"></i>
+        <i className="ri-arrow-go-back-line"></i>
       </button>
 
       <div className={styles.container}>

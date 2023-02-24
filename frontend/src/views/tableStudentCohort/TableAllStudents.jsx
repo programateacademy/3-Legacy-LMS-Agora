@@ -4,7 +4,7 @@ import { Table } from '../../components/table/Table'
 import apiAgora from '../../api/index'
 import { useSelector } from "react-redux";
 import {useNavigate} from "react-router-dom";
-import { BsArrowLeftCircle } from "react-icons/bs";
+
 
 export function TableAllStudents() {
   const auth = useSelector((state) => state.auth);

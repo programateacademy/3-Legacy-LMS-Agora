@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import style from "../../CreateActivity.module.css";
-import { BsArrowLeftCircle } from "react-icons/bs";
-import { MdDeleteForever, MdOutlineAddCircle } from "react-icons/md";
+import { MdOutlineAddCircle } from "react-icons/md";
 import { AiOutlineLink } from "react-icons/ai";
 import { showErrMsg, showSuccessMsg } from "../../../../utils/notification";
 import apiAgora from "../../../../api/index";
@@ -198,7 +197,7 @@ export function UpdateQuery() {
     <div className={style.formContainer}>
       <div>
         <button className={style.button_return} onClick={() => navigate(-1)}>
-          <BsArrowLeftCircle size={30} />
+          <i className="ri-arrow-go-back-line"></i>
         </button>
       </div>
       <div className={style.buttonDelivery}>
@@ -280,7 +279,7 @@ export function UpdateQuery() {
                           type="button"
                           onClick={() => deleteItemArray("resources", item)}
                         >
-                          <MdDeleteForever size={30} />
+                          <i className="ri-delete-bin-5-line"></i>
                         </button>
                       </div>
                     ))
@@ -332,7 +331,7 @@ export function UpdateQuery() {
                           type="button"
                           onClick={() => deleteItemArray("tagsQuery", item)}
                         >
-                          <MdDeleteForever size={30} />
+                          <i className="ri-delete-bin-5-line"></i>
                         </button>
                       </div>
                     ))
@@ -392,7 +391,7 @@ export function UpdateQuery() {
                         type="button"
                         onClick={() => deleteItemArray("pathReq", item)}
                       >
-                        <MdDeleteForever size={30} />
+                        <i className="ri-delete-bin-5-line"></i>
                       </button>
                     </div>
                   ))
@@ -430,7 +429,7 @@ export function UpdateQuery() {
                           deleteItemArray("documentationReq", item)
                         }
                       >
-                        <MdDeleteForever size={30} />
+                        <i className="ri-delete-bin-5-line"></i>
                       </button>
                     </div>
                   ))
@@ -479,7 +478,7 @@ export function UpdateQuery() {
                         type="button"
                         onClick={() => deleteItemArray("challengeTask", item)}
                       >
-                        <MdDeleteForever size={30} />
+                        <i className="ri-delete-bin-5-line"></i>
                       </button>
                     </div>
                   ))

@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import apiAgora from "../../../api/index";
 import { Button } from "../../../components/Buttons/Button";
 import {useNavigate} from "react-router-dom";
-import { BsArrowLeftCircle } from "react-icons/bs";
+
 
 import styles from "./CohortsAdmin.module.css";
 export function AllCohorts() {
@@ -26,8 +26,8 @@ export function AllCohorts() {
 
   return (
     <div className={styles.cohorts}>
-      <button className={styles.button_return} onClick={()=>navigate(-1)}>
-        <BsArrowLeftCircle size={30}/>
+      <button className={styles.button_return} onClick={() => navigate(-1)}>
+        <i className="ri-arrow-go-back-line"></i>
       </button>
       <h2>Registro de Todas las Cohortes</h2>
       <div>

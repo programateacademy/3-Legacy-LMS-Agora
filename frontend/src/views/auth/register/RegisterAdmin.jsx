@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import LazyLoad from "react-lazy-load";
-import { BsArrowLeftCircle } from "react-icons/bs";
+
 import apiAgora from "../../../api/index";
 import { showErrMsg, showSuccessMsg } from "../../../utils/notification";
 import {
@@ -136,7 +136,7 @@ export function RegisterAdmin() {
     <div className={styles.container_register}>
       <div className={styles.container_register_page}>
         <button className={styles.button_return} onClick={() => navigate(-1)}>
-          <BsArrowLeftCircle size={30} />
+          <i className="ri-arrow-go-back-line"></i>
         </button>
         <LazyLoad>
           <img className={styles.logo_register} src={logo} alt="logo" />

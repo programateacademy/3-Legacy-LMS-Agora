@@ -1,241 +1,241 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
 
-
-.container{
-    display: flex; 
-    flex-direction: column;
-    height: auto;
-    /* min-height: calc(100vh - 140px);  */
-    justify-content: center; 
-    margin: auto; 
-   
+.container {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  /* min-height: calc(100vh - 140px);  */
+  justify-content: center;
+  margin: auto;
 }
 
-.containerProfile{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 100%;
-    left: 0;
-    height: auto;
-    padding: 2vh;
-    background-color: #F9F9F9;
-    box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, .3) inset;
+.containerProfile {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  left: 0;
+  height: auto;
+  padding: 2vh;
+  background-color: #f9f9f9;
+  box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.3) inset;
 }
 
 .containerProfile i {
-    font-size: 15px;
+  font-size: 15px;
 }
 
-
-.cajaIns{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-left: 60px;
+.cajaIns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 60px;
 }
 
-.cajaIns img{
-   margin-left: 5px;
-    margin-top: 5px;
-    width: 150px;
-    height: 150px;
-    box-sizing: border-box;
-    filter: drop-shadow(4px 4px 3px var(--colorBlackOpacity));
-    border-radius: 50%;
-    position: relative;
+.cajaIns img {
+  margin-left: 5px;
+  margin-top: 5px;
+  width: 150px;
+  height: 150px;
+  box-sizing: border-box;
+  filter: drop-shadow(4px 4px 3px var(--colorBlackOpacity));
+  border-radius: 50%;
+  position: relative;
 }
 
-.backround_profile{
-    width: 175px;
-    height: 175px;
-    background-color: #AFAFAF;
-    border-radius: 50%;
+.backround_profile {
+  width: 175px;
+  height: 175px;
+  background-color: #afafaf;
+  border-radius: 50%;
 }
 
 .chargeimg {
-    background-color: rgb(255, 255, 255);
-    box-shadow: -2px 2px 6px 1px rgb(0, 0, 0, .5);
-    border-radius: 50%;
-    padding: 5px;
-    width: 25px;
-    height: 25px;
-    margin-left: 150px;
-    position: absolute;
-    overflow: hidden;
-    cursor: pointer;
+  background-color: rgb(255, 255, 255);
+  box-shadow: -2px 2px 6px 1px rgb(0, 0, 0, 0.5);
+  border-radius: 50%;
+  padding: 5px;
+  width: 25px;
+  height: 25px;
+  margin-left: 150px;
+  position: absolute;
+  overflow: hidden;
+  cursor: pointer;
 }
 
-.chargeimg:hover{
-    background-color: #d1d1d1;
+.chargeimg:hover {
+  background-color: #d1d1d1;
 }
 
-.chargeimg img{
-    width: 13px;
-    margin-top: -67px;
-    margin-left: -1px;
-    filter: drop-shadow(0px 0px 0px var(--colorBlackOpacity));
+.chargeimg img {
+  width: 13px;
+  margin-top: -67px;
+  margin-left: -1px;
+  filter: drop-shadow(0px 0px 0px var(--colorBlackOpacity));
 }
 
 .button_return {
-    align-self: flex-start;
-    background-color: #4A484A;
-    border-radius: 10px;
-    color: var(--colorWhite);
-    display: flex;
-    font-weight: bold;
-    width: 40px;
-    height: 50px;
-    padding: 10px;
-    text-align: center;
-    width: auto;
-    margin-top: 20px;
-    font-family: 'Roboto', sans-serif;
-    cursor: pointer;
-    margin-left: 1.5rem;
-    }
-    .button_return:hover {
-    background-color: #232323;
-    color: var(--colorYellow);
-    transition: 0.3s;
-    } 
-
-.cajaName{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-left: 10px;
-    color: var(--colorWhite);
+  align-self: flex-start;
+  background-color: #4a484a;
+  border-radius: 10px;
+  color: var(--colorWhite);
+  font-weight: bold;
+  height: 50px;
+  padding: 10px;
+  text-align: center;
+  width: auto;
+  margin-top: 20px;
+  font-family: "Roboto", sans-serif;
+  cursor: pointer;
+  margin-left: 3.5rem;
+  transition: 0.3s all;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+}
+.button_return i {
+  color: var(--colorWhite);
+}
+.button_return:hover i {
+  color: var(--colorYellowOpacity);
+}
+.button_return:hover {
+  transform: translateX(-5px);
+  background-color: var(--colorHoverNav);
+  transition: 0.3s all;
 }
 
-.cajaName h2{
-    font-family: 'Roboto', sans-serif;
-    color: #232323;
-    font-size: 30px;
+.cajaName {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+  color: var(--colorWhite);
 }
 
-.cajaName p{
-    font-family: 'Roboto', sans-serif;
-    color: #9D9D9D;
-    font-size: 19px;
+.cajaName h2 {
+  font-family: "Roboto", sans-serif;
+  color: #232323;
+  font-size: 30px;
 }
 
-.cajaUlt_container{
-    position: relative;
+.cajaName p {
+  font-family: "Roboto", sans-serif;
+  color: #9d9d9d;
+  font-size: 19px;
 }
 
-.iconcajaUlt{
-    position: absolute;
-    margin-left: 1rem;
-    top: 24px;
-    left: 20px;
-    z-index: 3;
-    border-right: 1px solid #5F5F5F;
-    padding-right: 5px;
+.cajaUlt_container {
+  position: relative;
 }
 
-.cajaLink{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.iconcajaUlt {
+  position: absolute;
+  margin-left: 1rem;
+  top: 24px;
+  left: 20px;
+  z-index: 3;
+  border-right: 1px solid #5f5f5f;
+  padding-right: 5px;
 }
 
-.cajaUlt{
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    align-items: center;
-    gap: 0;
+.cajaLink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.cajaUlt:last-child{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    width: 100%;
-    padding: 10px;
+.cajaUlt {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  gap: 0;
 }
 
-.cajaUlt >input{
-    display: flex;
-    margin-bottom: 5px;
-    width: 170px;
-    height: 25px;
-    background-color: #BBBBBB;
-    box-shadow: none;
-    border-radius: 15px;
-    margin-left: 20px;
-    padding-left: 2.5rem;
-    position: relative;
-    overflow: hidden;
+.cajaUlt:last-child {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 100%;
+  padding: 10px;
 }
 
-
-.cajaUlt >button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 35px;
-    border-radius: 50px;
-    color: 454544;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-    color: #232323;
-    background: var(--colorYellow);
-    cursor: pointer;
+.cajaUlt > input {
+  display: flex;
+  margin-bottom: 5px;
+  width: 170px;
+  height: 25px;
+  background-color: #bbbbbb;
+  box-shadow: none;
+  border-radius: 15px;
+  margin-left: 20px;
+  padding-left: 2.5rem;
+  position: relative;
+  overflow: hidden;
 }
 
-.cajaUlt >button:hover{
-    background: #232323;
-    color: white;
+.cajaUlt > button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 35px;
+  border-radius: 50px;
+  color: 454544;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  color: #232323;
+  background: var(--colorYellow);
+  cursor: pointer;
 }
 
-.tableCompetences{
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-    align-items: center;
-    margin: auto;
-    width: 80vw;
-    padding: 5vh 0;
+.cajaUlt > button:hover {
+  background: #232323;
+  color: white;
 }
 
-.tableCompetences h3{
-margin-top: 10vh;
+.tableCompetences {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  width: 80vw;
+  padding: 5vh 0;
 }
 
+.tableCompetences h3 {
+  margin-top: 10vh;
+}
 
 @media (max-width: 700px) {
-    .containerProfile{
-        flex-direction: column;
-        height: auto;
-    }
+  .containerProfile {
+    flex-direction: column;
+    height: auto;
+  }
 
-    .buttonVolver{
-        margin-left: 20px;
-        margin-top: 10px;
-    }
+  .buttonVolver {
+    margin-left: 20px;
+    margin-top: 10px;
+  }
 
-    .cajaIns{
-        align-items: center;
-        margin-left: 0;
-    }
+  .cajaIns {
+    align-items: center;
+    margin-left: 0;
+  }
 
+  .cajaName {
+    margin-top: 15px;
+    align-items: center;
+  }
 
-    .cajaName{
-        margin-top: 15px;
-        align-items: center;
-    }
+  .cajaLink {
+    margin-top: 15px;
+  }
 
-    .cajaLink{
-        margin-top: 15px;
-    }
-
-    .cajaUlt input{
-        align-items: center;
-    }
+  .cajaUlt input {
+    align-items: center;
+  }
 }
