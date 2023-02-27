@@ -50,5 +50,10 @@
   },
   "devDependencies": {
     "eslint-config-react-app": "^7.0.1"
+  },
+  "jest": {
+    "transformIgnorePatterns": [
+      "node_modules/(?!axios)/"
+    ]
   }
 }
