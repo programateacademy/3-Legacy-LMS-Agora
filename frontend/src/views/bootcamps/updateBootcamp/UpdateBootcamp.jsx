@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import styles from "./UpdateBootcamp.module.css";
-import { BsArrowLeftCircle } from "react-icons/bs";
+
 import { useSelector } from "react-redux";
 import apiAgora from "../../../api/index";
 import { showErrMsg, showSuccessMsg } from "../../../utils/notification";
@@ -103,7 +103,7 @@ export function UpdateBootcamp() {
     <div>
       <div className={styles.button_container}>
         <button className={styles.button_return} onClick={() => navigate(-1)}>
-          <BsArrowLeftCircle size={30} />
+          <i className="ri-arrow-go-back-line"></i>
         </button>
             <button type="button" className={styles.button_clear} onClick={() => alertErase(bootcampID)}>
         Eliminar Bootcamp

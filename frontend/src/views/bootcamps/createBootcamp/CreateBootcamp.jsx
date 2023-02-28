@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./CreateBootcamp.module.css";
-import { BsArrowLeftCircle } from "react-icons/bs";
+
 import { useSelector } from "react-redux";
 import apiAgora from "../../../api/index";
 import { showErrMsg, showSuccessMsg } from "../../../utils/notification";
@@ -69,7 +69,7 @@ export function CreateBootcamp() {
     <div className={styles.formContainer}>
       <div>
         <button className={styles.button_return} onClick={() => navigate(-1)}>
-          <BsArrowLeftCircle size={30} />
+          <i className="ri-arrow-go-back-line"></i>
         </button>
       </div>
       <div className={styles.wrapper}>

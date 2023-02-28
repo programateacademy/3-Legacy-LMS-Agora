@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styles from "./ModalEntrega.module.css"
-import { BsArrowLeftCircle } from "react-icons/bs";
-import { MdDeleteForever, MdOutlineAddCircle } from "react-icons/md";
-import { AiOutlineLink } from "react-icons/ai";
+import styles from "./ModalEntrega.module.css";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import apiAgora from "../../api/index";
@@ -59,7 +56,7 @@ export function ModalDeliveryStudent() {
   useEffect(() => {
     activity(deliveryKind);
     // eslint-disable-next-line
-  }, [deliveryKind])
+  }, [deliveryKind]);
 
   const fetchFeedbacks = async (activityid, id) => {
     const res = await apiAgora.get(`/api/agora/get-outcome/${id}`, {
@@ -70,10 +67,10 @@ export function ModalDeliveryStudent() {
       item.projectID === activityid
         ? item
         : item.queryID === activityid
-          ? item
-          : item.workbookID === activityid
-            ? item
-            : null
+        ? item
+        : item.workbookID === activityid
+        ? item
+        : null
     );
     const feedbacks = feedbacksByActivity.filter((item) => item !== null);
     setModalStudent(feedbacks);
@@ -88,10 +85,10 @@ export function ModalDeliveryStudent() {
       item.projectID === activityid
         ? item
         : item.queryID === activityid
-          ? item
-          : item.workbookID === activityid
-            ? item
-            : null
+        ? item
+        : item.workbookID === activityid
+        ? item
+        : null
     );
     const deliveries = deliveriesByActivity.filter((item) => item !== null);
     setModal(deliveries);
@@ -120,7 +117,7 @@ export function ModalDeliveryStudent() {
     fetchFeedbacks(activityID, userID);
     fetchActivity(deliveryKind, activityID, userID);
     // eslint-disable-next-line
-  }, [activityID, userID])
+  }, [activityID, userID]);
 
   const [deliveryStudent, setDeliveryStudent] = useState(initialState);
 
@@ -129,8 +126,7 @@ export function ModalDeliveryStudent() {
     link: "",
   });
 
-  const { delivery, message, projectID, workbookID, queryID } =
-    deliveryStudent;
+  const { delivery, message, projectID, workbookID, queryID } = deliveryStudent;
 
   const { nameLink, link } = objectLink;
 
@@ -192,7 +188,10 @@ export function ModalDeliveryStudent() {
             headers: { Authorization: userID },
           }
         );
-        showSuccessMsg("Nueva entrega registrada","La entrega se ha creado satisfactoriamente");
+        showSuccessMsg(
+          "Nueva entrega registrada",
+          "La entrega se ha creado satisfactoriamente"
+        );
         setDeliveryStudent({
           ...deliveryStudent,
           err: "",
@@ -214,16 +213,14 @@ export function ModalDeliveryStudent() {
   return (
     <>
       <div className={styles.formContainer}>
+        <button className={styles.button_return} onClick={() => navigate(-1)}>
+          <i className="ri-arrow-go-back-line"></i>
+        </button>
         <div className={styles.InitialContainer}>
-          <button className={styles.button_return} onClick={() => navigate(-1)}>
-            <BsArrowLeftCircle size={30} />
-          </button>
-          <div className={styles.InitialContainer}>
-            <h2>{activityProject}</h2>
-            <LazyLoad className={styles.img_preview}>
-              <img src={image} alt="imageDelivery" />
-            </LazyLoad>
-          </div>
+          <h2>{activityProject}</h2>
+          <LazyLoad className={styles.img_preview}>
+            <img src={image} alt="imageDelivery" />
+          </LazyLoad>
         </div>
         <form className={styles.containerModal} onSubmit={handleSubmit}>
           <div className={styles.chat}>
@@ -327,7 +324,7 @@ export function ModalDeliveryStudent() {
                 type="button"
                 onClick={() => onClickObject("delivery")}
               >
-                <MdOutlineAddCircle size={30} />
+                <i className="ri-add-circle-fill" style={{fontSize: '25px'}}></i>
               </button>
             </div>
             <div className={styles.secondText}>
@@ -348,7 +345,7 @@ export function ModalDeliveryStudent() {
             {delivery.length !== 0
               ? delivery.map((item, index) => (
                   <div className={styles.tagContainer} key={index}>
-                    <AiOutlineLink className={styles.linkIcon} size={30} />
+                    <i className={`ri-link-m ${styles.linkIcon}`}></i>
                     <div className={styles.tagText}>
                       <a
                         className={styles.tag}
@@ -364,7 +361,7 @@ export function ModalDeliveryStudent() {
                       type="button"
                       onClick={() => deleteItemArray("delivery", item)}
                     >
-                      <MdDeleteForever size={30} />
+                      <i className="ri-delete-bin-5-line"></i>
                     </button>
                   </div>
                 ))

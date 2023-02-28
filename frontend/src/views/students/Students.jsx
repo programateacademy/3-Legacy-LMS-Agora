@@ -6,7 +6,6 @@ import { useParams } from "react-router-dom";
 import { ProfilesTable } from "../../components/profilesTable/ProfilesTable";
 import { Searchbar } from "../../components/searchbar/Searchbar";
 import style from "./Students.module.css";
-import { FaSearch } from "react-icons/fa";
 
 export function Students() {
   const auth = useSelector((state) => state.auth);
@@ -58,10 +57,13 @@ export function Students() {
         </div>
 
         <div>
-          <FaSearch size={30} color="var(--colorYellow)" />
+          <i
+            class="ri-search-2-line"
+            style={{ fontSize: "30px", color: "var(--colorYellow)" }}
+          ></i>
         </div>
       </div>
-      
+
       <div className={style.studentsTable}>
         <ProfilesTable
           list={student ? filteredStudents : students}
