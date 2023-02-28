@@ -1,7 +1,7 @@
- import '@testing-library/jest-dom'
+/*  import '@testing-library/jest-dom' */
 
  // Mock IntersectionObserver
- class IntersectionObserver {
+/*  class IntersectionObserver {
    observe = jest.fn()
    disconnect = jest.fn()
    unobserve = jest.fn()
@@ -17,4 +17,4 @@
    writable: true,
    configurable: true,
    value: IntersectionObserver,
- })
+ }) */
