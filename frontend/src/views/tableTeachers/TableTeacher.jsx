@@ -25,16 +25,20 @@ export function TableTeacher() {
   }, [id_user])
   return (
     <div className={styles.container}>
-      <button className={styles.button_return} onClick={()=>navigate(-1)}>
-        <BsArrowLeftCircle size={30}/>
+      <button className={styles.button_return} onClick={() => navigate(-1)}>
+        <i className="ri-arrow-go-back-line"></i>
       </button>
-        <h1>Listado de formadores</h1>
-       <div className={styles.tableContainer}>
-       <Table tableList={teachers} adminID={id_user} fetchUser={()=>fetchTeachers(id_user)}/>
-       </div>
-        <div className={styles.buttonContainer}>
+      <h1>Listado de formadores</h1>
+      <div className={styles.tableContainer}>
+        <Table
+          tableList={teachers}
+          adminID={id_user}
+          fetchUser={() => fetchTeachers(id_user)}
+        />
+      </div>
+      <div className={styles.buttonContainer}>
         <Button title="Crear formador" link="/register_teacher" />
-          </div>
+      </div>
     </div>
   );
 }

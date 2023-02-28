@@ -28,11 +28,11 @@ const initialState = {
 export function ViewProject(props) {
   const { teacher } = props;
   const auth = useSelector((state) => state.auth);
-  // const userID = "63e3e46a39cb1aea19895659";
-  // const projectID = "63eaeb009be3c3a734cc7dc5";
+  const userID = "63e3e46a39cb1aea19895659";
+  const projectID = "63eaeb009be3c3a734cc7dc5";
   const params = useParams();
-  const userID = auth.user.id;
-  const projectID = params.id;
+  // const userID = auth.user.id;
+  // const projectID = params.id;
   let navigate = useNavigate();
   const [project, setProject] = useState(initialState);
   const [image, setImage] = useState();
@@ -84,7 +84,7 @@ export function ViewProject(props) {
       </div>
       {!teacher ? (
         <div className={style.buttonDelivery}>
-          <Button title="Entregar proyecto"  link={`/delivery/project/${projectID}`}/>
+          <Button title="Entregar proyecto"  link={`/delivery/project/${projectID}`}/>Entregar Proyecto
         </div>
       ) : null}
 
