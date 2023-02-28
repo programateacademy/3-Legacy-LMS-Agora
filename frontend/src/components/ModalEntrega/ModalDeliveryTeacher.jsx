@@ -1,15 +1,10 @@
 import React, { useEffect, useState } from "react";
 import styles from "./ModalEntrega.module.css";
 import Swal from "sweetalert2";
-import { BsArrowLeftCircle } from "react-icons/bs";
-import { MdDeleteForever, MdOutlineAddCircle } from "react-icons/md";
-import { AiOutlineLink } from "react-icons/ai";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import apiAgora from "../../api/index";
 import { showErrMsg, showSuccessMsg } from "../../utils/notification";
-import { MdCancel } from "react-icons/md";
-import { FiCheckCircle } from "react-icons/fi";
 import LazyLoad from "react-lazy-load";
 
 const initialState = {
@@ -305,7 +300,7 @@ export function ModalDeliveryTeacher() {
     <div className={styles.formContainer}>
       <div className={styles.InitialContainer}>
         <button className={styles.button_return} onClick={() => navigate(-1)}>
-          <BsArrowLeftCircle size={30} />
+          <i className="ri-arrow-go-back-line"></i>
         </button>
         <div className={styles.InitialContainer}>
           <h2>{activityProject}</h2>
@@ -429,7 +424,7 @@ export function ModalDeliveryTeacher() {
               type="button"
               onClick={() => onClickObject("feedback")}
             >
-              <MdOutlineAddCircle size={30} />
+              <i className="ri-add-circle-fill" style={{fontSize: '25px'}}></i>
             </button>
           </div>
           <div className={styles.secondText}>
@@ -450,7 +445,7 @@ export function ModalDeliveryTeacher() {
           {feedback.length !== 0
             ? feedback.map((item, index) => (
                 <div className={styles.tagContainer} key={index}>
-                  <AiOutlineLink className={styles.linkIcon} size={30} />
+                  <i className={`ri-link-m ${styles.linkIcon}`}></i>
                   <div className={styles.tagText}>
                     <a
                       className={styles.tag}
@@ -466,7 +461,7 @@ export function ModalDeliveryTeacher() {
                     type="button"
                     onClick={() => deleteItemArray("delivery", item)}
                   >
-                    <MdDeleteForever size={30} />
+                    <i className="ri-delete-bin-5-line"></i>
                   </button>
                 </div>
               ))
@@ -477,7 +472,7 @@ export function ModalDeliveryTeacher() {
           {competences.length !== 0
             ? competences.map((item, index) => (
                 <div className={styles.tagContainer} key={index}>
-                  <AiOutlineLink className={styles.linkIcon} size={30} />
+                  <i className={`ri-link-m ${styles.linkIcon}`}></i>
                   <div className={styles.tagText}>
                     <p>
                       {item.name}- Nivel{" "}
@@ -500,7 +495,7 @@ export function ModalDeliveryTeacher() {
                         )
                       }
                     >
-                      <FiCheckCircle size={30} />
+                      <i className="ri-checkbox-circle-fill" style={{fontSize: '25px'}}></i>
                     </button>
                     <button
                       className={styles.deleteTag}
@@ -513,7 +508,7 @@ export function ModalDeliveryTeacher() {
                         )
                       }
                     >
-                      <MdCancel size={30} />
+                      <i className="ri-close-circle-fill"  style={{fontSize: '25px'}}></i>
                     </button>
                   </div>
                 </div>

@@ -56,7 +56,8 @@
 }
 
 .link_active{
-  background-color: var(--colorWhite);
-  width: 100%;
+  background-color: var(--colorHoverNav);
+  width: auto;
   align-items: center;
+  border-radius: 25px;
 }

@@ -13,7 +13,7 @@ import styles from "./register.module.css";
 
 import { useNavigate, useParams } from "react-router-dom";
 import logo from "../../../assets/logos/Programate-academy-negros.png";
-import { BsArrowLeftCircle } from "react-icons/bs";
+
 
 const initialState = {
   firstName: "",
@@ -151,7 +151,7 @@ export function RegisterStudent() {
     <div className={styles.container_register}>
       <div className={styles.container_register_page}>
         <button className={styles.button_return} onClick={() => navigate(-1)}>
-          <BsArrowLeftCircle size={30} />
+          <i className="ri-arrow-go-back-line"></i>
         </button>
         <div>
           <img className={styles.logo_register} src={logo} alt="logo" />

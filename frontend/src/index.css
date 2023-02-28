@@ -10,7 +10,7 @@
   --colorHoverNav: #404040;
   --colorGreenDark: #1A2818;
   --colorBlack: #161616;
-  --colorBlackOpacity: #00000096;
+  --colorBlackOpacity: rgba(75, 75, 75, 0.5);
   --colorGray: #D7D7D7;
   --colorGray_20: rgba(214, 214, 214, 0.2);
   --colorGreenLight: #92C149;

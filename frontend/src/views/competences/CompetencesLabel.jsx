@@ -1,7 +1,5 @@
 import React from "react";
 import styles from "./competences.module.css";
-import { FiEdit } from "react-icons/fi";
-import { MdDeleteForever } from "react-icons/md";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import apiAgora from "../../api/index";
@@ -52,13 +50,13 @@ export function CompetencesLabel(props) {
         className={styles.button__edit}
         to={"/competences-update/" + competenceID}
       >
-        <FiEdit />
+        <i className="ri-edit-line"></i>
       </Link>
       <button
         className={styles.button__delete}
         onClick={() => alertErase(competenceID)}
       >
-        <MdDeleteForever />
+        <i className="ri-delete-bin-5-line"></i>
       </button>
     </div>
   );

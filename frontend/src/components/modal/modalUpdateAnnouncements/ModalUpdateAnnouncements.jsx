@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import style from "../ModalAnnouncements.module.css";
 import { showErrMsg, showSuccessMsg } from "../../../utils/notification";
-import { VscError } from "react-icons/vsc";
 import apiAgora from "../../../api/index";
 
 const initialState = {
@@ -83,7 +82,7 @@ export function ModalUpdateAnnouncements(props) {
       <div className={style.containerModal}>
         <div className={style.close}>
           <button onClick={() => setEditOpen((prevState) => !prevState)}>
-            <VscError size={30} />
+            <i className="ri-close-circle-fill" style={{fontSize: '25px'}}></i>
           </button>
         </div>
         <div className={style.containerTitle}>

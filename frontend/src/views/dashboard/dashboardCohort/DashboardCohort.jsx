@@ -5,8 +5,7 @@ import { useSelector } from "react-redux";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import styles from "./DashboardCohort.module.css";
 import { CardCohort } from "../../../components/cards/cohort/CardCohort";
-import { IoCreateSharp } from "react-icons/io5";
-import { BsArrowLeftCircle } from "react-icons/bs";
+
 
 export function DashboardCohort() {
   const auth = useSelector((state) => state.auth);
@@ -42,13 +41,13 @@ export function DashboardCohort() {
   }, [cohortID, userID]);
   return (
     <div className={styles.cohort}>
-      <button className={styles.button_return} onClick={()=>navigate(-1)}>
-        <BsArrowLeftCircle size={30}/>
+      <button className={styles.button_return} onClick={() => navigate(-1)}>
+        <i className="ri-arrow-go-back-line"></i>
       </button>
       <CardCohort info={cohort} key={"HeaderCohort"} principal={false} />
 
-      <Link className={styles.button_edit} to={"/competences/"+cohortID}>
-        Editar o Agregar Competencias <IoCreateSharp size={30}/>
+      <Link className={styles.button_edit} to={"/competences/" + cohortID}>
+        Editar o Agregar Competencias <i class="ri-edit-box-fill" style={{fontSize: '30px'}}></i>
       </Link>
       <CompetencesTable competencesState={cohortCompetences} admin={true} />
     </div>

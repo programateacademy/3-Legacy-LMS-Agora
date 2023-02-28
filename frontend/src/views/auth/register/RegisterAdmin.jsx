@@ -1,5 +1,10 @@
+import styles from "./register.module.css";
+import logo from "../../../assets/logos/Programate-academy-negros.png";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import LazyLoad from "react-lazy-load";
+
 import apiAgora from "../../../api/index";
 import { showErrMsg, showSuccessMsg } from "../../../utils/notification";
 import {
@@ -9,12 +14,6 @@ import {
   isMatch,
   isLengthcontactNumber,
 } from "../../../utils/validation";
-import styles from "./register.module.css";
-import logo from "../../../assets/logos/Programate-academy-negros.png";
-import {useNavigate} from "react-router-dom";
-import { BsArrowLeftCircle } from "react-icons/bs";
-import LazyLoad from "react-lazy-load";
-
 
 const initialState = {
   firstName: "",
@@ -50,7 +49,7 @@ export function RegisterAdmin() {
     role,
   } = user;
 
-  let navigate = useNavigate()
+  let navigate = useNavigate();
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
@@ -120,7 +119,10 @@ export function RegisterAdmin() {
             headers: { Authorization: id_user },
           }
         );
-        showSuccessMsg("Nuevo Perfil Administrador","se ha registrado satisfactoriamente");
+        showSuccessMsg(
+          "Nuevo Perfil Administrador",
+          "se ha registrado satisfactoriamente"
+        );
         setUser({ ...user, err: "", success: res.data.msg });
       }
     } catch (err) {
@@ -132,13 +134,12 @@ export function RegisterAdmin() {
 
   return (
     <div className={styles.container_register}>
-      
       <div className={styles.container_register_page}>
-      <button className={styles.button_return} onClick={()=>navigate(-1)}>
-        <BsArrowLeftCircle size={30}/>
-      </button>
+        <button className={styles.button_return} onClick={() => navigate(-1)}>
+          <i className="ri-arrow-go-back-line"></i>
+        </button>
         <LazyLoad>
-        <img className={styles.logo_register} src={logo} alt="logo" />
+          <img className={styles.logo_register} src={logo} alt="logo" />
         </LazyLoad>
         <h2 className={styles.title_register}>Registro Administrador</h2>
         <div className={styles.register_form_content}>
@@ -260,7 +261,11 @@ export function RegisterAdmin() {
               </div>
             </div>
 
-            <button onClick={()=>navigate(-1)} className={styles.button_submit_register} type="submit">
+            <button
+              onClick={() => navigate(-1)}
+              className={styles.button_submit_register}
+              type="submit"
+            >
               CREAR CUENTA DE ADMINISTRADOR
             </button>
           </form>

@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import apiAgora from "../../../api/index";
 import { Button } from "../../../components/Buttons/Button";
 import { useNavigate, useParams } from "react-router-dom";
-import { BsArrowLeftCircle } from "react-icons/bs";
+
 
 import styles from "./CohortsAdmin.module.css";
 export function CohortsAdmin() {
@@ -40,8 +40,8 @@ export function CohortsAdmin() {
 
   return (
     <div className={styles.cohorts}>
-      <button className={styles.button_return} onClick={()=>navigate(-1)}>
-        <BsArrowLeftCircle size={30}/>
+      <button className={styles.button_return} onClick={() => navigate(-1)}>
+        <i className="ri-arrow-go-back-line"></i>
       </button>
       <h2>{`Cohortes bootcamp ${nameBootcamp}`}</h2>
       <div className={styles.buttonContainer}>

@@ -5,7 +5,7 @@ import apiAgora from '../../api/index'
 import { Button } from "../../components/Buttons/Button";
 import { useSelector } from "react-redux";
 import {useNavigate} from "react-router-dom";
-import { BsArrowLeftCircle } from "react-icons/bs";
+
 
 export function TableTeacher() {
   const auth = useSelector((state) => state.auth);

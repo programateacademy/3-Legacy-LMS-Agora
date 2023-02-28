@@ -1,9 +1,5 @@
 import React, { useState } from "react";
 import style from "../../CreateActivity.module.css";
-
-import { BsArrowLeftCircle } from "react-icons/bs";
-import { MdDeleteForever, MdOutlineAddCircle } from "react-icons/md";
-import { AiOutlineLink } from "react-icons/ai";
 import { showErrMsg, showSuccessMsg } from "../../../../utils/notification";
 import apiAgora from "../../../../api/index";
 import { useParams, useNavigate } from "react-router-dom";
@@ -159,7 +155,7 @@ export function CreateQuery() {
        {/* Btn atras*/}
       <div>
         <button className={style.button_return} onClick={() => navigate(-1)}>
-          <BsArrowLeftCircle size={30} />
+          <i className="ri-arrow-go-back-line"></i>
         </button>
       </div>
       {/* ---------- FIN ATRAS -------*/}
@@ -223,7 +219,7 @@ export function CreateQuery() {
                   type="button"
                   onClick={() => onClickArray("tagsQuery")}
                 >
-                  <MdOutlineAddCircle size={30} />
+                  <i className="ri-add-circle-fill" style={{fontSize: '25px'}}></i>
                 </button>
               </div>
               <div className={style.tagsList}>
@@ -238,7 +234,7 @@ export function CreateQuery() {
                           type="button"
                           onClick={() => deleteItemArray("tagsQuery", item)}
                         >
-                          <MdDeleteForever size={30} />
+                          <i className="ri-delete-bin-5-line"></i>
                         </button>
                       </div>
                     ))
@@ -304,7 +300,7 @@ export function CreateQuery() {
                     type="button"
                     onClick={() => onClickObject("resources")}
                   >
-                    <MdOutlineAddCircle size={30} />
+                    <i className="ri-add-circle-fill" style={{fontSize: '25px'}}></i>
                   </button>
                 </div>
               </div>
@@ -312,7 +308,7 @@ export function CreateQuery() {
                 {resources.length !== 0
                   ? resources.map((item, index) => (
                       <div className={style.tagContainer} key={index}>
-                        <AiOutlineLink className={style.linkIcon} size={30} />
+                        <i className={`ri-link-m ${style.linkIcon}`}></i>
                         <div className={style.tagText}>
                           <a
                             className={style.tag}
@@ -328,7 +324,7 @@ export function CreateQuery() {
                           type="button"
                           onClick={() => deleteItemArray("resources", item)}
                         >
-                          <MdDeleteForever size={30} />
+                          <i className="ri-delete-bin-5-line"></i>
                         </button>
                       </div>
                     ))
@@ -350,7 +346,7 @@ export function CreateQuery() {
                 type="button"
                 onClick={() => onClickArray("pathReq")}
               >
-                <MdOutlineAddCircle size={30} />
+                <i className="ri-add-circle-fill" style={{fontSize: '25px'}}></i>
               </button>
             </div>
             <div>
@@ -365,7 +361,7 @@ export function CreateQuery() {
                         type="button"
                         onClick={() => deleteItemArray("pathReq", item)}
                       >
-                        <MdDeleteForever size={30} />
+                        <i className="ri-delete-bin-5-line"></i>
                       </button>
                     </div>
                   ))
@@ -388,7 +384,7 @@ export function CreateQuery() {
                 className={style.addTagsProject}
                 onClick={() => onClickArray("documentationReq")}
               >
-                <MdOutlineAddCircle size={30} />
+                <i className="ri-add-circle-fill" style={{fontSize: '25px'}}></i>
               </button>
             </div>
             <div>
@@ -406,7 +402,7 @@ export function CreateQuery() {
                           deleteItemArray("documentationReq", item)
                         }
                       >
-                        <MdDeleteForever size={30} />
+                        <i className="ri-delete-bin-5-line"></i>
                       </button>
                     </div>
                   ))
@@ -444,7 +440,7 @@ export function CreateQuery() {
                 type="button"
                 onClick={() => onClickArray("challengeTask")}
               >
-                <MdOutlineAddCircle size={30} />
+                <i className="ri-add-circle-fill" style={{fontSize: '25px'}}></i>
               </button>
             </div>
             <div>
@@ -461,7 +457,7 @@ export function CreateQuery() {
                         type="button"
                         onClick={() => deleteItemArray("challengeTask", item)}
                       >
-                        <MdDeleteForever size={30} />
+                        <i className="ri-delete-bin-5-line"></i>
                       </button>
                     </div>
                   ))
