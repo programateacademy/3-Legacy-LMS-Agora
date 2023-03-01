@@ -25,13 +25,17 @@ export function TableAllStudents() {
   }, [id_user])
   return (
     <div className={styles.container}>
-      <button className={styles.button_return} onClick={()=>navigate(-1)}>
-        <BsArrowLeftCircle size={30}/>
+      <button className={styles.button_return} onClick={() => navigate(-1)}>
+        <i className="ri-arrow-go-back-line"></i>
       </button>
-       <h1>Todos Los Estudiantes Registrados</h1>
-       <div className={styles.tableContainer}>
-       <Table tableList={students} adminID={id_user} fetchUser={()=>fetchStudents(id_user)}/>
-       </div>
+      <h1>Todos Los Estudiantes Registrados</h1>
+      <div className={styles.tableContainer}>
+        <Table
+          tableList={students}
+          adminID={id_user}
+          fetchUser={() => fetchStudents(id_user)}
+        />
+      </div>
     </div>
   );
 }
