@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import style from "../CreateUpdateCohort.module.css";
 import { useSelector } from "react-redux";
 import { showErrMsg, showSuccessMsg } from "../../../utils/notification";
-import apiAgora from "../../../api/index";
+import apiAgora from "../../../api";
 
 import { useNavigate, useParams } from "react-router-dom";
 import LazyLoad from "react-lazy-load";

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import style from "../../CreateActivity.module.css";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import apiAgora from "../../../../api/index";
+import apiAgora from "../../../../api";
 import { Button } from "../../../../components/Buttons/Button";
 import LazyLoad from "react-lazy-load";
 
@@ -84,7 +84,7 @@ export function ViewProject(props) {
       </div>
       {!teacher ? (
         <div className={style.buttonDelivery}>
-          <Button title="Entregar proyecto"  link={`/delivery/project/${projectID}`}/>Entregar Proyecto
+          <Button title="Entregar proyecto" link={`/delivery/project/${projectID}`}/>Entregar Proyecto
         </div>
       ) : null}
 
@@ -93,7 +93,7 @@ export function ViewProject(props) {
           <div className={style.containerOne}>
             <div>
               <LazyLoad className={style.img_preview}>
-                <img className={style.image} src={image} alt="Imagen del project"/>
+                <img className={style.image} src={image} alt="Imagen del proyecto"/>
               </LazyLoad>
             </div>
 

@@ -6,7 +6,7 @@ import { TableStudent } from "./TableStudent";
 import { useSelector } from "react-redux";
 import { showErrMsg, showSuccessMsg } from "../../utils/notification";
 import { CompetencesTableUser } from "../competencesTable/CompetencesTableUser";
-import apiAgora from "../../api/index";
+import apiAgora from "../../api";
 import LazyLoad from "react-lazy-load";
 const initialState = {
   competence: [],
@@ -77,9 +77,7 @@ export function ProfileStudent(props) {
     setQueries(queriesFilter);
 
     const workbookByStudent = deliveriesByStudent
-      .map((item) =>
-        item.deliveryKind === "workbook" ? item.workbookID : null
-      )
+      .map((item) => (item.deliveryKind === "workbook" ? item.workbookID : null))
       .filter((item) => item !== null);
     const workbookFilter = workbookByStudent.filter(
       (el, index) => workbookByStudent.indexOf(el) === index
@@ -142,11 +140,7 @@ export function ProfileStudent(props) {
 
   return (
     <>
-      <button
-        className={styles.button_return}
-        type="button"
-        onClick={() => navigate(-1)}
-      >
+      <button className={styles.button_return} type="button" onClick={() => navigate(-1)}>
         <i className="ri-arrow-go-back-line"></i>
       </button>
 

@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./competences.module.css";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
-import apiAgora from "../../api/index";
+import apiAgora from "../../api";
 
 export function CompetencesLabel(props) {
   const {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import style from "../../CreateActivity.module.css";
 import { showErrMsg, showSuccessMsg } from "../../../../utils/notification";
-import apiAgora from "../../../../api/index";
+import apiAgora from "../../../../api";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Swal from "sweetalert2";

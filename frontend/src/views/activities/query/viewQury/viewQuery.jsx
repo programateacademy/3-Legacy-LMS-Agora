@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import style from "../../CreateActivity.module.css";
-import apiAgora from "../../../../api/index";
+import apiAgora from "../../../../api";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Button } from "../../../../components/Buttons/Button";

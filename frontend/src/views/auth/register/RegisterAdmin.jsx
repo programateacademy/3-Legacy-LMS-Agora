@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import LazyLoad from "react-lazy-load";
 
-import apiAgora from "../../../api/index";
+import apiAgora from "../../../api";
 import { showErrMsg, showSuccessMsg } from "../../../utils/notification";
 import {
   isEmpty,

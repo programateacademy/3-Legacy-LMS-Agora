@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import apiAgora from "../../api/index";
+import apiAgora from "../../api";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 

@@ -1,5 +1,5 @@
 import ACTIONS from './index'
-import apiAgora from '../../api/index'
+import apiAgora from '../../api'
 
 export const dispatchLogin = () => {
     return {

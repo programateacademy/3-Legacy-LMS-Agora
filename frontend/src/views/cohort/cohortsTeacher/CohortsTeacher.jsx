@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { CardCohort } from "../../../components/cards/cohort/CardCohort";
 import { useSelector, useDispatch } from "react-redux";
 import { dispatchMenu } from '../../../redux/actions/menuAction'
-import apiAgora from "../../../api/index";
+import apiAgora from "../../../api";
 
 import styles from "./CohortsTeacher.module.css";
 

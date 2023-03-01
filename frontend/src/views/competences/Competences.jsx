@@ -3,7 +3,7 @@ import styles from "./competences.module.css";
 
 import { useNavigate, useParams } from "react-router-dom";
 
-import apiAgora from "../../api/index";
+import apiAgora from "../../api";
 import { useSelector } from "react-redux";
 import { showErrMsg, showSuccessMsg } from "../../utils/notification";
 import { CompetencesLabel } from "./CompetencesLabel";

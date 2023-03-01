@@ -1,35 +1,23 @@
 import { useEffect, useState } from "react";
 import style from "../ProfileStudent/TableStudent.module.css";
-import apiAgora from "../../api/index";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import useProjects from "../../hooks/useProjects";
+import useWorkbooks from "../../hooks/useWorkbooks";
+import useQueries from "../../hooks/useQueries"; 
 
 function TableStudent(props) {
-  const { projects, queries, workbooks, userID } = props;
+  const { projects, workbooks, queries, userID } = props;
   const auth = useSelector((state) => state.auth);
   const projectInfoData = useSelector((state) => state.projects.data);
-  const [queryInfo, setQueryInfo] = useState([]);
-  const [workbookInfo, setWorkbookInfo] = useState([]);
-
+  const workbookInfoData = useSelector((state) => state.workbooks.data);
+  const queryInfoData = useSelector((state) => state.queries.data);
   const [toggleState, setToggleState] = useState(1);
 
   const { getProject } = useProjects();
+  const { getWorkbook } = useWorkbooks();
+  const { getQuery } = useQueries();
 
-  const fetchActivity = async (activity, url, id) => {
-    const res = await apiAgora.get(`/api/agora/get-${activity}/${url}`, {
-      headers: { Authorization: id },
-    });
-    if (activity === "workbook") {
-      setWorkbookInfo((prev) => [
-        ...prev,
-        { name: res.data.titleWorkbook, id: url },
-      ]);
-    }
-    if (activity === "query") {
-      setQueryInfo((prev) => [...prev, { name: res.data.titleQuery, id: url }]);
-    }
-  };
   const toggleTab = (index) => {
     setToggleState(index);
   };
@@ -39,15 +27,23 @@ function TableStudent(props) {
   }, [projects, getProject, userID]);
 
   useEffect(() => {
-    queries.map((item) => fetchActivity("query", item, userID));
-  }, [queries, userID]);
+    workbooks.forEach((id) => getWorkbook(id, userID));
+  }, [workbooks, getWorkbook, userID]);
 
   useEffect(() => {
-    workbooks.map((item) => fetchActivity("workbook", item, userID));
-  }, [workbooks, userID]);
+    queries.forEach((id) => getQuery(id, userID));
+  }, [queries, getQuery, userID]);
 
   const projectInfo = Object.keys(projectInfoData).map(
     (projectId) => projectInfoData[projectId]
+  );
+
+  const workbookInfo = Object.keys(workbookInfoData).map(
+    (workbookId) => workbookInfoData[workbookId]
+  );
+
+  const queryInfo = Object.keys(queryInfoData).map(
+    (queryId) => queryInfoData[queryId]
   );
 
   return (
@@ -95,7 +91,7 @@ function TableStudent(props) {
           <h2 className={style.proyectrow}>Proyectos Entregados</h2>
           <hr />
           {projectInfo.map((item) => (
-            <div className={style.name}>
+            <div className={style.name} key={item.id}>
               <h4>{item.name}</h4>
               <div className={style.links}>
                 <Link to={"/project/view-project/" + item.id}>
@@ -122,10 +118,10 @@ function TableStudent(props) {
               : style.content
           }
         >
-          <h2 className={style.proyectrow}>Workbooks</h2>
+          <h2 className={style.proyectrow}>Workbooks Entregados</h2>
           <hr />
           {workbookInfo.map((item) => (
-            <div className={style.name}>
+            <div className={style.name} key={item.id}>
               <h4>{item.name}</h4>
               <div className={style.links}>
                 <Link to={"/workbook/view-workbook/" + item.id}>
@@ -153,7 +149,7 @@ function TableStudent(props) {
           <h2 className={style.proyectrow}>Consultas Entregados</h2>
           <hr />
           {queryInfo.map((item) => (
-            <div className={style.name}>
+            <div className={style.name} key={item.id}>
               <h4>{item.name}</h4>
               <div className={style.links}>
                 <Link to={"/query/view-query/" + item.id}>Ver Consulta</Link>

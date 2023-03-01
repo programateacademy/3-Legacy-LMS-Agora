@@ -1,7 +1,7 @@
 import React, { useEffect, useImperativeHandle, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import apiAgora from "../../api/index";
+import apiAgora from "../../api";
 import Swal from "sweetalert2";
 import { ModalCreateAnnouncements } from "../../components/modal/modalCreateAnnouncements/ModalCreateAnnouncements";
 import { ModalUpdateAnnouncements } from "../../components/modal/modalUpdateAnnouncements/ModalUpdateAnnouncements";

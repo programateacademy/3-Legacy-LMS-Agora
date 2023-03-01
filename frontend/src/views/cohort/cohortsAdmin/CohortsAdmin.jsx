@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { CardCohort } from "../../../components/cards/cohort/CardCohort";
 import { useSelector } from "react-redux";
-import apiAgora from "../../../api/index";
+import apiAgora from "../../../api";
 import { Button } from "../../../components/Buttons/Button";
 import { useNavigate, useParams } from "react-router-dom";
 

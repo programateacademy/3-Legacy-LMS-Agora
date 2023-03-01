@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import styles from "./UpdateBootcamp.module.css";
 
 import { useSelector } from "react-redux";
-import apiAgora from "../../../api/index";
+import apiAgora from "../../../api";
 import { showErrMsg, showSuccessMsg } from "../../../utils/notification";
 import Swal from "sweetalert2";
 import LazyLoad from "react-lazy-load";

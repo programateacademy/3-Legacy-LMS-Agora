@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import apiAgora from "../../../api/index";
+import apiAgora from "../../../api";
 
 import { useNavigate } from "react-router-dom";
 import { showErrMsg, showSuccessMsg } from "../../../utils/notification";

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import style from "../../CreateActivity.module.css";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import apiAgora from "../../../../api/index";
+import apiAgora from "../../../../api";
 import { showErrMsg, showSuccessMsg } from "../../../../utils/notification";
 import { Step } from "../step/Step.jsx";
 import LazyLoad from "react-lazy-load";
