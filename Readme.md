@@ -30,7 +30,7 @@
 
 <h4>Welcome :)</h4>
 
-<h1 align="center">PROYECT AGORA 2.0 🌐</h1>
+<h1 align="center">PROYECT AGORA 3.0 🌐</h1>
 
 <p align="center"></p>
 
