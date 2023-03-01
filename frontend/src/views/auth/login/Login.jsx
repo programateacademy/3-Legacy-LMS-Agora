@@ -68,7 +68,7 @@ function Login() {
               Ingreso de <br /> Usuario
             </h1>
             <LazyLoad>
-              <img className="group" src={Group} alt="" />
+              <img className="group" src={Group} alt="academy" />
             </LazyLoad>
           </div>
           <form className="form" onSubmit={handleSubmit}>
@@ -76,27 +76,32 @@ function Login() {
               <h4 className="rayas" style={{ margin: "20px 0" }}>
                 ingresa tu e-mail
               </h4>
-              <input
-                className="correo"
-                placeholder="email@educamas.co"
-                name="email"
-                value={email}
-                onChange={handleChangeInput}
-                required
-              />
+              {/* <label> */}
+                Email
+                <input
+                  placeholder="email@educamas.co"
+                  name="email"
+                  value={email}
+                  onChange={handleChangeInput}
+                  required
+                />
+              {/* </label> */}
               <h4 className="rayas" style={{ margin: "20px 0" }}>
                 {" "}
                 Contraseña
               </h4>
-              <input
-                className="clave"
-                type="Password"
-                placeholder="********"
-                name="password"
-                value={password}
-                onChange={handleChangeInput}
-                required
-              />
+              {/* <label> */}
+                Password
+                <input
+                  className="clave"
+                  type="Password"
+                  placeholder="********"
+                  name="password"
+                  value={password}
+                  onChange={handleChangeInput}
+                  required
+                />
+              {/* </label> */}
             </div>
             <Link className="requerid">Todos los campos son requeridos</Link>
 

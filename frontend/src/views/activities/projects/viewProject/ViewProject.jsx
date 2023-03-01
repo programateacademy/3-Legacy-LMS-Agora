@@ -100,9 +100,9 @@ export function ViewProject(props) {
             {/*General */}
             <div className={style.InitialContainer}>
               <h3>Nombre del Proyecto</h3>
-              <h4>{titleProject}</h4>
+              <h4 className={style.h4InitialContainer}>{titleProject}</h4>
               <h3>Descripción del Proyecto</h3>
-              <h4>{descriptionProject}</h4>
+              <h4 className={style.h4InitialContainer}>{descriptionProject}</h4>
               <h3>Etiquetas del Proyecto</h3>
               <div className={style.tagsList}>
                 {tagsProject.length !== 0
@@ -119,7 +119,7 @@ export function ViewProject(props) {
             <div className={style.res}>
               <div className={style.InitialContainer}>
                 <h3>Marco de competencias</h3>
-                <h4>{competenceFramework}</h4>
+                <h4 className={style.h4InitialContainer}>{competenceFramework}</h4>
               </div>
             </div>
 
@@ -148,7 +148,7 @@ export function ViewProject(props) {
             {/*Contexto */}
             <div className={style.contextContainer}>
               <h3>Contexto del Proyecto</h3>
-              <p>{contextGeneral}</p>
+              <p className={style.pContainer}>{contextGeneral}</p>
             </div>
 
             {/*Criterios */}

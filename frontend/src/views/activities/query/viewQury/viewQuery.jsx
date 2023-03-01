@@ -109,9 +109,9 @@ export function ViewQuery(props) {
               {/* GENERAL*/}
               <div className={style.InitialContainer}>
                 <h3>Nombre de la Consulta</h3>
-                <h4>{titleQuery}</h4>
+                <h4 className={style.h4Query}>{titleQuery}</h4>
                 <h3>Descripción de la Consulta</h3>
-                <h4>{descriptionQuery}</h4>
+                <h4 className={style.h4Query}>{descriptionQuery}</h4>
                 <h3>Etiquetas de la Consulta</h3>
                 <div className={style.tagsList}>
                   {tagsQuery.length !== 0
@@ -176,7 +176,7 @@ export function ViewQuery(props) {
             {/* NOCIONES*/}
             <div className={style.contextContainer}>
               <h3>Nociones básicas</h3>
-              <h4>{basicNotions}</h4>
+              <h4 className={style.h4Query}>{basicNotions}</h4>
             </div>
             {/* -----------------*/}
 
@@ -205,7 +205,7 @@ export function ViewQuery(props) {
             <div className={style.summaryProject}>
               <h3>Aspectos Importantes</h3>
               <div className={style.tagsProject}>
-                <h4>{importantAspect}</h4>
+                <h4 className={style.h4Query}>{importantAspect}</h4>
               </div>
             </div>
             {/*------ FIN ASPECTOS ------ */}
@@ -246,7 +246,7 @@ export function ViewQuery(props) {
             <div className={style.summaryProject}>
               <h3>Reto Adicional</h3>
               <div className={style.tagsProject}>
-                <h4>{challengeExtra}</h4>
+                <h4 className={style.h4Query}>{challengeExtra}</h4>
               </div>
             </div>
             {/*----- FIN ADICONAL ---- */}
