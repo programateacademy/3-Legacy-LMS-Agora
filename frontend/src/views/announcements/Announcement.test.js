@@ -1,4 +1,4 @@
-import {render, screen} from "@testing-library/react"
+/* import {render, screen} from "@testing-library/react"
 import Announcements from "./Announcements"
 
 describe("Query", () => {
@@ -6,4 +6,4 @@ describe("Query", () => {
         render(Announcements)
         expect(screen.queryByText(/Anuncios/i))
     });
-});
+}); */

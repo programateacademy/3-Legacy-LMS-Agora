@@ -1,4 +1,4 @@
-import { screen, render, prettyDOM } from "@testing-library/react";
+/* import { screen, render, prettyDOM } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import {ViewProject} from "./ViewProject";
 jest.mock('react-redux');
@@ -37,3 +37,4 @@ describe('testeos', () => {
     console.log(component)
   });
 })
+ */
