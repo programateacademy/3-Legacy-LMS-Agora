@@ -307,7 +307,7 @@ export function CreateProject() {
                       type="button"
                       onClick={() => onClickObject("resources")}
                     >
-                      <MdOutlineAddCircle size={30} />
+                      {/*<MdOutlineAddCircle size={30} />*/}
                     </button>
                   </div>
                 </div>
@@ -315,7 +315,7 @@ export function CreateProject() {
                   {resources.length !== 0
                     ? resources.map((item, index) => (
                         <div className={style.tagContainer} key={index}>
-                          <AiOutlineLink className={style.linkIcon} size={30} />
+                          {/*<AiOutlineLink className={style.linkIcon} size={30} />*/}
                           <div className={style.tagText}>
                             <a
                               className={style.tag}
@@ -331,7 +331,7 @@ export function CreateProject() {
                             type="button"
                             onClick={() => deleteItemArray("resources", item)}
                           >
-                            <MdDeleteForever size={30} />
+                            {/*<MdDeleteForever size={30} />*/}
                           </button>
                         </div>
                       ))
@@ -368,7 +368,7 @@ export function CreateProject() {
                     type="button"
                     onClick={() => onClickArray("tagsProject")}
                   >
-                    <MdOutlineAddCircle size={30} />
+                    {/*<MdOutlineAddCircle size={30} />*/}
                   </button>
                 </div>
                 <div className={style.tagsList}>
@@ -383,7 +383,7 @@ export function CreateProject() {
                             type="button"
                             onClick={() => deleteItemArray("tagsProject", item)}
                           >
-                            <MdDeleteForever size={30} />
+                            {/*<MdDeleteForever size={30} />*/}
                           </button>
                         </div>
                       ))
