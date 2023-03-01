@@ -28,9 +28,12 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/dom": "^9.0.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^14.4.3",
     "eslint-plugin-cypress": "2.12.1",
+    "jest": "^27.5.1",
     "standard": "17.0.0"
   },
   "keywords": [],

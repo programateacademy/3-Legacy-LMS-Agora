@@ -37,6 +37,7 @@ const UserLink = ({ user, handleLogout}) => {
               <Link to="!#" onClick={handleLogout}>
                 <Dropdown.Item>Salir</Dropdown.Item>
               </Link>
+
             </Dropdown.Menu>
           </Dropdown>
         </div>
