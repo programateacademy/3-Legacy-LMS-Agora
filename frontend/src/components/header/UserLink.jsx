@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { Dropdown } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import './UserLink.css';
+
+import "./UserLink.css";
 
 const UserLink = ({ user, handleLogout }) => {
   const auth = useSelector((state) => state.auth);
@@ -25,9 +26,11 @@ const UserLink = ({ user, handleLogout }) => {
                   <Link to="/profile">Perfil</Link>
                 </Dropdown.Item>
               ) : null}
-              <Link to="/configuration">
-                <Dropdown.Item>Configuración</Dropdown.Item>
-              </Link>
+
+              <Dropdown.Item>
+                <Link to="/configuration">Configuracion</Link>
+              </Dropdown.Item>
+
               <Link to="!#" onClick={handleLogout}>
                 <Dropdown.Item>Salir</Dropdown.Item>
               </Link>

@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import styles from "./TableTeacher.module.css"
 import { Table } from '../../components/table/Table'
-import apiAgora from '../../api/index'
+import apiAgora from '../../api'
 import { Button } from "../../components/Buttons/Button";
 import { useSelector } from "react-redux";
 import {useNavigate} from "react-router-dom";
-import { BsArrowLeftCircle } from "react-icons/bs";
+
 
 export function TableTeacher() {
   const auth = useSelector((state) => state.auth);
@@ -25,16 +25,20 @@ export function TableTeacher() {
   }, [id_user])
   return (
     <div className={styles.container}>
-      <button className={styles.button_return} onClick={()=>navigate(-1)}>
-        <BsArrowLeftCircle size={30}/>
+      <button className={styles.button_return} onClick={() => navigate(-1)}>
+        <i className="ri-arrow-go-back-line"></i>
       </button>
-        <h1>Listado de formadores</h1>
-       <div className={styles.tableContainer}>
-       <Table tableList={teachers} adminID={id_user} fetchUser={()=>fetchTeachers(id_user)}/>
-       </div>
-        <div className={styles.buttonContainer}>
+      <h1>Listado de formadores</h1>
+      <div className={styles.tableContainer}>
+        <Table
+          tableList={teachers}
+          adminID={id_user}
+          fetchUser={() => fetchTeachers(id_user)}
+        />
+      </div>
+      <div className={styles.buttonContainer}>
         <Button title="Crear formador" link="/register_teacher" />
-          </div>
+      </div>
     </div>
   );
 }

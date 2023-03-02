@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import styles from "./TableTeacher.module.css"
 import { Table } from '../../components/table/Table'
-import apiAgora from '../../api/index'
+import apiAgora from '../../api'
 import { useSelector } from "react-redux";
 import {useNavigate} from "react-router-dom";
-import { BsArrowLeftCircle } from "react-icons/bs";
+
 
 export function TableAllStudents() {
   const auth = useSelector((state) => state.auth);
@@ -25,13 +25,17 @@ export function TableAllStudents() {
   }, [id_user])
   return (
     <div className={styles.container}>
-      <button className={styles.button_return} onClick={()=>navigate(-1)}>
-        <BsArrowLeftCircle size={30}/>
+      <button className={styles.button_return} onClick={() => navigate(-1)}>
+        <i className="ri-arrow-go-back-line"></i>
       </button>
-       <h1>Todos Los Estudiantes Registrados</h1>
-       <div className={styles.tableContainer}>
-       <Table tableList={students} adminID={id_user} fetchUser={()=>fetchStudents(id_user)}/>
-       </div>
+      <h1>Todos Los Estudiantes Registrados</h1>
+      <div className={styles.tableContainer}>
+        <Table
+          tableList={students}
+          adminID={id_user}
+          fetchUser={() => fetchStudents(id_user)}
+        />
+      </div>
     </div>
   );
 }

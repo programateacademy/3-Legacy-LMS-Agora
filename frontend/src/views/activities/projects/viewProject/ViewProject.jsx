@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import style from "../../CreateActivity.module.css";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import apiAgora from "../../../../api/index";
-import { AiOutlineLink } from "react-icons/ai";
+import apiAgora from "../../../../api";
 import { Button } from "../../../../components/Buttons/Button";
 import LazyLoad from "react-lazy-load";
 
@@ -29,9 +28,11 @@ const initialState = {
 export function ViewProject(props) {
   const { teacher } = props;
   const auth = useSelector((state) => state.auth);
-  const userID = auth.user.id;
+  const userID = "63e3e46a39cb1aea19895659";
+  const projectID = "63eaeb009be3c3a734cc7dc5";
   const params = useParams();
-  const projectID = params.id;
+  //const userID = auth.user.id;
+  //const projectID = params.id;
   let navigate = useNavigate();
   const [project, setProject] = useState(initialState);
   const [image, setImage] = useState();
@@ -72,19 +73,18 @@ export function ViewProject(props) {
   return (
     <div className={style.formContainer}>
       <div>
-        <button className={style.button_return} onClick={() => navigate(-1)}>
-          <i className="ri-arrow-left-circle-line"></i>
+        <button className={style.button_return} title='hola' onClick={() => navigate(-1)}>
+          <i className="ri-arrow-go-back-line"></i>
         </button>
       </div>
       <div className={style.wrapper}>
-        <h2 className={`${style.typing_demo_view_Project} ${style.titlesGlobales}`}>Proyecto</h2>
+        <h2 className={`${style.typing_demo_view_Project} ${style.titlesGlobales}`}>
+          Proyecto
+        </h2>
       </div>
       {!teacher ? (
         <div className={style.buttonDelivery}>
-          <Button
-            title="Entregar proyecto"
-            link={`/delivery/project/${projectID}`}
-          />
+          <Button title="Entregar proyecto" link={`/delivery/project/${projectID}`}/>
         </div>
       ) : null}
 
@@ -93,20 +93,16 @@ export function ViewProject(props) {
           <div className={style.containerOne}>
             <div>
               <LazyLoad className={style.img_preview}>
-                <img
-                  className={style.image}
-                  src={image}
-                  alt="Imagen del proyecto"
-                />
+                <img className={style.image} src={image} alt="Imagen del proyecto"/>
               </LazyLoad>
             </div>
 
             {/*General */}
             <div className={style.InitialContainer}>
               <h3>Nombre del Proyecto</h3>
-              <h4>{titleProject}</h4>
+              <h4 className={style.h4InitialContainer}>{titleProject}</h4>
               <h3>Descripción del Proyecto</h3>
-              <h4>{descriptionProject}</h4>
+              <h4 className={style.h4InitialContainer}>{descriptionProject}</h4>
               <h3>Etiquetas del Proyecto</h3>
               <div className={style.tagsList}>
                 {tagsProject.length !== 0
@@ -123,7 +119,7 @@ export function ViewProject(props) {
             <div className={style.res}>
               <div className={style.InitialContainer}>
                 <h3>Marco de competencias</h3>
-                <h4>{competenceFramework}</h4>
+                <h4 className={style.h4InitialContainer}>{competenceFramework}</h4>
               </div>
             </div>
 
@@ -136,18 +132,13 @@ export function ViewProject(props) {
                   {resources.length !== 0
                     ? resources.map((item, index) => (
                         <div className={style.tagContainer} key={index}>
-                          <AiOutlineLink className={style.linkIcon} size={30} />
+                          <i className={`ri-link-m ${style.linkIcon}`}></i>
                           <div className={style.tagText}>
-                            <a
-                              className={style.tag}
-                              href={item.link}
-                              target="_blank"
-                              rel="noreferrer"
-                            >
+                            <a className={style.tag} href={item.link} target="_blank" rel="noreferrer">
                               {item.nameLink}
                             </a>
                           </div>
-                          <AiOutlineLink className={style.linkIcon} size={30} />
+                          <i className={`ri-link-m ${style.linkIcon}`}></i>
                         </div>
                       ))
                     : null}
@@ -157,7 +148,7 @@ export function ViewProject(props) {
             {/*Contexto */}
             <div className={style.contextContainer}>
               <h3>Contexto del Proyecto</h3>
-              <p>{contextGeneral}</p>
+              <p className={style.pContainer}>{contextGeneral}</p>
             </div>
 
             {/*Criterios */}

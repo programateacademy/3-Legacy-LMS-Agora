@@ -4,7 +4,7 @@ import { showErrMsg, showSuccessMsg } from "../../../utils/notification";
 import { isLength, isMatch } from "../../../utils/validation";
 import "./ResetPassword.css";
 import logo from "../../../assets/logos/Programate-academy-negros.png";
-import apiAgora from "../../../api/index";
+import apiAgora from "../../../api";
 import LazyLoad from "react-lazy-load";
 
 const initialState = {

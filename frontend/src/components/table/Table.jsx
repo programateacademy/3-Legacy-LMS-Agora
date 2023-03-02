@@ -1,9 +1,7 @@
 import React from "react";
 import styles from "./Table.module.css";
-import { FiEdit } from "react-icons/fi";
-import { MdDeleteForever } from "react-icons/md";
 import { Link } from "react-router-dom";
-import apiAgora from "../../api/index";
+import apiAgora from "../../api";
 import Swal from "sweetalert2";
 
 export function Table(props) {
@@ -79,7 +77,7 @@ export function Table(props) {
                   }
                   className={styles.edit}
                 >
-                  <FiEdit />
+                  <i className="ri-edit-line"></i>
                 </Link>
               </td>
               <td>
@@ -87,7 +85,7 @@ export function Table(props) {
                   className={styles.delete}
                   onClick={() => alertErase(user.id)}
                 >
-                  <MdDeleteForever />
+                  <i className="ri-delete-bin-5-line"></i>
                 </button>
               </td>
             </tr>

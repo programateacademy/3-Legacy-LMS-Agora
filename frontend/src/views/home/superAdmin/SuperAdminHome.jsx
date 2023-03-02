@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./SuperAdminHome.module.css"
 import { Table } from '../../../components/table/Table'
-import apiAgora from '../../../api/index'
+import apiAgora from '../../../api'
 import { Button } from "../../../components/Buttons/Button";
 import { useSelector } from "react-redux";
 

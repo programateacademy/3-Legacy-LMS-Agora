@@ -4,7 +4,7 @@ import { dispatchLogin } from "../../../redux/actions/authAction";
 import { Link, useNavigate } from "react-router-dom";
 
 import { useDispatch } from "react-redux";
-import apiAgora from "../../../api/index";
+import apiAgora from "../../../api";
 export default function Prueba({ onSubmit }) {
   const initialState = {
     email: "",

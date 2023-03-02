@@ -1,9 +1,8 @@
 /* Titluos principales de las secciones */
 .wrapper {
   margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  align-self: center;
+  justify-self: center;
 }
 
 /* Animaciones globales */
@@ -28,7 +27,7 @@
 }
 
 .typing_demo_view_Project {
-  width: 7ch;
+  width: 7.5ch;
 }
 
 .typing_demo_update_Query {
@@ -36,7 +35,7 @@
 }
 
 .typing_demo_view_Workbook {
-  width: 9ch;
+  width: 9.5ch;
 }
 
 .typing_demo_update_Workbook {
@@ -62,7 +61,7 @@
 /* Botones */
 .buttonDelivery {
   margin-right: 4vh;
-  display: flex;
+  align-self: flex-end;
   flex-direction: row-reverse;
   cursor: pointer;
 }
@@ -75,7 +74,6 @@
   color: var(--colorBlack);
   font-weight: bold;
   text-align: center;
-  display: flex;
   align-self: flex-end;
   background-color: var(--colorYellow);
   border-radius: 10px;
@@ -105,13 +103,12 @@
 .button_return i {
   color: var(--colorWhite);
 }
-.button_return i:hover {
-  color: var(--colorBlack);
+.button_return:hover i{
+  color: var(--colorYellowOpacity);
 }
 .button_return:hover {
   transform: translateX(-5px);
   background-color: var(--colorHoverNav);
-  color: var(--colorYellow);
   transition: 0.3s all;
 }
 
@@ -155,13 +152,11 @@
   flex-direction: column;
   justify-items: center;
   min-height: calc(100vh - 150px);
-  margin: 0vw;
-  width: 100vw;
-  /*margin-left: 5vw;*/
+  margin: auto;
+  width: 90vw;
 }
 
 .form {
-  display: flex;
   flex-direction: column;
   margin: auto;
   width: 100%;
@@ -176,7 +171,7 @@
   display: flex;
   flex-direction: column;
   width: 49vw;
-  margin: 2rem;
+  margin: 1rem;
 }
 
 .containerTwo {
@@ -197,13 +192,14 @@
 }
 
 .InitialContainer {
-  width: 100%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   background-color: var(--colorHeader);
-  box-shadow: 6px 10px 10px var(--colorBlackOpacity);
+  /* box-shadow: 6px 10px 10px var(--colorBlackOpacity); */
   border-radius: 8px;
   padding: 3vh;
+  margin: 10px auto;
 }
 
 .InitialContainer .addResourcesContainer {
@@ -215,6 +211,27 @@
 .InitialContainer input {
   margin-bottom: 2vh;
   margin-top: 2vh;
+}
+
+.h4InitialContainer{
+  color: white;
+}
+
+.h3Workwook{
+  color: white;
+}
+
+.h4Workwook{
+  color: white;
+}
+
+.pWorkwook{
+  color: white;
+  text-align: center;
+}
+
+.h4Query{
+  color: white;
 }
 
 .resourcesContainer {
@@ -244,7 +261,7 @@
 }
 
 .dateTimeDelivery input {
-  background-color: var(--colorYellowOpacity);
+  background-color: var(--colorYellow);
   box-shadow: none;
   box-shadow: 6px 10px 10px var(--colorBlackOpacity);
   cursor: pointer;
@@ -270,11 +287,9 @@
   display: flex;
   flex-direction: column;
   background-color: var(--colorHeader);
-  box-shadow: 6px 10px 10px var(--colorBlackOpacity);
   border-radius: 8px;
-  margin-top: 1vh;
-  margin-bottom: 4vh;
-  width: 100%;
+  margin: 4vh auto;
+  width: 80%;
   align-items: center;
 
   padding: 3vh;
@@ -311,11 +326,12 @@
   border-radius: 50px;
   text-align: center;
   overflow: hidden;
+  color: black;
 }
 
 .tagContainer {
   display: flex;
-  background-color: var(--colorYellowOpacity);
+  background-color: var(--colorYellow);
   width: auto;
   border-radius: 5px;
   align-items: center;
@@ -348,17 +364,22 @@
 }
 
 .contextContainer {
+  width: 80%;
   background-color: var(--colorHeader);
-  box-shadow: 6px 10px 10px var(--colorBlackOpacity);
   padding: 3vh;
   border-radius: 10px;
-  margin-top: 15px;
-  margin-bottom: 25px;
+  margin: 25px auto;
+}
+
+.pContainer{
+  color: white;
+  text-align: center;
 }
 
 .first {
+  width: 80%;
   background-color: var(--colorHeader);
-  margin: 5px 0px;
+  margin: 5px auto;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -375,7 +396,6 @@
   width: 85%;
   padding: 3vh;
   margin-bottom: max(3vh, 20px);
-  box-shadow: 6px 10px 10px var(--colorBlackOpacity);
 }
 
 .inputsdeliveries {
@@ -479,12 +499,8 @@
   text-align: center;
 }
 
-.formContainer p {
-  color: var(--colorBlack);
-}
-
 .inputsdeliveries {
-  background-color: var(--colorGray);
+  background-color: var(--colorHeader);
   border-radius: 10px;
   margin-top: 3vh;
 }

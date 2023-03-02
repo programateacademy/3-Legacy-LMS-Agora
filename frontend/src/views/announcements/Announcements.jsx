@@ -1,10 +1,8 @@
 import React, { useEffect, useImperativeHandle, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import apiAgora from "../../api/index";
+import apiAgora from "../../api";
 import Swal from "sweetalert2";
-import { FiEdit } from "react-icons/fi";
-import { MdDeleteForever } from "react-icons/md";
 import { ModalCreateAnnouncements } from "../../components/modal/modalCreateAnnouncements/ModalCreateAnnouncements";
 import { ModalUpdateAnnouncements } from "../../components/modal/modalUpdateAnnouncements/ModalUpdateAnnouncements";
 import styles from "./Announcements.module.css";
@@ -13,9 +11,10 @@ export const Announcements = (props) => {
   const auth = useSelector((state) => state.auth);
   const { isTeacher } = auth;
   const userID = auth.user.id;
+  //const userID = '63e3e39d39cb1aea19895658'
   const params = useParams();
   const cohortID = teacher ? params.id : auth.user.cohortID;
-
+  //const cohortID = '63e53ad6fb22742544b96f1f'
   const [announcements, setAnnouncements] = useState([]);
   const [modal, setModal] = useState(false);
   const [editOpen, setEditOpen] = useState(false);
@@ -123,14 +122,14 @@ export const Announcements = (props) => {
                           className={styles.button__delete}
                           onClick={() => handleInfoUpdate(item.id)}
                         >
-                          <FiEdit size={25} />
+                          <i className="ri-edit-line"></i>
                         </button>
 
                         <button
                           className={styles.button__delete}
                           onClick={() => alertErase(item.id)}
                         >
-                          <MdDeleteForever size={25} />
+                          <i className="ri-delete-bin-5-line"></i>
                         </button>
                       </div>
                     ) : null}

@@ -5,9 +5,10 @@
 /node_modules
 /.pnp
 .pnp.js
+/setupTests.js
 
 # testing
-/coverage
+.coverage
 
 
 

@@ -21,7 +21,7 @@ export function Statistics() {
           ))}
           <div className={style.cont}>
             <div className={style.contenedores}>
-              <label>Estrategias corregidas:</label>
+              <label>entregas corregidas:</label>
               <div className={style.contTareasEntregas}>
                 <h2>5</h2>
                 <span>/</span>
