@@ -16,11 +16,10 @@
   justify-content: space-evenly;
 }
 
-input.clave, input.correo, input {
+input.clave, input.correo, .container-login input {
   border: transparent;
   min-height: 40px;
   width: 100%;
-  padding: 0 30px;
   border-radius: 10px;
   margin: 10px 0;
   background-color: var(--colorWhite);

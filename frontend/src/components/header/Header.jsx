@@ -35,7 +35,7 @@ export function Header() {
     <>
       <header>
         <div className={style.headerContainer}>
-        {/*   {isLogged && (isStudent || isTeacher) ? (
+          {isLogged && (isStudent || isTeacher) ? (
             <>
               {menuView ? (
                 <div className={style.hamburguerMenu}>
@@ -48,7 +48,7 @@ export function Header() {
             </>
           ) : (
             ""
-          )} */}
+          )}
           <LazyLoad className={style.Logo}>
             <img src={logo} alt="Prográmate-logotipo" />
           </LazyLoad>

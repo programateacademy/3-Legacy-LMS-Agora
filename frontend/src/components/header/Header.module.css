@@ -270,7 +270,7 @@
     justify-content: center;
     height: 50px;
     width: 150px;
-    margin-left: 3rem;
+    margin-left: 0;
   }
 
   .Logo img {
@@ -310,7 +310,7 @@
   .hamburguerMenu {
     display: none;
     cursor: pointer;
-    margin-left: 0;
+    margin-left: 25px;
   }
 
   .link_singIn {
@@ -391,7 +391,7 @@
   .hamburguerMenu {
     display: none;
     cursor: pointer;
-    margin-left: 1rem;
+    margin-left: 25px;
   }
 
   .link_singIn {
@@ -420,6 +420,7 @@
 
   .Logo {
     height: 35px;
+    margin-right: 22px;
   }
 
   .container {

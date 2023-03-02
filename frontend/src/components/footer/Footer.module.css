@@ -8,12 +8,12 @@
     margin-left: auto;
     display: flex;
     justify-content: flex-end;
-    margin-top: -208px;
+    margin-top: -160px;
   }
 
   .footerContainer {
     width: 100%;
-    height: auto;
+    height: 100px;
     margin-top: 100px;
     left: -1.53%;
     right: 1.6%;
@@ -150,7 +150,9 @@
     margin-left: auto;
     display: flex;
     justify-content: flex-end;
-    margin-top: -210px;
+    margin-top: -160px;
+    width: 35%;
+    height: 35%;
   }
 
   .footerContainer {
@@ -181,9 +183,9 @@
   }
 
   .logos {
-    margin-left: 31%;
+    margin-left: 25%;
     margin-top: -75px;
-    width: 18%;
+    width: 20%;
   }
 }
 
@@ -206,7 +208,7 @@
   .footerContainer {
     width: 100%;
     height: 60px;
-    margin-top: 190px;
+    margin-top: 90px;
     margin-bottom: 0px;
     left: -1.53%;
     right: 1.6%;
@@ -232,8 +234,8 @@
   }
 
   .logos {
-    margin-left: 32%;
+    margin-left: 22%;
     margin-top: 0px;
-    width: 16%;
+    width: 25%;
   }
 }
