@@ -159,6 +159,7 @@
   }
 }
 
+
 /*Tablet Vertical*/
 
 @media (min-width:481px) and (max-width:768px) and (orientation:portrait) {
@@ -268,8 +269,8 @@
     align-items: center;
     justify-content: center;
     height: 50px;
-    width: 160px;
-    margin-left: 0;
+    width: 150px;
+    margin-left: 3rem;
   }
 
   .Logo img {

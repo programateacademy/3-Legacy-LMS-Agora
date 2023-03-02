@@ -11,9 +11,10 @@ export const Announcements = (props) => {
   const auth = useSelector((state) => state.auth);
   const { isTeacher } = auth;
   const userID = auth.user.id;
+  //const userID = '63e3e39d39cb1aea19895658'
   const params = useParams();
   const cohortID = teacher ? params.id : auth.user.cohortID;
-
+  //const cohortID = '63e53ad6fb22742544b96f1f'
   const [announcements, setAnnouncements] = useState([]);
   const [modal, setModal] = useState(false);
   const [editOpen, setEditOpen] = useState(false);

@@ -5,6 +5,8 @@ import { showErrMsg, showSuccessMsg } from "../../../utils/notification";
 import logo from "../../../assets/logos/Programate-academy-negros.png";
 import Agora from "../../../assets/logos/agora.png";
 import "./ForgotPassword.css";
+
+
 import LazyLoad from "react-lazy-load";
 
 const initialState = {
@@ -22,6 +24,7 @@ function ForgotPassword() {
     const { name, value } = e.target;
     setData({ ...data, [name]: value, err: "", success: "" });
   };
+  
 
   const forgotPassword = async () => {
     if (!isEmail(email))
@@ -41,12 +44,14 @@ function ForgotPassword() {
 
   return (
     <div className="container-main-resetPassword">
-      <img className="agora" src={Agora} alt="" />
-      <img className="logo2" src={logo} alt="logo" />
-      <div className="container-resetPassword">
-        <LazyLoad>
-          <img className="logo" src={logo} alt="logo" />
+      <LazyLoad className="imagenes">
+          <img className="agora" src={Agora} alt="" />
         </LazyLoad>
+
+        <LazyLoad>
+          <img className="logo" src={logo} alt="" />
+        </LazyLoad>
+      <div className="container-resetPassword">
         <h2 className="title-resetPassword">OLVIDASTE TU CONTRASEÑA?</h2>
 
         <div className="container-info-resetPassword">

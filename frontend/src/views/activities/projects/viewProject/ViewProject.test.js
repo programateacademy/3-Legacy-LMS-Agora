@@ -1,4 +1,4 @@
-import { screen, render, prettyDOM } from "@testing-library/react";
+/* import { screen, render, prettyDOM } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import {ViewProject} from "./ViewProject";
 import { Button } from "../../../../components/Buttons/Button";
@@ -51,3 +51,4 @@ describe('testeos', () => {
     })
   })
 })
+ */

@@ -26,10 +26,12 @@ const initialState = {
 export function ViewQuery(props) {
   const { teacher } = props;
   const auth = useSelector((state) => state.auth);
-  const userID = auth.user.id;
+  //const userID = auth.user.id;
+  const userID = '63e3e39d39cb1aea19895658';
   let navigate = useNavigate();
   const params = useParams();
-  const queryID = params.id;
+  //const queryID = params.id;
+  const queryID ='63eaf0fc9be3c3a734cc7e84'
   const [image, setImage] = useState();
 
   const [query, setQuery] = useState(initialState);
@@ -107,9 +109,9 @@ export function ViewQuery(props) {
               {/* GENERAL*/}
               <div className={style.InitialContainer}>
                 <h3>Nombre de la Consulta</h3>
-                <h4>{titleQuery}</h4>
+                <h4 className={style.h4Query}>{titleQuery}</h4>
                 <h3>Descripción de la Consulta</h3>
-                <h4>{descriptionQuery}</h4>
+                <h4 className={style.h4Query}>{descriptionQuery}</h4>
                 <h3>Etiquetas de la Consulta</h3>
                 <div className={style.tagsList}>
                   {tagsQuery.length !== 0
@@ -174,7 +176,7 @@ export function ViewQuery(props) {
             {/* NOCIONES*/}
             <div className={style.contextContainer}>
               <h3>Nociones básicas</h3>
-              <h4>{basicNotions}</h4>
+              <h4 className={style.h4Query}>{basicNotions}</h4>
             </div>
             {/* -----------------*/}
 
@@ -203,7 +205,7 @@ export function ViewQuery(props) {
             <div className={style.summaryProject}>
               <h3>Aspectos Importantes</h3>
               <div className={style.tagsProject}>
-                <h4>{importantAspect}</h4>
+                <h4 className={style.h4Query}>{importantAspect}</h4>
               </div>
             </div>
             {/*------ FIN ASPECTOS ------ */}
@@ -244,7 +246,7 @@ export function ViewQuery(props) {
             <div className={style.summaryProject}>
               <h3>Reto Adicional</h3>
               <div className={style.tagsProject}>
-                <h4>{challengeExtra}</h4>
+                <h4 className={style.h4Query}>{challengeExtra}</h4>
               </div>
             </div>
             {/*----- FIN ADICONAL ---- */}
