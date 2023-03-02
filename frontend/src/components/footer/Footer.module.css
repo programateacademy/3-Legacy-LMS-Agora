@@ -8,7 +8,7 @@
     margin-left: auto;
     display: flex;
     justify-content: flex-end;
-    margin-top: -160px;
+    margin-top: -210px;
   }
 
   .footerContainer {
@@ -25,7 +25,7 @@
   footer img {
     width: 9%;
     height: auto;
-    margin-top: -90px;
+    margin-top: -40px;
   }
 
   .sign {
@@ -150,7 +150,7 @@
     margin-left: auto;
     display: flex;
     justify-content: flex-end;
-    margin-top: -160px;
+    margin-top: -150px;
     width: 35%;
     height: 35%;
   }

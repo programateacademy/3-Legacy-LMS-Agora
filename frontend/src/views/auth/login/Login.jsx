@@ -73,10 +73,9 @@ function Login() {
           <form className="form" onSubmit={handleSubmit}>
             <div className="login-form-content">
               <h4 className="rayas" style={{ margin: "20px 0" }}>
-                ingresa tu e-mail
+                Ingresa tu e-mail
               </h4>
               {/* <label> */}
-                Email
                 <input
                   placeholder="email@educamas.co"
                   name="email"
@@ -87,10 +86,9 @@ function Login() {
               {/* </label> */}
               <h4 className="rayas" style={{ margin: "20px 0" }}>
                 {" "}
-                Contraseña
+                Ingresa tu contraseña
               </h4>
               {/* <label> */}
-                Password
                 <input
                   className="clave"
                   type="Password"
@@ -105,7 +103,7 @@ function Login() {
             <Link className="requerid">Todos los campos son requeridos</Link>
 
             <button className="button-login" type="submit">
-              INGRESAR
+              Ingresar
             </button>
             <hr />
           </form>
