@@ -13,7 +13,7 @@ const querieReducer = (state = initialState, action) => {
         ...state,
         loading: true,
       };
-    case ACTIONS.RESET_QUERIES:
+    case ACTIONS.SAVE_QUERIES:
       return {
         ...state,
         loading: false,

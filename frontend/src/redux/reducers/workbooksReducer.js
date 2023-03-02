@@ -13,7 +13,7 @@ const workbookReducer = (state = initialState, action) => {
         ...state,
         loading: true,
       };
-    case ACTIONS.RESET_WORKBOOKS:
+    case ACTIONS.SAVE_WORKBOOKS:
       return {
         ...state,
         loading: false,
