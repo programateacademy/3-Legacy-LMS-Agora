@@ -24,6 +24,11 @@ const initialState = {
   success: "",
 };
 
+const dateFormatQuery = (date) =>
+  `${new Date(date).toLocaleDateString("en-CA")}T${new Date(
+    date
+  ).toLocaleTimeString()}`;
+
 export function UpdateQuery() {
   const auth = useSelector((state) => state.auth);
   const userID = auth.user.id;
@@ -68,14 +73,8 @@ export function UpdateQuery() {
     const res = await apiAgora.get("/api/agora/get-query/" + url, {
       headers: { Authorization: id },
     });
-    if (res.data) {
-      res.data.date =
-        new Date(res.data.date).toLocaleDateString("en-CA") +
-        "T" +
-        new Date(res.data.date).toLocaleTimeString();
-      setQuery(res.data);
-      setImage(res.data.pictureQuery);
-    }
+    setQuery(res.data);
+    setImage(res.data.pictureProject);
   };
 
   useEffect(() => {
@@ -352,7 +351,7 @@ export function UpdateQuery() {
                 placeholder="Fecha de entrega"
                 type="datetime-local"
                 name="date"
-                value={date}
+                value={dateFormatQuery(date)}
                 onChange={handleChangeInput}
               />
             </div>
