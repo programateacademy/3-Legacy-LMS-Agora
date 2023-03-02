@@ -7,7 +7,8 @@
   background-image: url(../../../assets/icons/fondo.svg);
   min-height: calc(90vh);
   padding: 10px;
-  width: 100%;
+  width: 90%;
+  margin: auto;
 }
 .login-form-content {
   display: flex;
