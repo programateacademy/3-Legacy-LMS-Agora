@@ -28,6 +28,7 @@ const querieReducer = (state = initialState, action) => {
       };
     default:
       return state;
+      //hola
   }
 };
 
