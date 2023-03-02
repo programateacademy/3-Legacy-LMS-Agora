@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 import { Dropdown } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
-import './UserLink.css';
+import "./UserLink.css";
 
-const UserLink = ({ user, handleLogout}) => {
+const UserLink = ({ user, handleLogout }) => {
   const auth = useSelector((state) => state.auth);
   const { isStudent } = auth;
 
@@ -27,17 +27,13 @@ const UserLink = ({ user, handleLogout}) => {
                 </Dropdown.Item>
               ) : null}
 
-             <Dropdown.Item>
-             <Link to="/configuration">
-                configuracion
-              </Link>
+              <Dropdown.Item>
+                <Link to="/configuration">Configuracion</Link>
               </Dropdown.Item>
-             
 
               <Link to="!#" onClick={handleLogout}>
                 <Dropdown.Item>Salir</Dropdown.Item>
               </Link>
-
             </Dropdown.Menu>
           </Dropdown>
         </div>

@@ -118,6 +118,8 @@ export function ResetPassword() {
               </button>
               <LazyLoad>
                 <img src={Instagram} alt="" />
+              </LazyLoad>
+              <LazyLoad>
                 <img src={Facebook} alt="" />
               </LazyLoad>
             </div>

@@ -388,8 +388,8 @@
   text-align: center;
   width: 100%;
 }
-input,
-textarea {
+containerModal input,
+containerModal textarea {
   border: none;
   outline: none;
   border-radius: 15px;
@@ -399,8 +399,8 @@ textarea {
   transition: 300ms ease-in-out;
 }
 
-input:focus,
-textarea:focus {
+containerModal input:focus,
+containerModal textarea:focus {
   background-color: var(--colorYellow_65);
   transform: scale(1.05);
   box-shadow: 13px 13px 100px #969696, -13px -13px 100px #fff;
