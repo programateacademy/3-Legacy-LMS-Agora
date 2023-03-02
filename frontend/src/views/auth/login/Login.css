@@ -16,7 +16,7 @@
   justify-content: space-evenly;
 }
 
-input.clave, input.correo, .container-login input {
+input.clave, input.correo, .container-login input, .container-main-resetPassword input {
   border: transparent;
   min-height: 40px;
   width: 100%;
@@ -66,7 +66,7 @@ h4{
   right: -10px;
 }
 
-input::placeholder {
+.container-login input::placeholder, .container-main-resetPassword input::placeholder{
   padding-left: 10px;
 }
 .login-form-content * {
