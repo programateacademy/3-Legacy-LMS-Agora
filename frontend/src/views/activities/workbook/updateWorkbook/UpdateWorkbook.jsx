@@ -32,6 +32,11 @@ const initStep = {
 };
 const initLink = { nameLink: "", link: "" };
 
+const dateFormatWork = (date) =>
+  `${new Date(date).toLocaleDateString("en-CA")}T${new Date(
+    date
+  ).toLocaleTimeString()}`;
+
 export function UpdateWorkbook() {
   const auth = useSelector((state) => state.auth);
   const userID = auth.user.id;
@@ -72,14 +77,8 @@ export function UpdateWorkbook() {
     const res = await apiAgora.get("/api/agora/get-workbook/" + url, {
       headers: { Authorization: id },
     });
-    if (res.data) {
-      res.data.date =
-        new Date(res.data.date).toLocaleDateString("en-CA") +
-        "T" +
-        new Date(res.data.date).toLocaleTimeString();
-      setWorkbook(res.data);
-      setImage(res.data.pictureWorkbook);
-    }
+    setWorkbook(res.data);
+    setImage(res.data.pictureProject);
   };
 
   useEffect(() => {
@@ -411,7 +410,7 @@ export function UpdateWorkbook() {
                     placeholder="Fecha de entrega"
                     type="datetime-local"
                     name="date"
-                    value={date}
+                    value={dateFormatWork(date)}
                     onChange={handleChangeInput}
                   />
                 </div>
