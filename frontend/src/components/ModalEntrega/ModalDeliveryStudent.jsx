@@ -303,7 +303,7 @@ export function ModalDeliveryStudent() {
                 <input
                   type="text"
                   className={styles.inputLink}
-                  placeholder="nombre"
+                  placeholder="Nombre"
                   name="nameLink"
                   value={nameLink}
                   onChange={handleChangeLink}
@@ -337,7 +337,7 @@ export function ModalDeliveryStudent() {
                   onChange={handleChangeInput}
                 ></textarea>
               </div>
-              <button type="submit">enviar</button>
+              <button type="submit">Enviar</button>
             </div>
           </div>
 

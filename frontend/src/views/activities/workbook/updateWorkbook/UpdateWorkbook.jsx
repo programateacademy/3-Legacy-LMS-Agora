@@ -32,6 +32,11 @@ const initStep = {
 };
 const initLink = { nameLink: "", link: "" };
 
+const dateFormat = (date) =>
+  `${new Date(date).toLocaleDateString("en-CA")}T${new Date(
+    date
+  ).toLocaleTimeString()}`;
+
 export function UpdateWorkbook() {
   const auth = useSelector((state) => state.auth);
   const userID = auth.user.id;
@@ -411,7 +416,7 @@ export function UpdateWorkbook() {
                     placeholder="Fecha de entrega"
                     type="datetime-local"
                     name="date"
-                    value={date}
+                    value={dateFormat(date)}
                     onChange={handleChangeInput}
                   />
                 </div>

@@ -24,6 +24,11 @@ const initialState = {
   success: "",
 };
 
+const dateFormat = (date) =>
+  `${new Date(date).toLocaleDateString("en-CA")}T${new Date(
+    date
+  ).toLocaleTimeString()}`;
+
 export function UpdateQuery() {
   const auth = useSelector((state) => state.auth);
   const userID = auth.user.id;
@@ -352,7 +357,7 @@ export function UpdateQuery() {
                 placeholder="Fecha de entrega"
                 type="datetime-local"
                 name="date"
-                value={date}
+                value={dateFormat(date)}
                 onChange={handleChangeInput}
               />
             </div>
@@ -467,7 +472,6 @@ export function UpdateQuery() {
                 ? challengeTask.map((item, index) => (
                     <div className={style.tagContainer} key={index}>
                       <div className={style.tagText}>
-                        {" "}
                         <p className={style.tag}>{item}</p>
                       </div>
 

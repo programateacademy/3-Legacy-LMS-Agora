@@ -84,7 +84,7 @@ export function ViewProject(props) {
       </div>
       {!teacher ? (
         <div className={style.buttonDelivery}>
-          <Button title="Entregar proyecto" link={`/delivery/project/${projectID}`}/>Entregar Proyecto
+          <Button title="Entregar proyecto" link={`/delivery/project/${projectID}`}/>
         </div>
       ) : null}
 
