@@ -1,4 +1,4 @@
-import apiAgora from "../../../api/index";
+import apiAgora from "../../../api";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { showErrMsg, showSuccessMsg } from "../../../utils/notification";
@@ -67,7 +67,7 @@ function Login() {
               Ingreso de <br /> Usuario
             </h1>
             <LazyLoad>
-              <img className="group" src={Group} alt="academy" />
+              <img className="group" src={Group} alt="" />
             </LazyLoad>
           </div>
           <form className="form" onSubmit={handleSubmit}>
@@ -75,32 +75,26 @@ function Login() {
               <h4 className="rayas" style={{ margin: "20px 0" }}>
                 ingresa tu e-mail
               </h4>
-              {/* <label> */}
-                Email
-                <input
-                  placeholder="email@educamas.co"
-                  name="email"
-                  value={email}
-                  onChange={handleChangeInput}
-                  required
-                />
-              {/* </label> */}
+              <input
+                placeholder="email@educamas.co"
+                name="email"
+                value={email}
+                onChange={handleChangeInput}
+                required
+              />
               <h4 className="rayas" style={{ margin: "20px 0" }}>
                 {" "}
                 Contraseña
               </h4>
-              {/* <label> */}
-                Password
-                <input
-                  className="clave"
-                  type="Password"
-                  placeholder="********"
-                  name="password"
-                  value={password}
-                  onChange={handleChangeInput}
-                  required
-                />
-              {/* </label> */}
+              <input
+                className="clave"
+                type="Password"
+                placeholder="********"
+                name="password"
+                value={password}
+                onChange={handleChangeInput}
+                required
+              />
             </div>
             <Link className="requerid">Todos los campos son requeridos</Link>
 

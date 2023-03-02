@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-
 import { Link, useParams } from "react-router-dom";
 import style from "./MenuDashboard.module.css";
 import "../header/UserLink.css";
@@ -12,7 +11,6 @@ export function MenuDashboard({ open, setOpen }) {
   const cohortID = params.id;
   const { isTeacher } = auth;
   const [activeLink, setActiveLink] = useState(null);
-  console.log(cohortID)
   const navLinks = [
     {
       text: "Estadísticas",

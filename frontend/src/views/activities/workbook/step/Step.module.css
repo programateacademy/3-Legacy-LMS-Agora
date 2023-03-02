@@ -19,7 +19,7 @@
 }
 .summaryProject {
   align-items: center;
-  background-color: var(--colorYellow);
+  background-color: var(--colorYellowOpacity);
   border-radius: 8px;
   box-shadow: 6px 10px 10px var(--colorBlackOpacity);
   display: flex;
@@ -27,18 +27,18 @@
   margin-bottom: 4vh;
   margin-top: 1vh;
   padding: 15px 0;
-  width: 55vw;
+  width: 85vw;
 }
 .img_preview {
   align-items: center;
   background-color: var(--colorGray);
   box-shadow: inset 0px 4px 15px rgba(0, 0, 0, 0.5);
   display: flex;
-  height: 37vw;
+  height: 70vw;
   justify-content: center;
   margin-bottom: 1.5vh;
   overflow: hidden;
-  width: 37vw;
+  width: 70vw;
 }
 .steps {
   display: flex;
@@ -53,8 +53,10 @@
   width: 100%;
 }
 .image {
-  width: 100%;
-  object-fit: cover;
+  height: auto;
+  max-height: 98%;
+  max-width: 95%;
+  width: auto;
 }
 .summaryProject input {
   margin-bottom: 2vh;

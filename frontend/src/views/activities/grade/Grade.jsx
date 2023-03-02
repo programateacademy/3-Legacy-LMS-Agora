@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Grade.module.css";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { BsArrowLeftCircle } from "react-icons/bs";
+
 import { useSelector } from "react-redux";
-import apiAgora from "../../../api/index";
+import apiAgora from "../../../api";
 
 export function Grade() {
   const auth = useSelector((state) => state.auth);
@@ -61,7 +61,7 @@ export function Grade() {
     <div className={styles.conteiner}>
       <div>
         <button className={styles.button_return} onClick={() => navigate(-1)}>
-          <BsArrowLeftCircle size={30} />
+          <i className="ri-arrow-go-back-line"></i>
         </button>
         <h3>{infoActivity}</h3>
       </div>

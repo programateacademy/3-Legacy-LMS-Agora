@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { CardActivity } from "../../../components/cards/activity/CardActivity";
 import { useSelector } from "react-redux";
-import apiAgora from "../../../api/index";
+import apiAgora from "../../../api";
 import { Button } from "../../../components/Buttons/Button";
 import styles from "./Projects.module.css";
 
@@ -11,8 +11,12 @@ export function Projects(props) {
   const params = useParams();
   const auth = useSelector((state) => state.auth);
   const userID = auth.user.id;
-  const [cohortProjects, setCohortProjects] = useState([]);
+  //const userID = "63e3e46a39cb1aea19895659";
+  //const cohortID = teacher
+   // ? "63e3e39d39cb1aea19895658"
+   // : "63e40c5c714d65226eef6c0a";
   const cohortID = teacher ? params.id : auth.user.cohortID;
+  const [cohortProjects, setCohortProjects] = useState([]);
 
   const fetchCohortsProjects = async (url, id) => {
     const res = await apiAgora.get(`/api/agora/get-projects/${url}`, {
@@ -32,6 +36,7 @@ export function Projects(props) {
             title="Crear proyecto"
             link={`/project/create-project/${cohortID}`}
           />
+          Crear Proyecto
         </div>
       ) : null}
       <div className={styles.cards}>

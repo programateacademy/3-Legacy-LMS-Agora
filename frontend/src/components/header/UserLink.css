@@ -1,3 +1,13 @@
+.containerMenu a{
+  color: var(--colorBlack);
+}
+
+.containerMenu a:hover{
+  color: var(--colorBlack);
+  font-weight: 700;
+  text-decoration: none;
+}
+
 .icon-signIn {
   font-size: 20px;
   color: var(--colorYellow);
@@ -54,7 +64,7 @@
 @media (max-width: 700px) {
   .openMenu{
     position: absolute;
-    /*display: block;*/
+    display: block;
     top: 70px;
     z-index: 999;
   }

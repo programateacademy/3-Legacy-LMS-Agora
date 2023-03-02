@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import apiAgora from "../../../api/index";
-import { BsArrowLeftCircle } from "react-icons/bs";
+import apiAgora from "../../../api";
+
 import { useNavigate } from "react-router-dom";
 import { showErrMsg, showSuccessMsg } from "../../../utils/notification";
 import { isLength, isMatch } from "../../../utils/validation";
@@ -75,7 +75,7 @@ export function ResetPassword() {
         </LazyLoad>
         <div className="container-resetPassword">
           <button className="button_return" onClick={() => navigate(-1)}>
-            <BsArrowLeftCircle size={30} />
+            <i className="ri-arrow-go-back-line"></i>
           </button>
           <LazyLoad>
             <img className="logo" src={logo} alt="logo" />

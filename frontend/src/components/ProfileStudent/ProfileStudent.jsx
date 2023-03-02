@@ -1,16 +1,12 @@
 import React, { useEffect, useState } from "react";
 import styles from "./ProfileStudent.module.css";
 import profiletemporalimg from "../../assets/icons/profile_img.jpg";
-import { AiFillLinkedin } from "react-icons/ai";
-import { AiFillGithub } from "react-icons/ai";
-import { FaNewspaper } from "react-icons/fa";
-import { RiCake2Fill } from "react-icons/ri";
 import { useNavigate, useParams } from "react-router-dom";
 import { TableStudent } from "./TableStudent";
 import { useSelector } from "react-redux";
 import { showErrMsg, showSuccessMsg } from "../../utils/notification";
 import { CompetencesTableUser } from "../competencesTable/CompetencesTableUser";
-import apiAgora from "../../api/index";
+import apiAgora from "../../api";
 import LazyLoad from "react-lazy-load";
 const initialState = {
   competence: [],
@@ -81,9 +77,7 @@ export function ProfileStudent(props) {
     setQueries(queriesFilter);
 
     const workbookByStudent = deliveriesByStudent
-      .map((item) =>
-        item.deliveryKind === "workbook" ? item.workbookID : null
-      )
+      .map((item) => (item.deliveryKind === "workbook" ? item.workbookID : null))
       .filter((item) => item !== null);
     const workbookFilter = workbookByStudent.filter(
       (el, index) => workbookByStudent.indexOf(el) === index
@@ -146,12 +140,8 @@ export function ProfileStudent(props) {
 
   return (
     <>
-      <button
-        className={styles.button_return}
-        type="button"
-        onClick={() => navigate(-1)}
-      >
-        <i className="ri-arrow-left-circle-line"></i>
+      <button className={styles.button_return} type="button" onClick={() => navigate(-1)}>
+        <i className="ri-arrow-go-back-line"></i>
       </button>
 
       <div className={styles.container}>
@@ -204,7 +194,10 @@ export function ProfileStudent(props) {
                   disabled
                 />
                 <a href={linkedin} rel="noreferrer" target="_blank">
-                  <AiFillLinkedin size={30} color="#FEFEFE" />
+                  <i
+                    className="ri-linkedin-box-fill"
+                    style={{ fontSize: "25px", color: "#FEFEFE" }}
+                  ></i>
                 </a>
               </div>
               <div className={styles.cajaUlt}>
@@ -216,12 +209,18 @@ export function ProfileStudent(props) {
                   disabled
                 />
                 <a href={gitHub} rel="noreferrer" target="_blank">
-                  <AiFillGithub size={30} color="#FEFEFE" />
+                  <i
+                    class="ri-github-fill"
+                    styleName={{ fontSize: "25px", color: "#FEFEFE" }}
+                  ></i>
                 </a>
               </div>
               <div className={styles.cajaUlt}>
                 <a href={portafolio} rel="noreferrer" target="_blank">
-                  <FaNewspaper size={30} color="#585858" />
+                  <i
+                    class="ri-window-fill"
+                    styleName={{ fontSize: "25px", color: "#FEFEFE" }}
+                  ></i>
                 </a>
                 <input
                   type="text"
@@ -239,7 +238,10 @@ export function ProfileStudent(props) {
                   onChange={handleChangeInput}
                   disabled
                 />
-                <RiCake2Fill size={30} color="#FEFEFE" />
+                <i
+                  class="ri-cake-2-fill"
+                  styleName={{ fontSize: "25px", color: "#FEFEFE" }}
+                ></i>
               </div>
             </div>
           ) : (
@@ -247,11 +249,10 @@ export function ProfileStudent(props) {
               <div className={styles.cajaUlt_container}>
                 <div className={styles.cajaUlt}>
                   <a href={linkedin} rel="noreferrer" target="_blank">
-                    <AiFillLinkedin
-                      size={30}
-                      color="#585858"
-                      className={styles.iconcajaUlt}
-                    />
+                    <i
+                      className={`ri-linkedin-box-fill ${styles.iconcajaUlt}`}
+                      style={{ fontSize: "25px", color: "#585858" }}
+                    ></i>
                   </a>
                   <input
                     type="text"
@@ -266,11 +267,10 @@ export function ProfileStudent(props) {
               <div className={styles.cajaUlt_container}>
                 <div className={styles.cajaUlt}>
                   <a href={gitHub} rel="noreferrer" target="_blank">
-                    <AiFillGithub
-                      size={30}
-                      color="#585858"
-                      className={styles.iconcajaUlt}
-                    />
+                    <i
+                      className={`ri-github-fill ${styles.iconcajaUlt}`}
+                      style={{ fontSize: "25px", color: "#585858" }}
+                    ></i>
                   </a>
                   <input
                     type="text"
@@ -284,11 +284,10 @@ export function ProfileStudent(props) {
               <div className={styles.cajaUlt_container}>
                 <div className={styles.cajaUlt}>
                   <a href={portafolio} rel="noreferrer" target="_blank">
-                    <FaNewspaper
-                      size={30}
-                      color="#585858"
-                      className={styles.iconcajaUlt}
-                    />
+                    <i
+                      className={`ri-window-fill ${styles.iconcajaUlt}`}
+                      style={{ fontSize: "25px", color: "#585858" }}
+                    ></i>
                   </a>
                   <input
                     type="text"
@@ -302,11 +301,10 @@ export function ProfileStudent(props) {
 
               <div className={styles.cajaUlt_container}>
                 <div className={styles.cajaUlt}>
-                  <RiCake2Fill
-                    size={30}
-                    color="#585858"
-                    className={styles.iconcajaUlt}
-                  />
+                  <i
+                    className={`ri-cake-2-fill ${styles.iconcajaUlt}`}
+                    style={{ fontSize: "25px", color: "#585858" }}
+                  ></i>
                   <input
                     type="datetime-local"
                     name="dateOfBirth"

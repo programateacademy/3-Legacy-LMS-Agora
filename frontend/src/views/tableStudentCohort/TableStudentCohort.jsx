@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import styles from "./TableTeacher.module.css"
 import { Table } from '../../components/table/Table'
-import apiAgora from '../../api/index'
+import apiAgora from '../../api'
 import { Button } from "../../components/Buttons/Button";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { BsArrowLeftCircle } from "react-icons/bs";
+
 
 export function TableStudentCohort() {
   const auth = useSelector((state) => state.auth);
@@ -41,7 +41,7 @@ export function TableStudentCohort() {
   return (
     <div className={styles.container}>
       <button className={styles.button_return} onClick={()=>navigate(-1)}>
-        <BsArrowLeftCircle size={30}/>
+        <i className="ri-arrow-go-back-line"></i>
       </button>
        <h1>{`Listado de Estudiantes - Cohorte ${nameCohort}`}</h1>
        <div className={styles.tableContainer}>

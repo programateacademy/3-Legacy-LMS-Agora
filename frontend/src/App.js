@@ -6,7 +6,7 @@ import {
   fetchUser,
 } from "./redux/actions/authAction";
 
-import apiAgora from "./api/index";
+import apiAgora from "./api";
 import { RoutesApp } from "./Routes";
 
 export function App() {
