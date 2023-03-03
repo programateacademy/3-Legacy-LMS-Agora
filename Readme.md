@@ -1,6 +1,11 @@
-<h3>Variables de entorno</h3>
+<h1 align="center">PROYECT AGORA 3.0 🌐</h1>
 
-<h5>Complete documentation of the project (available in Spanish) https://grass-sassafras-003.notion.site/gora-Academy-3-0-LMS-Tecnical-documentation-81cced57cc434b53887bb821c94f26f8 </h5>
+<p align="center">This is a page at the request by the educational organization Educamás. It allows centralizing creation and revision of activities, the competence's evaluation associated to each project and the notifications.</p>
+
+<h2>Complete documentation of the project (available in Spanish) </h2>
+https://grass-sassafras-003.notion.site/gora-Academy-3-0-LMS-Tecnical-documentation-81cced57cc434b53887bb821c94f26f8 
+
+<h2>Environment Variables</h2>
 
 ><p>
     MONGO_DB_URI=mongodb+srv://agora:1234@agora.fr0cnoy.mongodb.net/test?retryWrites=true&w=majority
@@ -19,22 +24,14 @@
     SENDER_EMAIL_ADDRESS=programate.agora@gmail.com 
 </p>
 
-<h1>Credenciales</h1>
+<h2>Credentials</h2>
 
-<p>
+><p>
 - SuperAdmin: miguel.m.lopez.p@gmail.com - agora2021 <br/>
 - Admin: danielmateopatarroyomolina@gmail.com - agora2021 <br/>
 - Formador: lu04fer@gmail.com - agora2022 <br/>
 - Estudiante: smurcia162@gmail.com - agora2022 <br/>
 </p>
-
-<h4>Welcome :)</h4>
-
-<h1 align="center">PROYECT AGORA 3.0 🌐</h1>
-
-<p align="center"></p>
-
-<p align="center">This is a page at the request by the educational organization Educamás. It allows centralizing creation and revision of activities, the competence's evaluation associated to each project and the notifications.</p>
 
 <h2>LOGIN.🔒️</h2>
 <p>The access is posible by 4 different roles:</p>
