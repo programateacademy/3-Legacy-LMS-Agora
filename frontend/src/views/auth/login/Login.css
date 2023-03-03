@@ -1,13 +1,13 @@
 /* ------------- LOGIN--------------- */
-@media (min-width:1025px){
+@media (min-width: 1025px) {
   .container-login {
     align-items: center;
     display: flex;
     justify-content: space-between;
-    background-image: url(../../../assets/icons/fondo.svg);
     padding: 10px;
     width: 100%;
-    margin-right: -500px;
+    height: calc(100vh - 10px);
+    background-image: url(../../../assets/icons/fondo.svg);
   }
   .login-form-content {
     display: flex;
@@ -16,18 +16,21 @@
     margin-top: -25px;
   }
 
-  input.clave, input.correo, .container-login input {
+  input.clave,
+  input.correo,
+  .container-login input,
+  .container-main-resetPassword input {
     border: transparent;
     min-height: 40px;
     width: 100%;
     border-radius: 10px;
     margin: 10px 0;
     background-color: var(--colorWhite);
-    box-shadow: 2px 1px 5px black;
+    box-shadow: 2px 1px 5px var(--colorBlack);
+    padding: 0 10px;
   }
 
-
-  .login-page .title{
+  .login-page .title {
     font-size: 35px;
     color: rgb(99, 96, 96);
     font-weight: bold;
@@ -40,12 +43,11 @@
     margin: -25px -20px;
   }
 
-  .login-form-content h4{
+  .login-form-content h4 {
     text-align: center;
   }
 
-
-  h4{
+  .container-login h4 {
     font-size: 20px;
     display: inline-block;
     position: relative;
@@ -53,7 +55,8 @@
     color: gray;
     text-align: center;
   }
-  .login-form-content h4::after, .login-form-content h4::before{
+  .login-form-content h4::after,
+  .login-form-content h4::before {
     content: " ";
     position: absolute;
     width: 70px;
@@ -69,12 +72,12 @@
     right: -10px;
   }
 
-  input::placeholder {
+  .container-login input::placeholder,
+  .container-main-resetPassword input::placeholder {
     padding-left: 10px;
   }
   .login-form-content * {
     padding: 0;
-
     margin: 0;
   }
   .login-page {
@@ -156,8 +159,8 @@
 }
 /* ------------- MEDIA QUERIES --------------- */
 /*Tablet Horizontal*/
-@media (min-width:761px) and (max-width:1024px) and (orientation:landscape){
-    .container-login {
+@media (min-width: 761px) and (max-width: 1024px) and (orientation: landscape) {
+  .container-login {
     align-items: center;
     display: flex;
     justify-content: space-between;
@@ -165,6 +168,7 @@
     padding: 10px;
     width: 100%;
     margin-right: -500px;
+    height: calc(100vh - 10px);
   }
   .login-form-content {
     display: flex;
@@ -173,7 +177,10 @@
     margin-top: -25px;
   }
 
-  input.clave, input.correo, .container-login input {
+  input.clave,
+  input.correo,
+  .container-login input,
+  .container-main-resetPassword input {
     border: transparent;
     min-height: 40px;
     width: 100%;
@@ -183,8 +190,7 @@
     box-shadow: 2px 1px 5px black;
   }
 
-
-  .login-page .title{
+  .login-page .title {
     font-size: 35px;
     color: rgb(99, 96, 96);
     font-weight: bold;
@@ -197,12 +203,11 @@
     margin: -25px -20px;
   }
 
-  .login-form-content h4{
+  .login-form-content h4 {
     text-align: center;
   }
 
-
-  h4{
+  .container-login h4 {
     font-size: 20px;
     display: inline-block;
     position: relative;
@@ -210,7 +215,8 @@
     color: gray;
     text-align: center;
   }
-  .login-form-content h4::after, .login-form-content h4::before{
+  .login-form-content h4::after,
+  .login-form-content h4::before {
     content: " ";
     position: absolute;
     width: 70px;
@@ -226,7 +232,8 @@
     right: -10px;
   }
 
-  input::placeholder {
+  .container-login input::placeholder,
+  .container-main-resetPassword input::placeholder {
     padding-left: 10px;
   }
   .login-form-content * {
@@ -313,14 +320,15 @@
 }
 
 /*Tablet Vertical*/
-@media (min-width:481px) and (max-width:768px) and (orientation:portrait){
-    .container-login {
+@media (min-width: 481px) and (max-width: 768px) and (orientation: portrait) {
+  .container-login {
     align-items: center;
     display: flex;
+    flex-direction: column;
     background-image: url(../../../assets/icons/fondo.svg);
     padding: 10px;
     width: 100%;
-    padding-bottom: 5%;
+    height: calc(100vh - 10px);
   }
   .login-form-content {
     display: flex;
@@ -328,8 +336,14 @@
     justify-content: space-evenly;
     margin-top: -25px;
   }
+  .logoT {
+    height: 80px;
+  }
 
-  input.clave, input.correo, .container-login input {
+  input.clave,
+  input.correo,
+  .container-login input,
+  .container-main-resetPassword input {
     border: transparent;
     min-height: 40px;
     width: 100%;
@@ -339,8 +353,7 @@
     box-shadow: 2px 1px 5px black;
   }
 
-
-  .login-page .title{
+  .login-page .title {
     font-size: 24px;
     color: rgb(99, 96, 96);
     font-weight: bold;
@@ -353,13 +366,12 @@
     margin: -27px -25px;
   }
 
-  .login-form-content h4{
+  .login-form-content h4 {
     text-align: center;
     font-size: 16px;
   }
 
-
-  h4{
+  .container-login h4 {
     font-size: 20px;
     display: inline-block;
     position: relative;
@@ -367,7 +379,8 @@
     color: gray;
     text-align: center;
   }
-  .login-form-content h4::after, .login-form-content h4::before{
+  .login-form-content h4::after,
+  .login-form-content h4::before {
     content: " ";
     position: absolute;
     width: 40px;
@@ -383,12 +396,12 @@
     right: -10px;
   }
 
-  input::placeholder {
+  .container-login input::placeholder,
+  .container-main-resetPassword input::placeholder {
     padding-left: 10px;
   }
   .login-form-content * {
     padding: 0;
-
     margin: 0;
   }
   .login-page {
@@ -406,10 +419,10 @@
     margin: 40px 0;
   }
   .container-login .logo {
-    width: 140px;
+    width: 220px;
+    height: 100px;
     position: relative;
-    margin-left: -120px;
-    margin-bottom: 190px;
+    margin-left: 0;
     padding-bottom: 20px;
   }
   .redes {
@@ -471,14 +484,13 @@
 }
 
 /*Mobile Horizontal */
-@media (min-width:399px) and (max-width:760px) and ( orientation:landscape){
-   .container-login {
+@media (min-width: 399px) and (max-width: 760px) and (orientation: landscape) {
+  .container-login {
     align-items: center;
     display: flex;
     background-image: url(../../../assets/icons/fondo.svg);
     padding: 10px;
     width: 100%;
-    padding-bottom: 5%;
   }
   .login-form-content {
     display: flex;
@@ -487,7 +499,10 @@
     margin-top: -25px;
   }
 
-  input.clave, input.correo, .container-login input {
+  input.clave,
+  input.correo,
+  .container-login input,
+  .container-main-resetPassword input {
     border: transparent;
     min-height: 40px;
     width: 100%;
@@ -496,7 +511,7 @@
     background-color: var(--colorWhite);
     box-shadow: 2px 1px 5px black;
   }
-  .login-page .title{
+  .login-page .title {
     font-size: 30px;
     color: rgb(99, 96, 96);
     font-weight: bold;
@@ -509,13 +524,12 @@
     margin: -27px -25px;
   }
 
-  .login-form-content h4{
+  .login-form-content h4 {
     text-align: center;
     font-size: 17px;
   }
 
-
-  h4{
+  .container-login h4 {
     font-size: 20px;
     display: inline-block;
     position: relative;
@@ -523,7 +537,8 @@
     color: gray;
     text-align: center;
   }
-  .login-form-content h4::after, .login-form-content h4::before{
+  .login-form-content h4::after,
+  .login-form-content h4::before {
     content: " ";
     position: absolute;
     width: 60px;
@@ -539,12 +554,12 @@
     right: -10px;
   }
 
-  input::placeholder {
+  .container-login input::placeholder,
+  .container-main-resetPassword input::placeholder {
     padding-left: 10px;
   }
   .login-form-content * {
     padding: 0;
-
     margin: 0;
   }
   .login-page {
@@ -628,12 +643,12 @@
     width: 40px;
     height: 40px;
   }
-  div.LazyLoad.is-visible.imagenes{
+  div.LazyLoad.is-visible.imagenes {
     display: none;
   }
 }
 /*Mobile Vertical*/
-@media (min-width: 320px) and (max-width: 480px) and (orientation:portrait){
+@media (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   .container-login {
     align-items: center;
     display: flex;
@@ -641,26 +656,29 @@
     padding: 5px;
     padding-left: 0px;
     width: 105%;
-    padding-bottom: 5%;
+    height: calc(100vh - 5px);
   }
   .login-form-content {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    margin-top: -25px;
+    margin-top: -55px;
   }
 
-  input.clave, input.correo, .container-login input {
+  input.clave,
+  input.correo,
+  .container-login input,
+  .container-main-resetPassword input {
     border: transparent;
     min-height: 40px;
     width: 100%;
     border-radius: 10px;
-    margin: 10px 0;
+    margin: 0;
     background-color: var(--colorWhite);
     box-shadow: 2px 1px 5px black;
     font-size: 14px;
   }
-  .login-page .title{
+  .login-page .title {
     font-size: 20px;
     color: rgb(99, 96, 96);
     font-weight: bold;
@@ -669,17 +687,16 @@
     text-align: left;
   }
   .group {
-    width: 90px;
-    margin: -27px -25px;
+    width: 50px;
+    margin: -7px -5px;
   }
 
-  .login-form-content h4{
+  .login-form-content h4 {
     text-align: center;
     font-size: 14px;
   }
 
-
-  h4{
+  .container-login h4 {
     font-size: 15px;
     display: inline-block;
     position: relative;
@@ -687,7 +704,8 @@
     color: gray;
     text-align: center;
   }
-  .login-form-content h4::after, .login-form-content h4::before{
+  .login-form-content h4::after,
+  .login-form-content h4::before {
     content: " ";
     position: absolute;
     width: 35px;
@@ -703,12 +721,12 @@
     right: -10px;
   }
 
-  input::placeholder {
+  .container-login input::placeholder,
+  .container-main-resetPassword input::placeholder {
     padding-left: 10px;
   }
   .login-form-content * {
     padding: 0;
-
     margin: 0;
   }
   .login-page {
@@ -750,7 +768,7 @@
     cursor: pointer;
     display: block;
     font-weight: bold;
-    margin: 30px auto;
+    margin: 10px auto;
     padding: 10px;
     text-transform: uppercase;
     width: 60%;
@@ -788,11 +806,14 @@
     justify-content: flex-end;
     margin: 10px 0;
   }
+  .redes {
+    margin: -30px 0;
+  }
   .redes img {
     width: 40px;
     height: 40px;
   }
-  div.LazyLoad.is-visible.imagenes{
+  div.LazyLoad.is-visible.imagenes {
     display: none;
   }
 }

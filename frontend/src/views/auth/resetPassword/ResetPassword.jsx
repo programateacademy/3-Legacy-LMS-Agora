@@ -66,15 +66,13 @@ export function ResetPassword() {
   return (
     <>
       <div className="container-main-resetPassword">
-        <div className="image">
-          <LazyLoad>
-            <img className="agora" src={Agora} alt="" />
-          </LazyLoad>
+        <LazyLoad>
+          <img className="agora" src={Agora} alt="" />
+        </LazyLoad>
 
-          <LazyLoad>
-            <img className="logo" src={logo} alt="logo" />
-          </LazyLoad>
-        </div>
+        <LazyLoad>
+          <img className="logo" src={logo} alt="logo" />
+        </LazyLoad>
         <div className="container-resetPassword">
           <button className="button_return" onClick={() => navigate(-1)}>
             <i className="ri-arrow-go-back-line"></i>

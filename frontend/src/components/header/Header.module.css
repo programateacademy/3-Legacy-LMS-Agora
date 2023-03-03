@@ -32,6 +32,9 @@
     justify-content: space-between;
     align-items: center;
   }
+  .icon-signIn{
+    font-size: 250px;
+  }
 
   .linksHeader {
     margin: 0 10px;
@@ -64,7 +67,7 @@
   }
 
   .link_singIn {
-    text-transform: uppercase;
+    font-family: var(--fontPrincipal);
     margin: 10px;
     color: var(--colorWhite);
   }
@@ -145,7 +148,8 @@
   }
 
   .link_singIn {
-    text-transform: uppercase;
+    
+    font-family: var(--fontPrincipal);
     margin: 10px;
     color: var(--colorWhite);
   }
@@ -228,7 +232,8 @@
   }
 
   .link_singIn {
-    text-transform: uppercase;
+    
+    font-family: var(--fontPrincipal);
     margin: 10px;
     color: var(--colorWhite);
   }
@@ -241,7 +246,8 @@
     margin: 10px;
   }
 .link_singIn {
-  text-transform: uppercase;
+  
+  font-family: var(--fontPrincipal);
   margin: 10px;
   color: var(--colorWhite);
 }
@@ -270,7 +276,7 @@
     justify-content: center;
     height: 50px;
     width: 150px;
-    margin-left: 0;
+    margin-left: 45px;
   }
 
   .Logo img {
@@ -314,7 +320,8 @@
   }
 
   .link_singIn {
-    text-transform: uppercase;
+    
+    font-family: var(--fontPrincipal);
     margin: 10px;
     color: var(--colorWhite);
   }
@@ -351,7 +358,8 @@
     justify-content: center;
     height: 30px;
     width: 140px;
-    margin-left: 0;
+    margin-left: 5px;
+    margin-right: 22px;
   }
 
   .Logo img {
@@ -395,7 +403,8 @@
   }
 
   .link_singIn {
-    text-transform: uppercase;
+    
+    font-family: var(--fontPrincipal);
     margin: 10px;
     color: var(--colorWhite);
   }
@@ -407,20 +416,13 @@
   .p {
     margin: 10px;
   }
-}
 
-@media (max-width: 700px) {
-  .hamburguerMenu {
+    .hamburguerMenu {
     display: block;
   }
 
   .iconsContainer {
     display: none;
-  }
-
-  .Logo {
-    height: 35px;
-    margin-right: 22px;
   }
 
   .container {

@@ -58,7 +58,7 @@ function Login() {
           <img className="agora" src={Agora} alt="" />
         </LazyLoad>
 
-        <LazyLoad>
+        <LazyLoad className="logoT">
           <img className="logo" src={logo} alt="" />
         </LazyLoad>
         <div className="login-page">
@@ -84,8 +84,7 @@ function Login() {
                   required
                 />
               {/* </label> */}
-              <h4 className="rayas" style={{ margin: "20px 0" }}>
-                {" "}
+              <h4 className="rayas" style={{ margin: "20px 0" }}> 
                 Ingresa tu contraseña
               </h4>
               {/* <label> */}
