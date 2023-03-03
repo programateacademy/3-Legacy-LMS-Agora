@@ -3,6 +3,7 @@
   align-items: center;
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 80vw;
   margin: auto;
   justify-content: center;
@@ -34,13 +35,13 @@
 .button_return {
   font-weight: bold;
   background-color: var(--colorYellow);
-  algin-items:center;
+  align-items: center;
   color:var(--colorBlack);
   margin: 30px;
   padding: 10px;
   width: auto;
   display: flex;
-  text-algin:center;
+  text-align:center;
   align-self: flex-start;
   border-radius: 10px;
   cursor: pointer;

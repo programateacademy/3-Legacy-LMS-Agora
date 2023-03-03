@@ -4,6 +4,7 @@
   flex-direction: column;
   height: auto;
   justify-content: center;
+  align-items: center;
   padding: 2vh;
   width: 80vw;
   word-break: break-all;
@@ -107,6 +108,8 @@
 
 .content_tabs {
   display: flex;
+  justify-content: center;
+  align-items: center;
   height: auto;
   width: 100%;
 }

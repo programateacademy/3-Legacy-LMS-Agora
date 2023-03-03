@@ -16,7 +16,7 @@ export function MenuDashboard({ open, setOpen }) {
       text: "Estadísticas",
       route: `/dashboard/${cohortID}/statistics`,
       icon: <i className={`ri-bar-chart-2-fill ${style.icon}`}></i>,
-    }, 
+    },
     {
       text: "Proyectos",
       route: `/dashboard/${cohortID}/projects`,
@@ -40,12 +40,12 @@ export function MenuDashboard({ open, setOpen }) {
     {
       text: "Estudiantes",
       route: `/dashboard/${cohortID}/students`,
-      icon: <i className={`ri-notification-3-line ${style.icon}`}></i>,
+      icon: <i className={`ri-user-follow-line ${style.icon}`}></i>,
     },
     {
       text: "Cohortes",
       route: "/",
-      icon: <i className={`ri-notification-3-line ${style.icon}`}></i>,
+      icon: <i className={`ri-list-check-2 ${style.icon}`}></i>,
     },
   ];
   let list = [];
