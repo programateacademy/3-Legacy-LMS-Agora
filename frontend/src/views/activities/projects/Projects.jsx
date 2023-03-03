@@ -36,6 +36,7 @@ export function Projects(props) {
             title="Crear proyecto"
             link={`/project/create-project/${cohortID}`}
           />
+          Crear Proyecto
         </div>
       ) : null}
       <div className={styles.cards}>

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import style from "../ProfileStudent/TableStudent.module.css";
 import { Link } from "react-router-dom";
@@ -24,15 +25,15 @@ function TableStudent(props) {
 
   useEffect(() => {
     projects.forEach((id) => getProject(id, userID));
-  }, [projects, getProject, userID]);
+  }, [projects, userID]);
 
   useEffect(() => {
     workbooks.forEach((id) => getWorkbook(id, userID));
-  }, [workbooks, getWorkbook, userID]);
+  }, [workbooks, userID]);
 
   useEffect(() => {
     queries.forEach((id) => getQuery(id, userID));
-  }, [queries, getQuery, userID]);
+  }, [queries, userID]);
 
   const projectInfo = Object.keys(projectInfoData).map(
     (projectId) => projectInfoData[projectId]

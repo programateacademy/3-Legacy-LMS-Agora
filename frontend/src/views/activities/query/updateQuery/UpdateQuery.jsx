@@ -73,14 +73,8 @@ export function UpdateQuery() {
     const res = await apiAgora.get("/api/agora/get-query/" + url, {
       headers: { Authorization: id },
     });
-    if (res.data) {
-      res.data.date =
-        new Date(res.data.date).toLocaleDateString("en-CA") +
-        "T" +
-        new Date(res.data.date).toLocaleTimeString();
-      setQuery(res.data);
-      setImage(res.data.pictureQuery);
-    }
+    setQuery(res.data);
+    setImage(res.data.pictureProject);
   };
 
   useEffect(() => {

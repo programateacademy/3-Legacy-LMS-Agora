@@ -67,7 +67,7 @@ function Login() {
               Ingreso de <br /> Usuario
             </h1>
             <LazyLoad>
-              <img className="group" src={Group} alt="academy" />
+              <img className="group" src={Group} alt="" />
             </LazyLoad>
           </div>
           <form className="form" onSubmit={handleSubmit}>

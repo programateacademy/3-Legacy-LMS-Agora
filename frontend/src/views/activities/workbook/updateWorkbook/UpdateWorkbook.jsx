@@ -77,14 +77,8 @@ export function UpdateWorkbook() {
     const res = await apiAgora.get("/api/agora/get-workbook/" + url, {
       headers: { Authorization: id },
     });
-    if (res.data) {
-      res.data.date =
-        new Date(res.data.date).toLocaleDateString("en-CA") +
-        "T" +
-        new Date(res.data.date).toLocaleTimeString();
-      setWorkbook(res.data);
-      setImage(res.data.pictureWorkbook);
-    }
+    setWorkbook(res.data);
+    setImage(res.data.pictureProject);
   };
 
   useEffect(() => {

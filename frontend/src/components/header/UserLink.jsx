@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Dropdown } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import './UserLink.css';
 
 import "./UserLink.css";
 

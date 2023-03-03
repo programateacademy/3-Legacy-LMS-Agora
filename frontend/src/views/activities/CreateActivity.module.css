@@ -171,7 +171,7 @@
   display: flex;
   flex-direction: column;
   width: 49vw;
-  margin: 1rem;
+  margin: 2rem;
 }
 
 .containerTwo {
@@ -192,14 +192,13 @@
 }
 
 .InitialContainer {
-  width: 80%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   background-color: var(--colorHeader);
-  /* box-shadow: 6px 10px 10px var(--colorBlackOpacity); */
+  box-shadow: 6px 10px 10px var(--colorBlackOpacity);
   border-radius: 8px;
   padding: 3vh;
-  margin: 10px auto;
 }
 
 .InitialContainer .addResourcesContainer {
@@ -211,27 +210,6 @@
 .InitialContainer input {
   margin-bottom: 2vh;
   margin-top: 2vh;
-}
-
-.h4InitialContainer{
-  color: white;
-}
-
-.h3Workwook{
-  color: white;
-}
-
-.h4Workwook{
-  color: white;
-}
-
-.pWorkwook{
-  color: white;
-  text-align: center;
-}
-
-.h4Query{
-  color: white;
 }
 
 .resourcesContainer {
@@ -261,7 +239,7 @@
 }
 
 .dateTimeDelivery input {
-  background-color: var(--colorYellow);
+  background-color: var(--colorYellowOpacity);
   box-shadow: none;
   box-shadow: 6px 10px 10px var(--colorBlackOpacity);
   cursor: pointer;
@@ -287,9 +265,11 @@
   display: flex;
   flex-direction: column;
   background-color: var(--colorHeader);
+  box-shadow: 6px 10px 10px var(--colorBlackOpacity);
   border-radius: 8px;
-  margin: 4vh auto;
-  width: 80%;
+  margin-top: 1vh;
+  margin-bottom: 4vh;
+  width: 100%;
   align-items: center;
 
   padding: 3vh;
@@ -326,12 +306,11 @@
   border-radius: 50px;
   text-align: center;
   overflow: hidden;
-  color: black;
 }
 
 .tagContainer {
   display: flex;
-  background-color: var(--colorYellow);
+  background-color: var(--colorYellowOpacity);
   width: auto;
   border-radius: 5px;
   align-items: center;
@@ -364,22 +343,17 @@
 }
 
 .contextContainer {
-  width: 80%;
   background-color: var(--colorHeader);
+  box-shadow: 6px 10px 10px var(--colorBlackOpacity);
   padding: 3vh;
   border-radius: 10px;
-  margin: 25px auto;
-}
-
-.pContainer{
-  color: white;
-  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 25px;
 }
 
 .first {
-  width: 80%;
   background-color: var(--colorHeader);
-  margin: 5px auto;
+  margin: 5px 0px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -396,6 +370,7 @@
   width: 85%;
   padding: 3vh;
   margin-bottom: max(3vh, 20px);
+  box-shadow: 6px 10px 10px var(--colorBlackOpacity);
 }
 
 .inputsdeliveries {
@@ -499,8 +474,12 @@
   text-align: center;
 }
 
+.formContainer p {
+  color: var(--colorBlack);
+}
+
 .inputsdeliveries {
-  background-color: var(--colorHeader);
+  background-color: var(--colorGray);
   border-radius: 10px;
   margin-top: 3vh;
 }
