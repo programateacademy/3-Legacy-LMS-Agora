@@ -148,7 +148,7 @@ export function ProfileStudent(props) {
         <form className={styles.containerProfile} onSubmit={handleSubmit}>
           <div className={styles.cajaIns}>
             <LazyLoad className={styles.backround_profile}>
-              <img src={profiletemporalimg} alt="img_profile" />
+              <img src={image} alt="img_profile" />
             </LazyLoad>
             <button className={styles.chargeimg}>
               <i className="ri-upload-cloud-2-line"></i>
