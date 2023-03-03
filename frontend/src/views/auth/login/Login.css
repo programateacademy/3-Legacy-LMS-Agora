@@ -1,253 +1,819 @@
 /* ------------- LOGIN--------------- */
-
-.container-login {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  background-image: url(../../../assets/icons/fondo.svg);
-  min-height: calc(90vh);
-  padding: 10px;
-  width: 90%;
-  margin: auto;
-}
-.login-form-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-}
-
-input.clave, input.correo, .container-login input, .container-main-resetPassword input {
-  border: transparent;
-  min-height: 40px;
-  width: 100%;
-  border-radius: 10px;
-  margin: 10px 0;
-  background-color: var(--colorWhite);
-  box-shadow: 2px 1px 5px black;
-}
-
-
-.login-page .title{
-  font-size: 30px;
-  color: rgb(99, 96, 96);
-  font-weight: bold;
-}
-.group {
-  width: 100px;
-  margin: 0;
-}
-
-.login-form-content h4{
-  text-align: center;
-}
-
-
-h4{
-  font-size: 20px;
-  display: inline-block;
-  position: relative;
-  font-weight: bold;
-  color: gray;
-  text-align: center;
-}
-.login-form-content h4::after, .login-form-content h4::before{
-  content: " ";
-  position: absolute;
-  width: 70px;
-  height: 1px;
-  background-color: rgb(104, 104, 104);
-  top: 0.6em;
-}
-
-.rayas::before {
-  left: -1px;
-}
-.rayas::after {
-  right: -10px;
-}
-
-.container-login input::placeholder, .container-main-resetPassword input::placeholder{
-  padding-left: 10px;
-}
-.login-form-content * {
-  padding: 0;
-
-  margin: 0;
-}
-.login-page {
-  background-color: var(--colorWhite);
-  border-radius: 14px;
-  height: auto;
-  max-width: 450px;
-  width: 500px;
-  padding: 25px;
-  border: 1px solid;
-  box-shadow: 5px 5px 5px rgb(39, 38, 38);
-  margin: 0 30px;
-}
-.form {
-  margin: 40px 0;
-}
-.logo,
-.logo2 {
-  width: 250px;
-  height: 100px;
-  position: relative;
-  right: 100px;
-  bottom: 100px;
-}
-.redes {
-  display: flex;
-  justify-content: flex-end;
-}
-link .clave {
-  color: gray;
-}
-
-.button-login {
-  background-color: var(--colorYellow);
-  border-radius: 10px;
-  border: none;
-  color: #000000;
-  cursor: pointer;
-  display: block;
-  font-weight: bold;
-  margin: 30px auto;
-  padding: 10px;
-  text-transform: uppercase;
-  width: 60%;
-}
-.button-login:hover {
-  background-color: var(--colorYellow);
-  color: var(--colorBlack);
-  transition: 0.3s;
-}
-.login-page p {
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 600;
-  margin: 15px 0;
-}
-.login-page a {
-  text-decoration: underline;
-  font-size: 16px;
-  color: gray;
-  font-weight: 600;
-  padding: 5px;
-}
-img.agora {
-  width: 400px;
-}
-hr {
-  background-color: var(--colorBlack);
-}
-.requerid {
-  color: blueviolet !important;
-  text-decoration: underline;
-  display: flex;
-  justify-content: flex-end;
-  margin: 10px 0;
-}
-.redes img {
-  width: 40px;
-  height: 40px;
-}
-
-/* ------------- MEDIA QUERIES --------------- */
-
-@media (max-width: 1220px) {
-  .rayas::after,
-  .rayas::before {
-    width: 40px;
-  }
-
-  .rayas {
-    font-size: 16px;
-  }
-  .rayas::before {
-    left: -25px;
-  }
-  .rayas::after {
-    right: -25px;
-  }
-  .title {
-    font-size: 20px;
-  }
-
-  .login-page a {
-    font-size: 10px;
-  }
-  .redes img {
-    width: 25px;
-    height: 25px;
-  }
-}
-
-@media (max-width: 1059px) {
-  .form {
-    margin-top: 70px;
-  }
-  .button-login {
-    margin: 50px auto 30px auto;
-  }
-  .login-page {
-    height: 85%;
-    width: 700px;
-    margin: auto;
-  }
-}
-
-@media (max-width: 900px) {
-  .button-login {
-    margin: 20px auto;
-  }
-  .logo {
-    width: 200px;
-    height: 80px;
-    display: flex;
-    margin: auto;
-  }
-  .logo {
-    left: 50px;
-    top: 0px;
-  }
-
-  .group {
-    width: 70px;
-  }
-  img.agora {
-    margin: auto;
-    display: flex;
-  }
+@media (min-width: 1025px) {
   .container-login {
-    display: block;
-
-    margin: auto;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    width: 100%;
+    height: calc(100vh - 10px);
+    background-image: url(../../../assets/icons/fondo.svg);
   }
+  .login-form-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-top: -25px;
+  }
+
+  input.clave,
+  input.correo,
+  .container-login input,
+  .container-main-resetPassword input {
+    border: transparent;
+    min-height: 40px;
+    width: 100%;
+    border-radius: 10px;
+    margin: 10px 0;
+    background-color: var(--colorWhite);
+    box-shadow: 2px 1px 5px var(--colorBlack);
+    padding: 0 10px;
+  }
+
+  .login-page .title {
+    font-size: 35px;
+    color: rgb(99, 96, 96);
+    font-weight: bold;
+    align-self: center;
+    padding-left: 10%;
+    text-align: left;
+  }
+  .group {
+    width: 130px;
+    margin: -25px -20px;
+  }
+
+  .login-form-content h4 {
+    text-align: center;
+  }
+
+  .container-login h4 {
+    font-size: 20px;
+    display: inline-block;
+    position: relative;
+    font-weight: bold;
+    color: gray;
+    text-align: center;
+  }
+  .login-form-content h4::after,
+  .login-form-content h4::before {
+    content: " ";
+    position: absolute;
+    width: 70px;
+    height: 1px;
+    background-color: rgb(104, 104, 104);
+    top: 0.6em;
+  }
+
   .rayas::before {
-    left: -10px;
+    left: -1px;
   }
   .rayas::after {
     right: -10px;
   }
-  .rayas::after,
-  .rayas::before {
-    width: 90px;
+
+  .container-login input::placeholder,
+  .container-main-resetPassword input::placeholder {
+    padding-left: 10px;
   }
- 
-}
-@media (max-width: 500px) {
+  .login-form-content * {
+    padding: 0;
+    margin: 0;
+  }
   .login-page {
-    max-width: 350px;
-    width: 300px;
-    margin: auto;
+    background-color: var(--colorWhite);
+    border-radius: 14px;
+    height: auto;
+    max-width: 450px;
+    width: 500px;
+    padding: 25px;
+    border: 1px solid;
+    box-shadow: 5px 5px 5px rgb(39, 38, 38);
+    margin: 0 30px;
   }
- 
-  img.agora {
-   width: 300px;
+  .form {
+    margin: 40px 0;
   }
   .logo {
-    margin: 0 10px;
+    width: 250px;
+    position: relative;
+    padding-bottom: 200px;
+    margin-left: -200px;
   }
- 
+  .redes {
+    display: flex;
+    justify-content: flex-end;
+  }
+  link .clave {
+    color: gray;
+  }
+
+  .button-login {
+    background-color: var(--colorYellow);
+    border-radius: 10px;
+    border: none;
+    color: #000000;
+    cursor: pointer;
+    display: block;
+    font-weight: bold;
+    margin: 30px auto;
+    padding: 10px;
+    text-transform: uppercase;
+    width: 60%;
+  }
+  .button-login:hover {
+    background-color: var(--colorYellow);
+    color: var(--colorBlack);
+    transition: 0.3s;
+  }
+  .login-page p {
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 15px 0;
+  }
+  .login-page a {
+    text-decoration: underline;
+    font-size: 16px;
+    color: gray;
+    font-weight: 600;
+    padding: 5px;
+  }
+  img.agora {
+    width: 550px;
+  }
+  hr {
+    background-color: var(--colorBlack);
+  }
+  .requerid {
+    color: blueviolet !important;
+    text-decoration: underline;
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px 0;
+  }
+  .redes img {
+    width: 40px;
+    height: 40px;
+  }
+}
+/* ------------- MEDIA QUERIES --------------- */
+/*Tablet Horizontal*/
+@media (min-width: 761px) and (max-width: 1024px) and (orientation: landscape) {
+  .container-login {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    background-image: url(../../../assets/icons/fondo.svg);
+    padding: 10px;
+    width: 100%;
+    margin-right: -500px;
+    height: calc(100vh - 10px);
+  }
+  .login-form-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-top: -25px;
+  }
+
+  input.clave,
+  input.correo,
+  .container-login input,
+  .container-main-resetPassword input {
+    border: transparent;
+    min-height: 40px;
+    width: 100%;
+    border-radius: 10px;
+    margin: 10px 0;
+    background-color: var(--colorWhite);
+    box-shadow: 2px 1px 5px black;
+  }
+
+  .login-page .title {
+    font-size: 35px;
+    color: rgb(99, 96, 96);
+    font-weight: bold;
+    align-self: center;
+    padding-left: 10%;
+    text-align: left;
+  }
+  .group {
+    width: 130px;
+    margin: -25px -20px;
+  }
+
+  .login-form-content h4 {
+    text-align: center;
+  }
+
+  .container-login h4 {
+    font-size: 20px;
+    display: inline-block;
+    position: relative;
+    font-weight: bold;
+    color: gray;
+    text-align: center;
+  }
+  .login-form-content h4::after,
+  .login-form-content h4::before {
+    content: " ";
+    position: absolute;
+    width: 70px;
+    height: 1px;
+    background-color: rgb(104, 104, 104);
+    top: 0.6em;
+  }
+
+  .rayas::before {
+    left: -1px;
+  }
+  .rayas::after {
+    right: -10px;
+  }
+
+  .container-login input::placeholder,
+  .container-main-resetPassword input::placeholder {
+    padding-left: 10px;
+  }
+  .login-form-content * {
+    padding: 0;
+
+    margin: 0;
+  }
+  .login-page {
+    background-color: var(--colorWhite);
+    border-radius: 14px;
+    height: auto;
+    max-width: 450px;
+    width: 500px;
+    padding: 25px;
+    border: 1px solid;
+    box-shadow: 5px 5px 5px rgb(39, 38, 38);
+    margin: 0 30px;
+  }
+  .form {
+    margin: 40px 0;
+  }
+  .logo {
+    width: 220px;
+    position: relative;
+    padding-bottom: 200px;
+    margin-left: -180px;
+  }
+  .redes {
+    display: flex;
+    justify-content: flex-end;
+  }
+  link .clave {
+    color: gray;
+  }
+
+  .button-login {
+    background-color: var(--colorYellow);
+    border-radius: 10px;
+    border: none;
+    color: #000000;
+    cursor: pointer;
+    display: block;
+    font-weight: bold;
+    margin: 30px auto;
+    padding: 10px;
+    text-transform: uppercase;
+    width: 60%;
+  }
+  .button-login:hover {
+    background-color: var(--colorYellow);
+    color: var(--colorBlack);
+    transition: 0.3s;
+  }
+  .login-page p {
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 15px 0;
+  }
+  .login-page a {
+    text-decoration: underline;
+    font-size: 16px;
+    color: gray;
+    font-weight: 600;
+    padding: 5px;
+  }
+  img.agora {
+    width: 480px;
+  }
+  hr {
+    background-color: var(--colorBlack);
+  }
+  .requerid {
+    color: blueviolet !important;
+    text-decoration: underline;
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px 0;
+  }
+  .redes img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/*Tablet Vertical*/
+@media (min-width: 481px) and (max-width: 768px) and (orientation: portrait) {
+  .container-login {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    background-image: url(../../../assets/icons/fondo.svg);
+    padding: 10px;
+    width: 100%;
+    height: calc(100vh - 10px);
+  }
+  .login-form-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-top: -25px;
+  }
+  .logoT {
+    height: 80px;
+  }
+
+  input.clave,
+  input.correo,
+  .container-login input,
+  .container-main-resetPassword input {
+    border: transparent;
+    min-height: 40px;
+    width: 100%;
+    border-radius: 10px;
+    margin: 10px 0;
+    background-color: var(--colorWhite);
+    box-shadow: 2px 1px 5px black;
+  }
+
+  .login-page .title {
+    font-size: 24px;
+    color: rgb(99, 96, 96);
+    font-weight: bold;
+    align-self: center;
+    padding-left: 5%;
+    text-align: left;
+  }
+  .group {
+    width: 90px;
+    margin: -27px -25px;
+  }
+
+  .login-form-content h4 {
+    text-align: center;
+    font-size: 16px;
+  }
+
+  .container-login h4 {
+    font-size: 20px;
+    display: inline-block;
+    position: relative;
+    font-weight: bold;
+    color: gray;
+    text-align: center;
+  }
+  .login-form-content h4::after,
+  .login-form-content h4::before {
+    content: " ";
+    position: absolute;
+    width: 40px;
+    height: 1px;
+    background-color: rgb(104, 104, 104);
+    top: 0.6em;
+  }
+
+  .rayas::before {
+    left: -1px;
+  }
+  .rayas::after {
+    right: -10px;
+  }
+
+  .container-login input::placeholder,
+  .container-main-resetPassword input::placeholder {
+    padding-left: 10px;
+  }
+  .login-form-content * {
+    padding: 0;
+    margin: 0;
+  }
+  .login-page {
+    background-color: var(--colorWhite);
+    border-radius: 14px;
+    height: auto;
+    max-width: 450px;
+    width: 500px;
+    padding: 25px;
+    border: 1px solid;
+    box-shadow: 5px 5px 5px rgb(39, 38, 38);
+    margin: 0 30px;
+  }
+  .form {
+    margin: 40px 0;
+  }
+  .container-login .logo {
+    width: 220px;
+    height: 100px;
+    position: relative;
+    margin-left: 0;
+    padding-bottom: 20px;
+  }
+  .redes {
+    display: flex;
+    justify-content: flex-end;
+  }
+  link .clave {
+    color: gray;
+  }
+
+  .button-login {
+    background-color: var(--colorYellow);
+    border-radius: 10px;
+    border: none;
+    color: #000000;
+    cursor: pointer;
+    display: block;
+    font-weight: bold;
+    margin: 30px auto;
+    padding: 10px;
+    text-transform: uppercase;
+    width: 60%;
+  }
+  .button-login:hover {
+    background-color: var(--colorYellow);
+    color: var(--colorBlack);
+    transition: 0.3s;
+  }
+  .login-page p {
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 15px 0;
+  }
+  .login-page a {
+    text-decoration: underline;
+    font-size: 12px;
+    color: gray;
+    font-weight: 600;
+    padding: 5px;
+  }
+  img.agora {
+    width: 350px;
+  }
+  hr {
+    background-color: var(--colorBlack);
+  }
+  .requerid {
+    color: blueviolet !important;
+    text-decoration: underline;
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px 0;
+  }
+  .redes img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/*Mobile Horizontal */
+@media (min-width: 399px) and (max-width: 760px) and (orientation: landscape) {
+  .container-login {
+    align-items: center;
+    display: flex;
+    background-image: url(../../../assets/icons/fondo.svg);
+    padding: 10px;
+    width: 100%;
+  }
+  .login-form-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-top: -25px;
+  }
+
+  input.clave,
+  input.correo,
+  .container-login input,
+  .container-main-resetPassword input {
+    border: transparent;
+    min-height: 40px;
+    width: 100%;
+    border-radius: 10px;
+    margin: 10px 0;
+    background-color: var(--colorWhite);
+    box-shadow: 2px 1px 5px black;
+  }
+  .login-page .title {
+    font-size: 30px;
+    color: rgb(99, 96, 96);
+    font-weight: bold;
+    align-self: center;
+    padding-left: 5%;
+    text-align: left;
+  }
+  .group {
+    width: 110px;
+    margin: -27px -25px;
+  }
+
+  .login-form-content h4 {
+    text-align: center;
+    font-size: 17px;
+  }
+
+  .container-login h4 {
+    font-size: 20px;
+    display: inline-block;
+    position: relative;
+    font-weight: bold;
+    color: gray;
+    text-align: center;
+  }
+  .login-form-content h4::after,
+  .login-form-content h4::before {
+    content: " ";
+    position: absolute;
+    width: 60px;
+    height: 1px;
+    background-color: rgb(104, 104, 104);
+    top: 0.6em;
+  }
+
+  .rayas::before {
+    left: -1px;
+  }
+  .rayas::after {
+    right: -10px;
+  }
+
+  .container-login input::placeholder,
+  .container-main-resetPassword input::placeholder {
+    padding-left: 10px;
+  }
+  .login-form-content * {
+    padding: 0;
+    margin: 0;
+  }
+  .login-page {
+    background-color: var(--colorWhite);
+    border-radius: 14px;
+    height: auto;
+    max-width: 450px;
+    width: 500px;
+    padding: 25px;
+    border: 1px solid;
+    box-shadow: 5px 5px 5px rgb(39, 38, 38);
+    margin: 0 30px;
+  }
+  .form {
+    margin: 40px 0;
+  }
+  .container-login .logo {
+    width: 140px;
+    position: relative;
+    margin-left: -120px;
+    margin-bottom: 190px;
+    padding-bottom: 20px;
+    display: none;
+    visibility: hidden;
+  }
+  .redes {
+    display: flex;
+    justify-content: flex-end;
+  }
+  link .clave {
+    color: gray;
+  }
+
+  .button-login {
+    background-color: var(--colorYellow);
+    border-radius: 10px;
+    border: none;
+    color: #000000;
+    cursor: pointer;
+    display: block;
+    font-weight: bold;
+    margin: 30px auto;
+    padding: 10px;
+    text-transform: uppercase;
+    width: 60%;
+  }
+  .button-login:hover {
+    background-color: var(--colorYellow);
+    color: var(--colorBlack);
+    transition: 0.3s;
+  }
+  .login-page p {
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 15px 0;
+  }
+  .login-page a {
+    text-decoration: underline;
+    font-size: 12px;
+    color: gray;
+    font-weight: 600;
+    padding: 5px;
+  }
+  img.agora {
+    width: 350px;
+    display: none;
+    visibility: hidden;
+  }
+  hr {
+    background-color: var(--colorBlack);
+  }
+  .requerid {
+    color: blueviolet !important;
+    text-decoration: underline;
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px 0;
+  }
+  .redes img {
+    width: 40px;
+    height: 40px;
+  }
+  div.LazyLoad.is-visible.imagenes {
+    display: none;
+  }
+}
+/*Mobile Vertical*/
+@media (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  .container-login {
+    align-items: center;
+    display: flex;
+    background-image: url(../../../assets/icons/fondo.svg);
+    padding: 5px;
+    padding-left: 0px;
+    width: 105%;
+    height: calc(100vh - 5px);
+  }
+  .login-form-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-top: -55px;
+  }
+
+  input.clave,
+  input.correo,
+  .container-login input,
+  .container-main-resetPassword input {
+    border: transparent;
+    min-height: 40px;
+    width: 100%;
+    border-radius: 10px;
+    margin: 0;
+    background-color: var(--colorWhite);
+    box-shadow: 2px 1px 5px black;
+    font-size: 14px;
+  }
+  .login-page .title {
+    font-size: 20px;
+    color: rgb(99, 96, 96);
+    font-weight: bold;
+    align-self: center;
+    padding-left: 5%;
+    text-align: left;
+  }
+  .group {
+    width: 50px;
+    margin: -7px -5px;
+  }
+
+  .login-form-content h4 {
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .container-login h4 {
+    font-size: 15px;
+    display: inline-block;
+    position: relative;
+    font-weight: bold;
+    color: gray;
+    text-align: center;
+  }
+  .login-form-content h4::after,
+  .login-form-content h4::before {
+    content: " ";
+    position: absolute;
+    width: 35px;
+    height: 1px;
+    background-color: rgb(104, 104, 104);
+    top: 0.6em;
+  }
+
+  .rayas::before {
+    left: -1px;
+  }
+  .rayas::after {
+    right: -10px;
+  }
+
+  .container-login input::placeholder,
+  .container-main-resetPassword input::placeholder {
+    padding-left: 10px;
+  }
+  .login-form-content * {
+    padding: 0;
+    margin: 0;
+  }
+  .login-page {
+    background-color: var(--colorWhite);
+    border-radius: 14px;
+    height: auto;
+    max-width: 450px;
+    width: 500px;
+    padding: 25px;
+    border: 1px solid;
+    box-shadow: 5px 5px 5px rgb(39, 38, 38);
+    margin: 0 30px;
+  }
+  .form {
+    margin: 40px 0;
+  }
+  .container-login .logo {
+    width: 140px;
+    position: relative;
+    margin-left: -120px;
+    margin-bottom: 190px;
+    padding-bottom: 20px;
+    display: none;
+    visibility: hidden;
+  }
+  .redes {
+    display: flex;
+    justify-content: flex-end;
+  }
+  link .clave {
+    color: gray;
+  }
+
+  .button-login {
+    background-color: var(--colorYellow);
+    border-radius: 10px;
+    border: none;
+    color: #000000;
+    cursor: pointer;
+    display: block;
+    font-weight: bold;
+    margin: 10px auto;
+    padding: 10px;
+    text-transform: uppercase;
+    width: 60%;
+  }
+  .button-login:hover {
+    background-color: var(--colorYellow);
+    color: var(--colorBlack);
+    transition: 0.3s;
+  }
+  .login-page p {
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 15px 0;
+  }
+  .login-page a {
+    text-decoration: underline;
+    font-size: 10px;
+    color: gray;
+    font-weight: 600;
+    padding: 5px;
+  }
+  img.agora {
+    width: 350px;
+    display: none;
+    visibility: hidden;
+  }
+  hr {
+    background-color: var(--colorBlack);
+  }
+  .requerid {
+    color: blueviolet !important;
+    text-decoration: underline;
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px 0;
+  }
+  .redes {
+    margin: -30px 0;
+  }
+  .redes img {
+    width: 40px;
+    height: 40px;
+  }
+  div.LazyLoad.is-visible.imagenes {
+    display: none;
+  }
 }

@@ -3,10 +3,15 @@ import logo from "../../assets/logos/Logo-negro-completo.png";
 import a from "../../assets/logos/a.png";
 import style from "./Footer.module.css";
 import LazyLoad from "react-lazy-load";
+import { useSelector } from "react-redux";
 
 export function Footer() {
+   const auth = useSelector((state) => state.auth);
+
+   const {isLogged } = auth;
   return (
     <>
+    {isLogged ? (
       <footer>
         <div className={style.footerContainer}>
           <LazyLoad className="a">
@@ -49,6 +54,7 @@ export function Footer() {
           </LazyLoad>
         </div>
       </footer>
+    ) : ''}
     </>
   );
 }

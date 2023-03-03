@@ -211,6 +211,9 @@
   padding: 15px;
   width: 95%;
 }
+.segundoFondoestudiantes h4{
+  color: var(--colorBlackOpacity);
+}
 .segundoFondoestudiantes::-webkit-scrollbar {
   width: 5px;
   overflow-x: hidden;

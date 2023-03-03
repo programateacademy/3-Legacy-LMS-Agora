@@ -4,6 +4,7 @@ import { isEmail } from "../../../utils/validation";
 import { showErrMsg, showSuccessMsg } from "../../../utils/notification";
 import logo from "../../../assets/logos/Programate-academy-negros.png";
 import Agora from "../../../assets/logos/agora.png";
+import { useNavigate } from "react-router-dom";
 import "./ForgotPassword.css";
 
 import LazyLoad from "react-lazy-load";
@@ -16,7 +17,7 @@ const initialState = {
 
 function ForgotPassword() {
   const [data, setData] = useState(initialState);
-
+  const navigate = useNavigate();
   const { email } = data;
 
   const handleChangeInput = (e) => {
@@ -42,17 +43,18 @@ function ForgotPassword() {
 
   return (
     <div className="container-main-resetPassword">
-      <div className="image">
-        <LazyLoad className="imagenes">
-          <img className="agora" src={Agora} alt="" />
-        </LazyLoad>
+      <LazyLoad className="imagenes">
+        <img className="agora" src={Agora} alt="" />
+      </LazyLoad>
 
-        <LazyLoad>
-          <img className="logo" src={logo} alt="" />
-        </LazyLoad>
-      </div>
+      <LazyLoad>
+        <img className="logo" src={logo} alt="" />
+      </LazyLoad>
       <div className="container-resetPassword">
-        <h2 className="title-resetPassword">OLVIDASTE TU CONTRASEÑA?</h2>
+        <button className="button_return" onClick={() => navigate(-1)}>
+          <i className="ri-arrow-go-back-line"></i>
+        </button>
+        <h2 className="title-resetPassword">¿Olvidaste tu contraseña?</h2>
 
         <div className="container-info-resetPassword">
           <input

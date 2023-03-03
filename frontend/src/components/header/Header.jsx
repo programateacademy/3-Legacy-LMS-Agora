@@ -33,6 +33,7 @@ export function Header() {
   };
   return (
     <>
+    {isLogged ? (
       <header>
         <div className={style.headerContainer}>
           {isLogged && (isStudent || isTeacher) ? (
@@ -58,15 +59,15 @@ export function Header() {
             <Link className={style.link_singIn} to="/login">
               <i
                 className="ri-user-line icon-signIn"
-                style={{ marginRight: "1rem" }}
               >Ingresar</i>
             </Link>
           )}
         </div>
       </header>
+      ) : ''}
       <div className={style.container}>
         <Outlet />
       </div>
-    </>
+      </>
   );
 }

@@ -8,13 +8,13 @@
     margin-left: auto;
     display: flex;
     justify-content: flex-end;
-    margin-top: -160px;
+    margin-top: -210px;
   }
 
   .footerContainer {
     width: 100%;
     height: 100px;
-    margin-top: 100px;
+    margin-top: 30px;
     left: -1.53%;
     right: 1.6%;
     top: 91.36%;
@@ -25,7 +25,7 @@
   footer img {
     width: 9%;
     height: auto;
-    margin-top: -90px;
+    margin-top: -40px;
   }
 
   .sign {
@@ -61,7 +61,7 @@
   .footerContainer {
     width: 100%;
     height: 100px;
-    margin-top: 125px;
+    margin-top: 65px;
     margin-bottom: -19px;
     left: -1.53%;
     right: 1.6%;
@@ -109,7 +109,7 @@
   .footerContainer {
     width: 100%;
     height: 100px;
-    margin-top: 190px;
+    margin-top: 40px;
     margin-bottom: -20px;
     left: -1.53%;
     right: 1.6%;
@@ -150,7 +150,7 @@
     margin-left: auto;
     display: flex;
     justify-content: flex-end;
-    margin-top: -160px;
+    margin-top: -150px;
     width: 35%;
     height: 35%;
   }
@@ -158,7 +158,7 @@
   .footerContainer {
     width: 100%;
     height: 90px;
-    margin-top: 190px;
+    margin-top: 10px;
     margin-bottom: -20px;
     left: -1.53%;
     right: 1.6%;
@@ -208,7 +208,7 @@
   .footerContainer {
     width: 100%;
     height: 60px;
-    margin-top: 90px;
+    margin-top: 40px;
     margin-bottom: 0px;
     left: -1.53%;
     right: 1.6%;

@@ -10,7 +10,7 @@ export function MenuDashboard({ open, setOpen }) {
   const params = useParams();
   const cohortID = params.id;
   const { isTeacher } = auth;
-  const [activeLink, setActiveLink] = useState(null);
+  const [activeLink, setActiveLink] = useState(1);
   const navLinks = [
     {
       text: "Estadísticas",
