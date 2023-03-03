@@ -176,6 +176,17 @@
   overflow: hidden;
 }
 
+input{
+    border: transparent;
+    min-height: 40px;
+    width: 100%;
+    border-radius: 10px;
+    margin: 10px 0;
+    background-color: var(--colorWhite);
+    box-shadow: 2px 1px 5px var(--colorBlack);
+    padding: 0 10px;
+}
+
 .cajaUlt > button {
   display: flex;
   justify-content: center;

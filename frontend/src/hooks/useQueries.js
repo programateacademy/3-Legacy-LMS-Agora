@@ -1,7 +1,8 @@
-import { useDispatch, useSelector } from "react-redux";
-import apiAgora from "../api";
-import { saveQueries } from "../redux/actions/queriesActions"; 
+import { useDispatch, useSelector } from "react-redux"; // Se importa modulos a utilizar de la libreria
+import apiAgora from "../api"; // Se importa la conexion con el servidor
+import { saveQueries } from "../redux/actions/queriesActions";  // Se importa un metodo especifico del reducer
 
+//hook para obtener los proyectos y guardarlo en el redux para usarlo en cualquier lado.
 const useQueries= () => {
   const dispatch = useDispatch();
   const queries = useSelector(store => store.queries.data);

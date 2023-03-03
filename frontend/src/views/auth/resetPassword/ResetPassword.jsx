@@ -66,7 +66,7 @@ export function ResetPassword() {
   return (
     <>
       <div className="container-main-resetPassword">
-        <LazyLoad>
+        <LazyLoad className="logoT">
           <img className="agora" src={Agora} alt="" />
         </LazyLoad>
 

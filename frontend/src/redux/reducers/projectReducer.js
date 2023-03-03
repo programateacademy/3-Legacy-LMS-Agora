@@ -1,5 +1,5 @@
-import ACTIONS from "../actions/";
-
+import ACTIONS from "../actions/"; // Se importa las diferentes acciones definidas
+// Arbol de objecto que define inicialmente para usarlo en cualquier lado del proyecto
 const initialState = {
   loading: false,
   data: {},

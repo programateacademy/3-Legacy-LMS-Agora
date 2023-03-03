@@ -19,7 +19,7 @@
   input.clave,
   input.correo,
   .container-login input,
-  .container-main-resetPassword input {
+  .container-main-resetPassword input{
     border: transparent;
     min-height: 40px;
     width: 100%;
