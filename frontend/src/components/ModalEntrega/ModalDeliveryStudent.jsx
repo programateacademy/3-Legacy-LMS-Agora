@@ -226,7 +226,6 @@ export function ModalDeliveryStudent() {
           <div className={styles.chat}>
             <div className={styles.segundoFondoestudiantes}>
               <h4>
-                {" "}
                 <b>Entregas</b>
               </h4>
               {modal.map((item, index) => (
