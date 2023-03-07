@@ -24,15 +24,6 @@ https://grass-sassafras-003.notion.site/gora-Academy-3-0-LMS-Tecnical-documentat
     SENDER_EMAIL_ADDRESS=programate.agora@gmail.com 
 </p>
 
-<h2>Credentials</h2>
-
-><p>
-- SuperAdmin: miguel.m.lopez.p@gmail.com - agora2021 <br/>
-- Admin: danielmateopatarroyomolina@gmail.com - agora2021 <br/>
-- Formador: lu04fer@gmail.com - agora2022 <br/>
-- Estudiante: smurcia162@gmail.com - agora2022 <br/>
-</p>
-
 <h2>LOGIN.🔒️</h2>
 <p>The access is posible by 4 different roles:</p>
 <p align="center"></p>
