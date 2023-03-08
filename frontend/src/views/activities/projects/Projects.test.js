@@ -16,7 +16,7 @@
 
 //   test('Deberia renderizar el boton que se habilita cuando el rol es teacher', () => {
 //     const component = render(<Projects teacher={true} />); // Se renderiza el componente con props que validan que es formador
-//     const test = screen.getByText(/crear proyecto/i) // Se testea si se habilita un boton
+//     const test = screen.getByRole('button', {title:/crear proyecto/i}) // Se testea si se habilita un boton
 //     component.debug();
 //     console.log(test)
 //   })

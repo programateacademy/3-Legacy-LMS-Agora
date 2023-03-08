@@ -15,7 +15,7 @@
 //     student = render(<ViewProject teacher={false} />) // Se renderiza el componente con props que validan que es estudiante
 //     title = student.getByText('Requerimientos Técnicos'); // Se testea un titulo
 //     placeholder = student.getByPlaceholderText(/fecha de entrega/i); // Se testea un placeholder para un input
-//     buttonAble = student.getByText(/entregar proyecto/i); // Se testea si se habilita el boton en rol estudiante
+//     buttonAble = student.getByRole('button', { title: 'Entregar proyecto' }); // Se testea si se habilita el boton en rol estudiante
 //     buttonReturn = student.getByRole('button', { name: /button/i }); // Se testea si escuentra un button con un title especifico.
 //   });
 
@@ -50,7 +50,7 @@
 
 // test("Deberia no renderizar el botón en rol formador", () => {
 //   const teacher = render(<ViewProject teacher={true} />); // Renderizado con props para rol formador
-//   const buttonDisabled = teacher.getByText(/entregar proyecto/i); // Se testea si se inhabilita el boton en rol formador
+//   const buttonDisabled = teacher.getByRole('button', { title: /entregar proyecto/i }); // Se testea si se inhabilita el boton en rol formador
 //   screen.debug();
 //   expect(buttonDisabled).toBeInTheDocument();
 // });

@@ -10,6 +10,7 @@ export function Projects(props) {
   const { teacher } = props;
   const params = useParams();
   const auth = useSelector((state) => state.auth);
+  // Variables solamente para realizar las pruebas unitarias en local
   // const userID = "63e3e46a39cb1aea19895659";
   // const cohortID = teacher
   //  ? "63e3e39d39cb1aea19895658"
@@ -36,7 +37,6 @@ export function Projects(props) {
             title="Crear proyecto"
             link={`/project/create-project/${cohortID}`}
           />
-          
         </div>
       ) : null}
       <div className={styles.cards}>
