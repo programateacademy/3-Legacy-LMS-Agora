@@ -2,6 +2,13 @@
   min-height: calc(100vh - 145px);
   padding: 1rem;
 }
+.title {
+ font-size: 40px;
+ margin-top: 20px;
+ font-weight: 600;
+ color: var(--colorNav);
+}
+
 .button_return {
   align-self: flex-start;
   background-color: var(--colorYellow);

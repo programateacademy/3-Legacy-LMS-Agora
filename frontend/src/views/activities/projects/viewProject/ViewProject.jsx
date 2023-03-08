@@ -73,7 +73,7 @@ export function ViewProject(props) {
   return (
     <div className={style.formContainer}>
       <div>
-        <button className={style.button_return} title='hola' onClick={() => navigate(-1)}>
+        <button className={style.button_return} title='button' onClick={() => navigate(-1)}>
           <i className="ri-arrow-go-back-line"></i>
         </button>
       </div>
@@ -84,7 +84,7 @@ export function ViewProject(props) {
       </div>
       {!teacher ? (
         <div className={style.buttonDelivery}>
-          <Button title="Entregar proyecto" link={`/delivery/project/${projectID}`}/>
+          <Button title="Entregar proyecto" link={`/delivery/project/${projectID}`}/>{/*Entregar Proyecto*/}
         </div>
       ) : null}
 

@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import { ModalCreateAnnouncements } from "../../components/modal/modalCreateAnnouncements/ModalCreateAnnouncements";
 import { ModalUpdateAnnouncements } from "../../components/modal/modalUpdateAnnouncements/ModalUpdateAnnouncements";
 import styles from "./Announcements.module.css";
+
 export const Announcements = (props) => {
   const { teacher } = props;
   const auth = useSelector((state) => state.auth);
@@ -68,7 +69,7 @@ export const Announcements = (props) => {
   };
   return (
     <div className={styles.Announcements}>
-      <h2>Anuncios</h2>
+      <h2 className={styles.title}>Anuncios</h2>
       {isTeacher ? (
         <div className={styles.containerButton}>
           <button className={styles.button} onClick={onClickModal}>

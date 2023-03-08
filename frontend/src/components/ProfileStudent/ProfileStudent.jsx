@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styles from "./ProfileStudent.module.css";
-import profiletemporalimg from "../../assets/icons/profile_img.jpg";
 import { useNavigate, useParams } from "react-router-dom";
 import { TableStudent } from "./TableStudent";
 import { useSelector } from "react-redux";
@@ -140,7 +139,11 @@ export function ProfileStudent(props) {
 
   return (
     <>
-      <button className={styles.button_return} type="button" onClick={() => navigate(-1)}>
+      <button
+        className={styles.button_return}
+        type="button"
+        onClick={() => navigate(-1)}
+      >
         <i className="ri-arrow-go-back-line"></i>
       </button>
 

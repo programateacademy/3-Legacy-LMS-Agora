@@ -10,11 +10,11 @@ export function Projects(props) {
   const { teacher } = props;
   const params = useParams();
   const auth = useSelector((state) => state.auth);
+  // const userID = "63e3e46a39cb1aea19895659";
+  // const cohortID = teacher
+  //  ? "63e3e39d39cb1aea19895658"
+  //  : "63e40c5c714d65226eef6c0a";
   const userID = auth.user.id;
-  //const userID = "63e3e46a39cb1aea19895659";
-  //const cohortID = teacher
-   // ? "63e3e39d39cb1aea19895658"
-   // : "63e40c5c714d65226eef6c0a";
   const cohortID = teacher ? params.id : auth.user.cohortID;
   const [cohortProjects, setCohortProjects] = useState([]);
 
@@ -36,6 +36,7 @@ export function Projects(props) {
             title="Crear proyecto"
             link={`/project/create-project/${cohortID}`}
           />
+          
         </div>
       ) : null}
       <div className={styles.cards}>

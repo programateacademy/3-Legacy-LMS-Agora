@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Grade.module.css";
 import { useParams, Link, useNavigate } from "react-router-dom";
-
 import { useSelector } from "react-redux";
 import apiAgora from "../../../api";
 
@@ -63,41 +62,41 @@ export function Grade() {
         <button className={styles.button_return} onClick={() => navigate(-1)}>
           <i className="ri-arrow-go-back-line"></i>
         </button>
-        <h3>{infoActivity}</h3>
+        <h3 className={styles.title}>{infoActivity}</h3>
       </div>
       <div className={styles.studentsTableContainer}>
-      <table className={styles.userTable}>
-        <thead>
-          <tr>
-            <th>Nombres</th>
-            <th>Apellidos</th>
-            <th>Estado</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {orderedTableList.map((user, index) => {
-            return (
-              <tr key={index}>
-                <td>{user.firstName + " " + user.middleName}</td>
-                <td>{user.lastName + " " + user.secondSurname}</td>
-                <td>
-                  {activity.find((e) => e === user.id)
-                    ? "Entrego"
-                    : "No Entrego"}
-                </td>
-                <td>
-                  <Link
-                    to={`/deliveryTeacher/${kind}/${activityID}/${user.id}`}
-                  >
-                    Ver entrega
-                  </Link>
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+        <table className={styles.userTable}>
+          <thead>
+            <tr>
+              <th>Nombres</th>
+              <th>Apellidos</th>
+              <th>Estado</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {orderedTableList.map((user, index) => {
+              return (
+                <tr key={index}>
+                  <td>{user.firstName + " " + user.middleName}</td>
+                  <td>{user.lastName + " " + user.secondSurname}</td>
+                  <td>
+                    {activity.find((e) => e === user.id)
+                      ? "Entrego"
+                      : "No Entrego"}
+                  </td>
+                  <td>
+                    <Link
+                      to={`/deliveryTeacher/${kind}/${activityID}/${user.id}`}
+                    >
+                      Ver entrega
+                    </Link>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       </div>
     </div>
   );
