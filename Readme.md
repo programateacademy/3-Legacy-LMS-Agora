@@ -79,27 +79,22 @@ For run the page, you must:</br>
 
 ><p> https://grass-sassafras-003.notion.site/gora-Academy-3-0-LMS-Tecnical-documentation-81cced57cc434b53887bb821c94f26f8 </p>
 
-<h2 align="center">AUTHORS 🧑‍💻.</h2>
-<p align="center"><a href="https://github.com/Miguel-Lopez-97" target="_blank">Miguel Angel Moreno López.</a></br>SCRUM MASTER</br>
-   <img src="./assets_readme/Miguel.png" height="200px" width="250px"></p>
-   </br>
-<p align="center"><a href="https://github.com/AngieLadinoP" target="_blank">Angie Ladino.</a></br>TECHNICAL LEADER</br>
-    <img src="./assets_readme/Angie.png" height="250px" width="250px"></p>
+<h2 align="center">AUTHORS 🧑‍💻</h2>
+<p align="center"><a href="https://github.com/Ale8604" target="_blank">Alejandro José Sotelo Ramos</a></br>TECHNICAL LEADER</br>
+   <img src="https://user-images.githubusercontent.com/80645321/223619162-75f1bb6c-634e-4b93-8967-7b8f4472a2bc.png" height="250px" width="250px"></p>
+<p align="center"><a href="https://github.com/AngieLadinoP" target="_blank">Yeimmi Paola Buenaventura Guio</a></br>SCRUM MASTER</br>
+    <img src="https://user-images.githubusercontent.com/80645321/223619231-461888f1-2628-4fc2-baca-8f1366f60793.png" height="250px" width="250px"></p>
     </br>
-<p align="center"><a href="https://github.com/ValentinaRippe" target="_blank">Laura Valentina Rippe.</a></br>FRONTEND LEADER</br>
-    <img src="./assets_readme/Valentina.png" height="250px" width="250px"></p>
+<p align="center"><a href="https://github.com/JhonattanSSG01" target="_blank">Jhonattan Stiven Saavedra Gomez</a></br>BACKEND LEADER</br>
+    <img src="https://user-images.githubusercontent.com/80645321/223619308-e6d568ba-c8e2-46ef-865e-b6e855bdfd03.png" height="250px" width="250px"></p>
+<p align="center"><a href="https://github.com/Robin98123" target="_blank">Robinson Rincon Bernal</a></br>FRONTENDLEADER</br>
+    <img src="https://user-images.githubusercontent.com/80645321/223619375-46fd48cb-3ac2-4d34-ac8c-b4ded1470aa9.png" height="180px" width="250px"></p>
     </br>
-<p align="center"><a href="https://github.com/EstefaniAzocar" target="_blank">Estefani Adelaida Azocar Parra.</a></br>FRONTEND SUPPORT</br>
-    <img src="./assets_readme/Estefi.png" height="250px" width="250px"></p>
+<p align="center"><a href="https://github.com/kevinarias2210" target="_blank">Kevin Steven Arias Duarte</a></br>TEAM DEVELOPMENT</br>
+    <img src="https://user-images.githubusercontent.com/80645321/223619408-ae39ed01-7a40-474a-9b1a-05517b1ecc69.png" height="250px" width="250px"></p>
+<p align="center"><a href="https://github.com/valentinaidrogo1999" target="_blank">Valentina del valle idrogo idrogo</a></br>TEAM DEVELOPMENT</br>
+    <img src="https://user-images.githubusercontent.com/80645321/223619446-46c26e74-e8b9-45f1-9474-448a91c8e1a8.png" height="250px" width="250px"></p>
     </br>
-<p align="center"><a href="https://github.com/MatthewHDemon" target="_blank">Daniel Mateo Patarroyo Molina.</a></br>FRONTEND SUPPORT</br>
-    <img src="./assets_readme/Mateo.png" height="200px" width="200px"></p>
-    </br>
-<p align="center"><a href="https://github.com/jsmurcia" target="_blank">Juan Sebastian Murcia Cuevas.</a></br>BACKEND LEADER</br>
-    <img src="./assets_readme/Sebastian.png" height="250px" width="250px"></p>
-    </br>
-<p align="center"><a href="https://github.com/lufer04" target="_blank">Luisa Fernanda Palacios Pérez.</a></br>BACKEND SUPPORT</br>
-    <img src="./assets_readme/Luisa.png" height="250px" width="250px"></p>
 
 
 
