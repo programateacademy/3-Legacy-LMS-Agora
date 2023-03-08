@@ -68,7 +68,7 @@
 
 For run the page, you must:</br>
 - Run the file backend: .../Legacy-LMS-Agora/backend$ npm start.</br>
-- Run the file frontend: .../Legacy-LMS-Agora/frontend$ node index.js.</br>
+- Run the file frontend: .../Legacy-LMS-Agora/frontend$ pnm start.</br>
 
 <h2>DEPLOYMENT. 🚀</h2>
 <p>Backend was deployed by Heroku</br>
