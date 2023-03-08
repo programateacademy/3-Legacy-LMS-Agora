@@ -1,6 +1,6 @@
 <h1 align="center">PROYECT AGORA 3.0 🌐</h1>
 
-<p align="center">This is a page at the request by the educational organization Educamás. It allows centralizing creation and revision of activities, the competence's evaluation associated to each project and the notifications.</p>
+<p align="center">This is a web application that is run by the educational organization Educamás, this allows continuous monitoring in the creation, review and verification of the different activities, evaluation relevant to the competencies associated with each project.</p> </br>
 
 <h2 align="center">🟧🔸 ROLES 🔸🟧 </h2>
 
