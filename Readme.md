@@ -38,32 +38,22 @@
 </p>
 
 <h2>TOOLS 🔧</h2>
-<h3>Frontend</h3>
-<p> <h4>React.</h4> Open source Javascript library designed to create user interfaces in the order of facilitating the development of single page applications.</br>
-<h4>Css modules.</h4>CSS file that defines class and animation names that are scoped locally by default</br>
-<h4>Node.js.</h4>Event-driven environment designed to create scalable applications, allowing multiple connections to be established and managed at the same time.     
+
+<div>
+<h2 align="center">FRONTEND</h2>
+<p> 
+<h4>React</h4> Open source Javascript library designed to create user interfaces in the order of facilitating the development of single page applications.
+<h4>CSS modules</h4>CSS file that defines class and animation names that are scoped locally by default
+<h4>Node.js</h4>Event-driven environment designed to create scalable applications, allowing multiple connections to be established and managed at the same time.     
 </p>
-<h3>Backend</h3>
-<p><h4>MongoDB.</h4>NoSQL database system, document-oriented and open source.</br>
-<p><h4>Express.</h4>Minimalist development framework for Node.js that allows us to structure an application in an agile way, providing us with functionalities such as routing, options to manage sessions and cookies, etc.</br>
-<h4>Postman.</h4>API platform for building and using APIs that simplifies each step of the API lifecycle and streamlines collaboration so you can create better APIs—faster.
- </p>
+
+<h2 align="center">BACKEND</h2>
+<p><h4>MongoDB</h4>NoSQL database system, document-oriented and open source
+<p><h4>Express</h4>Minimalist development framework for Node.js that allows us to structure an application in an agile way, providing us with functionalities such as routing, options to manage sessions and cookies, etc
+<h4>Postman</h4>API platform for building and using APIs that simplifies each step of the API lifecycle and streamlines collaboration so you can create better APIs—faster.
+</p>
+</div>
  
- <h2>DEPENDENCES. 🗃️</h2>  
-<p>- @pathofdev/react-tag-input.</br>
-- @testing-library/jest-dom.</br>
-- @testing-library/react.</br>
-- @testing-library/user-event.</br>
-- Axios.</br>
-- React-bootstrap.</br>
-- React-dom.</br>
-- React-icons.</br>
-- React-redux.</br>
-- React-router-dom.</br>
-- React-scripts.</br>
-- Sweetalert2.</br>
-- Swiper.</br>
-- Web-vitals.</br></p>
 
 <h2>WARNING! 🚧</h2>
 <p>Before run the page locally, is neccessary:</br>
@@ -78,7 +68,7 @@
 
 For run the page, you must:</br>
 - Run the file backend: .../Legacy-LMS-Agora/backend$ npm start.</br>
-- Run the file frontend: .../Legacy-LMS-Agora/frontend$ npm start.</br>
+- Run the file frontend: .../Legacy-LMS-Agora/frontend$ node index.js.</br>
 
 <h2>DEPLOYMENT. 🚀</h2>
 <p>Backend was deployed by Heroku</br>
