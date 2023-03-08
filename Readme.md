@@ -2,47 +2,40 @@
 
 <p align="center">This is a page at the request by the educational organization Educamás. It allows centralizing creation and revision of activities, the competence's evaluation associated to each project and the notifications.</p>
 
-<h2>Complete documentation of the project (available in Spanish) </h2>
-https://grass-sassafras-003.notion.site/gora-Academy-3-0-LMS-Tecnical-documentation-81cced57cc434b53887bb821c94f26f8 
+<h2 align="center">🟧🔸 ROLES 🔸🟧 </h2>
 
-<h2>Environment Variables</h2>
-
-><p>
-    MONGO_DB_URI=mongodb+srv://agora:1234@agora.fr0cnoy.mongodb.net/test?retryWrites=true&w=majority
-    MONGO_DB_URI_TEST=mongodb+srv://agora:1234@agora.fr0cnoy.mongodb.net/test?retryWrites=true&w=majority 
-
-    ACTIVATION_TOKEN_SECRET=J2@sW/fLmR;bV!.dxm6#mrY}$#v8f/8JJLf%e7q{W7<UPG.Wfp
-    ACCESS_TOKEN_SECRET=b?AS]ewDruG$z(>%@+d:Ak2R@Qy*Xxy%dYp#&de#W%B,gS8'Uc 
-    REFRESH_TOKEN_SECRET=uCWtjR5W^up7+(?ajH7kzbnEwmr^MF5;T$!vp#be#H<tqj_H=Ua'w!\>8Z([{'CZEhG:'XKNdv-*xHF:c2rkPUe_!tTav!"D\V
-
-    CLIENT_URL=http://localhost:3000 
-
-    MAILING_SERVICE_CLIENT_ID=95375970215-3d9di0k3c5be1sn73e4q90ce5ouj9i0u.apps.googleusercontent.com 
-    MAILING_SERVICE_CLIENT_SECRET=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 
-    MAILING_SERVICE_REFRESH_TOKEN=1// 
-    044ImY0HqPJVlCgYIARAAGAQSNwF-L9Ir4SXm-uhsSV0j3JhGQRXWfVssR-hI9Deppe26p4iuqyfPYF1x_8L9rVH3tLBD_gBTfP0 
-    SENDER_EMAIL_ADDRESS=programate.agora@gmail.com 
+<h3>LOGIN AND FORGOT PASSWORD 🔒️</h3>
+<p>The access is posible by 4 different roles:</p>
+<p align="left">
+<img src='https://user-images.githubusercontent.com/80645321/223580189-1a107174-02b4-480d-a612-2e25797252cc.png' width='550px' >
+</p>
+<p align="right">
+<img src='https://user-images.githubusercontent.com/80645321/223580333-68ae3b2a-cdb8-4546-8a4c-b33e3a639d27.png' width='550px' >
 </p>
 
-<h2>LOGIN.🔒️</h2>
-<p>The access is posible by 4 different roles:</p>
-<p align="center"></p>
-
-<h3>SuperAdmin.</h3>
+<h3>SUPERADMIN 〽〽</h3>
 <p>Allows creating, editing and deleting administrators.</p>
-<p align="center"></p>
+<p align="left">
+<img src='https://user-images.githubusercontent.com/80645321/223581898-0db1acab-861a-4a02-9d93-4a0eff9df5f1.png' width='550px' >
+</p>
 
-<h3>Admin.</h3>
+<h3>ADMIN 💢💢</h3>
 <p>Allows creating Bootcamps, cohorts, and students, also editing and adding competences.</p>
-<p align="center"></p>
+<p align="right">
+<img src='https://user-images.githubusercontent.com/80645321/223582229-bae3381d-fa78-4aee-a000-981ab18eba17.png' width='550px' >
+</p>
 
-<h3>Teacher.</h3>
+<h3>TEACHER 🔲🔲</h3>
 <p>Allows editing and rating projects, workbooks and queries of others students, and creating announcements.</p>
-<p align="center"></p>
+<p align="left">
+<img src='https://user-images.githubusercontent.com/80645321/223582404-3a8da073-dca8-4a22-8415-3a372eca86ea.png' width='550px' >
+</p>
 
-<h3>Student.</h3>
+<h3>STUDENT 👦👦</h3>
 <p>Allows delivering projects, workbooks, and queries, also reading announcements.</p>
-<p align="center"></p>
+<p align="right">
+<img src='https://user-images.githubusercontent.com/80645321/223582704-d5634f7f-8fc1-4c47-bbb9-d5735ca29382.png' width='550px' >
+</p>
 
 <h2>TOOLS 🔧</h2>
 <h3>Frontend</h3>
@@ -90,6 +83,11 @@ For run the page, you must:</br>
 <h2>DEPLOYMENT. 🚀</h2>
 <p>Backend was deployed by Heroku</br>
    Frontend was deployed by <a href="https://cool-alpaca-14adba.netlify.app/">Netlify.</a><p>
+
+
+<h3>🔖 Complete documentation of the project (available in Spanish) 🔖</h3>
+
+><p> https://grass-sassafras-003.notion.site/gora-Academy-3-0-LMS-Tecnical-documentation-81cced57cc434b53887bb821c94f26f8 </p>
 
 <h2 align="center">AUTHORS 🧑‍💻.</h2>
 <p align="center"><a href="https://github.com/Miguel-Lopez-97" target="_blank">Miguel Angel Moreno López.</a></br>SCRUM MASTER</br>
