@@ -2,44 +2,99 @@
     border-radius: 2px;
     width: 250px;
     height: 30px;
-    margin-top: 40px; 
+    margin-top: 40px;     
 }
 .progressBar progress{
     width: 700px;
-    height: 25px;
+    height: 45px;
+    
 }
 .progressBar label{
     margin-bottom: 0px;
+    color: #333333;
+    font-size: 18px;
+    font-weight: 700;
 }
 .Recuadro{
     padding: 20px;
-    box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
     border-radius: 10px;
     width: 850px;
 }
+
+h3{
+    font-size: 40px;
+    position: relative;
+    font-weight: 700;
+}
+
+h3::after{
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    height: 6px;
+    width: 100px;
+    left: 420px;
+    background-color: var(--colorYellow);
+}
+
 .contAllStatistics{
     width: 800px;
     margin: auto;
     margin-top: 50px;
+    margin-bottom: 50px;
     font-weight: 500;
+    
 }
 .contTareasEntregas{
     display: flex;
-    background-color: #C4C4C4;
+    border-radius: 50px;
+    box-shadow:  20px 20px 60px #ffea9d,-20px -20px 60px #ffffff;
+    border: 6px solid black;
+    background-color: var(--colorYellow);
     padding: 20px;
-    width: 369px;
-    height: 176px;
+    width: 350px;
+    height: 200px;
     align-items: center;
-    border-radius: 10px;
+    border-radius: 10px;   
 }
+
+.contQuality{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    padding: 20px 20px;
+    border: 3px solid black;
+    border-radius: 100px;
+    box-shadow:  10px 10px 20px #fff29c,
+             -10px -10px 20px #ffff8d;
+}
+
+.contQuality h2:first-child{
+    font-size: 60px;
+}
+
+.contQuality h2:last-child{
+    font-size: 35px;
+}
+
+
+.cont span{
+    font-size: 35px;
+    margin: 0 5px;
+    color: var(--colorYellow);
+}
+
 .contInsignias{
     display: flex;
-    background-color: #C4C4C4;
+    border-radius: 50px;
+    box-shadow:  20px 20px 60px #ffea9d,-20px -20px 60px #ffffff;
+    border: 6px solid black;
+    background-color: var(--colorYellow);
     padding: 20px;
-    width: 369px;
-    height: 176px;
+    width: 350px;
+    height: 200px;
     align-items: center;
-    border-radius: 10px;
+    border-radius: 10px;   
 }
 
 .contTareasEntregas h2{
@@ -48,6 +103,73 @@
 .cont{
     display: grid;
     grid-template-columns: 50% 50%;
-    margin-top: 40px;
+    margin-top: 100px;
     gap: 20px;
+    border-radius: 50px;
+}
+
+.cont label{
+    color: #333333;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+@media screen and (max-width: 1200px){
+    .cont{
+        grid-template-columns: auto auto;
+    }
+    .contTareasEntregas{
+        width: 300px;
+    }
+    .contInsignias{
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 1055px){
+    .cont{
+        grid-template-columns: auto;
+    }
+    .contTareasEntregas{
+        width: 400px;
+        justify-content: center;
+    }
+    .contInsignias{
+        width: 400px;
+        justify-content: center;
+    }
+    h3{
+        text-align: left;
+        padding-left: 30px;
+    }
+    h3::after{
+        left: 30px;
+    }
+    .progressBar progress{
+        height: 30px;
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 615px){
+    h3{
+        font-size: 35px;
+    }
+
+    .cont{
+        margin-top: 50px;
+    }
+
+    .contInsignias{
+        width: 220px;
+        justify-content: center;
+    }
+    .contTareasEntregas{
+        width: 220px;
+        justify-content: center;
+    }
+    .progressBar progress{
+        height: 30px;
+        width: 230px;
+    }
 }
