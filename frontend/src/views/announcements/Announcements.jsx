@@ -68,9 +68,9 @@ export const Announcements = (props) => {
   };
   return (
     <div className={styles.Announcements}>
-      <h2>Anuncios</h2>
+      <h2 className={styles.titleBigAnnouncements}>Anuncios</h2>
       {isTeacher ? (
-        <div className={styles.containerButton}>
+        <div className={styles.containerButtonCreate}>
           <button className={styles.button} onClick={onClickModal}>
             Crear Anuncio
           </button>

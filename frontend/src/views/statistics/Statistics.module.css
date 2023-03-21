@@ -27,7 +27,7 @@ h3{
     font-weight: 700;
 }
 
-h3::after{
+.estitle::after{
     content: '';
     position: absolute;
     bottom: -5px;

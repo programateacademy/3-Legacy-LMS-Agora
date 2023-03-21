@@ -9,7 +9,7 @@ export function Statistics() {
   return (
     <>
       <div className={style.contAllStatistics}>
-        <h3>Estadísticas</h3>
+        <h3 className={style.estitle}>Estadísticas</h3>
         <div className={style.Recuadro}>
           {a.map((item, index) => (
             <div key={index} className={style.progressBar}>

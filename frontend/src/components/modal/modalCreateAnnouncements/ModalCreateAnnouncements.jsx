@@ -62,7 +62,7 @@ export function ModalCreateAnnouncements(props) {
       <div className={style.containerModal}>
         <div className={style.close}>
           <button onClick={() => setModal((prevState) => !prevState)}>
-            <i className="ri-close-circle-fill" style={{fontSize: '25px'}}></i>
+            <i className="ri-close-circle-fill" style={{fontSize: '45px'}}></i>
           </button>
         </div>
         <div className={style.containerTitle}>
@@ -90,7 +90,7 @@ export function ModalCreateAnnouncements(props) {
         </div>
         <div className={style.Crear}>
           <button type="submit" className={style.submitButton}>
-            Crear
+            Crear Anuncio
           </button>
         </div>
       </div>
