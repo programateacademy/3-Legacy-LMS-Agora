@@ -28,8 +28,22 @@ export function ProfilesTable(props) {
                   <td>{student.email}</td>
                   <td>{student.contactNumber}</td>
                   <td>
-                    <Link to={`/profile/${cohortID}/${student.id}`}>
-                      Ver perfil
+                    <Link
+                     Style={{
+                        textDecoration: 'none'
+                     }}
+                      to={`/profile/${cohortID}/${student.id}`}
+                    >
+                      <i 
+                        class="ri-eye-fill"
+                        style={{
+                          fontSize: "30px",
+                          color: "var(--colorYellow_65)",
+                          transition: "color 0.2s ease-in-out"
+                          
+                        }}
+                       
+                      ></i>
                     </Link>
                   </td>
                 </tr>

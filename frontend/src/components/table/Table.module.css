@@ -1,28 +1,38 @@
 .userTable {
   border-collapse: inherit;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
   margin: 5vh;
   text-align: center;
   width: 90%;
+  
 }
 .userTableProfile {
   border-collapse: inherit;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
   text-align: center;
   width: 100%;
+  
 }
 .userTable th,
 .userTable td {
-  background-color: var(--colorGray);
+  background-color: var(--colorWhite);
   color: var(--colorBlack);
-  padding: 15px;
+  padding: 5px;
+  
+}
+.userTable td{
+  border-bottom: 6px solid Var(--colorGray);
 }
 .userTable th {
   text-align: left;
+
 }
 .userTable thead th {
-  background-color: var(--colorYellow);
+  background-color: var(--colorGray);
   text-align: center;
+  color: var(--colorBlack);
+  
+  
 }
 .userTable tbody tr:hover {
   background-color: var(--colorGreenLight);
@@ -76,3 +86,7 @@
   color: var(--colorGreenLight);
   transition: 0.3s;
 }
+
+
+
+

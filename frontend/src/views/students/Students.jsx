@@ -50,12 +50,13 @@ export function Students() {
 
   return (
     <div className={style.container}>
-      <h2>Estudiantes cohorte {cohortName}</h2>
+      
       <div className={style.searchbar}>
+      <h2>Estudiantes cohorte {cohortName}</h2>
         <div>
           <Searchbar student={student} setStudent={setStudent} />
         </div>
-
+        
         <div>
           <i
             class="ri-search-2-line"
@@ -63,7 +64,7 @@ export function Students() {
           ></i>
         </div>
       </div>
-
+      
       <div className={style.studentsTable}>
         <ProfilesTable
           list={student ? filteredStudents : students}
