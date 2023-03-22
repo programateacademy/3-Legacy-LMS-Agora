@@ -9,7 +9,7 @@
 }
 
 .yellowButton:hover {
-    background-color: var(--colorYellow);
+    background-color: var(--colorGray);
     color: var(--colorBlack);
     transition: 0.3s;
     text-decoration: none;
