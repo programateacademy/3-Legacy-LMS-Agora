@@ -10,8 +10,50 @@
     
 }
 
-.buttonCreateWorkbook {
+.buttonCreateWorkbook{
     display: flex;
     justify-content: flex-end;
     margin-right: 4vh;
 }
+
+.titleBigworkbooks{
+    padding: 25px;
+    font-size: 50px;
+    font-weight: 1500;
+    position: relative;
+    
+}
+
+.titleBigworkbooks::after{
+    content: '';
+    position: absolute;
+    height: 6px;
+    background-color: var(--colorYellow);
+    width: 100px;
+    bottom: 3px;
+    left: 25rem;
+    transition: 0.4s ease;
+    
+}
+
+.titleBigworkbooks:hover::after{
+    transition: 0.4s ease;
+    left: 20rem;
+}
+
+.titleBigworkbooks::before{
+    content: '';
+    position: absolute;
+    height: 6px;
+    background-color: var(--colorYellow);
+    width: 60px;
+    top: 20px;
+    right: 27rem;
+    transition: 0.4s ease;
+}
+
+.titleBigworkbooks:hover::before{
+    transition: 0.4s ease;
+    right: 25rem;
+  }
+
