@@ -68,11 +68,13 @@
 
 For run the page, you must:</br>
 - Run the file backend: .../Legacy-LMS-Agora/backend$ npm start.</br>
-- Run the file frontend: .../Legacy-LMS-Agora/frontend$ node index.js.</br>
+- Run the file frontend: .../Legacy-LMS-Agora/frontend$ pnm start.</br>
 
 <h2>DEPLOYMENT. 🚀</h2>
-<p>Backend was deployed by Heroku</br>
-   Frontend was deployed by <a href="https://cool-alpaca-14adba.netlify.app/">Netlify.</a><p>
+<p>The display was implemented in Vercel but only in test since only Educamas can do it.</br>
+   The interface was implemented in vercel like the backend but only a test was carried out.</br>
+   Note: The folders identify the vercel configuration and the connection to it.
+<p>
 
 
 <h3>🔖 Complete documentation of the project (available in Spanish) 🔖</h3>

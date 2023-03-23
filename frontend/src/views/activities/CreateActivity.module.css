@@ -115,7 +115,6 @@
 /**/
 .linkIcon {
   color: dodgerblue;
-  margin-left: 40%;
 }
 
 .img_preview {
@@ -128,11 +127,26 @@
 }
 
 .image {
-  margin-top: 20px;
+  margin: 20px 0;
+  padding: 20px;
   height: 98%;
   width: auto;
   display: flex;
   justify-self: center;
+  animation: morh 4.5s linear infinite;
+}
+
+@keyframes morh {
+  0%,
+  100% {
+    border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%;
+  }
+  34% {
+    border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
+  }
+  70% {
+    border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+  }
 }
 
 .file {
@@ -177,6 +191,7 @@
 .containerTwo {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 49vw;
   margin: 2rem;
 }
@@ -195,7 +210,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  background-color: var(--colorHeader);
+  background-color: var(--colorNav);
   box-shadow: 6px 10px 10px var(--colorBlackOpacity);
   border-radius: 8px;
   padding: 3vh;
@@ -264,14 +279,13 @@
 .summaryProject {
   display: flex;
   flex-direction: column;
-  background-color: var(--colorHeader);
+  background-color: var(--colorNav);
   box-shadow: 6px 10px 10px var(--colorBlackOpacity);
   border-radius: 8px;
   margin-top: 1vh;
   margin-bottom: 4vh;
   width: 100%;
   align-items: center;
-
   padding: 3vh;
 }
 
@@ -343,12 +357,14 @@
 }
 
 .contextContainer {
-  background-color: var(--colorHeader);
+  background-color: var(--colorNav);
   box-shadow: 6px 10px 10px var(--colorBlackOpacity);
   padding: 3vh;
   border-radius: 10px;
+  text-align: center;
   margin-top: 15px;
   margin-bottom: 25px;
+  align-self: center;
 }
 
 .first {
@@ -469,7 +485,7 @@
 .formContainer h3 {
   color: var(--colorWhite);
   padding: 2.5vh;
-  text-decoration: underline;
+  text-decoration: none;
   font-weight: bolder;
   text-align: center;
 }
@@ -479,7 +495,7 @@
 }
 
 .inputsdeliveries {
-  background-color: var(--colorGray);
+  background-color: var(--colorBlackOpacity);
   border-radius: 10px;
   margin-top: 3vh;
 }

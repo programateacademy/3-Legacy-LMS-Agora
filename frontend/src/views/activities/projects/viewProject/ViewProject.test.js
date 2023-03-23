@@ -1,54 +1,56 @@
-/* import { screen, render, prettyDOM } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect";
-import {ViewProject} from "./ViewProject";
-import { Button } from "../../../../components/Buttons/Button";
+// import { screen, render } from "@testing-library/react"; // Importamos metodos de la libreria
+// import { ViewProject } from "./ViewProject"; // Importamos el componente a testear
 
-jest.mock('react-redux');
-jest.mock('react-router-dom');
+// // Con jest.mock ignoramos la Librerias que no encuentre a la hora de realizar las pruebas unitarias
+// jest.mock('react-redux');
+// jest.mock('react-router-dom');
 
-describe('testeos', () => {
-  // test("Deberia renderizar la etiqueta <img/>", () => {
-  //   const component = render(<ViewProject teacher={false} />);
-  //   // const img = component.container.querySelector('.formulario');
-  //   // component.debug();
-  //   console.log(component)
-  // });
+// // Describe engloba todos los testeos que se realizen
+// describe('Pruebas Unitarias para el componente ViewProjects', () => {
+//   let student, title, placeholder, buttonAble, buttonReturn; // Declaramos variables globales para algunos testeos
 
-  // test("Deberia renderizar un titulo", () => {
-  //   render(<ViewProject teacher={false} />)
-  //   screen.debug();
-  //   const title = screen.getByText('Requerimientos quanticos')
-  //   expect(title).toBeInTheDocument();
-  // });
+//   // Usamos el beforeEach para validar primero el renderizado del componente
+//   // y cada testeo especifico para reutilizar codigo antes de realizar el expect.
+//   beforeEach(() => {
+//     student = render(<ViewProject teacher={false} />) // Se renderiza el componente con props que validan que es estudiante
+//     title = student.getByText('Requerimientos Técnicos'); // Se testea un titulo
+//     placeholder = student.getByPlaceholderText(/fecha de entrega/i); // Se testea un placeholder para un input
+//     buttonAble = student.getByRole('button', { title: 'Entregar proyecto' }); // Se testea si se habilita el boton en rol estudiante
+//     buttonReturn = student.getByRole('button', { name: /button/i }); // Se testea si escuentra un button con un title especifico.
+//   });
 
-  // test("Deberia renderizar un placeHolder", () => {
-  //   const component = render(<ViewProject teacher={false} />);
-  //   component.getByPlaceholderText(/fecha de entrega/i)
-  // });
+//   // Se realiza los testeos esperados para saber si pasan o no
+//   test("Deberia renderizar un titulo", () => {
+//     screen.debug(); // Ayuda a visualizar mejor el arbol de HTML en consola
+//     expect(title).toBeInTheDocument(); // Se le expecifica que se espera a renderizar en el docuemnto o componente.
+//   });
 
-  // test("Deberia no renderizar un Titulo en rol formador", () => {
-  //   const component = render(<ViewProject teacher={true} />);
-  //   component.getByText(/entregar proyecto/i)
-  // });
-  
-  // test("Deberia no renderizar un Titulo en rol formador", () => {
-  //   const component = render(<ViewProject teacher={true} />);
-  //   component.getByText(/entregar proyecto/i)
-  // });
-  let tesst;
-  let testt;
-  beforeEach(() => {
-    render(<ViewProject teacher={false}/>)
-    tesst = screen.getByRole('button',{name:/hola/i})
-    testt = screen.getByText(/entregar proyecto/i)
-  })
-  test('fff', () => {
-    expect(testt).toBeInTheDocument();
-  })
-  test('Test', () => {
-    expect(tesst).toHaveStyle({
-      textAlign: 'center'
-    })
-  })
-})
- */
+//   test("Deberia renderizar un placeHolder", () => {
+//     screen.debug();
+//     expect(placeholder).toBeInTheDocument();
+//   });
+
+//   test("Deberia renderizar un botón en rol estudiante", () => {
+//     screen.debug();
+//     expect(buttonAble).toBeInTheDocument();
+//   });
+
+//   test('Deberia renderizar el botón de regresar', () => {
+//     screen.debug();
+//     expect(buttonReturn).toBeInTheDocument();
+//   })
+
+//   test('Test sobre estilos', () => {
+//     screen.debug();
+//     expect(buttonReturn).toHaveStyle({ // Se testea si de lo encontrado tiene un estilo en particular
+//       cursor: 'crosshair'
+//     })
+//   })
+// })
+
+// test("Deberia no renderizar el botón en rol formador", () => {
+//   const teacher = render(<ViewProject teacher={true} />); // Renderizado con props para rol formador
+//   const buttonDisabled = teacher.getByRole('button', { title: /entregar proyecto/i }); // Se testea si se inhabilita el boton en rol formador
+//   screen.debug();
+//   expect(buttonDisabled).toBeInTheDocument();
+// });

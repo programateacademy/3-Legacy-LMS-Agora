@@ -28,11 +28,12 @@ const initialState = {
 export function ViewProject(props) {
   const { teacher } = props;
   const auth = useSelector((state) => state.auth);
-  const userID = "63e3e46a39cb1aea19895659";
-  const projectID = "63eaeb009be3c3a734cc7dc5";
+  // Variables solamente para realizar las pruebas unitarias en local
+  // const userID = "63e3e46a39cb1aea19895659";
+  // const projectID = "63eaeb009be3c3a734cc7dc5";
   const params = useParams();
-  //const userID = auth.user.id;
-  //const projectID = params.id;
+  const userID = auth.user.id;
+  const projectID = params.id;
   let navigate = useNavigate();
   const [project, setProject] = useState(initialState);
   const [image, setImage] = useState();
@@ -73,7 +74,7 @@ export function ViewProject(props) {
   return (
     <div className={style.formContainer}>
       <div>
-        <button className={style.button_return} title='hola' onClick={() => navigate(-1)}>
+        <button className={style.button_return} title='button' onClick={() => navigate(-1)}>
           <i className="ri-arrow-go-back-line"></i>
         </button>
       </div>

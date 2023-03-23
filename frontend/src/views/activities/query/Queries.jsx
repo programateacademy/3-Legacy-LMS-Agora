@@ -26,7 +26,9 @@ export function Queries(props) {
   }, [cohortID, userID]);
   return (
     <div className={styles.container}>
+
       <h2 className={styles.titleQueries}>Consultas</h2>
+
       {teacher ? (
         <div className={styles.buttonCreateQuery}>
           <Button

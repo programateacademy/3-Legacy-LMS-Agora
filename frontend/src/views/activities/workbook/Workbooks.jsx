@@ -25,7 +25,9 @@ export function Workbooks(props) {
   }, [cohortID, userID]);
   return (
     <div className={styles.container}>
+
       <h2 className={styles.titleBigworkbooks}>Workbooks</h2>
+
       {teacher ? (
         <div className={styles.buttonCreateWorkbook}>
           <Button

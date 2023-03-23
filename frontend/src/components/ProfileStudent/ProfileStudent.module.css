@@ -176,7 +176,11 @@
   padding: 10px;
 }
 
-.cajaUlt > input {
+.cajaUlt > input:not(.input__imageURL) {
+  padding-left: 2.5rem;
+}
+
+.cajaUlt > input{
   display: flex;
   margin-bottom: 5px;
   width: 170px;
@@ -185,7 +189,6 @@
   box-shadow: none;
   border-radius: 15px;
   margin-left: 20px;
-  padding-left: 2.5rem;
   position: relative;
   overflow: hidden;
 }

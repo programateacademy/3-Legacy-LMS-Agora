@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styles from "./ProfileStudent.module.css";
-import profiletemporalimg from "../../assets/icons/profile_img.jpg";
 import { useNavigate, useParams } from "react-router-dom";
 import { TableStudent } from "./TableStudent";
 import { useSelector } from "react-redux";
