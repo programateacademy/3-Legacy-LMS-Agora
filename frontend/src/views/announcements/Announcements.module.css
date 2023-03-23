@@ -16,35 +16,62 @@
   display: flex;
 }
 
-.containerButton {
+.containerButtonCreate{
+  width: 100%;
   display: flex;
   justify-content: flex-end;
+}
+
+.containerButton {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
   width: 100%;
 }
 
 .button {
-  background-color: var(--colorYellow);
-  color: var(--colorBlack);
-  border-radius: 10px;
-  padding: 10px;
-  max-width: 200px;
-  text-align: center;
-  margin: 1rem;
-  box-shadow: 5px 5px 10px -2px var(--colorBlack);
+  padding: 12px 30px;
+  background-color: #404040;
+  color: white;
+  border-radius: 50px;
+  font-size: 18px;
+  transition: 0.3s ease;
   cursor: pointer;
+  position: relative;
+  margin-top: 20px;
+  margin-right: 90px;
+}
+
+.button::after{
+  content: '';
+  position: absolute;
+  height: 4px;
+  background-color: var(--colorYellow);
+  width: 120px;
+  bottom: 0;
+  left: 35px;
+  transition: 0.3s ease;
+}
+
+.button:hover:after{
+  display: none;
 }
 
 .button:hover {
-  background-color: var(--colorGreenLight);
-  color: var(--colorWhite);
-  transition: 0.3s;
+  background-color: var(--colorYellow);
+  color: #404040;
+  transition: 0.3s ease;
 }
+
+
 
 .containerAnnouncements {
   display: flex;
   flex-direction: column-reverse;
   width: 80%;
   align-items: center;
+  padding-top: 20px;
 }
 
 .containerAnnouncement {
@@ -53,8 +80,11 @@
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  background-color: #F0F0F0;
-  box-shadow: 4px 4px 2px -2px rgb(0 0 0 / 50%);
+  border-radius: 55px;
+  padding: 40px 50px;
+  background-color: rgb(255, 241, 161);
+  box-shadow:  14px 14px 28px #d1cb9f,
+  -14px -14px 28px #ffffe5;
 }
 
 .containerText {
@@ -65,10 +95,18 @@
   margin: auto;
 }
 
+.containerText h4{
+  font-size: 28px;
+  font-weight: 600;
+}
+
 .containerText p{
+  padding: 20px 30px 20px 40px;
   font-family: 'Roboto';
-  font-weight: 200;
-  color: #404040;
+  font-weight: 400;
+  font-size: 16px;
+  color: #5c5c5c;
+  text-align: justify;
 }
 
 .buttonsActions {
@@ -86,16 +124,39 @@
 
 .createdAt {
   font-family: 'Roboto';
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 12px;
+  margin-bottom: 10px;
+  font-weight: 600;
   color: #404040;
+  position: relative;
+  padding-bottom: 3px;
+}
+
+.createdAt::after{
+  content: '';
+  height: 3px;
+  position: absolute;
+  width: 50%;
+  bottom: 0;
+  left: 15px;
+  background-color: var(--colorYellow);
 }
 
 .button__delete {
   display: flex;
   justify-content: center;
   cursor: pointer;
-  background-color: transparent;
+  background-color: var(--colorYellow);
+  padding: 5px 10px;
+  border-radius: 25px;
+  margin: 3px 0;
+  transition: 0.3s ease;
+}
+
+.button__delete:hover{
+  background-color: #404040;
+  color: var(--colorYellow);
+  transition: 0.3s ease;
 }
 
 .modal {
@@ -104,4 +165,131 @@
 
 .modal_active {
   display: flex;
+}
+
+.titleBigAnnouncements{
+  padding-top: 25px;
+  font-size: 50px;
+  font-weight: 800;
+  position: relative;
+}
+
+.titleBigAnnouncements::after{
+  content: '';
+  position: absolute;
+  height: 6px;
+  background-color: var(--colorYellow);
+  width: 100px;
+  bottom: -5px;
+  left: 0;
+  transition: 0.4s ease;
+}
+
+.titleBigAnnouncements:hover::after{
+  transition: 0.4s ease;
+  left: 105px;
+}
+
+.titleBigAnnouncements::before{
+  content: '';
+  position: absolute;
+  height: 6px;
+  background-color: var(--colorYellow);
+  width: 60px;
+  top: 20px;
+  right: 0;
+  transition: 0.4s ease;
+}
+
+.titleBigAnnouncements:hover::before{
+  transition: 0.4s ease;
+  right: 145px;
+}
+
+
+@media screen and (max-width: 1100px){
+  .containerAnnouncements{
+    width: 95%;
+  }
+  .button{
+    margin-right: 10px;
+  }
+}
+
+@media screen and (max-width: 800px){
+  .containerAnnouncement{
+    padding: 20px;
+  }
+  .titleBigAnnouncements{
+    font-size: 35px;
+  }
+  .titleBigAnnouncements::after{
+    width: 50px;
+  }
+  .titleBigAnnouncements::before{
+    width: 80px;
+  }
+  .titleBigAnnouncements:hover::before{
+    right: 60px;
+  }
+  .containerText h4{
+    padding-top: 40px;
+    font-size: 18px;
+    padding-left: 0;
+  }
+  .containerText p{
+    font-size: 14px;
+    padding-top: 10px;
+    padding-left: 15px;
+  }
+  .containerAnnouncement{
+    display: block;
+    position: relative;
+  }
+  .containerButton{
+    display: flex;
+    flex-direction: row;
+  }
+  .button__delete{
+    margin: 0 5px;
+  }
+  .createdAt::after{
+    left: 16px;
+    
+  }
+  .createdAt{
+    font-size: 16px;
+    position: absolute;
+    top: 20px;
+    left: 40%;
+    padding-bottom: 0;
+  }
+}
+
+@media screen and (max-width: 500px){
+  .containerText h4{
+    font-size: 16px;
+  }
+  .containerText p{
+    font-size: 12px;
+    padding: 10px 10px 20px;
+  }
+  .createdAt::after{
+    left: 10px;
+    
+  }
+  .createdAt{
+    font-size: 12px;
+    position: absolute;
+    top: 20px;
+    left: 38%;
+    padding-bottom: 3px;
+  }
+  .button{
+    font-size: 16px;
+    padding: 7px 20px;
+  }
+  .button::after{
+    width: 90px;
+  }
 }

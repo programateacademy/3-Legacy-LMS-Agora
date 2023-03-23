@@ -37,12 +37,6 @@ export function ProfilesTable(props) {
                       <i 
                         class="ri-eye-fill"
                         id="eyeButton"
-                        style={{
-                          fontSize: "30px",
-                          color: "var(--colorYellow_65)",
-                          transition: "color 0.2s ease-in-out"
-                        }}
-                       
                       ></i>
                     </Link>
                   </td>

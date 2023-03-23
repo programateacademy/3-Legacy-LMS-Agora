@@ -42,8 +42,15 @@
   position: relative;
 }
 
-#eyeButton:hover{
-  
+.userTable i{
+  font-size: 30px;
+  color: var(--colorYellow_65);
+  transition: color 0.2s ease-in-out;
+}
+
+.userTable i:hover{
+  text-decoration: none;
+  color: var(--colorBlack);
 } 
 @keyframes rote {
   0% {

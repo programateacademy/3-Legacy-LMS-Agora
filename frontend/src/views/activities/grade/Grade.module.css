@@ -1,6 +1,9 @@
-.conteiner{
+.container{
   min-height: calc(100vh - 145px);
   padding: 1rem;
+  font-family: 'Roboto', sans-serif;
+  width: 100vw;
+  padding: 2vh;
 }
 .button_return {
   align-self: flex-start;
@@ -28,12 +31,21 @@
   transition: 0.3s;
 }
 .userTable {
-  border-collapse: inherit;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
   margin: 5vh;
   text-align: center;
   width: 90%;
 }
+
+.userTable i{
+ color: var(--colorYellow);
+ outline: none;
+ 
+}
+.userTable i:hover{
+  color: var(--colorBlack);
+}
+
 .userTableProfile {
   border-collapse: inherit;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
@@ -42,15 +54,20 @@
 }
 .userTable th,
 .userTable td {
-  background-color: var(--colorGray);
+  background-color: var(--colorWhite);
   color: var(--colorBlack);
   padding: 15px;
 }
+
+.userTable td{
+  border-bottom: 7px solid Var(--colorGray);
+}
 .userTable th {
   text-align: left;
+ 
 }
 .userTable thead th {
-  background-color: var(--colorYellow);
+  background-color: var(--colorGray);
   text-align: center;
 }
 .userTable tbody tr:hover {

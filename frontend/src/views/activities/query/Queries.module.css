@@ -15,3 +15,44 @@
     margin-right: 4vh;
 }
 
+
+.titleQueries{
+    padding-top: 25px;
+    font-size: 50px;
+    font-weight: 800;
+    position: relative;
+    padding-bottom: 3px;
+    margin-bottom: 20px;
+  }
+  
+  .titleQueries::after{
+    content: '';
+    position: absolute;
+    height: 6px;
+    background-color: var(--colorYellow);
+    width: 100px;
+    bottom: 0;
+    left: 51%;
+    transition: 0.4s ease;
+  }
+  
+  .titleQueries:hover::after{
+    transition: 0.4s ease;
+    left: 40%;
+  }
+  
+  .titleQueries::before{
+    content: '';
+    position: absolute;
+    height: 6px;
+    background-color: var(--colorYellow);
+    width: 60px;
+    top: 20px;
+    right: 55%;
+    transition: 0.4s ease;
+  }
+  
+  .titleQueries:hover::before{
+    transition: 0.4s ease;
+    right: 39%;
+  }

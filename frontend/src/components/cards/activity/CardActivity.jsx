@@ -13,8 +13,6 @@ export function CardActivity(props) {
       <img className={styles.image} src={image} alt="Imagen del proyecto" />
       {teacher ? (
         <div className={styles.dots}>
-          <div className={styles.dot}></div>
-          <div className={styles.dot}></div>
           <div className={styles.list}>
             <li>
               <Link to={`/${type}/update-${type}/${id}`}>Editar</Link>

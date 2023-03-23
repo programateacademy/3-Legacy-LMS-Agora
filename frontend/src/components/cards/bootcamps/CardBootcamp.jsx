@@ -18,7 +18,7 @@ export function CardBootcamp(props) {
             <Button title="Ver cohortes" link={linkCohort} />
           </div>
           <div className={styles.button}>
-            <Button title="Editar" link={linkUpdate} />
+            <Button title="Editar" link={linkUpdate}/>
           </div>
         </div>
         <div className={styles.circleDecor}></div>

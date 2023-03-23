@@ -15,15 +15,14 @@
 
 .containerModal {
   height: 30rem;
-  width: 60%;
-  border-radius: 5px;
+  width: 65%;
+  border-radius: 10px;
   position: relative;
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
-  background: #c5c9d1;
+  background: #ffffff;
   box-shadow: 0px 4px 4px var(--colorBlackOpacity);
-  border-radius: 10px;
 }
 
 .close button {
@@ -34,7 +33,10 @@
   margin-right: 20px;
   align-self: flex-end;
   background-color: transparent;
+}
 
+.close button i{
+  margin-left: 20px;
 }
 
 .containerTitle {
@@ -43,30 +45,80 @@
   display: flex;
   justify-content: center;
 }
+
+.containerTitle u{
+  font-size: 50px;
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.containerTitle u::after{
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  right: 0;
+  background-color: var(--colorYellow);
+  width: 100px;
+  height: 6px;
+  transition: 0.4s ease;
+}
+
+.containerTitle u:hover::after{
+  right: 70%;
+  transition: 0.4s ease;
+}
+
+.containerTitle u::before{
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 0;
+  background-color: var(--colorYellow);
+  width: 180px;
+  height: 6px;
+  transition: 0.4s ease;
+}
+
+.containerTitle u:hover::before{
+  left: 48%;
+  transition: 0.4s ease;
+}
+
 .Crear{
   display: flex;
   justify-content: center;
 }
 .submitButton {
   cursor: pointer;
-  background-color: var(--colorYellow);
-  color: var(--colorBlack);
-  border-radius: 10px;
+  background-color:rgb(53, 53, 53);
+  font-weight: 500;
+  color: var(--colorWhite);
+  border-radius: 50px;
   margin: 25px;
   padding: 10px;
-  width: 130px;
+  width: 25%;
   text-align: center;
   box-shadow: 5px 5px 10px -2px var(--colorBlack);
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
+  font-size: 20px;
+  transition: 0.3s;
+  position: relative;
+}
+
+.submitButton::after{
+  content: '';
+  position: absolute;
+  width: 160px;
+  height: 4px;
+  background-color: var(--colorYellow);
+  bottom: 0;
+  left: 40px;
+  border-radius: 25px;
 }
 
 
 .submitButton:hover {
-  background-color: var(--colorGreenLight);
-  color: var(--colorWhite);
+  background-color: var(--colorYellow);
+  color: rgb(53, 53, 53);
   transition: 0.3s;
 }
 
@@ -153,5 +205,4 @@
     height: 40px;
     margin-left: 50px;
   }
-
 }
