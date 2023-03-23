@@ -50,9 +50,8 @@ export function Students() {
 
   return (
     <div className={style.container}>
-      
+        <h2>Estudiantes cohorte {cohortName}</h2>
       <div className={style.searchbar}>
-      <h2>Estudiantes cohorte {cohortName}</h2>
         <div>
           <Searchbar student={student} setStudent={setStudent} />
         </div>
@@ -60,7 +59,7 @@ export function Students() {
         <div>
           <i
             class="ri-search-2-line"
-            style={{ fontSize: "30px", color: "var(--colorYellow)" }}
+            style={{ fontSize: "28px", color: "var(--colorYellow)" }}
           ></i>
         </div>
       </div>

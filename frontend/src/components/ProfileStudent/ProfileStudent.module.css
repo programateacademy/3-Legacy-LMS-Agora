@@ -4,30 +4,43 @@
   display: flex;
   flex-direction: column;
   height: auto;
-  /* min-height: calc(100vh - 140px);  */
+   min-height: calc(100vh - 140px);  
   justify-content: center;
   margin: auto;
 }
 
+
+
+.container img{
+  width: 70%;
+  height: 20%;
+  margin-left: 9rem;
+  margin-bottom: 20rem;
+  justify-content: center;
+  position: absolute;
+  background-size: cover; 
+  border: 7px solid var(--colorYellow);
+}
+
 .containerProfile {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-around;
   width: 100%;
   left: 0;
   height: auto;
-  padding: 2vh;
+  padding: 6vh;
   background-color: #f9f9f9;
   box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.3) inset;
 }
 
 .containerProfile i {
-  font-size: 15px;
+  font-size: 17px;
 }
 
 .cajaIns {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   margin-left: 60px;
@@ -63,6 +76,7 @@
   overflow: hidden;
   cursor: pointer;
 }
+
 
 .chargeimg:hover {
   background-color: #d1d1d1;
@@ -130,7 +144,7 @@
 }
 
 .iconcajaUlt {
-  position: absolute;
+ color: var(--color-Yellow);
   margin-left: 1rem;
   top: 24px;
   left: 20px;
@@ -156,7 +170,7 @@
 
 .cajaUlt:last-child {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-end;
   width: 100%;
   padding: 10px;
@@ -226,6 +240,17 @@ input{
     flex-direction: column;
     height: auto;
   }
+  .container img{
+    width: 70%;
+    height: 20%;
+    margin-left: 9rem;
+    margin-bottom: 20rem;
+    justify-content: center;
+    position: absolute;
+    background-size: cover; 
+    border: 7px solid var(--colorYellow);
+  }
+  
 
   .buttonVolver {
     margin-left: 20px;

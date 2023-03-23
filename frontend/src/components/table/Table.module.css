@@ -1,11 +1,12 @@
 .userTable {
-  border-collapse: inherit;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
   margin: 5vh;
   text-align: center;
   width: 90%;
   
 }
+
+
 .userTableProfile {
   border-collapse: inherit;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
@@ -40,6 +41,10 @@
 .userTable tbody td {
   position: relative;
 }
+
+#eyeButton:hover{
+  
+} 
 @keyframes rote {
   0% {
     -moz-transform: rotate(-30deg);

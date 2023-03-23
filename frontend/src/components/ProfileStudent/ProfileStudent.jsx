@@ -77,7 +77,9 @@ export function ProfileStudent(props) {
     setQueries(queriesFilter);
 
     const workbookByStudent = deliveriesByStudent
-      .map((item) => (item.deliveryKind === "workbook" ? item.workbookID : null))
+      .map((item) =>
+        item.deliveryKind === "workbook" ? item.workbookID : null
+      )
       .filter((item) => item !== null);
     const workbookFilter = workbookByStudent.filter(
       (el, index) => workbookByStudent.indexOf(el) === index
@@ -140,12 +142,24 @@ export function ProfileStudent(props) {
 
   return (
     <>
-      <button className={styles.button_return} type="button" onClick={() => navigate(-1)}>
+      <button
+        className={styles.button_return}
+        type="button"
+        onClick={() => navigate(-1)}
+      >
         <i className="ri-arrow-go-back-line"></i>
       </button>
 
       <div className={styles.container}>
+      
         <form className={styles.containerProfile} onSubmit={handleSubmit}>
+        <div>
+          <img
+            className="img_background"
+            src="https://source.unsplash.com/1600x900/?nature,photography,technology"
+            alt="user-pic"
+          />
+          </div>
           <div className={styles.cajaIns}>
             <LazyLoad className={styles.backround_profile}>
               <img src={image} alt="img_profile" />
@@ -250,7 +264,7 @@ export function ProfileStudent(props) {
                 <div className={styles.cajaUlt}>
                   <a href={linkedin} rel="noreferrer" target="_blank">
                     <i
-                      className={`ri-linkedin-box-fill ${styles.iconcajaUlt}`}
+                      className={`ri-linkedin-fill ${styles.iconcajaUlt}`}
                       style={{ fontSize: "25px", color: "#585858" }}
                     ></i>
                   </a>

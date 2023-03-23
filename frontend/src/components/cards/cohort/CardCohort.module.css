@@ -67,13 +67,18 @@
     height: auto;
     width: 90%;
   }
+
+  .cohort:hover{
+    flex-direction: column;
+    height: auto;
+    width: 90%;
+  }
   .cohortImage {
     align-items: center;
-    background-color: var(--colorWhite);
     display: flex;
     height: 150px;
     justify-content: center;
-    margin: 2vh auto;
+    margin: .2vh auto;
     width: 100%;
   }
   .buttonsContainer {
